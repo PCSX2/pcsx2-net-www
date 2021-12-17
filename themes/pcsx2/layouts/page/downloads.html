@@ -1,82 +1,417 @@
 {{ define "main" }}
 <div class="container">
   <div class="row mt-5">
-    <h2 class="release-type-title">Stable Releases</h2>
-    <p>
-      Here you'll find the latest stable releases of PCSX2. These release are
-      less frequent and as a result may exclude the latest features and
-      improvements but are recommended for the most predictable user experience.
-    </p>
-    <p>
-      If you think you require something that hasn't yet made it into a stable release,
-      take a look at the nightly builds below!
-    </p>
-  </div>
-  <!-- TODO Some kind of installation guide (especially for appImage) -->
-  <div class="row mt-3">
-    <h4>Latest Version - <span id="latest-stable-ver" class="version-text">??</span></h4>
-    <div class="row mt-2" id="latest-release-artifacts">
+    <div class="row mt-3">
+      <h1>PCSX2 Build Downloads</h1>
     </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-12">
-      <details>
-        <summary>Release Info</summary>
-        <div id="latest-stable-notes">
+    <div class="row mt-3" id="outage-alert" style="display: none;">
+      <div class="col">
+        <div class="alert alert-danger" role="alert">
+          <p>Unable to fetch release information. This can be due to:</p>
+          <ul>
+            <li>A critical backend service is experiencing an outage, <a
+                href="https://stats.uptimerobot.com/GAg8AuBByx">see our status page</a></li>
+            <li>Something unexpected has occurred</li>
+            <li>Your IP is being rate limited</li>
+          </ul>
+          <p>With the exception of the rate limiting issue, we are likely aware of the problem and are working on
+            it / monitoring it.</p>
+          <p>In the meantime, here are some alternate ways to find the releases:</p>
+          <ul>
+            <li><a href="https://pcsx2.net/download.html">Stable Releases</a></li>
+            <li><a href="https://github.com/PCSX2/pcsx2/releases">Nightly and Stable Releases</a></li>
+          </ul>
         </div>
-      </details>
+      </div>
     </div>
-  </div>
-  <div class="row mt-4">
-    <h5>Previous Releases</h5>
-  </div>
-  <div class="container mt-2" id="previous-stable-releases"></div>
-  <!-- Nightly Builds -->
-  <div class="row mt-5">
-    <h2 class="release-type-title">Nightly Builds</h2>
+    <h2 class="release-type-title mt-3" id="stable-anchor">Stable Releases</h2>
     <p>
-      Nightly builds are less tested than a stable release and may contain bugs
-      or regressions not yet fixed. However, they do contain the current
-      up-to-date state of the project. If you need a recently added feature or
-      fix, or want to want to assist in the testing process -- these are the
-      builds for you!
+      Stable releases are infrequent but rigorously tested in comparison to the Nightly releases. Unless you
+      require bleeding edge features or fixes for a particular game this is likely the releases type you are
+      looking for in order to get the most consistent experience.
     </p>
     <p>
-      If you think you require something that hasn't yet made it into a release,
-      take a look at the Nightly builds below!
+      For information on how to setup the latest stable release, see the included documentation in the download.
     </p>
-  </div>
-  <div class="row mt-3">
-    <h4>Latest Version - <span id="latest-nightly-ver" class="version-text">??</span></h4>
-    <div class="row mt-2" id="latest-nightly-artifacts">
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-12">
-      <details>
-        <summary>Release Info</summary>
-        <div id="latest-nightly-notes">
+    <p>
+      If you encounter issues on the latest stable release, you can reach out for assistance on the <a
+        href="https://discord.com/invite/TCz3t9k">Discord</a>.
+    </p>
+    <div class="skeleton-container">
+      <div class="skeleton">
+        <div class="skeleton-content">
+          <div class="skeleton-text">
+            <div class="skeleton-line" style="width: 25%"></div>
+          </div>
         </div>
-      </details>
+      </div>
+    </div>
+    <div id="latest-release-notes"></div>
+  </div>
+  <div class="row mt-5" id="latest-release-artifacts"></div>
+  <div class="row skeleton-wrapper">
+    <div class="col d-flex justify-content-center">
+      <div class="dropdown">
+        <button class="btn btn-primary artifact-dropdown btn-lg dropdown-toggle" type="button" id="dropdownMenuButton"
+          data-mdb-toggle="dropdown" aria-expanded="false" disabled>
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div class="col d-flex justify-content-center">
+      <div class="dropdown">
+        <button class="btn btn-primary artifact-dropdown btn-lg dropdown-toggle" type="button" id="dropdownMenuButton"
+          data-mdb-toggle="dropdown" aria-expanded="false" disabled>
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </button>
+      </div>
     </div>
   </div>
-  <div class="row mt-4">
-    <h5>Previous Nightlies</h5>
+  <!-- <div class="container text-center mt-5 mb-5 p-5 ad">Advertisement</div> -->
+  <div class="row mt-5" id="stable-list">
+    <h5>Stable Release List</h5>
   </div>
-  <div class="container mt-2" id="previous-nightly-builds"></div>
-  <!-- Test Builds -->
+  <div class="row mt-2">
+    <div class="table-responsive">
+      <table class="table table-sm" id="stable-table">
+        <thead>
+          <tr>
+            <th scope="col">Version</th>
+            <th scope="col">Download Links</th>
+            <th scope="col">Release Date</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody id="stable-table-body">
+          <tr>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 75%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 50%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 25%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 100%"></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 50%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 75%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 50%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 75%"></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 25%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 65%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 40%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 100%"></div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row justify-content-end mt-3 pagination-container" id="stable-pagination-container"></div>
+  </div>
+
   <div class="row mt-5">
-    <h2 class="release-type-title">Test Builds</h2>
-    <p>CANT DO SANELY UNTIL WE HAVE A PROPER BACKEND - GraphQL REQUIRES AUTH - My idea is to list all passing PRs</p>
+    <h2 class="release-type-title" id="nightly-anchor">Nightly Builds</h2>
     <p>
-      These builds are in-progress changes yet to merge into PCSX2 and become part of the Nightly builds.  If you would like to assist in testing out these builds here is where you can get started.
+      Nightly builds are less tested than their stable release counterpart, but do under-go some amount of focused
+      testing. The latest nightly build is equivalent to running the latest commit of the PCSX2 GitHub repository,
+      in other words, you are getting the latest and (hopefully greatest) improvements.
     </p>
-    <ul>
-      <li>Be-aware that some of these builds may be a work in-progress.  This is simply a sorted list of the most recent, successful builds.</li>
-      <li>You will need a GitHub account for these download links to work properly</li>
-      <li>If you discover a problem, you can preferably leave a comment explaining the problem and how to reproduce it on the Pull Request (also linked below)</li>
-      <li>Lastly, if you think testing is for you, consider reaching out in the discord to become a more official tester!</li>
-    </ul>
+    <p>
+      As a result, these releases are intended for those who want to, or require, being on the bleeding edge.
+      Additionally they are a way to get additional testing on changes before they become part of an stable
+      release.
+    </p>
+    <p>
+      For information on how to use the nightly releases <a
+        href="https://github.com/PCSX2/pcsx2/wiki/Nightly-Build-Usage-Guide" target="blank">see here</a>.
+    </p>
+    <div class="skeleton-container">
+      <div class="skeleton">
+        <div class="skeleton-content">
+          <div class="skeleton-text">
+            <div class="skeleton-line" style="width: 25%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="latest-nightly-notes"></div>
+  </div>
+  <div class="row mt-5" id="latest-nightly-artifacts"></div>
+  <div class="row skeleton-wrapper">
+    <div class="col d-flex justify-content-center">
+      <div class="dropdown">
+        <button class="btn btn-primary artifact-dropdown btn-lg dropdown-toggle" type="button" id="dropdownMenuButton"
+          data-mdb-toggle="dropdown" aria-expanded="false" disabled>
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div class="col d-flex justify-content-center">
+      <div class="dropdown">
+        <button class="btn btn-primary artifact-dropdown btn-lg dropdown-toggle" type="button" id="dropdownMenuButton"
+          data-mdb-toggle="dropdown" aria-expanded="false" disabled>
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="container text-center mt-5 mb-5 p-5 ad">Advertisement</div> -->
+  <div class="row mt-5" id="nightly-list">
+    <h5>Nightly Release List</h5>
+  </div>
+  <div class="row mt-2">
+    <div class="table-responsive">
+      <table class="table table-sm" id="nightly-table">
+        <thead>
+          <tr>
+            <th scope="col">Version</th>
+            <th scope="col">Download Links</th>
+            <th scope="col">Release Date</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody id="nightly-table-body">
+          <!-- skeleton loading -->
+          <tr>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 75%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 50%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 25%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 100%"></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 50%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 75%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 50%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 75%"></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 25%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 65%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 40%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 100%"></div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row justify-content-end mt-3 pagination-container" id="nightly-pagination-container"></div>
+  </div>
+  <div class="row mt-5">
+    <h2 class="release-type-title" id="pr-anchor">Pull Request Builds</h2>
+    <p>
+      These are builds of in-progress work that has yet to merge into the projects codebase. Some pull requests
+      may be abandoned for a variety of reasons as well. These builds are for those that are interested in
+      assisting with the testing and code-review process. Otherwise, this provides an at a glance view of what
+      we are working on.
+    </p>
+    <p>
+      Note that you will require a GitHub account to download these builds from the GitHub Actions CI. And if
+      you are interested in becoming a more official tester, you should consider reaching out in the <a
+        href="https://discord.com/invite/TCz3t9k">Discord</a>. If you do end up testing a pull request build and
+      find issues, it is preferrable to describe the issue with steps to reproduce the problem on the pull
+      request itself.
+    </p>
+  </div>
+  <div class="row mt-2" id="pull-requests-list">
+    <div class="table-responsive">
+      <table class="table table-sm" id="pull-request-table">
+        <thead>
+          <tr>
+            <th scope="col">Author</th>
+            <th scope="col">Pull Request</th>
+            <th scope="col">Updated At</th>
+            <th scope="col">Additions</th>
+            <th scope="col">Deletions</th>
+          </tr>
+        </thead>
+        <tbody id="pull-request-table-body">
+          <!-- skeleton loading -->
+          <tr>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 75%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 50%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 25%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 100%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 25%"></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 50%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 75%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 50%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 75%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 50%"></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 25%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 65%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 40%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 100%"></div>
+              </div>
+            </td>
+            <td>
+              <div class="skeleton-text">
+                <div class="skeleton-line" style="width: 33%"></div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row justify-content-end mt-3 pagination-container" id="pull-request-pagination-container"></div>
   </div>
 </div>
 <script src="/js/thirdparty/jquery@3.6.0.min.js"></script>

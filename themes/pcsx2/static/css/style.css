@@ -13,6 +13,7 @@
   --secondary-color: green;
   --background-color: #191919;
   --half-background-color: #0c0c0c;
+  --half-background-color-brighter: #2b2b2b;
   --controller-triangle: #00d4ca;
   --controller-circle: #ff5653;
   --controller-cross: #8dbbf2;
@@ -98,6 +99,8 @@ body {
   border-top-color: var(--primary-color);
   border-top-width: 2px;
   border-top-style: solid;
+  margin-top: 10em;
+  color: var(--text-color-dimmed);
 }
 
 .btn {
@@ -106,10 +109,12 @@ body {
 }
 
 .btn-primary {
+  color: var(--text-color-alternate);
   background-color: var(--primary-color);
 }
 
-.btn-primary.disabled, .btn-primary:disabled {
+.btn.disabled, .btn:disabled {
+  color: var(--text-color);
 	background-color: var(--primary-color-bg);
 }
 
@@ -133,17 +138,92 @@ a {
   color: var(--primary-color);
 }
 
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+a.disabled > i {
+  color: var(--primary-color-bg);
+}
+
 a:hover {
   color: var(--accent-color);
 }
 
 .dropdown-menu {
-  background-color: var(--background-color);
+  background-color: var(--half-background-color-brighter);
 }
 
 .dropdown-item {
   color: var(--text-color);
 }
+
+thead {
+  color: var(--text-color);
+}
+
+tr, .table-striped > tbody > tr:nth-of-type(2n) {
+  color: var(--text-color);
+}
+
+tbody > tr:nth-of-type(2n) {
+  background-color: var(--half-background-color);
+}
+
+td > a {
+  font-weight: 700;
+  display: inline-block;
+}
+
+td > ul {
+  padding-left: 1rem;
+}
+
+td {
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+td > ul {
+  margin: 0;
+}
+
+.btn-pagination {
+  padding-left: 1em;
+  padding-right: 1em;
+  line-height: 1em;
+  font-size: 0.9rem;
+  color: var(--text-color-alternate);
+  background-color: var(--primary-color);
+}
+
+.btn-pagination:hover {
+  color: var(--text-color);
+}
+
+.btn-pagination.active {
+  background-color: var(--accent-color);
+}
+
+.skeleton-container {
+  background-color: var(--background-color);
+  border: unset;
+  margin: unset;
+  max-width: unset;
+}
+
+.skeleton {
+  background-color: var(--background-color);
+}
+
+.btn > .spinner-border {
+  width: 1em;
+  height: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
 
 /* Navigation */
 
@@ -358,22 +438,6 @@ button.compat-nothing.compat-filter-on {
   padding-right: 0;
 }
 
-.btn-pagination {
-  padding-left: 1em;
-  padding-right: 1em;
-  font-weight: 700;
-  color: var(--text-color);
-  background-color: var(--primary-color);
-}
-
-.btn-pagination:hover {
-  color: var(--text-color-alternate);
-}
-
-.btn-pagination.active {
-  background-color: var(--accent-color);
-}
-
 .compat-status-Perfect {
   color: var(--compat-perfect);
   margin-right: 0.25em;
@@ -402,26 +466,6 @@ button.compat-nothing.compat-filter-on {
 .compat-status-Nothing {
   color: var(--compat-nothing);
   margin-right: 0.25em;
-}
-
-thead {
-  color: var(--text-color);
-}
-
-tr, .table-striped > tbody > tr:nth-of-type(2n+1) {
-  color: var(--text-color);
-}
-
-tbody > tr:nth-of-type(2n+1) {
-  background-color: var(--half-background-color);
-}
-
-tbody > tr:hover {
-  background-color: var(--accent-color-muted);
-}
-
-td.game-title {
-  font-weight: 700;
 }
 
 .form-outline .form-control ~ .form-label {
@@ -473,6 +517,23 @@ td.game-title {
 }
 
 /* Releases Page */
+
+@media (max-width: 575.98px) {
+  div > .artifact-button:not(:first-child) {
+    margin-top: 2em;
+  }
+  .pagination-container {
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+  }
+}
+
+.artifact-dropdown {
+  text-transform: unset;
+  font-size: 1em;
+}
+
 .release-type-title {
   font-weight: 700;
 }
@@ -547,4 +608,12 @@ details > div {
 
 .release-no-previous-text {
   text-align: center;
+}
+
+.pr-additions {
+  color: #3fb950;
+}
+
+.pr-deletions {
+  color: #f85149;
 }
