@@ -1,0 +1,117 @@
+::: {.single-article}
+::: {.item-page .clearfix}
+## [PCSX2 1.2.0 released!](/253-pcsx2-1-2-0-released.html) {#pcsx2-1.2.0-released .contentheading}
+
+::: {style="text-align:center;"}
+:::
+
+It has been a year and a half since our first major release and as
+promised we decided PCSX2 has progressed enough for yet another stable
+release. Needless to say, we have been continuing our hard work since
+then to further improve the emulator, adding new features and fixing
+more bugs.\
+\
+As I\'m sure many of you have been following the SVN revisions and have
+noticed the changes we have made in this time and many of you even
+assisted in finding problems for us to fix, so a big thank you to all
+those who helped out!\
+\
+One big change in this release is the integration of the wide screen
+patches made by the community for the community numbering nearly 1200
+games patched to support proper 16:9 aspect ratio. A huge thanks to
+everyone who has contributed for this and keep up the great job
+![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
+width="20" height="20"}
+
+Here are a rundown of the biggest changes in this release:\
+\
+**[ Windows ]{style="text-decoration: underline;"}**\
+\
+**Core:**
+
+-   microVU fixes for Dreamworks games, later Tony Hawks games, Evil
+    Dead and others
+-   Fixes to New GIF unit to solve regressions
+-   microVU bugs fixed (affecting Extreme-G Racing and others)
+-   CDVD fixes (Impossible Mission now boots)
+-   Path 3 arbitration and timing refinements
+-   MFIFO fixes for DDR games
+-   Huge DMAC bug fix solving most of the problematic videos. (Baldurs
+    Gate 2, Katamari Damacy and more)
+-   Memory card support improved in many games, now supports PSX memory
+    cards also Multitap support improved greatly
+-   Many game fixes for COP2 problems inherent with emulation. (Ace
+    Combat, Forbidden Siren and others)
+-   VIF Unpack optimizations
+-   VU Delays added to fix the graphics of Snowblind engine games
+    (Champions of Norrath, Baldurs Gate 2)
+-   Various other game specific fixes in GameDB
+-   NVM file creation (if one doesn\'t exist) now fills in iLink ident.
+    (Age of Empires 2)
+
+\
+**SPU2-X:**
+
+-   Improved DMA system
+-   Fixes to reverb
+-   Improved time-stretcher recovery on extreme speed changes.
+-   Portaudio (providing WASAPI in Windows, ALSA/+OSS in Linux) now
+    supported and the default output module. Latencies with this mode
+    are lower than other modules
+
+\
+**GSdx:**
+
+-   Improved adapter selection for detecting of videocards
+-   CLUT (Color LookUp Table) fixes for games such as Disney Golf
+-   Texture Offset options added to help improve upscaling artifacts
+-   OpenGL mode added (Experimental currently)
+-   Various CRC hacks
+-   Hack for NVIDIA cards, solves problems with stretching on drivers
+    above 320.18
+-   New shader resources! Complete PCSX2 FX Revised 2.0 by Asmodean has
+    been integrated\
+    \
+
+****DEV9ghzdrk:****
+
+-   Improved support for online play and make the users MAC address
+    unique.
+
+\
+**[ Linux ]{style="text-decoration: underline;"}\
+\
+Core:**
+
+-   Support for external patch (pnach) files
+
+\
+**OnePad changes:**
+
+-   Bugfixes for multiple button presses
+-   Bugfixed memory leaks
+
+\
+**ZZogl:**
+
+-   Added support for MESA drivers
+-   Bump OpenGL requirement to 3.0 with floating texture
+-   Various OpenGL fixes
+
+\
+**SPU2-X:**
+
+-   Added SDL Backend
+
+The PCSX2 executable has been built and tested with PGO optimizations
+enabled so it will be an extra 10% faster over regular SVN builds.\
+\
+We hope you enjoy this release and have fun playing your games on it!\
+\
+Here\'s to the future of PCSX2!
+
+**[ [Head to the download
+section!](/download.html "Head to the download section!")
+]{style="font-size: medium;"}**
+:::
+:::

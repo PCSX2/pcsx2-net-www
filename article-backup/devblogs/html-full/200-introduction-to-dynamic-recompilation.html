@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en-gb" xml:lang="en-gb" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <base href="https://pcsx2.net/developer-blog/200-introduction-to-dynamic-recompilation.html"/>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="pcsx2, pc, ps2, emulation, emulator, playstation, games, geforce, radeon, intel, amd, f2p, gaming, video games, sony, game, play, free, download, freeware, online" name="keywords"/>
+  <meta content="cottonvibes" name="author"/>
+  <meta content="PCSX2 a Playstation 2 emulator for Windows, Linux and Mac" name="description"/>
+  <meta content="Joomla! - Open Source Content Management" name="generator"/>
+  <title>
+   PCSX2 - The Playstation 2 emulator - Introduction to Dynamic Recompilation
+  </title>
+  <link href="https://pcsx2.net/component/search/?Itemid=437&amp;catid=81&amp;id=200&amp;format=opensearch" rel="search" title="Search PCSX2 - The Playstation 2 emulator" type="application/opensearchdescription+xml"/>
+  <link href="/index.php?jat3action=gzip&amp;jat3type=css&amp;jat3file=cache%2Ft3%2Fcss_a5b86.css" rel="stylesheet" type="text/css"/>
+  <script class="joomla-script-options new" type="application/json">
+   {"csrf.token":"4f6178eb7f72f194c4235dab1dafca8a","system.paths":{"root":"","base":""}}
+  </script>
+  <script src="https://pcsx2.net/plugins/system/yvsmiley/default.js" type="text/javascript">
+  </script>
+  <script src="/media/system/js/mootools-core.js" type="text/javascript">
+  </script>
+  <script src="/media/system/js/core.js" type="text/javascript">
+  </script>
+  <script src="/media/jui/js/jquery.min.js" type="text/javascript">
+  </script>
+  <script src="/media/jui/js/jquery-noconflict.js" type="text/javascript">
+  </script>
+  <script src="/media/jui/js/jquery-migrate.min.js" type="text/javascript">
+  </script>
+  <script src="/media/system/js/caption.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/core.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/menu/mega.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/fadeinout.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/mootools-more-s.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/resize.js" type="text/javascript">
+  </script>
+  <script src="/libraries/videobox/js/videobox.js" type="text/javascript">
+  </script>
+  <script src="/libraries/videobox/js/functions.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+  </script>
+  <!--[if ie]><link href="/plugins/system/jat3/jat3/base-themes/default/css/template-ie.css" type="text/css" rel="stylesheet" /><![endif]-->
+  <!--[if ie 7]><link href="/plugins/system/jat3/jat3/base-themes/default/css/template-ie7.css" type="text/css" rel="stylesheet" /><![endif]-->
+  <!--[if ie 7]><link href="/templates/business8/css/template-ie7.css" type="text/css" rel="stylesheet" /><![endif]-->
+  <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <style type="text/css">
+   /*dynamic css*/
+
+    body.bd .main {width: 100%;}
+    body.bd #ja-wrapper {min-width: 100%;}
+  </style>
+  <script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+  </script>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-387767-1', 'pcsx2.net');
+  ga('send', 'pageview');
+  </script>
+  <!-- Universal Google Analytics Plugin by PB Web Development -->
+ </head>
+ <body class="bd fs3 com_content">
+  <a id="Top">
+  </a>
+  <div id="ja-wrapper">
+   <div class="wrap" id="ja-header">
+    <div class="main">
+     <div class="main-inner1 clearfix">
+      <a href="/" title="PCSX2 - The Playstation 2 emulator">
+       <img alt="PCSX2 homepage" height="120" src="/templates/business8/themes/classic/images/logo_classic.png" width="452"/>
+      </a>
+     </div>
+    </div>
+   </div>
+   <div id="ja-cpanel-wrapper">
+    <div id="ja-cpanel">
+     <div id="ja-cpanel-main">
+      <div class="ja-cpanel-tools clearfix">
+       <h3>
+        Font Size
+       </h3>
+       <div class="ja-box-usertools">
+        <ul class="ja-usertools-font clearfix">
+         <li class="font-inc">
+          <a onclick="switchFontSize('business8_font', 'inc');return false;" title="Increase font size">
+           <span>
+            Increase font size
+           </span>
+          </a>
+         </li>
+         <li class="font-dec">
+          <a onclick="switchFontSize('business8_font', 'dec');return false;" title="Decrease font size">
+           <span>
+            Decrease font size
+           </span>
+          </a>
+         </li>
+         <li class="font-reset">
+          <a onclick="switchFontSize('business8_font', 'reset');return false;" title="Default font size">
+           <span>
+            Default font size
+           </span>
+          </a>
+         </li>
+        </ul>
+       </div>
+       <script type="text/javascript">
+        var DefaultFontSize=parseInt('3');
+  var CurrentFontSize=parseInt('3');
+       </script>
+       <h3>
+        Profile
+       </h3>
+       <div class="ja-box-usertools">
+        <ul class="ja-usertools-profile clearfix">
+         <li class="profile profile-active">
+          <input checked="checked" id="user_profile_classic" name="user_profile" type="radio" value="classic"/>
+          <label for="user_profile_classic" title="classic">
+           <span>
+            classic
+           </span>
+          </label>
+         </li>
+         <li class="profile">
+          <input id="user_profile_default" name="user_profile" type="radio" value="default"/>
+          <label for="user_profile_default" title="default">
+           <span>
+            default
+           </span>
+          </label>
+         </li>
+        </ul>
+       </div>
+       <h3>
+        Layout
+       </h3>
+       <div class="ja-box-usertools">
+        <ul class="ja-usertools-layout clearfix">
+         <li class="layout layout-default-active">
+          <input checked="checked" id="user_layouts_default" name="user_layouts" type="radio" value="default"/>
+          <label for="user_layouts_default" title="default">
+           <span>
+            default
+           </span>
+          </label>
+         </li>
+         <li class="layout layout-no-bottom-boxes">
+          <input id="user_layouts_no-bottom-boxes" name="user_layouts" type="radio" value="no-bottom-boxes"/>
+          <label for="user_layouts_no-bottom-boxes" title="no-bottom-boxes">
+           <span>
+            no-bottom-boxes
+           </span>
+          </label>
+         </li>
+         <li class="layout layout-no-latest-boxes">
+          <input id="user_layouts_no-latest-boxes" name="user_layouts" type="radio" value="no-latest-boxes"/>
+          <label for="user_layouts_no-latest-boxes" title="no-latest-boxes">
+           <span>
+            no-latest-boxes
+           </span>
+          </label>
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div class="ja-cpanel-action clearfix">
+       <a class="button" href="#" onclick="cpanel_apply();return false;" title="Apply setting">
+        <span>
+         Apply
+        </span>
+       </a>
+       <a href="#" onclick="cpanel_reset();return false;" title="Reset to default setting">
+        <span>
+         Reset
+        </span>
+       </a>
+      </div>
+     </div>
+     <a href="#" id="ja-cpanel-toggle">
+      <span>
+       Cpanel
+      </span>
+     </a>
+    </div>
+   </div>
+   <script type="text/javascript">
+    var tmpl_name = 'business8';
+    window.addEvent('load', function () {
+        $('ja-cpanel-toggle').status == 'close';
+        $('ja-cpanel-toggle').slider = new Fx.Slide('ja-cpanel-main', {duration: 400});
+        $('ja-cpanel-toggle').slider.hide();
+        $('ja-cpanel').setStyle ('top', 0);
+        $('ja-cpanel-toggle').addEvent ('click', function (e) {
+            this.slider.toggle();
+            if (this.hasClass ('open')) {
+                this.removeClass ('open').addClass ('close');
+            } else {
+                this.removeClass ('close').addClass ('open');
+            }
+
+            if(e){
+                e.stop();
+            }
+        });
+    });
+   </script>
+   <div class="wrap" id="ja-mainnav">
+    <div class="main">
+     <div class="main-inner1 clearfix">
+      <div class="ja-megamenu clearfix" id="ja-megamenu">
+       <ul class="megamenu level0">
+        <li class="mega first">
+         <a class="mega first" href="https://pcsx2.net/" id="menu435" title="Home">
+          <span class="has-image has-desc" style="background-image:url(/images/stories/frontend/static/home-icon.png);">
+           <span class="menu-title">
+            Home
+           </span>
+           <span class="menu-desc">
+            News
+           </span>
+          </span>
+         </a>
+        </li>
+        <li class="mega">
+         <a class="mega" href="/getting-started.html" id="menu455" title="Getting Started">
+          <span class="has-image has-desc" style="background-image:url(/images/stories/frontend/static/getting-started-icon.png);">
+           <span class="menu-title">
+            Getting Started
+           </span>
+           <span class="menu-desc">
+            Start here!
+           </span>
+          </span>
+         </a>
+        </li>
+        <li class="mega haschild">
+         <a class="mega haschild" href="/download.html" id="menu506" title="Download">
+          <span class="menu-title">
+           Download
+          </span>
+          <span class="menu-desc">
+           Get PCSX2 here
+          </span>
+         </a>
+         <div class="childcontent cols2">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 240px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="/download/releases.html" id="menu507" title="Releases">
+                  <span class="menu-title">
+                   Releases
+                  </span>
+                  <span class="menu-desc">
+                   Latest stable releases
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="/download/releases/windows.html" id="menu515" title="Windows">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-For-Windows-s.png);">
+                     <span class="menu-title">
+                      Windows
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/linux.html" id="menu517" title="Linux">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-For-Linux-s.png);">
+                     <span class="menu-title">
+                      Linux
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/mac.html" id="menu518" title="Mac">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-For-Mac-s.png);">
+                     <span class="menu-title">
+                      Mac
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/source-code.html" id="menu566" title="Source code">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-Source-code.png);">
+                     <span class="menu-title">
+                      Source code
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/archive-download.html" id="menu543" title="Archive downloads">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-archive.png);">
+                     <span class="menu-title">
+                      Archive downloads
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega last">
+                   <a class="mega last" href="/download/releases/tools.html" id="menu571" title="Tools">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-tool.png);">
+                     <span class="menu-title">
+                      Tools
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+            <div class="megacol column2 last" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="/download/development.html" id="menu525" title="Development">
+                  <span class="menu-title">
+                   Development
+                  </span>
+                  <span class="menu-desc">
+                   Daily development builds, possibly unstable
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="/download/development/dev-windows.html" id="menu526" title="Windows">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/svn-icon.png);">
+                     <span class="menu-title">
+                      Windows
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega last">
+                   <a class="mega last" href="https://launchpad.net/%7Epcsx2-team/+archive/ubuntu/pcsx2-daily" id="menu1431" target="_blank" title="Linux">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/svn-icon.png);">
+                     <span class="menu-title">
+                      Linux
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+        <li class="mega haschild">
+         <a class="mega haschild" href="https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/Configuration_Guide/Configuration_Guide.md" id="menu508" title="Guide">
+          <span class="menu-title">
+           Guide
+          </span>
+          <span class="menu-desc">
+           Config Guide
+          </span>
+         </a>
+         <div class="childcontent cols2">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first" href="https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/Configuration_Guide/Configuration_Guide.md" id="menu509" title="English guide">
+                  <span class="menu-title">
+                   English guide
+                  </span>
+                 </a>
+                </div>
+               </div>
+              </li>
+              <li class="mega">
+               <a class="mega" href="/config-guide/guide-translations.html" id="menu594" title="Guide translations">
+                <span class="menu-title">
+                 Guide translations
+                </span>
+               </a>
+              </li>
+             </ul>
+            </div>
+            <div class="megacol column2 last" style="width: 250px;">
+             <ul class="megamenu level1">
+              <li class="mega first">
+               <a class="mega first" href="https://forums.pcsx2.net/Thread-Program-and-Guide-translation-applications" id="menu568" target="_blank" title="Translate it!">
+                <span class="menu-title">
+                 Translate it!
+                </span>
+                <span class="menu-desc">
+                 Translate the guide or program to your language
+                </span>
+               </a>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+        <li class="mega haschild">
+         <a class="mega haschild" href="#" id="menu546" title="Support">
+          <span class="menu-title">
+           Support
+          </span>
+          <span class="menu-desc">
+           Need help?
+          </span>
+         </a>
+         <div class="childcontent cols2">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="https://forums.pcsx2.net" id="menu547" target="_blank" title="Support Forum">
+                  <span class="menu-title">
+                   Support Forum
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="https://forums.pcsx2.net" id="menu550" target="_blank" title="Official forum">
+                    <span class="menu-title">
+                     Official forum
+                    </span>
+                    <span class="menu-desc">
+                     Join thousands of members to get help!
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+            <div class="megacol column2 last" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="#" id="menu548" title="Useful info">
+                  <span class="menu-title">
+                   Useful info
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/PCSX2_FAQ.md" id="menu549" title="Frequently Asked Questions">
+                    <span class="menu-title">
+                     Frequently Asked Questions
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega last">
+                   <a class="mega last" href="https://wiki.pcsx2.net" id="menu599" target="_blank" title="PCSX2 Wiki">
+                    <span class="menu-title">
+                     PCSX2 Wiki
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+        <li class="mega">
+         <a class="mega" href="/compatibility-list.html" id="menu512" title="Compatibility">
+          <span class="has-image has-desc" style="background-image:url(/images/stories/frontend/static/compat-menu.png);">
+           <span class="menu-title">
+            Compatibility
+           </span>
+           <span class="menu-desc">
+            Check your games!
+           </span>
+          </span>
+         </a>
+        </li>
+        <li class="mega last haschild">
+         <a class="mega last haschild" href="/demo-videos-screenshots.html" id="menu544" title="Demo">
+          <span class="menu-title">
+           Demo
+          </span>
+          <span class="menu-desc">
+           Screens and videos
+          </span>
+         </a>
+         <div class="childcontent cols1">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first">
+               <a class="mega first" href="/demo-videos-screenshots/screenshots.html" id="menu567" title="Screenshots">
+                <span class="menu-title">
+                 Screenshots
+                </span>
+               </a>
+              </li>
+              <li class="mega">
+               <a class="mega" href="/demo-videos-screenshots/videos.html" id="menu595" title="Videos">
+                <span class="menu-title">
+                 Videos
+                </span>
+               </a>
+              </li>
+              <li class="mega last">
+               <a class="mega last" href="https://www.youtube.com/user/PCSX2team" id="menu651" target="_blank" title="Youtube Channel">
+                <span class="menu-title">
+                 Youtube Channel
+                </span>
+               </a>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+       </ul>
+      </div>
+      <script type="text/javascript">
+       var megamenu = new jaMegaMenuMoo ('ja-megamenu', {
+                    'bgopacity': 0,
+                    'delayHide': 10,
+                    'slide'    : 0,
+                    'fading'   : 0,
+                    'direction': 'down',
+                    'action'   : 'mouseover',
+                    'tips'     : false,
+                    'duration' : 300,
+                    'hidestyle': 'fastwhenshow'
+                });
+      </script>
+      <!-- jdoc:include type="menu" level="0" / -->
+      <ul class="no-display">
+       <li>
+        <a href="#ja-content" title="Skip to content">
+         Skip to content
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <!-- MAIN CONTAINER -->
+   <div class="wrap ja-l1" id="ja-container">
+    <div class="main clearfix">
+     <div id="ja-mainbody" style="width:100%">
+      <!-- CONTENT -->
+      <div id="ja-main" style="width:85%">
+       <div class="inner clearfix">
+        <div id="system-message-container">
+        </div>
+        <div class="clearfix" id="ja-contentwrap">
+         <div class="column" id="ja-content" style="width:100%">
+          <div class="column" id="ja-current-content" style="width:100%">
+           <div class="ja-content-main clearfix" id="ja-content-main">
+            <div class="single-article">
+             <div class="item-page clearfix">
+              <h2 class="contentheading">
+               <a href="/developer-blog/200-introduction-to-dynamic-recompilation.html">
+                Introduction to Dynamic Recompilation
+               </a>
+              </h2>
+              <div class="article-tools clearfix">
+               <dl class="article-info">
+                <dd class="create">
+                 Created:
+                 <span>
+                  13 March 2010
+                 </span>
+                </dd>
+                <dd class="createdby">
+                 Written by
+                 <span>
+                  cottonvibes
+                 </span>
+                </dd>
+               </dl>
+              </div>
+              <div style="text-align:center;">
+               <ins class="adsbygoogle" data-ad-client="ca-pub-7741304783035041" data-ad-type="text_image" data-color-bg="FFFFFF" data-color-border="000000" data-color-link="0088CC" data-color-text="555555" data-color-url="AAAAAA" style="display:inline-block;width:468px;height:60px">
+               </ins>
+               <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+               </script>
+              </div>
+              <p>
+               This blog post is an introduction to dynamic recompilers (dynarecs), and hopes to provide some insight on how they work and why pcsx2 uses them to speed up emulation.
+               <br/>
+               It is probably easier to read on our forums, because some of the code didn't wrap nicely on our main blog page....
+               <br/>
+               (
+               <a href="http://forums.pcsx2.net/thread-13453-post-101560.html" target="_blank">
+                Click here to view blog post in forum
+               </a>
+               )
+               <br/>
+               <br/>
+               To first understand why dynarecs are useful, you must first be familiar with a basic interpreter emulator.
+              </p>
+              <p>
+               <br/>
+               Assume we are emulating a very simple processor. Processors have instruction sets which are a set of different instructions they can compute.
+               <br/>
+               Lets assume the processor we are emulating is a made-up chip I'll call SL3 (super lame 3), and has only these 3 instructions (and each instruction has fixed width of 4 bytes):
+               <br/>
+               <br/>
+               MOV dest_reg, src1_reg // Move source register to destination register
+               <br/>
+               ADD dest_reg, src1_reg, src2_reg // Add source1 and source2 registers, and store the result in destination register
+               <br/>
+               BR relative_address // Branch (jump) to relative address (PC += relative_address * 4)
+               <br/>
+               <br/>
+               Processors generally have what we call registers which can hold data, and the processor's instructions perform the operations on these registers.
+               <br/>
+               For our example, we will assume that our SL3 processor has 8 registers, and the size of these registers is 32 bits (so each register holds 32 bits of data).
+               <br/>
+               <br/>
+               Now to program for this processor, we can have the following code:
+              </p>
+              <div class="codeblock">
+               <div class="title">
+                Code:
+               </div>
+               <div class="body" dir="ltr">
+                <code>
+                 MOV reg1, reg0
+                 <br/>
+                 ADD reg4, reg2, reg3
+                 <br/>
+                 BR 5
+                </code>
+               </div>
+              </div>
+              <p>
+               <br/>
+               What this code does is:
+               <br/>
+               1) It moves register 0 to register 1 (so now register 1 holds a copy of register 0's data).
+               <br/>
+               2) It adds register 2 and register 3 together, and stores the result in register 4.
+               <br/>
+               3) It branches 5 instructions further away (so now it jumps to some code that is further down (not shown in above example))
+               <br/>
+               <br/>
+               So that is how we can program for the SL3 processor in assembly code. But how do we emulate it?
+               <br/>
+               <br/>
+               To actually emulate this processor we can use an
+               <em>
+                <strong>
+                 interpreter
+                </strong>
+               </em>
+               . An interpreter simply fetches each
+               <em>
+                instruction opcode
+               </em>
+               and executes them accordingly (e.g. by calling emulated methods for each different instruction). The rest of the emulator (emulating other processors/peripherals of our system) can then get updated sometime in between instructions or after a group of cpu instructions are run. Interpreters are a simple and complete way to emulate a system.
+               <br/>
+               <br/>
+               (
+               <a href="http://forums.pcsx2.net/thread-13453-post-102002.html#pid102002" target="_blank">
+                Click here to see a C++ code example of a simple interpreter
+               </a>
+               )
+               <br/>
+               <br/>
+               Using interpreters we constantly have to be fetching and executing instructions one-by-one. There is a lot of overhead in this, and minimal room for optimization since most special case optimizations will have the overhead of checking for them (so it will for example add extra if-statements and conditionals... reducing the gain from the optimization). But there's a faster way to do processor emulation which doesn't have these draw-backs... using dynamic recompilation!
+               <br/>
+               <br/>
+               The basic idea of dynamic recompilation is to translate emulated instructions once, cache the emitted translated instructions, and then run the emitted native instructions as much times as needed.
+               <br/>
+               <br/>
+               Since the instructions you read are not changing (lets leave out self-modifying code for this example), you can translate the emulated instructions into native cpu instructions (in our case x86-32 asm instructions) and then cache the translated instructions into 'blocks' of code, then just execute these blocks of native code instead of having to do the translation over and over again whenever the code needs to be read again.
+               <br/>
+               <br/>
+               So for instance remember our above SL3 program:
+              </p>
+              <div class="codeblock">
+               <div class="title">
+                Code:
+               </div>
+               <div class="body" dir="ltr">
+                <code>
+                 MOV reg1, reg0
+                 <br/>
+                 ADD reg4, reg2, reg3
+                 <br/>
+                 BR 5
+                </code>
+               </div>
+              </div>
+              <p>
+               <br/>
+               Lets assume this code is part of some function and gets called 100's of times a second (this could sound crazy, but games/applications commonly call the same code hundreds or thousands of times a second).
+               <br/>
+               <br/>
+               Now our runCPU() interpreter function above will have to translate every instruction before it can actually compute the result.
+               <br/>
+               <br/>
+               That is, it needs to fetch the opcode of every instruction, call the emulated function based on the opcode number, then actually compute the instruction result.
+               <br/>
+               But dynarecs allow us to skip the "fetch opcode" and the "call the emulated function" part, by only doing this once, and then caching the translated code into native asm blocks.
+               <br/>
+               <br/>
+               To make a good dynarec, we first need a code emitter.
+               <br/>
+               An emitter is a series of functions we call that write native asm to some memory block we give it.
+               <br/>
+               So we use an x86-32 emitter to write native x86-32 asm code to blocks of memory, and then later we can execute these blocks as if they were normal c++ generated functions!
+               <br/>
+               <br/>
+               PCSX2 has a very cool emitter that looks very similar to x86-32 assembly, except the instructions have an 'x' before them.
+               <br/>
+               So for example:
+               <br/>
+               mov eax, ecx;
+               <br/>
+               is
+               <br/>
+               xMOV(eax, ecx);
+               <br/>
+               with the pcsx2 emitter.
+               <br/>
+               <br/>
+               Now the idea behind the dynarec we are going to write now, is that we will end blocks whenever a branch instruction is detected (which will jump to other blocks).
+               <br/>
+               <br/>
+               The code for actually recompiling these blocks looks something like this:
+              </p>
+              <div class="codeblock">
+               <div class="title">
+                Code:
+               </div>
+               <div class="body" dir="ltr">
+                <code>
+                 // This is our emulated MOV instruction
+                 <br/>
+                 void MOV() {
+                 <br/>
+                 u8 dest = fetch(); // Get destination register number
+                 <br/>
+                 u8 reg1 = fetch(); // Get source 1 register number
+                 <br/>
+                 <br/>
+                 xMOV(eax, ptr[&amp;amp;cpuRegs[reg1]]); // Move reg1's data to eax
+                 <br/>
+                 xMOV(ptr[&amp;amp;cpuRegs[dest]], eax); // Move eax to dest register
+                 <br/>
+                 <br/>
+                 fetch(); // This fetch is needed because every instruction in our SL3 processor is 4 bytes
+                 <br/>
+                 }
+                 <br/>
+                 <br/>
+                 // This is our emulated ADD instruction
+                 <br/>
+                 void ADD() {
+                 <br/>
+                 u8 dest = fetch(); // Get destination register number
+                 <br/>
+                 u8 reg1 = fetch(); // Get source 1 register number
+                 <br/>
+                 u8 reg2 = fetch(); // Get source 2 register number
+                 <br/>
+                 <br/>
+                 xMOV(eax, ptr[&amp;amp;cpuRegs[reg1]]); // Move reg1's data to eax
+                 <br/>
+                 xADD(eax, ptr[&amp;amp;cpuRegs[reg2]]); // Add eax with reg2's data
+                 <br/>
+                 xMOV(ptr[&amp;amp;cpuRegs[dest]], eax); // Move eax to dest register
+                 <br/>
+                 }
+                 <br/>
+                 <br/>
+                 // This is our emulated BR (jump) instruction
+                 <br/>
+                 void BR() {
+                 <br/>
+                 s8 addr = fetch(); // Gets a number by which we will increment (or decrement if negative) PC by
+                 <br/>
+                 PC = (PC - 2) + (addr * 4);
+                 <br/>
+                 <br/>
+                 // Get a pointer to a block of x86-32 compiled code
+                 <br/>
+                 // that was recompiled by the recompileSL3() function
+                 <br/>
+                 u8* block_pointer = getBlock(PC);
+                 <br/>
+                 <br/>
+                 xJMP(block_pointer); // Jump to the pointer returned by getBlock()
+                 <br/>
+                 }
+                 <br/>
+                 <br/>
+                 // This goes through instructions and recompiles them
+                 <br/>
+                 // It recompiles instructions until it reaches a BR() instruction.
+                 <br/>
+                 u8* recompileSL3(u32 startPC) {
+                 <br/>
+                 u8* startPtr = xGetPtr(); // Gets pointer to where the emitter is currently pointing to (the start pointer of the block)
+                 <br/>
+                 PC = startPC; // Set PC to the start PC of this block
+                 <br/>
+                 bool do_recompile = true;
+                 <br/>
+                 while (do_recompile) {
+                 <br/>
+                 u8 opcode = fetch();
+                 <br/>
+                 switch (opcode) {
+                 <br/>
+                 case 0: MOV(); break;
+                 <br/>
+                 case 1: ADD(); break;
+                 <br/>
+                 case 2: // We stop recompiling on branches
+                 <br/>
+                 BR();
+                 <br/>
+                 do_recompile = false;
+                 <br/>
+                 break;
+                 <br/>
+                 }
+                 <br/>
+                 }
+                 <br/>
+                 return startPtr; // Returns the pointer to where our block of x86 generated code starts at
+                 <br/>
+                 }
+                 <br/>
+                 <br/>
+                 // This holds all the pointers to our blocks that were recompiled based on
+                 <br/>
+                 // starting PC address. We will assume that the instruction memory for
+                 <br/>
+                 // this processor is 16kb, which means that it can hold at-most 1024*16 bytes
+                 <br/>
+                 // worth of instructions. And therefor we we have at-most 1024*16 block pointers.
+                 <br/>
+                 static u8* blockArray[1024*16];
+                 <br/>
+                 <br/>
+                 // This returns a pointer to our recompiled block
+                 <br/>
+                 // If it hasn't been compiled, it'll recompile the block and then return that pointer.
+                 <br/>
+                 // We use __fastcall because it lets us pass the startPC parameter in the ecx register
+                 <br/>
+                 // instead of having to use the x86 stack...
+                 <br/>
+                 u8* __fastcall getBlock(u32 startPC) {
+                 <br/>
+                 if (blockArray[startPC] == null) {
+                 <br/>
+                 blockArray[startPC] = recompileSL3(startPC);
+                 <br/>
+                 }
+                 <br/>
+                 return blockArray[startPC];
+                 <br/>
+                 }
+                 <br/>
+                 <br/>
+                 // Basic cpu emulator using dynamic recompilation
+                 <br/>
+                 void runCPU() {
+                 <br/>
+                 // This sets our emitter to start emitting instructions to rec_cache
+                 <br/>
+                 // which is a large block of memory where we can write lots of
+                 <br/>
+                 // x86 asm instructions to...
+                 <br/>
+                 x86setPtr(rec_cache);
+                 <br/>
+                 <br/>
+                 __asm {
+                 <br/>
+                 pushad; // Save all our registers
+                 <br/>
+                 mov ecx, PC; // Move PC parameter into ecx register (for __fastcall)
+                 <br/>
+                 call getBlock; // Call the getBlock function
+                 <br/>
+                 jmp eax; // The block to jump to is returned in eax
+                 <br/>
+                 }
+                 <br/>
+                 }
+                </code>
+               </div>
+              </div>
+              <p>
+               <br/>
+               Note the above code doesn't have any logic to successfully exit once it starts executing recompiled blocks... I left this stuff out in order to not complicate things... so assume that somehow execution ends and we can get back to running the other parts of the emulator...
+               <br/>
+               Also note we need to restore registers when we exit execution, and we also need to set rec_cache to the new x86 emitter address (so it can continue where it left off instead of writing over already recompiled memory blocks).
+               <br/>
+               (
+               <a href="http://forums.pcsx2.net/Thread-blog-Introduction-to-Dynamic-Recompilation?pid=102471#pid102471" target="_blank">
+                Click here for a more complete sl3 recompiler code with cycle counting and exit logic
+               </a>
+               )
+               <br/>
+               <br/>
+               Now how does this work?
+               <br/>
+               Well we basically call runCPU() which calls the getBlock() function with the original PC value.
+               <br/>
+               getBlock() then checks if we have already recompiled a block with that start PC value, which we havn't yet, so it will go on to call recompileSL3() and give it the startPC value.
+               <br/>
+               recompileSL3() will loop through the opcodes, fetching them and then calling the appropriate emulated functions which will write to memory x86-32 asm instructions computing the correct results.
+               <br/>
+               recompileSL3() will continue looping until it reaches a BR() instruction (which will recursively call getBlock() until all the addresses have been recompiled and no more recompilation needs to happen).
+               <br/>
+               <br/>
+               Once everything has been recompiled we jump to the starting block's execution address, and that's how we actually run the execution.
+               <br/>
+               The code that ends up being executed after we recompiled is only the emitted code, which were the functions prefixed with 'x' (xMOV, xADD, etc...).
+               <br/>
+               Notice that that's a lot of code omitted as we don't have to fetch anything anymore, but instead just run a series of fast generated asm functions...
+               <br/>
+               This means that although we have a lot of extra overhead on the actual recompilation, we end up generating some really fast code, that could be called 1000's of times a second, therefor making the initial overhead well worth it!
+               <br/>
+               <br/>
+               We can also perform many optimizations while recompiling such as regalloc, constant propagation, optimized asm generation for special opcode cases, etc... (we didn't do this stuff in our example to avoid complexities).
+               <br/>
+               <br/>
+               <br/>
+               Hopefully this article has helped you gain a bit of understanding on how dynamic recompilation works, and why we use it in pcsx2 to gain a lot more speed over interpreters!
+               <br/>
+               Also note that dynarecs can be used for more than processor emulation, we also used dynamic recompilation in pcsx2 to cache asm optimized unpack routines that the ps2's vif does.
+               <br/>
+               <br/>
+               I should also add that currently pcsx2 has the following dynarecs:
+               <br/>
+               EE recompiler (for MIPS R5900 ee-core processor)
+               <br/>
+               IOP recompiler (for MIPS R3000A i/o processor)
+               <br/>
+               microVU recompiler (for VU0/VU1, and COP2 instructions)
+               <br/>
+               Super VU recompiler (can be used instead of microVU for VU0/VU1)
+               <br/>
+               newVIF unpack recompiler (recompiles vif unpack routines)
+               <br/>
+               r3000air (not yet finished, but should one day supersede the IOP recompiler)
+               <br/>
+               <br/>
+              </p>
+              <div style="font-style: italic; font-size: 10pt; font-weight: bold; text-align: right;">
+               <a href="http://forums.pcsx2.net/thread-13453.html" target="_blank">
+                Post a Comment!
+               </a>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- //CONTENT -->
+      <!-- LEFT COLUMN-->
+      <div class="column sidebar" id="ja-left" style="width:15%">
+       <div class="ja-colswrap clearfix ja-l1">
+        <div class="ja-col column" id="ja-left1" style="width:100%">
+         <div class="ja-moduletable moduletable_menu clearfix" id="Mod23">
+          <h3>
+           <span>
+            Food for thought
+           </span>
+          </h3>
+          <div class="ja-box-ct clearfix">
+           <ul class="nav menutest mod-list">
+            <li class="item-437 current active">
+             <a href="/developer-blog.html">
+              Developer Blog
+             </a>
+            </li>
+            <li class="item-552">
+             <a href="/meet-the-team.html">
+              Meet the team
+             </a>
+            </li>
+            <li class="item-551">
+             <a href="/article-archive.html">
+              Article archive
+             </a>
+            </li>
+            <li class="item-1908">
+             <a href="/site-map.html">
+              Site Map
+             </a>
+            </li>
+           </ul>
+          </div>
+         </div>
+         <div class="ja-moduletable moduletable clearfix" id="Mod110">
+          <div class="ja-box-ct clearfix">
+           <div class="custom">
+            <p>
+             <h3>
+              <a href="/compatibility-list.html" style="color:#033D63;">
+               Compatibility overview
+              </a>
+             </h3>
+             <p style="font-size: 120%; font-weight: bold;">
+              2689 games
+             </p>
+             Perfect: 0.74% - 20
+             <div class="progress-bar perfect">
+              <span style="width:0.74%;">
+              </span>
+             </div>
+             Playable: 97.66% - 2626
+             <div class="progress-bar playable">
+              <span style="width:97.66%;">
+              </span>
+             </div>
+             Ingame: 1.08% - 29
+             <div class="progress-bar ingame">
+              <span style="width:1.08%;">
+              </span>
+             </div>
+             Menus: 0.3% - 8
+             <div class="progress-bar menu">
+              <span style="width:0.3%;">
+              </span>
+             </div>
+             Intro: 0.15% - 4
+             <div class="progress-bar intro">
+              <span style="width:0.15%;">
+              </span>
+             </div>
+             Nothing: 0.07% - 2
+             <div class="progress-bar nothing">
+              <span style="width:0.07%;">
+              </span>
+             </div>
+            </p>
+           </div>
+          </div>
+         </div>
+         <div class="ja-moduletable moduletable-search clearfix" id="Mod35">
+          <div class="ja-box-ct clearfix">
+           <form action="/developer-blog.html" class="search-search" method="post">
+            <input class="inputbox-search" id="mod-search-searchword" maxlength="200" name="searchword" onblur="if (this.value=='') this.value='Search ...';" onfocus="if (this.value=='Search ...') this.value='';" size="10" type="text" value="Search ..."/>
+            <input class="button-search" onclick="this.form.searchword.focus();" type="submit" value="GO"/>
+            <input name="task" type="hidden" value="search"/>
+            <input name="option" type="hidden" value="com_search"/>
+            <input name="Itemid" type="hidden" value="437"/>
+           </form>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- //LEFT COLUMN-->
+     </div>
+    </div>
+   </div>
+   <!-- //MAIN CONTAINER -->
+   <div class="wrap" id="ja-navhelper">
+    <div class="main">
+     <div class="main-inner1 clearfix">
+      <div class="ja-breadcrums">
+       <span class="breadcrumbsbread pathway">
+        <strong>
+         You are here:
+        </strong>
+        <a class="pathway" href="/">
+         Home
+        </a>
+        <img alt="" src="/media/system/images/arrow.png"/>
+        <a class="pathway" href="/developer-blog.html">
+         Developer Blog
+        </a>
+        <img alt="" src="/media/system/images/arrow.png"/>
+        Introduction to Dynamic Recompilation
+       </span>
+      </div>
+      <ul class="ja-links">
+       <li class="top">
+        <a href="javascript:scroll(0,0)" title="Back to top">
+         Top
+        </a>
+       </li>
+      </ul>
+      <ul class="no-display">
+       <li>
+        <a href="#ja-content" title="Skip to content">
+         Skip to content
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="wrap" id="ja-footer">
+    <div class="main clearfix">
+     <div class="ja-copyright">
+     </div>
+     <br/>
+     Webdesign and code © 2021 PCSX2 Team | Modified template from Joomla Web Design |
+     <a href="/privacy-policy.html">
+      Privacy Policy
+     </a>
+     |
+     <a href="/eula.html">
+      EULA
+     </a>
+    </div>
+   </div>
+  </div>
+  <script data-cf-beacon='{"rayId":"68dc35a38e7ae1fe","token":"c919a4e35e434ed2b63079aa661a82c0","version":"2021.8.1","si":10}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js">
+  </script>
+ </body>
+</html>

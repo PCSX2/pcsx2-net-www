@@ -1,0 +1,98 @@
+<div class="single-article">
+ <div class="item-page clearfix">
+  <div style="text-align:center;">
+   <ins class="adsbygoogle" data-ad-client="ca-pub-7741304783035041" data-ad-type="text_image" data-color-bg="FFFFFF" data-color-border="000000" data-color-link="0088CC" data-color-text="555555" data-color-url="AAAAAA" style="display:inline-block;width:468px;height:60px">
+   </ins>
+   <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+   </script>
+  </div>
+  <p>
+   First, let's explain aliasing and why people are so keen on removing it with anti-aliasing. Let's start with some math
+   <img alt="Smile" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/smile.gif" width="20"/>
+  </p>
+  <p>
+   In the real world, signals are often "continuous." If you take two points A and B and A is very close to B then F(A) is very close to F(B). But a screen is not continuous. If you take two pixels side by side, one can be white while the other is black.
+  </p>
+  <p>
+  </p>
+  <p>
+   Typical example of some continuous/discrete signals:
+   <br/>
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/devblog/signals.png">
+    <img alt="Signals" border="0" src="/images/stories/frontend/devblog/signals_s.png" style="display: block; margin-left: auto; margin-right: auto;" title="Signals"/>
+   </a>
+  </p>
+  <p>
+   It is very easy and accurate to transform a continuous signal into a non continuous signal. You just need to sample it, i.e. take a subset of values. It is often used in computer science to reduce the quantity of information compared to the original signal. Otherwise it simply requires to much power to process it.
+  </p>
+  <p>
+   The thing is that later, when you render it, you need to do the reverse transformation. Human senses expect continuous video and sound. The transformation above is very easy, but this time things are much more complicated. If you need a value exactly at a sample point - it's fine, you have it
+   <img alt="Smile" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/smile.gif" width="20"/>
+   But what happens if you need a value that is between two samples? It doesn't exist, so you need to create it. This is called aliasing - any random value is an alias of the original value.
+  </p>
+  <p>
+   The purpose of anti aliasing is to predict a value between samples that is as close as possible to what the original value would have been by using the samples that you do have to estimate what is missing.
+  </p>
+  <p>
+   For example, let's imagine that sample 1 is white and sample 2 is black. What will the value of a pixel between sample1 and sample 2 be? It could be white or black (Nearest filtering.) It could be a mixture of both, so gray (Linear filtering.) Note that nothing prevents the true value of that pixel from being red, blue, yellow or anything, but it is impossible to predict that based on the data we have.
+  </p>
+  <p>
+   Let's get back to GS emulation now.
+  </p>
+  <p>
+   Primitives sent to the GPU/GS are continuous. For example, you ask the GPU to draw a triangle, not to draw N pixels. However due to limited resources, your GPU will only compute the colors of N pixels on your screen/framebuffer. The rendering will be exactly the same as if you had asked the GPU to draw N pixels in a triangle shape. Nobody will see the "holes." However, if you increase the frequency of the sampling (i.e. use a bigger resolution) you will see those holes. If your screen had infinite resolution you would be able to see that the rendering is various points shaped like a triangle - not a real triangle.
+  </p>
+  <p>
+   The PS2 does something similar. It sends various rectangles that fill the screen, but they have holes. Due to aliasing you never see them at native resolution. Upscaling however increases the frequency of sampling because it is "emulating" a higher resolution output. As with the previous example, the holes become visible. In the case of Namco games they manifest as black vertical lines.
+  </p>
+  <p>
+   In other words, when upscaling, the emulation of the GS is more accurate than the real GS that the PS2 has. Unfortunately, humans don't like their images full of pointless black lines. So to fix it, we added another hack. The hack will detect rectangle primitives that are too small and then extend them half a pixel to fill the hole. It does the job well and it doesn't impact speed much.
+  </p>
+  <p>
+   Now let's explain the other new hack. Primitives have only color information - this is enough for a small surface but not efficient to draw a big surface. In order to reduce computational load they just map a texture on to the primitive. You just need to provide the texture coordinates. Instead of a lengthy explanation, let's just use an example.
+  </p>
+  <p>
+   <a href="/images/stories/frontend/devblog/native_res.png">
+    <img alt="Native resolution" border="0" src="/images/stories/frontend/devblog/native_res_s.png" title="Native resolution"/>
+   </a>
+   <a href="/images/stories/frontend/devblog/native_x2.png">
+    <img alt="Native resolution X2" border="0" height="388" src="/images/stories/frontend/devblog/native_x2_s.png" title="Native resolution X2" width="448"/>
+   </a>
+  </p>
+  <p>
+  </p>
+  <p>
+   As you can see in the picture, you will sample an invalid value at 2x resolution. Generally games use a texture atlas so you inadvertently sample from the next texture. This is quite noticeable on font textures. The idea of this hack is to shift and round the texture size to better fit the intended behavior of the game. There are various corner cases so it is difficult to have something both fast and accurate. Many games are better but they're not perfect.
+  </p>
+  <p>
+   <a href="/images/stories/frontend/devblog/infinite_res.png">
+    <img alt="Infinite resolution" border="0" src="/images/stories/frontend/devblog/infinite_res_s.png" style="display: block; margin-left: auto; margin-right: auto;" title="Infinite resolution"/>
+   </a>
+  </p>
+  <p>
+   The hack also disables extra linear filtering. Globally the upscaling issue is caused by a texture that is too small. This was likely done on purpose to reduce memory usage (PS2 video memory is only 4MB, compared to multiple gigabytes that we have today). Linear filtering allows interpolating a color based on the texels around it. But it requires that those texels exist
+   <img alt="Wink" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/wink.gif" width="20"/>
+   So textures need to be one texel bigger than they are for linear interpolation. We don't have that possibility, unfortunately.
+   <img alt="Sad" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/sad.gif" width="20"/>
+  </p>
+  <p>
+   In conclusion, native resolution works because of aliasing issues. The holes and errors in the image are below the sampling rate of the PS2's traditional output and therefore you never see them. Once you enable some form of anti aliasing (linear filtering/upscaling/MSAA/**AA), they become visible as the sample rate is high enough to expose them.
+  </p>
+  <p>
+   Proofread and corrected by
+   <a href="http://forums.pcsx2.net/User-Blyss-Sarania" target="_blank">
+    Blyss Sarania
+   </a>
+  </p>
+  <p style="text-align: right;">
+   <strong>
+    <a href="http://forums.pcsx2.net/Thread-Blog-Explanation-of-why-hacks-are-needed-to-fix-upscaling-related-glitches" target="_blank">
+     Post a Comment!
+    </a>
+   </strong>
+  </p>
+ </div>
+</div>

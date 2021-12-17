@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en-gb" xml:lang="en-gb" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <base href="https://pcsx2.net/developer-blog/277-channel-shuffle-effect.html"/>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="pcsx2, pc, ps2, emulation, emulator, playstation, games, geforce, radeon, intel, amd, f2p, gaming, video games, sony, game, play, free, download, freeware, online" name="keywords"/>
+  <meta content="Gregory" name="author"/>
+  <meta content="PCSX2 a Playstation 2 emulator for Windows, Linux and Mac" name="description"/>
+  <meta content="Joomla! - Open Source Content Management" name="generator"/>
+  <title>
+   PCSX2 - The Playstation 2 emulator - Channel Shuffle Effect
+  </title>
+  <link href="https://pcsx2.net/component/search/?Itemid=437&amp;catid=81&amp;id=277&amp;format=opensearch" rel="search" title="Search PCSX2 - The Playstation 2 emulator" type="application/opensearchdescription+xml"/>
+  <link href="/index.php?jat3action=gzip&amp;jat3type=css&amp;jat3file=cache%2Ft3%2Fcss_a5b86.css" rel="stylesheet" type="text/css"/>
+  <script class="joomla-script-options new" type="application/json">
+   {"csrf.token":"8c7389011d3775c9cbc8d5ea28cb0ac2","system.paths":{"root":"","base":""}}
+  </script>
+  <script src="https://pcsx2.net/plugins/system/yvsmiley/default.js" type="text/javascript">
+  </script>
+  <script src="/media/system/js/mootools-core.js" type="text/javascript">
+  </script>
+  <script src="/media/system/js/core.js" type="text/javascript">
+  </script>
+  <script src="/media/jui/js/jquery.min.js" type="text/javascript">
+  </script>
+  <script src="/media/jui/js/jquery-noconflict.js" type="text/javascript">
+  </script>
+  <script src="/media/jui/js/jquery-migrate.min.js" type="text/javascript">
+  </script>
+  <script src="/media/system/js/caption.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/core.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/menu/mega.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/fadeinout.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/mootools-more-s.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/resize.js" type="text/javascript">
+  </script>
+  <script src="/libraries/videobox/js/videobox.js" type="text/javascript">
+  </script>
+  <script src="/libraries/videobox/js/functions.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+  </script>
+  <!--[if ie]><link href="/plugins/system/jat3/jat3/base-themes/default/css/template-ie.css" type="text/css" rel="stylesheet" /><![endif]-->
+  <!--[if ie 7]><link href="/plugins/system/jat3/jat3/base-themes/default/css/template-ie7.css" type="text/css" rel="stylesheet" /><![endif]-->
+  <!--[if ie 7]><link href="/templates/business8/css/template-ie7.css" type="text/css" rel="stylesheet" /><![endif]-->
+  <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <style type="text/css">
+   /*dynamic css*/
+
+    body.bd .main {width: 100%;}
+    body.bd #ja-wrapper {min-width: 100%;}
+  </style>
+  <script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+  </script>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-387767-1', 'pcsx2.net');
+  ga('send', 'pageview');
+  </script>
+  <!-- Universal Google Analytics Plugin by PB Web Development -->
+ </head>
+ <body class="bd fs3 com_content">
+  <a id="Top">
+  </a>
+  <div id="ja-wrapper">
+   <div class="wrap" id="ja-header">
+    <div class="main">
+     <div class="main-inner1 clearfix">
+      <a href="/" title="PCSX2 - The Playstation 2 emulator">
+       <img alt="PCSX2 homepage" height="120" src="/templates/business8/themes/classic/images/logo_classic.png" width="452"/>
+      </a>
+     </div>
+    </div>
+   </div>
+   <div id="ja-cpanel-wrapper">
+    <div id="ja-cpanel">
+     <div id="ja-cpanel-main">
+      <div class="ja-cpanel-tools clearfix">
+       <h3>
+        Font Size
+       </h3>
+       <div class="ja-box-usertools">
+        <ul class="ja-usertools-font clearfix">
+         <li class="font-inc">
+          <a onclick="switchFontSize('business8_font', 'inc');return false;" title="Increase font size">
+           <span>
+            Increase font size
+           </span>
+          </a>
+         </li>
+         <li class="font-dec">
+          <a onclick="switchFontSize('business8_font', 'dec');return false;" title="Decrease font size">
+           <span>
+            Decrease font size
+           </span>
+          </a>
+         </li>
+         <li class="font-reset">
+          <a onclick="switchFontSize('business8_font', 'reset');return false;" title="Default font size">
+           <span>
+            Default font size
+           </span>
+          </a>
+         </li>
+        </ul>
+       </div>
+       <script type="text/javascript">
+        var DefaultFontSize=parseInt('3');
+  var CurrentFontSize=parseInt('3');
+       </script>
+       <h3>
+        Profile
+       </h3>
+       <div class="ja-box-usertools">
+        <ul class="ja-usertools-profile clearfix">
+         <li class="profile profile-active">
+          <input checked="checked" id="user_profile_classic" name="user_profile" type="radio" value="classic"/>
+          <label for="user_profile_classic" title="classic">
+           <span>
+            classic
+           </span>
+          </label>
+         </li>
+         <li class="profile">
+          <input id="user_profile_default" name="user_profile" type="radio" value="default"/>
+          <label for="user_profile_default" title="default">
+           <span>
+            default
+           </span>
+          </label>
+         </li>
+        </ul>
+       </div>
+       <h3>
+        Layout
+       </h3>
+       <div class="ja-box-usertools">
+        <ul class="ja-usertools-layout clearfix">
+         <li class="layout layout-default-active">
+          <input checked="checked" id="user_layouts_default" name="user_layouts" type="radio" value="default"/>
+          <label for="user_layouts_default" title="default">
+           <span>
+            default
+           </span>
+          </label>
+         </li>
+         <li class="layout layout-no-bottom-boxes">
+          <input id="user_layouts_no-bottom-boxes" name="user_layouts" type="radio" value="no-bottom-boxes"/>
+          <label for="user_layouts_no-bottom-boxes" title="no-bottom-boxes">
+           <span>
+            no-bottom-boxes
+           </span>
+          </label>
+         </li>
+         <li class="layout layout-no-latest-boxes">
+          <input id="user_layouts_no-latest-boxes" name="user_layouts" type="radio" value="no-latest-boxes"/>
+          <label for="user_layouts_no-latest-boxes" title="no-latest-boxes">
+           <span>
+            no-latest-boxes
+           </span>
+          </label>
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div class="ja-cpanel-action clearfix">
+       <a class="button" href="#" onclick="cpanel_apply();return false;" title="Apply setting">
+        <span>
+         Apply
+        </span>
+       </a>
+       <a href="#" onclick="cpanel_reset();return false;" title="Reset to default setting">
+        <span>
+         Reset
+        </span>
+       </a>
+      </div>
+     </div>
+     <a href="#" id="ja-cpanel-toggle">
+      <span>
+       Cpanel
+      </span>
+     </a>
+    </div>
+   </div>
+   <script type="text/javascript">
+    var tmpl_name = 'business8';
+    window.addEvent('load', function () {
+        $('ja-cpanel-toggle').status == 'close';
+        $('ja-cpanel-toggle').slider = new Fx.Slide('ja-cpanel-main', {duration: 400});
+        $('ja-cpanel-toggle').slider.hide();
+        $('ja-cpanel').setStyle ('top', 0);
+        $('ja-cpanel-toggle').addEvent ('click', function (e) {
+            this.slider.toggle();
+            if (this.hasClass ('open')) {
+                this.removeClass ('open').addClass ('close');
+            } else {
+                this.removeClass ('close').addClass ('open');
+            }
+
+            if(e){
+                e.stop();
+            }
+        });
+    });
+   </script>
+   <div class="wrap" id="ja-mainnav">
+    <div class="main">
+     <div class="main-inner1 clearfix">
+      <div class="ja-megamenu clearfix" id="ja-megamenu">
+       <ul class="megamenu level0">
+        <li class="mega first">
+         <a class="mega first" href="https://pcsx2.net/" id="menu435" title="Home">
+          <span class="has-image has-desc" style="background-image:url(/images/stories/frontend/static/home-icon.png);">
+           <span class="menu-title">
+            Home
+           </span>
+           <span class="menu-desc">
+            News
+           </span>
+          </span>
+         </a>
+        </li>
+        <li class="mega">
+         <a class="mega" href="/getting-started.html" id="menu455" title="Getting Started">
+          <span class="has-image has-desc" style="background-image:url(/images/stories/frontend/static/getting-started-icon.png);">
+           <span class="menu-title">
+            Getting Started
+           </span>
+           <span class="menu-desc">
+            Start here!
+           </span>
+          </span>
+         </a>
+        </li>
+        <li class="mega haschild">
+         <a class="mega haschild" href="/download.html" id="menu506" title="Download">
+          <span class="menu-title">
+           Download
+          </span>
+          <span class="menu-desc">
+           Get PCSX2 here
+          </span>
+         </a>
+         <div class="childcontent cols2">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 240px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="/download/releases.html" id="menu507" title="Releases">
+                  <span class="menu-title">
+                   Releases
+                  </span>
+                  <span class="menu-desc">
+                   Latest stable releases
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="/download/releases/windows.html" id="menu515" title="Windows">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-For-Windows-s.png);">
+                     <span class="menu-title">
+                      Windows
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/linux.html" id="menu517" title="Linux">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-For-Linux-s.png);">
+                     <span class="menu-title">
+                      Linux
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/mac.html" id="menu518" title="Mac">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-For-Mac-s.png);">
+                     <span class="menu-title">
+                      Mac
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/source-code.html" id="menu566" title="Source code">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-Source-code.png);">
+                     <span class="menu-title">
+                      Source code
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/archive-download.html" id="menu543" title="Archive downloads">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-archive.png);">
+                     <span class="menu-title">
+                      Archive downloads
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega last">
+                   <a class="mega last" href="/download/releases/tools.html" id="menu571" title="Tools">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-tool.png);">
+                     <span class="menu-title">
+                      Tools
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+            <div class="megacol column2 last" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="/download/development.html" id="menu525" title="Development">
+                  <span class="menu-title">
+                   Development
+                  </span>
+                  <span class="menu-desc">
+                   Daily development builds, possibly unstable
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="/download/development/dev-windows.html" id="menu526" title="Windows">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/svn-icon.png);">
+                     <span class="menu-title">
+                      Windows
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega last">
+                   <a class="mega last" href="https://launchpad.net/%7Epcsx2-team/+archive/ubuntu/pcsx2-daily" id="menu1431" target="_blank" title="Linux">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/svn-icon.png);">
+                     <span class="menu-title">
+                      Linux
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+        <li class="mega haschild">
+         <a class="mega haschild" href="https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/Configuration_Guide/Configuration_Guide.md" id="menu508" title="Guide">
+          <span class="menu-title">
+           Guide
+          </span>
+          <span class="menu-desc">
+           Config Guide
+          </span>
+         </a>
+         <div class="childcontent cols2">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first" href="https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/Configuration_Guide/Configuration_Guide.md" id="menu509" title="English guide">
+                  <span class="menu-title">
+                   English guide
+                  </span>
+                 </a>
+                </div>
+               </div>
+              </li>
+              <li class="mega">
+               <a class="mega" href="/config-guide/guide-translations.html" id="menu594" title="Guide translations">
+                <span class="menu-title">
+                 Guide translations
+                </span>
+               </a>
+              </li>
+             </ul>
+            </div>
+            <div class="megacol column2 last" style="width: 250px;">
+             <ul class="megamenu level1">
+              <li class="mega first">
+               <a class="mega first" href="https://forums.pcsx2.net/Thread-Program-and-Guide-translation-applications" id="menu568" target="_blank" title="Translate it!">
+                <span class="menu-title">
+                 Translate it!
+                </span>
+                <span class="menu-desc">
+                 Translate the guide or program to your language
+                </span>
+               </a>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+        <li class="mega haschild">
+         <a class="mega haschild" href="#" id="menu546" title="Support">
+          <span class="menu-title">
+           Support
+          </span>
+          <span class="menu-desc">
+           Need help?
+          </span>
+         </a>
+         <div class="childcontent cols2">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="https://forums.pcsx2.net" id="menu547" target="_blank" title="Support Forum">
+                  <span class="menu-title">
+                   Support Forum
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="https://forums.pcsx2.net" id="menu550" target="_blank" title="Official forum">
+                    <span class="menu-title">
+                     Official forum
+                    </span>
+                    <span class="menu-desc">
+                     Join thousands of members to get help!
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+            <div class="megacol column2 last" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="#" id="menu548" title="Useful info">
+                  <span class="menu-title">
+                   Useful info
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/PCSX2_FAQ.md" id="menu549" title="Frequently Asked Questions">
+                    <span class="menu-title">
+                     Frequently Asked Questions
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega last">
+                   <a class="mega last" href="https://wiki.pcsx2.net" id="menu599" target="_blank" title="PCSX2 Wiki">
+                    <span class="menu-title">
+                     PCSX2 Wiki
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+        <li class="mega">
+         <a class="mega" href="/compatibility-list.html" id="menu512" title="Compatibility">
+          <span class="has-image has-desc" style="background-image:url(/images/stories/frontend/static/compat-menu.png);">
+           <span class="menu-title">
+            Compatibility
+           </span>
+           <span class="menu-desc">
+            Check your games!
+           </span>
+          </span>
+         </a>
+        </li>
+        <li class="mega last haschild">
+         <a class="mega last haschild" href="/demo-videos-screenshots.html" id="menu544" title="Demo">
+          <span class="menu-title">
+           Demo
+          </span>
+          <span class="menu-desc">
+           Screens and videos
+          </span>
+         </a>
+         <div class="childcontent cols1">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first">
+               <a class="mega first" href="/demo-videos-screenshots/screenshots.html" id="menu567" title="Screenshots">
+                <span class="menu-title">
+                 Screenshots
+                </span>
+               </a>
+              </li>
+              <li class="mega">
+               <a class="mega" href="/demo-videos-screenshots/videos.html" id="menu595" title="Videos">
+                <span class="menu-title">
+                 Videos
+                </span>
+               </a>
+              </li>
+              <li class="mega last">
+               <a class="mega last" href="https://www.youtube.com/user/PCSX2team" id="menu651" target="_blank" title="Youtube Channel">
+                <span class="menu-title">
+                 Youtube Channel
+                </span>
+               </a>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+       </ul>
+      </div>
+      <script type="text/javascript">
+       var megamenu = new jaMegaMenuMoo ('ja-megamenu', {
+                    'bgopacity': 0,
+                    'delayHide': 10,
+                    'slide'    : 0,
+                    'fading'   : 0,
+                    'direction': 'down',
+                    'action'   : 'mouseover',
+                    'tips'     : false,
+                    'duration' : 300,
+                    'hidestyle': 'fastwhenshow'
+                });
+      </script>
+      <!-- jdoc:include type="menu" level="0" / -->
+      <ul class="no-display">
+       <li>
+        <a href="#ja-content" title="Skip to content">
+         Skip to content
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <!-- MAIN CONTAINER -->
+   <div class="wrap ja-l1" id="ja-container">
+    <div class="main clearfix">
+     <div id="ja-mainbody" style="width:100%">
+      <!-- CONTENT -->
+      <div id="ja-main" style="width:85%">
+       <div class="inner clearfix">
+        <div id="system-message-container">
+        </div>
+        <div class="clearfix" id="ja-contentwrap">
+         <div class="column" id="ja-content" style="width:100%">
+          <div class="column" id="ja-current-content" style="width:100%">
+           <div class="ja-content-main clearfix" id="ja-content-main">
+            <div class="single-article">
+             <div class="item-page clearfix">
+              <h2 class="contentheading">
+               <a href="/developer-blog/277-channel-shuffle-effect.html">
+                Channel Shuffle Effect
+               </a>
+              </h2>
+              <div class="article-tools clearfix">
+               <dl class="article-info">
+                <dd class="create">
+                 Created:
+                 <span>
+                  03 August 2016
+                 </span>
+                </dd>
+                <dd class="createdby">
+                 Written by
+                 <span>
+                  Gregory
+                 </span>
+                </dd>
+               </dl>
+              </div>
+              <div style="text-align:center;">
+               <ins class="adsbygoogle" data-ad-client="ca-pub-7741304783035041" data-ad-type="text_image" data-color-bg="FFFFFF" data-color-border="000000" data-color-link="0088CC" data-color-text="555555" data-color-url="AAAAAA" style="display:inline-block;width:468px;height:60px">
+               </ins>
+               <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+               </script>
+              </div>
+              <div>
+              </div>
+              <div style="text-align: center;">
+               <span style="font-weight: bold;">
+                <span style="font-size: x-large;">
+                 I) Introduction
+                </span>
+               </span>
+              </div>
+              <p style="text-align: justify;">
+               <br/>
+               Dear PCSX2 users,
+               <br/>
+               <br/>
+               GSdx got various improvements recently, issues were fixed on games such as Metal Gear Solid 3, Gran Turismo 4, Tekken 5, Tales of Legendia and Urban Chaos. All of those games use a certain effect that I have nicknamed as the
+               <span style="font-weight: bold;">
+                "Channel Shuffle Effect"
+               </span>
+               . All games use a variation of this effect but each time the effect proved to be memory expensive and it was very slow, even with the best computers. The effect is very interesting because it explains the rendering/GPU architecture evolution from a fixed unit to a processor. So I decided to take this opportunity to explain it the best I can.
+              </p>
+              <p>
+              </p>
+              <p>
+              </p>
+              <div style="text-align: center;">
+               <span style="font-weight: bold;">
+                <span style="font-size: x-large;">
+                 II) GPU evolution/revolution : Fixed Unit vs Shader Unit
+                </span>
+               </span>
+              </div>
+              <p style="text-align: justify;">
+               <br/>
+               So let's start with a bit of history. A long time ago, nearly 20 years ago! (yeah the PS2 isn't in its prime youth), GPUs were hardwired to execute fixed rendering tasks. Back then, they were called 'acceleration units'. Hardwired renderers give you speed, power efficiency, but it is costly (silicon wise) and, well, they are hardwired to do a specific task. It was fine at the start, but then game designers wanted more and more effects. A new effect would have required a new GPU with a new fixed function unit. It was kind of feasible on the PC market but not in the console market where a new GPU is released only every 5 years. So game designers tricked the fixed function unit to emulate some new effects (such as gamma correction, depth of field, ...). The hardware was fast, but the emulation of such effects required more work than the real rendering of the image. Overhead was quite enormous. Accelerated hardware was dead. Welcome the new king, Shaders.
+               <br/>
+               <br/>
+               So what is a Shader unit? It is basically a small processor that executes software code designed specifically for them. The issue is that processors are slow, utterly slow, however they are cheap (silicon wise). However a processor could execute any effect you want. So in order to compensate for the slowness of those processors, thousands of them are put in parallel. Hence complex effects can be done essentially for free.
+               <br/>
+               <br/>
+               Now you probably understand the difference between a fixed unit and a shader unit. Let's get back to the GS emulation.
+              </p>
+              <div style="text-align: center;">
+               <span style="font-weight: bold;">
+                <span style="font-size: x-large;">
+                 III) The GS case
+                </span>
+               </span>
+              </div>
+              <p>
+               <br/>
+               GS is a pure fixed unit. You can basically configure the texture format, the framebuffer format and the final blending equation. Note, the blending equation is quite basic too.
+               <br/>
+               <br/>
+               You can configure the GS to do 2 main color operations,
+              </p>
+              <ul>
+               <li>
+                primitive color * texture color
+               </li>
+               <li>
+                primitive color (when no texture is available)
+               </li>
+              </ul>
+              <p>
+               <br/>
+               Texture sampling operations are done on the 4 channels (Green/Red/Blue/Alpha) at once. You can't select any one of them. It is all or nothing.
+               <br/>
+               <br/>
+               But how does a game like Gran Turismo 4 manage to apply a brightness/contrast effect? How can a game apply a depth effect based on the upper 6 bits of the 16 bits depth buffer? It's crazy, game designers were high ! Yes, you guess it right, they abused magic mushrooms!
+              </p>
+              <div style="text-align: center;">
+               <span style="font-weight: bold;">
+                <span style="font-size: x-large;">
+                 IV) First example: Gran Turismo 4 rendering
+                </span>
+               </span>
+              </div>
+              <p style="text-align: justify;">
+               <br/>
+               Fasten your seat belt and let's dive into the Gran Turismo 4 rendering engine and look at the brightness effect.
+               <br/>
+               <br/>
+               The engine uses 2 textures as input. The image that will get the brightness correction applied and a palette. The palette is basically a lookup table or an array of colors. It allows to transform an index into a new color. Basically the game will save the brightness correction function in the palette. So color 10 will be transformed to 15.
+               <br/>
+               <br/>
+               Here's the palette that will do the brightness correction:
+               <br/>
+               <br/>
+               <img alt="gt4 palette" height="41" src="/images/stories/frontend/devblog/gt4_palette.png" width="500"/>
+               <br/>
+               <br/>
+               <br/>
+               Here is an HLE (High Level Emulation) shader implementation.
+              </p>
+              <div class="codeblock">
+               <div class="title">
+                Code:
+               </div>
+               <div class="body" dir="ltr">
+                <code>
+                 vec4 rt        = sample_input_texture();
+                 <br/>
+                 output_color.r = sample_palette(rt.r).r;
+                 <br/>
+                 output_color.g = sample_palette(rt.g).g;
+                 <br/>
+                 output_color.b = sample_palette(rt.b).b;
+                </code>
+               </div>
+              </div>
+              <p style="text-align: justify;">
+               <br/>
+               It is only a few lines of shader code. First line will read the current texture color. The 2nd line will apply the brightness correction on the red channel. The 3rd will do the same for the green, and the 4th for the blue. It can all be done with a single draw call and it is very fast even on a slow computer. Last but not least it took 3 minutes to implement it.
+               <br/>
+               <br/>
+               But I have cheated, this isn't the GS way, it is the effect that would have been implemented on a standard GPU. The GS method is quite harder.
+               <br/>
+               <br/>
+               First of all, in order to improve the memory access performance on the GS, the framebuffer will be split into many (150) tiny framebuffers of 64x32 pixels.  Actually it is the size of a GS memory page. Of course GSdx doesn't like this as it needs to allocate a 1280x1024 pixel framebuffer for every one of those tiny 64x32 pixel framebuffers, this lead to VRAM spikes at certain scenarios.
+               <br/>
+               <br/>
+               Eventually the brightness effect will be applied on each framebuffers. So yes it is executed 150 times. It requires around 10 GS equivalent draw calls though due to emulation overhead it would be around 15 GPU draw calls. Let's put some numbers in perspective:
+               <br/>
+               <br/>
+               *A good limit for GPU game is ~1000 draw call
+               <br/>
+               <br/>
+               *Gran Turismo 4 frame is 2250 GS draw calls so likely between 2500-3000 draw calls! Ouch.
+               <br/>
+               <br/>
+               *The Gran Turismo 4 brightness effect costs 1500 GS draw calls, it is huge! 66% of the frame rendering is only a single effect. In others words, removing the effect would make the GS emulation nearly 3 time faster.
+               <br/>
+               <br/>
+               Now let's decompose the effect. The equivalent of
+              </p>
+              <div class="codeblock">
+               <div class="title">
+                Code:
+               </div>
+               <div class="body" dir="ltr">
+                <code>
+                 c.r = sample_palette(rt.r).r;
+                </code>
+               </div>
+              </div>
+              <p>
+               <br/>
+               It is executed 3 times, one for each channel (Red/Green/Blue). The above explanation is done for a framebuffer of 64x32, you need to repeat it enough times to cover the full screen. It is already costly on performance to do it once but it should be executed 150 times !
+               <br/>
+               <br/>
+               So the effect is based on a single trick, write the image into a RGBA8 color of size 64x32 but read it back as a 8 bits integer index of the palette. A 32 bits colors contains four 8 bits channel. So for the gs, the image is now 128x64. Of course you can't magically change the size of a texture in a modern GPU neither the format. So you need to convert it. And guess what? it is quite expensive.
+               <br/>
+               <br/>
+               Here's the picture of the initial format (aka human format) and then the GS format:
+               <br/>
+               <br/>
+               <a href="/images/stories/frontend/devblog/gt4_before_effect.png" target="_blank">
+                <img alt="gt4 before effect s" height="212" src="/images/stories/frontend/devblog/gt4_before_effect_s.png" width="353"/>
+               </a>
+               <a href="/images/stories/frontend/devblog/gt4_before_effect_8bit.png" target="_blank">
+                <img alt="gt4 before effect 8bit s" height="182" src="/images/stories/frontend/devblog/gt4_before_effect_8bit_s.png" width="353"/>
+               </a>
+               <br/>
+               <br/>
+               <br/>
+               <br/>
+               Yes it is nice but it is even more complex than you think. Granted, it isn't easy to see it but the texels aren't in the same order. You can infer some small rectangle (8x2 texels), they contain a single channel of the initial color.
+               <br/>
+               <br/>
+               Will anybody find the original image part (full image can be seen below)?
+              </p>
+              <p>
+               <img alt="gt4 sw 8bit example2" height="64" src="/images/stories/frontend/devblog/gt4_sw_8bit_example2.png" width="128"/>
+               <br/>
+               <br/>
+               You could imagine the complexity to debug the effect.
+               <br/>
+               <br/>
+               As I said in the beginning the basic operation of the GS is "primitive color * texture color". We only want to write the red channel so primitive color will be (1.0f, 0.0f, 0.0f, 0.0f) i.e. red will be one and the other channels will be 0. So GS output is basically the red channel of the texture color. Now the texture color case is left, of course you can't just render a single sprite. You only want to sample the 8 bits index that used to be the red channel of the frame. The value will be converted by the palette. And you're done
+               <img alt="Wink" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/wink.gif" width="20"/>
+               No I'm kidding, we've just started.
+               <br/>
+               <br/>
+               So Gran Turismo 4 will render 16 sprites to cherry pick the correct index and try to put it back mostly in the correct order. Why mostly in order? Because the game uses an extra optimization here, if you want to fully descramble the texels, it would likely requires too many sprites rendering, something around 256 sprites. So rendering will be done scrambled for all channels.
+               <br/>
+               <br/>
+               They could have send a kaleidoscope in the game package but finally they decided it was nicer to unscramble the texels. Again, a new trick
+               <img alt="Smile" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/smile.gif" width="20"/>
+               Yes we love tricks
+               <img alt="Smile" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/smile.gif" width="20"/>
+               The framebuffer will read back as a 256x1 palette. Wait you said that framebuffer was 64x32! Yes it would be read back 8 times as 8 palettes. And the input texture is really special, you can see it below. The texture contains the position of the future pixels and you guessed it right, it would unscramble the mess. It is efficient (well efficient for the GS) because you can unscramble your pixels with only 8 extra sprites. And that's it.
+               <br/>
+               <br/>
+               Here's the special texture to unscramble data:
+               <br/>
+               <br/>
+               <img alt="gt4 special texture" height="32" src="/images/stories/frontend/devblog/gt4_special_texture.png" width="8"/>
+               <br/>
+               <br/>
+               Plus some screenshots of the effect (before/after)
+              </p>
+              <p>
+               <a href="/images/stories/frontend/devblog/gt4_before_full.png" target="_blank">
+                <img alt="gt4 before full s" height="247" src="/images/stories/frontend/devblog/gt4_before_full_s.png" width="353"/>
+               </a>
+               <a href="/images/stories/frontend/devblog/gt4_after.png" target="_blank">
+                <img alt="gt4 after s" height="247" src="/images/stories/frontend/devblog/gt4_after_s.png" width="353"/>
+               </a>
+               <br/>
+               <br/>
+              </p>
+              <div style="text-align: center;">
+               <span style="font-weight: bold;">
+                <span style="font-size: x-large;">
+                 V) Second example: Urban Chaos rendering
+                </span>
+               </span>
+              </div>
+              <p>
+               <br/>
+               The new trending effect when the PS2 was released was the depth of field effect. Basically, it's an effect that depends on the depth. A basic example will be a darker/blurrier object if it's far away. It's rather basic to implement, you just need to modulate the color based on the depth value. Unfortunately you can't read the depth value like that. So let's see what the game does.
+               <br/>
+               <br/>
+               Urban Chaos uses a 16 bits integer depth format. Actually the game limits the rendering to 11 bits. So the depth ranges from 0 to 2047. The game creators decided that the top 8 bits will be enough to implement the depth modulation. But a single issue remains, how to extract those 8 bits! Again it will apply on a small framebuffer, and it will consume tons of draw calls, tons of memory.
+               <br/>
+               <br/>
+               At a higher level, it's very close to Gran Turismo. Close, but not the same. Good news, it's easier than Gran Turismo as you don't want an accurate depth information so you don't need to bother with shuffle pixels. So we have seen a way to read back a single channel of a framebuffer and how to apply a correction factor. Urban Chaos will do the same but on the depth texture.
+               <br/>
+               <br/>
+               Here's a small drawing to explain the now easy process:
+               <br/>
+               <br/>
+               <a href="/images/stories/frontend/devblog/urban_chaos.png" target="_blank">
+                <img alt="urban chaos s" height="412" src="/images/stories/frontend/devblog/urban_chaos_s.png" style="display: block; margin-left: auto; margin-right: auto;" width="560"/>
+               </a>
+               <br/>
+               <br/>
+               At the top of the drawing, you have the 16 bits depth. The GS will read it as a color texture (aka RGB5A1) so I set some nice colors for the red, green and blue channels. The depth is split into two 8 bits channels, be aware it doesn't map with the color channel because the effect works on 32 bits memory format. I know it's a bit confusing. Anyway the first step will be to extract the first 8 bits then apply a division by 8. Which is equivalent to removing the 3 bits of the right. The second step will be to extract the remaining 8 bits then apply a multiplication by 32. It's equivalent to shifting the data to the left 5 times. The last step is a blending addition between the 2 shifted depth colors and we are done. We managed to extract only the interesting bits of the depth. The new texture could be used to modulate any effects based on depth information.
+               <br/>
+               <br/>
+               Here's the float depth buffer of the GPU:
+               <br/>
+               <br/>
+               <a href="/images/stories/frontend/devblog/urban_chos_depth_in.png" target="_blank">
+                <img alt="urban chos depth in s" height="251" src="/images/stories/frontend/devblog/urban_chos_depth_in_s.png" width="353"/>
+               </a>
+               <br/>
+               <br/>
+               And now, the greenish texture generated to modulate the depth effect
+               <br/>
+               <br/>
+               <a href="/images/stories/frontend/devblog/urban_chaos_depth_out.png" target="_blank">
+                <img alt="urban chaos depth out s" height="247" src="/images/stories/frontend/devblog/urban_chaos_depth_out_s.png" width="353"/>
+               </a>
+              </p>
+              <div>
+              </div>
+              <div style="text-align: center;">
+               <span style="font-weight: bold;">
+                <span style="font-size: x-large;">
+                 VI) Conclusion
+                </span>
+               </span>
+              </div>
+              <p>
+               <br/>
+               It is time to conclude this blog about the channel effect. There were two possible ways to implement the effect on GSdx. The traditional approach would be to emulate all those draw calls, manage all texture conversions and so on. In short, emulate the GS that emulates a GPU OoO. Unfortunately, even the best PCs would struggle.
+               <br/>
+               <br/>
+               So I implemented the alternate solution, replaced all the mess with a couple of HLE shaders. It's very efficient, thousands of draw calls were replaced by 1 or 2 draw calls. Unfortunately, it isn't perfect either. There are two limitations, it requires to have some HLE shaders by game. Currently not all games are supported (Ghost in the Shell, Manhunt 2, Ridge Racer). And the core (EE/VU) will still generate a ton of primitives to do the effect, albeit GSdx will happily throw everything in the trash, nevertheless it is heavy on the core emulation.
+              </p>
+              <p style="text-align: right;">
+               <em>
+                <strong>
+                 <a href="http://forums.pcsx2.net/Thread-Blog-Channel-Shuffle-effect" target="_blank">
+                  Post a Comment!
+                 </a>
+                </strong>
+               </em>
+              </p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- //CONTENT -->
+      <!-- LEFT COLUMN-->
+      <div class="column sidebar" id="ja-left" style="width:15%">
+       <div class="ja-colswrap clearfix ja-l1">
+        <div class="ja-col column" id="ja-left1" style="width:100%">
+         <div class="ja-moduletable moduletable_menu clearfix" id="Mod23">
+          <h3>
+           <span>
+            Food for thought
+           </span>
+          </h3>
+          <div class="ja-box-ct clearfix">
+           <ul class="nav menutest mod-list">
+            <li class="item-437 current active">
+             <a href="/developer-blog.html">
+              Developer Blog
+             </a>
+            </li>
+            <li class="item-552">
+             <a href="/meet-the-team.html">
+              Meet the team
+             </a>
+            </li>
+            <li class="item-551">
+             <a href="/article-archive.html">
+              Article archive
+             </a>
+            </li>
+            <li class="item-1908">
+             <a href="/site-map.html">
+              Site Map
+             </a>
+            </li>
+           </ul>
+          </div>
+         </div>
+         <div class="ja-moduletable moduletable clearfix" id="Mod110">
+          <div class="ja-box-ct clearfix">
+           <div class="custom">
+            <p>
+             <h3>
+              <a href="/compatibility-list.html" style="color:#033D63;">
+               Compatibility overview
+              </a>
+             </h3>
+             <p style="font-size: 120%; font-weight: bold;">
+              2689 games
+             </p>
+             Perfect: 0.74% - 20
+             <div class="progress-bar perfect">
+              <span style="width:0.74%;">
+              </span>
+             </div>
+             Playable: 97.66% - 2626
+             <div class="progress-bar playable">
+              <span style="width:97.66%;">
+              </span>
+             </div>
+             Ingame: 1.08% - 29
+             <div class="progress-bar ingame">
+              <span style="width:1.08%;">
+              </span>
+             </div>
+             Menus: 0.3% - 8
+             <div class="progress-bar menu">
+              <span style="width:0.3%;">
+              </span>
+             </div>
+             Intro: 0.15% - 4
+             <div class="progress-bar intro">
+              <span style="width:0.15%;">
+              </span>
+             </div>
+             Nothing: 0.07% - 2
+             <div class="progress-bar nothing">
+              <span style="width:0.07%;">
+              </span>
+             </div>
+            </p>
+           </div>
+          </div>
+         </div>
+         <div class="ja-moduletable moduletable-search clearfix" id="Mod35">
+          <div class="ja-box-ct clearfix">
+           <form action="/developer-blog.html" class="search-search" method="post">
+            <input class="inputbox-search" id="mod-search-searchword" maxlength="200" name="searchword" onblur="if (this.value=='') this.value='Search ...';" onfocus="if (this.value=='Search ...') this.value='';" size="10" type="text" value="Search ..."/>
+            <input class="button-search" onclick="this.form.searchword.focus();" type="submit" value="GO"/>
+            <input name="task" type="hidden" value="search"/>
+            <input name="option" type="hidden" value="com_search"/>
+            <input name="Itemid" type="hidden" value="437"/>
+           </form>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- //LEFT COLUMN-->
+     </div>
+    </div>
+   </div>
+   <!-- //MAIN CONTAINER -->
+   <div class="wrap" id="ja-navhelper">
+    <div class="main">
+     <div class="main-inner1 clearfix">
+      <div class="ja-breadcrums">
+       <span class="breadcrumbsbread pathway">
+        <strong>
+         You are here:
+        </strong>
+        <a class="pathway" href="/">
+         Home
+        </a>
+        <img alt="" src="/media/system/images/arrow.png"/>
+        <a class="pathway" href="/developer-blog.html">
+         Developer Blog
+        </a>
+        <img alt="" src="/media/system/images/arrow.png"/>
+        Channel Shuffle Effect
+       </span>
+      </div>
+      <ul class="ja-links">
+       <li class="top">
+        <a href="javascript:scroll(0,0)" title="Back to top">
+         Top
+        </a>
+       </li>
+      </ul>
+      <ul class="no-display">
+       <li>
+        <a href="#ja-content" title="Skip to content">
+         Skip to content
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="wrap" id="ja-footer">
+    <div class="main clearfix">
+     <div class="ja-copyright">
+     </div>
+     <br/>
+     Webdesign and code © 2021 PCSX2 Team | Modified template from Joomla Web Design |
+     <a href="/privacy-policy.html">
+      Privacy Policy
+     </a>
+     |
+     <a href="/eula.html">
+      EULA
+     </a>
+    </div>
+   </div>
+  </div>
+  <script data-cf-beacon='{"rayId":"68dc3575a9762dae","token":"c919a4e35e434ed2b63079aa661a82c0","version":"2021.8.1","si":10}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js">
+  </script>
+ </body>
+</html>

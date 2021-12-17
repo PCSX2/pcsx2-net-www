@@ -1,0 +1,155 @@
+::: {.single-article}
+::: {.item-page .clearfix}
+::: {style="text-align:center;"}
+:::
+
+Being an emulator of a fairly robust system (the PS2), PCSX2 typically
+consumes a *lot* of system RAM. It needs multitudes of caches and
+buffers for various things. Just to give an idea, I\'ll list some of the
+larger stuff and their current defaults:
+
+-   PS2 main memory \[32mb\]
+-   IOP memory \[2mb\]
+-   EE/IOP BIOS roms \[6mb\]
+-   Scratchpad, Hardware registers, VU memory, DMA buffers, etc \[4mb\]
+-   VTLB indexes, lookups, and protection tables \[8mb\]
+-   EE/R5900 recompiler cache \[16mb\]
+-   EE/R5900 recompiler block/pc translation table \[48mb\]
+-   R5900 memory protection mirror \[32mb\]
+-   IOP/R3000A recompiler cache and translation table \[10mb\]
+-   microVU recompiler code caches \[16mb \* 2\]
+-   superVU recompiler code caches \[8mb\]
+
+\
+If all of these things are reserved when PCSX2 starts, we have a base
+memory footprint of over 200 megs before even a single instruction of
+PS2 code is executed! The worst part is that we could really stand to
+allocate *even more* ram: some games need over 120 mb of recompiler
+caches to run properly. Currently those games are dealt with by issuing
+periodic recompiler resets (sluggish).\
+\
+Fortunately modern operating systems have a lot of built-in features
+that help us out. Both Windows and Linux OSes use *virtual memory
+mapping* features of our Intel/AMD cpus to perform \"virtual\"
+allocations of large memory reserves. What this means is that initially
+the allocated memory has no actual *physical* equivalent. It is only
+given a physical presence once the memory is accessed (read or written).
+Explained as a process:\
+\
+1. App requests 1gb of RAM via malloc.\
+2. Operating system \"reserves\" the 1gb of RAM, which marks the virtual
+addresses for use by this memory only. In this case the memory might be
+reserved from 0x10000000 (0.4gb) -\> 0x50000000 (1.4gb).\
+3. Operating system \"commits\" the 1gb of RAM, ensuring there is enough
+physical and swapfile RAM to accommodate it. No actual memory or
+swapfile changes are made; only the tracked amount of ram/swap in
+reserve is altered.\
+3. App receives a pointer to the reserved ram.\
+4. App reads or writes data \-- 128mb worth, let\'s say.\
+5. OS receives a *page fault* exception for that memory, and allocates a
+chunk of *physical* RAM for it. Other processes may be swapped out to
+disk at this time to make room for the memory in-use.\
+\
+Only at Point 5 does any actual physical ram get used by the program.
+Prior to Point 5, the app has used exactly 0 byte of RAM, in spite of
+allocating 1gb via **malloc** . This feature is implicit to both Windows
+and Linux and already helps work wonders on PCSX2\'s overall memory
+footprint. This is also why you might get \"Low on virtual memory!\"
+errors even though it appears as though you have lots of free ram in the
+System Monitor / Process Explorer, because some apps commit lots of
+memory but only actually access a small fraction of it.\
+\
+There are ways, however, to fine tune memory access and get even better
+memory management than the implicit Windows / Linux provisions via
+malloc. The first rule is a simple one, but one many programmers
+probably have no idea about it:\
+\
+[ **Do not use calloc, and do not clear allocated memory by default
+unless you absolutely have to!** ]{style="font-size: 11pt;"}\
+\
+Calling **calloc** instead of **malloc** causes the entire allocation
+(1gb in our above example) to be committed to physical memory because of
+its being cleared to zero. Likewise, manually clearing buffers to zero
+(or some other value) has the same effect. Even if only a small portion
+of the array ends up being used later on, its too late: the whole thing
+is sucking up resources for no good reason except to express a patterned
+fill value. Sometimes clearing buffers cannot be avoided, but most of
+the time buffers need not be cleared at all, and programmers simply use
+calloc or manual clears out of habit.\
+\
+[ **Using Reserve and Commit to manage recompiled code buffers.**
+]{style="font-size: 11pt;"}\
+\
+There are two phases to allocating memory on a virtual memory system, as
+noted in the small ordered list above. By default, **malloc** will
+*reserve* and *commit* ram together. This is done so that the system can
+ensure that there is enough ram and swap to free to give the program the
+entire allocation \-- *if* it happens to ever need it. If the *commit*
+phase fails due to there not being enough physical ram, **malloc**
+returns NULL. If you manage the reserve and commit phases separately,
+then you can reserve extra large swatches of memory addresses without
+affecting the rest of the operating system in any way; and then later on
+commit portions of the reserve only as needed. There aren\'t a whole lot
+of reasons why you\'d need to micro-manage the virtual memory system in
+this way, and for most purposes simply using malloc and letting the OS
+do its own internal management suffices nicely. Lucky for us, PCSX2 has
+one!\
+\
+One of the troubles with recompiled code is that it can\'t be allowed to
+*move* . Typically use of **malloc** and **realloc** results in
+allocated memory moving around as it grows or shrinks. This is fine for
+most purposes, but is disastrous to executable code since it invalidates
+all block pointers and long jumps (which use absolute addressing). In
+order to grow a recompiled code cache using traditional malloc, you have
+to clear the cache and start over \-- a recompiler reset. This usually
+causes a lengthy hiccup in emulation speed when it happens.\
+\
+Virtual memory techniques can be used to get around that. When we
+reserve the recompiled code cache, we reserve the upper limit of what we
+deem a sane cache size. In this case, the R5900 cache should be a
+maximum of 48mb. The 48mb is reserved from 0x30000000-\>0x33000000 when
+PCSX2 starts, the first 4mb are *committed* when PCSX2 starts executing
+R5900 code. When the cache fills, PCSX2 automatically commits more
+memory in 128k increments, up to 48mb \-- at which point the emulator
+will reset the cache and start over. Thanks to the virtual memory
+strategy described above, only a fraction of the 48meg allocation
+actually *exists* in physical ram unless more of the allocation is
+actually needed. Furthermore, computers with limited RAM resources or
+disabled swapfiles will still be able to run PCSX2 nicely.\
+\
+Committing blocks of memory from the 48meg reserve never alters the base
+address of the memory, so no pointers become invalid, and no memory
+needs to be copied or shuffled in order to make room for the larger
+caches. The end result is near instantaneous increases in cache size,
+on-the-fly! \... and all-the-while maintaining compact and efficient
+memory footprint for games that don\'t need more than the basic caches.\
+\
+On Windows this technique is implemented using
+[VirtualAlloc](http://msdn.microsoft.com/en-us/library/aa366887.aspx) ,
+which is fairly well documented via the linked MSDN page. On Linux,
+however, things get a bit strange. The technique can be implemented
+using a combination of
+[mmap](http://www.kernel.org/doc/man-pages/online/pages/man2/mmap.2.html)
+and
+[mprotect](http://www.kernel.org/doc/man-pages/online/pages/man2/mprotect.2.html)
+, but unfortunately the Linux man pages lack any actual explanation of
+how to perform independent reserve and commit actions (but rest assured,
+it can be done). Furthermore, Linux has an implicit system enabled by
+default called **Over-committing** , which basically skips phase (3)
+described above \-- and always returns a valid pointer on calls to
+malloc, even if the system hasn\'t enough ram to accommodate the
+request.\
+\
+Over-committing is so surpassingly hacky and evil that it deserves a
+blog post all to itself, so stay tuned.
+![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
+width="20" height="20"}\
+\
+***To be continued\...***\
+\
+
+::: {style="font-style: italic; font-size: 10pt; font-weight: bold; text-align: right;"}
+[Post a Comment!](http://forums.pcsx2.net/thread-16823.html)
+:::
+:::
+:::

@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="en-gb" xml:lang="en-gb" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <base href="https://pcsx2.net/eula/79-frontpage-news/297-q4-2020-progress-report.html"/>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="pcsx2, pc, ps2, emulation, emulator, playstation, games, geforce, radeon, intel, amd, f2p, gaming, video games, sony, game, play, free, download, freeware, online" name="keywords"/>
+  <meta content="bositman" name="author"/>
+  <meta content="PCSX2 a Playstation 2 emulator for Windows, Linux and Mac" name="description"/>
+  <meta content="Joomla! - Open Source Content Management" name="generator"/>
+  <title>
+   PCSX2 - The Playstation 2 emulator - Q4 2020 Progress Report
+  </title>
+  <link href="https://pcsx2.net/component/search/?Itemid=663&amp;catid=79&amp;id=297&amp;format=opensearch" rel="search" title="Search PCSX2 - The Playstation 2 emulator" type="application/opensearchdescription+xml"/>
+  <link href="/index.php?jat3action=gzip&amp;jat3type=css&amp;jat3file=cache%2Ft3%2Fcss_a5b86.css" rel="stylesheet" type="text/css"/>
+  <script class="joomla-script-options new" type="application/json">
+   {"csrf.token":"f4cb37c812ef6f51714c8d93a5f34cae","system.paths":{"root":"","base":""}}
+  </script>
+  <script src="https://pcsx2.net/plugins/system/yvsmiley/default.js" type="text/javascript">
+  </script>
+  <script src="/media/system/js/mootools-core.js" type="text/javascript">
+  </script>
+  <script src="/media/system/js/core.js" type="text/javascript">
+  </script>
+  <script src="/media/jui/js/jquery.min.js" type="text/javascript">
+  </script>
+  <script src="/media/jui/js/jquery-noconflict.js" type="text/javascript">
+  </script>
+  <script src="/media/jui/js/jquery-migrate.min.js" type="text/javascript">
+  </script>
+  <script src="/media/system/js/caption.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/core.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/menu/mega.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/fadeinout.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/mootools-more-s.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/resize.js" type="text/javascript">
+  </script>
+  <script src="/libraries/videobox/js/videobox.js" type="text/javascript">
+  </script>
+  <script src="/libraries/videobox/js/functions.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+  </script>
+  <!--[if ie]><link href="/plugins/system/jat3/jat3/base-themes/default/css/template-ie.css" type="text/css" rel="stylesheet" /><![endif]-->
+  <!--[if ie 7]><link href="/plugins/system/jat3/jat3/base-themes/default/css/template-ie7.css" type="text/css" rel="stylesheet" /><![endif]-->
+  <!--[if ie 7]><link href="/templates/business8/css/template-ie7.css" type="text/css" rel="stylesheet" /><![endif]-->
+  <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <style type="text/css">
+   /*dynamic css*/
+
+    body.bd .main {width: 100%;}
+    body.bd #ja-wrapper {min-width: 100%;}
+  </style>
+  <script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+  </script>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-387767-1', 'pcsx2.net');
+  ga('send', 'pageview');
+  </script>
+  <!-- Universal Google Analytics Plugin by PB Web Development -->
+ </head>
+ <body class="bd fs3 com_content">
+  <a id="Top">
+  </a>
+  <div id="ja-wrapper">
+   <div class="wrap" id="ja-header">
+    <div class="main">
+     <div class="main-inner1 clearfix">
+      <a href="/" title="PCSX2 - The Playstation 2 emulator">
+       <img alt="PCSX2 homepage" height="120" src="/templates/business8/themes/classic/images/logo_classic.png" width="452"/>
+      </a>
+     </div>
+    </div>
+   </div>
+   <div id="ja-cpanel-wrapper">
+    <div id="ja-cpanel">
+     <div id="ja-cpanel-main">
+      <div class="ja-cpanel-tools clearfix">
+       <h3>
+        Font Size
+       </h3>
+       <div class="ja-box-usertools">
+        <ul class="ja-usertools-font clearfix">
+         <li class="font-inc">
+          <a onclick="switchFontSize('business8_font', 'inc');return false;" title="Increase font size">
+           <span>
+            Increase font size
+           </span>
+          </a>
+         </li>
+         <li class="font-dec">
+          <a onclick="switchFontSize('business8_font', 'dec');return false;" title="Decrease font size">
+           <span>
+            Decrease font size
+           </span>
+          </a>
+         </li>
+         <li class="font-reset">
+          <a onclick="switchFontSize('business8_font', 'reset');return false;" title="Default font size">
+           <span>
+            Default font size
+           </span>
+          </a>
+         </li>
+        </ul>
+       </div>
+       <script type="text/javascript">
+        var DefaultFontSize=parseInt('3');
+  var CurrentFontSize=parseInt('3');
+       </script>
+       <h3>
+        Profile
+       </h3>
+       <div class="ja-box-usertools">
+        <ul class="ja-usertools-profile clearfix">
+         <li class="profile profile-active">
+          <input checked="checked" id="user_profile_classic" name="user_profile" type="radio" value="classic"/>
+          <label for="user_profile_classic" title="classic">
+           <span>
+            classic
+           </span>
+          </label>
+         </li>
+         <li class="profile">
+          <input id="user_profile_default" name="user_profile" type="radio" value="default"/>
+          <label for="user_profile_default" title="default">
+           <span>
+            default
+           </span>
+          </label>
+         </li>
+        </ul>
+       </div>
+       <h3>
+        Layout
+       </h3>
+       <div class="ja-box-usertools">
+        <ul class="ja-usertools-layout clearfix">
+         <li class="layout layout-default-active">
+          <input checked="checked" id="user_layouts_default" name="user_layouts" type="radio" value="default"/>
+          <label for="user_layouts_default" title="default">
+           <span>
+            default
+           </span>
+          </label>
+         </li>
+         <li class="layout layout-no-bottom-boxes">
+          <input id="user_layouts_no-bottom-boxes" name="user_layouts" type="radio" value="no-bottom-boxes"/>
+          <label for="user_layouts_no-bottom-boxes" title="no-bottom-boxes">
+           <span>
+            no-bottom-boxes
+           </span>
+          </label>
+         </li>
+         <li class="layout layout-no-latest-boxes">
+          <input id="user_layouts_no-latest-boxes" name="user_layouts" type="radio" value="no-latest-boxes"/>
+          <label for="user_layouts_no-latest-boxes" title="no-latest-boxes">
+           <span>
+            no-latest-boxes
+           </span>
+          </label>
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div class="ja-cpanel-action clearfix">
+       <a class="button" href="#" onclick="cpanel_apply();return false;" title="Apply setting">
+        <span>
+         Apply
+        </span>
+       </a>
+       <a href="#" onclick="cpanel_reset();return false;" title="Reset to default setting">
+        <span>
+         Reset
+        </span>
+       </a>
+      </div>
+     </div>
+     <a href="#" id="ja-cpanel-toggle">
+      <span>
+       Cpanel
+      </span>
+     </a>
+    </div>
+   </div>
+   <script type="text/javascript">
+    var tmpl_name = 'business8';
+    window.addEvent('load', function () {
+        $('ja-cpanel-toggle').status == 'close';
+        $('ja-cpanel-toggle').slider = new Fx.Slide('ja-cpanel-main', {duration: 400});
+        $('ja-cpanel-toggle').slider.hide();
+        $('ja-cpanel').setStyle ('top', 0);
+        $('ja-cpanel-toggle').addEvent ('click', function (e) {
+            this.slider.toggle();
+            if (this.hasClass ('open')) {
+                this.removeClass ('open').addClass ('close');
+            } else {
+                this.removeClass ('close').addClass ('open');
+            }
+
+            if(e){
+                e.stop();
+            }
+        });
+    });
+   </script>
+   <div class="wrap" id="ja-mainnav">
+    <div class="main">
+     <div class="main-inner1 clearfix">
+      <div class="ja-megamenu clearfix" id="ja-megamenu">
+       <ul class="megamenu level0">
+        <li class="mega first">
+         <a class="mega first" href="https://pcsx2.net/" id="menu435" title="Home">
+          <span class="has-image has-desc" style="background-image:url(/images/stories/frontend/static/home-icon.png);">
+           <span class="menu-title">
+            Home
+           </span>
+           <span class="menu-desc">
+            News
+           </span>
+          </span>
+         </a>
+        </li>
+        <li class="mega">
+         <a class="mega" href="/getting-started.html" id="menu455" title="Getting Started">
+          <span class="has-image has-desc" style="background-image:url(/images/stories/frontend/static/getting-started-icon.png);">
+           <span class="menu-title">
+            Getting Started
+           </span>
+           <span class="menu-desc">
+            Start here!
+           </span>
+          </span>
+         </a>
+        </li>
+        <li class="mega haschild">
+         <a class="mega haschild" href="/download.html" id="menu506" title="Download">
+          <span class="menu-title">
+           Download
+          </span>
+          <span class="menu-desc">
+           Get PCSX2 here
+          </span>
+         </a>
+         <div class="childcontent cols2">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 240px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="/download/releases.html" id="menu507" title="Releases">
+                  <span class="menu-title">
+                   Releases
+                  </span>
+                  <span class="menu-desc">
+                   Latest stable releases
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="/download/releases/windows.html" id="menu515" title="Windows">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-For-Windows-s.png);">
+                     <span class="menu-title">
+                      Windows
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/linux.html" id="menu517" title="Linux">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-For-Linux-s.png);">
+                     <span class="menu-title">
+                      Linux
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/mac.html" id="menu518" title="Mac">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-For-Mac-s.png);">
+                     <span class="menu-title">
+                      Mac
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/source-code.html" id="menu566" title="Source code">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-Source-code.png);">
+                     <span class="menu-title">
+                      Source code
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/archive-download.html" id="menu543" title="Archive downloads">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-archive.png);">
+                     <span class="menu-title">
+                      Archive downloads
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega last">
+                   <a class="mega last" href="/download/releases/tools.html" id="menu571" title="Tools">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-tool.png);">
+                     <span class="menu-title">
+                      Tools
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+            <div class="megacol column2 last" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="/download/development.html" id="menu525" title="Development">
+                  <span class="menu-title">
+                   Development
+                  </span>
+                  <span class="menu-desc">
+                   Daily development builds, possibly unstable
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="/download/development/dev-windows.html" id="menu526" title="Windows">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/svn-icon.png);">
+                     <span class="menu-title">
+                      Windows
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega last">
+                   <a class="mega last" href="https://launchpad.net/%7Epcsx2-team/+archive/ubuntu/pcsx2-daily" id="menu1431" target="_blank" title="Linux">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/svn-icon.png);">
+                     <span class="menu-title">
+                      Linux
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+        <li class="mega haschild">
+         <a class="mega haschild" href="https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/Configuration_Guide/Configuration_Guide.md" id="menu508" title="Guide">
+          <span class="menu-title">
+           Guide
+          </span>
+          <span class="menu-desc">
+           Config Guide
+          </span>
+         </a>
+         <div class="childcontent cols2">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first" href="https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/Configuration_Guide/Configuration_Guide.md" id="menu509" title="English guide">
+                  <span class="menu-title">
+                   English guide
+                  </span>
+                 </a>
+                </div>
+               </div>
+              </li>
+              <li class="mega">
+               <a class="mega" href="/config-guide/guide-translations.html" id="menu594" title="Guide translations">
+                <span class="menu-title">
+                 Guide translations
+                </span>
+               </a>
+              </li>
+             </ul>
+            </div>
+            <div class="megacol column2 last" style="width: 250px;">
+             <ul class="megamenu level1">
+              <li class="mega first">
+               <a class="mega first" href="https://forums.pcsx2.net/Thread-Program-and-Guide-translation-applications" id="menu568" target="_blank" title="Translate it!">
+                <span class="menu-title">
+                 Translate it!
+                </span>
+                <span class="menu-desc">
+                 Translate the guide or program to your language
+                </span>
+               </a>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+        <li class="mega haschild">
+         <a class="mega haschild" href="#" id="menu546" title="Support">
+          <span class="menu-title">
+           Support
+          </span>
+          <span class="menu-desc">
+           Need help?
+          </span>
+         </a>
+         <div class="childcontent cols2">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="https://forums.pcsx2.net" id="menu547" target="_blank" title="Support Forum">
+                  <span class="menu-title">
+                   Support Forum
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="https://forums.pcsx2.net" id="menu550" target="_blank" title="Official forum">
+                    <span class="menu-title">
+                     Official forum
+                    </span>
+                    <span class="menu-desc">
+                     Join thousands of members to get help!
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+            <div class="megacol column2 last" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="#" id="menu548" title="Useful info">
+                  <span class="menu-title">
+                   Useful info
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/PCSX2_FAQ.md" id="menu549" title="Frequently Asked Questions">
+                    <span class="menu-title">
+                     Frequently Asked Questions
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega last">
+                   <a class="mega last" href="https://wiki.pcsx2.net" id="menu599" target="_blank" title="PCSX2 Wiki">
+                    <span class="menu-title">
+                     PCSX2 Wiki
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+        <li class="mega">
+         <a class="mega" href="/compatibility-list.html" id="menu512" title="Compatibility">
+          <span class="has-image has-desc" style="background-image:url(/images/stories/frontend/static/compat-menu.png);">
+           <span class="menu-title">
+            Compatibility
+           </span>
+           <span class="menu-desc">
+            Check your games!
+           </span>
+          </span>
+         </a>
+        </li>
+        <li class="mega last haschild">
+         <a class="mega last haschild" href="/demo-videos-screenshots.html" id="menu544" title="Demo">
+          <span class="menu-title">
+           Demo
+          </span>
+          <span class="menu-desc">
+           Screens and videos
+          </span>
+         </a>
+         <div class="childcontent cols1">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first">
+               <a class="mega first" href="/demo-videos-screenshots/screenshots.html" id="menu567" title="Screenshots">
+                <span class="menu-title">
+                 Screenshots
+                </span>
+               </a>
+              </li>
+              <li class="mega">
+               <a class="mega" href="/demo-videos-screenshots/videos.html" id="menu595" title="Videos">
+                <span class="menu-title">
+                 Videos
+                </span>
+               </a>
+              </li>
+              <li class="mega last">
+               <a class="mega last" href="https://www.youtube.com/user/PCSX2team" id="menu651" target="_blank" title="Youtube Channel">
+                <span class="menu-title">
+                 Youtube Channel
+                </span>
+               </a>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+       </ul>
+      </div>
+      <script type="text/javascript">
+       var megamenu = new jaMegaMenuMoo ('ja-megamenu', {
+                    'bgopacity': 0,
+                    'delayHide': 10,
+                    'slide'    : 0,
+                    'fading'   : 0,
+                    'direction': 'down',
+                    'action'   : 'mouseover',
+                    'tips'     : false,
+                    'duration' : 300,
+                    'hidestyle': 'fastwhenshow'
+                });
+      </script>
+      <!-- jdoc:include type="menu" level="0" / -->
+      <ul class="no-display">
+       <li>
+        <a href="#ja-content" title="Skip to content">
+         Skip to content
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <!-- MAIN CONTAINER -->
+   <div class="wrap ja-l1" id="ja-container">
+    <div class="main clearfix">
+     <div id="ja-mainbody" style="width:100%">
+      <!-- CONTENT -->
+      <div id="ja-main" style="width:85%">
+       <div class="inner clearfix">
+        <div id="system-message-container">
+        </div>
+        <div class="clearfix" id="ja-contentwrap">
+         <div class="column" id="ja-content" style="width:100%">
+          <div class="column" id="ja-current-content" style="width:100%">
+           <div class="ja-content-main clearfix" id="ja-content-main">
+            <div class="single-article">
+             <div class="item-page clearfix">
+              <h2 class="contentheading">
+               <a href="/297-q4-2020-progress-report.html">
+                Q4 2020 Progress Report
+               </a>
+              </h2>
+              <div style="text-align:center;">
+               <ins class="adsbygoogle" data-ad-client="ca-pub-7741304783035041" data-ad-type="text_image" data-color-bg="FFFFFF" data-color-border="000000" data-color-link="0088CC" data-color-text="555555" data-color-url="AAAAAA" style="display:inline-block;width:468px;height:60px">
+               </ins>
+               <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+               </script>
+              </div>
+              <p>
+               <img alt="progress rep q4 2020" height="104" src="/images/stories/frontend/progress_reports/q4-2020/q4-2020-report.jpg" style="display: block; margin-left: auto; margin-right: auto;" width="563"/>
+              </p>
+              <p style="text-align: center;">
+               This quarter has been really amazing for us and for our users that enjoy using PCSX2.
+              </p>
+              <p style="text-align: center;">
+               We've made some outstanding progress, hope you guys enjoy the read
+               <img alt="Smile" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/smile.gif" width="20"/>
+              </p>
+              <p style="text-align: center;">
+               Written by
+               <a href="https://forums.pcsx2.net/User-lightningterror" rel="noopener" target="_blank">
+                lightningterror
+               </a>
+              </p>
+              <h1>
+               Core Improvements
+              </h1>
+              <p>
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                Plugins merger in to core continuation:
+               </strong>
+              </p>
+              <p>
+               As we mentioned in our previous report we are continuing merging the plugins in to the core which bring us variety of benefits.
+              </p>
+              <p>
+               For people that used different plugins for specific features that aren't available in the plugins we merged don't worry, we are working on adding those features as well, be patient
+               <img alt="Smile" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/smile.gif" width="20"/>
+              </p>
+              <p>
+               Currently the following plugins have been merged in to the core:
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3782">
+                #3782
+               </a>
+               DEV9: For the DEV9 feature that handles PS2 hard disk drive and Ethernet emulation we merged the dev9ghzdrk plugin in to the core. By
+               <a href="https://github.com/GovanifY">
+                GovanifY
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3756">
+                #3756
+               </a>
+               SPU2: For the SPU2 feature that handles PS2 audio we merged the SPU2-X plugin in to the core. By
+               <a href="https://github.com/GovanifY">
+                GovanifY
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3889">
+                #3889
+               </a>
+               USB: For the USB feature we merged the USBqemu-wheel plugin in to the core. By
+               <a href="https://github.com/GovanifY">
+                GovanifY
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3994">
+                #3994
+               </a>
+               PAD: For the PAD feature that handles PS2 controller input we merged LilyPad for Windows users and OnePad 2.0 for Linux/Mac. In the future we will transition and combine both of them so all missing features get added. By
+               <a href="https://github.com/GovanifY">
+                GovanifY
+               </a>
+               .
+              </p>
+              <p>
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                Counters improvements:
+               </strong>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3785">
+                #3785
+               </a>
+               Counters: Tighten tolerances on framelimiter and smooth out frame pacing. By
+               <a href="https://github.com/RedPanda4552">
+                RedPanda4552
+               </a>
+               and
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Comparing PCSX2's old framelimiter with RTSS showed there was room for improvement. Frametimes regularly would jump up and down in various situations. This change smooths out frame pacing substantially across the board (easily visible in RTSS). We have some comparisons below which you can see the differences, alternatively our users can check out the relative PR for more details.
+              </p>
+              <p style="padding-left: 40px;">
+               Note: Master(Before) -&gt;PR(After)
+              </p>
+              <p style="padding-left: 40px;">
+               Ratchet &amp; Clank 2
+              </p>
+              <p style="padding-left: 40px;">
+               <img alt="" height="66" src="/images/stories/frontend/progress_reports/q4-2020/r-c-2-frame-pacing.gif" width="816"/>
+              </p>
+              <p style="padding-left: 40px;">
+               Champions - Return to Arms
+              </p>
+              <p style="padding-left: 40px;">
+               <img alt="" height="66" src="/images/stories/frontend/progress_reports/q4-2020/champions-return-to-arms-frame-pacing.gif" width="816"/>
+              </p>
+              <p style="padding-left: 40px;">
+               Metal Arms - Glitch in the System
+              </p>
+              <p style="padding-left: 40px;">
+               <img alt="" height="92" src="/images/stories/frontend/progress_reports/q4-2020/metal-arms-frame-pacing.gif" width="816"/>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3862">
+                #3862
+               </a>
+               Counters: account for vertical frequency differences in non-interlaced analog modes. By
+               <a href="https://github.com/tadanokojin">
+                tadanokojin
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Timing adjustments for double strike analog modes.
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes Beatmania IIDX 3rd-8th Style.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/71176332042b004c2e05a517f481687d6fc39914">
+                7117633
+               </a>
+               Counters/Vsync: Do correct number of HBlanks per VSync for PAL/NTSC. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                MTVU improvements:
+               </strong>
+              </p>
+              <p>
+               We are happy to announce that we have made great progress this time around in improving MTVU compatibility with a bunch of games. The MTVU list with remaining compatibility issues can be seen at
+               <a href="https://github.com/PCSX2/pcsx2/issues/1669">
+                #1669
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4035">
+                #4035
+               </a>
+               MTVU: Improve compatibility with games that do GS SIGNAL/LABEL/FINISH. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Improve compatibility with games that use FINISH/SIGNAL/LABEL on the GS through VU1 when using MTVU.
+              </p>
+              <p style="padding-left: 40px;">
+               Performance impact is reasonably minimal, within a couple of percent of master. Although I cannot guarantee the reliability although it looks good, it's a huge improvement and a vast majority of the games listed are now playable with MTVU.
+              </p>
+              <p style="padding-left: 40px;">
+               If a game does a double SIGNAL, that still won't work.
+              </p>
+              <p style="padding-left: 40px;">
+               Fixed Games when using MTVU:
+              </p>
+              <p style="padding-left: 40px;">
+               Backyard Basketball
+               <br/>
+               Baroque
+               <br/>
+               Batman: Vengeance
+               <br/>
+               Crash Nitro Kart
+               <br/>
+               Gradius V
+               <br/>
+               Heatseeker
+               <br/>
+               King's Field IV
+               <br/>
+               Marvel Ultimate Alliance
+               <br/>
+               Medal of Honor: Rising Sun
+               <br/>
+               MTVs Celebrity Deathmatch
+               <br/>
+               Summon Night Gran-These: Horobi no Ken to Yakusoku no Kishi
+               <br/>
+               Tony Hawk games
+               <br/>
+               X-Men Legends 2
+               <br/>
+               Yu-Gi-Oh! Capsule Monster Coliseum
+              </p>
+              <p style="padding-left: 40px;">
+               Slowdown in games using MTVU Fixed:
+              </p>
+              <p style="padding-left: 40px;">
+               007 Agent Under Fire
+               <br/>
+               007 Everything or Nothing
+               <br/>
+               TimeSplitters 2
+               <br/>
+               TimeSplitters Future Perfect
+              </p>
+              <p style="padding-left: 40px;">
+               Homebrew Fixes:
+              </p>
+              <p style="padding-left: 40px;">
+               Aura for Laura
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4043">
+                #4043
+               </a>
+               VIF: Always update MTVU thread with Row/Col Changes. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes graphical issues in Fatal Frame 2 when swapping to MTVU.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4053">
+                #4053
+               </a>
+               MTVU: Clean up GS SIGNAL/LABEL/FINISH communication. By
+               <a href="https://github.com/tellowkrinkle">
+                tellowkrinkle
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes atomic usage and ensures all communication goes in one direction.
+              </p>
+              <p style="padding-left: 40px;">
+               Also removed some forced 4-byte alignment, for 4-byte types it's unnecessary and for 8-byte types it's either unnecessary or harmful.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/c9a5443539e5f2ec2a9719a39743fe9f36da551f">
+                c9a5443
+               </a>
+               VIF: Slightly optimise when Row/Col are written to MTVU. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/155cf385bda43668ab3ebd7abf07940ed6047eef">
+                155cf38
+               </a>
+               microVU: Flush running VU1 program when toggling MTVU on. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/7b7278bc85fa3becd39c47168fe6c912523b4d43">
+                7b7278b
+               </a>
+               VIF: Fix MPG bug incrementing addresses properly when using MTVU. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p>
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                <a href="https://github.com/PCSX2/pcsx2/pull/3813">
+                 #3813
+                </a>
+                COP2: Make sure the status flag gets updated on DIV/SQRT/RSQRT. By
+                <a href="https://github.com/refractionpcsx2">
+                 refractionpcsx2
+                </a>
+                .
+               </strong>
+              </p>
+              <p>
+               Fixes Yanya Caballista running slow (patches removed).
+               <br/>
+               Fixes Disney's Treasure Planet's crazy camera (that flies off) and ground displacement.
+              </p>
+              <p>
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                <a href="https://github.com/PCSX2/pcsx2/pull/3957">
+                 #3957
+                </a>
+                MFIFO: Maintain VIF DMA status and Empty condition on VIF reset. By
+                <a href="https://github.com/refractionpcsx2">
+                 refractionpcsx2
+                </a>
+                .
+               </strong>
+              </p>
+              <p>
+               Don't decrement/change VIF1 QWC on VIF1 FIFO write.
+              </p>
+              <p>
+               This involves removing an old VIF reset hack which was put in for Donald Duck Quack Attack, but doesn't seem to be needed anymore (game uses T-Bit on VU which has been fixed since this hack was placed in and could likely have been the problem).
+              </p>
+              <p>
+               Fixes Scarface when switching to progressive mode.
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                microVU improvements:
+               </strong>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/0448b4902c5e158af5bb654422d05eb78ceafa83">
+                0448b49
+               </a>
+               microVU: Fixed bug in E-bit conditional branches. Fixes DT Racer. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3865">
+                #3865
+               </a>
+               microVU: Fix program range wrapping. Fixes constant recompilation in IHRA Drag Racing and Dawn of Mana. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3797">
+                #3797
+               </a>
+               microVU: Make sure flags are exact on M-bit. Fixes Gungrave. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3971">
+                #3971
+               </a>
+               microVU: Keep start PC, modify prog search to avoid recompilation. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Fix some M-Bit stuff to reduce programs created and fix them happening on branches.
+              </p>
+              <p style="padding-left: 40px;">
+               Hopefully shouldn't be much in the way of compatibility changes, but should cut down the recompilation of MicroVU0 programs due to the change in how VU0 operates and how things are going to work going forward. MGS3 went down from 115 (and climbing) to around 13. Crash Twinsanity went down from 32 by the main menu to about 15.
+              </p>
+              <p style="padding-left: 40px;">
+               This also sets up some future work of synchronising VU1.
+              </p>
+              <p style="padding-left: 40px;">
+               Also fixes a bug in VIF when using MTVU, fixes Def Jam Fight for NY when using MTVU, maybe others.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/03445d0b553fc5a8275e5df91fe004a5e10607a2">
+                03445d0
+               </a>
+               microVU: Add check when loading quick block from program. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Sometimes (CoD Finest Hour) can somehow end up with blocks missing from a program, it still finds the current program, so we check if the block exists, if not, recompile new ones.
+              </p>
+              <p>
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                SIF improvements:
+               </strong>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3808">
+                #3808
+               </a>
+               SIF: Fix attempting to write junk when FIFO full. Fixes Ghosthunter. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3779">
+                #3779
+               </a>
+               SIF: Transfer SIF0 junk for partial QW transfers from IOP. Fixes True Crime: Streets of LA. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               , backport from Dobiestation.
+              </p>
+              <p>
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                <a href="https://github.com/PCSX2/pcsx2/pull/3955">
+                 #3955
+                </a>
+                DMA: Correctly emulate QWC 0 on NORMAL transfers. By
+                <a href="https://github.com/refractionpcsx2">
+                 refractionpcsx2
+                </a>
+                .
+               </strong>
+              </p>
+              <p>
+               This removes 2 hacks on the IPU for Enter the Matrix and Mana Khemia
+              </p>
+              <p>
+               On the PS2 if a NORMAL DMA transfer is started with QWC 0, the DMA overflows and transfers another 0xFFFF quadwords on top of the underflowed one, this correctly emulates that.
+              </p>
+              <p>
+               I did have to do a "kind of" hack to make Mana Khemia work properly, the game relies on the IPU to take some time to decode macroblocks, but we handle them instantly, so I had to place an artificial delay on starting the DMA to let it catch up and do what it needs to do. It shouldn't have any negative impacts.
+              </p>
+              <p>
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                <a href="https://github.com/PCSX2/pcsx2/pull/3936">
+                 #3936
+                </a>
+                BIOS/HLE: Use BIOS settings on Fastboot. By
+                <a href="https://github.com/refractionpcsx2">
+                 refractionpcsx2
+                </a>
+                .
+               </strong>
+              </p>
+              <p>
+               Fixes bad fonts when booting a game in fast boot.
+              </p>
+              <p>
+               Selects correct language for games depending on your BIOS setting when using fast boot.
+              </p>
+              <p>
+               It also makes normal boot works for your language even if you have a difference between BIOS region and game region but you will need to go into BIOS and apply that or let the default settings handle it based on your BIOS.
+               <a href="https://github.com/PCSX2/pcsx2/pull/4018">
+                #4018
+               </a>
+               .
+              </p>
+              <p>
+               Stops games such as Guitar Hero 2 from crashing on fast boot.
+              </p>
+              <p>
+               Displays corrects timezones in games.
+              </p>
+              <p>
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                <a href="https://github.com/PCSX2/pcsx2/pull/3969">
+                 #3969
+                </a>
+                IPU: Stop IPU0 looping when there's no data for it to read. By
+                <a href="https://github.com/refractionpcsx2">
+                 refractionpcsx2
+                </a>
+                .
+               </strong>
+              </p>
+              <p>
+               Fixes bad slowdowns in Ratchet games when using EE Timing fix caused by bad IPU streams.
+              </p>
+              <p>
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                VIF improvements:
+               </strong>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/678829a5b2b8ca7a3e42d8edc9ab201bf00b0fe9">
+                678829a
+               </a>
+               VIF: Don't rush finish VU programs. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes remaining SPS in Shadowman.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4003">
+                #4003
+               </a>
+               VIF: Don't start transfer if VIF1/0 is stalled. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Also Fix missing VIF status check on MFIFO.
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes hang in Batman Vengeance, game stalls the VIF during an MFIFO transfer then stops and starts VIF while it's stalled, in the old code this causes it to ignore the stall and continue as normal, this PR fixes that behaviour.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/a4553e821ffadf8a7c95e44a8ca7750d7f5df72f">
+                a4553e8
+               </a>
+               VIF: Allow VIF1 to continue if stalled and the FIFO is reversed. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/843650e79ecf02b2234728f5d9ab34767da4242b">
+                843650e
+               </a>
+               VIF: Mask VU program address on MSCAL/MSCNT instructions. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/97b74fa6ea81a1e213aa7bbdc8b5d7f5b2c27d83">
+                97b74fa
+               </a>
+               VIF: MSCNT address is -1, so don't mask it. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/2409486c2dc51346d6c04c4ff9297b9fce66d8b5">
+                2409486
+               </a>
+               VIF: Fixed undefined behaviour of Unpack V3-16 in final QW write. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes bad geometry in Homerun.
+              </p>
+              <p>
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                <a href="https://github.com/PCSX2/pcsx2/pull/3998">
+                 #3998
+                </a>
+                VU: Synchronise VU1, added speedhack for old behaviour. By
+                <a href="https://github.com/refractionpcsx2">
+                 refractionpcsx2
+                </a>
+                .
+               </strong>
+              </p>
+              <p>
+               This synchronises VU1 with the EE and VU0 (as close as we can). A new speedhack has been added to replicate the old behaviour, which is on by default unless you're using the Safest preset. Games which require the new behaviour have an entry in the GameDB to disable it.
+              </p>
+              <p>
+               Fixed Games:
+               <br/>
+               Fixes SPS in Shadowman 2encond Coming.
+               <br/>
+               Fixes "Noodles" in Parappa the Rapper 2 (box in the top left).
+               <br/>
+               Fixes floor corrupt textures and console error spam in Dropship.
+               <br/>
+               Slightly improves World series baseball 2k3 but it's still broken, just doesn't run at sub 1fps anymore.
+              </p>
+              <p>
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                SPU2 improvements:
+               </strong>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3961">
+                #3961
+               </a>
+               SPU2: Delay DMA Reads to prevent overrun. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3959">
+                #3959
+               </a>
+               SPU2: Get rid of the need for delay cycles. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes the entire list of games that required alternative delay cycle handling in
+               <a href="https://github.com/PCSX2/pcsx2/issues/2371">
+                #2371
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes sound issues in Megaman X7.
+              </p>
+              <p style="padding-left: 40px;">
+               <em>
+                Note: This has been re implemented in Q1 with a better solution where it doesn't cause issues.
+               </em>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3968">
+                #3968
+               </a>
+               SPU2: Change VolumeSteps from 42 to 5. By
+               <a href="https://github.com/RedDevilus">
+                RedDevilus
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               This will change the jumps from 42 to 5, scroll wheel will still be 2 and all the arrows keys on 1.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/3d3c0395965fc71ab57035d15b9a5430fae5dca7">
+                3d3c039
+               </a>
+               SPU2: Fix Address masks for voices + Effect area. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes reverb in The Suffering.
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                USB improvements:
+               </strong>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4042">
+                #4042
+               </a>
+               USB: Force Feedback fixes. By
+               <a href="https://github.com/CookiePLMonster">
+                CookiePLMonster
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               This PR partially addresses
+               <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-hovercard-type="issue" data-hovercard-url="/PCSX2/pcsx2/issues/3926/hovercard" data-id="742011826" data-permission-text="Title is private" data-url="https://github.com/PCSX2/pcsx2/issues/3926" href="https://github.com/PCSX2/pcsx2/issues/3926">
+                #3926
+               </a>
+               and corrects a range of issues with wheel's Force Feedback emulation.
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                CDVD improvements:
+               </strong>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3877">
+                #3877
+               </a>
+               CDVD: Adjust read speed depending on if in inner/outer edge. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes Shadowman 2 Second Coming textures.
+               <br/>
+               Fixes Arctic Thunder loading problems.
+               <br/>
+               Fixes looping music on ONI title screen and skipping dialogues.
+               <br/>
+               Fixes Klonoa 2 missing audio.
+               <br/>
+               Fixes SPS at the beginning of matches in Next Generation Tennis 2003 (Ronald Garros).
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3899">
+                #3899
+               </a>
+               CDVD: Check register 14 (ps1 status register) for cd speed and CDDA. By
+               <a href="https://github.com/kenshen112">
+                kenshen112(weirdbeardgame)
+               </a>
+               .
+              </p>
+              <p>
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                DEV9 improvements:
+               </strong>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3740">
+                #3740
+               </a>
+               DEV9: New TAP based networking interface. By
+               <a href="https://github.com/GovanifY">
+                GovanifY
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               A new TAP based networking interface was added to DEV9, which is usually a cleaner and simpler solution than the libpcap based one we used up until now. This essentially mirrors the inner workings of all modern VPNs.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4021">
+                #4021
+               </a>
+               DEV9: Cancel read of TAP device on suspend/shutdown. By
+               <a href="https://github.com/TheLastRar">
+                TheLastRar
+               </a>
+               .
+              </p>
+              <p>
+              </p>
+              <p>
+               <em>
+                Note: Wincap removal is not mentioned as it's re added in Q1 with some modifications.
+               </em>
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                <a href="https://github.com/PCSX2/pcsx2/pull/3928">
+                 #3928
+                </a>
+                GameDB: Replace GameDB with a YAML equivalent. By
+                <a href="https://github.com/xTVaser">
+                 xTVaser (Tyler Wilding)
+                </a>
+                .
+               </strong>
+              </p>
+              <p>
+               Improve the format of the current GameDB slightly and simplify the code around the handling the file itself. Before it was an extended .ini file format that relied on WX libraries.
+              </p>
+              <p>
+               Serve as a proof of concept for the YAML library / format that will be coming soon with the larger configuration overhaul.
+              </p>
+              <p>
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                Misc core improvements:
+               </strong>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3791">
+                #3791
+               </a>
+               PGIF/PS1: Correct PGIF Register bit masks. By
+               <a href="https://github.com/Nobbs66">
+                Nobbs66
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3806">
+                #3806
+               </a>
+               Gamefix: Purge FMV in SW gamefix. By
+               <a href="https://github.com/tadanokojin">
+                tadanokojin
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               The gamefix/hack was broken and kind of pointless, it will be better to properly fix the issues instead so we got rid of it.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3844">
+                #3844
+               </a>
+               CDVD: Fix iLinkId issues, fixes timing issues with some BIOS revisions on Time Crisis 2 and 3. By
+               <a href="https://github.com/kozarovv">
+                kozarovv
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/0d1a5831449c4f31993ca4838dd1c39707e96cce">
+                0d1a583
+               </a>
+               DMA: Handle undefined Chain mode tags. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes DT Racer speed issues.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3874">
+                #3874
+               </a>
+               JIT: Fix FPU IEEE float conversion on x64. By
+               <a href="https://github.com/GovanifY">
+                GovanifY
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3778">
+                #3778
+               </a>
+               IOP DMA: Always fire interrupts for SIF0/SIF1. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               and
+               <a href="https://github.com/psi-rockin">
+                PSI-Rockin
+               </a>
+               , backport from Dobiestation.
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes Knockout Kings 2001 hang on boot. For more technical information please see
+               <a href="https://www.patreon.com/posts/sins-of-ps2-2001-42262496">
+                this
+               </a>
+               post.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3935">
+                #3935
+               </a>
+               Core: Don't reopen everything when we just want to reopen the CDVD. By
+               <a href="https://github.com/TheLastRar">
+                TheLastRar
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3743">
+                #3743
+               </a>
+               Core: send osd log event when snapshot is taken. By
+               <a href="https://github.com/tadanokojin">
+                tadanokojin
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3604">
+                #3604
+               </a>
+               PNACH: New patch type: apply repeating codes also on load. By
+               <a href="https://github.com/GovanifY">
+                GovanifY
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3651">
+                #3651
+               </a>
+               x86emitter: Register class improvements. By
+               <a href="https://github.com/tellowkrinkle">
+                tellowkrinkle
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4023">
+                #4023
+               </a>
+               GS: Properly mirror GS reads to CSR. By
+               <a href="https://github.com/tadanokojin">
+                tadanokojin
+               </a>
+               and
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Puts in the correct behaviour for GS reads.
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes Supadoopa's Funslower demo.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/c998a51f71f6a81a2f4f0c9d27c85714d74ccd57">
+                c998a51
+               </a>
+               IOP DMA: Only acknowledge SPU2 DMA interrupt if DMA hasn't been cancelled. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes Gregory Horror Show bad audio.
+              </p>
+              <hr/>
+              <h1>
+               TAS (Tool Assisted Speedrun) Utility Improvements
+              </h1>
+              <p>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3627">
+                #3627
+               </a>
+               Recording: Add menu items for recording controls with keyboard shortcuts. By
+               <a href="https://github.com/xTVaser">
+                xTVaser (Tyler Wilding)
+               </a>
+               and
+               <a href="https://github.com/sonicfind">
+                sonicfind
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3356">
+                #3356
+               </a>
+               Recording: Overhaul of Recording Tool's VirtualPad. By
+               <a href="https://github.com/xTVaser">
+                xTVaser (Tyler Wilding)
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4047">
+                #4047
+               </a>
+               Recording: Properly cancel an input recording on a bad initial savestate. By
+               <a href="https://github.com/sonicfind">
+                sonicfind
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3789">
+                #3789
+               </a>
+               Recording: Resolve VirtualPads not drawing for some games. By
+               <a href="https://github.com/sonicfind">
+                sonicfind
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3845">
+                #3845
+               </a>
+               GUI: Internalize VirtualPad and Upgrade NewRecordingFrame. By
+               <a href="https://github.com/sonicfind">
+                sonicfind
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Simplifies virtualPad access. This will be useful later down the line when more virtualPads are added.
+              </p>
+              <p style="padding-left: 40px;">
+               NewRecordingFrame has improved functionality.
+              </p>
+              <hr/>
+              <h1>
+               GSdx Improvements
+              </h1>
+              <p>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3858">
+                #3858
+               </a>
+               GSdx: Properly init gsclut function ptrs. By
+               <a href="https://github.com/tadanokojin">
+                tadanokojin
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               GS reads lower 3 bits of PSM to determine if format is 8/4 bit and thus whether to write the clut into the clut buffer. Behavior is now correctly emulated.
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes international superstar soccer.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3873">
+                #3873
+               </a>
+               GSdx-hw: Cleanup blending code a bit. By
+               <a href="https://github.com/lightningterror">
+                lightningterror
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3765">
+                #3765
+               </a>
+               Gsdx-hw: Move EmulateAtst in common hw renderer code. By
+               <a href="https://github.com/lightningterror">
+                lightningterror
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Use shared code, instead of duplicates for each renderer.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3905">
+                #3905
+               </a>
+               GSdx: Remove TV Shader hotkey toggle (F7). By
+               <a href="https://github.com/lightningterror">
+                lightningterror
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Plenty of users misclicked this setting and don't know how to switch back since it's a rarely used option. We got rid of the hotkey toggle for a quality of life change.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3891">
+                #3891
+               </a>
+               GSdx-hw: Don't always set MaxDepth on ps/fs. By
+               <a href="https://github.com/lightningterror">
+                lightningterror
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Seems that it provides a very small fps increase.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3880">
+                #3880
+               </a>
+               GSdx: Change DATE accuracy option from a list to a checkbox. By
+               <a href="https://github.com/lightningterror">
+                lightningterror
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               For OpenGL it will behave as previously if Full option was selected (more accurate).
+              </p>
+              <p style="padding-left: 40px;">
+               For Direct3D10/11 it will behave as previously if Basic option was selected (less accurate).
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3927">
+                #3927
+               </a>
+               GSdx-ogl: Fix anisotropic filtering on OpenGL. By
+               <a href="https://github.com/lightningterror">
+                lightningterror
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Anisotropic filtering was broken on OpenGL ever since Trilinear filtering was introduced (1.3.1 era), hopefully nobody noticed and we fixed the issue
+               <img alt="Smile" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/smile.gif" width="20"/>
+              </p>
+              <p style="padding-left: 40px;">
+               Note that it won't work properly on AMD due to broken driver, issue has been reported and they are working on a fix.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3714">
+                #3714
+               </a>
+               GSdx-ogl: Check MinMax for PSConstantBuffer. By
+               <a href="https://github.com/lightningterror">
+                lightningterror
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes Silent Hill 3 character textures.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3985">
+                #3985
+               </a>
+               GSdx: Remove some broken buffer width correction code. By
+               <a href="https://github.com/tadanokojin">
+                tadanokojin
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Removes some code that was meant to correct a condition on the GS where 8-bit and 4-bit formats are assigned a buffer width that is not divisible by 2. Given that the code just forced it to be even (almost certainly not correct) and was some kind of workaround dating back 13 years I'm opting to remove it. If someone can give me an example of a game that is broken without this code I'll look into it again but it seems like a fairly rare condition.
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes graphical issues in Galaxy Angel.
+              </p>
+              <p>
+               List of removed CRC hacks:
+              </p>
+              <p style="padding-left: 40px;">
+               <a href="https://github.com/PCSX2/pcsx2/pull/3908">
+                #3908
+               </a>
+               Star Wars - Force Unleashed. Hack replaced by a gamedb patch since it's not a GSdx issue. By
+               <a href="https://github.com/kozarovv">
+                kozarovv
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               <a href="https://github.com/PCSX2/pcsx2/commit/56893a07312183a525b5c6f7e1576bb4e3c6a1e4">
+                56893a0
+               </a>
+               Removed/merged duplicate hacks for Radiata Stories, Star Ocean 3, and Valkyrie Profile 2. By
+               <a href="https://github.com/lightningterror">
+                lightningterror
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               <a href="https://github.com/PCSX2/pcsx2/commit/d0dd60f295075a9f8ea98ef539430d0b6031e290">
+                d0dd60f
+               </a>
+               Bleach Blade Battlers. Hack no longer needed, effects rendered properly. By
+               <a href="https://github.com/lightningterror">
+                lightningterror
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               <a href="https://github.com/PCSX2/pcsx2/commit/d5adcdd1b217c4537e50f673a70b3eb5d38c991d">
+                d5adcdd
+               </a>
+               God of War 2. Hack partially removed because upscaling issues can not be resolved with upscaling hacks. By
+               <a href="https://github.com/lightningterror">
+                lightningterror
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               <a href="https://github.com/PCSX2/pcsx2/commit/85c3ee823fa9d111e2039d6664bc5d63dc21672f">
+                85c3ee8
+               </a>
+               Sly 2 and 3. Hacks removed, effects emulated properly, upscaling issues can be resolved with upscaling hacks. By
+               <a href="https://github.com/lightningterror">
+                lightningterror
+               </a>
+               .
+              </p>
+              <hr/>
+              <h1>
+               Misc Improvements
+              </h1>
+              <p>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3531">
+                #3531
+               </a>
+               GUI: Add "Screenshot As..." feature to Capture options. By
+               <a href="https://github.com/xTVaser">
+                xTVaser (Tyler Wilding)
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4007">
+                #4007
+               </a>
+               GUI: Fixes speedhacks panel from shrinking when moving the slider, most noticeable when using DPI scaling. By
+               <a href="https://github.com/tadanokojin">
+                tadanokojin
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3633">
+                #3633
+               </a>
+               Misc: More Mac build/fixes. By
+               <a href="https://github.com/tellowkrinkle">
+                tellowkrinkle
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4044">
+                #4044
+               </a>
+               PAD-Windows: Remove obsolete code related to the output window. By
+               <a href="https://github.com/MrCK1">
+                MrCK1
+               </a>
+               .
+              </p>
+              <hr/>
+              <p style="text-align: center;">
+               And that's all from us, see you next time in our 2021 Q1 Report!
+              </p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- //CONTENT -->
+      <!-- LEFT COLUMN-->
+      <div class="column sidebar" id="ja-left" style="width:15%">
+       <div class="ja-colswrap clearfix ja-l1">
+        <div class="ja-col column" id="ja-left1" style="width:100%">
+         <div class="ja-moduletable moduletable_menu clearfix" id="Mod23">
+          <h3>
+           <span>
+            Food for thought
+           </span>
+          </h3>
+          <div class="ja-box-ct clearfix">
+           <ul class="nav menutest mod-list">
+            <li class="item-437">
+             <a href="/developer-blog.html">
+              Developer Blog
+             </a>
+            </li>
+            <li class="item-552">
+             <a href="/meet-the-team.html">
+              Meet the team
+             </a>
+            </li>
+            <li class="item-551">
+             <a href="/article-archive.html">
+              Article archive
+             </a>
+            </li>
+            <li class="item-1908">
+             <a href="/site-map.html">
+              Site Map
+             </a>
+            </li>
+           </ul>
+          </div>
+         </div>
+         <div class="ja-moduletable moduletable clearfix" id="Mod110">
+          <div class="ja-box-ct clearfix">
+           <div class="custom">
+            <p>
+             <h3>
+              <a href="/compatibility-list.html" style="color:#033D63;">
+               Compatibility overview
+              </a>
+             </h3>
+             <p style="font-size: 120%; font-weight: bold;">
+              2689 games
+             </p>
+             Perfect: 0.74% - 20
+             <div class="progress-bar perfect">
+              <span style="width:0.74%;">
+              </span>
+             </div>
+             Playable: 97.66% - 2626
+             <div class="progress-bar playable">
+              <span style="width:97.66%;">
+              </span>
+             </div>
+             Ingame: 1.08% - 29
+             <div class="progress-bar ingame">
+              <span style="width:1.08%;">
+              </span>
+             </div>
+             Menus: 0.3% - 8
+             <div class="progress-bar menu">
+              <span style="width:0.3%;">
+              </span>
+             </div>
+             Intro: 0.15% - 4
+             <div class="progress-bar intro">
+              <span style="width:0.15%;">
+              </span>
+             </div>
+             Nothing: 0.07% - 2
+             <div class="progress-bar nothing">
+              <span style="width:0.07%;">
+              </span>
+             </div>
+            </p>
+           </div>
+          </div>
+         </div>
+         <div class="ja-moduletable moduletable-search clearfix" id="Mod35">
+          <div class="ja-box-ct clearfix">
+           <form action="/eula.html" class="search-search" method="post">
+            <input class="inputbox-search" id="mod-search-searchword" maxlength="200" name="searchword" onblur="if (this.value=='') this.value='Search ...';" onfocus="if (this.value=='Search ...') this.value='';" size="10" type="text" value="Search ..."/>
+            <input class="button-search" onclick="this.form.searchword.focus();" type="submit" value="GO"/>
+            <input name="task" type="hidden" value="search"/>
+            <input name="option" type="hidden" value="com_search"/>
+            <input name="Itemid" type="hidden" value="663"/>
+           </form>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- //LEFT COLUMN-->
+     </div>
+    </div>
+   </div>
+   <!-- //MAIN CONTAINER -->
+   <div class="wrap" id="ja-navhelper">
+    <div class="main">
+     <div class="main-inner1 clearfix">
+      <div class="ja-breadcrums">
+       <span class="breadcrumbsbread pathway">
+        <strong>
+         You are here:
+        </strong>
+        <a class="pathway" href="/">
+         Home
+        </a>
+        <img alt="" src="/media/system/images/arrow.png"/>
+        <a class="pathway" href="/eula.html">
+         EULA
+        </a>
+        <img alt="" src="/media/system/images/arrow.png"/>
+        <a class="pathway" href="/">
+         News
+        </a>
+        <img alt="" src="/media/system/images/arrow.png"/>
+        Q4 2020 Progress Report
+       </span>
+      </div>
+      <ul class="ja-links">
+       <li class="top">
+        <a href="javascript:scroll(0,0)" title="Back to top">
+         Top
+        </a>
+       </li>
+      </ul>
+      <ul class="no-display">
+       <li>
+        <a href="#ja-content" title="Skip to content">
+         Skip to content
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="wrap" id="ja-footer">
+    <div class="main clearfix">
+     <div class="ja-copyright">
+     </div>
+     <br/>
+     Webdesign and code © 2021 PCSX2 Team | Modified template from Joomla Web Design |
+     <a href="/privacy-policy.html">
+      Privacy Policy
+     </a>
+     |
+     <a href="/eula.html">
+      EULA
+     </a>
+    </div>
+   </div>
+  </div>
+  <script data-cf-beacon='{"rayId":"68dc36076fa92c0b","token":"c919a4e35e434ed2b63079aa661a82c0","version":"2021.8.1","si":10}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js">
+  </script>
+ </body>
+</html>

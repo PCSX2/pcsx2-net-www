@@ -1,0 +1,140 @@
+<div class="single-article">
+ <div class="item-page clearfix">
+  <div style="text-align:center;">
+   <ins class="adsbygoogle" data-ad-client="ca-pub-7741304783035041" data-ad-type="text_image" data-color-bg="FFFFFF" data-color-border="000000" data-color-link="0088CC" data-color-text="555555" data-color-url="AAAAAA" style="display:inline-block;width:468px;height:60px">
+   </ins>
+   <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+   </script>
+  </div>
+  <p>
+   There are a lot of buzzwords in emulator recompilation. Popular ones include:
+  </p>
+  <ul>
+   <li>
+    Intermediate Representation
+   </li>
+   <li>
+    Intermediate Language
+   </li>
+   <li>
+    Register Mapping
+   </li>
+   <li>
+    Register Allocation
+   </li>
+   <li>
+    Constant Propagation
+   </li>
+   <li>
+    Constant Folding
+   </li>
+   <li>
+    Register coloring
+   </li>
+   <li>
+    SSA (static single assignment optimization)
+   </li>
+  </ul>
+  <p>
+   <br/>
+   What do they mean? And perhaps more importantly, what do they mean to a user of the emulator? Truth is, not much usually. Most of these things are technologies and strategies borrowed from high level language compilers like those for C/C++, C#, Java, etc. Some of them are useful to emulator recompilers, some not so much.
+   <br/>
+   <br/>
+   The first thing to consider when working on a recompiler is that we are working with what is most likely
+   <em>
+    optimized code
+   </em>
+   . The machine code that your favorite games are running on your PS2 is already parsed and optimized by a compiler (or in the case of older consoles, hand-optimized). Secondly, recompilers typically have a single-block scope limitation (which is hard to explain, but basically means that compilation stops when branch conditionals are encountered). This all but eliminates the usefulness of
+   <strong>
+    SSA
+   </strong>
+   and
+   <strong>
+    register coloring
+   </strong>
+   techniques, since their main benefits are in applying optimizations over a series of conditional code blocks, and elimination of dead code. Furthermore, even when higher level optimizations can be applied, the emulated CPU/Register states must still be guaranteed at frequent intervals. Unlike high level languages, an emulator must manually track things like the Program Counter, instruction pipeline stalls, and other hardware complications. So typically the benefits of such cross-block optimizations get watered down anyway.
+   <br/>
+   <br/>
+   <strong>
+    Constant Folding
+   </strong>
+   and
+   <strong>
+    Constant Propagation
+   </strong>
+   are, for all intents and purposes, the same thing. They always work together, and most people use the terms interchangeably. You'll never really find a practical situation where one is used without the other. Constant folding refers to the evaluation of constant expressions like
+   <strong>
+    100 * 5
+   </strong>
+   . Constant propagation refers to the substitution of variables with known constants, like:
+   <br/>
+   <br/>
+   <span style="font-weight: bold;">
+    x = 100 * 5;
+    <br/>
+    y = x * 10;
+   </span>
+   <br/>
+   <br/>
+   ... in which case, the value of 'y' is known at compilation time, and can be further substituted (propagated) anywhere 'y' is used (this should remind you of your 5th grade algebraic homework!). As mentioned before, many people use the terms interchangeably, so when you see another emulator talk of Constant Folding, they mean the same thing I do when I talk of Constant Propagation. The term 'propagation' is technically more correct, but folding is easier to type and looks nicer when naming functions in your recompiler.
+   <br/>
+   <br/>
+   <strong>
+    Intermediate Language (IL)
+   </strong>
+   and
+   <strong>
+    Intermediate Representation (IR)
+   </strong>
+   are more or less the same thing as well. IL simply implies an IR that has a (mostly) human-readable form. That is, an IL is in fact a programming language, usually bearing some similarity to assembly code, but simpler and more sensible. An IR is just a raw collection of data sufficient to represent all information needed to optimize code and generate the final recompiled product.
+   <br/>
+   <br/>
+   In either case, the dual purposes of an IR/IL are:
+  </p>
+  <ul>
+   <li>
+    To simplify the instruction set as much as possible so that optimizations can be analyzed without requiring a lot of special-case code.
+   </li>
+   <li>
+    To provide a platform-independent "stage" to the compilation process, so that ports of the recompiler to new target platforms need not be rewritten from the ground up.
+   </li>
+  </ul>
+  <p>
+   <br/>
+   Because of the complicated nature of an emulator, an IL itself is virtually useless. There's typically too much per-instruction cpu state information that has to be tracked for a human-readable language output to be viable. But for the same reason an IR can be remarkably helpful in reducing the overall complexity of a recompiler implementation, and is almost a foregone necessity when implementing Register Mapping.
+   <br/>
+   <br/>
+   <strong>
+    Register Mapping
+   </strong>
+   and
+   <strong>
+    Register Allocation
+   </strong>
+   are once again a set of fairly interchangeable terms. I prefer the term mapping, but other folks like to call it allocation. Register mapping/allocation is typically one of the final stages of recompilation since it's dependent on the target platform (in our case x86), and is also one of the most complex. It's also typically
+   <em>
+    not
+   </em>
+   very beneficial for performance when the target platform is an x86 machine (which in our case it is), unless register mapping algorithms are
+   <em>
+    very
+   </em>
+   clever.
+   <br/>
+   <br/>
+   As I mentioned in my previous blog entry, the
+   <em>
+    most significant
+   </em>
+   factor in a recompiler's speed is simply the fact that it's acting as a decoded-instruction cache, and that it executes instructions in bursts (a block at a time instead of one-by-one). All the rest of these techniques tend to be more for the factors of code maintainability and academic challenge than for end-user performance gains.
+   <br/>
+   <br/>
+  </p>
+  <div style="font-style: italic; font-size: 10pt; font-weight: bold; text-align: right;">
+   <a href="http://forums.pcsx2.net/thread-9760.html">
+    Post a Comment!
+   </a>
+  </div>
+ </div>
+</div>

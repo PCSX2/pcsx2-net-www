@@ -1,0 +1,221 @@
+<div class="single-article">
+ <div class="item-page clearfix">
+  <h2 class="contentheading">
+   <a href="/253-pcsx2-1-2-0-released.html">
+    PCSX2 1.2.0 released!
+   </a>
+  </h2>
+  <div style="text-align:center;">
+   <ins class="adsbygoogle" data-ad-client="ca-pub-7741304783035041" data-ad-type="text_image" data-color-bg="FFFFFF" data-color-border="000000" data-color-link="0088CC" data-color-text="555555" data-color-url="AAAAAA" style="display:inline-block;width:468px;height:60px">
+   </ins>
+   <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+   </script>
+  </div>
+  <p>
+   It has been a year and a half since our first major release and as promised we decided PCSX2 has progressed enough for yet another stable release. Needless to say, we have been continuing our hard work since then to further improve the emulator, adding new features and fixing more bugs.
+   <br/>
+   <br/>
+   As I'm sure many of you have been following the SVN revisions and have noticed the changes we have made in this time and many of you even assisted in finding problems for us to fix, so a big thank you to all those who helped out!
+   <br/>
+   <br/>
+   One big change in this release is the integration of the wide screen patches made by the community for the community numbering nearly 1200 games patched to support proper 16:9 aspect ratio. A huge thanks to everyone who has contributed for this and keep up the great job
+   <img alt="Smile" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/smile.gif" width="20"/>
+  </p>
+  <p>
+   Here are a rundown of the biggest changes in this release:
+   <br/>
+   <br/>
+   <strong>
+    <span style="text-decoration: underline;">
+     Windows
+    </span>
+   </strong>
+   <br/>
+   <br/>
+   <strong>
+    Core:
+   </strong>
+  </p>
+  <ul>
+   <li>
+    microVU fixes for Dreamworks games, later Tony Hawks games, Evil Dead and others
+   </li>
+   <li>
+    Fixes to New GIF unit to solve regressions
+   </li>
+   <li>
+    microVU bugs fixed (affecting Extreme-G Racing and others)
+   </li>
+   <li>
+    CDVD fixes (Impossible Mission now boots)
+   </li>
+   <li>
+    Path 3 arbitration and timing refinements
+   </li>
+   <li>
+    MFIFO fixes for DDR games
+   </li>
+   <li>
+    Huge DMAC bug fix solving most of the problematic videos. (Baldurs Gate 2, Katamari Damacy and more)
+   </li>
+   <li>
+    Memory card support improved in many games, now supports PSX memory cards also Multitap support improved greatly
+   </li>
+   <li>
+    Many game fixes for COP2 problems inherent with emulation. (Ace Combat, Forbidden Siren and others)
+   </li>
+   <li>
+    VIF Unpack optimizations
+   </li>
+   <li>
+    VU Delays added to fix the graphics of Snowblind engine games (Champions of Norrath, Baldurs Gate 2)
+   </li>
+   <li>
+    Various other game specific fixes in GameDB
+   </li>
+   <li>
+    NVM file creation (if one doesn't exist) now fills in iLink ident. (Age of Empires 2)
+   </li>
+  </ul>
+  <p>
+   <br/>
+   <strong>
+    SPU2-X:
+   </strong>
+  </p>
+  <ul>
+   <li>
+    Improved DMA system
+   </li>
+   <li>
+    Fixes to reverb
+   </li>
+   <li>
+    Improved time-stretcher recovery on extreme speed changes.
+   </li>
+   <li>
+    Portaudio (providing WASAPI in Windows, ALSA/+OSS in Linux) now supported and the default output module. Latencies with this mode are lower than other modules
+   </li>
+  </ul>
+  <p>
+   <br/>
+   <strong>
+    GSdx:
+   </strong>
+  </p>
+  <ul>
+   <li>
+    Improved adapter selection for detecting of videocards
+   </li>
+   <li>
+    CLUT (Color LookUp Table) fixes for games such as Disney Golf
+   </li>
+   <li>
+    Texture Offset options added to help improve upscaling artifacts
+   </li>
+   <li>
+    OpenGL mode added (Experimental currently)
+   </li>
+   <li>
+    Various CRC hacks
+   </li>
+   <li>
+    Hack for NVIDIA cards, solves problems with stretching on drivers above 320.18
+   </li>
+   <li>
+    New shader resources! Complete PCSX2 FX Revised 2.0 by Asmodean has been integrated
+    <br/>
+    <br/>
+   </li>
+  </ul>
+  <p>
+   <strong>
+    <strong>
+     DEV9ghzdrk:
+    </strong>
+   </strong>
+  </p>
+  <ul>
+   <li>
+    Improved support for online play and make the users MAC address unique.
+   </li>
+  </ul>
+  <p>
+   <br/>
+   <strong>
+    <span style="text-decoration: underline;">
+     Linux
+    </span>
+    <br/>
+    <br/>
+    Core:
+   </strong>
+  </p>
+  <ul>
+   <li>
+    Support for external patch (pnach) files
+   </li>
+  </ul>
+  <p>
+   <br/>
+   <strong>
+    OnePad changes:
+   </strong>
+  </p>
+  <ul>
+   <li>
+    Bugfixes for multiple button presses
+   </li>
+   <li>
+    Bugfixed memory leaks
+   </li>
+  </ul>
+  <p>
+   <br/>
+   <strong>
+    ZZogl:
+   </strong>
+  </p>
+  <ul>
+   <li>
+    Added support for MESA drivers
+   </li>
+   <li>
+    Bump OpenGL requirement to 3.0 with floating texture
+   </li>
+   <li>
+    Various OpenGL fixes
+   </li>
+  </ul>
+  <p>
+   <br/>
+   <strong>
+    SPU2-X:
+   </strong>
+  </p>
+  <ul>
+   <li>
+    Added SDL Backend
+   </li>
+  </ul>
+  <p>
+   The PCSX2 executable has been built and tested with PGO optimizations enabled so it will be an extra 10% faster over regular SVN builds.
+   <br/>
+   <br/>
+   We hope you enjoy this release and have fun playing your games on it!
+   <br/>
+   <br/>
+   Here's to the future of PCSX2!
+  </p>
+  <p style="text-align: center;">
+   <strong>
+    <span style="font-size: medium;">
+     <a href="/download.html" title="Head to the download section!">
+      Head to the download section!
+     </a>
+    </span>
+   </strong>
+  </p>
+ </div>
+</div>
