@@ -8,7 +8,6 @@
             {{- block "main" . }}{{- end }}
             </div>
             {{ if ne .Title "Documentation" }}
-                {{- partial "advertisement.html" . -}}
                 {{- partial "footer.html" . -}}
             {{ end }}
             {{- partial "script.html" . -}}

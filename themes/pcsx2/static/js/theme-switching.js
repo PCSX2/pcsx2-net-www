@@ -11,3 +11,20 @@ buttonElem.onclick = () => {
     buttonElem.innerHTML = `<i class="far fa-sun theme-icon" title="Light Theme"></i>`;
   }
 }
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('ease-in');
+    }
+  });
+}, {
+  rootMargin: '0px',
+  threshold: 0.75
+});
+
+document.querySelectorAll('.card').forEach((i) => {
+  if (i) {
+      observer.observe(i);
+  }
+});

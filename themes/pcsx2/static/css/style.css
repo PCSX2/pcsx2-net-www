@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:ital,wght@0,300;0,400;0,700;1,400&display=swap');
 
 :root {
   /* dark-theme */
@@ -11,7 +11,7 @@
   --primary-color: #03a9f4;
   --primary-color-bg: #0d242f;
   --secondary-color: green;
-  --background-color: #191919;
+  --background-color: #16161a;
   --half-background-color: #0c0c0c;
   --half-background-color-brighter: #2b2b2b;
   --controller-triangle: #00d4ca;
@@ -33,6 +33,10 @@
   height: 50vh;
 }
 
+.vh-60 {
+  height: 60vh;
+}
+
 .flex-gap * {
   margin: 0.5rem;
 }
@@ -42,7 +46,7 @@
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lexend', sans-serif;
 }
 
 #content {
@@ -95,11 +99,12 @@ body {
 }
 
 .footer {
-  background-color: var(--primary-color-bg);
+  /* background-color: var(--primary-color-bg);
   border-top-color: var(--primary-color);
   border-top-width: 2px;
   border-top-style: solid;
-  margin-top: 10em;
+  margin-top: 10em; */
+  margin-bottom: 1em;
   color: var(--text-color-dimmed);
 }
 
@@ -228,10 +233,10 @@ td > ul {
 /* Navigation */
 
 .navbar {
-  background-color: var(--primary-color-bg);
+  /* background-color: var(--primary-color-bg);
   border-bottom-color: var(--primary-color);
   border-bottom-width: 2px;
-  border-bottom-style: solid;
+  border-bottom-style: solid; */
 }
 
 .navbar-brand, .nav-link {
@@ -324,6 +329,20 @@ td > ul {
 
 .card {
   margin-top: 1em;
+  opacity: 0.0;
+  transform: translate3d(100px,0,0);
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+}
+
+.card.from-left {
+  transform: translate3d(-100px,0,0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card.ease-in {
+    opacity: 1.0;
+    transform: translate3d(0px,0,0);
+  }
 }
 
 .card:hover .card-title {
