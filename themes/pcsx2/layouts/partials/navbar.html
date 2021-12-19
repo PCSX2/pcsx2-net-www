@@ -1,15 +1,15 @@
-<nav class="navbar navbar-dark fixed-top bg-faded justify-content-center"> <!--  navbar-expand-lg -->
+<nav class="navbar navbar-dark {{ if .IsHome }}fixed-top{{ else }}sticky-top navbar-expand-lg scrolled{{ end }} bg-faded justify-content-center">
   <div class="container">
-    <!-- <div class="navbar-brand d-flex w-25">
-      <a href="/" class="navbar-brand d-flex w-25 me-auto">
+    <button class="pull-left navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="navbar-brand d-flex w-25 {{ if not (.IsHome) }}scrolled{{ end }}">
+      <a href="/" class="navbar-brand d-flex w-25 me-auto {{ if not (.IsHome) }}scrolled{{ end }}">
         <img class="brand-logo" src="/img/pcsx2-logo.png" alt="PCSX2 Logo">
         <strong class="logo-text">PCSX2</strong>
       </a>
-    </div> -->
-    <button class="pull-left navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <img class="brand-logo" src="/img/pcsx2-logo.png" alt="PCSX2 Logo">
-    </button>
+    </div>
     <div class="navbar-collapse collapse w-100" id="navbarSupportedContent">
       <ul class="navbar-nav w-75 justify-content-center">
         {{ range .Site.Menus.main }}

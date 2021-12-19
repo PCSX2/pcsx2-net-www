@@ -2,7 +2,28 @@
 
 :root {
   /* dark-theme */
-  --text-color: #F4F1F3;
+  --main-bg-color: #16161a;
+  --secondary-bg-color: #242629;
+  --heading-color: #fffffe;
+  --text-color: #94a1b2;
+  --primary-color: #7f5af0;
+  --tertiary-color: #2cb67d;
+  --stroke-color: #010101;
+  --card-bg-color: #16161a;
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* --text-color: #F4F1F3;
   --text-color-dimmed: #797979;
   --text-color-muted: #424242;
   --text-color-alternate: #000000;
@@ -13,7 +34,8 @@
   --secondary-color: green;
   --background-color: #16161a;
   --half-background-color: #0c0c0c;
-  --half-background-color-brighter: #2b2b2b;
+  --half-background-color-brighter: #2b2b2b; */
+  /* controller colors */
   --controller-triangle: #00d4ca;
   --controller-circle: #ff5653;
   --controller-cross: #8dbbf2;
@@ -44,9 +66,13 @@
 /* General Classes */
 
 body {
-  background-color: var(--background-color);
+  background-color: var(--main-bg-color);
   color: var(--text-color);
   font-family: 'Lexend', sans-serif;
+}
+
+h1, h2 {
+  color: var(--heading-color);
 }
 
 #content {
@@ -232,21 +258,35 @@ td > ul {
 
 /* Navigation */
 
-.navbar {
-  /* background-color: var(--primary-color-bg);
-  border-bottom-color: var(--primary-color);
+.navbar.scrolled {
+  background-color: #16161a;
+  border-bottom-color: #2cb67d;
   border-bottom-width: 2px;
-  border-bottom-style: solid; */
+  border-bottom-style: solid;
+  /* padding: 0; */
+}
+
+.nav-link {
+  display: inline-block;
+}
+
+.navbar-brand {
+  visibility: hidden;
+  padding: 0;
+}
+
+.navbar-brand.scrolled {
+  visibility: visible;
 }
 
 .navbar-brand, .nav-link {
   font-weight: 700;
-  color: var(--text-color) !important;
+  color: var(--heading-color) !important;
   transition: color .15s ease-in-out;
 }
 
 .navbar-brand:hover, .nav-link:hover {
-  color: var(--accent-color) !important;
+  color: var(--tertiary-color) !important;
   transition: color .15s ease-in-out;
 }
 
@@ -332,6 +372,9 @@ td > ul {
   opacity: 0.0;
   transform: translate3d(100px,0,0);
   transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .card.from-left {
@@ -346,7 +389,7 @@ td > ul {
 }
 
 .card:hover .card-title {
-  color: var(--accent-color);
+  color: var(--tertiary-color);
   transition: color .15s ease-in-out;
 }
 

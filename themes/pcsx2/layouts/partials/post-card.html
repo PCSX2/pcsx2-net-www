@@ -1,6 +1,6 @@
 <div class="col-12">
   <a href="{{ .post.RelPermalink }}">
-    <div class="card{{ if eq .easeDirection "left" }} from-left{{ end }} text-white post-preview" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{ .post.Params.previewImage}});">
+    <div class="card{{ if eq .easeDirection "left" }} from-left{{ end }} text-white post-preview" style="background-image: linear-gradient( rgba(36,38,41, 0.5), rgba(36,38,41, 0.5) ), url({{ .post.Params.previewImage}});">
       <div class="row h-25">
         <div class="col card-title">
           <h3>{{ .post.Title }}</h3>
