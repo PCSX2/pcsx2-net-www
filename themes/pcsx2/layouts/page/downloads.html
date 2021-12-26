@@ -1,26 +1,29 @@
 {{ define "main" }}
 <div class="container">
   <div class="row mt-5">
-    <div class="row mt-3">
-      <h1>PCSX2 Build Downloads</h1>
-    </div>
-    <div class="row mt-3" id="outage-alert" style="display: none;">
+    <div class="row mb-3" id="outage-alert" style="display: none;">
       <div class="col">
-        <div class="alert alert-danger" role="alert">
-          <p>Unable to fetch release information. This can be due to:</p>
-          <ul>
-            <li>A critical backend service is experiencing an outage, <a
-                href="https://stats.uptimerobot.com/GAg8AuBByx">see our status page</a></li>
-            <li>Something unexpected has occurred</li>
-            <li>Your IP is being rate limited</li>
-          </ul>
-          <p>With the exception of the rate limiting issue, we are likely aware of the problem and are working on
-            it / monitoring it.</p>
-          <p>In the meantime, here are some alternate ways to find the releases:</p>
-          <ul>
-            <li><a href="https://pcsx2.net/download.html">Stable Releases</a></li>
-            <li><a href="https://github.com/PCSX2/pcsx2/releases">Nightly and Stable Releases</a></li>
-          </ul>
+        <div class="card text-white">
+          <div class="row">
+            <div class="col card-title">
+              <h3><i class="fas fa-exclamation-triangle error-icon"></i>Unable to fetch release information. This can be
+                due to:</h3>
+            </div>
+          </div>
+          <div class="row text-truncate" class="" style="max-width: calc(100%)">
+            <div class="col">
+              <ul>
+                <li>A critical backend service is experiencing an outage, <a
+                    href="https://stats.uptimerobot.com/GAg8AuBByx">see our status page</a></li>
+                <li>Your IP is being rate limited</li>
+                <li>Something unexpected has occurred</li>
+              </ul>
+              <p>With the exception of the rate limiting issue, we are likely aware of the problem and are working on
+                it / monitoring it.</p>
+              <p>In the meantime, you may be able to download the releases directly <a
+                  href="https://github.com/PCSX2/pcsx2/releases">from Github</a></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -87,72 +90,7 @@
           </tr>
         </thead>
         <tbody id="stable-table-body">
-          <tr>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 75%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 50%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 25%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 100%"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 50%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 75%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 50%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 75%"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 25%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 65%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 40%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 100%"></div>
-              </div>
-            </td>
-          </tr>
+          {{- partial "downloads/skeleton-table.html" (dict "numRows" 3 "numCols" 4) -}}
         </tbody>
       </table>
     </div>
@@ -226,72 +164,7 @@
         </thead>
         <tbody id="nightly-table-body">
           <!-- skeleton loading -->
-          <tr>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 75%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 50%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 25%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 100%"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 50%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 75%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 50%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 75%"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 25%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 65%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 40%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 100%"></div>
-              </div>
-            </td>
-          </tr>
+          {{- partial "downloads/skeleton-table.html" (dict "numRows" 3 "numCols" 4) -}}
         </tbody>
       </table>
     </div>
@@ -327,87 +200,7 @@
         </thead>
         <tbody id="pull-request-table-body">
           <!-- skeleton loading -->
-          <tr>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 75%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 50%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 25%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 100%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 25%"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 50%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 75%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 50%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 75%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 50%"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 25%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 65%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 40%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 100%"></div>
-              </div>
-            </td>
-            <td>
-              <div class="skeleton-text">
-                <div class="skeleton-line" style="width: 33%"></div>
-              </div>
-            </td>
-          </tr>
+          {{- partial "downloads/skeleton-table.html" (dict "numRows" 3 "numCols" 5) -}}
         </tbody>
       </table>
     </div>
