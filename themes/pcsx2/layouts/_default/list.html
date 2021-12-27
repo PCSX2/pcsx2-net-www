@@ -10,33 +10,12 @@
       <div class="row">
         {{ $paginator := .Paginate (where .Pages "Type" "blog") }}
         {{ range $index, $page := $paginator.Pages }}
-        <div class="col-12 mb-5">
-          <a href="{{ $page.RelPermalink }}">
-            <div class="card text-white bg-dark post-preview" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{ $page.Params.previewImage}});">
-              <div class="row h-25">
-                <div class="col">
-                  <h3>{{ $page.Title }}</h3>
-                </div>
-              </div>
-              <div class="row flex-fill d-inline-block text-truncate h-50" class="" style="max-width: calc(100%)">
-                <div class="col">
-                  <p>{{ $page.Summary }}</p>
-                </div>
-              </div>
-              <div class="row h-25">
-                <div class="col d-flex justify-content-end align-items-end">
-                  {{ $page.Date | time.Format ":date_long" }}
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-        
+        {{ partial "post-card.html" (dict "context" $ "post" . "easeDirection" "right" "alternateBackground" true) }}
+
         {{ if eq ( mod (add $index 1) 5 ) 0 }}
-          <div class="col-12 mb-5">
-            {{- partial "advertisement.html" . -}}
-          </div>
-          
+        <div class="col-12 mb-5">
+          {{- partial "advertisement.html" . -}}
+        </div>
         {{ end }}
         {{ end }}
         <!-- TODO - make this look nice -->
@@ -49,8 +28,7 @@
           <div class="row">
             <div class="col-12">
               <h4>Tags</h4>
-            </div>  
-            
+            </div>
           </div>
           <div class="row">
             <div class="col-12">
@@ -62,13 +40,10 @@
                   <sup>{{$cnt}}</sup>
                 </div>
                 {{end}}
-              {{end}}
+                {{end}}
               </ul>
             </div>
-            
           </div>
-          
-          
         </div>
         {{- partial "advertisement.html" . -}}
       </div>

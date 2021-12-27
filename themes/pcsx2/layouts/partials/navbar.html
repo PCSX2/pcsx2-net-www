@@ -30,12 +30,32 @@
       <ul class="navbar-nav w-75 justify-content-center">
         {{ range .Site.Menus.main }}
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ .URL }}" {{ if in .URL "http" }}target="blank" {{ end
-            }}>{{ .Name | safeHTML }}</a>
+          <a class="nav-link" href="{{ .URL }}" {{ if in .URL "http" }}target="blank" {{ end }}>{{ .Name | safeHTML
+            }}</a>
         </li>
         {{ end }}
       </ul>
-      <ul class="nav navbar-nav w-25 justify-content-end">
+      <ul class="nav navbar-nav w-25 justify-content-end align-items-center">
+        {{ if gt (len .Site.Params.social) }}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+            data-mdb-toggle="dropdown" aria-expanded="false">
+            Related Links
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            {{ range .Site.Params.social }}
+            <li class="nav-item">
+              <a class="dropdown-item" href="{{ .url }}" {{ if in .url "http" }}target="blank" {{ end }}>
+                <span>
+                  <i class="nav-icon {{ .icon }}"></i>
+                  {{ .name }}
+                </span>
+              </a>
+            </li>
+            {{ end }}
+          </ul>
+        </li>
+        {{ end }}
         {{ if gt (len .Site.Home.AllTranslations) 1 }}
         <li class="nav-item">
           <div class="dropdown" id="language-dropdown-container">
@@ -52,7 +72,7 @@
         </li>
         {{ end }}
         <li class="nav-item">
-          <a role="button" id="theme-button">
+          <a role="button" class="nav-link" id="theme-button">
             <!-- TODO - update this on page load -->
             <i class="far fa-moon theme-icon" title="Dark Theme"></i>
           </a>

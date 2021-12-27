@@ -32,6 +32,13 @@
             <p>They are nice</p>
           </div>
         </div>
+        <div class="row">
+          <div class="button d-flex">
+            <a role="button" class="btn btn-outline-info" href="/tags/progress-report/">
+              View More
+            </a>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-8">
@@ -40,13 +47,6 @@
           {{ range .Site.RegularPages.RelatedTo (keyVals "tags" "progress-report") | first 2 }}
           {{ partial "post-card.html" (dict "context" $ "post" . "easeDirection" "right" "alternateBackground" true) }}
           {{ end }}
-        </div>
-        <div class="row mt-5">
-          <div class="button d-flex justify-content-center">
-            <a role="button" class="btn btn-outline-info" href="/tags/progress-report/">
-              View More
-            </a>
-          </div>
         </div>
       </div>
     </div>
@@ -65,13 +65,6 @@
             {{ partial "post-card.html" (dict "context" $ "post" . "easeDirection" "left") }}
             {{ end }}
           </div>
-          <div class="row mt-5">
-            <div class="button d-flex justify-content-center">
-              <a role="button" class="btn btn-outline-info" href="/tags/devblogs/">
-                View More
-              </a>
-            </div>
-          </div>
         </div>
       </div>
       <div class="col-4 d-flex align-items-center">
@@ -84,6 +77,13 @@
           <div class="row">
             <div class="col-12">
               <p>They are also nice</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="button d-flex">
+              <a role="button" class="btn btn-outline-info" href="/tags/devblogs/">
+                View More
+              </a>
             </div>
           </div>
         </div>

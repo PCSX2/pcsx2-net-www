@@ -11,43 +11,19 @@
   --tertiary-color: #2cb67d;
   --stroke-color: #010101;
   --error-color: #f25042;
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /* --text-color: #F4F1F3;
-  --text-color-dimmed: #797979;
-  --text-color-muted: #424242;
-  --text-color-alternate: #000000;
-  --accent-color: #ff4761;;
-  --accent-color-muted: #2f080e;
-  --primary-color: #03a9f4;
-  --primary-color-bg: #0d242f;
-  --secondary-color: green;
-  --background-color: #16161a;
-  --half-background-color: #0c0c0c;
-  --half-background-color-brighter: #2b2b2b; */
+  /* light-theme */
   /* controller colors */
   --controller-triangle: #00d4ca;
   --controller-circle: #ff5653;
   --controller-cross: #8dbbf2;
   --controller-square: #f887d6;
   /* compat colors */
-  --compat-perfect: #cc33ff;
-  --compat-playable: #9acd32;
-  --compat-ingame: #2d98d6;
-  --compat-menus: #e4e21f;
-  --compat-intro: #f6ad20;
-  --compat-nothing: #ff0000;
+  --compat-perfect: #BA68C8;
+  --compat-playable: #9CCC65;
+  --compat-ingame: #29B6F6;
+  --compat-menus: #FBC02D;
+  --compat-intro: #F57C00;
+  --compat-nothing: #D32F2F;
 }
 
 /* Sizing / Spacing */
@@ -73,6 +49,7 @@ body {
 }
 
 h1, h2 {
+  font-weight: 700;
   color: var(--heading-color);
 }
 
@@ -93,6 +70,10 @@ h1, h2 {
   margin-right: 0.5em;
 }
 
+.btn:hover {
+  color: #000;
+}
+
 .no-horizontal-margins {
   margin-right: 0;
   margin-left: 0;
@@ -102,25 +83,25 @@ h1, h2 {
 
 .btn-color-triangle {
   background-color: var(--controller-triangle);
-  color: var(--stroke-color);
+  color: #000;
   font-weight: 700;
 }
 
 .btn-color-circle {
   background-color: var(--controller-circle);
-  color: var(--stroke-color);
+  color: #000;
   font-weight: 700;
 }
 
 .btn-color-cross {
   background-color: var(--controller-cross);
-  color: var(--stroke-color);
+  color: #000;
   font-weight: 700;
 }
 
 .btn-color-square {
   background-color: var(--controller-square);
-  color: var(--stroke-color);
+  color: #000;
   font-weight: 700;
 }
 
@@ -130,13 +111,21 @@ h1, h2 {
 }
 
 .footer {
-  /* background-color: var(--primary-color-bg);
-  border-top-color: var(--primary-color);
-  border-top-width: 2px;
-  border-top-style: solid;
-  margin-top: 10em; */
   margin-bottom: 1em;
   color: var(--text-color-dimmed);
+}
+
+.footer-link-list {
+  padding-left: 0.5em;
+  list-style-type: none;
+}
+
+.footer-link-list li a {
+  color: var(--text-color);
+}
+
+.footer-link-list li a:hover {
+  color: var(--primary-color);
 }
 
 .btn {
@@ -192,16 +181,20 @@ a:hover {
   color: var(--primary-color);
 }
 
+.dropdown {
+  color: var(--heading-color);
+}
+
 .dropdown-menu {
-  background-color: var(--half-background-color-brighter);
+  background-color: var(--secondary-bg-color);
 }
 
 .dropdown-item {
-  color: var(--text-color);
+  color: var(--heading-color);
 }
 
-thead {
-  color: var(--text-color);
+thead, th {
+  color: var(--heading-color);
 }
 
 tr, .table-striped > tbody > tr:nth-of-type(2n) {
@@ -235,7 +228,7 @@ td > ul {
   padding-right: 1em;
   line-height: 1em;
   font-size: 0.9rem;
-  color: var(--text-color-alternate);
+  color: var(--heading-color);
   background-color: var(--primary-color);
 }
 
@@ -276,6 +269,10 @@ td > ul {
   /* padding: 0; */
 }
 
+.nav-icon {
+  padding-right: 0.5em;
+}
+
 .nav-link {
   display: inline-block;
 }
@@ -296,16 +293,17 @@ td > ul {
 .navbar-brand, .nav-link {
   font-weight: 700;
   color: var(--heading-color) !important;
-  transition: color .15s ease-in-out;
+  transition: color .05s ease-in-out;
 }
 
 .navbar-brand:hover, .nav-link:hover {
   color: var(--primary-color) !important;
-  transition: color .15s ease-in-out;
+  transition: color .05s ease-in-out;
 }
 
 .logo-text {
   margin-left: 0.25em;
+  margin-bottom: 0;
 }
 
 .navbar-brand {
@@ -413,18 +411,9 @@ td > ul {
   }
 }
 
-.card:hover .card-title.link {
-  color: var(--tertiary-color);
+.card:hover {
+  transform: translate3d(5px, -5px, 0);
   transition: color .15s ease-in-out;
-}
-
-.card .card-title {
-  transition: color .15s ease-in-out;
-  text-shadow:
-   -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-     1px 1px 0 #000;
 }
 
 .btn-outline-info:hover {
@@ -457,67 +446,79 @@ button .material-icons-outlined {
 /* Compatibility Page */
 
 button.compat-perfect.compat-filter-off {
-  border-color: var(--compat-perfect);
+  font-weight: 700;
+  border: 1px solid var(--compat-perfect);
   color: var(--compat-perfect);
 }
 
 button.compat-perfect.compat-filter-on {
-  border-color: var(--compat-perfect);
+  font-weight: 700;
+  border: none;
   background-color: var(--compat-perfect);
   color: black;
 }
 
 button.compat-playable.compat-filter-off {
-  border-color: var(--compat-playable);
+  font-weight: 700;
+  border: 1px solid var(--compat-playable);
   color: var(--compat-playable);
 }
 
 button.compat-playable.compat-filter-on {
-  border-color: var(--compat-playable);
+  font-weight: 700;
+  border: none;
   background-color: var(--compat-playable);
   color: black;
 }
 
 button.compat-ingame.compat-filter-off {
-  border-color: var(--compat-ingame);
+  font-weight: 700;
+  border: 1px solid var(--compat-ingame);
   color: var(--compat-ingame);
 }
 
 button.compat-ingame.compat-filter-on {
-  border-color: var(--compat-ingame);
+  font-weight: 700;
+  border: none;
   background-color: var(--compat-ingame);
   color: black;
 }
 
 button.compat-menus.compat-filter-off {
-  border-color: var(--compat-menus);
+  font-weight: 700;
+  border: 1px solid var(--compat-menus);
   color: var(--compat-menus);
 }
 
 button.compat-menus.compat-filter-on {
-  border-color: var(--compat-menus);
+  font-weight: 700;
+  border: none;
   background-color: var(--compat-menus);
   color: black;
 }
 
 button.compat-intro.compat-filter-off {
-  border-color: var(--compat-intro);
+  font-weight: 700;
+  border: 1px solid var(--compat-intro);
   color: var(--compat-intro);
 }
 
 button.compat-intro.compat-filter-on {
-  border-color: var(--compat-intro);
+  font-weight: 700;
+  border: none;
   background-color: var(--compat-intro);
   color: black;
 }
 
 button.compat-nothing.compat-filter-off {
-  border-color: var(--compat-nothing);
+  font-weight: 700;
+  border: 1px solid var(--compat-nothing);
   color: var(--compat-nothing);
 }
 
 button.compat-nothing.compat-filter-on {
-  border-color: var(--compat-nothing);
+  font-weight: 700;
+  border: none;
   background-color: var(--compat-nothing);
   color: black;
 }
@@ -583,6 +584,10 @@ button.compat-nothing.compat-filter-on {
 
 .form-outline .form-control:focus ~ .form-label {
 	color: var(--primary-color);
+}
+
+.btn-primary {
+  color: var(--heading-color);
 }
 
 .btn-primary:focus {

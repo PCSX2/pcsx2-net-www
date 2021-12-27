@@ -1,7 +1,9 @@
-# baseURL: 'https://pcsx2.net/'
+baseURL: 'https://pcsx2.net/'
 disableKinds:
+  # users dont need to see the taxonomy listing pages
   - "taxonomy"
 ignoreErrors:
+  # users dont need to see the taxonomy listing pages
   - "error-disable-taxonomy"
 languageCode: en-us
 title: PCSX2
@@ -9,93 +11,50 @@ theme:
   - pcsx2
 defaultContentLanguage: en
 paginate: 20
-pygmentsStyle: bw
-pygmentsCodeFences: true
-pygmentsCodeFencesGuessSyntax: true
+# Code Styling
+markup:
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    lineAnchors: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    style: monokai
+    tabWidth: 4
 enableEmoji: true
+# Website Parameters
 params:
-  author: John Doe
-  description: John Doe's personal website
-  favicon_32: /img/favicon-32x32.png
-  keywords: 'blog,developer,personal'
-  info:
-    - Full Stack DevOps
-    - Magician
-  avatarURL: images/avatar.jpg
-  footerContent: ''
-  dateFormat: 'January 2, 2006'
-  hideFooter: false
-  hideCredits: false
-  hideCopyright: false
-  since: 2019
-  rtl: false
-  colorScheme: auto
-  hideColorSchemeToggle: false
-  maxSeeAlsoItems: 5
-  enableTwemoji: false
-  customCSS:
-    - css/custom.css
-  customSCSS: []
-  customJS: []
-  csp:
-    childsrc:
-      - '''self'''
-    fontsrc:
-      - '''self'''
-      - 'https://fonts.gstatic.com'
-      - 'https://cdn.jsdelivr.net/'
-    formaction:
-      - '''self'''
-    framesrc:
-      - '''self'''
-    imgsrc:
-      - '''self'''
-    objectsrc:
-      - '''none'''
-    stylesrc:
-      - '''self'''
-      - '''unsafe-inline'''
-      - 'https://fonts.googleapis.com/'
-      - 'https://cdn.jsdelivr.net/'
-    scriptsrc:
-      - '''self'''
-      - '''unsafe-inline'''
-      - 'https://www.google-analytics.com'
-    prefetchsrc:
-      - '''self'''
-    connectsrc:
-      - '''self'''
-      - 'https://www.google-analytics.com'
   social:
+    - name: Discord
+      icon: fab fa-discord
+      weight: 1
+      url: 'https://discord.com/invite/TCz3t9k'
     - name: Github
       icon: fa fa-github
-      weight: 1
-      url: 'https://github.com/johndoe/'
-    - name: Gitlab
-      icon: fa fa-gitlab
       weight: 2
-      url: 'https://gitlab.com/johndoe/'
+      url: 'https://github.com/PCSX2'
+    - name: Forums
+      icon: fab fa-wpforms
+      weight: 4
+      url: 'https://forums.pcsx2.net/'
+    - name: Wiki
+      icon: fab fa-wikipedia-w
+      weight: 6
+      url: 'https://wiki.pcsx2.net'
     - name: Twitter
       icon: fa fa-twitter
       weight: 3
-      url: 'https://twitter.com/johndoe/'
-    - name: LinkedIn
-      icon: fa fa-linkedin
-      weight: 4
-      url: 'https://www.linkedin.com/in/johndoe/'
-    - name: Medium
-      icon: fa fa-medium
+      url: 'https://twitter.com/PCSX2'
+    - name: YouTube
+      icon: fab fa-youtube
       weight: 5
-      url: 'https://medium.com/@johndoe'
-    - name: RSS
-      icon: fa fa-rss
-      weight: 6
-      url: 'https://myhugosite.com/index.xml'
-      rel: alternate
-      type: application/rss+xml
+      url: 'https://www.youtube.com/user/PCSX2team'
 taxonomies:
   category: categories
-  series: series
   tag: tags
   author: authors
 languages:
@@ -120,18 +79,12 @@ languages:
           title: Documentation
           weight: 4
           url: /docs
+        # TODO - temporarily disabled until page is finished
         # - name: About
         #   title: About the Project
         #   weight: 5
         #   url: /about
-        - name: Discord
-          weight: 6
-          url: 'https://discord.com/invite/TCz3t9k'
-          pre: fa fa-discord
-        - name: Github
-          weight: 7
-          url: 'https://github.com/PCSX2/pcsx2'
-          pre: fa fa-github
+  # TODO - translation
   # fr:
   #   baseURL: 'https://pcsx2.net/fr/'
   #   languageName: ':fr:'

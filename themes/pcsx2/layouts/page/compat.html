@@ -5,8 +5,7 @@
   </div>
   <div class="row mt-3">
     <p>
-      This list will help you find out if your game is compatible with PCSX2 and
-      to what extent.
+      This list will help you determine how compatible games are with PCSX2
     </p>
   </div>
   <!-- search bar -->
@@ -28,7 +27,7 @@
   <div class="row mt-3">
     <!-- compat buttons -->
     {{ partial "compat/filter-button.html" (dict "context" $
-                                                 "explanation" "The game runs flawlessly with no graphical or speed issues (can be SW mode)"
+                                                 "explanation" "The game runs flawlessly with no graphical or speed issues (can be in Software mode)"
                                                  "filter" "perfect") }}
     {{ partial "compat/filter-button.html" (dict "context" $
                                                  "explanation" "You can get from 'new game' to 'end credits' (regardless of speed)"
