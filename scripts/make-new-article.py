@@ -28,7 +28,9 @@ with open(pathFile, 'a') as f:
   f.write("mainAuthor: {}\n".format(authors.split(",")[0]))
   if len(authors.split(",")) > 1 and authors.split(",")[0] != "":
     f.write("secondaryAuthors:\n")
-    for author in authors.split(",").pop():
+    secondaryAuthors = authors.split(",")
+    secondaryAuthors.pop()
+    for author in secondaryAuthors:
       f.write("  - \"{}\"\n".format(author))
   if len(aliasLinks.split(",")) > 0 and aliasLinks.split(",")[0] != "":
     f.write("aliases:\n")

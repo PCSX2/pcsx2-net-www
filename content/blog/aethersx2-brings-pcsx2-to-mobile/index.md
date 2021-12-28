@@ -6,6 +6,8 @@ draft: true
 tags:
   - "devblog"
 mainAuthor: bositman
+aliases:
+  - "301-aethersx2-pcsx2-mobile"
 ---
 
 An exciting bit of news! As you have probably seen by now, there is a new Android emulator in town called AetherSX2, which shows to have very promising performance and compatibility. While the latter is due to it being based on an LGPL licensed emulator for PC (that's us!), the former is due to the clever work of the developer Tahlreth.

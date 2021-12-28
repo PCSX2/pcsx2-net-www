@@ -54,11 +54,68 @@
 
 .markdown-content h3, h4 {
   color: var(--heading-color);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .markdown-content img {
   width: 100%;
+}
+
+.markdown-content .row {
+  margin-bottom: 1em;
+}
+
+.img-compare-container {
+  display: inline-block;
+  line-height: 0;
+  position: relative;
+  width: 100%;
+  padding-top: 42.3%;
+  cursor: col-resize;
+}
+
+.img-compare-container > img {
+  width: 100%;
+  position: absolute;
+  top: 0; height: 100%;
+}
+
+.img-clipper {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  box-shadow: 2px 0 var(--error-color);
+}
+
+.img-clipper img {
+  width: 200%;
+  position: absolute;
+  height: 100%;
+}
+
+.img-cmp-label {
+  position: absolute;
+  z-index: 100;
+  font-weight: 700;
+  color: white;
+  pointer-events: none;
+  top: 50%;
+  text-shadow:
+   -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+
+.img-cmp-label.before {
+  left: 1rem;
+}
+
+.img-cmp-label.after {
+  right: 1rem;
 }
 
 body {
