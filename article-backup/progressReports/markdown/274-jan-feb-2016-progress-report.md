@@ -1,42 +1,43 @@
-::: {.single-article}
-::: {.item-page .clearfix}
-## [January - February 2016 progress report](/274-jan-feb-2016-progress-report.html) {#january---february-2016-progress-report .contentheading}
+<div class="single-article">
 
-::: {style="text-align:center;"}
-:::
+<div class="item-page clearfix">
 
-![Progress report 1-2
-2016](/images/stories/frontend/progress_reports/1-2-2016/progress-rep-1-2-2016.jpg){width="563"
-height="104"}
+## [January - February 2016 progress report](/274-jan-feb-2016-progress-report.html)
+
+<div style="text-align:center;">
+
+</div>
+
+<img src="/images/stories/frontend/progress_reports/1-2-2016/progress-rep-1-2-2016.jpg" width="563" height="104" alt="Progress report 1-2 2016" />
 
 Hello everyone and welcome to another glorious PCSX2 progress report!
-This time we\'ve got a lot of GSdx improvements to share with you. We
+This time we've got a lot of GSdx improvements to share with you. We
 also have an announcement regarding the progress reports.
 
-Those of you who have been following them probably know that we\'ve been
+Those of you who have been following them probably know that we've been
 a little late with them pretty much every time. The reason for this is
 lack of manpower - for the most part, the same people that work on the
 emulator itself write the progress reports. Because of that there are
-many times when they\'d rather spend their free time improving the
+many times when they'd rather spend their free time improving the
 emulator rather than writing about the improvements. With this in mind
 we have decided that from now on *our progress reports will be released
 every three months* .
 
 This will enable us to release higher quality progress reports as well
-as dedicate more time to development.\
+as dedicate more time to development.  
 If you wish to follow development more closely then you can always check
-out what\'s going on over at [Github](https://github.com/PCSX2/pcsx2) .
+out what's going on over at [Github](https://github.com/PCSX2/pcsx2) .
 
-Now with that out of the way, let\'s get down to it!
+Now with that out of the way, let's get down to it!
 
-\
-\
-[ \[Enhancement\] ]{style="color: #018ddd;"} [ GSDX-OpenGL: Fast
-accurate blending
-]{style="font-weight: bold; text-decoration: underline;"} by
+  
+  
+<span style="color: #018ddd;"> \[Enhancement\] </span> <span
+style="font-weight: bold; text-decoration: underline;"> GSDX-OpenGL:
+Fast accurate blending </span> by
 [Gregory](https://github.com/gregory38) and
-[Turtleli](https://github.com/turtleli)\
-\
+[Turtleli](https://github.com/turtleli)  
+  
 As most of you know, Blending Unit Accuracy is an option where a SW
 blending unit is emulated through the fragment shader with the intent of
 reproducing the blending unit output of the GS. This option fixes
@@ -44,8 +45,8 @@ blending issues in a lot of games - Valkyrie Profile 2, Rule of Rose and
 Bakugan Battle Brawlers are examples. One of the major disadvantages of
 this from a user perspective is that increasing the accuracy increases
 the demand on the system. In a worst case scenario this can drop
-performance well below an acceptable level.\
-\
+performance well below an acceptable level.  
+  
 Two reasons why poor performance was observed on some games while using
 accurate blending:
 
@@ -54,125 +55,114 @@ accurate blending:
 -   The GPU Texture Cache needs to be flushed at each instances of
     reading a target.
 
-\
-[ Turtleli ]{style="font-weight: bold;"} fixed the first issue by
-reworking the code so that non-overlapping consecutive sprite primitives
-are drawn together when sprite overlap is detected, which can greatly
-reduce the number of barriers used and therefore improve rendering speed
-when accurate blending is enabled.\
-\
-[ Gregory ]{style="font-weight: bold;"} has tackled the second issue by
-not flushing the texture cache between primitives when we are emulating
-the Frame buffer mask on an alpha channel. Normally if you don\'t flush
-the cache you wouldn\'t know what you\'re reading - it could be an old
-cached value or it could be a value written in the render target or it
-could even be something undefined. Fortunately the \"Undefined\" case is
-rather unlikely as read and write paths are separated for performance
-and memory is designed to handle both read/write at the same time/same
-address.\
-\
-In the end, it all comes down to the case of \"Cached value\" VS
-\"Current value\". In order to generate an effect, the fragment shader
-needs to read the masked bits and then merge them with the new alpha
-value. Since the alpha channel isn\'t blended (due to GS limitations),
-the masked bits in the target are constant. This also means that said
-bits are the same in the cache (which contains the value of rendering
-target at a random time). Because of this we don\'t care which data is
-read, cached or not, the required bits will be the same. This provides a
-significant increase at speed on games like [ Xenosaga
-]{style="font-style: italic;"} .\
-\
-[ Note: ]{style="font-weight: bold;"} The former slow method of accurate
-blending can still be used by enabling \"Safe Accurate blending\" on HW
-hacks. ( useful for checking on regressions caused by the current fast
-blending)
+  
+<span style="font-weight: bold;"> Turtleli </span> fixed the first issue
+by reworking the code so that non-overlapping consecutive sprite
+primitives are drawn together when sprite overlap is detected, which can
+greatly reduce the number of barriers used and therefore improve
+rendering speed when accurate blending is enabled.  
+  
+<span style="font-weight: bold;"> Gregory </span> has tackled the second
+issue by not flushing the texture cache between primitives when we are
+emulating the Frame buffer mask on an alpha channel. Normally if you
+don't flush the cache you wouldn't know what you're reading - it could
+be an old cached value or it could be a value written in the render
+target or it could even be something undefined. Fortunately the
+"Undefined" case is rather unlikely as read and write paths are
+separated for performance and memory is designed to handle both
+read/write at the same time/same address.  
+  
+In the end, it all comes down to the case of "Cached value" VS "Current
+value". In order to generate an effect, the fragment shader needs to
+read the masked bits and then merge them with the new alpha value. Since
+the alpha channel isn't blended (due to GS limitations), the masked bits
+in the target are constant. This also means that said bits are the same
+in the cache (which contains the value of rendering target at a random
+time). Because of this we don't care which data is read, cached or not,
+the required bits will be the same. This provides a significant increase
+at speed on games like <span style="font-style: italic;"> Xenosaga
+</span> .  
+  
+<span style="font-weight: bold;"> Note: </span> The former slow method
+of accurate blending can still be used by enabling "Safe Accurate
+blending" on HW hacks. ( useful for checking on regressions caused by
+the current fast blending)
 
-        **Game**        **Blending unit accuracy \[disabled\]**   **Blending unit accuracy \[medium\] (before)**   **Blending unit accuracy \[medium\] (now)**
-  -------------------- ----------------------------------------- ------------------------------------------------ ---------------------------------------------
-        Xenosaga                          172                                           36                                             153
-   Zone of the Enders                     172                                           27                                             156
+|      **Game**      | **Blending unit accuracy \[disabled\]** | **Blending unit accuracy \[medium\] (before)** | **Blending unit accuracy \[medium\] (now)** |
+|:------------------:|:---------------------------------------:|:----------------------------------------------:|:-------------------------------------------:|
+|      Xenosaga      |                   172                   |                       36                       |                     153                     |
+| Zone of the Enders |                   172                   |                       27                       |                     156                     |
 
-  :  [ [ Speed impact of Fast accurate blending
-  ]{style="font-size: large;"} ]{style="color: #3a90dc;"}
+<span style="color: #3a90dc;"> <span style="font-size: large;"> Speed
+impact of Fast accurate blending </span> </span>
 
-\
-\
-[ \[Enhancement\] ]{style="color: #018ddd;"} [ GSDX-OpenGL: Depth buffer
-lookup optimization
-]{style="font-weight: bold; text-decoration: underline;"} by
-[Gregory](https://github.com/gregory38)\
-\
+  
+  
+<span style="color: #018ddd;"> \[Enhancement\] </span> <span
+style="font-weight: bold; text-decoration: underline;"> GSDX-OpenGL:
+Depth buffer lookup optimization </span> by
+[Gregory](https://github.com/gregory38)  
+  
 The Graphics synthesizer (GS) is allowed to overlap the depth buffer and
 the color buffer. In order to support it on a standard PC GPU, HW depth
 was created to convert between the depth and color format which resolves
 tons of issues related to the depth textures. Unfortunately it is quite
-costly on performance.\
-\
+costly on performance.  
+  
 After some observations, it was found that at several instances the
 depth buffer is useless, not read, not written. GSdx was updated to not
-handle the depth buffer when it isn\'t used by the game. It removes most
+handle the depth buffer when it isn't used by the game. It removes most
 of the overhead of the HW depth option on games like Tekken 5.
 
-  **Game**    **HW depth \[disabled\]**   **HW depth \[enabled\] (before)**   **HW depth \[enabled\] (now)**
-  ---------- --------------------------- ----------------------------------- --------------------------------
-  Tekken 5               215                             32                                205
+| **Game** | **HW depth \[disabled\]** | **HW depth \[enabled\] (before)** | **HW depth \[enabled\] (now)** |
+|----------|:-------------------------:|:---------------------------------:|:------------------------------:|
+| Tekken 5 |            215            |                32                 |              205               |
 
-  :  [ [ Speed impact of depth buffer lookup optimization
-  ]{style="font-size: large;"} ]{style="color: #3a90dc;"}
+<span style="color: #3a90dc;"> <span style="font-size: large;"> Speed
+impact of depth buffer lookup optimization </span> </span>
 
-\
-\
-[ \[Enhancement\] ]{style="color: #018ddd;"} [ GSDX-FX: Post-Processing
-updates ]{style="font-weight: bold; text-decoration: underline;"} by
-[Asmodean](https://github.com/Asmodean)\
-\
+  
+  
+<span style="color: #018ddd;"> \[Enhancement\] </span> <span
+style="font-weight: bold; text-decoration: underline;"> GSDX-FX:
+Post-Processing updates </span> by
+[Asmodean](https://github.com/Asmodean)  
+  
 Asmodean has updated his effects suite with improved cel edges of the
-cel shader and a new debanding shader along with Timothy Lottes\' CRT
-emulation shader.\
-\
+cel shader and a new debanding shader along with Timothy Lottes' CRT
+emulation shader.  
+  
 Here are some comparison screenshots showing the effect of the CRT
-emulation shader:\
-\
-[![gundam](/images/stories/frontend/progress_reports/1-2-2016/gundam-noshader-s.png "gundam"){width="353"
-height="198"}](/images/stories/frontend/progress_reports/1-2-2016/gundam-noshader.png)
-[![gundam](/images/stories/frontend/progress_reports/1-2-2016/gundam-shader-s.png "gundam"){width="353"
-height="198"}](/images/stories/frontend/progress_reports/1-2-2016/gundam-shader.png)\
-[![dmc3](/images/stories/frontend/progress_reports/1-2-2016/dmc3-noshader-s.png "dmc3"){width="353"
-height="198"}](/images/stories/frontend/progress_reports/1-2-2016/dmc3-noshader.png)
-[![dmc3](/images/stories/frontend/progress_reports/1-2-2016/dmc3-shader-s.png "dmc3"){width="353"
-height="198"}](/images/stories/frontend/progress_reports/1-2-2016/dmc3-shader.png)\
-\
-\
-[ \[Bug-Fix\] ]{style="color: #ff3333;"} [ GSDX: Proper handling of
-576P/720P/1080I video modes
-]{style="font-weight: bold; text-decoration: underline;"} by
-[ssakash](https://github.com/ssakash)\
-\
-[ 1080P (before) ]{style="font-weight: bold;"}\
-[![video mode
-test](/images/stories/frontend/progress_reports/1-2-2016/height-broken-s.png "video mode test"){width="353"
-height="148"}](/images/stories/frontend/progress_reports/1-2-2016/height-broken.png)\
-[ 1080P (now) ]{style="font-weight: bold;"}\
-[![video mode test
-fixed](/images/stories/frontend/progress_reports/1-2-2016/height-fixed-s.png "video mode test fixed"){width="353"
-height="298"}](/images/stories/frontend/progress_reports/1-2-2016/height-fixed.png)\
-[ Note: ]{style="font-weight: bold;"} This screenshot is of an ELF file
-called \"Video mode test\" which was designed to observe the
-Display/SMODE registers value changes at each video modes.\
-\
-[ Gitaroo Man \[PAL\] (before) ]{style="font-weight: bold;"}\
-[![gitaroo man
-broken](/images/stories/frontend/progress_reports/1-2-2016/gitarooman-broken-s.png "gitaroo man broken"){width="353"
-height="149"}](/images/stories/frontend/progress_reports/1-2-2016/gitarooman-broken.png)\
-\
-[ Gitaroo Man \[PAL\] (now) ]{style="font-weight: bold;"}\
-[![gitaroo man
-broken](/images/stories/frontend/progress_reports/1-2-2016/gitarooman-fixed-s.png "gitaroo man broken"){width="353"
-height="298"}](/images/stories/frontend/progress_reports/1-2-2016/gitarooman-fixed.png)\
-[ Note: ]{style="font-weight: bold;"} The NTSC version of Gitaroo Man
-didn\'t suffer the following issue since it uses a height of 448 whereas
-the PAL version uses 576.\
-\
+emulation shader:  
+  
+[<img src="/images/stories/frontend/progress_reports/1-2-2016/gundam-noshader-s.png" title="gundam" width="353" height="198" alt="gundam" />](/images/stories/frontend/progress_reports/1-2-2016/gundam-noshader.png)
+[<img src="/images/stories/frontend/progress_reports/1-2-2016/gundam-shader-s.png" title="gundam" width="353" height="198" alt="gundam" />](/images/stories/frontend/progress_reports/1-2-2016/gundam-shader.png)  
+[<img src="/images/stories/frontend/progress_reports/1-2-2016/dmc3-noshader-s.png" title="dmc3" width="353" height="198" alt="dmc3" />](/images/stories/frontend/progress_reports/1-2-2016/dmc3-noshader.png)
+[<img src="/images/stories/frontend/progress_reports/1-2-2016/dmc3-shader-s.png" title="dmc3" width="353" height="198" alt="dmc3" />](/images/stories/frontend/progress_reports/1-2-2016/dmc3-shader.png)  
+  
+  
+<span style="color: #ff3333;"> \[Bug-Fix\] </span> <span
+style="font-weight: bold; text-decoration: underline;"> GSDX: Proper
+handling of 576P/720P/1080I video modes </span> by
+[ssakash](https://github.com/ssakash)  
+  
+<span style="font-weight: bold;"> 1080P (before) </span>  
+[<img src="/images/stories/frontend/progress_reports/1-2-2016/height-broken-s.png" title="video mode test" width="353" height="148" alt="video mode test" />](/images/stories/frontend/progress_reports/1-2-2016/height-broken.png)  
+<span style="font-weight: bold;"> 1080P (now) </span>  
+[<img src="/images/stories/frontend/progress_reports/1-2-2016/height-fixed-s.png" title="video mode test fixed" width="353" height="298" alt="video mode test fixed" />](/images/stories/frontend/progress_reports/1-2-2016/height-fixed.png)  
+<span style="font-weight: bold;"> Note: </span> This screenshot is of an
+ELF file called "Video mode test" which was designed to observe the
+Display/SMODE registers value changes at each video modes.  
+  
+<span style="font-weight: bold;"> Gitaroo Man \[PAL\] (before) </span>  
+[<img src="/images/stories/frontend/progress_reports/1-2-2016/gitarooman-broken-s.png" title="gitaroo man broken" width="353" height="149" alt="gitaroo man broken" />](/images/stories/frontend/progress_reports/1-2-2016/gitarooman-broken.png)  
+  
+<span style="font-weight: bold;"> Gitaroo Man \[PAL\] (now) </span>  
+[<img src="/images/stories/frontend/progress_reports/1-2-2016/gitarooman-fixed-s.png" title="gitaroo man broken" width="353" height="298" alt="gitaroo man broken" />](/images/stories/frontend/progress_reports/1-2-2016/gitarooman-fixed.png)  
+<span style="font-weight: bold;"> Note: </span> The NTSC version of
+Gitaroo Man didn't suffer the following issue since it uses a height of
+448 whereas the PAL version uses 576.  
+  
 The physical display dimensions (CRTC size) of the video modes can be
 found using the value of the following display registers:
 
@@ -181,34 +171,35 @@ found using the value of the following display registers:
 -   MAGH - Horizontal Magnification factor
 -   MAGV - Vertical Magnification factor
 
-\
-The width and height are calculated by the formula [ (DW+1) / (MAGH + 1)
-]{style="font-weight: bold;"} and [ (DH+1) / (MAGV + 1)
-]{style="font-weight: bold;"} respectively. Different video modes use
-different magnification factors and it depends on the game as well.\
-\
-Previously there was a saturation limit for display height (DH) as it\'s
+  
+The width and height are calculated by the formula <span
+style="font-weight: bold;"> (DW+1) / (MAGH + 1) </span> and <span
+style="font-weight: bold;"> (DH+1) / (MAGV + 1) </span> respectively.
+Different video modes use different magnification factors and it depends
+on the game as well.  
+  
+Previously there was a saturation limit for display height (DH) as it's
 generally not higher than 640 for NTSC / PAL video modes. However, that
-wasn\'t the case for other VESA/DTV (576P,720P\...1080I) video modes
-since they utilize a bigger display height (DH) and scale it according
-to the magnification factor. To solve this, the saturation limit is
-ignored for video modes other than NTSC/PAL as those do have the
-possibility of producing a higher DH value. The check was ultimately
-placed on CRTC height instead of DH to avoid any possible conflicts with
-the vertical magnification factor scaling.\
-\
+wasn't the case for other VESA/DTV (576P,720P...1080I) video modes since
+they utilize a bigger display height (DH) and scale it according to the
+magnification factor. To solve this, the saturation limit is ignored for
+video modes other than NTSC/PAL as those do have the possibility of
+producing a higher DH value. The check was ultimately placed on CRTC
+height instead of DH to avoid any possible conflicts with the vertical
+magnification factor scaling.  
+  
 Another part of the fix was to prevent a bad division of height when the
-[ INT ]{style="font-weight: bold;"} and [ FFMD
-]{style="font-weight: bold;"} register values were set. Previously the
-code did the division twice since we were receiving the height of the
-device size instead of the display rectangle. We don\'t need to divide
-once again as device size already goes through the halving of height
-when the respective register values are set.\
-\
-\
-[ \[Bug-Fix\] ]{style="color: #ff3333;"} [ PCSX2: GUI Improvements
-]{style="font-weight: bold; text-decoration: underline;"} by
-[ssakash](https://github.com/ssakash) ,
+<span style="font-weight: bold;"> INT </span> and <span
+style="font-weight: bold;"> FFMD </span> register values were set.
+Previously the code did the division twice since we were receiving the
+height of the device size instead of the display rectangle. We don't
+need to divide once again as device size already goes through the
+halving of height when the respective register values are set.  
+  
+  
+<span style="color: #ff3333;"> \[Bug-Fix\] </span> <span
+style="font-weight: bold; text-decoration: underline;"> PCSX2: GUI
+Improvements </span> by [ssakash](https://github.com/ssakash) ,
 [Turtleli](https://github.com/turtleli) and
 [NZJenkins](https://github.com/NZJenkins)
 
@@ -225,27 +216,28 @@ when the respective register values are set.\
     upscaling value.
 -   VideoPanel: Better gray out of dialog elements.
 
-\
-[ \[Bug-Fix\] ]{style="color: #ff3333;"} [ PCSX2-Auto test suite
-]{style="font-weight: bold; text-decoration: underline;"} by
-[Gregory](https://github.com/gregory38) ,
+  
+<span style="color: #ff3333;"> \[Bug-Fix\] </span> <span
+style="font-weight: bold; text-decoration: underline;"> PCSX2-Auto test
+suite </span> by [Gregory](https://github.com/gregory38) ,
 [Rama](https://github.com/ramapcsx2) and
-[Refraction](https://github.com/refractionpcsx2)\
-\
+[Refraction](https://github.com/refractionpcsx2)  
+  
 The [PS2 Autotests](https://github.com/unknownbrackets/ps2autotests) is
 a repository created by [Unknown
-brackets](https://github.com/unknownbrackets) .\
-\
+brackets](https://github.com/unknownbrackets) .  
+  
 PS2 Autotests consists of multiple small programs for the PS2 with each
 one being a different test. It tests certain things and then simply
 writes out a log of what it did and what happened when it did those
-things. These tests are run on real hardware and then we save that log.\
-\
+things. These tests are run on real hardware and then we save that
+log.  
+  
 After that an emulator can execute the same small program and get its
 own log. If what happened on the real hardware is different from what
-happened in the emulator then guess what? You\'ve got a bug, or at least
-a potential problem. Even better, it\'s quite easy to reproduce.\
-\
+happened in the emulator then guess what? You've got a bug, or at least
+a potential problem. Even better, it's quite easy to reproduce.  
+  
 Gregory has recently added a perl script which makes it easier to run
 such tests and allows faster debugging for the developers - these tests
 have already helped our developers fix a couple of issues. (few of them
@@ -262,58 +254,59 @@ are listed below for reference)
 -   [Vif-Recompiler: Proper handling when domode is set
     to 3.](https://github.com/PCSX2/pcsx2/commit/e5e0f85b50feb943e761944ca4a368402a1600f2)
 
-\
-[ \[Bug-Fix\] ]{style="color: #ff3333;"} [ PCSX2-Vector Units: Scarface
-I bit hack ]{style="font-weight: bold; text-decoration: underline;"} by
-[Refraction](https://github.com/refractionpcsx2)\
-\
-[ Scarface - The World is Yours ]{style="font-weight: bold;"} has a
-certain way of doing it\'s vector programs which is a pain for
+  
+<span style="color: #ff3333;"> \[Bug-Fix\] </span> <span
+style="font-weight: bold; text-decoration: underline;"> PCSX2-Vector
+Units: Scarface I bit hack </span> by
+[Refraction](https://github.com/refractionpcsx2)  
+  
+<span style="font-weight: bold;"> Scarface - The World is Yours </span>
+has a certain way of doing it's vector programs which is a pain for
 recompilers, most games upload a program with specific instructions to
 process vectors in a set of order with a common outcome. However the
 following game does things a little bit differently, instead of having a
 vector program for certain processes and then just changing the input
-data, scarface constantly changes what is known as the [ I bit
-]{style="font-weight: bold;"} in its VU program.\
-\
+data, scarface constantly changes what is known as the <span
+style="font-weight: bold;"> I bit </span> in its VU program.  
+  
 The issue here is that the recompiler creates a hexadecimal hash of the
 entire program, one little change to the program (in this case, an I bit
 value in place of an operation code) and then the hash changes
 completely, telling the recompiler that this is a new program and not
 the same one it had previously recompiled, so it recompiles it over and
-over again until it runs out of memory.\
-\
+over again until it runs out of memory.  
+  
 To workaround the following issue, a new hack was added to check for the
 status of the I bit value and then avoid constant recompilation when
 only the I bit value has been changed at the specific address. Maybe in
-the future we can deal with this in a accurate way, but it\'s not an
-easy thing to check without compromising on speed.\
-\
-This is an optional hack which can be found under the [ Gamefixes
-]{style="font-weight: bold;"} tab of the emulator as it is slower to
-handle things this way and is quite specific, but it was requested by
-quite a few users, so we obliged!\
-\
-\
-[ \[New Feature\] ]{style="color: #1bc449;"} [ LilyPad: Add Pop\'n Music
-controller support
-]{style="font-weight: bold; text-decoration: underline;"} by
-[ekudritski](https://github.com/ekudritski)\
-\
-[![gitaroo man
-broken](/images/stories/frontend/progress_reports/1-2-2016/lilypad-pop-n-music-s.png "gitaroo man broken"){width="550"
-height="521"}](/images/stories/frontend/progress_reports/1-2-2016/lilypad-pop-n-music.png)\
-\
-Native support for the [ Pop\'n Music controller
-]{style="font-weight: bold;"} has been added to LilyPad. Several users
-had requested this feature since a few games rely on said controller and
-it\'s quite hard and troublesome to simulate the behavior of the
+the future we can deal with this in a accurate way, but it's not an easy
+thing to check without compromising on speed.  
+  
+This is an optional hack which can be found under the <span
+style="font-weight: bold;"> Gamefixes </span> tab of the emulator as it
+is slower to handle things this way and is quite specific, but it was
+requested by quite a few users, so we obliged!  
+  
+  
+<span style="color: #1bc449;"> \[New Feature\] </span> <span
+style="font-weight: bold; text-decoration: underline;"> LilyPad: Add
+Pop'n Music controller support </span> by
+[ekudritski](https://github.com/ekudritski)  
+  
+[<img src="/images/stories/frontend/progress_reports/1-2-2016/lilypad-pop-n-music-s.png" title="gitaroo man broken" width="550" height="521" alt="gitaroo man broken" />](/images/stories/frontend/progress_reports/1-2-2016/lilypad-pop-n-music.png)  
+  
+Native support for the <span style="font-weight: bold;"> Pop'n Music
+controller </span> has been added to LilyPad. Several users had
+requested this feature since a few games rely on said controller and
+it's quite hard and troublesome to simulate the behavior of the
 controller using macros and third party programs.
 
 That was it for these 2 months!. The next report will come around June,
 but hopefully we will show signs of life before that
-![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-width="20" height="20"} As always, check out our [github
+<img src="https://pcsx2.net/images/stories/frontend/smilies/wink.gif" class="yvSmiley" width="20" height="20" alt="Wink" />
+As always, check out our [github
 repository](https://github.com/PCSX2/pcsx2) for daily updates to PCSX2.
-:::
-:::
+
+</div>
+
+</div>

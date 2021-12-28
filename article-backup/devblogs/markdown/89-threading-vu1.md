@@ -1,11 +1,13 @@
-::: {.single-article}
-::: {.item-page .clearfix}
-Well if you\'ve kept up with [pcsx2\'s
-SVN](http://code.google.com/p/pcsx2/source/list) , you\'ll notice we
+<div class="single-article">
+
+<div class="item-page clearfix">
+
+Well if you've kept up with [pcsx2's
+SVN](http://code.google.com/p/pcsx2/source/list) , you'll notice we
 [recently added](http://code.google.com/p/pcsx2/source/detail?r=4865) a
 MTVU (Multi-Threaded microVU1) option, which runs VU1 on its own
-thread.\
-\
+thread.  
+  
 Getting pcsx2 to use more cores is something many people have asked for,
 and they wondered why we werent doing it. Some users would go as far as
 to flame us pcsx2 coders saying we didnt have the skills to do it or
@@ -18,8 +20,8 @@ safe and accurate at a hardware emulation level, you generally take the
 approach of running the core CPU of the system (the EE-core in ps2s
 case), and then based off the cycles you ran the CPU for, you time the
 execution of all the other processing units in the system (DMAC (GIF,
-VIF, SIF, ), VU0/VU1, IPU, IOP, etc).\
-\
+VIF, SIF, ), VU0/VU1, IPU, IOP, etc).  
+  
 If you try to naively thread the components in the above model, youll
 have 2 huge problems which may not be apparent to non-emu coders. One
 problem is that threading the components (say GIF and VU1) at the same
@@ -29,8 +31,8 @@ just running a component on a thread is actually going to be a slow-down
 unless the thread is doing a lot of work without having to sync with
 other components. As an example, both Jake Stine (Air) and I have in the
 past experimented with naively threading VU1, and in addition to getting
-unstable graphics and crashes, our attempts also ran slower.\
-\
+unstable graphics and crashes, our attempts also ran slower.  
+  
 So now you may be wondering, If threading has all those problems how can
 you get a speedup? Well we had to be smart about it, and figure out a
 way to make threading work based on the properties of the hardware. One
@@ -41,12 +43,12 @@ therefore increase the thread throughput), and it also needs to be a
 component that is used frequently and is computationally expensive to
 emulate (or else theres no point in threading it). Luckily the GS fit
 that bill very well (which gave us MTGS), and to a lesser extent VU1
-does (giving us MTVU).\
-\
-![](/images/stories/frontend/devblog/PS2_Flow_Diagram.png)\
+does (giving us MTVU).  
+  
+![](/images/stories/frontend/devblog/PS2_Flow_Diagram.png)  
 (Some key components in the ps2; these arent drawn to any relative
-scale)\
-\
+scale)  
+  
 In the above diagram, I have drawn some of the key components which must
 be considered when threading VU1 and the GS. The dark arrows show common
 data paths where data is transferred frequently between the components
@@ -54,8 +56,9 @@ in games. The white arrow heads show data paths that are possible in
 games, but are rarely used due to various reasons. There are some more
 data paths and more components to the ps2, but theyre excluded for
 simplicity (the actual grouping of the components in the ps2 also is a
-bit different, but drawing them that way would complicate the diagram).\
-\
+bit different, but drawing them that way would complicate the
+diagram).  
+  
 Just so youre not left in the dark Ill briefly explain what the above
 components are used for. The EE-core is the main CPU of the ps2 and
 mostly handles game logic; using the GIF FIFO and Path 3, games
@@ -68,8 +71,8 @@ VU1s data memory, signaling VU1 to start executing its micro-program,
 and it also can send data to the GS via GIFs Path 2. The GIF Unit is in
 charge of managing the Path 1/2/3 transfers that are being sent to the
 GS, and it does this according to path priority (Path 1 &gt; Path 2 &gt;
-Path 3) and some other specific rules.\
-\
+Path 3) and some other specific rules.  
+  
 If you notice in the diagram, the GS (Graphics Synthesizer) has data
 coming into it frequently, and rarely ever needs to send data back to
 other components. When threading the GS, what we essentially do is
@@ -78,8 +81,8 @@ have enough buffered data we kick-start the MTGS thread and have it
 start processing the GIF packets we previously buffered. While its
 processing this buffered data, the EE main thread is still running and
 more GIF transfers are being buffered so that MTGS can process them when
-it gets the chance\
-\
+it gets the chance  
+  
 The key to making something like this work from an emulation standpoint
 is that the main emulation thread thinks that nothing is being threaded
 at all; it sends data to the GIF Unit like normal, and this gets
@@ -99,8 +102,8 @@ the MTGS thread. This syncing is slow and if emulation needs to do it a
 lot it eliminates the speedup from threading (and can even be a big
 slowdown), however as noted in the above diagram, the GS rarely ever
 needs to transfer data back; so that means threading the GS is almost
-always a speedup for us.\
-\
+always a speedup for us.  
+  
 Now that we understand the basics of how the MTGS thread works, we can
 move onto MTVU. Since the GS was already the best candidate for
 threading in a ps2 emulator, it meant that threading any other component
@@ -108,8 +111,8 @@ would be even more of a challenge. From analyzing pcsx2s activity and
 design, the next component that made sense to thread was VU1. It is
 relatively isolated compared to the other components, and it takes a lot
 of computation power to emulate. However, there are some big problems
-which must be solved to get a fast and working threaded VU1.\
-\
+which must be solved to get a fast and working threaded VU1.  
+  
 One of the problems deals with what was talked about in the beginning of
 this article, how typical emulation runs the different components based
 off the cycles of the main CPU. With the typical emulation approach we
@@ -138,8 +141,8 @@ time as far as the EE is concerned, because it doesnt really care about
 VU1s status. This is even more good news for threading since it means
 more through-put for the VU1 thread if it can be queuing and
 sequentially executing multiple VU1 programs (as opposed to running only
-one VU1 program while the EE waits on it to finish).\
-\
+one VU1 program while the EE waits on it to finish).  
+  
 There is another big problem with VU1 threading however: the VU1
 processor works closely with the GIF Unit, and the GIF Unit is timed and
 executed according to the main emulation thread. So that means sending
@@ -172,8 +175,8 @@ MTGS thread, at this point it requests a full Path 1 packet from the GIF
 Unit, and the GIF Unit gives it one of the Path 1 packets that the MTVU
 thread has finished. Then the MTGS thread tells the GS plugin to process
 this Path 1 packet, and the cycle just continues over and over every
-time a VU1 program is run.\
-\
+time a VU1 program is run.  
+  
 The only flaw in the above solution for GIF processing is that in
 reality pcsx2 needs to do some additional processing of GIF packet data
 on the main emulation thread to check if certain privileged GS registers
@@ -194,8 +197,8 @@ opinion its not worth it. The good news is that its very rare for a game
 to write to the privileged registers from VU1s GIF Path 1 (they usually
 do it from Path 2/Path 3), so that means that MTVU should be very
 compatible, however due to this potential problem, MTVU has to remain a
-speedhack instead of adding it as a normal option.\
-\
+speedhack instead of adding it as a normal option.  
+  
 The third big problem with VU1 emulation is the communication with VIF1.
 The VIF1 if you remember is in charge of sending new micro-programs to
 VU1 and decompressing data onto VU1 memory. In addition to this it has
@@ -232,8 +235,8 @@ by the time the commands are executed on the MTVU thread. Essentially
 from this description, you can see that the MTVU thread not only threads
 VU1, but also threads VIF1 command too. This is another speedup since
 VIF1 Unpacks are very computationally expensive (and thats why we even
-have a VIF Unpack recompiler).\
-\
+have a VIF Unpack recompiler).  
+  
 The remaining problems of VU1 threading are handling the cases where the
 EE or other processors like VU0 ever need to read back from VU1. This
 happens very rarely, but in this situation all we need to do is call a
@@ -245,8 +248,8 @@ be a speedup because the EE would end up reading back from it too much.
 The good thing is that VU0 is rarely a bottleneck in games; this is
 evident because you can usually run VU0 interpreters and get a minimal
 speed-hit (if you try to run vu1 interpreters on the other hand, your
-speed will usually crawl to \~2fps).\
-\
+speed will usually crawl to \~2fps).  
+  
 By now you should hopefully have a better understanding of how pcsx2s
 VU1 and GS threading basically works, but you may still have questions
 on why its taken so long for us to do it. Well as shown above there were
@@ -268,10 +271,11 @@ emitter which allowed us to run multiple dynamic-recompilers in
 parallel; we solved this by a code emitter rewrite and using thread
 local storage for the emitters global data. Lastly we needed someone who
 knew about all these various components and was bored enough to try
-making something like this work ![Very
-Happy](https://pcsx2.net/images/stories/frontend/smilies/biggrin.gif){.yvSmiley
-width="20" height="20"}
+making something like this work
+<img src="https://pcsx2.net/images/stories/frontend/smilies/biggrin.gif" class="yvSmiley" width="20" height="20" alt="Very Happy" />
 
 **[Post a Comment!](http://forums.pcsx2.net/thread-23686.html)**
-:::
-:::
+
+</div>
+
+</div>

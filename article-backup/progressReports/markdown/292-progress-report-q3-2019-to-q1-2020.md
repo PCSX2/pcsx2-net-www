@@ -1,9 +1,12 @@
-::: {.single-article}
-::: {.item-page .clearfix}
-## [Progress report - Q3 2019 to Q1 2020](/292-progress-report-q3-2019-to-q1-2020.html) {#progress-report---q3-2019-to-q1-2020 .contentheading}
+<div class="single-article">
 
-::: {style="text-align:center;"}
-:::
+<div class="item-page clearfix">
+
+## [Progress report - Q3 2019 to Q1 2020](/292-progress-report-q3-2019-to-q1-2020.html)
+
+<div style="text-align:center;">
+
+</div>
 
 ![progrepq32019q12020](/images/stories/frontend/static/progrepq32019q12020.webp)
 
@@ -16,20 +19,20 @@ Written by
 
 **Hardware rendering improvements for all renderers:**
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"} [
-]{style="color: #ff3333;"}
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span> <span
+style="color: #ff3333;"> </span>
 [\#3018](https://github.com/PCSX2/pcsx2/pull/3018) Improve
 search/invalidate texture in render target by correctly matching vertex
 offsetted draws with buffer offsetted reads in the texture cache. This
 behavior is enabled by default in Jak games to fix the Black Eye
 rendering.By [AlessandroVetere](https://github.com/AlessandroVetere) .
 
-  ----------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------
-                                                          Before                                                                                                                  After
-   ![gsdx 3018 before](/images/stories/frontend/progress_reports/q3-2019/gsdx-3018-before.png){width="353" height="264"}   ![gsdx 3018 after](/images/stories/frontend/progress_reports/q3-2019/gsdx-3018-after.png){width="353" height="264"}
-  ----------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------
+|                                                                                                                                      |                                                                                                                                    |
+|:------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------:|
+|                                                                Before                                                                |                                                               After                                                                |
+| <img src="/images/stories/frontend/progress_reports/q3-2019/gsdx-3018-before.png" width="353" height="264" alt="gsdx 3018 before" /> | <img src="/images/stories/frontend/progress_reports/q3-2019/gsdx-3018-after.png" width="353" height="264" alt="gsdx 3018 after" /> |
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 [\#3001](https://github.com/PCSX2/pcsx2/pull/3001) Implemented Software
 Sprite Renderer feature which allows to CPU emulate (SSE accelerated)
 certain sprite draws directly from the HW renderer. This bypasses GPU
@@ -41,58 +44,58 @@ get the drawn palette from GPU to CPU. There are plans to implement the
 feature in other games such as DBZ BT2. By
 [AlessandroVetere](https://github.com/AlessandroVetere) .
 
-  ----------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------
-                                                          Before                                                                                                                  After
-   ![gsdx 3001 before](/images/stories/frontend/progress_reports/q3-2019/gsdx-3001-before.png){width="353" height="264"}   ![gsdx 3001 after](/images/stories/frontend/progress_reports/q3-2019/gsdx-3001-after.png){width="353" height="264"}
-  ----------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------
+|                                                                                                                                      |                                                                                                                                    |
+|:------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------:|
+|                                                                Before                                                                |                                                               After                                                                |
+| <img src="/images/stories/frontend/progress_reports/q3-2019/gsdx-3001-before.png" width="353" height="264" alt="gsdx 3001 before" /> | <img src="/images/stories/frontend/progress_reports/q3-2019/gsdx-3001-after.png" width="353" height="264" alt="gsdx 3001 after" /> |
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 [\#3036](https://github.com/PCSX2/pcsx2/pull/3036) Added a dedicated fix
 for Big Mutha Truckers which allows to render the shadows properly. This
 also allowed us to reduce the crc hack level so there are less effects
 skipped. By [lightningterror](https://github.com/lightningterror) .
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 [\#2998](https://github.com/PCSX2/pcsx2/pull/2998) Added a dedicated fix
 for Sonic Unleashed. This allows it to render shadows properly. This
 also allowed us to remove crc hacks which previously skipped the
 incorrectly rendered effects. By
 [lightningterror](https://github.com/lightningterror) .
 
-  ----------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------
-                                                          Before                                                                                                                  After
-   ![gsdx 2998 before](/images/stories/frontend/progress_reports/q3-2019/gsdx-2998-before.png){width="353" height="247"}   ![gsdx 2998 after](/images/stories/frontend/progress_reports/q3-2019/gsdx-2998-after.png){width="353" height="247"}
-  ----------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------
+|                                                                                                                                      |                                                                                                                                    |
+|:------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------:|
+|                                                                Before                                                                |                                                               After                                                                |
+| <img src="/images/stories/frontend/progress_reports/q3-2019/gsdx-2998-before.png" width="353" height="247" alt="gsdx 2998 before" /> | <img src="/images/stories/frontend/progress_reports/q3-2019/gsdx-2998-after.png" width="353" height="247" alt="gsdx 2998 after" /> |
 
-[ \[Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Enhancement\] </span>
 [\#2993](https://github.com/PCSX2/pcsx2/pull/2993) Sprite Hack has been
 completely removed as it is no longer needed and is replaced by far
 better alternatives. By [KrossX](https://github.com/KrossX) and
 [lightningterror](https://github.com/lightningterror) .
 
-[ \[Enhancement\] ]{style="color: #00ccff;"} By continuing on our quest
-of removal obsolete hacks, there have been more CRC hacks removed which
-were no longer needed; as the emulator can now properly render these
-effects.
+<span style="color: #00ccff;"> \[Enhancement\] </span> By continuing on
+our quest of removal obsolete hacks, there have been more CRC hacks
+removed which were no longer needed; as the emulator can now properly
+render these effects.
 
 **Hardware rendering improvements for Direct3D10/11:**
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 [\#3091](https://github.com/PCSX2/pcsx2/pull/3091) The TFX shader on
-Direct3D10/11 has been rewritten to match OpenGL code and its\' accuracy
+Direct3D10/11 has been rewritten to match OpenGL code and its' accuracy
 for certain effects. With this in mind, a lot of games should see
 improvements in rendering. Examples include: Silent Hill 4 having
 shadows rendered properly, DBZ BT2 having more accurate bloom/blur
-rendering, and Resident Evil 4\'s inaccurate fog rendering. Other games
+rendering, and Resident Evil 4's inaccurate fog rendering. Other games
 may be affected as well. By [KrossX](https://github.com/KrossX) .
 
-  ------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------------------------------------------
-                                                           Before                                                                                                                    After
-    ![gsdx 3091 before](/images/stories/frontend/progress_reports/q3-2019/gsdx-3091-before.png){width="353" height="309"}     ![gsdx 3091 after](/images/stories/frontend/progress_reports/q3-2019/gsdx-3091-after.png){width="353" height="309"}
-   ![gsdx 3091 before1](/images/stories/frontend/progress_reports/q3-2019/gsdx-3091-before1.png){width="353" height="309"}   ![gsdx 3091 after1](/images/stories/frontend/progress_reports/q3-2019/gsdx-3091-after1.png){width="353" height="309"}
-  ------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------------------------------------------
+|                                                                                                                                        |                                                                                                                                      |
+|:--------------------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------:|
+|                                                                 Before                                                                 |                                                                After                                                                 |
+|  <img src="/images/stories/frontend/progress_reports/q3-2019/gsdx-3091-before.png" width="353" height="309" alt="gsdx 3091 before" />  |  <img src="/images/stories/frontend/progress_reports/q3-2019/gsdx-3091-after.png" width="353" height="309" alt="gsdx 3091 after" />  |
+| <img src="/images/stories/frontend/progress_reports/q3-2019/gsdx-3091-before1.png" width="353" height="309" alt="gsdx 3091 before1" /> | <img src="/images/stories/frontend/progress_reports/q3-2019/gsdx-3091-after1.png" width="353" height="309" alt="gsdx 3091 after1" /> |
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 [\#3003](https://github.com/PCSX2/pcsx2/pull/3003) Blend no Barrier has
 been ported from OpenGL to Direct3D 10/11. As with previous blending
 ports, this improves rendering blending effects across many games that
@@ -104,16 +107,16 @@ slower, thus gaining some fps. Feature needs at least Basic Blending
 enabled for it to be properly rendered. By
 [lightningterror](https://github.com/lightningterror) .
 
-  ----------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------
-  Before                                                                                                                  After
-  ![gsdx 3003 before](/images/stories/frontend/progress_reports/q3-2019/gsdx-3003-before.png){width="353" height="198"}   ![gsdx 3003 after](/images/stories/frontend/progress_reports/q3-2019/gsdx-3003-after.png){width="353" height="198"}
-  ----------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------
+|                                                                                                                                      |                                                                                                                                    |
+|--------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| Before                                                                                                                               | After                                                                                                                              |
+| <img src="/images/stories/frontend/progress_reports/q3-2019/gsdx-3003-before.png" width="353" height="198" alt="gsdx 3003 before" /> | <img src="/images/stories/frontend/progress_reports/q3-2019/gsdx-3003-after.png" width="353" height="198" alt="gsdx 3003 after" /> |
 
 # Core Improvements
 
 **Recompiler:**
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 [\#3172](https://github.com/PCSX2/pcsx2/pull/3172) DI execution is
 delayed by one instruction.Fixes booting issues in the following games:
 Jak X, Namco 50th anniversary, Spongebob the Movie, Spongebob Battle for
@@ -126,7 +129,7 @@ post. By [refractionpcsx2](https://github.com/refractionpcsx2) and
 
 **Counters:**
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 [\#2835](https://github.com/PCSX2/pcsx2/pull/2835) Reverted back to
 older VRender/VBlank timings,This fixes timing issues in Dynasty
 Warriors 3 Xtreme Legends (fake save corruption), Jak II (random speedup
@@ -136,7 +139,7 @@ issues) and Shadow of Rome (FMV audio issues). By
 
 **IPU:**
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 [\#3119](https://github.com/PCSX2/pcsx2/pull/3119) Partially fixed IPU
 pack command. The Image Processing Unit (IPU) pack command is capable of
 converting 32-bit RGB data to either 16-bit RGB data or 4-bit indexed
@@ -144,48 +147,48 @@ RGB data. Due to the lack of games that actually use this command, it
 was not noticed that the code was attempting to convert from YCbCr data
 instead of from 32-bit RGB data.
 
-Everyone loves pachinko\... right?. Hisshou Pachinko PachiSlot Kouryaku
+Everyone loves pachinko... right?. Hisshou Pachinko PachiSlot Kouryaku
 series uses the IPU colour space conversion (CSC) command to convert
 YCbCr data to 32-bit RGB data. The IPU pack command is then used to
 convert the resultant 32-bit RGB data to 16-bit RGB data. The IPU CSC
 command, however, is capable of converting directly from YCbCr data to
-16-bit RGB data\...
+16-bit RGB data...
 
 So, thanks to some unusual test cases, the IPU pack command has now been
 partially fixed (the conversion to 4-bit indexed RGB data is still
 unimplemented due to a lack of test cases). By
 [turtleli](https://github.com/turtleli) .
 
-  ----------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------
-                                                          Before                                                                                                                  After
-   ![core 3119 before](/images/stories/frontend/progress_reports/q3-2019/core-3119-before.png){width="353" height="247"}   ![core 3119 after](/images/stories/frontend/progress_reports/q3-2019/core-3119-after.png){width="353" height="247"}
-  ----------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------
+|                                                                                                                                      |                                                                                                                                    |
+|:------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------:|
+|                                                                Before                                                                |                                                               After                                                                |
+| <img src="/images/stories/frontend/progress_reports/q3-2019/core-3119-before.png" width="353" height="247" alt="core 3119 before" /> | <img src="/images/stories/frontend/progress_reports/q3-2019/core-3119-after.png" width="353" height="247" alt="core 3119 after" /> |
 
 **Other:**
 
-[ \[Bug Fix\] ]{style="color: #ff0000;"}
+<span style="color: #ff0000;"> \[Bug Fix\] </span>
 [\#3063](https://github.com/PCSX2/pcsx2/pull/3063) Fixed the emulator
 hanging when pressing F4 too fast when toggling the Frame Limiter in
 some occasions. By [KrossX](https://github.com/KrossX) .
 
-[ \[Bug Fix\] ]{style="color: #ff0000;"}
+<span style="color: #ff0000;"> \[Bug Fix\] </span>
 [\#3072](https://github.com/PCSX2/pcsx2/pull/3072) Fixed the emulator
 hanging when pressing F9 to toggle rendering between Hardware and
 Software in some occasions. Affected games so far are MGS3 and Jak
 series. By [KrossX](https://github.com/KrossX) .
 
-[ \[Bug Fix\] ]{style="color: #ff0000;"}
+<span style="color: #ff0000;"> \[Bug Fix\] </span>
 [\#3052](https://github.com/PCSX2/pcsx2/pull/3052) Also fixed the
 emulator hanging when pressing F9 to toggle rendering between Hardware
 and Software mode too fast. By [KrossX](https://github.com/KrossX) .
 
-[ \[Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Enhancement\] </span>
 [\#3013](https://github.com/PCSX2/pcsx2/pull/3013) First Time Wizard now
 properly selects the correct GSdx plugin based on the highest
 instruction set supported by the CPU. By
 [KrossX](https://github.com/KrossX) .
 
-[ \[Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Enhancement\] </span>
 [\#3135](https://github.com/PCSX2/pcsx2/pull/3135) Improved pointer
 patch command handling. The parsing for pointer patch commands, which
 copies a value to the address stored in another memory address, has been
@@ -193,12 +196,12 @@ improved. It now properly handles the case where the value is 0 and no
 longer terminates early when multiple offsets are specified. By
 [Some1fromthedark](https://github.com/Some1fromthedark) .
 
-[ \[Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Enhancement\] </span>
 [\#3059](https://github.com/PCSX2/pcsx2/pull/3059) GSdx Hardware hacks
 GUI has been updated to improve usability. By
 [lightningterror](https://github.com/lightningterror) .
 
-[ \[Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Enhancement\] </span>
 [\#3059](https://github.com/PCSX2/pcsx2/pull/3059) PCSX2 GUP DPI scaling
 has been improved. By
 [lightningterror](https://github.com/lightningterror) and
@@ -206,7 +209,7 @@ has been improved. By
 
 # SPU2-X Improvements
 
-[ \[Bug Fix\] ]{style="color: #ff0000;"}
+<span style="color: #ff0000;"> \[Bug Fix\] </span>
 [\#3030](https://github.com/PCSX2/pcsx2/pull/3030) Fixed the noise
 generator outputting 4.8 kHz tone instead of white noise. Known affected
 games so far are: Ape Escape 3, Ratchet and Clank 1, and Neopets The
@@ -214,7 +217,7 @@ Darkest Faerie. By [monster860](https://github.com/monster860) .
 
 # CDVD Improvements
 
-[ \[Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Enhancement\] </span>
 [\#3051](https://github.com/PCSX2/pcsx2/pull/3051) PCSX2 now ignores
 non-existent disc sector reads.
 
@@ -229,7 +232,7 @@ successfully.By [turtleli](https://github.com/turtleli) .
 As usual, weve updated our GameDB with hundreds of new changes
 containing added or removed gamefixes that can be enabled with Automatic
 Gamefixes. This should greatly improve and ease configurations for our
-users as they don\'t need to trouble themselves with searching and
+users as they don't need to trouble themselves with searching and
 manually applying gamefixes and patches for the games that require them.
 
 # True Crime: Streets of L.A. (patched)
@@ -269,5 +272,7 @@ initialization variables mentioned above will not be overwritten.
 
 NOTE: The patch is currently only for NTSC-U. Other patches will be made
 on demand.
-:::
-:::
+
+</div>
+
+</div>

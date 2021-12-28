@@ -1,37 +1,36 @@
-::: {.single-article}
-::: {.item-page .clearfix}
-## [Q4 2020 Progress Report](/297-q4-2020-progress-report.html) {#q4-2020-progress-report .contentheading}
+<div class="single-article">
 
-::: {style="text-align:center;"}
-:::
+<div class="item-page clearfix">
 
-![progress rep q4
-2020](/images/stories/frontend/progress_reports/q4-2020/q4-2020-report.jpg){width="563"
-height="104"}
+## [Q4 2020 Progress Report](/297-q4-2020-progress-report.html)
+
+<div style="text-align:center;">
+
+</div>
+
+<img src="/images/stories/frontend/progress_reports/q4-2020/q4-2020-report.jpg" width="563" height="104" alt="progress rep q4 2020" />
 
 This quarter has been really amazing for us and for our users that enjoy
 using PCSX2.
 
-We\'ve made some outstanding progress, hope you guys enjoy the read
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+We've made some outstanding progress, hope you guys enjoy the read
+<img src="https://pcsx2.net/images/stories/frontend/smilies/smile.gif" class="yvSmiley" width="20" height="20" alt="Smile" />
 
 Written by
 [lightningterror](https://forums.pcsx2.net/User-lightningterror)
 
 # Core Improvements
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} Plugins merger in to core
-continuation:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> Plugins merger
+in to core continuation:**
 
 As we mentioned in our previous report we are continuing merging the
 plugins in to the core which bring us variety of benefits.
 
-For people that used different plugins for specific features that
-aren\'t available in the plugins we merged don\'t worry, we are working
-on adding those features as well, be patient
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+For people that used different plugins for specific features that aren't
+available in the plugins we merged don't worry, we are working on adding
+those features as well, be patient
+<img src="https://pcsx2.net/images/stories/frontend/smilies/smile.gif" class="yvSmiley" width="20" height="20" alt="Smile" />
 
 Currently the following plugins have been merged in to the core:
 
@@ -54,36 +53,34 @@ users and OnePad 2.0 for Linux/Mac. In the future we will transition and
 combine both of them so all missing features get added. By
 [GovanifY](https://github.com/GovanifY) .
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} Counters improvements:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> Counters
+improvements:**
 
 [\#3785](https://github.com/PCSX2/pcsx2/pull/3785) Counters: Tighten
 tolerances on framelimiter and smooth out frame pacing. By
 [RedPanda4552](https://github.com/RedPanda4552) and
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-Comparing PCSX2\'s old framelimiter with RTSS showed there was room for
+Comparing PCSX2's old framelimiter with RTSS showed there was room for
 improvement. Frametimes regularly would jump up and down in various
 situations. This change smooths out frame pacing substantially across
 the board (easily visible in RTSS). We have some comparisons below which
 you can see the differences, alternatively our users can check out the
 relative PR for more details.
 
-Note: Master(Before) -\>PR(After)
+Note: Master(Before) -&gt;PR(After)
 
 Ratchet & Clank 2
 
-![](/images/stories/frontend/progress_reports/q4-2020/r-c-2-frame-pacing.gif){width="816"
-height="66"}
+<img src="/images/stories/frontend/progress_reports/q4-2020/r-c-2-frame-pacing.gif" width="816" height="66" />
 
 Champions - Return to Arms
 
-![](/images/stories/frontend/progress_reports/q4-2020/champions-return-to-arms-frame-pacing.gif){width="816"
-height="66"}
+<img src="/images/stories/frontend/progress_reports/q4-2020/champions-return-to-arms-frame-pacing.gif" width="816" height="66" />
 
 Metal Arms - Glitch in the System
 
-![](/images/stories/frontend/progress_reports/q4-2020/metal-arms-frame-pacing.gif){width="816"
-height="92"}
+<img src="/images/stories/frontend/progress_reports/q4-2020/metal-arms-frame-pacing.gif" width="816" height="92" />
 
 [\#3862](https://github.com/PCSX2/pcsx2/pull/3862) Counters: account for
 vertical frequency differences in non-interlaced analog modes. By
@@ -97,7 +94,8 @@ Fixes Beatmania IIDX 3rd-8th Style.
 Counters/Vsync: Do correct number of HBlanks per VSync for PAL/NTSC. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} MTVU improvements:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> MTVU
+improvements:**
 
 We are happy to announce that we have made great progress this time
 around in improving MTVU compatibility with a bunch of games. The MTVU
@@ -113,33 +111,33 @@ through VU1 when using MTVU.
 
 Performance impact is reasonably minimal, within a couple of percent of
 master. Although I cannot guarantee the reliability although it looks
-good, it\'s a huge improvement and a vast majority of the games listed
+good, it's a huge improvement and a vast majority of the games listed
 are now playable with MTVU.
 
-If a game does a double SIGNAL, that still won\'t work.
+If a game does a double SIGNAL, that still won't work.
 
 Fixed Games when using MTVU:
 
-Backyard Basketball\
-Baroque\
-Batman: Vengeance\
-Crash Nitro Kart\
-Gradius V\
-Heatseeker\
-King\'s Field IV\
-Marvel Ultimate Alliance\
-Medal of Honor: Rising Sun\
-MTVs Celebrity Deathmatch\
-Summon Night Gran-These: Horobi no Ken to Yakusoku no Kishi\
-Tony Hawk games\
-X-Men Legends 2\
+Backyard Basketball  
+Baroque  
+Batman: Vengeance  
+Crash Nitro Kart  
+Gradius V  
+Heatseeker  
+King's Field IV  
+Marvel Ultimate Alliance  
+Medal of Honor: Rising Sun  
+MTVs Celebrity Deathmatch  
+Summon Night Gran-These: Horobi no Ken to Yakusoku no Kishi  
+Tony Hawk games  
+X-Men Legends 2  
 Yu-Gi-Oh! Capsule Monster Coliseum
 
 Slowdown in games using MTVU Fixed:
 
-007 Agent Under Fire\
-007 Everything or Nothing\
-TimeSplitters 2\
+007 Agent Under Fire  
+007 Everything or Nothing  
+TimeSplitters 2  
 TimeSplitters Future Perfect
 
 Homebrew Fixes:
@@ -158,8 +156,8 @@ SIGNAL/LABEL/FINISH communication. By
 
 Fixes atomic usage and ensures all communication goes in one direction.
 
-Also removed some forced 4-byte alignment, for 4-byte types it\'s
-unnecessary and for 8-byte types it\'s either unnecessary or harmful.
+Also removed some forced 4-byte alignment, for 4-byte types it's
+unnecessary and for 8-byte types it's either unnecessary or harmful.
 
 [c9a5443](https://github.com/PCSX2/pcsx2/commit/c9a5443539e5f2ec2a9719a39743fe9f36da551f)
 VIF: Slightly optimise when Row/Col are written to MTVU. By
@@ -173,30 +171,31 @@ microVU: Flush running VU1 program when toggling MTVU on. By
 VIF: Fix MPG bug incrementing addresses properly when using MTVU. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"}
+**<span style="color: #00ccff;"> \[Enhancement\] </span>
 [\#3813](https://github.com/PCSX2/pcsx2/pull/3813) COP2: Make sure the
 status flag gets updated on DIV/SQRT/RSQRT. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .**
 
-Fixes Yanya Caballista running slow (patches removed).\
-Fixes Disney\'s Treasure Planet\'s crazy camera (that flies off) and
+Fixes Yanya Caballista running slow (patches removed).  
+Fixes Disney's Treasure Planet's crazy camera (that flies off) and
 ground displacement.
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"}
+**<span style="color: #00ccff;"> \[Enhancement\] </span>
 [\#3957](https://github.com/PCSX2/pcsx2/pull/3957) MFIFO: Maintain VIF
 DMA status and Empty condition on VIF reset. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .**
 
-Don\'t decrement/change VIF1 QWC on VIF1 FIFO write.
+Don't decrement/change VIF1 QWC on VIF1 FIFO write.
 
 This involves removing an old VIF reset hack which was put in for Donald
-Duck Quack Attack, but doesn\'t seem to be needed anymore (game uses
+Duck Quack Attack, but doesn't seem to be needed anymore (game uses
 T-Bit on VU which has been fixed since this hack was placed in and could
 likely have been the problem).
 
 Fixes Scarface when switching to progressive mode.
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} microVU improvements:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> microVU
+improvements:**
 
 [0448b49](https://github.com/PCSX2/pcsx2/commit/0448b4902c5e158af5bb654422d05eb78ceafa83)
 microVU: Fixed bug in E-bit conditional branches. Fixes DT Racer. By
@@ -217,7 +216,7 @@ PC, modify prog search to avoid recompilation. By
 Fix some M-Bit stuff to reduce programs created and fix them happening
 on branches.
 
-Hopefully shouldn\'t be much in the way of compatibility changes, but
+Hopefully shouldn't be much in the way of compatibility changes, but
 should cut down the recompilation of MicroVU0 programs due to the change
 in how VU0 operates and how things are going to work going forward. MGS3
 went down from 115 (and climbing) to around 13. Crash Twinsanity went
@@ -236,7 +235,8 @@ Sometimes (CoD Finest Hour) can somehow end up with blocks missing from
 a program, it still finds the current program, so we check if the block
 exists, if not, recompile new ones.
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} SIF improvements:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> SIF
+improvements:**
 
 [\#3808](https://github.com/PCSX2/pcsx2/pull/3808) SIF: Fix attempting
 to write junk when FIFO full. Fixes Ghosthunter. By
@@ -247,7 +247,7 @@ junk for partial QW transfers from IOP. Fixes True Crime: Streets of LA.
 By [refractionpcsx2](https://github.com/refractionpcsx2) , backport from
 Dobiestation.
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"}
+**<span style="color: #00ccff;"> \[Enhancement\] </span>
 [\#3955](https://github.com/PCSX2/pcsx2/pull/3955) DMA: Correctly
 emulate QWC 0 on NORMAL transfers. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .**
@@ -258,13 +258,13 @@ On the PS2 if a NORMAL DMA transfer is started with QWC 0, the DMA
 overflows and transfers another 0xFFFF quadwords on top of the
 underflowed one, this correctly emulates that.
 
-I did have to do a \"kind of\" hack to make Mana Khemia work properly,
-the game relies on the IPU to take some time to decode macroblocks, but
-we handle them instantly, so I had to place an artificial delay on
-starting the DMA to let it catch up and do what it needs to do. It
-shouldn\'t have any negative impacts.
+I did have to do a "kind of" hack to make Mana Khemia work properly, the
+game relies on the IPU to take some time to decode macroblocks, but we
+handle them instantly, so I had to place an artificial delay on starting
+the DMA to let it catch up and do what it needs to do. It shouldn't have
+any negative impacts.
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"}
+**<span style="color: #00ccff;"> \[Enhancement\] </span>
 [\#3936](https://github.com/PCSX2/pcsx2/pull/3936) BIOS/HLE: Use BIOS
 settings on Fastboot. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .**
@@ -283,30 +283,31 @@ Stops games such as Guitar Hero 2 from crashing on fast boot.
 
 Displays corrects timezones in games.
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"}
+**<span style="color: #00ccff;"> \[Enhancement\] </span>
 [\#3969](https://github.com/PCSX2/pcsx2/pull/3969) IPU: Stop IPU0
-looping when there\'s no data for it to read. By
+looping when there's no data for it to read. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .**
 
 Fixes bad slowdowns in Ratchet games when using EE Timing fix caused by
 bad IPU streams.
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} VIF improvements:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> VIF
+improvements:**
 
 [678829a](https://github.com/PCSX2/pcsx2/commit/678829a5b2b8ca7a3e42d8edc9ab201bf00b0fe9)
-VIF: Don\'t rush finish VU programs. By
+VIF: Don't rush finish VU programs. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
 Fixes remaining SPS in Shadowman.
 
-[\#4003](https://github.com/PCSX2/pcsx2/pull/4003) VIF: Don\'t start
+[\#4003](https://github.com/PCSX2/pcsx2/pull/4003) VIF: Don't start
 transfer if VIF1/0 is stalled. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
 Also Fix missing VIF status check on MFIFO.
 
 Fixes hang in Batman Vengeance, game stalls the VIF during an MFIFO
-transfer then stops and starts VIF while it\'s stalled, in the old code
+transfer then stops and starts VIF while it's stalled, in the old code
 this causes it to ignore the stall and continue as normal, this PR fixes
 that behaviour.
 
@@ -319,7 +320,7 @@ VIF: Mask VU program address on MSCAL/MSCNT instructions. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
 [97b74fa](https://github.com/PCSX2/pcsx2/commit/97b74fa6ea81a1e213aa7bbdc8b5d7f5b2c27d83)
-VIF: MSCNT address is -1, so don\'t mask it. By
+VIF: MSCNT address is -1, so don't mask it. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
 [2409486](https://github.com/PCSX2/pcsx2/commit/2409486c2dc51346d6c04c4ff9297b9fce66d8b5)
@@ -328,24 +329,25 @@ VIF: Fixed undefined behaviour of Unpack V3-16 in final QW write. By
 
 Fixes bad geometry in Homerun.
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"}
+**<span style="color: #00ccff;"> \[Enhancement\] </span>
 [\#3998](https://github.com/PCSX2/pcsx2/pull/3998) VU: Synchronise VU1,
 added speedhack for old behaviour. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .**
 
 This synchronises VU1 with the EE and VU0 (as close as we can). A new
 speedhack has been added to replicate the old behaviour, which is on by
-default unless you\'re using the Safest preset. Games which require the
+default unless you're using the Safest preset. Games which require the
 new behaviour have an entry in the GameDB to disable it.
 
-Fixed Games:\
-Fixes SPS in Shadowman 2encond Coming.\
-Fixes \"Noodles\" in Parappa the Rapper 2 (box in the top left).\
-Fixes floor corrupt textures and console error spam in Dropship.\
-Slightly improves World series baseball 2k3 but it\'s still broken, just
-doesn\'t run at sub 1fps anymore.
+Fixed Games:  
+Fixes SPS in Shadowman 2encond Coming.  
+Fixes "Noodles" in Parappa the Rapper 2 (box in the top left).  
+Fixes floor corrupt textures and console error spam in Dropship.  
+Slightly improves World series baseball 2k3 but it's still broken, just
+doesn't run at sub 1fps anymore.
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} SPU2 improvements:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> SPU2
+improvements:**
 
 [\#3961](https://github.com/PCSX2/pcsx2/pull/3961) SPU2: Delay DMA Reads
 to prevent overrun. By
@@ -361,7 +363,7 @@ handling in [\#2371](https://github.com/PCSX2/pcsx2/issues/2371) .
 Fixes sound issues in Megaman X7.
 
 *Note: This has been re implemented in Q1 with a better solution where
-it doesn\'t cause issues.*
+it doesn't cause issues.*
 
 [\#3968](https://github.com/PCSX2/pcsx2/pull/3968) SPU2: Change
 VolumeSteps from 42 to 5. By [RedDevilus](https://github.com/RedDevilus)
@@ -376,26 +378,27 @@ SPU2: Fix Address masks for voices + Effect area. By
 
 Fixes reverb in The Suffering.
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} USB improvements:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> USB
+improvements:**
 
 [\#4042](https://github.com/PCSX2/pcsx2/pull/4042) USB: Force Feedback
 fixes. By [CookiePLMonster](https://github.com/CookiePLMonster) .
 
 This PR partially addresses
-[\#3926](https://github.com/PCSX2/pcsx2/issues/3926){.issue-link
-.js-issue-link} and corrects a range of issues with wheel\'s Force
-Feedback emulation.
+<a href="https://github.com/PCSX2/pcsx2/issues/3926" class="issue-link js-issue-link">#3926</a>
+and corrects a range of issues with wheel's Force Feedback emulation.
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} CDVD improvements:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> CDVD
+improvements:**
 
 [\#3877](https://github.com/PCSX2/pcsx2/pull/3877) CDVD: Adjust read
 speed depending on if in inner/outer edge. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-Fixes Shadowman 2 Second Coming textures.\
-Fixes Arctic Thunder loading problems.\
-Fixes looping music on ONI title screen and skipping dialogues.\
-Fixes Klonoa 2 missing audio.\
+Fixes Shadowman 2 Second Coming textures.  
+Fixes Arctic Thunder loading problems.  
+Fixes looping music on ONI title screen and skipping dialogues.  
+Fixes Klonoa 2 missing audio.  
 Fixes SPS at the beginning of matches in Next Generation Tennis 2003
 (Ronald Garros).
 
@@ -403,7 +406,8 @@ Fixes SPS at the beginning of matches in Next Generation Tennis 2003
 14 (ps1 status register) for cd speed and CDDA. By
 [kenshen112(weirdbeardgame)](https://github.com/kenshen112) .
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} DEV9 improvements:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> DEV9
+improvements:**
 
 [\#3740](https://github.com/PCSX2/pcsx2/pull/3740) DEV9: New TAP based
 networking interface. By [GovanifY](https://github.com/GovanifY) .
@@ -417,10 +421,10 @@ VPNs.
 TAP device on suspend/shutdown. By
 [TheLastRar](https://github.com/TheLastRar) .
 
-*Note: Wincap removal is not mentioned as it\'s re added in Q1 with some
+*Note: Wincap removal is not mentioned as it's re added in Q1 with some
 modifications.*
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"}
+**<span style="color: #00ccff;"> \[Enhancement\] </span>
 [\#3928](https://github.com/PCSX2/pcsx2/pull/3928) GameDB: Replace
 GameDB with a YAML equivalent. By [xTVaser (Tyler
 Wilding)](https://github.com/xTVaser) .**
@@ -432,7 +436,8 @@ format that relied on WX libraries.
 Serve as a proof of concept for the YAML library / format that will be
 coming soon with the larger configuration overhaul.
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} Misc core improvements:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> Misc core
+improvements:**
 
 [\#3791](https://github.com/PCSX2/pcsx2/pull/3791) PGIF/PS1: Correct
 PGIF Register bit masks. By [Nobbs66](https://github.com/Nobbs66) .
@@ -466,7 +471,7 @@ Fixes Knockout Kings 2001 hang on boot. For more technical information
 please see
 [this](https://www.patreon.com/posts/sins-of-ps2-2001-42262496) post.
 
-[\#3935](https://github.com/PCSX2/pcsx2/pull/3935) Core: Don\'t reopen
+[\#3935](https://github.com/PCSX2/pcsx2/pull/3935) Core: Don't reopen
 everything when we just want to reopen the CDVD. By
 [TheLastRar](https://github.com/TheLastRar) .
 
@@ -488,10 +493,10 @@ GS reads to CSR. By [tadanokojin](https://github.com/tadanokojin) and
 
 Puts in the correct behaviour for GS reads.
 
-Fixes Supadoopa\'s Funslower demo.
+Fixes Supadoopa's Funslower demo.
 
 [c998a51](https://github.com/PCSX2/pcsx2/commit/c998a51f71f6a81a2f4f0c9d27c85714d74ccd57)
-IOP DMA: Only acknowledge SPU2 DMA interrupt if DMA hasn\'t been
+IOP DMA: Only acknowledge SPU2 DMA interrupt if DMA hasn't been
 cancelled. By [refractionpcsx2](https://github.com/refractionpcsx2) .
 
 Fixes Gregory Horror Show bad audio.
@@ -506,7 +511,7 @@ Wilding)](https://github.com/xTVaser) and
 [sonicfind](https://github.com/sonicfind) .
 
 [\#3356](https://github.com/PCSX2/pcsx2/pull/3356) Recording: Overhaul
-of Recording Tool\'s VirtualPad. By [xTVaser(Tyler
+of Recording Tool's VirtualPad. By [xTVaser(Tyler
 Wilding)](https://github.com/xTVaser) .
 
 [\#4047](https://github.com/PCSX2/pcsx2/pull/4047) Recording: Properly
@@ -553,12 +558,12 @@ Use shared code, instead of duplicates for each renderer.
 Shader hotkey toggle (F7). By
 [lightningterror](https://github.com/lightningterror) .
 
-Plenty of users misclicked this setting and don\'t know how to switch
-back since it\'s a rarely used option. We got rid of the hotkey toggle
+Plenty of users misclicked this setting and don't know how to switch
+back since it's a rarely used option. We got rid of the hotkey toggle
 for a quality of life change.
 
-[\#3891](https://github.com/PCSX2/pcsx2/pull/3891) GSdx-hw: Don\'t
-always set MaxDepth on ps/fs. By
+[\#3891](https://github.com/PCSX2/pcsx2/pull/3891) GSdx-hw: Don't always
+set MaxDepth on ps/fs. By
 [lightningterror](https://github.com/lightningterror) .
 
 Seems that it provides a very small fps increase.
@@ -580,10 +585,9 @@ anisotropic filtering on OpenGL. By
 Anisotropic filtering was broken on OpenGL ever since Trilinear
 filtering was introduced (1.3.1 era), hopefully nobody noticed and we
 fixed the issue
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+<img src="https://pcsx2.net/images/stories/frontend/smilies/smile.gif" class="yvSmiley" width="20" height="20" alt="Smile" />
 
-Note that it won\'t work properly on AMD due to broken driver, issue has
+Note that it won't work properly on AMD due to broken driver, issue has
 been reported and they are working on a fix.
 
 [\#3714](https://github.com/PCSX2/pcsx2/pull/3714) GSdx-ogl: Check
@@ -600,8 +604,8 @@ Removes some code that was meant to correct a condition on the GS where
 8-bit and 4-bit formats are assigned a buffer width that is not
 divisible by 2. Given that the code just forced it to be even (almost
 certainly not correct) and was some kind of workaround dating back 13
-years I\'m opting to remove it. If someone can give me an example of a
-game that is broken without this code I\'ll look into it again but it
+years I'm opting to remove it. If someone can give me an example of a
+game that is broken without this code I'll look into it again but it
 seems like a fairly rare condition.
 
 Fixes graphical issues in Galaxy Angel.
@@ -609,7 +613,7 @@ Fixes graphical issues in Galaxy Angel.
 List of removed CRC hacks:
 
 [\#3908](https://github.com/PCSX2/pcsx2/pull/3908) Star Wars - Force
-Unleashed. Hack replaced by a gamedb patch since it\'s not a GSdx issue.
+Unleashed. Hack replaced by a gamedb patch since it's not a GSdx issue.
 By [kozarovv](https://github.com/kozarovv) .
 
 [56893a0](https://github.com/PCSX2/pcsx2/commit/56893a07312183a525b5c6f7e1576bb4e3c6a1e4)
@@ -635,8 +639,8 @@ can be resolved with upscaling hacks. By
 
 # Misc Improvements
 
-[\#3531](https://github.com/PCSX2/pcsx2/pull/3531) GUI: Add \"Screenshot
-As\...\" feature to Capture options. By [xTVaser (Tyler
+[\#3531](https://github.com/PCSX2/pcsx2/pull/3531) GUI: Add "Screenshot
+As..." feature to Capture options. By [xTVaser (Tyler
 Wilding)](https://github.com/xTVaser) .
 
 [\#4007](https://github.com/PCSX2/pcsx2/pull/4007) GUI: Fixes speedhacks
@@ -652,6 +656,8 @@ obsolete code related to the output window. By
 
 ------------------------------------------------------------------------
 
-And that\'s all from us, see you next time in our 2021 Q1 Report!
-:::
-:::
+And that's all from us, see you next time in our 2021 Q1 Report!
+
+</div>
+
+</div>

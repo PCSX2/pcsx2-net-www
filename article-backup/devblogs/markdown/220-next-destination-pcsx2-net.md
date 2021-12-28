@@ -1,7 +1,10 @@
-::: {.single-article}
-::: {.item-page .clearfix}
-::: {style="text-align:center;"}
-:::
+<div class="single-article">
+
+<div class="item-page clearfix">
+
+<div style="text-align:center;">
+
+</div>
 
 Ever wondered from which country and city we get the most visits?
 
@@ -33,8 +36,13 @@ Ever wondered from which country and city we get the most visits?
 5.  Moscow, Russia -
     ![russia](/images/stories/frontend/country_flags/ru.gif) - (75,006)
 
-::: {style="font-style: italic; font-size: 10pt; font-weight: bold; text-align: right;"}
+<div
+style="font-style: italic; font-size: 10pt; font-weight: bold; text-align: right;">
+
 [Post a Comment!](http://forums.pcsx2.net/thread-9755.html)
-:::
-:::
-:::
+
+</div>
+
+</div>
+
+</div>

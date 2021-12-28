@@ -1,13 +1,14 @@
-::: {.single-article}
-::: {.item-page .clearfix}
-## [Q1 2021 Progress Report](/298-q1-2021-progress-report.html) {#q1-2021-progress-report .contentheading}
+<div class="single-article">
 
-::: {style="text-align:center;"}
-:::
+<div class="item-page clearfix">
 
-![progress rep q1
-2021](https://pcsx2.net/images/stories/frontend/progress_reports/q1-2021/progrepq12021.jpg){width="563"
-height="104"}
+## [Q1 2021 Progress Report](/298-q1-2021-progress-report.html)
+
+<div style="text-align:center;">
+
+</div>
+
+<img src="https://pcsx2.net/images/stories/frontend/progress_reports/q1-2021/progrepq12021.jpg" width="563" height="104" alt="progress rep q1 2021" />
 
 Once again we are back with another progress report bringing you amazing
 progress.
@@ -17,7 +18,7 @@ Written by
 
 # Core Improvements
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"}
+**<span style="color: #00ccff;"> \[Enhancement\] </span>
 [\#4115](https://github.com/PCSX2/pcsx2/pull/4115) PAD/Counters: Make
 VSync Queue adjustable in the UI. Extra Pad update. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .**
@@ -27,26 +28,26 @@ between a little bit extra performance or reduced input lag. Also added
 the PAD Update to the VSync call in Counters as it seemed to reduce
 input lag marginally.
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"}
+**<span style="color: #00ccff;"> \[Enhancement\] </span>
 [\#4066](https://github.com/PCSX2/pcsx2/pull/4066) IPU: Return contents
 of the bottom of the FIFO in CMD except FDEC/VDEC. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .**
 
 This is based on the work by
-[\@PSI-Rockin](https://github.com/PSI-Rockin){.user-mention} on
-Dobiestation but modified based on the theory that it always returns the
-first 32bits of the FIFO unless an FDEC/VDEC command is executed,
+<a href="https://github.com/PSI-Rockin" class="user-mention">@PSI-Rockin</a>
+on Dobiestation but modified based on the theory that it always returns
+the first 32bits of the FIFO unless an FDEC/VDEC command is executed,
 however FDEC is basically doing this anyway, but VDEC returns decoded
 information.
 
-Fixed videos for probably all broken EA games, but namely:\
-F1 2001\
-F1 2002\
-Neo Contra\
-Shox\
+Fixed videos for probably all broken EA games, but namely:  
+F1 2001  
+F1 2002  
+Neo Contra  
+Shox  
 Theme Park Rollercoaster/World
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"}
+**<span style="color: #00ccff;"> \[Enhancement\] </span>
 [\#4225](https://github.com/PCSX2/pcsx2/pull/4225) IPU: Fill Input FIFO
 on command end ready for next command. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .**
@@ -62,31 +63,33 @@ be fed in. This PR resolves that problem.
 Test Drive: Also added DMA 4 (To IPU) being flushed if BCLR is called
 without first stopping the DMA.
 
-Set the Picture type on VDEC to I-Picture if set to 0 in the IPU_CTRL,
+Set the Picture type on VDEC to I-Picture if set to 0 in the IPU\_CTRL,
 this fixes a bunch of Eyetoy games which incorrectly set this register.
 
-[ Fixes ]{.issue-keyword .tooltipped .tooltipped-se
-aria-label="This pull request closes issue #3432."} EyeToy Play(1-3).\
-[ Fixes ]{.issue-keyword .tooltipped .tooltipped-se
-aria-label="This pull request closes issue #4125."} Bakufuu Slash!!
-Kizna Arashi.\
-[ Fixes ]{.issue-keyword .tooltipped .tooltipped-se
-aria-label="This pull request closes issue #3700."} Kaiketsu Zorro
-Mezase! SIF0 and SIF1 stall control.\
-[ Fixes ]{.issue-keyword .tooltipped .tooltipped-se
-aria-label="This pull request closes issue #1863."} Test Drive: IPU hang
-in middle of Event 5.
+<span class="issue-keyword tooltipped tooltipped-se"
+aria-label="This pull request closes issue #3432."> Fixes </span> EyeToy
+Play(1-3).  
+<span class="issue-keyword tooltipped tooltipped-se"
+aria-label="This pull request closes issue #4125."> Fixes </span>
+Bakufuu Slash!! Kizna Arashi.  
+<span class="issue-keyword tooltipped tooltipped-se"
+aria-label="This pull request closes issue #3700."> Fixes </span>
+Kaiketsu Zorro Mezase! SIF0 and SIF1 stall control.  
+<span class="issue-keyword tooltipped tooltipped-se"
+aria-label="This pull request closes issue #1863."> Fixes </span> Test
+Drive: IPU hang in middle of Event 5.
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} DEV9 improvements:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> DEV9
+improvements:**
 
 [\#4062](https://github.com/PCSX2/pcsx2/pull/4062) DEV9: Support 16bit
-reads/writes to SPD_R\_PIO_DATA & SPD_R\_PIO_DIR.By
+reads/writes to SPD\_R\_PIO\_DATA & SPD\_R\_PIO\_DIR.By
 [TheLastRar](https://github.com/TheLastRar) .
 
 This improves
-[\#3192](https://github.com/PCSX2/pcsx2/issues/3192){.issue-link
-.js-issue-link} , the online beta now sends a DHCP Discover packet,
-although it appears to be invalid.
+<a href="https://github.com/PCSX2/pcsx2/issues/3192" class="issue-link js-issue-link">#3192</a>
+, the online beta now sends a DHCP Discover packet, although it appears
+to be invalid.
 
 [\#4059](https://github.com/PCSX2/pcsx2/pull/4059) DEV9: Generate unique
 MAC for TAP.By [TheLastRar](https://github.com/TheLastRar) .
@@ -113,7 +116,8 @@ Linux when we fail to open the adapter.By
 (both bridged and switched) on windows.By
 [TheLastRar](https://github.com/TheLastRar) .
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} CDVD improvements:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> CDVD
+improvements:**
 
 [\#4314](https://github.com/PCSX2/pcsx2/pull/4314)
 [\#4045](https://github.com/PCSX2/pcsx2/pull/4045) CDVD: Add CHD
@@ -122,13 +126,14 @@ compression format support. By [rtissera](https://github.com/rtissera) ,
 [siddhartha77](https://github.com/siddhartha77) .
 
 [\#4146](https://github.com/PCSX2/pcsx2/pull/4146) CDVD: Increase buffer
-for DVD_LAYER_DESCRIPTOR. By
+for DVD\_LAYER\_DESCRIPTOR. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
 [\#4236](https://github.com/PCSX2/pcsx2/pull/4236) CDVD: Implement
 mechacon command 0xEF. By [F0bes](https://github.com/F0bes) .
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} microVU improvements:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> microVU
+improvements:**
 
 [ee07f86](https://github.com/PCSX2/pcsx2/commit/ee07f860fc1dd7e8ada6c13903bb3a592b8d4864)
 microVU: Implement Overflow checks. By
@@ -159,13 +164,14 @@ Someone accidentally used bad function to analyze ESIN opcode on
 microVU, that generated bad values due to wrong register field being
 used.
 
-Fixes X2 - Wolverine\'s Revenge.
+Fixes X2 - Wolverine's Revenge.
 
 [f9d96f5](https://github.com/PCSX2/pcsx2/commit/f9d96f55a538ce373f1662a5554d8052173940b1)
 microVU: move the overflow flags to the correct position. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} VIF improvements:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> VIF
+improvements:**
 
 [ddffd9ac](https://github.com/PCSX2/pcsx2/commit/ddffd9acd671ee3165061980554d4a36c86eeb5e)
 VIF: Fix MPG VU Address wrapping. By
@@ -177,13 +183,14 @@ Fixes Boogie.
 VIF: Clean up some old (incorrect) code. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} SPU2 improvements:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> SPU2
+improvements:**
 
 [\#4074](https://github.com/PCSX2/pcsx2/pull/4074) SPU2: Attempt 96khz
 sample rate if 48khz fails (WASAPI). By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-WASAPI is terrible and doesn\'t support sample rate conversion in shared
+WASAPI is terrible and doesn't support sample rate conversion in shared
 (normal) mode and requires exclusive mode.
 
 This PR basically attempts to double the PS2 sample rate of 48khz to
@@ -191,8 +198,8 @@ This PR basically attempts to double the PS2 sample rate of 48khz to
 will put a log message to say you need to use Exclusive mode.
 
 Note: When using PS1 game emulation you will need to use exclusive mode,
-nothing I can do about this (44.1khz doesn\'t divide nicely from 48khz
-or 96khz).
+nothing I can do about this (44.1khz doesn't divide nicely from 48khz or
+96khz).
 
 [\#4057](https://github.com/PCSX2/pcsx2/pull/4057)
 [\#4085](https://github.com/PCSX2/pcsx2/pull/4085)
@@ -201,7 +208,7 @@ SPU2: Improve DMA/IRQ timing. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
 Fixes The Simple 2000 Series Vol 51 - The Senkan (AKA The Battleship)
-which was not booting with anything but ZeroSPU2\
+which was not booting with anything but ZeroSPU2  
 Fixes The Simpsons, problem was due to an ADMA refill bug.
 
 [f5d8906](https://github.com/PCSX2/pcsx2/commit/f5d89062e02933b5dc4e090ff7c7f4dc5368ef26)
@@ -214,7 +221,7 @@ boots without closing the emulator.
 [\#4134](https://github.com/PCSX2/pcsx2/pull/4134) SPU2: Switch to a
 more accurate noise algorithm. By [Ziemas](https://github.com/Ziemas) .
 
-This algorithm comes from PCSX-R and is an implementation of Dr. Hell\'s
+This algorithm comes from PCSX-R and is an implementation of Dr. Hell's
 research.
 
 The previous implementation was a simple LFSR and did not use the
@@ -224,16 +231,16 @@ provided noise clock from the ATTR register.
 behaviour/timing. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-Hopefully improves the crackling in burnout 3.\
-Fixes music looping in Ratatouille.\
-[ Fixes ]{.issue-keyword .tooltipped .tooltipped-se
-aria-label="This pull request closes issue #3846."} Vexx clicking sound
-(Partial ADMA transfers).\
+Hopefully improves the crackling in burnout 3.  
+Fixes music looping in Ratatouille.  
+<span class="issue-keyword tooltipped tooltipped-se"
+aria-label="This pull request closes issue #3846."> Fixes </span> Vexx
+clicking sound (Partial ADMA transfers).  
 Fixes the Dolby Pro Logic video missing sound in Primal (Partial ADMA
-transfers).\
+transfers).  
 Fixes Splinter Cell panning audio problem and high pitched noises in
-cut-scenes.\
-Fixes Myst 3 panning audio problem.\
+cut-scenes.  
+Fixes Myst 3 panning audio problem.  
 Fixes Dynasty Warriors 5 stuttering videos when Dolby is enabled.
 
 [e039492](https://github.com/PCSX2/pcsx2/commit/e0394921e98136547176f9a224a9bb9084fbda47)
@@ -258,10 +265,10 @@ hits match previous block decoded samples. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
 Caching blocks of ADPCM is a bit sketchy because the previous samples
-(which it uses to generate the new ones) can change depending on if
-it\'s the start of the voice on or if it has looped around, so you can
-end up with blips and glitches in the sample stream, this should avoid
-that problem whilst not making the cache completely unusable.
+(which it uses to generate the new ones) can change depending on if it's
+the start of the voice on or if it has looped around, so you can end up
+with blips and glitches in the sample stream, this should avoid that
+problem whilst not making the cache completely unusable.
 
 Should get rid of clicking and popping noises in loops samples.
 
@@ -293,7 +300,7 @@ SPU2: Try to recover DMA pointer after savestate load. By
 Writes after key on if voice sets loop point. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-Fixes behaviour with loop address writes within 4T\'s of a voice keying
+Fixes behaviour with loop address writes within 4T's of a voice keying
 on which is what the old Delay Cycles tried to address, if the voice
 sets its own loop point the write from hardware is ignored.
 
@@ -303,14 +310,14 @@ Fixes Mafia music loops.
 SPU2: Reset IRQ Status when swapping game in case it got set previously.
 By [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} Memorycard
+**<span style="color: #00ccff;"> \[Enhancement\] </span> Memorycard
 improvements:**
 
 [\#4113](https://github.com/PCSX2/pcsx2/pull/4113) Memorycards: Fix out
 of bounds array access in folder memcards. By
 [Ziemas](https://github.com/Ziemas) .
 
-Don\'t keep the DataClusterInUse bit when accessing the next cluster.
+Don't keep the DataClusterInUse bit when accessing the next cluster.
 
 With this folder memcards work on 64bit.
 
@@ -324,10 +331,11 @@ pages.
 Normal pages are 528 bytes long, those extra 16 bytes contain 12 bytes
 of ECC data.
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} Debuggers improvements:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> Debuggers
+improvements:**
 
-[\#4252](https://github.com/PCSX2/pcsx2/pull/4252) Debugger: Add \"Go to
-address\" for both disasm and memory view context menus. By
+[\#4252](https://github.com/PCSX2/pcsx2/pull/4252) Debugger: Add "Go to
+address" for both disasm and memory view context menus. By
 [F0bes](https://github.com/F0bes) .
 
 [\#4289](https://github.com/PCSX2/pcsx2/pull/4289) Debugger: Require
@@ -348,7 +356,8 @@ for GS Debugging once GSdx is merged in to the core.
 
 One step closer in to merging GSdx in to the core.
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} Misc core improvements:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> Misc core
+improvements:**
 
 [\#3011](https://github.com/PCSX2/pcsx2/pull/3011) IOP: Implements IOP
 breakpoints. By [monster860](https://github.com/monster860) .
@@ -356,7 +365,7 @@ breakpoints. By [monster860](https://github.com/monster860) .
 [\#4234](https://github.com/PCSX2/pcsx2/pull/4234) IOP: Execute
 breakpoints for the interpreter. By [F0bes](https://github.com/F0bes) .
 
-[\#4205](https://github.com/PCSX2/pcsx2/pull/4205) PAD: Don\'t Destroy()
+[\#4205](https://github.com/PCSX2/pcsx2/pull/4205) PAD: Don't Destroy()
 modals.
 
 On macOS it prevents the parent window from regaining focus. By
@@ -379,7 +388,7 @@ USB: usb-mic: Send 1ms worth of samples for 48kHz and 8kHz sample rates.
 By [jackun](https://github.com/jackun) .
 
 [\#4310](https://github.com/PCSX2/pcsx2/pull/4310) USB: Improve Force
-Feedback test so it doesn\'t block UI. By
+Feedback test so it doesn't block UI. By
 [CookiePLMonster](https://github.com/CookiePLMonster) .
 
 This modifies DirectInput USB Force Feedback test not to block the UI.
@@ -405,7 +414,7 @@ proper %s handling for syscall 117 (0x75). By
 [F0bes](https://github.com/F0bes) .
 
 This makes the syscall iterate through the format string which can be
-considered \"slow\" but this syscall is only going to be used for
+considered "slow" but this syscall is only going to be used for
 debugging purposes.
 
 [\#4255](https://github.com/PCSX2/pcsx2/pull/4255) Core: Added support
@@ -425,7 +434,7 @@ instructions in little endian.
 
 # GSdx Improvements
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"}
+**<span style="color: #00ccff;"> \[Enhancement\] </span>
 [\#4206](https://github.com/PCSX2/pcsx2/pull/4206) GSdx-hw: Implement
 per pixel alpha blending (PABE). By
 [lightningterror](https://github.com/lightningterror) and
@@ -442,25 +451,18 @@ Fixes Cartoon Network Racing shadow/lighting.
 
 And for those that enjoy some image comparisons:
 
-Cartoon Network Racing: Before -\> After
+Cartoon Network Racing: Before -&gt; After
 
-[![artoon Network Racing
-Before](https://pcsx2.net/images/stories/frontend/progress_reports/q1-2021/cnr_before_s.png){width="300"
-height="224"}](https://pcsx2.net/images/stories/frontend/progress_reports/q1-2021/cnr_before.png)
-[![Cartoon Network Racing
-after](https://pcsx2.net/images/stories/frontend/progress_reports/q1-2021/cnr_after_s.png){width="300"
-height="224"}](https://pcsx2.net/images/stories/frontend/progress_reports/q1-2021/cnr_after.png)
+[<img src="https://pcsx2.net/images/stories/frontend/progress_reports/q1-2021/cnr_before_s.png" width="300" height="224" alt="artoon Network Racing Before" />](https://pcsx2.net/images/stories/frontend/progress_reports/q1-2021/cnr_before.png)
+[<img src="https://pcsx2.net/images/stories/frontend/progress_reports/q1-2021/cnr_after_s.png" width="300" height="224" alt="Cartoon Network Racing after" />](https://pcsx2.net/images/stories/frontend/progress_reports/q1-2021/cnr_after.png)
 
-Strawberry Shortcake: Before -\> After
+Strawberry Shortcake: Before -&gt; After
 
-[![Strawberry Shortcake
-Before](https://pcsx2.net/images/stories/frontend/progress_reports/q1-2021/ss_before_s.png){width="300"
-height="224"}](https://pcsx2.net/images/stories/frontend/progress_reports/q1-2021/ss_before.png)
-[![Strawberry Shortcake
-after](https://pcsx2.net/images/stories/frontend/progress_reports/q1-2021/ss_after_s.png){width="300"
-height="224"}](https://pcsx2.net/images/stories/frontend/progress_reports/q1-2021/ss_after.png)
+[<img src="https://pcsx2.net/images/stories/frontend/progress_reports/q1-2021/ss_before_s.png" width="300" height="224" alt="Strawberry Shortcake Before" />](https://pcsx2.net/images/stories/frontend/progress_reports/q1-2021/ss_before.png)
+[<img src="https://pcsx2.net/images/stories/frontend/progress_reports/q1-2021/ss_after_s.png" width="300" height="224" alt="Strawberry Shortcake after" />](https://pcsx2.net/images/stories/frontend/progress_reports/q1-2021/ss_after.png)
 
-**[ \[Enhancement\] ]{style="color: #00ccff;"} Misc GSdx improvements:**
+**<span style="color: #00ccff;"> \[Enhancement\] </span> Misc GSdx
+improvements:**
 
 [\#3973](https://github.com/PCSX2/pcsx2/pull/3973) GSdx-gui: Some GUI
 changes. By [RedDevilus](https://github.com/RedDevilus) .
@@ -611,8 +613,8 @@ DebugTools Codacy complaints. By [F0bes](https://github.com/F0bes) .
 [\#4010](https://github.com/PCSX2/pcsx2/pull/4010) Misc: Fix paths on
 macOS. By [TellowKrinkle](https://github.com/tellowkrinkle) .
 
-MacOS was using linux paths rather than wx\'s macOS-specific subclass,
-which doesn\'t match how the app is installed in macOS (all paths should
+MacOS was using linux paths rather than wx's macOS-specific subclass,
+which doesn't match how the app is installed in macOS (all paths should
 be relative to the executable).
 
 Also adds steps to copy missing resources into the app bundle.
@@ -664,6 +666,8 @@ keep the capture menu GUI accurate to the current state.
 
 ------------------------------------------------------------------------
 
-And that\'s all from us, see you next time in our 2021 Q2 Report!
-:::
-:::
+And that's all from us, see you next time in our 2021 Q2 Report!
+
+</div>
+
+</div>

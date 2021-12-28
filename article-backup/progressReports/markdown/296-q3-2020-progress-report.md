@@ -1,13 +1,14 @@
-::: {.single-article}
-::: {.item-page .clearfix}
-## [Q3 2020 Progress Report](/296-q3-2020-progress-report.html) {#q3-2020-progress-report .contentheading}
+<div class="single-article">
 
-::: {style="text-align:center;"}
-:::
+<div class="item-page clearfix">
 
-![progress rep q3
-2020](/images/stories/frontend/progress_reports/q3-2020/q3-2020-report.png){width="563"
-height="104"}
+## [Q3 2020 Progress Report](/296-q3-2020-progress-report.html)
+
+<div style="text-align:center;">
+
+</div>
+
+<img src="/images/stories/frontend/progress_reports/q3-2020/q3-2020-report.png" width="563" height="104" alt="progress rep q3 2020" />
 
 On the previous report the highlight was GSdx improvements mostly. This
 one on the other hand is Core changes, and A LOT of core changes. Enjoy!
@@ -17,7 +18,7 @@ Written by
 
 # GSdx Improvements
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3507](https://github.com/PCSX2/pcsx2/pull/3507) (Direct3D10/11 HW)
 SetupIA, allow sprite conversion to be done on the CPU when
 applicable.Port from OpenGL. By
@@ -26,78 +27,71 @@ applicable.Port from OpenGL. By
 -   Helps sprite rendering inLets Make a J-League Pro Soccer Club (see
     image comparison below).
 
-::: {style="display: inline-block; width: 320px; text-align: center;"}
+<div style="display: inline-block; width: 320px; text-align: center;">
+
 Before
-:::
 
-::: {style="display: inline-block; width: 320px; text-align: center;"}
+</div>
+
+<div style="display: inline-block; width: 320px; text-align: center;">
+
 After
-:::
 
-[![Lets-Make-a-J-League-Pro-Soccer-Club
-before](/images/stories/frontend/progress_reports/q3-2020/Lets-Make-a-J-League-Pro-Soccer-Club-before-resize.png){width="320"
-height="224"}](/images/stories/frontend/progress_reports/q3-2020/Lets-Make-a-J-League-Pro-Soccer-Club-before.png)
-[![Lets-Make-a-J-League-Pro-Soccer-Club
-after](/images/stories/frontend/progress_reports/q3-2020/Lets-Make-a-J-League-Pro-Soccer-Club-after-resize.png){width="320"
-height="224"}](/images/stories/frontend/progress_reports/q3-2020/Lets-Make-a-J-League-Pro-Soccer-Club-after.png)
+</div>
 
-[ \[Misc Enhancements\] ]{style="color: #00ccff;"} **Other GSdx
-changes:**
+[<img src="/images/stories/frontend/progress_reports/q3-2020/Lets-Make-a-J-League-Pro-Soccer-Club-before-resize.png" width="320" height="224" alt="Lets-Make-a-J-League-Pro-Soccer-Club before" />](/images/stories/frontend/progress_reports/q3-2020/Lets-Make-a-J-League-Pro-Soccer-Club-before.png)
+[<img src="/images/stories/frontend/progress_reports/q3-2020/Lets-Make-a-J-League-Pro-Soccer-Club-after-resize.png" width="320" height="224" alt="Lets-Make-a-J-League-Pro-Soccer-Club after" />](/images/stories/frontend/progress_reports/q3-2020/Lets-Make-a-J-League-Pro-Soccer-Club-after.png)
+
+<span style="color: #00ccff;"> \[Misc Enhancements\] </span> **Other
+GSdx changes:**
 
 -   [\#3508](https://github.com/PCSX2/pcsx2/pull/3508) (Direct3D10/11)
     Modernize swapchain and device creation. By
     [kojin](https://github.com/tadanokojin) .
 
-```{=html}
 <!-- -->
-```
+
 -   [\#3516](https://github.com/PCSX2/pcsx2/pull/3516) (Direct3D10/11)
     Remove legacy d3dcompiler code. By
     [kojin](https://github.com/tadanokojin) .
 
-```{=html}
 <!-- -->
-```
+
 -   [\#3534](https://github.com/PCSX2/pcsx2/pull/3534) (HW) Improve
     dithering.Gets rid of line artifacts down the screen due to 16bit
     colour limitations. By
     [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-```{=html}
 <!-- -->
-```
+
 -   [\#3575](https://github.com/PCSX2/pcsx2/pull/3575) (OpenGL HW)
     Fix/improve line scaling. Port from Direct3D 10/11. By
     [KrossX](https://github.com/KrossX) .
 
-```{=html}
 <!-- -->
-```
+
 -   [\#3739](https://github.com/PCSX2/pcsx2/pull/3739) (OpenGL HW) Swap
-    DATE_GL42 with DATE_GL45 on sw blending draw.It will allow to run sw
-    blending with DATE draw (DATE Accuracy Full) which was previously
-    DATE_GL42 by default. By
+    DATE\_GL42 with DATE\_GL45 on sw blending draw.It will allow to run
+    sw blending with DATE draw (DATE Accuracy Full) which was previously
+    DATE\_GL42 by default. By
     [lightningterror](https://github.com/lightningterror) .
 
-```{=html}
 <!-- -->
-```
+
 -   [\#3562](https://github.com/PCSX2/pcsx2/pull/3562) (OpenGL) Remove
     GLX in favor of EGL. By
     [JibbityJobbity](https://github.com/JibbityJobbity) .
 
-```{=html}
 <!-- -->
-```
+
 -   [\#3705](https://github.com/PCSX2/pcsx2/pull/3705) (OpenCL) OpenCL
     renderer which was barely maintained and rarely used for debug
     purposes only has been completely removed in our quest for cleaning
     up the codebase. By
     [lightningterror](https://github.com/lightningterror) .
 
-```{=html}
 <!-- -->
-```
+
 -   [\#3706](https://github.com/PCSX2/pcsx2/pull/3706) ,
     [0c67dc9](https://github.com/PCSX2/pcsx2/commit/0c67dc99f7adf1f4bac88c67ac895fe84ac9c750)
     (HW) Add dithering option to HW renderers. By
@@ -108,9 +102,8 @@ changes:**
         effect/less obvious)
     -   Change Default dithering mode from Scaled to Unscaled
 
-```{=html}
 <!-- -->
-```
+
 -   [\#3723](https://github.com/PCSX2/pcsx2/pull/3723) Purge Direct3D11
     Software renderer option. By [kojin](https://github.com/tadanokojin)
     .
@@ -123,20 +116,22 @@ respective HW renderer (OGL/DX) and SW
 If the renderer config is set to SW, it will toggle between SW and the
 renderer returned by GetBestRenderer()
 
-::: {style="display: inline-block; width: 320px; text-align: center;"}
+<div style="display: inline-block; width: 320px; text-align: center;">
+
 Before
-:::
 
-::: {style="display: inline-block; width: 320px; text-align: center;"}
+</div>
+
+<div style="display: inline-block; width: 320px; text-align: center;">
+
 After
-:::
 
-![renderer-before](/images/stories/frontend/progress_reports/q3-2020/renderer-before.png){width="320"
-height="100"}
-![renderer-after](/images/stories/frontend/progress_reports/q3-2020/renderer-after.png){width="320"
-height="100"}
+</div>
 
-In a nutshell it merges the software renderers. There\'s no need to have
+<img src="/images/stories/frontend/progress_reports/q3-2020/renderer-before.png" width="320" height="100" alt="renderer-before" />
+<img src="/images/stories/frontend/progress_reports/q3-2020/renderer-after.png" width="320" height="100" alt="renderer-after" />
+
+In a nutshell it merges the software renderers. There's no need to have
 multiple ones, and it makes it easier for the end users.
 
 -   (HW) Hacks & unused code cleanup. By
@@ -144,7 +139,7 @@ multiple ones, and it makes it easier for the end users.
     -   [\#3702](https://github.com/PCSX2/pcsx2/pull/3702) Remove
         DynamicCRCHack feature.
     -   [\#3564](https://github.com/PCSX2/pcsx2/pull/3564) Remove unused
-        Uber_ATST shader code.
+        Uber\_ATST shader code.
     -   List of removed crc hacks:
         -   [b00c603](https://github.com/PCSX2/pcsx2/commit/b00c603e0bcbe3dc60b8a72ece2e3ddc3a0288c7)
             SMT: Digital Devil Saga 1 & 2, SMT: Nocturne.
@@ -159,7 +154,7 @@ multiple ones, and it makes it easier for the end users.
 
 # Lilypad Improvements
 
-[ \[Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Enhancement\] </span>
 **[\#3323](https://github.com/PCSX2/pcsx2/pull/3323) Remove PSX/PS1
 emulator compatibility.By
 [lightningterror](https://github.com/lightningterror) .**
@@ -172,7 +167,7 @@ without any issue when using PCSX2.
 
 # SPU2-X Improvements
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3532](https://github.com/PCSX2/pcsx2/pull/3532) Correction of
 timings reset and audio sample rate for ps1 mode. By
 [kenshen112(weirdbeardgame)](https://github.com/kenshen112) .**
@@ -181,19 +176,18 @@ timings reset and audio sample rate for ps1 mode. By
 
 # Core Improvements
 
-[ \[Enhancement\] ]{style="color: #00ccff;"} **64bit Recompiler support.
-By [tellowkrinkle](https://github.com/tellowkrinkle) and
-[beaumanvienna](https://github.com/beaumanvienna) .**
+<span style="color: #00ccff;"> \[Enhancement\] </span> **64bit
+Recompiler support. By [tellowkrinkle](https://github.com/tellowkrinkle)
+and [beaumanvienna](https://github.com/beaumanvienna) .**
 
-It\'s been a long awaited goal for us and we are very happy with the
-progress of the 64bit work that\'s been put in recently. That said there
+It's been a long awaited goal for us and we are very happy with the
+progress of the 64bit work that's been put in recently. That said there
 are still a couple of issues left to take care of before we start
 providing fully working builds to the public on Orphis buildbot. Those
 that want to take the risks and still give the 64bit builds a go then
 they can fetch appveyor artifacts or build the source code themselves
 and give it a go
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}\
+<img src="https://pcsx2.net/images/stories/frontend/smilies/smile.gif" class="yvSmiley" width="20" height="20" alt="Smile" />  
 Performance should be -/+ 5% for anyone expecting huge performance
 gains. For the technical details see the following PRs below.
 
@@ -202,33 +196,30 @@ gains. For the technical details see the following PRs below.
     should allow the algorithm to be changed much more easily in the
     future.
 
-```{=html}
 <!-- -->
-```
+
 -   [\#3523](https://github.com/PCSX2/pcsx2/pull/3523) Allocate memory
     in an x86-64-compatible way.
 
-```{=html}
 <!-- -->
-```
+
 -   [\#3512](https://github.com/PCSX2/pcsx2/pull/3512) Fix codegen on
     x86-64.Makes x86emitter emit the x86-64 machine code you would
     expect it to.
 
-```{=html}
 <!-- -->
-```
+
 -   [\#3608](https://github.com/PCSX2/pcsx2/pull/3608) 64-bit
     recompilers.Makes recompilers compatible with x86-64.
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3537](https://github.com/PCSX2/pcsx2/pull/3537) EE/IOP: Timer
 Interrupt Handling. By
 [refractionpcsx2](https://github.com/refractionpcsx2) and
 [PSI-Rockin](https://github.com/psi-rockin) , backport from
 Dobiestation.**
 
--   Don\'t interrupt if compare/overflow flag is already set.
+-   Don't interrupt if compare/overflow flag is already set.
 -   Removed GameDB patches for Harry Potter Prisoner of Azkaban and
     Chamber of Secrets as they are no longer required.
 
@@ -236,7 +227,7 @@ PSI-Rockin made an excellent post explaining the functionality/technical
 details. You can read more about it
 [here](https://www.patreon.com/posts/39218662) .
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3539](https://github.com/PCSX2/pcsx2/pull/3539) VIF: VIF MSCAL
 instructions wait on VU T-Bit stop. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .**
@@ -253,9 +244,9 @@ them since they now work properly:
 -   Enter the Matrix
 -   Evolution Snowboarding
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3555](https://github.com/PCSX2/pcsx2/pull/3555) IPU: Perform an
-interrupt on IPU_CTRL Reset. By
+interrupt on IPU\_CTRL Reset. By
 [refractionpcsx2](https://github.com/refractionpcsx2) , backport from
 Dobiestation.**
 
@@ -265,7 +256,7 @@ that it is done, even if there is no command currently active.
 
 Fixes Fightbox and Sakura Taisen 3.
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3593](https://github.com/PCSX2/pcsx2/pull/3593) VU: Make VU run
 closer in sync with EE, implement Mbit. By
 [refractionpcsx2](https://github.com/refractionpcsx2) and
@@ -277,10 +268,10 @@ cycles required to run for every microprogram. Improved handling of edge
 cases for scenarios where COP2 updates flags.
 
 As explained
-[here](https://www.patreon.com/posts/shadow-of-fixing-33354075) in
-PSI\'s blog post, hardware tests proved that VU run at the same speed as
-EE mips core. This is important as the EE can read values from VU0 while
-a VU program is running using COP2 commands such as CFC2 (Copy From
+[here](https://www.patreon.com/posts/shadow-of-fixing-33354075) in PSI's
+blog post, hardware tests proved that VU run at the same speed as EE
+mips core. This is important as the EE can read values from VU0 while a
+VU program is running using COP2 commands such as CFC2 (Copy From
 COP2/VU0), so it is important to run VU0 at the same speed as the EE,
 this was particularly important for games using M-Bit synchronization
 (Mike Tyson, My Street etc) and games which start a VU program and then
@@ -289,7 +280,7 @@ happening was 24: The Game.
 
 Depending on if the game is expecting the value written to be used or
 written after the register is used, the VU needs to run either ahead or
-behind and it varies per game, so in this case it\'s essential that we
+behind and it varies per game, so in this case it's essential that we
 rely on a new gamefix that we implemented calledVU0KickstartHack.
 
 Fixed games list:
@@ -325,63 +316,51 @@ Fixed games list:
 -   World Series Baseball 2k3 - No longer hangs on the loading screen
     (game still hasother issues)
 
-::: {style="display: inline-block; width: 320px; text-align: center;"}
+<div style="display: inline-block; width: 320px; text-align: center;">
+
 Before
-:::
 
-::: {style="display: inline-block; width: 320px; text-align: center;"}
+</div>
+
+<div style="display: inline-block; width: 320px; text-align: center;">
+
 After
-:::
 
-[![Mike-Tysons-Heavyweight-Box
-before](/images/stories/frontend/progress_reports/q3-2020/Mike-Tysons-Heavyweight-Box-before-resize.png){width="320"
-height="224"}](/images/stories/frontend/progress_reports/q3-2020/Mike-Tysons-Heavyweight-Box-before.png)
-[![Mike-Tysons-Heavyweight-Box
-after](/images/stories/frontend/progress_reports/q3-2020/Mike-Tysons-Heavyweight-Box-after-resize.png){width="320"
-height="224"}](/images/stories/frontend/progress_reports/q3-2020/Mike-Tysons-Heavyweight-Box-after.png)
+</div>
 
-[![MyStreet
-before](/images/stories/frontend/progress_reports/q3-2020/MyStreet-Before-resize.png){width="320"
-height="224"}](/images/stories/frontend/progress_reports/q3-2020/MyStreet-Before.png)
-[![MyStreet
-after](/images/stories/frontend/progress_reports/q3-2020/MyStreet-After-resize.png){width="320"
-height="224"}](/images/stories/frontend/progress_reports/q3-2020/MyStreet-After.png)
+[<img src="/images/stories/frontend/progress_reports/q3-2020/Mike-Tysons-Heavyweight-Box-before-resize.png" width="320" height="224" alt="Mike-Tysons-Heavyweight-Box before" />](/images/stories/frontend/progress_reports/q3-2020/Mike-Tysons-Heavyweight-Box-before.png)
+[<img src="/images/stories/frontend/progress_reports/q3-2020/Mike-Tysons-Heavyweight-Box-after-resize.png" width="320" height="224" alt="Mike-Tysons-Heavyweight-Box after" />](/images/stories/frontend/progress_reports/q3-2020/Mike-Tysons-Heavyweight-Box-after.png)
 
-[![SegaTennis
-before](/images/stories/frontend/progress_reports/q3-2020/SegaTennis-Before-resize.png){width="320"
-height="224"}](/images/stories/frontend/progress_reports/q3-2020/SegaTennis-Before.png)
-[![SegaTennis
-after](/images/stories/frontend/progress_reports/q3-2020/SegaTennis-After-resize.png){width="320"
-height="224"}](/images/stories/frontend/progress_reports/q3-2020/SegaTennis-After.png)
+[<img src="/images/stories/frontend/progress_reports/q3-2020/MyStreet-Before-resize.png" width="320" height="224" alt="MyStreet before" />](/images/stories/frontend/progress_reports/q3-2020/MyStreet-Before.png)
+[<img src="/images/stories/frontend/progress_reports/q3-2020/MyStreet-After-resize.png" width="320" height="224" alt="MyStreet after" />](/images/stories/frontend/progress_reports/q3-2020/MyStreet-After.png)
 
-[![TotallySpies
-before](/images/stories/frontend/progress_reports/q3-2020/TotallySpies-Before-resize.png){width="320"
-height="224"}](/images/stories/frontend/progress_reports/q3-2020/TotallySpies-Before.png)
-[![TotallySpies
-after](/images/stories/frontend/progress_reports/q3-2020/TotallySpies-After-resize.png){width="320"
-height="224"}](/images/stories/frontend/progress_reports/q3-2020/TotallySpies-After.png)
+[<img src="/images/stories/frontend/progress_reports/q3-2020/SegaTennis-Before-resize.png" width="320" height="224" alt="SegaTennis before" />](/images/stories/frontend/progress_reports/q3-2020/SegaTennis-Before.png)
+[<img src="/images/stories/frontend/progress_reports/q3-2020/SegaTennis-After-resize.png" width="320" height="224" alt="SegaTennis after" />](/images/stories/frontend/progress_reports/q3-2020/SegaTennis-After.png)
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"}
+[<img src="/images/stories/frontend/progress_reports/q3-2020/TotallySpies-Before-resize.png" width="320" height="224" alt="TotallySpies before" />](/images/stories/frontend/progress_reports/q3-2020/TotallySpies-Before.png)
+[<img src="/images/stories/frontend/progress_reports/q3-2020/TotallySpies-After-resize.png" width="320" height="224" alt="TotallySpies after" />](/images/stories/frontend/progress_reports/q3-2020/TotallySpies-After.png)
+
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3660](https://github.com/PCSX2/pcsx2/pull/3660) microVU: Fix m-bit
 state and range merging. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .**
 
-Fix state saving when m-bit is reached.\
+Fix state saving when m-bit is reached.  
 Fix range merging to encompass whole ranges of programs.
 
 -   Fixes shadows in The Shadow of Zorro
 -   Fixed slight SPS in Totally Spies Totally Party! Still needs
     Cyclerate +3 however
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3675](https://github.com/PCSX2/pcsx2/pull/3675) GS/Counters: Fix
 CSR Swap and VBlank Interrupt timing. By
 [refractionpcsx2](https://github.com/refractionpcsx2) , backport from
 Dobiestation.**
 
--   Fixes the Titantron\'s on the WWE games (Except Shut Your Mouth).
+-   Fixes the Titantron's on the WWE games (Except Shut Your Mouth).
 -   Fixes the frame order for the following games, so they look less
-    blurry and don\'t need the interlacing mode swapped:
+    blurry and don't need the interlacing mode swapped:
     -   Soul Calibur 2
     -   World Rally Championship
     -   Mike Tysons Heavyweight Boxing
@@ -390,7 +369,7 @@ Dobiestation.**
 
 Based on data gathered from PS2 console tests.
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3683](https://github.com/PCSX2/pcsx2/pull/3683) VIF: Set decoding
 status on VIF stall. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .**
@@ -405,7 +384,7 @@ invisible.
 Reduces frequency of VIF spamming the console in Ratchet & Clank when
 completing the game.
 
-[ \[Accuracy Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3439](https://github.com/PCSX2/pcsx2/pull/3439) Add support for
 loading rom2. By [kozarovv](https://github.com/kozarovv) .**
 
@@ -421,7 +400,7 @@ So far we have 3 games confirmed working:
 Other games on could be fixed as well, someone just needs to test/verify
 them. The full list can be seen on the pull request itself.
 
-[ \[Enhancement\] ]{style="color: #00ccff;"}
+<span style="color: #00ccff;"> \[Enhancement\] </span>
 **[\#3591](https://github.com/PCSX2/pcsx2/pull/3591) ,
 [\#3724](https://github.com/PCSX2/pcsx2/pull/3724) New WIP Feature:
 Socket IPC implementation. By [GovanifY](https://github.com/GovanifY)
@@ -430,17 +409,17 @@ Socket IPC implementation. By [GovanifY](https://github.com/GovanifY)
 An IPC protocol was added to PCSX2. This feature gives you a header-only
 C++ library with bindings in C, Python, Rust, Lua and C\# which allows
 you to communicate with the emulator and the underlying game it
-emulates. Ever wanted a game to trigger a save state? That\'s how you\'d
+emulates. Ever wanted a game to trigger a save state? That's how you'd
 do it! Want to make advanced TAS tools? AI based players with a fancy
 GUI to visualize all your neuronal networks? This should do the trick!
 
 Note that all the main planned IPC features are not yet
-merged/developed, so all of this isn\'t possible yet but should be soon.
+merged/developed, so all of this isn't possible yet but should be soon.
 
-For more information you can check the PR\'s themselves for details.
+For more information you can check the PR's themselves for details.
 
-[ \[Enhancement\] ]{style="color: #00ccff;"} **The following Plugins
-have been merged in to the core:**
+<span style="color: #00ccff;"> \[Enhancement\] </span> **The following
+Plugins have been merged in to the core:**
 
 You heard it right folks, PCSX2 will require 2 less plugins now to
 fiddle with.
@@ -459,9 +438,8 @@ fiddle with.
     point crash patch. By
     [RedPanda4552](https://github.com/RedPanda4552) .
 
-```{=html}
 <!-- -->
-```
+
 -   Other GameDB additions or deletions have been done throughout the Q3
     cycle as well.
 
@@ -473,37 +451,32 @@ fiddle with.
     work on MACOS support. By
     [tellowkrinkle](https://github.com/tellowkrinkle) .
 
-```{=html}
 <!-- -->
-```
+
 -   [\#3667](https://github.com/PCSX2/pcsx2/pull/3667) Change the
-    console logger\'s theme on the fly. By [xTVaser(Tyler
+    console logger's theme on the fly. By [xTVaser(Tyler
     Wilding)](https://github.com/xTVaser) .
 
-```{=html}
 <!-- -->
-```
+
 -   [\#3446](https://github.com/PCSX2/pcsx2/pull/3446) ,
     [\#3540](https://github.com/PCSX2/pcsx2/pull/3540) Update old Dark
     Theme for the PCSX2 Console to Modern Dark theme. By
     [RedDevilus](https://github.com/RedDevilus) .
 
-```{=html}
 <!-- -->
-```
+
 -   [\#3597](https://github.com/PCSX2/pcsx2/pull/3597) PCSX2 GUI Menu
     changes. By [arcum42](https://github.com/arcum42) .
 
-```{=html}
 <!-- -->
-```
+
 -   [\#3457](https://github.com/PCSX2/pcsx2/pull/3457) Revision of
     tooltips/descriptions and other fixes for PCSX2 (Lilypad +
     others).By [RedDevilus](https://github.com/RedDevilus) .
 
-```{=html}
 <!-- -->
-```
+
 -   [\#3687](https://github.com/PCSX2/pcsx2/pull/3687) ,
     [\#3709](https://github.com/PCSX2/pcsx2/pull/3709) ,
     [\#3719](https://github.com/PCSX2/pcsx2/pull/3719) (CI) Move/migrate
@@ -511,9 +484,8 @@ fiddle with.
     [xTVaser(Tyler Wilding)](https://github.com/xTVaser) and
     [turtleli](https://github.com/turtleli) .
 
-```{=html}
 <!-- -->
-```
+
 -   Cleanup:
     -   [\#3652](https://github.com/PCSX2/pcsx2/pull/3652) Remove unused
         cheats and browser source files.By
@@ -528,7 +500,7 @@ fiddle with.
         branch. By [lightningterror](https://github.com/lightningterror)
         .
     -   [\#3688](https://github.com/PCSX2/pcsx2/pull/3688) (Tools) Moved
-        GSDumpGUI in it\'s own repository
+        GSDumpGUI in it's own repository
         [here](https://github.com/PCSX2/GSDumpGUI) .Initial release has
         been published as well so developers can download and use it
         without the hassle of compiling.By
@@ -553,11 +525,13 @@ fiddle with.
     Recording related hang when PAD plugin is open/closed while a game
     is paused.By [xTVaser(Tyler Wilding)](https://github.com/xTVaser) .
 -   [\#3480](https://github.com/PCSX2/pcsx2/pull/3480) Corrections to
-    TAS recording file\'s header data.By [xTVaser(Tyler
+    TAS recording file's header data.By [xTVaser(Tyler
     Wilding)](https://github.com/xTVaser) .
 
 ------------------------------------------------------------------------
 
-And that\'s all from us, see you next time in our Q4 Report!
-:::
-:::
+And that's all from us, see you next time in our Q4 Report!
+
+</div>
+
+</div>
