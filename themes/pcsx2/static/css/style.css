@@ -7,7 +7,7 @@
   --tertiary-bg-color: #0b0b0d;
   --heading-color: #fffffe;
   --text-color: #94a1b2;
-  --primary-color: #7f5af0;
+  --primary-color: #AB47BC; /*#7f5af0;*/
   --tertiary-color: #2cb67d;
   --stroke-color: #010101;
   --error-color: #f25042;
@@ -46,16 +46,44 @@
   color: var(--tertiary-color);
 }
 
+.markdown-content > :first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-content h1 {
+	padding-bottom: .3em;
+	font-size: 2em;
+	border-bottom: 1px solid var(--secondary-bg-color);
+  color: var(--heading-color);
+}
+
+.markdown-content h2 {
+	padding-bottom: .3em;
+	font-size: 1.5em;
+	border-bottom: 1px solid var(--secondary-bg-color);
+  color: var(--heading-color);
+}
+
+.markdown-content h3 {
+	font-size: 1.25em;
+  color: var(--heading-color);
+}
+
+.markdown-content h1, .markdown-content h2, .markdown-content h3, .markdown-content h4, .markdown-content h5, .markdown-content h6 {
+	margin-top: 24px;
+	margin-bottom: 16px;
+	font-weight: 600;
+	line-height: 1.25;
+}
+
 .markdown-content blockquote {
   padding: 0 1em;
   color: var(--text-color);
   border-left: .25em solid var(--secondary-bg-color);
 }
 
-.markdown-content h3, h4 {
+.progress-report-heading {
   color: var(--heading-color);
-  margin-bottom: 2rem;
-  margin-top: 2rem;
 }
 
 .markdown-content img {

@@ -1,7 +1,0 @@
-{{ $prLink := (printf "https://github.com/PCSX2/pcsx2/pull/%d" (.Get "prNum")) }}
-{{ $authorLink := (printf "https://github.com/%s" (.Get "author")) }}
-<h4>
-  <a href="{{ $prLink }}">#{{ .Get "prNum" }}</a>
-  {{ .Get "title" }}
-  <a href="{{ $authorLink }}">{{ .Get "author" }}</a>
-</h4>

@@ -1,7 +1,0 @@
-{{ $commitLink := (printf "https://github.com/PCSX2/pcsx2/commit/%s" (.Get "sha")) }}
-{{ $authorLink := (printf "https://github.com/%s" (.Get "author")) }}
-<h4>
-  <a href="{{ $commitLink }}">{{ .Get "sha" }}</a>
-  {{ .Get "title" }}
-  <a href="{{ $authorLink }}">{{ .Get "author" }}</a>
-</h4>

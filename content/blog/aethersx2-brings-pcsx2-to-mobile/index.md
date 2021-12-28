@@ -2,12 +2,13 @@
 title: "AetherSX2 brings PCSX2 to mobile"
 date: 2021-11-24T00:00:00.0
 summary: "As you have probably seen by now, there is a new Android emulator in town called AetherSX2, which shows to have very promising performance and compatibility"
-draft: true
+draft: false
 tags:
   - "devblog"
 mainAuthor: bositman
 aliases:
   - "301-aethersx2-pcsx2-mobile"
+previewImage: "/blog/aethersx2-brings-pcsx2-to-mobile/AetherSX2sm.jpg"
 ---
 
 An exciting bit of news! As you have probably seen by now, there is a new Android emulator in town called AetherSX2, which shows to have very promising performance and compatibility. While the latter is due to it being based on an LGPL licensed emulator for PC (that's us!), the former is due to the clever work of the developer Tahlreth.
