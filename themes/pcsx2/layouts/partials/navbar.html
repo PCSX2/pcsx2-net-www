@@ -1,33 +1,15 @@
-<nav
-  class="navbar navbar-dark {{ if .IsHome }}fixed-top{{ else }} navbar-expand-lg scrolled{{ end }} bg-faded justify-content-center">
+<nav class="navbar navbar-dark bg-faded justify-content-end{{ if .IsHome }} fixed-top transparent{{ else }} navbar-expand-lg{{ end }}">
   <div class="container">
-    {{ if .IsHome }}
-    <button class="pull-left navbar-toggler" type="button" data-mdb-toggle="collapse"
-      data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-      aria-label="Toggle navigation">
+    <a class="navbar-brand w-25" href="/">
+      <img class="brand-logo" src="/img/pcsx2-logo.png" alt="PCSX2 Logo">
+      <strong class="logo-text">PCSX2</strong>
+    </a>
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </button>
-    <div class="navbar-brand d-flex w-25 {{ if not (.IsHome) }}scrolled{{ end }}">
-      <a href="/" class="navbar-brand d-flex w-25 me-auto {{ if not (.IsHome) }}scrolled{{ end }}">
-        <img class="brand-logo" src="/img/pcsx2-logo.png" alt="PCSX2 Logo">
-        <strong class="logo-text">PCSX2</strong>
-      </a>
-    </div>
-    {{ else }}
-    <div class="navbar-brand d-flex w-25 {{ if not (.IsHome) }}scrolled{{ end }}">
-      <a href="/" class="navbar-brand d-flex w-25 me-auto {{ if not (.IsHome) }}scrolled{{ end }}">
-        <img class="brand-logo" src="/img/pcsx2-logo.png" alt="PCSX2 Logo">
-        <strong class="logo-text">PCSX2</strong>
-      </a>
-    </div>
-    <button class="pull-left navbar-toggler" type="button" data-mdb-toggle="collapse"
-      data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-      aria-label="Toggle navigation">
-      <i class="fas fa-bars"></i>
-    </button>
-    {{ end }}
-    <div class="navbar-collapse collapse w-100" id="navbarSupportedContent">
-      <ul class="navbar-nav w-75 justify-content-center">
+    <div class="collapse navbar-collapse w-100 justify-content-center" id="navbarSupportedContent">
+      <ul class="navbar-nav nav-middle w-75 justify-content-center">
         {{ range .Site.Menus.main }}
         <li class="nav-item">
           <a class="nav-link" href="{{ .URL }}" {{ if in .URL "http" }}target="blank" {{ end }}>{{ .Name | safeHTML
@@ -35,12 +17,12 @@
         </li>
         {{ end }}
       </ul>
-      <ul class="nav navbar-nav w-25 justify-content-end align-items-center {{ if .IsHome }}left-align-when-collapsed{{ else }}{{ end }}">
+      <ul class="navbar-nav nav-right w-25 justify-content-end">
         {{ if gt (len .Site.Params.social) }}
-        <li class="nav-item dropdown dropend">
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
             data-mdb-toggle="dropdown" aria-expanded="false">
-            Related Links
+            Links
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             {{ range .Site.Params.social }}
@@ -73,7 +55,6 @@
         {{ end }}
         <li class="nav-item">
           <a role="button" class="nav-link" id="theme-button">
-            <!-- TODO - update this on page load -->
             <i class="far fa-moon theme-icon" title="Dark Theme"></i>
           </a>
         </li>

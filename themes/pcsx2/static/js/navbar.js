@@ -1,14 +1,10 @@
-$(function () {
-  $(document).ready(function () {
-    var $nav = $(".navbar.fixed-top");
-    $nav.toggleClass('scrolled', $(this).scrollTop() > $(this).height() / 4);
-    $nav.toggleClass('navbar-expand-lg', $(this).scrollTop() > $(this).height() / 4);
-    $(".navbar-brand").toggleClass('scrolled', $(this).scrollTop() > $(this).height() / 4);
-  });
+$(document).ready(function () {
+  let scrolledFarEnough = $(this).scrollTop() > $(this).height() / 4;
+  $(".navbar.fixed-top").toggleClass('navbar-expand-lg', scrolledFarEnough);
+  $(".navbar.fixed-top").toggleClass('transparent', !scrolledFarEnough);
   $(document).scroll(function () {
-    var $nav = $(".navbar.fixed-top");
-    $nav.toggleClass('scrolled', $(this).scrollTop() > $(this).height() / 4);
-    $nav.toggleClass('navbar-expand-lg', $(this).scrollTop() > $(this).height() / 4);
-    $(".navbar-brand").toggleClass('scrolled', $(this).scrollTop() > $(this).height() / 4);
+    let scrolledFarEnough = $(this).scrollTop() > $(this).height() / 4;
+    $(".navbar.fixed-top").toggleClass('navbar-expand-lg', scrolledFarEnough);
+    $(".navbar.fixed-top").toggleClass('transparent', !scrolledFarEnough);
   });
 });

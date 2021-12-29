@@ -361,15 +361,20 @@ td > ul {
 
 /* Navigation */
 
-.navbar.scrolled {
+.navbar {
   background-color: #16161a;
   border-bottom-color: #2cb67d;
   border-bottom-width: 2px;
   border-bottom-style: solid;
 }
 
-.navbar:not(.scrolled) ul.left-align-when-collapsed {
-  align-items: flex-start !important;
+.navbar.transparent {
+  background: none;
+  border: none;
+}
+
+.navbar.transparent .logo-text {
+  visibility: hidden;
 }
 
 .nav-icon {
@@ -378,11 +383,6 @@ td > ul {
 
 .nav-link {
   display: inline-block;
-}
-
-.navbar-brand {
-  visibility: hidden;
-  padding: 0;
 }
 
 .navbar-brand.scrolled {
