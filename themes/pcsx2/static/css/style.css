@@ -371,6 +371,7 @@ td > ul {
 .navbar.transparent {
   background: none;
   border: none;
+  box-shadow: none;
 }
 
 .navbar.transparent .logo-text {

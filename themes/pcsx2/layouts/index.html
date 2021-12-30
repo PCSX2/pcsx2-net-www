@@ -7,56 +7,130 @@
     <p class="splash-description">An Open-Source Playstation 2 Emulator</p>
     <div class="container d-flex flex-gap justify-content-center">
       <div class="row">
-        <div class="col no-horizontal-margins"><a role="button" class="btn btn-color-triangle" href="/downloads"><i class="fas fa-download"></i>Download</a></div>
-        <div class="col no-horizontal-margins"><a role="button" class="btn btn-color-cross" target="blank" href="https://discord.com/invite/TCz3t9k"><i class="fab fa-discord"></i>Discuss</a></div>
-        <div class="col no-horizontal-margins"><a role="button" class="btn btn-color-circle" href="/docs"><i class="fas fa-book"></i>Docs</a></div>
-        <div class="col no-horizontal-margins"><a role="button" class="btn btn-color-square" target="blank" href="https://github.com/PCSX2/pcsx2"><i class="fab fa-github"></i>Contribute</a></div>
+        <div class="col no-horizontal-margins"><a role="button" class="btn btn-color-triangle" href="/downloads"><i
+              class="fas fa-download"></i>Download</a></div>
+        <div class="col no-horizontal-margins"><a role="button" class="btn btn-color-cross" target="blank"
+            href="https://discord.com/invite/TCz3t9k"><i class="fab fa-discord"></i>Discuss</a></div>
+        <div class="col no-horizontal-margins"><a role="button" class="btn btn-color-circle" href="/docs"><i
+              class="fas fa-book"></i>Docs</a></div>
+        <div class="col no-horizontal-margins"><a role="button" class="btn btn-color-square" target="blank"
+            href="https://github.com/PCSX2/pcsx2"><i class="fab fa-github"></i>Contribute</a></div>
       </div>
     </div>
   </div>
-  <svg class="angled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="height: 10vh;width: 100%;bottom:0;position:absolute;">
+  <svg class="angled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"
+    style="height: 10vh;width: 100%;bottom:0;position:absolute;">
     <polygon points="0,100 100,0 100,100" fill="#16161a"></polygon>
   </svg>
 </div>
-<div class="container">
+<div class="container pt-5 pb-5">
   <div class="row">
     <div class="col-4 d-flex align-items-center">
       <div class="container">
         <div class="row">
           <div class="col">
-            <h2 class="page-header">Progress Reports</h2>
+            <h2 class="page-header">About the Project</h2>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <p>Stay up to date on the latest improvements and fixes on the project</p>
+            <p>With being almost as old as the console it is emulating, PCSX2 not only has a lot of history behind it,
+              but a continually evolving future.</p>
           </div>
         </div>
-        <div class="row">
+        <!-- TODO - make an about page -->
+        <!-- <div class="row">
           <div class="button d-flex">
             <a role="button" class="btn btn-primary" href="/tags/progress-report/">
               View More
             </a>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="col-8">
       <div class="container">
         <div class="row mt-3">
-          {{ range .Site.RegularPages.RelatedTo (keyVals "tags" "progress-report") | first 2 }}
-          {{ partial "post-card.html" (dict "context" $ "post" . "easeDirection" "right" "alternateBackground" true) }}
-          {{ end }}
+          <div class="col">
+            <p>
+              PCSX2 is a free and open-source PlayStation 2 (PS2) emulator. Its purpose is to emulate the PS2's
+              hardware,
+              using a combination of MIPS CPU <a href="https://en.wikipedia.org/wiki/Interpreter_(computing)"
+                target="_blank">Interpreters</a>, <a href="https://en.wikipedia.org/wiki/Dynamic_recompilation"
+                target="_blank">Recompilers</a> and a <a href="https://en.wikipedia.org/wiki/Virtual_machine"
+                target="_blank">Virtual Machine</a> which manages hardware
+              states and PS2 system memory.
+            </p>
+            <p>
+              The project has been running for almost 20 years. Past versions could only run a few public domain
+              game demos, but newer versions can run most games at full speed, including popular titles such as Final
+              Fantasy X and Devil May Cry 3.
+            </p>
+            <p>
+              PCSX2 allows you to play PS2 games on your PC, with many additional features
+              and benefits. A few of those benefits include:
+            </p>
+            <ul>
+              <li>custom resolutions and upscaling</li>
+              <li>virtual and sharable memory cards</li>
+              <li>save-states</li>
+              <li>patching system</li>
+              <li>great controller support</li>
+              <li>internal recorder to achieve full quality at full speed</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<svg class="angled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="height: 10vh;width: 100%;">
+<svg class="angled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"
+  style="height: 10vh;width: 100%;">
   <polygon points="0,0 100,100 0,100" fill="#0b0b0d"></polygon>
 </svg>
 <div class="container-fluid" style="background-color: #0b0b0d;">
-  <div class="container">
+  <div class="container pt-5 pb-5">
+    <div class="row">
+      <div class="col-4 d-flex align-items-center">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h2 class="page-header">Progress Reports</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p>Stay up to date on the latest improvements and fixes on the project</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="button d-flex">
+              <a role="button" class="btn btn-primary" href="/tags/progress-report/">
+                View More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="container">
+          <div class="row mt-3">
+            {{ range .Site.RegularPages.RelatedTo (keyVals "tags" "progress-report") | first 2 }}
+            {{ partial "post-card.html" (dict "context" $ "post" . "easeDirection" "right" "alternateBackground" true)
+            }}
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<svg class="angled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"
+  style="height: 10vh;width: 100%;">
+  <polygon points="0,0 0,100 100,0" fill="#0b0b0d"></polygon>
+</svg>
+<div class="container-fluid">
+  <div class="container pt-5 pb-5">
     <div class="row">
       <div class="col-8">
         <div class="container">

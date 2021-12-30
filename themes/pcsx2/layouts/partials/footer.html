@@ -1,11 +1,7 @@
 <svg class="angled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="height: 10vh;width: 100%;{{ if not (.IsHome) }}margin-top:10em;{{ end }}">
-  {{ if .IsHome }}
-  <polygon points="0,0 0,100 100,0" fill="#0b0b0d"></polygon>
-  {{ else }}
   <polygon points="0,0 0,100 100,100" fill="#0b0b0d"></polygon>
-  {{ end }}
 </svg>
-<div class="footer" {{ if not (.IsHome) }}style="background-color: #0b0b0d;"{{ end }}>
+<div class="footer" style="background-color: #0b0b0d;">
   <div class="container p-3">
     <div class="row mt-5">
       <div class="col-4">
