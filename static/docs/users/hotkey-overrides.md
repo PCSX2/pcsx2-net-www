@@ -1,19 +1,17 @@
-Originally written by avih
-
-UI: Keyboard shortcuts overrides via PCSX2_keys.ini
+# UI: Keyboard shortcuts overrides via PCSX2_keys.ini
 
 Keys combination can be:
 
 "alt-" and/or "ctrl-" and/or "shift-" and ( F1-F12 or KP_0-KP_9 or
 SPECIAL1-SPECIAL20 )
 
-Where:
+## Where:
 
 Fn is function key n
 KP_n is numpad number n
 SPECIALn is hardware button n (whatever that means...)
 
-Examples:
+## Examples:
 
 FullscreenToggle=alt-ctrl-f12
 GSwindow_CycleAspectRatio=KP_0

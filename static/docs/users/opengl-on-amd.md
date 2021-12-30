@@ -1,4 +1,4 @@
-# Information
+# OpenGL on AMD GPUs
 
 Due to a buggy driver OpenGL will perform poorly on AMD GPUs. The driver lacks performance optimizations and several extensions are currently broken.
 
@@ -7,7 +7,7 @@ The issues have been reported on the AMD support forum for a year now, but any f
 There is a PCSX2 discussion thread regarding the mentioned issues [here](https://github.com/PCSX2/pcsx2/issues/1552).
 ***
 
-### List of issues:
+## List of issues:
 
 * ~~*SSO (Separate Shader Objects Extension) is broken on AMD drivers*.~~ **Confirmed fixed as of driver release 18.11.1**
 
@@ -21,7 +21,7 @@ There is a PCSX2 discussion thread regarding the mentioned issues [here](https:/
 This is an optimization issue on AMD's side. There is no workaround for this issue. People will need to wait for a proper working driver. Link to issue on AMD support forum is [here.](https://community.amd.com/thread/206176)
 ***
 
-### Help:
+## Help:
 
 To avoid the worst of the bugs make sure you do the following:
 * Use the most recent AMD drivers.
@@ -31,7 +31,7 @@ Stick to the default GSdx plugin settings. The "Allow 8-Bit Textures" option can
 
 ***
 
-### QA:
+## QA:
 
 * **Q: Can I still run OpenGL with all the present issues?**
     * A: Yes, but expect slower performance caused by the sum of aforementioned bugs and workarounds.

@@ -29,6 +29,9 @@
   <script>
     window.$docsify = {
       loadSidebar: true,
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      },
       subMaxLevel: 3,
       notFoundPage: true,
       auto2top: true,
@@ -88,11 +91,10 @@
             if (/githubusercontent\.com/.test(vm.route.file)) {
               url = vm.route.file
                 .replace("raw.githubusercontent.com", "github.com")
-                .replace(/\/master/, "/blob/master");
+                .replace(/\/master/, "/edit/master");
             } else {
-              // TODO - wire this up to whereever this eventually lives
               url =
-                "https://github.com/PCSX2/pcsx2/blob/master/docs" +
+                "https://github.com/PCSX2/PCSX2.github.io/edit/master/static" +
                 vm.route.file;
             }
             var editHtml = `<p class="docs-edit-link"><a href="${url}" target="_blank" rel="noopener"><img class="emoji" src="https://github.githubassets.com/images/icons/emoji/memo.png" alt="memo"> Edit This Page</a></p>\n\n`;

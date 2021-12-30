@@ -1,12 +1,30 @@
 - [Home](/README.md)
 
-- Installing / Setting Up
-  - [Linux](/installing-on-linux.md)
-  - [AMD vs Nvidia](/nvidia-amd.md)
+- User Documentation
+  - [Development vs Stable](users/development-vs-stable.md)
+  - Installation
+    - [Nightly Build Setup](users/using-nightly-builds.md)
+    - [Installing on Linux](users/installing-on-linux.md)
+  - [Translation Guide](users/translation-guide.md)
+  - Controls
+    - [Pressure Sensitivity on DS3](users/pressure-sensitive-ds3.md)
+    - [Hotkey Overriding](users/hotkey-overrides.md)
+  - Performance Information
+    - [OpenGL on AMD](users/opengl-on-amd.md)
+    - [OpenGL on Intel](users/opengl-on-intel.md)
+  - Support
+    - [Submitting Good Bug Reports](users/creating-valid-issues.md)
 
-- Emulator Usage
-  - [Translation Guide](/translation-guide.md)
-  - [Hotkeys](/hotkey-guide.md)
-
-- Everything Else
-  - [Contributing](/contributing.md)
+- Developer Documentation
+  - Project Setup
+    - [Windows](devs/windows-project-setup.md)
+  - Git Workflow
+    - [Survival Guide](devs/git-survival-guide.md)
+    - [Etiquette](devs/commenting-etiquette.md)
+  - General Information
+    - [PSX Mode](devs/psx-mode.md)
+  - Debugging
+    - [GDB with AppImages](devs/using-gdb-appimage.md)
+  - TODO Lists
+    - [GSdx](devs/gsdx-todo-list.md)
+    - [Miscellaneous](devs/contributing-todo.md)

@@ -1,3 +1,5 @@
+# PCSX2 Version Guide for Translations
+
 | Language | Translators/Last Translator | GUI version | Last Updated |
 | ---------| ----------- | ----------- | -------------|
 | **Arabic** | roxas0zero | **1.6.0** | [April 14th, 2020](https://github.com/PCSX2/pcsx2/commit/58f5a5b915915293b90e7e8f34c33f9c0424d1e8) |

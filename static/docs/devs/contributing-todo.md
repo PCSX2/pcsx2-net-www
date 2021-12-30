@@ -1,4 +1,4 @@
-# Contributing
+# Contributing TODO List
 
 * Be patient!
   * Your contribution will gladly be reviewed, but free time is an expensive resource.
@@ -25,7 +25,7 @@
 
 You're welcome to the [Linux contribution thread](https://forums.pcsx2.net/Thread-Areas-of-interest-for-new-linux-developers) to have full details. Here is a handy list of features need implementation. Feel free to propose new ones.
 
-### House keeping and general compilation
+## House keeping and general compilation
 
 * Clean up warnings
   1. Same as GCC flags but without the need of complete test.
@@ -37,24 +37,16 @@ You're welcome to the [Linux contribution thread](https://forums.pcsx2.net/Threa
 * PGO support
 * clang-tidy (./build.sh --clang-tidy)
 
-### Core
+## Core
 
 * Support XZ compressed ISOs
 
-### GSdx
+## GSdx
 
 * Implement DirectX features on OpenGL (and vice versa, if applicable)(video recording, port OSD from OGL, etc.) 
 * Gameplay recording (so far, framebuffer is dumped every frame)
 
-### zzogl (plugin is kinds of dropped)
-
-* Reduce OpenGL requirement to 3.3 with OpenGL 4 extension
-* Use multibind
-* Fix EGL
-* Port GLSL to window
-* Drop old GLSL backend (and much later Nvidia CG)
-
-### Debian package
+## Debian package
 
 * Needs a refresh to the latest standard
 * Clean Debian/copyright => debmake -k
@@ -67,3 +59,18 @@ Those features will require a lot of work, and an organized long-term effort.
 * Android X86 port
 * Linux ARM port
 * MacOS support
+
+## CD reading
+
+ - Improve CD disk reading
+   - Subchannel 16 byte (formatted Q), 96 byte (raw P-W)?
+
+### FreeBSD
+
+ - Port using CAM SCSI subsystem (cd/xpt/pass device permissions must be set properly)
+
+### Other
+
+ - Use SCSI interfaces (SPTI/SG_IO) instead of OS-specific CD/DVD interfaces?
+ - Alter caching algorithm?
+ - Integrate keepalive into read thread?

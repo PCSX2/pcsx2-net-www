@@ -1,6 +1,4 @@
-NOTE: Only 32-bit architectures are supported, or distributions that allow the installation of 32-bit packages under a 64-bit architecture.
-
-## Index
+# Installing on Linux
 
 1. [Introduction](#introduction)
 2. [CMake Build System](#cmake-build-system)
@@ -19,9 +17,14 @@ This is intended to give you an idea of how to compile PCSX2 from Git in Linux. 
 
 ## CMake Build System
 
-### Debian/Ubuntu build dependencies
+### Debian/Ubuntu build dependencies (32bit) 
 
-#### Enable 32-bit libraries
+**WARNING, ONLY DO THIS IF ON THE x86_64/AMD64 or x86/i386 ARCHITECTURES**
+
+`dpkg --print-architecture` should return `amd64` or `i386`, otherwise this will NOT work and likely break your install<br />
+You have been warned!
+
+#### Enable 32-bit libraries: 
 
 `sudo dpkg --add-architecture i386`
 
@@ -37,21 +40,11 @@ This is intended to give you an idea of how to compile PCSX2 from Git in Linux. 
 
 #### Build system
 
-`gcc-multilib`, `cmake` 
+`gcc`, `cmake` 
 
-#### 32-bit libraries
+#### Libaries. Note that wxgtk3 is AUR only. Depencies may change in the future
 
-Add or uncomment the following lines in `/etc/pacman.conf`:
-```
-[Multilib]
-Include = /etc/pacman.d/mirrorlist
-```
-Refresh package list:
-```
-pacman -Syu
-```
-
-`lib32-libaio` `lib32-libpng` `lib32-portaudio` `lib32-sdl2` `lib32-soundtouch` `lib32-wxgtk3` `lib32-libx11` `lib32-xz` `lib32-libsamplerate` 
+`libaio` `libpng` `portaudio` `sdl2` `soundtouch` `wxgtk3` `libx11` `xz` `libsamplerate`
 
 ### Using CMake
 
@@ -218,6 +211,11 @@ With multiarch functionality, you can install a 32-bit PPA on a 64-bit Ubuntu. Y
 
 #### Add the x86 architecture to your package manager (x64 installs of 12.04 or newer only)
 
+**WARNING, ONLY DO THIS IF ON THE x86_64/AMD64 or x86/i386 ARCHITECTURES**
+
+`dpkg --print-architecture` should return `amd64` or `i386`, otherwise this will NOT work and likely break your install<br />
+You have been warned!
+
 In a terminal, type:
 ````
 sudo dpkg --add-architecture i386
@@ -263,26 +261,15 @@ sudo apt-get install pcsx2-unstable
 
 ## Arch Linux
 
-NOTE: for 64-bit architectures, [multilib](https://wiki.archlinux.org/index.php/multilib) must be enabled in order to install PCSX2. 
-
-### PCSX2 Stable
+### Main repo
 
 Open a terminal, and type:
 ```
 sudo pacman -S pcsx2
 ```
 
-### PCSX2 Unstable
-
-Add or uncomment the following lines in `/etc/pacman.conf`:
-```
-[multilib]
-Include = /etc/pacman.d/mirrorlist
-```
-Refresh the package list and update:
-```
-pacman -Syu
-```
+### Aur
+Note that pcap functionality will be enabled on AUR for netplay use.
 
 Clone the AUR package, then cd to the correct folder, make and install the package:
 ```
@@ -290,12 +277,19 @@ git clone https://aur.archlinux.org/pcsx2-git.git
 cd pcsx2-git
 makepkg -csi
 ```
-This will build the package, automatically installing all dependencies. It will then prompt for your password to install the package with pacman. 
+This will build the package, automatically installing all dependencies. It will then prompt for your password to install the package with pacman.
+
+Alternatively use an AUR helper like yay
+
+```
+yay -S pcsx2-git
+```
 
 
 ## How to compile PCSX2 in 2021 (Ubuntu 20.04) (64bit)
 
 <!---   I've wasted more time than I'd like to admit searching for this   -->
+Note: For Ubuntu 21.10 (and probably the next LTS 22.04) libllvm10 is no longer in the packages list. Installing llvm 14 from https://apt.llvm.org/ seems to work. <!-- at least for me I could build it when I installed LLVM from here -->
 ```
 sudo apt remove gcc-9 g++-9
 
@@ -303,9 +297,9 @@ sudo apt install cmake g++-10-multilib libaio-dev libasound2-dev libcairo2-dev l
         libegl1-mesa-dev libgdk-pixbuf2.0-dev libgirepository-1.0-1 libgl-dev libgl1-mesa-dev \
         libgl1-mesa-dri libgles-dev libgles-dev libgles2-mesa-dev libglib2.0-dev libglu1-mesa-dev \
         libglu1-mesa libglvnd-dev libglx-dev libglx-mesa0 libglx0 libgtk-3-dev libgtk2.0-dev \
-        libharfbuzz-dev libllvm10 liblzma-dev libpango1.0-dev libpcap0.8-dev libpulse-dev \
+        libharfbuzz-dev liblzma-dev libpango1.0-dev libpcap0.8-dev libpulse-dev \
         libsdl2-dev libsamplerate0-dev libsoundtouch-dev libwxgtk3.0-gtk3-0v5 libwxgtk3.0-gtk3-dev \
-        libx11-xcb-dev libxext-dev libxft-dev libxml2-dev portaudio19-dev zlib1g-dev
+        libx11-xcb-dev libxext-dev libxft-dev libxml2-dev portaudio19-dev zlib1g-dev libllvm10
 
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10
 sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 10
@@ -314,10 +308,9 @@ sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 30
 
 git clone https://github.com/PCSX2/pcsx2.git
 mkdir pcsx2/build && cd pcsx2/build
-git submodule init
-git submodule update
+git submodule update --init --recursive
 
-cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_REPLAY_LOADERS=TRUE -DCMAKE_BUILD_PO=FALSE -DGTK3_API=TRUE -DDISABLE_SETCAP=TRUE ..
+cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_REPLAY_LOADERS=TRUE -DCMAKE_BUILD_PO=FALSE -DDISABLE_SETCAP=TRUE ..
 
 make -j$(nproc)
 make install
