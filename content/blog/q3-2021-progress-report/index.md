@@ -1,6 +1,6 @@
 ---
 title: "Q3 2021 Progress Report"
-date: 2021-12-27T23:33:07.017636
+date: 2021-11-13T23:33:07.017636
 summary: "The last plugin has been merged, and much more!"
 draft: false
 tags:

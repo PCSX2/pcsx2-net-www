@@ -17,21 +17,21 @@
     </item>
     
     <item>
-      <title>Q3 2021 Progress Report</title>
-      <link>https://xtvaser.github.io/PCSX2.github.io/blog/q3-2021-progress-report/</link>
-      <pubDate>Mon, 27 Dec 2021 23:33:07 +0000</pubDate>
-      
-      <guid>https://xtvaser.github.io/PCSX2.github.io/blog/q3-2021-progress-report/</guid>
-      <description>The last plugin has been merged, and much more!</description>
-    </item>
-    
-    <item>
       <title>AetherSX2 brings PCSX2 to mobile</title>
       <link>https://xtvaser.github.io/PCSX2.github.io/blog/aethersx2-brings-pcsx2-to-mobile/</link>
       <pubDate>Wed, 24 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://xtvaser.github.io/PCSX2.github.io/blog/aethersx2-brings-pcsx2-to-mobile/</guid>
       <description>As you have probably seen by now, there is a new Android emulator in town called AetherSX2, which shows to have very promising performance and compatibility</description>
+    </item>
+    
+    <item>
+      <title>Q3 2021 Progress Report</title>
+      <link>https://xtvaser.github.io/PCSX2.github.io/blog/q3-2021-progress-report/</link>
+      <pubDate>Sat, 13 Nov 2021 23:33:07 +0000</pubDate>
+      
+      <guid>https://xtvaser.github.io/PCSX2.github.io/blog/q3-2021-progress-report/</guid>
+      <description>The last plugin has been merged, and much more!</description>
     </item>
     
     <item>
