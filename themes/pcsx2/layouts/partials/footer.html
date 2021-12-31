@@ -1,7 +1,7 @@
 <svg class="angled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="height: 10vh;width: 100%;{{ if not (.IsHome) }}margin-top:10em;{{ end }}">
-  <polygon points="0,0 0,100 100,100" fill="#0b0b0d"></polygon>
+  <polygon points="0,0 0,100 100,100" class="polygon secondary"></polygon>
 </svg>
-<div class="footer" style="background-color: #0b0b0d;">
+<div class="footer secondary-bg-color">
   <div class="container p-3">
     <div class="row mt-5">
       <div class="col-4">
@@ -27,7 +27,7 @@
         </div>
         <div class="row mt-3">
           <div class="col d-flex justify-content-start">
-            <ul class="footer-link-list">
+            <ul>
               {{ range .Site.Params.social }}
               <li>
                 <a href="{{ .url }}" {{ if in .url "http" }}target="blank" {{ end }}>

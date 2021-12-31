@@ -1,7 +1,7 @@
 module:
   hugoVersion:
     extended: true
-baseURL: 'https://pcsx2.net/'
+baseURL: 'https://xtvaser.github.io/PCSX2.github.io'
 publishDir: 'docs/'
 permalinks:
   posts: /:year/:month/:title/

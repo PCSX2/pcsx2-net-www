@@ -138,7 +138,7 @@ Our interpreters were frankly inaccurate and slow, this Pull Request has improve
 
 Perhaps an oversight as we removed DirectSound module but it was still listed as a Host API for PortAudio, reason for removal is it tends to break audio samples to even refuse to work at all. In the future, it would be nice to have Cubeb as an audio module.
 
-{{< progress/github-link shas="06d6001b0cc869c955ab18b110a0d3d963849ad1" title=" Add rogue BIOS loop point which Megaman X7 relies on" authors="refractionpcsx2](https://github.com/refractionpcsx2) and [Ziemas" >}}
+{{< progress/github-link shas="06d6001b0cc869c955ab18b110a0d3d963849ad1" title=" Add rogue BIOS loop point which Megaman X7 relies on" authors="refractionpcsx2,Ziemas" >}}
 
 
 ### USB

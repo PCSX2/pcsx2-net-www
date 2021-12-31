@@ -1,0 +1,3417 @@
+<!DOCTYPE html>
+<html>
+<script>
+    
+    var savedTheme = localStorage.getItem('pcsx2-theme');
+    if (savedTheme !== undefined && savedTheme === "theme-light") {
+        document.documentElement.className = "theme-light";
+    } else {
+        document.documentElement.className = "theme-dark";
+    }
+</script><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" type="image/png" href="/img/favicon.png" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css" rel="stylesheet" />
+  <link href="/css/thirdparty/skeleton-loading.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Lexend:ital,wght@0,300;0,400;0,700;1,400&display=swap">
+  
+  
+  <link rel="stylesheet" href="/PCSX2.github.io/sass/main.css">
+  
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.js"></script>
+  <script defer src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script defer src="/js/misc.js"></script>
+  
+  
+  
+  <title>PCSX2 | Q1 2021 Progress Report</title>
+</head>
+<body>
+    <div class="d-flex flex-column min-vh-100"><nav class="navbar navbar-dark bg-faded justify-content-end navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand w-25" href="/">
+      <img class="brand-logo" src="/img/pcsx2-logo.png" alt="PCSX2 Logo">
+      <strong class="logo-text">PCSX2</strong>
+    </a>
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse w-100 justify-content-center" id="navbarSupportedContent">
+      <ul class="navbar-nav nav-middle w-75 justify-content-center">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/PCSX2.github.io/downloads" >Download</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/PCSX2.github.io/compat" >Compatibility</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/PCSX2.github.io/blog" >Blog</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/PCSX2.github.io/docs" >Documentation</a>
+        </li>
+        
+      </ul>
+      <ul class="navbar-nav nav-right w-25 justify-content-end">
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+            data-mdb-toggle="dropdown" aria-expanded="false">
+            Links
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            
+            <li class="nav-item">
+              <a class="dropdown-item" href="https://discord.com/invite/TCz3t9k" target="blank" >
+                <span>
+                  <i class="nav-icon fab fa-discord"></i>
+                  Discord
+                </span>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="dropdown-item" href="https://github.com/PCSX2" target="blank" >
+                <span>
+                  <i class="nav-icon fab fa-github"></i>
+                  Github
+                </span>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="dropdown-item" href="https://forums.pcsx2.net/" target="blank" >
+                <span>
+                  <i class="nav-icon fab fa-wpforms"></i>
+                  Forums
+                </span>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="dropdown-item" href="https://wiki.pcsx2.net" target="blank" >
+                <span>
+                  <i class="nav-icon fab fa-wikipedia-w"></i>
+                  Wiki
+                </span>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="dropdown-item" href="https://twitter.com/PCSX2" target="blank" >
+                <span>
+                  <i class="nav-icon fab fa-twitter"></i>
+                  Twitter
+                </span>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="dropdown-item" href="https://www.youtube.com/user/PCSX2team" target="blank" >
+                <span>
+                  <i class="nav-icon fab fa-youtube"></i>
+                  YouTube
+                </span>
+              </a>
+            </li>
+            
+          </ul>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a role="button" class="nav-link" id="theme-button">
+            <i class="far fa-moon theme-icon" title="Dark Theme"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div id="content" class="container-fluid flex-fill ">
+<div class="container">
+  <div class="row mt-5 mb-3">
+    <div class="col-12">
+      <h1>Q1 2021 Progress Report</h1>
+      
+
+<div class="row">
+  <div class="col-md-auto">
+    <strong class="tertiary-color">Authored By:&nbsp;</strong>
+    lightningterror
+  </div>
+  
+  <div class="col-md-auto">
+    <strong class="tertiary-color">Published:&nbsp;</strong>
+    <time datetime="2021-04-09">Apr 9, 2021</time>
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+  <div class="row mb-3">
+    <aside>
+      
+<aside>
+    <h2>Table of Contents</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#core-improvements">Core Improvements</a>
+      <ul>
+        <li><a href="#dev9">DEV9</a></li>
+        <li><a href="#cdvd">CDVD</a></li>
+        <li><a href="#microvu">microVU</a></li>
+        <li><a href="#vif">VIF</a></li>
+        <li><a href="#spu2">SPU2</a></li>
+        <li><a href="#memory-card">Memory Card</a></li>
+        <li><a href="#debuggers">Debuggers</a></li>
+        <li><a href="#misc-core">Misc core</a></li>
+      </ul>
+    </li>
+    <li><a href="#gsdx-improvements">GSdx Improvements</a>
+      <ul>
+        <li><a href="#misc-gsdx">Misc GSdx</a></li>
+      </ul>
+    </li>
+    <li><a href="#tas-tool-assisted-speedrun-utility-improvements">TAS (Tool Assisted Speedrun) Utility Improvements</a></li>
+    <li><a href="#ipc-interprocess-communication-improvements">IPC (Interprocess Communication) Improvements</a></li>
+    <li><a href="#gamedb-improvements">GameDB Improvements</a></li>
+    <li><a href="#misc-improvements">Misc Improvements</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+</aside>
+
+
+
+    </aside>
+  </div>
+  <div class="row mb-3">
+    <div class="col-12 markdown-content">
+      <h2 id="core-improvements">Core Improvements</h2>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4115%29">#4115</a>
+  
+  
+  PAD/Counters: MakeVSync Queue Adjustable in the UI. Extra Pad Update.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+<p>New UI option (ini option has been there a while) so users can choose between a little bit extra performance or reduced input lag.</p>
+<p>Also added the PAD Update to the VSync call in Counters as it seemed to reduce input lag marginally.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4066%29">#4066</a>
+  
+  
+  IPU: Return Contentsof the Bottom of the FIFO in CMD Except FDEC/VDEC.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+<p>This is based on the work by <a href="https://github.com/PSI-Rockin" target="_blank">@PS1-Rockin</a> on Dobiestation but modified based on the theory that it always returns the first 32bits of the FIFO unless an FDEC/VDEC command is executed, however FDEC is basically doing this anyway, but VDEC returns decoded information.</p>
+<p>Fixed videos for probably all broken EA games, but namely:</p>
+<ul>
+<li>F1 2001</li>
+<li>F1 2002</li>
+<li>Neo Contra</li>
+<li>Shox</li>
+<li>Theme Park Rollercoaster/World</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4225%29">#4225</a>
+  
+  
+  IPU: Fill Input FIFOon Command End Ready for Next Command.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+<p>Dance Summit 2001: So basically what the game does is it does some IPU
+stuff, but the DMA is left with 1 QWC left to be read on the DMA, on the
+hardware this will normally be flushed in to the FIFO. The game then
+does a FIFO reset (To get rid of it) then starts another DMA. The
+problem we have is because we still had the DMA pending for 1 QWC, it
+ignored the new DMA start and the IPU would hang up waiting for data to
+be fed in. This PR resolves that problem.</p>
+<p>Test Drive: Also added DMA 4 (To IPU) being flushed if BCLR is called
+without first stopping the DMA.</p>
+<p>Set the Picture type on VDEC to I-Picture if set to 0 in the IPU_CTRL,
+this fixes a bunch of Eyetoy games which incorrectly set this register.</p>
+<ul>
+<li>Fixes EyeToy Play(1-3).</li>
+<li>Fixes Bakufuu Slash!! Kizna Arashi.</li>
+<li>Fixes Kaiketsu Zorro Mezase! SIF0 and SIF1 stall control.</li>
+<li>Fixes Test Drive: IPU hang in middle of Event 5.</li>
+</ul>
+<h3 id="dev9">DEV9</h3>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4062%29">#4062</a>
+  
+  
+  Support 16bit Reads/Writes to SPD_R_PIO_DATA &amp; SPD_R_PIO_DIR
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/TheLastRar">TheLastRar</a>
+    
+  </em>
+</p>
+
+<p>This improves <a href="https://github.com/PCSX2/pcsx2/issues/3192" target="_blank">#3192</a>, the online beta now sends a DHCP Discover packet, although it appears to be invalid.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4059%29">#4059</a>
+  
+  
+  Generate Unique MAC for TAP
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/TheLastRar">TheLastRar</a>
+    
+  </em>
+</p>
+
+<p>An unique MAC is needed for full compatibility with XLink Kai.</p>
+<p>Uses a method similar to what was done for pcap.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=3932%29">#3932</a>
+  
+  
+  Add HDDemulation
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/TheLastRar">TheLastRar</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4214%29">#4214</a>
+  
+  
+  Merge _DEV9*() Functions Into *Net(), and Check EthEnable Before Calling InitNet()
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/TheLastRar">TheLastRar</a>
+    
+  </em>
+</p>
+
+<p>Previously, the ethEnable config value was not checked before starting network RX net thread.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4219%29">#4219</a>
+  
+  
+  Fix Crash on Linux When We Fail to Open the Adapter
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/TheLastRar">TheLastRar</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4149%29">#4149</a>
+  
+  
+  Re-Add Pcap(both Bridged and Switched) on Windows
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/TheLastRar">TheLastRar</a>
+    
+  </em>
+</p>
+
+<h3 id="cdvd">CDVD</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4314%29">#4314</a>
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4045%29">#4045</a>
+  
+  
+  Add CHD Compression Format Support
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/rtissera">rtissera</a>
+    
+    <a href="https://github.com/SleepyMan">SleepyMan</a>
+    
+    <a href="https://github.com/siddhartha77">siddhartha77</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4146%29">#4146</a>
+  
+  
+  Increase Buffer for DVD_LAYER_DESCRIPTOR.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4236%29">#4236</a>
+  
+  
+  Implement Mechacon Command 0xEF
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/F0bes">F0bes</a>
+    
+  </em>
+</p>
+
+<h3 id="microvu">microVU</h3>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  
+  <a href="https://github.com/PCSX2/pcsx2/commit/ee07f860fc1dd7e8ada6c13903bb3a592b8d4864">#ee07f8</a>
+  
+  MicroVU: Implement Overflow Checks
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+<p>Fixes Superman Returns.</p>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  
+  <a href="https://github.com/PCSX2/pcsx2/commit/413fd004da0ba46786b878683f6b177ad1bdcde7">#413fd0</a>
+  
+  MicroVU: Fix Jump Caching When Using DoJumpAsSameProgram
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  
+  <a href="https://github.com/PCSX2/pcsx2/commit/c9bc6eac69a3ceea6dffe6cec07b17caa1e2fc6e">#c9bc6e</a>
+  
+  MicroVU: Fix P Flag Instance on Ebit
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+<p>Also small fix for flag statuses on M-Bit on Branch.</p>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  
+  <a href="https://github.com/PCSX2/pcsx2/commit/0f7044a90f62f84db4844292bb2bcc7d4cc7626b">#0f7044</a>
+  
+  MicroVU: Removed Full Flag Optimisations
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+<p>They were unused, broken and cluttering up the code.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4198%29">#4198</a>
+  
+  
+  Fix Esinopcode
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/kozarovv">kozarovv</a>
+    
+  </em>
+</p>
+
+<p>Someone accidentally used bad function to analyze ESIN opcode on microVU, that generated bad values due to wrong register field being used.</p>
+<p>Fixes X2 - Wolverine&rsquo;s Revenge.</p>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  
+  <a href="https://github.com/PCSX2/pcsx2/commit/f9d96f55a538ce373f1662a5554d8052173940b1">#f9d96f</a>
+  
+  MicroVU: Move the Overflow Flags to the Correct Position
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+<h3 id="vif">VIF</h3>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  
+  <a href="https://github.com/PCSX2/pcsx2/commit/ddffd9acd671ee3165061980554d4a36c86eeb5e">#ddffd9</a>
+  
+  VIF: Fix MPG VU Address Wrapping
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+<p>Fixes Boogie.</p>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  
+  <a href="https://github.com/PCSX2/pcsx2/commit/89991594de89b0068efd906286b5a39cc7c8186f">#899915</a>
+  
+  VIF: Clean Up Some Old (Incorrect) Code
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+<h3 id="spu2">SPU2</h3>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4074%29">#4074</a>
+  
+  
+  SPU2: Attempt 96khz Sample Rate if 48khz Fails (WASAPI).
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+<p>WASAPI is terrible and doesn&rsquo;t support sample rate conversion in shared
+(normal) mode and requires exclusive mode.</p>
+<p>This PR basically attempts to double the PS2 sample rate of 48khz to
+96khz as this tends to be the other windows default. If this fails it
+will put a log message to say you need to use Exclusive mode.</p>
+<p>Note: When using PS1 game emulation you will need to use exclusive mode,
+nothing I can do about this (44.1khz doesn&rsquo;t divide nicely from 48khz or
+96khz).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4057%29">#4057</a>
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4085%29">#4085</a>
+  
+  
+  <a href="https://github.com/PCSX2/pcsx2/commit/f1e44bfd47e3761388ebb5cc8ca4db78bb24916c">#f1e44b</a>
+  
+  SPU2: Improve DMA/IRQ Timing
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+<ul>
+<li>Fixes The Simple 2000 Series Vol 51 - The Senkan (AKA The Battleship) which was not booting with anything but ZeroSPU2</li>
+<li>Fixes The Simpsons, problem was due to an ADMA refill bug.</li>
+</ul>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  
+  <a href="https://github.com/PCSX2/pcsx2/commit/f5d89062e02933b5dc4e090ff7c7f4dc5368ef26">#f5d890</a>
+  
+  SPU2: Update Voices Before DMA Reads, Reset OutPos on Reset
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+<p>Improves the booting reliability of GTA VC, especially on consecutive boots without closing the emulator.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4134%29">#4134</a>
+  
+  
+  Switch to a More Accurate Noise Algorithm
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/Ziemas">Ziemas</a>
+    
+  </em>
+</p>
+
+<p>This algorithm comes from PCSX-R and is an implementation of Dr. Hell&rsquo;s research.</p>
+<p>The previous implementation was a simple LFSR and did not use the
+provided noise clock from the ATTR register.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4171%29">#4171</a>
+  
+  
+  SPU2: Improve ADMA Behaviour/Timing.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+<ul>
+<li>Hopefully improves the crackling in burnout 3.</li>
+<li>Fixes music looping in Ratatouille.</li>
+<li>Fixes Vexx clicking sound (Partial ADMA transfers).</li>
+<li>Fixes the Dolby Pro Logic video missing sound in Primal (Partial ADMA transfers).</li>
+<li>Fixes Splinter Cell panning audio problem and high pitched noises in cut-scenes.</li>
+<li>Fixes Myst 3 panning audio problem.</li>
+<li>Fixes Dynasty Warriors 5 stuttering videos when Dolby is enabled.</li>
+</ul>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  
+  <a href="https://github.com/PCSX2/pcsx2/commit/e0394921e98136547176f9a224a9bb9084fbda47">#e03949</a>
+  
+  SPU2: Tighten AutoDMA IRQ Timing
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+<p>Fixes games which monitor the MADR while transferring.</p>
+<p>Fixes Tom &amp; Jerry in War of the Whiskers jumpy music.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4210%29">#4210</a>
+  
+  
+  Adjust Interpolation Implementations
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/Ziemas">Ziemas</a>
+    
+  </em>
+</p>
+
+<p>These seems to be have been adjusted to match the output of catmull-rom
+which is really the one in the wrong by being twice as loud.</p>
+<p>As a result of the interpolated output being at a reasonable level we
+can use ApplyVolume to apply the ADSR volume.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4203%29">#4203</a>
+  
+  
+  SPU2: Make Sure Cache Hits Match Previous Block Decoded Samples.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+<p>Caching blocks of ADPCM is a bit sketchy because the previous samples
+(which it uses to generate the new ones) can change depending on if it&rsquo;s
+the start of the voice on or if it has looped around, so you can end up
+with blips and glitches in the sample stream, this should avoid that
+problem whilst not making the cache completely unusable.</p>
+<p>Should get rid of clicking and popping noises in loops samples.</p>
+<p>Fixes Sphinx and the Cursed Mummy sound distortion.</p>
+<p>Also fixes remaining blips in Vexx.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4195%29">#4195</a>
+  
+  
+  Add Gaussian Interpolation
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/Ziemas">Ziemas</a>
+    
+  </em>
+</p>
+
+<p>This implements the actual SPU interpolation as documented by nocash.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4226%29">#4226</a>
+  
+  
+  Resample Reverb Input/Output
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/Ziemas">Ziemas</a>
+    
+  </em>
+</p>
+
+<p>The reverb runs at half the sample rate of the rest of the SPU so a
+change of sample rate is required. The way this is currently done is by
+decimating when downsampling and duplicating samples when upsampling
+without doing any filtering.</p>
+<p>This adds proper filtering to this process, the filter coefficients are
+from Mednafen but we think they were originally found by Neill Corlett.</p>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  
+  <a href="https://github.com/PCSX2/pcsx2/commit/f42befadf10493a8ccb5a021de416cc1efeb5e03">#f42bef</a>
+  
+  SPU2: Try to Recover DMA Pointer After Savestate Load
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4186%29">#4186</a>
+  
+  
+  SPU2: Ignore LSAL/H Writes After Key on if Voice Sets Loop Point.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+<p>Fixes behaviour with loop address writes within 4T&rsquo;s of a voice keying
+on which is what the old Delay Cycles tried to address, if the voice
+sets its own loop point the write from hardware is ignored.</p>
+<p>Fixes Mafia music loops.</p>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  
+  <a href="https://github.com/PCSX2/pcsx2/commit/ce8047bd8cb8d036ed3ba4e9cd2f85743f018ccd">#ce8047</a>
+  
+  Reset IRQ Status When Swapping Game in Case It Got Set Previously
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+<h3 id="memory-card">Memory Card</h3>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4113%29">#4113</a>
+  
+  
+  Memorycards: Fix Out of Bounds Array Access in Folder Memcards.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/Ziemas">Ziemas</a>
+    
+  </em>
+</p>
+
+<p>Don&rsquo;t keep the DataClusterInUse bit when accessing the next cluster.</p>
+<p>With this folder memcards work on 64bit.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=2995%29">#2995</a>
+  
+  
+  Memorycards: Add Support for OpenPS2Loader VirtualMemoryCards.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/KrossX">KrossX</a>
+    
+  </em>
+</p>
+
+<p>Adds some basic support to OPL VMC files (.bin) that use 512 bytes
+pages.</p>
+<p>Normal pages are 528 bytes long, those extra 16 bytes contain 12 bytes
+of ECC data.</p>
+<h3 id="debuggers">Debuggers</h3>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4252%29">#4252</a>
+  
+  
+  Debugger: Add &ldquo;Go to Address&rdquo; for Both Disasm and Memory View Context Menus.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/F0bes">F0bes</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4289%29">#4289</a>
+  
+  
+  Debugger: Require Emulator Start Before Enabling Break/Run Button.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/F0bes">F0bes</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4326%29">#4326</a>
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4287%29">#4287</a>
+  
+  
+  Misc: Support More BIOSes for the Debugger Thread View.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/F0bes">F0bes</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4271%29">#4271</a>
+  
+  
+  GS/Core: Implement the New Generation of GS Debugger.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/GovanifY">GovanifY</a>
+    
+  </em>
+</p>
+
+<p>This is a full in-core reimplementation of GSDumpGUI. It will be used
+for GS Debugging once GSdx is merged in to the core.</p>
+<p>One step closer in to merging GSdx in to the core.</p>
+<h3 id="misc-core">Misc core</h3>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=3011%29">#3011</a>
+  
+  
+  Implements IOPbreakpoints
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/monster860">monster860</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4234%29">#4234</a>
+  
+  
+  Execute Breakpoints for the Interpreter
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/F0bes">F0bes</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4205%29">#4205</a>
+  
+  
+  Don&rsquo;t Destroy() Modals
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/TellowKrinkle">TellowKrinkle</a>
+    
+  </em>
+</p>
+
+<p>On macOS it prevents the parent window from regaining focus. By</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4223%29">#4223</a>
+  
+  
+  PGIF: PS1DRV Handlesbit 28 of GPU Status Register, Not PGIF.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/Nobbs66">Nobbs66</a>
+    
+  </em>
+</p>
+
+<p>Fixes several PSX games:</p>
+<ul>
+<li>Castlevania: Symphony of the Night</li>
+<li>Twisted Metal</li>
+<li>Pink Panther</li>
+</ul>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  
+  <a href="https://github.com/PCSX2/pcsx2/commit/c695a7eabbac4c3a0138b6eeb0e9005ff708f985">#c695a7</a>
+  
+  USB: Usb-Mic: Send 1ms Worth of Samples for 48kHz and 8kHz Sample Rates
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/jackun">jackun</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4310%29">#4310</a>
+  
+  
+  USB: Improve Force Feedback Test So It Doesn&rsquo;t Block UI.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/CookiePLMonster">CookiePLMonster</a>
+    
+  </em>
+</p>
+
+<p>This modifies DirectInput USB Force Feedback test not to block the UI.
+Instead of performing the test synchronously on the UI thread, a timer
+gets created which advances the test every half a second.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4232%29">#4232</a>
+  
+  
+  Eyetoy Mirroring
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/Florin9doi">Florin9doi</a>
+    
+  </em>
+</p>
+
+<p>Fixes Bakufuu Slash! Kizna Arashi.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4250%29">#4250</a>
+  
+  
+  Core: Preserve Read Only Bits in the COP0 Config Register.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/F0bes">F0bes</a>
+    
+  </em>
+</p>
+
+<p>The read-only bits in question are the Instruction cache size (IC) and
+the Data cache size (DC).</p>
+<p>Before this MTC0 would freely write to the entire config register.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4123%29">#4123</a>
+  
+  
+  Core: Implement Proper %S Handling for Syscall 117 (0x75).
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/F0bes">F0bes</a>
+    
+  </em>
+</p>
+
+<p>This makes the syscall iterate through the format string which can be
+considered &ldquo;slow&rdquo; but this syscall is only going to be used for
+debugging purposes.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4255%29">#4255</a>
+  
+  
+  Core: Added Support for Little Endian Data for Patches.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/Tupelov">Tupelov</a>
+    
+  </em>
+</p>
+
+<p>Allows users to use the leshort, leword, and ledouble datatypes inside
+their patches. Using these datatypes ensures that values in the memory
+view appear the same as the values in the patch.</p>
+<p>This was made with easing patch development in mind as now developers
+can make patches without having to reverse endianness. This is
+especially useful when using programs like ghidra that displays
+instructions in little endian.</p>
+<h2 id="gsdx-improvements">GSdx Improvements</h2>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4206%29">#4206</a>
+  
+  
+  GSdx-Hw: Implement per Pixel Alpha Blending (PABE).
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/lightningterror">lightningterror</a>
+    
+    <a href="https://github.com/tadanokojin">tadanokojin</a>
+    
+  </em>
+</p>
+
+<p>Improves shadow/lighting effects on certain games, both HW renderers
+support the feature.</p>
+<p>So far we have a few games that see an improvement:</p>
+<p>Fixes Strawberry Shortcake character shadow/lighting.</p>
+<p>Fixes Cartoon Network Racing shadow/lighting.</p>
+<p>And for those that enjoy some image comparisons:</p>
+<p>Cartoon Network Racing: Before -&gt; After</p>
+<div class="row">
+  <div class="col-6">
+    <div class="img-compare-container">
+      <img src="./img/cnr_after_s.webp" alt="" draggable="false">
+      <div class="img-clipper">
+        <img src="./img/cnr_before_s.webp" alt="" draggable="false">
+      </div>
+      <div class="img-cmp-label before">Before</div>
+      <div class="img-cmp-label after">After</div>
+    </div>
+  </div>
+</div>
+
+
+<p>Strawberry Shortcake: Before -&gt; After</p>
+<div class="row">
+  <div class="col-6">
+    <div class="img-compare-container">
+      <img src="./img/ss_after_s.webp" alt="" draggable="false">
+      <div class="img-clipper">
+        <img src="./img/ss_before_s.webp" alt="" draggable="false">
+      </div>
+      <div class="img-cmp-label before">Before</div>
+      <div class="img-cmp-label after">After</div>
+    </div>
+  </div>
+</div>
+
+
+<h3 id="misc-gsdx">Misc GSdx</h3>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=3973%29">#3973</a>
+  
+  
+  Some GUI Changes
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/RedDevilus">RedDevilus</a>
+    
+  </em>
+</p>
+
+<p>Changed some options:</p>
+<ul>
+<li>Large framebuffer renamed into conservative framebuffer.</li>
+<li>Dithering context menu re-ordered.</li>
+<li>8-bit textures renamed into GPU Palette Conversion.</li>
+</ul>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  
+  <a href="https://github.com/PCSX2/pcsx2/commit/dabfff8b3562f1424526812681bb2beafb560aa0">#dabfff</a>
+  
+  GSdx-Hw: Get Rid of Some Extra Branches/Conditions in DATE Selection
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/lightningterror">lightningterror</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4182%29">#4182</a>
+  
+  
+  Fix Alignment of Font
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/RedDevilus">RedDevilus</a>
+    
+  </em>
+</p>
+
+<p>Should fix invisible characters.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4188%29">#4188</a>
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4261%29">#4261</a>
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4320%29">#4320</a>
+  
+  
+  GSdx: Switch to Unicode
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/GovanifY">GovanifY</a>
+    
+    <a href="https://github.com/F0bes">F0bes</a>
+    
+    <a href="https://github.com/turtleli">turtleli</a>
+    
+  </em>
+</p>
+
+<p>This brings GSdx one step closer to be merged with the core.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4270%29">#4270</a>
+  
+  
+  GSdx-D3d11: Cleanup Gsdevice11.cpp Warnings Reported on Codacy.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/lightningterror">lightningterror</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4131%29">#4131</a>
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4288%29">#4288</a>
+  
+  
+  Use Constexpr to Initialize AVX Vectors Without AVX Instructions
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/TellowKrinkle">TellowKrinkle</a>
+    
+  </em>
+</p>
+
+<p>List of removed CRC hacks:</p>
+<ul>
+<li>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4082%29">#4082</a>
+  
+  
+  Remove Unofficial CRCs
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/tadanokojin">tadanokojin</a>
+    
+  </em>
+</p>
+</li>
+<li>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  
+  <a href="https://github.com/PCSX2/pcsx2/commit/f6e12f82de7fbdb15ccbf574eb8552fb54c47ac2">#f6e12f</a>
+  
+  Gsdx-Hw: Remove Bully Crc Hack, It Broke a Bunch of Effects
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/lightningterror">lightningterror</a>
+    
+  </em>
+</p>
+</li>
+</ul>
+<h2 id="tas-tool-assisted-speedrun-utility-improvements">TAS (Tool Assisted Speedrun) Utility Improvements</h2>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4019%29">#4019</a>
+  
+  
+  Recording: Reorganize and Realign InputRecordingControls.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/sonicfind">sonicfind</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4060%29">#4060</a>
+  
+  
+  Recording: GUI Improvements Around Savestate-Based Input Recordings.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/sonicfind">sonicfind</a>
+    
+  </em>
+</p>
+
+<h2 id="ipc-interprocess-communication-improvements">IPC (Interprocess Communication) Improvements</h2>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4262%29">#4262</a>
+  
+  
+  Socket Re-Usability
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/GovanifY">GovanifY</a>
+    
+  </em>
+</p>
+
+<p>This avoids port overfills on windows, while increasing performance
+substantially on platforms that do port overfills.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4267%29">#4267</a>
+  
+  
+  Add a Slot System
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/GovanifY">GovanifY</a>
+    
+  </em>
+</p>
+
+<p>This allows multiple emulator sessions to run at the same time and
+windows user to configure their used port to their preferred one.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4272%29">#4272</a>
+  
+  
+  Fix Type Polymorphism &amp; Checkbox
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/GovanifY">GovanifY</a>
+    
+  </em>
+</p>
+
+<p>Some versions of wxWidgets are more sensitive than others on dynamic
+casting, so instead I used a C style cast to prevent any crash.</p>
+<h2 id="gamedb-improvements">GameDB Improvements</h2>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  
+  <a href="https://github.com/PCSX2/pcsx2/commit/4b71dd3c08e0f98afe9965a6c38b4262053d8c6b">#4b71dd</a>
+  
+  GameDB: Remove Patches for Quake 3 Videos, No Longer Required
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  
+  <a href="https://github.com/PCSX2/pcsx2/commit/7512c01ca6ff861a1dc70066345ccbcb31445061">#7512c0</a>
+  
+  GameDB: Removed No Longer Required FMV Skip Patches
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+<p>List of removed patches for games include:</p>
+<ul>
+<li>BDFL Manager 2005 (EU)</li>
+<li>F1 Racing Championship (Japan and EU regions)</li>
+<li>Paris-Dakar Rally (EU)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4259%29">#4259</a>
+  
+  
+  GameDB: Add Improved Xenosaga Save Crash Prevention Patch.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/RedPanda4552">RedPanda4552</a>
+    
+  </em>
+</p>
+
+<p>Updated patch rewrites a chunk of game code to decrement JPEG quality,
+rather than just immediately floor it. Allows thumbnails to still look
+kind of okay.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4187%29">#4187</a>
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4249%29">#4249</a>
+  
+  
+  Add Patchesfor KOF Series
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/kozarovv">kozarovv</a>
+    
+  </em>
+</p>
+
+<p>Fixes depth precision, game fills upper 16bits of depth with 0xFFFF.
+This results in a really high 32 bit value which is then converted to
+float because both HW and SW renderers lack double precision the lower
+16 bits of the initial 32 bit value lose precision.</p>
+<h2 id="misc-improvements">Misc Improvements</h2>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=3999%29">#3999</a>
+  
+  
+  Add GHC Filesystem
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/kenshen112">kenshen112</a>
+    
+  </em>
+</p>
+
+<p>This adds GHC filesystem to pcsx2 common utilities.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4073%29">#4073</a>
+  
+  
+  3rdparty: PortAudio: Upgrade PortAudio to Latest Master.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4277%29">#4277</a>
+  
+  
+  3rdparty: Update Libsamplerate to 0.2.1.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/refractionpcsx2">refractionpcsx2</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=3991%29">#3991</a>
+  
+  
+  Keyboard Shortcuts Strings
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/RedDevilus">RedDevilus</a>
+    
+  </em>
+</p>
+
+<p>Based on <a href="https://wiki.pcsx2.net/Hotkeys" target="_blank"><a href="https://wiki.pcsx2.net/Hotkeys">https://wiki.pcsx2.net/Hotkeys</a></a>.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4216%29">#4216</a>
+  
+  
+  Fix Compilation in Path With Spaces
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/laenion">laenion</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4283%29">#4283</a>
+  
+  
+  Fix Various Debug Tools Codacy Complaints
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/F0bes">F0bes</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4010%29">#4010</a>
+  
+  
+  Fix Paths on MacOS
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/TellowKrinkle">TellowKrinkle</a>
+    
+  </em>
+</p>
+
+<p>MacOS was using linux paths rather than wx&rsquo;s macOS-specific subclass,
+which doesn&rsquo;t match how the app is installed in macOS (all paths should
+be relative to the executable).</p>
+<p>Also adds steps to copy missing resources into the app bundle.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4243%29">#4243</a>
+  
+  
+  Purge GSNull Plugin Entirely
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/rtissera">rtissera</a>
+    
+  </em>
+</p>
+
+<p>The plugin is obsolete, GSdx already provides Null(no display functionality).</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4201%29">#4201</a>
+  
+  
+  GUI: Prevent Vsync Setting From Being Wiped on Preset Changes.
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/RedPanda4552">RedPanda4552</a>
+    
+  </em>
+</p>
+
+<p>Reapplies the currently applied vsync mode when changing preset options.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4230%29">#4230</a>
+  
+  
+  Remove Unused Code
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/MrCK1">MrCK1</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4244%29">#4244</a>
+  
+  
+  Avoid Presets From Resetting VsyncQueueSize
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/KrossX">KrossX</a>
+    
+  </em>
+</p>
+
+<p>The VsyncQueueSize setting is currently affected by presets, would
+revert to default on start as well. Since the setting is not grayed out,
+this change makes it be unaffected.</p>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=3556%29">#3556</a>
+  
+  
+  GUI: If Available, Enable Menu Option to Load Backup Savestate When a Game Is First Launched
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/xTVaser">xTVaser</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4306%29">#4306</a>
+  
+  
+  GUI: Visually Indicate the Current Savestate Slot in the Load/Save Menu
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/xTVaser">xTVaser</a>
+    
+  </em>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4036%29">#4036</a>
+  
+  
+  Capture: Optimizations With File Names, SPU2 Recording, and Capture Menu Gui
+  <em>
+    By&nbsp;-
+    
+    <a href="https://github.com/sonicfind">sonicfind</a>
+    
+  </em>
+</p>
+
+<p>Addresses some oversights involving transferring a file name between the
+GS &amp; SPU2 recording setups.</p>
+<p>Adds a new audio toggle setting that allows a user to control whether a
+WAV file should be generated alongside a video recording. In doing this,
+behavior for when SPU2 recording fails to be setup becomes more defined
+and consistent.</p>
+<p>Additionally, F12 will now route to sMainFrame if GUI is active as to
+keep the capture menu GUI accurate to the current state.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>And that&rsquo;s all from us, see you next time in our 2021 Q2 Report!</p>
+
+    </div>
+  </div>
+</div>
+<script defer src="/js/comparisons.js"></script>
+
+        </div>
+        <svg class="angled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="height: 10vh;width: 100%;margin-top:10em;">
+  <polygon points="0,0 0,100 100,100" class="polygon secondary"></polygon>
+</svg>
+<div class="footer secondary-bg-color">
+  <div class="container p-3">
+    <div class="row mt-5">
+      <div class="col-4">
+        <div class="row">
+          <div class="col d-flex justify-content-start">
+            <span class="d-flex align-items-center">
+              <img class="brand-logo" src="/img/pcsx2-logo.png" alt="PCSX2 Logo">
+              <h3 class="logo-text">PCSX2</h3>
+            </span>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            An Open-Source Playstation 2 Emulator
+          </div>
+        </div>
+      </div>
+      <div class="col-4 offset-md-4">
+        <div class="row">
+          <div class="col d-flex justify-content-start">
+            <h3>Links</h3>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col d-flex justify-content-start">
+            <ul>
+              
+              <li>
+                <a href="https://discord.com/invite/TCz3t9k" target="blank" >
+                  <span>
+                    <i class="nav-icon fab fa-discord"></i>
+                    Discord
+                  </span>
+                </a>
+              </li>
+              
+              <li>
+                <a href="https://github.com/PCSX2" target="blank" >
+                  <span>
+                    <i class="nav-icon fab fa-github"></i>
+                    Github
+                  </span>
+                </a>
+              </li>
+              
+              <li>
+                <a href="https://forums.pcsx2.net/" target="blank" >
+                  <span>
+                    <i class="nav-icon fab fa-wpforms"></i>
+                    Forums
+                  </span>
+                </a>
+              </li>
+              
+              <li>
+                <a href="https://wiki.pcsx2.net" target="blank" >
+                  <span>
+                    <i class="nav-icon fab fa-wikipedia-w"></i>
+                    Wiki
+                  </span>
+                </a>
+              </li>
+              
+              <li>
+                <a href="https://twitter.com/PCSX2" target="blank" >
+                  <span>
+                    <i class="nav-icon fab fa-twitter"></i>
+                    Twitter
+                  </span>
+                </a>
+              </li>
+              
+              <li>
+                <a href="https://www.youtube.com/user/PCSX2team" target="blank" >
+                  <span>
+                    <i class="nav-icon fab fa-youtube"></i>
+                    YouTube
+                  </span>
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col d-flex justify-content-start">
+        © 2021 PCSX2. All Rights Reserved.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+</body>
+</html>
