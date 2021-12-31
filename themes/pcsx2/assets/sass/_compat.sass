@@ -1,0 +1,106 @@
+@keyframes pulse
+  0%
+    opacity: 1.0
+  100%
+    opacity: 0.0
+
+.loading-logo
+  filter: invert(99%) sepia(91%) saturate(0%) hue-rotate(116deg) brightness(106%) contrast(100%)
+  width: 50px
+  animation: pulse 1s infinite alternate
+  animation-timing-function: ease-in-out
+
+button.compat
+  font-weight: 700
+  &.on
+    border: none
+    color: black
+    &.perfect
+      background-color: var(--compat-perfect)
+    &.playable
+      background-color: var(--compat-playable)
+    &.ingame
+      background-color: var(--compat-ingame)
+    &.menus
+      background-color: var(--compat-menus)
+    &.intro
+      background-color: var(--compat-intro)
+    &.nothing
+      background-color: var(--compat-nothing)
+  &.off
+    &.perfect
+      color: var(--compat-perfect)
+      border: 1px solid var(--compat-perfect)
+    &.playable
+      color: var(--compat-playable)
+      border: 1px solid var(--compat-playable)
+    &.ingame
+      color: var(--compat-ingame)
+      border: 1px solid var(--compat-ingame)
+    &.menus
+      color: var(--compat-menus)
+      border: 1px solid var(--compat-menus)
+    &.intro
+      color: var(--compat-intro)
+      border: 1px solid var(--compat-intro)
+    &.nothing
+      color: var(--compat-nothing)
+      border: 1px solid var(--compat-nothing)
+
+.compat-form
+  flex: 1
+
+#compat-pagination-container
+  div
+    padding-right: 0
+
+.compat-status
+  margin-right: 0.25em
+  &.Perfect
+    color: var(--compat-perfect)
+  &.Playable
+    color: var(--compat-playable)
+  &.Ingame
+    color: var(--compat-ingame)
+  &.Menus
+    color: var(--compat-menus)
+  &.Intro
+    color: var(--compat-intro)
+  &.Nothing
+    color: var(--compat-nothing)
+
+// .form-outline
+//   .form-control:focus
+//     ~ .form-notch
+//       .form-notch-leading, .form-notch-trailing
+//         border-top: .125rem solid var(--primary-color)
+//         border-bottom: .125rem solid var(--primary-color)
+//         border-left: .125rem solid var(--primary-color)
+//       .form-notch-middle
+//         border-bottom: .125rem solid
+//         border-color: var(--primary-color)
+//     ~ .form-label
+//       color: var(--primary-color)
+
+.form-outline .form-control ~ .form-label
+  color: var(--text-color)
+
+.form-outline .form-control:focus ~ .form-notch .form-notch-leading
+  border-top: .125rem solid var(--primary-color)
+  border-bottom: .125rem solid var(--primary-color)
+  border-left: .125rem solid var(--primary-color)
+
+.form-outline .form-control:focus ~ .form-notch .form-notch-trailing
+  border-top: .125rem solid var(--primary-color)
+  border-bottom: .125rem solid var(--primary-color)
+  border-right: .125rem solid var(--primary-color)
+
+.form-outline .form-control:focus ~ .form-notch .form-notch-middle
+  border-bottom: .125rem solid
+  border-color: var(--primary-color)
+
+.form-outline .form-control:focus ~ .form-label
+  color: var(--primary-color)
+
+#compat-search
+  color: var(--heading-color)

@@ -1,0 +1,33 @@
+.home-header
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+  padding-right: 0 !important
+  padding-left: 0 !important
+  &-contents
+    flex-direction: column
+    align-items: center
+    display: flex
+    grid-area: 1/1/1/1
+    color: white
+
+.splash-title
+  color: var(--heading-color-white)
+  font-weight: 700
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+
+.splash-description
+  font-weight: 700
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+  font-style: italic
+
+#splash-screen-gui
+  top: 10%
+  right: 0
+  position: absolute
+
+#splash-screen
+  grid-area: 1/1/1/1
+  background-image: url('/img/poor-perf-splash.png')
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: center

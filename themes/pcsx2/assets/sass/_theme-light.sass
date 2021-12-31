@@ -1,0 +1,26 @@
+.theme-light
+  --main-bg-color: #fffffe
+  --secondary-bg-color: #d8eefe
+  --tertiary-bg-color: #0b0b0d
+  --heading-color: #094067
+  --heading-color-white: #fffffe
+  --text-color: #5f6c7b
+  --primary-color: #3da9fc
+  --tertiary-color: #ef4565
+  --error-color: #f25042
+  --theme-icon-color: #3da9fc
+
+.theme-light
+  .navbar.transparent
+    .navbar-brand, .nav-link
+      font-weight: 700;
+      color: var(--primary-color) !important;
+      transition: color .05s ease-in-out;
+      &:hover
+        color: var(--heading-color) !important;
+        transition: color .05s ease-in-out;
+
+    .navbar-toggler
+      padding-left: 0;
+      > i
+        color: var(--primary-color)

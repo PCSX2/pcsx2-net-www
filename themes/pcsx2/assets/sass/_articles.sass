@@ -1,0 +1,65 @@
+.markdown-content
+  &:first-child
+    margin-top: 0 !important
+  h1
+    font-size: 2em
+  h2
+    font-size: 1.5em
+  h3
+    font-size: 1.25em
+  h1, h2
+    padding-bottom: .3em
+    border-bottom: 1px solid var(--secondary-bg-color)
+  h1, h2, h3, .progress-report-heading
+    color: var(--heading-color)
+  h1, h2, h3, h4, h5, h6
+    margin-top: 24px
+    margin-bottom: 16px
+    font-weight: 600
+    line-height: 1.25
+  blockquote
+    padding: 0 1em
+    color: var(--text-color)
+    border-left: .25em solid var(--secondary-bg-color)
+  img
+    width: 100%
+  .row
+    margin-bottom: 1em
+
+.img-compare-container
+  display: inline-block
+  line-height: 0
+  position: relative
+  width: 100%
+  padding-top: 42.3%
+  cursor: col-resize
+  > img
+    width: 100%
+    position: absolute
+    top: 0
+    height: 100%
+
+.img-clipper
+  width: 50%
+  position: absolute
+  top: 0
+  bottom: 0
+  overflow: hidden
+  box-shadow: 2px 0 var(--error-color)
+  > img
+    width: 200%
+    position: absolute
+    height: 100%
+
+.img-cmp-label
+  position: absolute
+  z-index: 100
+  font-weight: 700
+  color: white
+  pointer-events: none
+  top: 50%
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000
+  .before
+    left: 1rem
+  .after
+    right: 1rem
