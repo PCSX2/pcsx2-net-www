@@ -10,7 +10,8 @@ function setTheme(themeName) {
 }
 
 $("#theme-button").on("click", function (evt) {
-  if (localStorage.getItem('pcsx2-theme') === 'theme-dark') {
+  let savedTheme = localStorage.getItem('pcsx2-theme');
+  if (savedTheme === 'theme-dark' || savedTheme === undefined) {
     setTheme('theme-light');
   } else {
     setTheme('theme-dark');
@@ -22,7 +23,7 @@ $(document).ready(function () {
   if (savedTheme !== undefined && savedTheme === "theme-light") {
       $("#theme-button").html('<i class="far fa-moon theme-icon" title="Change to Dark Theme"></i>');
   } else {
-    $("#theme-button").html('<i class="far fa-sun theme-icon" title="Change to Light Theme"></i>');
+    setTheme('theme-dark');
   }
 });
 
