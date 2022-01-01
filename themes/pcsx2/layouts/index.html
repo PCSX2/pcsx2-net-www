@@ -1,18 +1,17 @@
 {{ define "main" }}
-<div class="container-fluid vh-60 home-header align-middle" style="position: relative;">
-  <!-- <canvas id="button-canvas"></canvas> -->
-  <div id="splash-screen"></div>
+<div class="container-fluid home-header align-middle" style="position: relative;">
+  <div id="splash-screen" class="vh-60"></div>
   <div class="container d-flex justify-content-center home-header-contents">
     <h1 class="splash-title">PCSX2</h1>
     <p class="splash-description">An Open-Source Playstation 2 Emulator</p>
     <div class="container d-flex flex-gap justify-content-center">
       <div class="row">
-        <div class="col no-horizontal-margins"><a role="button" class="btn bold controller triangle" href="/downloads"><i
-              class="fas fa-download"></i>Download</a></div>
+        <div class="col no-horizontal-margins"><a role="button" class="btn bold controller triangle"
+            href="{{ .Site.BaseURL }}downloads"><i class="fas fa-download"></i>Download</a></div>
         <div class="col no-horizontal-margins"><a role="button" class="btn bold controller cross" target="blank"
             href="https://discord.com/invite/TCz3t9k"><i class="fab fa-discord"></i>Discuss</a></div>
-        <div class="col no-horizontal-margins"><a role="button" class="btn bold controller circle" href="/docs"><i
-              class="fas fa-book"></i>Docs</a></div>
+        <div class="col no-horizontal-margins"><a role="button" class="btn bold controller circle"
+            href="{{ .Site.BaseURL }}docs"><i class="fas fa-book"></i>Docs</a></div>
         <div class="col no-horizontal-margins"><a role="button" class="btn bold controller square" target="blank"
             href="https://github.com/PCSX2/pcsx2"><i class="fab fa-github"></i>Contribute</a></div>
       </div>
@@ -75,8 +74,7 @@
               <li>virtual and sharable memory cards</li>
               <li>save-states</li>
               <li>patching system</li>
-              <li>great controller support</li>
-              <li>internal recorder to achieve full quality at full speed</li>
+              <li>internal recorder to achieve lossless quality at full speed</li>
             </ul>
           </div>
         </div>
@@ -116,7 +114,7 @@
         <div class="container">
           <div class="row mt-3">
             {{ range .Site.RegularPages.RelatedTo (keyVals "tags" "progress-report") | first 2 }}
-            {{ partial "post-card.html" (dict "context" $ "post" . "easeDirection" "right" "alternateBackground" true)
+            {{ partial "post-card.html" (dict "context" $ "post" . "alternateBackground" true "animate" true)
             }}
             {{ end }}
           </div>
@@ -136,7 +134,7 @@
         <div class="container">
           <div class="row mt-3">
             {{ range .Site.RegularPages.RelatedTo (keyVals "tags" "devblog") | first 2 }}
-            {{ partial "post-card.html" (dict "context" $ "post" . "easeDirection" "left") }}
+            {{ partial "post-card.html" (dict "context" $ "post" . "animate" true) }}
             {{ end }}
           </div>
         </div>

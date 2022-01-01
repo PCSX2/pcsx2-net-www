@@ -9,7 +9,7 @@ mainAuthor: RedDevilus
 secondaryAuthors:
   - "lightningterror"
 aliases:
-  - "300-q3-2021-progress-report"
+  - "/300-q3-2021-progress-report"
 previewImage: "/blog/q3-2021-progress-report/img/FFX_correct_sws.jpg"
 toc: true
 ---

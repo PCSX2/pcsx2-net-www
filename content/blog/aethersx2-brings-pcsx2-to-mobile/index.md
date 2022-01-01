@@ -7,7 +7,7 @@ tags:
   - "devblog"
 mainAuthor: bositman
 aliases:
-  - "301-aethersx2-pcsx2-mobile"
+  - "/301-aethersx2-pcsx2-mobile"
 previewImage: "/blog/aethersx2-brings-pcsx2-to-mobile/AetherSX2sm.jpg"
 ---
 

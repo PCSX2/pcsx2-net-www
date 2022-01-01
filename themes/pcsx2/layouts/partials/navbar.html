@@ -20,11 +20,11 @@
       <ul class="navbar-nav nav-right w-25 justify-content-end">
         {{ if gt (len .Site.Params.social) }}
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+          <a class="nav-link dropdown-toggle" href="#" id="navbarLinksDropdownMenu" role="button"
             data-mdb-toggle="dropdown" aria-expanded="false">
             Links
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarLinksDropdownMenu">
             {{ range .Site.Params.social }}
             <li class="nav-item">
               <a class="dropdown-item" href="{{ .url }}" {{ if in .url "http" }}target="blank" {{ end }}>
@@ -45,7 +45,7 @@
               data-mdb-toggle="dropdown" aria-expanded="false" data-mdb-ripple-duration="none">
               🇺🇸
             </button>
-            <ul class="dropdown-menu" id="language-dropdown-list" aria-labelledby="language-dropdown">
+            <ul class="dropdown-menu dropdown-menu-end" id="language-dropdown-list" aria-labelledby="language-dropdown">
               {{ range $.Site.Home.AllTranslations }}
               <li><a class="dropdown-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
               {{ end }}

@@ -31,15 +31,15 @@ $(document).ready(function () {
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('ease-in');
+      entry.target.classList.add('eased-in');
     }
   });
 }, {
   rootMargin: '0px',
-  threshold: 0.75
+  threshold: 0
 });
 
-document.querySelectorAll('.card').forEach((i) => {
+document.querySelectorAll('.card.ease-in').forEach((i) => {
   if (i) {
     observer.observe(i);
   }
