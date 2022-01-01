@@ -101,10 +101,14 @@ details > div {
   .btn > i {
     margin: 0;
     margin-right: 0.5em; }
+  .btn:hover {
+    color: var(--main-bg-color); }
   .btn.bold {
     font-weight: 700; }
   .btn.controller {
     color: #000; }
+    .btn.controller:hover {
+      color: #585858; }
     .btn.controller.triangle {
       background-color: var(--controller-triangle); }
     .btn.controller.circle {
@@ -326,6 +330,18 @@ td {
     left: 1rem; }
   .img-cmp-label .after {
     right: 1rem; }
+
+.btn-tags {
+  color: var(--text-color);
+  border: 1px solid var(--primary-color); }
+  .btn-tags:hover {
+    color: var(--heading-color); }
+  .btn-tags.active {
+    color: var(--heading-color);
+    background-color: var(--primary-color);
+    border: none; }
+    .btn-tags.active:hover {
+      color: var(--main-bg-color); }
 
 .card {
   background-size: cover;

@@ -1,12 +1,24 @@
 {{ define "main" }}
 <div class="container">
+  <div class="row mt-5">
+    {{ $currURL := .RelPermalink }}
+    <div class="col-md-auto">
+      <a role="button" class="btn btn-tags{{ if strings.HasSuffix $currURL "/blog/" }} active{{ end }}" href="{{ .Site.BaseURL }}blog/">
+        All Categories
+      </a>
+    </div>
+    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+    {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
+    <div class="col-md-auto">
+      <a role="button" class="btn btn-tags{{ if strings.HasSuffix $currURL (printf "/%s/" $name) }} active{{ end }}" href="{{ .RelPermalink }}">
+        {{ .Title }}
+      </a>
+    </div>
+    {{ end }}
+    {{ end }}
+  </div>
   <div class="row mt-5 mb-3">
-    <div class="col-8">
-      <div class="row mb-3">
-        <div class="col-12">
-          <h2>{{ .Title }}</h2>
-        </div>
-      </div>
+    <div class="col-12">
       <div class="row">
         {{ $paginator := .Paginate (where .Pages "Type" "blog") }}
         {{ range $index, $page := $paginator.Pages }}
@@ -20,31 +32,6 @@
         {{ end }}
         <!-- TODO - make this look nice -->
         {{ template "_internal/pagination.html" . }}
-      </div>
-    </div>
-    <div class="col-3 offset-1">
-      <div class="row">
-        <div class="col-12">
-          <div class="row">
-            <div class="col-12">
-              <h4>Tags</h4>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <ul>
-                {{range $name, $taxonomy := .Site.Taxonomies.tags}} {{ $cnt := .Count }}
-                {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
-                <div class="tagbutton">
-                  <a href={{ .RelPermalink }} title="All pages with tag <i>{{$name}}</i>">{{$name}}</a>
-                  <sup>{{$cnt}}</sup>
-                </div>
-                {{end}}
-                {{end}}
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
