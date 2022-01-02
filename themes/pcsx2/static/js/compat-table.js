@@ -177,7 +177,7 @@ function getEmojiFlag(region) {
 
 // HTML Templates
 let rowTemplate = doT.template(`<tr><td class="game-title"><i class="fas fa-circle compat-status {{=it.status}}"></i>&nbsp;{{=it.title}}</td><td>{{=it.flag}}&nbsp;{{=it.serial}}</td><td>{{=it.crc}}</td><td>{{=it.testedVersion}}</td><td>{{=it.lastUpdated}}</td></tr>`);
-let pageButtonTemplate = doT.template('<div class="col-md-auto"><button type="button" class="btn btn-pagination" value="{{=it.val}}" {{? it.disabled }}disabled{{?}}>{{=it.val}}</button></div>')
+let pageButtonTemplate = doT.template('<div class="col-auto"><button type="button" class="btn btn-pagination{{? it.active }} active{{?}}" value="{{=it.val}}" {{? it.disabled }}disabled{{?}}>{{=it.val}}</button></div>')
 
 // Initialize the Compatibility Table, given an array of compatibility objects.
 function renderTable() {
@@ -218,7 +218,8 @@ function renderPaginationButtons() {
   for(var i = 0; i < buttonValues.length; i++) {
     $('#compat-pagination-container').append(pageButtonTemplate({
       val: buttonValues[i],
-      disabled: buttonValues[i] === "..."
+      disabled: buttonValues[i] === "..." || buttonValues[i] === currentPage + 1,
+      active: buttonValues[i] === currentPage + 1
     }));
   }
   $('.btn-pagination').on('click', function (evt) {

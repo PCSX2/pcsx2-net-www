@@ -89,16 +89,16 @@ details > div
       background-color: var(--controller-square)
 
 .spinner-border
-  width: 1em;
-  height: 1em;
-  margin-left: 1em;
-  margin-right: 1em;
+  width: 1em
+  height: 1em
+  margin-left: 1em
+  margin-right: 1em
 
 .btn-primary
   color: var(--heading-color)
   background-color: var(--primary-color)
   &:focus, &.focus, &:hover
-    background-color: var(--primary-color);
+    background-color: var(--primary-color)
 
 .btn-outline-info:hover
   color: var(--primary-color)
@@ -108,59 +108,59 @@ button .material-icons-outlined
 
 // Navigation
 .navbar
-  background-color: var(--main-bg-color);
-  border-bottom-color: var(--tertiary-color);
-  border-bottom-width: 2px;
-  border-bottom-style: solid;
+  background-color: var(--main-bg-color)
+  border-bottom-color: var(--tertiary-color)
+  border-bottom-width: 2px
+  border-bottom-style: solid
   &.transparent
-    background: none;
-    border: none;
-    box-shadow: none;
+    background: none
+    border: none
+    box-shadow: none
     .logo-text
-      visibility: hidden;
+      visibility: hidden
 
 .nav-icon
-  padding-right: 0.5em;
+  padding-right: 0.5em
 
 .nav-link
-  display: inline-block;
+  display: inline-block
 
 .navbar-brand
-  align-items: center;
+  align-items: center
   &.scrolled
-    visibility: visible;
+    visibility: visible
 
 .navbar-brand, .nav-link
-  font-weight: 700;
-  color: var(--heading-color) !important;
-  transition: color .05s ease-in-out;
+  font-weight: 700
+  color: var(--heading-color) !important
+  transition: color .05s ease-in-out
   &:hover
-    color: var(--primary-color) !important;
-    transition: color .05s ease-in-out;
+    color: var(--primary-color) !important
+    transition: color .05s ease-in-out
 
 .navbar-toggler
-  padding-left: 0;
+  padding-left: 0
   > i
     color: var(--heading-color)
 
 .logo-text
-  margin-left: 0.25em;
-  margin-bottom: 0;
+  margin-left: 0.25em
+  margin-bottom: 0
 
 .brand-logo
-  height: 2em;
+  height: 2em
 
 #language-dropdown
-  padding: 0;
-  background-color: unset;
-  box-shadow: none;
-  font-size: 1rem;
+  padding: 0
+  background-color: unset
+  box-shadow: none
+  font-size: 1rem
 
 #language-dropdown-container
-  margin-right: 1rem;
+  margin-right: 1rem
 
 .theme-icon
-  color: var(--theme-icon-color);
+  color: var(--theme-icon-color)
 
 // Ads
 .ad
@@ -223,15 +223,12 @@ td
     margin: 0
 
 // Pagination
-.btn .pagination
-  padding-left: 1em;
-  padding-right: 1em;
-  line-height: 1em;
-  font-size: 0.9rem;
-  color: var(--heading-color);
-  background-color: var(--primary-color);
+.btn-pagination
+  padding-left: 1.25em
+  padding-right: 1.25em
+  color: var(--text-color)
+  background-color: var(--secondary-bg-color)
   &:hover
-    color: var(--text-color);
-  .active
-    background-color: var(--error-color); // TODO - fix
-
+    color: var(--heading-color)
+  &.active
+    color: var(--primary-color)

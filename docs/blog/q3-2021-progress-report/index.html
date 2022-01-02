@@ -24,7 +24,7 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.js"></script>
   <script defer src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
   <script defer src="https://xtvaser.github.io/PCSX2.github.io/js/misc.js"></script>
-  
+  <script defer src="https://xtvaser.github.io/PCSX2.github.io/js/navbar.js"></script>
   
   
   <title>PCSX2 | Q3 2021 Progress Report</title>
@@ -41,7 +41,7 @@
       <i class="fas fa-bars"></i>
     </button>
     <div class="collapse navbar-collapse w-100 justify-content-center" id="navbarSupportedContent">
-      <ul class="navbar-nav nav-middle w-75 justify-content-center">
+      <ul class="navbar-nav nav-middle w-75 pe-3 pe-md-0 justify-content-center">
         
         <li class="nav-item">
           <a class="nav-link" href="/PCSX2.github.io/downloads" >Download</a>
@@ -60,14 +60,14 @@
         </li>
         
       </ul>
-      <ul class="navbar-nav nav-right w-25 justify-content-end">
+      <ul class="navbar-nav nav-right w-25 pe-3 pe-md-0 justify-content-end">
         
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarLinksDropdownMenu" role="button"
             data-mdb-toggle="dropdown" aria-expanded="false">
             Links
           </a>
-          <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarLinksDropdownMenu">
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarLinksDropdownMenu">
             
             <li class="nav-item">
               <a class="dropdown-item" href="https://discord.com/invite/TCz3t9k" target="blank" >
@@ -215,7 +215,7 @@
 
 
 
-  
+
 
 
 
@@ -234,6 +234,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4436%29">#4436</a>
   
   
   Core/GS: Merge Last Plugin GSdx Into the Core
@@ -252,7 +254,7 @@
 
 
 
-  
+
 
 
 
@@ -271,6 +273,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4220%29">#4220</a>
   
   
   Add Internal DNS Server
@@ -285,7 +289,7 @@
 
 
 
-  
+
 
 
 
@@ -304,6 +308,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4834%29">#4834</a>
   
   
   Auto Gateway Fix for WinPcap Backend
@@ -320,7 +326,7 @@
 
 
 
-  
+
 
 
 
@@ -339,6 +345,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4621%29">#4621</a>
   
   
   Reset Timer Count Regardless of Interrupt Enable
@@ -353,7 +361,7 @@
 
 
 
-  
+
 
 
 
@@ -372,6 +380,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4647%29">#4647</a>
   
   
   Correct H-Blank for 1080i Mode
@@ -386,7 +396,7 @@
 
 
 
-  
+
 
 
 
@@ -405,6 +415,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4690%29">#4690</a>
   
   
   COP0 PCCR: Don&rsquo;t Update Counters if Counting Is Disabled
@@ -424,7 +436,7 @@
 <p>RedDevilus: &ldquo;I&rsquo;ve recently bought GTA 3 second-hand and did my regular testing phase when I heard talks about a cloned character, it was not triggered on my screen because I skipped the intro FMV. So if anyone says we only fix certain games or big bugs, you can look again. It was a minor bug that was actually a regression. Meanwhile, before the fix, I had my own methods of solving the issue but refraction wasn&rsquo;t happy with this brute-force approach&rdquo;</p>
 </blockquote>
 <div class="row d-flex">
-  <div class="col-6">
+  <div class="col-12 col-md-6">
     <img src="./img/github_red_gta3.webp" alt="">
   </div>
 </div>
@@ -468,7 +480,7 @@
 
 
 
-  
+
 
 
 
@@ -487,6 +499,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4503%29">#4503</a>
   
   
   Enable T-Bit to Work With MTVU
@@ -537,7 +551,7 @@
 
 
 
-  
+
 
 
 
@@ -556,6 +570,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4539%29">#4539</a>
   
   
   Improve Sync With VU Kickstart, Loosen Without Kickstart
@@ -571,7 +587,7 @@
 
 
 
-  
+
 
 
 
@@ -590,6 +606,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4694%29">#4694</a>
   
   
   Optimise Entering VU JITs
@@ -606,7 +624,7 @@
 <p>Another side note is that for normal PC games the internal resolution = viewport but in PCSX2 case, it&rsquo;s separated in Graphics Settings for upscaling and in General Settings where GS Window is, is the location of how big your viewport (window size) would be.</p>
 <p>Here is an example of 3 tested games:
 <div class="row d-flex">
-  <div class="col-6">
+  <div class="col-12 col-md-6">
     <img src="./img/3chart_VU_JITs.webp" alt="">
   </div>
 </div>
@@ -760,7 +778,7 @@
 
 
 
-  
+
 
 
 
@@ -779,6 +797,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4487%29">#4487</a>
   
   
   Consolidate I-Bit Hacks Into One Generic One
@@ -793,7 +813,7 @@
 
 
 
-  
+
 
 
 
@@ -812,6 +832,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4703%29">#4703</a>
   
   
   Skip VU1 Instructions on VU0
@@ -826,7 +848,7 @@
 
 
 
-  
+
 
 
 
@@ -845,6 +867,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4719%29">#4719</a>
   
   
   Combine MVU0cacheReserve and MVU1cacheReserve
@@ -859,7 +883,7 @@
 
 
 
-  
+
 
 
 
@@ -878,6 +902,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4767%29">#4767</a>
   
   
   Replace XGKick Hack With Synced XGKick Option
@@ -927,7 +953,7 @@
 
 
 
-  
+
 
 
 
@@ -946,6 +972,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4668%29">#4668</a>
   
   
   Don&rsquo;t Emit Add Reg, 0 in a Few Instructions #4668
@@ -961,7 +989,7 @@
 
 
 
-  
+
 
 
 
@@ -980,6 +1008,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4619%29">#4619</a>
   
   
   Reimplement GIF FIFO to Enable Only When It Is Needed
@@ -995,7 +1025,7 @@
 
 
 
-  
+
 
 
 
@@ -1014,6 +1044,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4726%29">#4726</a>
   
   
   VU Int Improve
@@ -1065,7 +1097,7 @@
 
 
 
-  
+
 
 
 
@@ -1084,6 +1116,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4530%29">#4530</a>
   
   
   Delete Broken/Unused Alsa Backend
@@ -1098,7 +1132,7 @@
 
 
 
-  
+
 
 
 
@@ -1117,6 +1151,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4574%29">#4574</a>
   
   
   Minor Cleanup
@@ -1131,7 +1167,7 @@
 
 
 
-  
+
 
 
 
@@ -1150,6 +1186,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4581%29">#4581</a>
   
   
   Remove NEVER_SKIP_VOICES
@@ -1164,7 +1202,7 @@
 
 
 
-  
+
 
 
 
@@ -1183,6 +1221,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4582%29">#4582</a>
   
   
   Remove Unused Variable
@@ -1197,7 +1237,7 @@
 
 
 
-  
+
 
 
 
@@ -1216,6 +1256,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4591%29">#4591</a>
   
   
   Remove User Options for Disabling Reverb and De-Alias Filter
@@ -1230,7 +1272,7 @@
 
 
 
-  
+
 
 
 
@@ -1249,6 +1291,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4648%29">#4648</a>
   
   
   Remove Waveout Backend From Windows
@@ -1263,7 +1307,7 @@
 
 
 
-  
+
 
 
 
@@ -1282,6 +1326,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4699%29">#4699</a>
   
   
   Adjust DMA Timings for IRQ&rsquo;s and Small Packets
@@ -1296,7 +1342,7 @@
 
 
 
-  
+
 
 
 
@@ -1315,6 +1361,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4700%29">#4700</a>
   
   
   Don&rsquo;t Initialise Sound Buffer if It&rsquo;s Not Open
@@ -1329,7 +1377,7 @@
 
 
 
-  
+
 
 
 
@@ -1348,6 +1396,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4774%29">#4774</a>
   
   
   Disallow KeyOn Within 2T of Last KeyOn
@@ -1362,7 +1412,7 @@
 
 
 
-  
+
 
 
 
@@ -1381,6 +1431,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4803%29">#4803</a>
   
   
   PortAudio: Remove DirectSound Backend
@@ -1436,7 +1488,7 @@
 
 
 
-  
+
 
 
 
@@ -1455,6 +1507,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4571%29">#4571</a>
   
   
   Freeze Mode Enum for Keyboardmania
@@ -1470,7 +1524,7 @@
 
 
 
-  
+
 
 
 
@@ -1489,6 +1543,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4578%29">#4578</a>
   
   
   CHD: Fix Parent Search on Windows
@@ -1503,7 +1559,7 @@
 
 
 
-  
+
 
 
 
@@ -1522,6 +1578,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4645%29">#4645</a>
   
   
   Fix CdlReadS for PS1 Games With CDDA
@@ -1536,7 +1594,7 @@
 
 
 
-  
+
 
 
 
@@ -1555,6 +1613,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4646%29">#4646</a>
   
   
   Implement SCMD 0x27
@@ -1576,7 +1636,7 @@
 
 
 
-  
+
 
 
 
@@ -1595,6 +1655,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4702%29">#4702</a>
   
   
   Fix Up Pause and Some Status Behavior
@@ -1611,7 +1673,7 @@
 
 
 
-  
+
 
 
 
@@ -1630,6 +1692,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4526%29">#4526</a>
   
   
   IPU: Fix SETTH Threshold Masks
@@ -1659,7 +1723,7 @@
 
 
 
-  
+
 
 
 
@@ -1678,6 +1742,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4613%29">#4613</a>
   
   
   IPU: Store Thresholds for Color Conversions in U16, Bump Savestate Version
@@ -1693,7 +1759,7 @@
 
 
 
-  
+
 
 
 
@@ -1712,6 +1778,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4638%29">#4638</a>
   
   
   Debugger: Add Option to Display VU0F Registers as Floats
@@ -1726,7 +1794,7 @@
 
 
 
-  
+
 
 
 
@@ -1745,6 +1813,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4644%29">#4644</a>
   
   
   Debugger: Fix Vmulai and Vmaddai Disassembly
@@ -1759,7 +1829,7 @@
 
 
 
-  
+
 
 
 
@@ -1778,6 +1848,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4671%29">#4671</a>
   
   
   Debugger: Purge 64 / 32 Bit Register View Options
@@ -1793,7 +1865,7 @@
 
 
 
-  
+
 
 
 
@@ -1812,6 +1884,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4741%29">#4741</a>
   
   
   Debugger: CtrlRegisterList: Fix Warning and Screw Up
@@ -1827,7 +1901,7 @@
 
 
 
-  
+
 
 
 
@@ -1846,6 +1920,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4742%29">#4742</a>
   
   
   Emitter: Use 64-Bit Operations on X64
@@ -1860,7 +1936,7 @@
 
 
 
-  
+
 
 
 
@@ -1879,6 +1955,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4636%29">#4636</a>
   
   
   HostFS: Add Remove File Functionality
@@ -1893,7 +1971,7 @@
 
 
 
-  
+
 
 
 
@@ -1912,6 +1990,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4642%29">#4642</a>
   
   
   PGIF: Code Refactoring/Cleanup
@@ -1927,7 +2007,7 @@
 <p>Here are some example comparisons of the improvements we witnessed:</p>
 <p>Resident Evil: Before &gt; After
 <div class="row">
-  <div class="col-6">
+  <div class="col-md-6">
     <div class="img-compare-container">
       <img src="./img/RE-afters.jpg" alt="" draggable="false">
       <div class="img-clipper">
@@ -1942,7 +2022,7 @@
 </p>
 <p>Street Fighter EX Plus Alpha: Before &gt; After
 <div class="row">
-  <div class="col-6">
+  <div class="col-md-6">
     <div class="img-compare-container">
       <img src="./img/SF-EX-afters.jpg" alt="" draggable="false">
       <div class="img-clipper">
@@ -1958,7 +2038,7 @@
 
 
 
-  
+
 
 
 
@@ -1977,6 +2057,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4676%29">#4676</a>
   
   
   IOPBios: Fix OOB Read When IRQ Line Is Invalid
@@ -1991,7 +2073,7 @@
 
 
 
-  
+
 
 
 
@@ -2011,6 +2093,8 @@
 
 <p class="progress-report-heading">
   
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4739%29">#4739</a>
+  
   
   EE JIT: Implement SDR/SDL, LDR/LDL Instructions
   <em>
@@ -2023,7 +2107,7 @@
 
 <p>This has a very huge performance lift, though this is the best-case scenario if it uses these instructions.So don&rsquo;t expect games to reflect such large performance increases like these charts would initially suggest.</p>
 <div class="row d-flex">
-  <div class="col-6">
+  <div class="col-12 col-md-6">
     <img src="./img/Ref_SDL_SDRs.webp" alt="">
   </div>
 </div>
@@ -2031,7 +2115,7 @@
 <p>Above were refraction&rsquo;s results from the homebrew ELF, located here: SDL/SDR LDL/LDR Homebrew ELF</p>
 <p>Below are the results of RedDevilus on the same homebrew which taxed the registers.</p>
 <div class="row d-flex">
-  <div class="col-6">
+  <div class="col-12 col-md-6">
     <img src="./img/red_SDL_SDR.webp" alt="">
   </div>
 </div>
@@ -2075,7 +2159,7 @@
 
 
 
-  
+
 
 
 
@@ -2094,6 +2178,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4667%29">#4667</a>
   
   
   IR5900: Use a Signed Multiply for MULT1 Const Prop
@@ -2108,7 +2194,7 @@
 
 
 
-  
+
 
 
 
@@ -2127,6 +2213,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4748%29">#4748</a>
   
   
   R5900: Fix LWL Did Not Sign Extending in Interpreter
@@ -2141,7 +2229,7 @@
 
 
 
-  
+
 
 
 
@@ -2160,6 +2248,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4548%29">#4548</a>
   
   
   IOP Interpreter: Warn on Branches to Zero
@@ -2174,7 +2264,7 @@
 
 
 
-  
+
 
 
 
@@ -2193,6 +2283,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4523%29">#4523</a>
   
   
   Misc: Replace ATL With WIL
@@ -2215,7 +2307,7 @@
 
 
 
-  
+
 
 
 
@@ -2234,6 +2326,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4508%29">#4508</a>
   
   
   GS-Hw: Enable Pabe Bit Only When Sw Blending Is Enabled
@@ -2248,7 +2342,7 @@
 
 
 
-  
+
 
 
 
@@ -2267,6 +2361,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4615%29">#4615</a>
   
   
   GS: Manage Draw Rectangle in GS Instead of Wx
@@ -2281,7 +2377,7 @@
 
 
 
-  
+
 
 
 
@@ -2300,6 +2396,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4632%29">#4632</a>
   
   
   GS-D3d11: Cleanup Fxaa and External Shader
@@ -2314,7 +2412,7 @@
 
 
 
-  
+
 
 
 
@@ -2333,6 +2431,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4633%29">#4633</a>
   
   
   GS-D3d11: Minor Blend Changes
@@ -2347,7 +2447,7 @@
 
 
 
-  
+
 
 
 
@@ -2366,6 +2466,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4664%29">#4664</a>
   
   
   GS-GUI: Add 7x Multiplier
@@ -2380,7 +2482,7 @@
 
 
 
-  
+
 
 
 
@@ -2399,6 +2501,8 @@
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4682%29">#4682</a>
   
   
   GS-GUI: Enable Software Edge Anti-Aliasing by Default
@@ -2415,7 +2519,7 @@ Some examples where AA is useful to fix issues:</p>
 <p>Final Fantasy X: Before &gt; After - <a href="https://github.com/PCSX2/pcsx2/issues/983" target="_blank">#983</a></p>
 <p>Look at the weird line on the tree (bottom left) and the black triangle that is right of Tidus.</p>
 <div class="row">
-  <div class="col-6">
+  <div class="col-md-6">
     <div class="img-compare-container">
       <img src="./img/FFX_blue_correct_SWs.jpg" alt="" draggable="false">
       <div class="img-clipper">
@@ -2431,7 +2535,7 @@ Some examples where AA is useful to fix issues:</p>
 <p>Final Fantasy X: Before &gt; After - <a href="https://github.com/PCSX2/pcsx2/issues/3341" target="_blank">#3341</a></p>
 <p>Look at the blue triangle below Tidus.</p>
 <div class="row">
-  <div class="col-6">
+  <div class="col-md-6">
     <div class="img-compare-container">
       <img src="./img/FFX_correct_sws.jpg" alt="" draggable="false">
       <div class="img-clipper">
@@ -2447,7 +2551,7 @@ Some examples where AA is useful to fix issues:</p>
 <p>Doko Demo Issho - Toro to Ippai, Toro to Kyuujitsu: Before &gt; After - <a href="https://github.com/PCSX2/pcsx2/issues/4674" target="_blank">#4674</a></p>
 <p>Look at the eyes of these weird cat characters.</p>
 <div class="row">
-  <div class="col-6">
+  <div class="col-md-6">
     <div class="img-compare-container">
       <img src="./img/toro_correct_SWs.jpg" alt="" draggable="false">
       <div class="img-clipper">
@@ -2463,7 +2567,7 @@ Some examples where AA is useful to fix issues:</p>
 <p>Football 2002: Before &gt; After</p>
 <p>Look at the number 4 on the orange shirt.</p>
 <div class="row">
-  <div class="col-6">
+  <div class="col-md-6">
     <div class="img-compare-container">
       <img src="./img/Football_2002_correct_SWs.jpg" alt="" draggable="false">
       <div class="img-clipper">
@@ -2479,7 +2583,7 @@ Some examples where AA is useful to fix issues:</p>
 <p>Syphon Filter - Dark Mirror: Before &gt; After</p>
 <p>Look at the shadows of the character, a harder one to see than the other comparisons.</p>
 <div class="row">
-  <div class="col-6">
+  <div class="col-md-6">
     <div class="img-compare-container">
       <img src="./img/Syphon_dark_mirror_correct_SWs.jpg" alt="" draggable="false">
       <div class="img-clipper">
@@ -2496,7 +2600,7 @@ Some examples where AA is useful to fix issues:</p>
 
 
 
-  
+
 
 
 
@@ -2515,6 +2619,8 @@ Some examples where AA is useful to fix issues:</p>
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4706%29">#4706</a>
   
   
   GS: Update Tooltip to Remove Reference to DirectX
@@ -2529,7 +2635,7 @@ Some examples where AA is useful to fix issues:</p>
 
 
 
-  
+
 
 
 
@@ -2548,6 +2654,8 @@ Some examples where AA is useful to fix issues:</p>
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4789%29">#4789</a>
   
   
   GS-GUI: Add Tooltip for Dithering
@@ -2562,7 +2670,7 @@ Some examples where AA is useful to fix issues:</p>
 
 
 
-  
+
 
 
 
@@ -2581,6 +2689,8 @@ Some examples where AA is useful to fix issues:</p>
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4811%29">#4811</a>
   
   
   GS: Test for Th for Tex0 Flush
@@ -2606,7 +2716,7 @@ Some examples where AA is useful to fix issues:</p>
 
 
 
-  
+
 
 
 
@@ -2625,6 +2735,8 @@ Some examples where AA is useful to fix issues:</p>
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4512%29">#4512</a>
   
   
   Re-Order Config Settings
@@ -2640,7 +2752,7 @@ Some examples where AA is useful to fix issues:</p>
 
 
 
-  
+
 
 
 
@@ -2659,6 +2771,8 @@ Some examples where AA is useful to fix issues:</p>
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4532%29">#4532</a>
   
   
   Set Missing Icons and Update Titles
@@ -2673,7 +2787,7 @@ Some examples where AA is useful to fix issues:</p>
 
 
 
-  
+
 
 
 
@@ -2692,6 +2806,8 @@ Some examples where AA is useful to fix issues:</p>
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4620%29">#4620</a>
   
   
   Rehaul BIOS / Folder Selector
@@ -2706,7 +2822,7 @@ Some examples where AA is useful to fix issues:</p>
 <p>BIOS and folder tabs are now together in General Settings (Used to be called Emulation Settings)
 This will make it easier to find settings with fewer clicks, although there is a height issue that forces you to scroll for the time being.</p>
 <div class="row d-flex">
-  <div class="col-6">
+  <div class="col-12 col-md-6">
     <img src="./img/rehaul_BIOSs.webp" alt="">
   </div>
 </div>
@@ -2714,7 +2830,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -2733,6 +2849,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4640%29">#4640</a>
   
   
   AppMain: Fix No$ Symbol Loading for Elfs
@@ -2747,7 +2865,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -2766,6 +2884,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4663%29">#4663</a>
   
   
   Misc: Fix Lastpath Updating When Using the &ndash;Elf Cmdline Arg
@@ -2780,7 +2900,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -2799,6 +2919,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4675%29">#4675</a>
   
   
   WX: Make Position Validation Multi-Monitor Aware
@@ -2813,7 +2935,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -2832,6 +2954,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4750%29">#4750</a>
   
   
   Config: Normalize Limiter Values Before Saving
@@ -2846,7 +2970,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -2865,6 +2989,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4756%29">#4756</a>
   
   
   Stdio Console on Mac
@@ -2879,7 +3005,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -2898,6 +3024,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4791%29">#4791</a>
   
   
   Select a Bios by Default
@@ -2911,7 +3039,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 <p>This will automatically click on the first BIOS in the list if you haven&rsquo;t selected one, affecting First-time Wizard and in General Settings. It&rsquo;s nice for the User Experience and it hopefully grows on you when using dev builds.</p>
 <div class="row d-flex">
-  <div class="col-6">
+  <div class="col-12 col-md-6">
     <img src="./img/BIOSs.webp" alt="">
   </div>
 </div>
@@ -2919,7 +3047,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -2938,6 +3066,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4798%29">#4798</a>
   
   
   Fix Crash on Assertion in Newer Wx
@@ -2952,7 +3082,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -2971,6 +3101,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4838%29">#4838</a>
   
   
   Make &lsquo;Synchronized MTGS&rsquo; UI Settings Exclusive to Debug/Devel
@@ -2986,7 +3118,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -3005,6 +3137,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4844%29">#4844</a>
   
   
   Move Vu Overflow Flag Checks to a Gamefix + Reorganise Panel
@@ -3020,7 +3154,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -3039,6 +3173,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4509%29">#4509</a>
   
   
   Update PR Labelers to Match GS Merge
@@ -3053,7 +3189,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -3072,6 +3208,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4522%29">#4522</a>
   
   
   Split AVX2 and Non-AVX2 Windows Builds
@@ -3100,7 +3238,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -3119,6 +3257,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4529%29">#4529</a>
   
   
   Remove Dashes From Build Names
@@ -3133,7 +3273,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -3152,6 +3292,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4840%29">#4840</a>
   
   
   Bump Macos Version to 11
@@ -3166,7 +3308,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -3185,6 +3327,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4657%29">#4657</a>
   
   
   GitHub: Switch to New Issue Forms
@@ -3200,7 +3344,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -3219,6 +3363,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4501%29">#4501</a>
   
   
   MacOS: Fix Async File Reader Error Handling
@@ -3233,7 +3379,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -3252,6 +3398,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4527%29">#4527</a>
   
   
   KeyboardQueue: Remove a Windows-Specific Critsec
@@ -3266,7 +3414,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -3285,6 +3433,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4554%29">#4554</a>
   
   
   3rdparty: Add Jpgd Project
@@ -3299,7 +3449,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -3318,6 +3468,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4566%29">#4566</a>
   
   
   Misc: Don&rsquo;t Update Homebrew When Not Necessary
@@ -3332,7 +3484,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -3351,6 +3503,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4570%29">#4570</a>
   
   
   Dependencies: Update GHC 1.5.4 to 1.5.8
@@ -3365,7 +3519,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -3384,6 +3538,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4592%29">#4592</a>
   
   
   Dependencies: Update OpenGL Dependencies
@@ -3398,7 +3554,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -3417,6 +3573,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4651%29">#4651</a>
   
   
   Misc: Add StartupWMClass to Desktop File
@@ -3431,7 +3589,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -3450,6 +3608,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4670%29">#4670</a>
   
   
   Add Linux Distro Information to Program Log
@@ -3464,7 +3624,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 
-  
+
 
 
 
@@ -3483,6 +3643,8 @@ This will make it easier to find settings with fewer clicks, although there is a
 
 
 <p class="progress-report-heading">
+  
+  <a href="https://github.com/PCSX2/pcsx2/pull/%25!d%28string=4701%29">#4701</a>
   
   
   App: Add Windows Exe Version Information
@@ -3511,7 +3673,7 @@ This will make it easier to find settings with fewer clicks, although there is a
 <div class="footer secondary-bg-color">
   <div class="container p-3">
     <div class="row mt-5">
-      <div class="col-4">
+      <div class="col-md-4 mb-5 mb-md-0">
         <div class="row">
           <div class="col d-flex justify-content-start">
             <span class="d-flex align-items-center">
@@ -3526,7 +3688,7 @@ This will make it easier to find settings with fewer clicks, although there is a
           </div>
         </div>
       </div>
-      <div class="col-4 offset-md-4">
+      <div class="col-md-4 offset-md-4">
         <div class="row">
           <div class="col d-flex justify-content-start">
             <h3>Links</h3>

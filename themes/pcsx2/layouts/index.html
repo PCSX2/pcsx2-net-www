@@ -6,13 +6,13 @@
     <p class="splash-description">An Open-Source Playstation 2 Emulator</p>
     <div class="container d-flex flex-gap justify-content-center">
       <div class="row">
-        <div class="col no-horizontal-margins"><a role="button" class="btn bold controller triangle"
+        <div class="col-6 col-md-auto no-horizontal-margins"><a role="button" class="btn bold controller triangle justify-content-center"
             href="{{ .Site.BaseURL }}downloads"><i class="fas fa-download"></i>Download</a></div>
-        <div class="col no-horizontal-margins"><a role="button" class="btn bold controller cross" target="blank"
+        <div class="col-6 col-md-auto no-horizontal-margins"><a role="button" class="btn bold controller cross justify-content-center" target="blank"
             href="https://discord.com/invite/TCz3t9k"><i class="fab fa-discord"></i>Discuss</a></div>
-        <div class="col no-horizontal-margins"><a role="button" class="btn bold controller circle"
+        <div class="col-6 col-md-auto no-horizontal-margins"><a role="button" class="btn bold controller circle justify-content-center"
             href="{{ .Site.BaseURL }}docs"><i class="fas fa-book"></i>Docs</a></div>
-        <div class="col no-horizontal-margins"><a role="button" class="btn bold controller square" target="blank"
+        <div class="col-6 col-md-auto no-horizontal-margins"><a role="button" class="btn bold controller square justify-content-center" target="blank"
             href="https://github.com/PCSX2/pcsx2"><i class="fab fa-github"></i>Contribute</a></div>
       </div>
     </div>
@@ -24,7 +24,7 @@
 </div>
 <div class="container pt-5 pb-5">
   <div class="row">
-    <div class="col-4 d-flex align-items-center">
+    <div class="col-md-4 mb-3 mb-md-0 d-flex align-items-center">
       <div class="container">
         <div class="row">
           <div class="col">
@@ -47,7 +47,7 @@
         </div> -->
       </div>
     </div>
-    <div class="col-8">
+    <div class="col-md-8">
       <div class="container">
         <div class="row mt-3">
           <div class="col">
@@ -89,7 +89,7 @@
 <div class="container-fluid secondary-bg-color">
   <div class="container pt-5 pb-5">
     <div class="row">
-      <div class="col-4 d-flex align-items-center">
+      <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-center">
         <div class="container">
           <div class="row">
             <div class="col">
@@ -110,7 +110,7 @@
           </div>
         </div>
       </div>
-      <div class="col-8">
+      <div class="col-md-8">
         <div class="container">
           <div class="row mt-3">
             {{ range .Site.RegularPages.RelatedTo (keyVals "tags" "progress-report") | first 2 }}
@@ -129,8 +129,8 @@
 </svg>
 <div class="container-fluid">
   <div class="container pt-5 pb-5">
-    <div class="row">
-      <div class="col-8">
+    <div class="row flex-column-reverse flex-md-row">
+      <div class="col-md-8">
         <div class="container">
           <div class="row mt-3">
             {{ range .Site.RegularPages.RelatedTo (keyVals "tags" "devblog") | first 2 }}
@@ -139,7 +139,7 @@
           </div>
         </div>
       </div>
-      <div class="col-4 d-flex align-items-center">
+      <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-center">
         <div class="container">
           <div class="row">
             <div class="col-12">

@@ -9,7 +9,7 @@
       <i class="fas fa-bars"></i>
     </button>
     <div class="collapse navbar-collapse w-100 justify-content-center" id="navbarSupportedContent">
-      <ul class="navbar-nav nav-middle w-75 justify-content-center">
+      <ul class="navbar-nav nav-middle w-75 pe-3 pe-md-0 justify-content-center">
         {{ range .Site.Menus.main }}
         <li class="nav-item">
           <a class="nav-link" href="{{ .URL }}" {{ if in .URL "http" }}target="blank" {{ end }}>{{ .Name | safeHTML
@@ -17,14 +17,14 @@
         </li>
         {{ end }}
       </ul>
-      <ul class="navbar-nav nav-right w-25 justify-content-end">
+      <ul class="navbar-nav nav-right w-25 pe-3 pe-md-0 justify-content-end">
         {{ if gt (len .Site.Params.social) }}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarLinksDropdownMenu" role="button"
             data-mdb-toggle="dropdown" aria-expanded="false">
             Links
           </a>
-          <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarLinksDropdownMenu">
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarLinksDropdownMenu">
             {{ range .Site.Params.social }}
             <li class="nav-item">
               <a class="dropdown-item" href="{{ .url }}" {{ if in .url "http" }}target="blank" {{ end }}>

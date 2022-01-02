@@ -24,7 +24,7 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.js"></script>
   <script defer src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
   <script defer src="https://xtvaser.github.io/PCSX2.github.io/js/misc.js"></script>
-  
+  <script defer src="https://xtvaser.github.io/PCSX2.github.io/js/navbar.js"></script>
   
   
   <title>PCSX2 | Compatibility</title>
@@ -41,7 +41,7 @@
       <i class="fas fa-bars"></i>
     </button>
     <div class="collapse navbar-collapse w-100 justify-content-center" id="navbarSupportedContent">
-      <ul class="navbar-nav nav-middle w-75 justify-content-center">
+      <ul class="navbar-nav nav-middle w-75 pe-3 pe-md-0 justify-content-center">
         
         <li class="nav-item">
           <a class="nav-link" href="/PCSX2.github.io/downloads" >Download</a>
@@ -60,14 +60,14 @@
         </li>
         
       </ul>
-      <ul class="navbar-nav nav-right w-25 justify-content-end">
+      <ul class="navbar-nav nav-right w-25 pe-3 pe-md-0 justify-content-end">
         
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarLinksDropdownMenu" role="button"
             data-mdb-toggle="dropdown" aria-expanded="false">
             Links
           </a>
-          <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarLinksDropdownMenu">
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarLinksDropdownMenu">
             
             <li class="nav-item">
               <a class="dropdown-item" href="https://discord.com/invite/TCz3t9k" target="blank" >
@@ -171,9 +171,11 @@
       </form>
     </div>
   </div>
-  <div class="row mt-3">
-    
-    <div class="col-md-auto">
+  <div class="row flex-column-reverse flex-md-row mt-3">
+    <div class="col-12 col-md-10">
+      <div class="row d-flex justify-content-center justify-content-md-start">
+      
+      <div class="col-auto mb-3">
   <div class="button">
     <button
       type="button"
@@ -190,7 +192,7 @@
   </div>
 </div>
 
-    <div class="col-md-auto">
+      <div class="col-auto mb-3">
   <div class="button">
     <button
       type="button"
@@ -207,7 +209,7 @@
   </div>
 </div>
 
-    <div class="col-md-auto">
+      <div class="col-auto mb-3">
   <div class="button">
     <button
       type="button"
@@ -223,7 +225,7 @@
   </div>
 </div>
 
-    <div class="col-md-auto">
+      <div class="col-auto mb-3">
   <div class="button">
     <button
       type="button"
@@ -240,7 +242,7 @@
   </div>
 </div>
 
-    <div class="col-md-auto">
+      <div class="col-auto mb-3">
   <div class="button">
     <button
       type="button"
@@ -257,7 +259,7 @@
   </div>
 </div>
 
-    <div class="col-md-auto">
+      <div class="col-auto mb-3">
   <div class="button">
     <button
       type="button"
@@ -274,7 +276,9 @@
   </div>
 </div>
 
-    <div class="col-3 flex-fill d-flex justify-content-end">
+      </div>
+    </div>
+    <div class="col-12 col-md-2 d-flex justify-content-end mb-3 mb-md-0">
       <div class="dropdown">
         <button
           class="btn btn-primary dropdown-toggle"
@@ -300,7 +304,7 @@
     </div>
   </div>
   
-  <div class="row mt-4">
+  <div class="row mt-2">
     <div class="table-responsive">
       <table class="table" id="compat-table">
         <thead>
@@ -331,7 +335,7 @@
 <div class="footer secondary-bg-color">
   <div class="container p-3">
     <div class="row mt-5">
-      <div class="col-4">
+      <div class="col-md-4 mb-5 mb-md-0">
         <div class="row">
           <div class="col d-flex justify-content-start">
             <span class="d-flex align-items-center">
@@ -346,7 +350,7 @@
           </div>
         </div>
       </div>
-      <div class="col-4 offset-md-4">
+      <div class="col-md-4 offset-md-4">
         <div class="row">
           <div class="col d-flex justify-content-start">
             <h3>Links</h3>

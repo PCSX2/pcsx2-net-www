@@ -14,9 +14,7 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.js"></script>
   <script defer src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
   <script defer src="{{ .Site.BaseURL }}/js/misc.js"></script>
-  {{ if .IsHome }}
   <script defer src="{{ .Site.BaseURL }}/js/navbar.js"></script>
-  {{ end }}
   {{ $title := print .Site.Title " | " .Title }}
   {{ if .IsHome }}
   {{ $title = print .Site.Title " | A PS2 Emulator" }}
