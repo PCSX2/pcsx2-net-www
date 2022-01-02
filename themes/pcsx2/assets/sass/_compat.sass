@@ -5,7 +5,7 @@
     opacity: 0.0
 
 .loading-logo
-  filter: invert(99%) sepia(91%) saturate(0%) hue-rotate(116deg) brightness(106%) contrast(100%)
+  filter: var(--loading-icon-filter)
   width: 50px
   animation: pulse 1s infinite alternate
   animation-timing-function: ease-in-out
@@ -68,19 +68,6 @@ button.compat
     color: var(--compat-intro)
   &.Nothing
     color: var(--compat-nothing)
-
-// .form-outline
-//   .form-control:focus
-//     ~ .form-notch
-//       .form-notch-leading, .form-notch-trailing
-//         border-top: .125rem solid var(--primary-color)
-//         border-bottom: .125rem solid var(--primary-color)
-//         border-left: .125rem solid var(--primary-color)
-//       .form-notch-middle
-//         border-bottom: .125rem solid
-//         border-color: var(--primary-color)
-//     ~ .form-label
-//       color: var(--primary-color)
 
 .form-outline .form-control ~ .form-label
   color: var(--text-color)

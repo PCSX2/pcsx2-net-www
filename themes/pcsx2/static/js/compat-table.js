@@ -25,7 +25,7 @@ window.onload = async () => {
   currentData = sortedData;
   setTimeout(() => {
     renderTable();
-  }, 500);
+  }, 250);
 };
 
 // config
@@ -126,7 +126,7 @@ $('#compat-page-size-list a').click(function () {
   tableLoading();
   setTimeout(() => {
     renderTable(sortedData, 0);
-  }, 500);
+  }, 250);
 });
 
 var searchTimer;
@@ -140,7 +140,7 @@ searchInput.oninput = function () {
   clearTimeout(searchTimer);
   searchTimer = setTimeout(() => {
     filterData();
-  }, 500);
+  }, 250);
   let tableBody = document.getElementById("compat-table-body");
   if (tableBody.innerHTML != `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo" src="${baseURL}/img/pcsx2-logo.svg"></object></td></tr>`) {
     tableBody.innerHTML = `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo" src="${baseURL}/img/pcsx2-logo.svg"></object></td></tr>`;
@@ -230,7 +230,7 @@ function renderPaginationButtons() {
       tableLoading();
       setTimeout(() => {
         renderTable(sortedData, currentPage);
-      }, 500);
+      }, 250);
     }
   });
 }

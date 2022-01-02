@@ -7,7 +7,8 @@
   --primary-color: #AB47BC;
   --tertiary-color: #2cb67d;
   --error-color: #f25042;
-  --theme-icon-color: #f4ff6e; }
+  --theme-icon-color: #f4ff6e;
+  --loading-icon-filter: invert(99%) sepia(91%) saturate(0%) hue-rotate(116deg) brightness(106%) contrast(100%); }
 
 .theme-light {
   --main-bg-color: #fffffe;
@@ -19,7 +20,8 @@
   --primary-color: #3da9fc;
   --tertiary-color: #ef4565;
   --error-color: #f25042;
-  --theme-icon-color: #3da9fc; }
+  --theme-icon-color: #3da9fc;
+  --loading-icon-filter: filter: invert(0%) sepia(83%) saturate(7500%) hue-rotate(29deg) brightness(107%) contrast(113%); }
 
 .theme-light .navbar.transparent .navbar-brand, .theme-light .navbar.transparent .nav-link {
   font-weight: 700;
@@ -142,7 +144,7 @@ button .material-icons-outlined {
   border-bottom-width: 2px;
   border-bottom-style: solid; }
   .navbar.transparent {
-    background: none;
+    background: #000000d1;
     border: none;
     box-shadow: none; }
     .navbar.transparent .logo-text {
@@ -386,7 +388,7 @@ td {
     opacity: 0.0; } }
 
 .loading-logo {
-  filter: invert(99%) sepia(91%) saturate(0%) hue-rotate(116deg) brightness(106%) contrast(100%);
+  filter: var(--loading-icon-filter);
   width: 50px;
   animation: pulse 1s infinite alternate;
   animation-timing-function: ease-in-out; }
@@ -572,6 +574,9 @@ button.compat {
   font-weight: 700;
   text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
   font-style: italic; }
+
+.stroke-text {
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000; }
 
 #splash-screen-gui {
   top: 10%;
