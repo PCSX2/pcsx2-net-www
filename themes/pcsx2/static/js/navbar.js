@@ -1,6 +1,6 @@
 $(document).ready(function () {
-  // TODO - dont past this on page height, check if scrolled past title
-  let scrolledFarEnough = $(this).scrollTop() > $(this).height() / 8;
+  var elementTarget = document.getElementById("navbarScrollTarget");
+  let scrolledFarEnough = elementTarget != null && window.scrollY > (elementTarget.offsetTop + elementTarget.offsetHeight);
   if (scrolledFarEnough) {
     const myCollapse = document.getElementById('navbarSupportedContent');
     const bsCollapse = new mdb.Collapse(myCollapse, {toggle: false});
@@ -9,8 +9,8 @@ $(document).ready(function () {
   $(".navbar.fixed-top").toggleClass('navbar-expand-lg', scrolledFarEnough);
   $(".navbar.fixed-top").toggleClass('transparent', !scrolledFarEnough);
   $(document).scroll(function () {
-    // TODO - dont past this on page height, check if scrolled past title
-    let scrolledFarEnough = $(this).scrollTop() > $(this).height() / 8;
+    var elementTarget = document.getElementById("navbarScrollTarget");
+    let scrolledFarEnough = elementTarget != null && window.scrollY > (elementTarget.offsetTop + elementTarget.offsetHeight);
     if (scrolledFarEnough) {
       const myCollapse = document.getElementById('navbarSupportedContent');
       const bsCollapse = new mdb.Collapse(myCollapse, {toggle: false});
