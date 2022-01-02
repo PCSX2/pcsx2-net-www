@@ -563,7 +563,8 @@ button.compat {
     align-items: center;
     display: flex;
     grid-area: 1/1/1/1;
-    color: white; }
+    color: white;
+    z-index: 999; }
 
 .splash-title {
   color: var(--heading-color-white);
@@ -585,7 +586,7 @@ button.compat {
 
 #splash-screen {
   grid-area: 1/1/1/1;
-  background-image: url("/PCSX2.github.io//img/poor-perf-splash.png");
+  background-image: url("/PCSX2.github.io/img/poor-perf-splash.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center; }
