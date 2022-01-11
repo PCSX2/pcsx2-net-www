@@ -6,22 +6,9 @@
   --heading-color-white: #fffffe
   --text-color: #5f6c7b
   --primary-color: #3da9fc
+  --primary-color-dimmed: #e3f3ff
+  --link-color: #3da9fc
   --tertiary-color: #ef4565
   --error-color: #f25042
   --theme-icon-color: #3da9fc
   --loading-icon-filter: filter: invert(0%) sepia(83%) saturate(7500%) hue-rotate(29deg) brightness(107%) contrast(113%)
-
-.theme-light
-  .navbar.transparent
-    .navbar-brand, .nav-link
-      font-weight: 700;
-      color: var(--primary-color) !important;
-      transition: color .05s ease-in-out;
-      &:hover
-        color: var(--heading-color) !important;
-        transition: color .05s ease-in-out;
-
-    .navbar-toggler
-      padding-left: 0;
-      > i
-        color: var(--primary-color)

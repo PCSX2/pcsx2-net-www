@@ -52,7 +52,7 @@ params:
       weight: 4
       url: 'https://forums.pcsx2.net/'
     - name: Wiki
-      icon: fab fa-wikipedia-w
+      icon: fas fa-book
       weight: 6
       url: 'https://wiki.pcsx2.net'
     - name: Twitter

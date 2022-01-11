@@ -1,48 +1,23 @@
-<svg class="angled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="height: 10vh;width: 100%;{{ if not (.IsHome) }}margin-top:10em;{{ end }}">
-  <polygon points="0,0 0,100 100,100" class="polygon secondary"></polygon>
-</svg>
+<div class="vGap100"></div>
 <div class="footer secondary-bg-color">
-  <div class="container p-3">
+  <div class="container">
     <div class="row mt-5">
-      <div class="col-md-4 mb-5 mb-md-0">
-        <div class="row">
-          <div class="col d-flex justify-content-start">
-            <span class="d-flex align-items-center">
-              <img class="brand-logo" src="{{ .Site.BaseURL }}/img/pcsx2-logo.png" alt="PCSX2 Logo">
-              <h3 class="logo-text">PCSX2</h3>
-            </span>
-          </div>
-        </div>
-        <div class="row mt-3">
-          <div class="col">
-            An Open-Source Playstation 2 Emulator
-          </div>
-        </div>
+      <div class="col">
+        <img class="brand-logo" src="{{ .Site.BaseURL }}/img/pcsx2-logo.png" alt="PCSX2 Logo">
+        <strong class="logo-text">PCSX2</strong>
+        An Open-Source Playstation 2 Emulator
       </div>
-      <div class="col-md-4 offset-md-4">
-        <div class="row">
-          <div class="col d-flex justify-content-start">
-            <h3>Links</h3>
-          </div>
-        </div>
-        <div class="row mt-3">
-          <div class="col d-flex justify-content-start">
-            <ul>
-              {{ range .Site.Params.social }}
-              <li>
-                <a href="{{ .url }}" {{ if in .url "http" }}target="blank" {{ end }}>
-                  <span>
-                    <i class="nav-icon {{ .icon }}"></i>
-                    {{ .name }}
-                  </span>
-                </a>
-              </li>
-              {{ end }}
-            </ul>
-          </div>
-        </div>
+      <div class="col-auto d-flex align-items-center">
+        {{ range .Site.Params.social }}
+        <a href="{{ .url }}" {{ if in .url "http" }}target="blank" {{ end }}>
+          <span>
+            <i class="footer-icon {{ .icon }}"></i>
+          </span>
+        </a>
+        {{ end }}
       </div>
     </div>
+    <hr>
     <div class="row mt-3">
       <div class="col d-flex justify-content-start">
         © {{ dateFormat "2006" now }} PCSX2. All Rights Reserved.
@@ -50,4 +25,3 @@
     </div>
   </div>
 </div>
-

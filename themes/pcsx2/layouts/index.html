@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="container-fluid home-header align-middle" style="position: relative;">
+<div class="container-fluid home-header align-middle">
   <div id="splash-screen" class="vh-60"></div>
   <div class="container d-flex justify-content-center home-header-contents">
     <h1 class="splash-title" id="navbarScrollTarget">PCSX2</h1>
@@ -17,76 +17,71 @@
       </div>
     </div>
   </div>
-  <svg class="angled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"
-    style="height: 10vh;width: 100%;bottom:0;position:absolute;">
-    <polygon points="0,100 100,0 100,100" class="polygon"></polygon>
-  </svg>
 </div>
-<div class="container pt-5 pb-5">
-  <div class="row">
-    <div class="col-md-4 mb-3 mb-md-0 d-flex align-items-center">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <h2>About the Project</h2>
+<div class="container-fluid">
+  <div class="container pt-5 pb-5">
+    <div class="row">
+      <div class="col-md-4 mb-3 mb-md-0 d-flex align-items-center">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h2>About the Project</h2>
+            </div>
           </div>
+          <div class="row">
+            <div class="col">
+              <p>Being almost as old as the console it is emulating, PCSX2 not only has a lot of history behind it,
+                but a continually evolving future.</p>
+            </div>
+          </div>
+          <!-- TODO - make an about page -->
+          <!-- <div class="row">
+            <div class="button d-flex">
+              <a role="button" class="btn btn-primary" href="/tags/progress-report/">
+                View More
+              </a>
+            </div>
+          </div> -->
         </div>
-        <div class="row">
-          <div class="col">
-            <p>Being almost as old as the console it is emulating, PCSX2 not only has a lot of history behind it,
-              but a continually evolving future.</p>
-          </div>
-        </div>
-        <!-- TODO - make an about page -->
-        <!-- <div class="row">
-          <div class="button d-flex">
-            <a role="button" class="btn btn-primary" href="/tags/progress-report/">
-              View More
-            </a>
-          </div>
-        </div> -->
       </div>
-    </div>
-    <div class="col-md-8">
-      <div class="container">
-        <div class="row mt-3">
-          <div class="col">
-            <p>
-              PCSX2 is a free and open-source PlayStation 2 (PS2) emulator. Its purpose is to emulate the PS2's
-              hardware,
-              using a combination of MIPS CPU <a href="https://en.wikipedia.org/wiki/Interpreter_(computing)"
-                target="_blank">Interpreters</a>, <a href="https://en.wikipedia.org/wiki/Dynamic_recompilation"
-                target="_blank">Recompilers</a> and a <a href="https://en.wikipedia.org/wiki/Virtual_machine"
-                target="_blank">Virtual Machine</a> which manages hardware
-              states and PS2 system memory.
-            </p>
-            <p>
-              The project has been running for almost 20 years. Past versions could only run a few public domain
-              game demos, but newer versions can run most games at full speed, including popular titles such as Final
-              Fantasy X and Devil May Cry 3.
-            </p>
-            <p>
-              PCSX2 allows you to play PS2 games on your PC, with many additional features
-              and benefits. A few of those benefits include:
-            </p>
-            <ul>
-              <li>custom resolutions and upscaling</li>
-              <li>virtual and sharable memory cards</li>
-              <li>save-states</li>
-              <li>patching system</li>
-              <li>internal recorder to achieve lossless quality at full speed</li>
-            </ul>
+      <div class="col-md-8">
+        <div class="container">
+          <div class="row mt-3">
+            <div class="col">
+              <p>
+                PCSX2 is a free and open-source PlayStation 2 (PS2) emulator. Its purpose is to emulate the PS2's
+                hardware,
+                using a combination of MIPS CPU <a href="https://en.wikipedia.org/wiki/Interpreter_(computing)"
+                  target="_blank">Interpreters</a>, <a href="https://en.wikipedia.org/wiki/Dynamic_recompilation"
+                  target="_blank">Recompilers</a> and a <a href="https://en.wikipedia.org/wiki/Virtual_machine"
+                  target="_blank">Virtual Machine</a> which manages hardware
+                states and PS2 system memory.
+              </p>
+              <p>
+                The project has been running for almost 20 years. Past versions could only run a few public domain
+                game demos, but newer versions can run most games at full speed, including popular titles such as Final
+                Fantasy X and Devil May Cry 3.
+              </p>
+              <p>
+                PCSX2 allows you to play PS2 games on your PC, with many additional features
+                and benefits. A few of those benefits include:
+              </p>
+              <ul>
+                <li>custom resolutions and upscaling</li>
+                <li>virtual and sharable memory cards</li>
+                <li>save-states</li>
+                <li>patching system</li>
+                <li>internal recorder to achieve lossless quality at full speed</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<svg class="angled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"
-  style="height: 10vh;width: 100%;">
-  <polygon points="0,0 100,100 0,100" class="polygon secondary"></polygon>
-</svg>
-<div class="container-fluid secondary-bg-color">
+<div class="vGap100"></div>
+<div class="container-fluid polygon">
   <div class="container pt-5 pb-5">
     <div class="row">
       <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-center">
@@ -123,10 +118,7 @@
     </div>
   </div>
 </div>
-<svg class="angled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"
-  style="height: 10vh;width: 100%;">
-  <polygon points="0,0 0,100 100,0" class="polygon secondary"></polygon>
-</svg>
+<div class="vGap100"></div>
 <div class="container-fluid">
   <div class="container pt-5 pb-5">
     <div class="row flex-column-reverse flex-md-row">

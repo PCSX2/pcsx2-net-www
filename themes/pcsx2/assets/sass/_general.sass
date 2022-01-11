@@ -55,9 +55,24 @@ details > div
   background-color: var(--tertiary-bg-color)
 
 .polygon
-  fill: var(--main-bg-color)
-  &.secondary
-    fill: var(--secondary-bg-color)
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background: var(--primary-color) !important
+    background: -webkit-linear-gradient(10deg, var(--primary-color-dimmed), var(--primary-color)) !important
+    background: linear-gradient(10deg, var(--primary-color-dimmed), var(--primary-color)) !important;
+    transform: skewY(-5deg) scale(1) !important
+    z-index: -1
+  &.bg-color::before
+    background: var(--main-bg-color) !important
+
+.vGap100
+  height: 100px
 
 // Text Formatting
 .text-truncate
@@ -112,12 +127,6 @@ button .material-icons-outlined
   border-bottom-color: var(--tertiary-color)
   border-bottom-width: 2px
   border-bottom-style: solid
-  &.transparent
-    background: #000000d1
-    border: none
-    box-shadow: none
-    .logo-text
-      visibility: hidden
 
 .nav-icon
   padding-right: 0.5em
@@ -135,7 +144,7 @@ button .material-icons-outlined
   color: var(--heading-color) !important
   transition: color .05s ease-in-out
   &:hover
-    color: var(--primary-color) !important
+    color: var(--link-color) !important
     transition: color .05s ease-in-out
 
 .navbar-toggler
@@ -170,13 +179,18 @@ button .material-icons-outlined
 .footer
   padding-bottom: 1em
   color: var(--text-color-dimmed)
-  ul
-    padding-left: 0.5em
-    list-style-type: none
-    li a
-      color: var(--text-color)
-      &:hover
-        color: var(--primary-color)
+  position: relative
+  padding-top: 100px;
+  padding-bottom: 2rem;
+  clip-path: border-box polygon(0 100px, 0 100%, 100% 100%, 100% 0);
+  a
+    color: var(--text-color)
+    &:hover
+      color: var(--link-color)
+  i
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 
 // Icons
 .error-icon
@@ -185,12 +199,12 @@ button .material-icons-outlined
 
 // Links
 a
-  color: var(--primary-color)
+  color: var(--link-color)
   .disabled
     pointer-events: none
     cursor: default
   &:hover
-    color: var(--primary-color)
+    color: var(--link-color)
 
 // Dropdowns
 .dropdown
