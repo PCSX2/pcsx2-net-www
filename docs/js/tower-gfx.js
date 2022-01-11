@@ -76,7 +76,7 @@ function init() {
 
   scene.add(io);
 
-  fog = new THREE.Fog(0x0000ff, 25, 150);
+  fog = new THREE.Fog(0x000000, 25, 150);
   scene.fog = fog;
 
   ambLight = new THREE.AmbientLight(0x404040); // soft white light
@@ -183,9 +183,9 @@ function render() {
   light4.position.x = Math.sin(light4Angle * 0.7) * 10;
   light4.position.y = Math.cos(light4Angle * 0.5) * 10;
 
-  light1Angle += 0.02 / (Math.random() + 1);
-  light2Angle += 0.02 / (Math.random() + 1);
-  light3Angle += 0.02 / (Math.random() + 1);
+  light1Angle += 0.02 / (Math.random() + 2);
+  light2Angle += 0.02 / (Math.random() + 1.5);
+  light3Angle += 0.02 / (Math.random() + 1.75);
   light4Angle += 0.02 / (Math.random() + 1);
 
   renderer.render(scene, camera);

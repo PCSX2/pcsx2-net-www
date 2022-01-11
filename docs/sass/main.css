@@ -4,7 +4,9 @@
   --tertiary-bg-color: #0b0b0d;
   --heading-color: #fffffe;
   --text-color: #94a1b2;
-  --primary-color: #AB47BC;
+  --primary-color: #51368D;
+  --primary-color-dimmed: #262558;
+  --link-color: #7f5af0;
   --tertiary-color: #2cb67d;
   --error-color: #f25042;
   --theme-icon-color: #f4ff6e;
@@ -18,23 +20,12 @@
   --heading-color-white: #fffffe;
   --text-color: #5f6c7b;
   --primary-color: #3da9fc;
+  --primary-color-dimmed: #e3f3ff;
+  --link-color: #3da9fc;
   --tertiary-color: #ef4565;
   --error-color: #f25042;
   --theme-icon-color: #3da9fc;
   --loading-icon-filter: filter: invert(0%) sepia(83%) saturate(7500%) hue-rotate(29deg) brightness(107%) contrast(113%); }
-
-.theme-light .navbar.transparent .navbar-brand, .theme-light .navbar.transparent .nav-link {
-  font-weight: 700;
-  color: var(--primary-color) !important;
-  transition: color .05s ease-in-out; }
-  .theme-light .navbar.transparent .navbar-brand:hover, .theme-light .navbar.transparent .nav-link:hover {
-    color: var(--heading-color) !important;
-    transition: color .05s ease-in-out; }
-
-.theme-light .navbar.transparent .navbar-toggler {
-  padding-left: 0; }
-  .theme-light .navbar.transparent .navbar-toggler > i {
-    color: var(--primary-color); }
 
 :root {
   --controller-triangle: #00d4ca;
@@ -89,9 +80,24 @@ details > div {
   background-color: var(--tertiary-bg-color); }
 
 .polygon {
-  fill: var(--main-bg-color); }
-  .polygon.secondary {
-    fill: var(--secondary-bg-color); }
+  position: relative; }
+  .polygon::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color) !important;
+    background: -webkit-linear-gradient(10deg, var(--primary-color-dimmed), var(--primary-color)) !important;
+    background: linear-gradient(10deg, var(--primary-color-dimmed), var(--primary-color)) !important;
+    transform: skewY(-5deg) scale(1) !important;
+    z-index: -1; }
+  .polygon.bg-color::before {
+    background: var(--main-bg-color) !important; }
+
+.vGap100 {
+  height: 100px; }
 
 .text-truncate {
   white-space: unset; }
@@ -143,12 +149,6 @@ button .material-icons-outlined {
   border-bottom-color: var(--tertiary-color);
   border-bottom-width: 2px;
   border-bottom-style: solid; }
-  .navbar.transparent {
-    background: #000000d1;
-    border: none;
-    box-shadow: none; }
-    .navbar.transparent .logo-text {
-      visibility: hidden; }
 
 .nav-icon {
   padding-right: 0.5em; }
@@ -166,7 +166,7 @@ button .material-icons-outlined {
   color: var(--heading-color) !important;
   transition: color .05s ease-in-out; }
   .navbar-brand:hover, .nav-link:hover {
-    color: var(--primary-color) !important;
+    color: var(--link-color) !important;
     transition: color .05s ease-in-out; }
 
 .navbar-toggler {
@@ -198,26 +198,31 @@ button .material-icons-outlined {
 
 .footer {
   padding-bottom: 1em;
-  color: var(--text-color-dimmed); }
-  .footer ul {
-    padding-left: 0.5em;
-    list-style-type: none; }
-    .footer ul li a {
-      color: var(--text-color); }
-      .footer ul li a:hover {
-        color: var(--primary-color); }
+  color: var(--text-color-dimmed);
+  position: relative;
+  padding-top: 100px;
+  padding-bottom: 2rem;
+  clip-path: border-box polygon(0 100px, 0 100%, 100% 100%, 100% 0); }
+  .footer a {
+    color: var(--text-color); }
+    .footer a:hover {
+      color: var(--link-color); }
+  .footer i {
+    font-size: 1.5rem; }
+  .footer .icons {
+    gap: 0.5rem; }
 
 .error-icon {
   color: var(--error-color);
   margin-right: 0.5em; }
 
 a {
-  color: var(--primary-color); }
+  color: var(--link-color); }
   a .disabled {
     pointer-events: none;
     cursor: default; }
   a:hover {
-    color: var(--primary-color); }
+    color: var(--link-color); }
 
 .dropdown {
   color: var(--heading-color); }
@@ -557,7 +562,8 @@ button.compat {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   padding-right: 0 !important;
-  padding-left: 0 !important; }
+  padding-left: 0 !important;
+  clip-path: border-box polygon(0 0, 0 100%, 100% calc(100% - 10vw), 100% 0); }
   .home-header-contents {
     flex-direction: column;
     align-items: center;
