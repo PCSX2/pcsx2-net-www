@@ -202,7 +202,7 @@ button .material-icons-outlined {
   position: relative;
   padding-top: 100px;
   padding-bottom: 2rem;
-  clip-path: border-box polygon(0 100px, 0 100%, 100% 100%, 100% 0); }
+  clip-path: polygon(0 100px, 0 100%, 100% 100%, 100% 0); }
   .footer a {
     color: var(--text-color); }
     .footer a:hover {
@@ -563,7 +563,7 @@ button.compat {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   padding-right: 0 !important;
   padding-left: 0 !important;
-  clip-path: border-box polygon(0 0, 0 100%, 100% calc(100% - 10vw), 100% 0); }
+  clip-path: polygon(0 0, 0 100%, 100% calc(100% - 10vw), 100% 0); }
   .home-header-contents {
     flex-direction: column;
     align-items: center;
