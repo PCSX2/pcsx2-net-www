@@ -20,11 +20,10 @@
       <ul class="navbar-nav nav-right w-25 pe-3 pe-md-0 justify-content-end">
         {{ if gt (len .Site.Params.social) }}
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarLinksDropdownMenu" role="button"
-            data-mdb-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarLinksDropdownMenu" role="button" data-mdb-display="static" data-mdb-toggle="dropdown" aria-expanded="false">
             Links
           </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarLinksDropdownMenu">
+          <ul class="dropdown-menu dropdown-menu-md-end" aria-labelledby="navbarLinksDropdownMenu">
             {{ range .Site.Params.social }}
             <li class="nav-item">
               <a class="dropdown-item" href="{{ .url }}" {{ if in .url "http" }}target="blank" {{ end }}>
