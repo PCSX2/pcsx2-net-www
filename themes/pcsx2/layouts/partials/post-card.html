@@ -1,6 +1,6 @@
-{{ $imgBackground := (printf "background-image: linear-gradient( rgba(22,22,26, 0.5), rgba(22,22,26, 0.5)), url(%s%s);" site.BaseURL .post.Params.previewImage) }}
+{{ $imgBackground := (printf "background-image: linear-gradient( rgba(22,22,26, 0.5), rgba(22,22,26, 0.5)), url(%s);" .post.Params.previewImage) }}
 {{ if eq .alternateBackground true }}
-  {{ $imgBackground = (printf "background-image: linear-gradient( rgba(36,38,41, 0.5), rgba(36,38,41, 0.5)), url(%s%s);" site.BaseURL .post.Params.previewImage) }}
+  {{ $imgBackground = (printf "background-image: linear-gradient( rgba(36,38,41, 0.5), rgba(36,38,41, 0.5)), url(%s);" .post.Params.previewImage) }}
 {{ end }}
 <div class="col-12 mb-4">
   <a href="{{ .post.RelPermalink }}">
