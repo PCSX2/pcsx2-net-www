@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        <div class="d-flex flex-column min-vh-100">
+            {{- partial "navbar.html" . -}}
+            <div id="content" class="container-fluid flex-fill {{ if eq .Title "Documentation" }}hide-overflow{{ end }}">
+            {{- block "main" . }}{{- end }}
+            </div>
+            {{ if ne .Title "Documentation" }}
+                {{- partial "advertisement.html" . -}}
+                {{- partial "footer.html" . -}}
+            {{ end }}
+            {{- partial "script.html" . -}}
+        </div>
+    </body>
+</html>

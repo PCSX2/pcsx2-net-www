@@ -1,0 +1,56 @@
+{{ define "main" }}
+<div class="container-fluid vh-50 home-header align-middle">
+  <!-- <canvas id="button-canvas"></canvas> -->
+  <div id="splash-screen"></div>
+  <div class="container d-flex justify-content-center home-header-contents">
+    <h1 class="splash-title">PCSX2</h1>
+    <p class="splash-description">An Open-Source Playstation 2 Emulator</p>
+    <div class="container d-flex flex-gap justify-content-center">
+      <div class="row">
+        <div class="col no-horizontal-margins"><a role="button" class="btn btn-color-triangle" href="/downloads"><i class="fas fa-download"></i>Download</a></div>
+        <div class="col no-horizontal-margins"><a role="button" class="btn btn-color-circle" href="/docs"><i class="fas fa-book"></i>Documentation</a></div>
+        <div class="col no-horizontal-margins"><a role="button" class="btn btn-color-cross" target="blank" href="https://discord.com/invite/TCz3t9k"><i class="fab fa-discord"></i>Discuss</a></div>
+        <div class="col no-horizontal-margins"><a role="button" class="btn btn-color-square" target="blank" href="https://github.com/PCSX2/pcsx2"><i class="fab fa-github"></i>Contribute</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+{{- partial "horizontal-spacer" . -}}
+<div class="container mt-5">
+  <div class="row text-center">
+    <h2 class="page-header">Progress Reports</h2>
+  </div>
+  <div class="row mt-3">
+    {{ range .Site.RegularPages.RelatedTo (keyVals "tags" "progress-report") | first 4 }}
+    {{ partial "post-card.html" (dict "context" $ "post" .) }}
+    {{ end }}
+  </div>
+  <div class="row mt-5">
+    <div class="button d-flex justify-content-center">
+      <a role="button" class="btn btn-outline-info" href="/tags/progress-reports">
+        View More
+      </a>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="row text-center">
+    <h2 class="page-header">Blog Posts</h2>
+  </div>
+  <div class="row mt-3">
+    {{ range .Site.RegularPages.RelatedTo (keyVals "tags" "devblogs") | first 4 }}
+    {{ partial "post-card.html" (dict "context" $ "post" .) }}
+    {{ end }}
+  </div>
+  <div class="row mt-5">
+    <div class="button d-flex justify-content-center">
+      <a role="button" class="btn btn-outline-info" href="/tags/devblogs">
+        View More
+      </a>
+    </div>
+  </div>
+</div>
+<script src="https://unpkg.com/three@0.131.3/build/three.min.js"></script>
+<script src="https://www.unpkg.com/dat.gui@0.7.7/build/dat.gui.min.js"></script>
+<script src="/js/tower-gfx.js"></script>
+{{ end }}

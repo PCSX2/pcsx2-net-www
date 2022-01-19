@@ -1,0 +1,16 @@
+<div class="col-md-auto">
+  <div class="button">
+    <button
+      type="button"
+      id="compat-filter-{{ .filter }}"
+      class="btn compat-{{ .filter }} compat-filter-on"
+      data-mdb-toggle="tooltip"
+      data-mdb-placement="bottom"
+      data-mdb-trigger="hover"
+      title="{{ .explanation }}"
+    >
+      {{ if eq .filter "ingame" }} In&nbsp;Game {{ else }} {{ title .filter }}
+      {{ end }}
+    </button>
+  </div>
+</div>

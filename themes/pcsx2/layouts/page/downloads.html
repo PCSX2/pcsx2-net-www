@@ -1,0 +1,86 @@
+{{ define "main" }}
+<div class="container">
+  <div class="row mt-5">
+    <h2 class="release-type-title">Stable Releases</h2>
+    <p>
+      Here you'll find the latest stable releases of PCSX2. These release are
+      less frequent and as a result may exclude the latest features and
+      improvements but are recommended for the most predictable user experience.
+    </p>
+    <p>
+      If you think you require something that hasn't yet made it into a stable release,
+      take a look at the nightly builds below!
+    </p>
+  </div>
+  <!-- TODO Some kind of installation guide (especially for appImage) -->
+  <div class="row mt-3">
+    <h4>Latest Version - <span id="latest-stable-ver" class="version-text">??</span></h4>
+    <div class="row mt-2" id="latest-release-artifacts">
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-12">
+      <details>
+        <summary>Release Info</summary>
+        <div id="latest-stable-notes">
+        </div>
+      </details>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <h5>Previous Releases</h5>
+  </div>
+  <div class="container mt-2" id="previous-stable-releases"></div>
+  <!-- Nightly Builds -->
+  <div class="row mt-5">
+    <h2 class="release-type-title">Nightly Builds</h2>
+    <p>
+      Nightly builds are less tested than a stable release and may contain bugs
+      or regressions not yet fixed. However, they do contain the current
+      up-to-date state of the project. If you need a recently added feature or
+      fix, or want to want to assist in the testing process -- these are the
+      builds for you!
+    </p>
+    <p>
+      If you think you require something that hasn't yet made it into a release,
+      take a look at the Nightly builds below!
+    </p>
+  </div>
+  <div class="row mt-3">
+    <h4>Latest Version - <span id="latest-nightly-ver" class="version-text">??</span></h4>
+    <div class="row mt-2" id="latest-nightly-artifacts">
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-12">
+      <details>
+        <summary>Release Info</summary>
+        <div id="latest-nightly-notes">
+        </div>
+      </details>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <h5>Previous Nightlies</h5>
+  </div>
+  <div class="container mt-2" id="previous-nightly-builds"></div>
+  <!-- Test Builds -->
+  <div class="row mt-5">
+    <h2 class="release-type-title">Test Builds</h2>
+    <p>CANT DO SANELY UNTIL WE HAVE A PROPER BACKEND - GraphQL REQUIRES AUTH - My idea is to list all passing PRs</p>
+    <p>
+      These builds are in-progress changes yet to merge into PCSX2 and become part of the Nightly builds.  If you would like to assist in testing out these builds here is where you can get started.
+    </p>
+    <ul>
+      <li>Be-aware that some of these builds may be a work in-progress.  This is simply a sorted list of the most recent, successful builds.</li>
+      <li>You will need a GitHub account for these download links to work properly</li>
+      <li>If you discover a problem, you can preferably leave a comment explaining the problem and how to reproduce it on the Pull Request (also linked below)</li>
+      <li>Lastly, if you think testing is for you, consider reaching out in the discord to become a more official tester!</li>
+    </ul>
+  </div>
+</div>
+<script src="/js/thirdparty/jquery@3.6.0.min.js"></script>
+<script src="/js/thirdparty/dot@1.1.3.min.js"></script>
+<script src="/js/thirdparty/marked.min.js"></script>
+<script type="module" src="/js/release-page.js"></script>
+{{ end }}
