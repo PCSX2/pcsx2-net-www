@@ -4,8 +4,7 @@
 {{ end }}
 <div class="col-12 mb-4">
   <a href="{{ .post.RelPermalink }}">
-    <div class="card {{ if eq .animate true }} ease-in {{ end }}animate text-white post-preview{{ if eq
-      .alternateBackground true }} alternate-bg{{ end }}" style="{{ $imgBackground | safeCSS }}">
+    <div class="card {{ if eq .animate true }} ease-in {{ end }}animate text-white post-preview{{ if eq .alternateBackground true }} alternate-bg{{ end }}" style="{{ $imgBackground | safeCSS }}">
       <div class="row h-25">
         <div class="col card-title link">
           <h3>{{ .post.Title }}</h3>

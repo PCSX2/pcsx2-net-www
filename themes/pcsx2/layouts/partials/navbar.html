@@ -12,8 +12,7 @@
       <ul class="navbar-nav nav-middle w-75 pe-3 pe-md-0 justify-content-center">
         {{ range .Site.Menus.main }}
         <li class="nav-item">
-          <a class="nav-link" href="{{ .URL }}" {{ if in .URL "http" }}target="blank" {{ end }}>{{ .Name | safeHTML
-            }}</a>
+          <a class="nav-link" href="{{ .URL }}" {{ if in .URL "http" }}target="blank" {{ end }}>{{ .Name | safeHTML }}</a>
         </li>
         {{ end }}
       </ul>
