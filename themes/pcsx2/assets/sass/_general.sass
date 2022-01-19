@@ -18,6 +18,9 @@
 .vh-60
   height: 60vh
 
+.vh-100
+  height: 100vh
+
 .flex-gap *
   margin: 0.5rem
 
@@ -63,9 +66,8 @@ details > div
     top: 0
     width: 100%
     height: 100%
-    background: var(--primary-color) !important
-    background: -webkit-linear-gradient(10deg, var(--primary-color-dimmed), var(--primary-color)) !important
-    background: linear-gradient(10deg, var(--primary-color-dimmed), var(--primary-color)) !important;
+    background: -webkit-linear-gradient(10deg, var(--polygon-color-a), var(--polygon-color-b)) !important
+    background: linear-gradient(10deg, var(--polygon-color-a), var(--polygon-color-b)) !important;
     transform: skewY(-5deg) scale(1) !important
     z-index: -1
   &.bg-color::before
@@ -190,7 +192,7 @@ button .material-icons-outlined
   i
     font-size: 1.5rem;
   .icons
-    gap: 0.5rem;
+    gap: 1rem;
 
 // Icons
 .error-icon

@@ -162,7 +162,7 @@ function onWindowResize() {
 }
 
 var poorPerfFrames = 0;
-var maxPoorPerfFrames = 30;
+var maxPoorPerfFrames = 50;
 function animate() {
   var id = requestAnimationFrame(animate);
   const t0 = performance.now();

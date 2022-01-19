@@ -5,7 +5,7 @@ function setTheme(themeName) {
   if (themeName === "theme-light") {
     $("#theme-button").html('<i class="far fa-moon theme-icon" title="Change to Dark Theme"></i>');
   } else {
-    $("#theme-button").html('<i class="far fa-sun theme-icon" title="Change to Light Theme"></i>');
+    $("#theme-button").html('<i class="fas fa-sun theme-icon" title="Change to Light Theme"></i>');
   }
 }
 

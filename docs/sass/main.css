@@ -5,7 +5,8 @@
   --heading-color: #fffffe;
   --text-color: #94a1b2;
   --primary-color: #51368D;
-  --primary-color-dimmed: #262558;
+  --polygon-color-a: #262558;
+  --polygon-color-b: #51368D;
   --link-color: #7f5af0;
   --tertiary-color: #2cb67d;
   --error-color: #f25042;
@@ -20,7 +21,8 @@
   --heading-color-white: #fffffe;
   --text-color: #5f6c7b;
   --primary-color: #3da9fc;
-  --primary-color-dimmed: #e3f3ff;
+  --polygon-color-a: #59b8ff;
+  --polygon-color-b: #94d1ff;
   --link-color: #3da9fc;
   --tertiary-color: #ef4565;
   --error-color: #f25042;
@@ -45,6 +47,9 @@
 
 .vh-60 {
   height: 60vh; }
+
+.vh-100 {
+  height: 100vh; }
 
 .flex-gap * {
   margin: 0.5rem; }
@@ -88,9 +93,8 @@ details > div {
     top: 0;
     width: 100%;
     height: 100%;
-    background: var(--primary-color) !important;
-    background: -webkit-linear-gradient(10deg, var(--primary-color-dimmed), var(--primary-color)) !important;
-    background: linear-gradient(10deg, var(--primary-color-dimmed), var(--primary-color)) !important;
+    background: -webkit-linear-gradient(10deg, var(--polygon-color-a), var(--polygon-color-b)) !important;
+    background: linear-gradient(10deg, var(--polygon-color-a), var(--polygon-color-b)) !important;
     transform: skewY(-5deg) scale(1) !important;
     z-index: -1; }
   .polygon.bg-color::before {
@@ -210,7 +214,7 @@ button .material-icons-outlined {
   .footer i {
     font-size: 1.5rem; }
   .footer .icons {
-    gap: 0.5rem; }
+    gap: 1rem; }
 
 .error-icon {
   color: var(--error-color);
