@@ -1,4 +1,8 @@
 {{ define "main" }}
+<script defer src="https://unpkg.com/underscore@1.13.2/underscore-min.js"></script>
+<script defer src="https://unpkg.com/dot@1.1.3/doT.min.js"></script>
+<script defer src="https://unpkg.com/fuse.js@6.5.3/dist/fuse.min.js"></script>
+<script defer src="/js/compat-table.js"></script>
 <div class="container">
   <div class="row mt-5">
     <h2>Compatiblity List</h2>
@@ -93,9 +97,4 @@
     ></div>
   </div>
 </div>
-<script src="/js/thirdparty/jquery@3.6.0.min.js"></script>
-<script src="/js/thirdparty/underscore@1.13.1.min.js"></script>
-<script src="/js/thirdparty/dot@1.1.3.min.js"></script>
-<script src="/js/thirdparty/fuse@6.4.6.min.js"></script>
-<script src="/js/compat-table.js"></script>
 {{ end }}
