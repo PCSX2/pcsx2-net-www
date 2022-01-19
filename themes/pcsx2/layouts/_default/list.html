@@ -3,7 +3,7 @@
   <div class="row mt-5">
     {{ $currURL := .RelPermalink }}
     <div class="col-6 col-md-auto mb-2 mt-2">
-      <a role="button" class="btn btn-tags{{ if strings.HasSuffix $currURL "/blog/" }} active{{ end }}" href="{{ .Site.BaseURL }}blog/">
+      <a role="button" class="btn btn-tags{{ if strings.HasSuffix $currURL "/blog/" }} active{{ end }}" href="blog/">
         All Categories
       </a>
     </div>

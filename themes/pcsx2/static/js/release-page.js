@@ -1,5 +1,3 @@
-let baseURL = "/PCSX2.github.io";
-
 let latestArtifactDropdown = doT.template(`
 <div class="col-12 col-sm d-flex justify-content-center artifact-button">
   <div class="dropdown">
@@ -25,7 +23,7 @@ let latestArtifactDropdown = doT.template(`
 let tableLoading = doT.template(`
 <tr style="align-content: center;text-align: center;">
   <td colspan="{{= it.colspan}}">
-    <img class="loading-logo" src="${baseURL}/img/pcsx2-logo.svg">
+    <img class="loading-logo" src="/img/pcsx2-logo.svg">
   </td>
 </tr>
 `)

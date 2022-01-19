@@ -1,5 +1,3 @@
-let baseURL = "/PCSX2.github.io";
-
 // state
 let sortedData = undefined; // Initialized on page load, this should NEVER be mutated
 let currentData = undefined;
@@ -19,7 +17,7 @@ window.onload = async () => {
   document.getElementById("compat-search").value = "";
   document.activeElement.blur();
   tableLoading();
-  dataReq = await fetch(`${baseURL}/compat/data.json`);
+  dataReq = await fetch(`/compat/data.json`);
   let compatData = await dataReq.json();
   sortedData = _.sortBy(compatData, 'title');
   currentData = sortedData;
@@ -142,15 +140,15 @@ searchInput.oninput = function () {
     filterData();
   }, 250);
   let tableBody = document.getElementById("compat-table-body");
-  if (tableBody.innerHTML != `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo" src="${baseURL}/img/pcsx2-logo.svg"></object></td></tr>`) {
-    tableBody.innerHTML = `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo" src="${baseURL}/img/pcsx2-logo.svg"></object></td></tr>`;
+  if (tableBody.innerHTML != `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo" src="/img/pcsx2-logo.svg"></object></td></tr>`) {
+    tableBody.innerHTML = `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo" src="$/img/pcsx2-logo.svg"></object></td></tr>`;
   }
 }
 
 function tableLoading() {
   let tableBody = document.getElementById("compat-table-body");
-  if (tableBody.innerHTML != `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo" src="${baseURL}/img/pcsx2-logo.svg"></object></td></tr>`) {
-    tableBody.innerHTML = `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo" src="${baseURL}/img/pcsx2-logo.svg"></object></td></tr>`;
+  if (tableBody.innerHTML != `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo" src="/img/pcsx2-logo.svg"></object></td></tr>`) {
+    tableBody.innerHTML = `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo" src="/img/pcsx2-logo.svg"></object></td></tr>`;
   }
 }
 
