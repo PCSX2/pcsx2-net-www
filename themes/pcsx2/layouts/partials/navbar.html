@@ -35,9 +35,9 @@
         </li>
         {{ end }}
       </ul>
-      <ul class="nav navbar-nav w-25 justify-content-end align-items-center">
+      <ul class="nav navbar-nav w-25 justify-content-end align-items-center {{ if .IsHome }}left-align-when-collapsed{{ else }}{{ end }}">
         {{ if gt (len .Site.Params.social) }}
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown dropend">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
             data-mdb-toggle="dropdown" aria-expanded="false">
             Related Links

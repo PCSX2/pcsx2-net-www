@@ -42,6 +42,25 @@
 
 /* General Classes */
 
+.tertiary-color {
+  color: var(--tertiary-color);
+}
+
+.markdown-content blockquote {
+  padding: 0 1em;
+  color: var(--text-color);
+  border-left: .25em solid var(--secondary-bg-color);
+}
+
+.markdown-content h3, h4 {
+  color: var(--heading-color);
+  margin-bottom: 1rem;
+}
+
+.markdown-content img {
+  width: 100%;
+}
+
 body {
   background-color: var(--main-bg-color);
   color: var(--text-color);
@@ -68,10 +87,6 @@ h1, h2 {
 .btn > i {
   margin: 0;
   margin-right: 0.5em;
-}
-
-.btn:hover {
-  color: #000;
 }
 
 .no-horizontal-margins {
@@ -266,7 +281,10 @@ td > ul {
   border-bottom-color: #2cb67d;
   border-bottom-width: 2px;
   border-bottom-style: solid;
-  /* padding: 0; */
+}
+
+.navbar:not(.scrolled) ul.left-align-when-collapsed {
+  align-items: flex-start !important;
 }
 
 .nav-icon {
@@ -414,6 +432,7 @@ td > ul {
 .card:hover {
   transform: translate3d(5px, -5px, 0);
   transition: color .15s ease-in-out;
+  outline: 2px var(--tertiary-color) solid;
 }
 
 .btn-outline-info:hover {

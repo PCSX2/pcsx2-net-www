@@ -1,4 +1,7 @@
 baseURL: 'https://pcsx2.net/'
+publishDir: 'docs/'
+permalinks:
+  posts: /:year/:month/:title/
 disableKinds:
   # users dont need to see the taxonomy listing pages
   - "taxonomy"
@@ -25,6 +28,10 @@ markup:
     noClasses: true
     style: monokai
     tabWidth: 4
+  tableOfContents:
+    ordered: false
+    endLevel: 3
+    startLevel: 2
 enableEmoji: true
 # Website Parameters
 params:

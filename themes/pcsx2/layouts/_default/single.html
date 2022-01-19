@@ -2,12 +2,17 @@
 <div class="container">
   <div class="row mt-5 mb-3">
     <div class="col-12">
-      <h2>{{ .Title }}</h2>
+      <h1>{{ .Title }}</h1>
       {{ partial "metadata.html" . }}
     </div>
   </div>
   <div class="row mb-3">
-    <div class="col-12">
+    <aside>
+      {{ partial "toc" . }}
+    </aside>
+  </div>
+  <div class="row mb-3">
+    <div class="col-12 markdown-content">
       {{ .Content }}
     </div>
   </div>
