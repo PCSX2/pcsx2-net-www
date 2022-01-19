@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<script>
+    // Do this asap to reduce style popping
+    var savedTheme = localStorage.getItem('pcsx2-theme');
+    if (savedTheme !== undefined && savedTheme === "theme-light") {
+        document.documentElement.className = "theme-light";
+    } else {
+        document.documentElement.className = "theme-dark";
+    }
+</script>
+{{- partial "head.html" . -}}
+<body>
+    <div class="d-flex flex-column min-vh-100">
+        {{- partial "navbar.html" . -}}
+        <div id="content" class="container-fluid flex-fill {{ if strings.HasSuffix .Permalink " docs/" }}hide-overflow{{
+            end }}">
+            {{- block "main" . }}{{- end }}
+        </div>
+        {{ if not (strings.HasSuffix .Permalink "docs/") }}
+        {{- partial "footer.html" . -}}
+        {{ end }}
+    </div>
+</body>
+</html>

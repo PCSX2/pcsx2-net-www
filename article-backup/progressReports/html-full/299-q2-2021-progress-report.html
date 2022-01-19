@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en-gb" xml:lang="en-gb" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <base href="https://pcsx2.net/eula/79-frontpage-news/299-q2-2021-progress-report.html"/>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="pcsx2, pc, ps2, emulation, emulator, playstation, games, geforce, radeon, intel, amd, f2p, gaming, video games, sony, game, play, free, download, freeware, online" name="keywords"/>
+  <meta content="bositman" name="author"/>
+  <meta content="PCSX2 a Playstation 2 emulator for Windows, Linux and Mac" name="description"/>
+  <meta content="Joomla! - Open Source Content Management" name="generator"/>
+  <title>
+   PCSX2 - The Playstation 2 emulator - Q2 2021 Progress Report
+  </title>
+  <link href="https://pcsx2.net/component/search/?Itemid=663&amp;catid=79&amp;id=299&amp;format=opensearch" rel="search" title="Search PCSX2 - The Playstation 2 emulator" type="application/opensearchdescription+xml"/>
+  <link href="/index.php?jat3action=gzip&amp;jat3type=css&amp;jat3file=cache%2Ft3%2Fcss_a5b86.css" rel="stylesheet" type="text/css"/>
+  <script class="joomla-script-options new" type="application/json">
+   {"csrf.token":"92e57db62bb69a21c2fda69940a36bb0","system.paths":{"root":"","base":""}}
+  </script>
+  <script src="https://pcsx2.net/plugins/system/yvsmiley/default.js" type="text/javascript">
+  </script>
+  <script src="/media/system/js/mootools-core.js" type="text/javascript">
+  </script>
+  <script src="/media/system/js/core.js" type="text/javascript">
+  </script>
+  <script src="/media/jui/js/jquery.min.js" type="text/javascript">
+  </script>
+  <script src="/media/jui/js/jquery-noconflict.js" type="text/javascript">
+  </script>
+  <script src="/media/jui/js/jquery-migrate.min.js" type="text/javascript">
+  </script>
+  <script src="/media/system/js/caption.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/core.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/menu/mega.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/fadeinout.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/mootools-more-s.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/resize.js" type="text/javascript">
+  </script>
+  <script src="/libraries/videobox/js/videobox.js" type="text/javascript">
+  </script>
+  <script src="/libraries/videobox/js/functions.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+  </script>
+  <!--[if ie]><link href="/plugins/system/jat3/jat3/base-themes/default/css/template-ie.css" type="text/css" rel="stylesheet" /><![endif]-->
+  <!--[if ie 7]><link href="/plugins/system/jat3/jat3/base-themes/default/css/template-ie7.css" type="text/css" rel="stylesheet" /><![endif]-->
+  <!--[if ie 7]><link href="/templates/business8/css/template-ie7.css" type="text/css" rel="stylesheet" /><![endif]-->
+  <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <style type="text/css">
+   /*dynamic css*/
+
+    body.bd .main {width: 100%;}
+    body.bd #ja-wrapper {min-width: 100%;}
+  </style>
+  <script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+  </script>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-387767-1', 'pcsx2.net');
+  ga('send', 'pageview');
+  </script>
+  <!-- Universal Google Analytics Plugin by PB Web Development -->
+ </head>
+ <body class="bd fs3 com_content">
+  <a id="Top">
+  </a>
+  <div id="ja-wrapper">
+   <div class="wrap" id="ja-header">
+    <div class="main">
+     <div class="main-inner1 clearfix">
+      <a href="/" title="PCSX2 - The Playstation 2 emulator">
+       <img alt="PCSX2 homepage" height="120" src="/templates/business8/themes/classic/images/logo_classic.png" width="452"/>
+      </a>
+     </div>
+    </div>
+   </div>
+   <div id="ja-cpanel-wrapper">
+    <div id="ja-cpanel">
+     <div id="ja-cpanel-main">
+      <div class="ja-cpanel-tools clearfix">
+       <h3>
+        Font Size
+       </h3>
+       <div class="ja-box-usertools">
+        <ul class="ja-usertools-font clearfix">
+         <li class="font-inc">
+          <a onclick="switchFontSize('business8_font', 'inc');return false;" title="Increase font size">
+           <span>
+            Increase font size
+           </span>
+          </a>
+         </li>
+         <li class="font-dec">
+          <a onclick="switchFontSize('business8_font', 'dec');return false;" title="Decrease font size">
+           <span>
+            Decrease font size
+           </span>
+          </a>
+         </li>
+         <li class="font-reset">
+          <a onclick="switchFontSize('business8_font', 'reset');return false;" title="Default font size">
+           <span>
+            Default font size
+           </span>
+          </a>
+         </li>
+        </ul>
+       </div>
+       <script type="text/javascript">
+        var DefaultFontSize=parseInt('3');
+  var CurrentFontSize=parseInt('3');
+       </script>
+       <h3>
+        Profile
+       </h3>
+       <div class="ja-box-usertools">
+        <ul class="ja-usertools-profile clearfix">
+         <li class="profile profile-active">
+          <input checked="checked" id="user_profile_classic" name="user_profile" type="radio" value="classic"/>
+          <label for="user_profile_classic" title="classic">
+           <span>
+            classic
+           </span>
+          </label>
+         </li>
+         <li class="profile">
+          <input id="user_profile_default" name="user_profile" type="radio" value="default"/>
+          <label for="user_profile_default" title="default">
+           <span>
+            default
+           </span>
+          </label>
+         </li>
+        </ul>
+       </div>
+       <h3>
+        Layout
+       </h3>
+       <div class="ja-box-usertools">
+        <ul class="ja-usertools-layout clearfix">
+         <li class="layout layout-default-active">
+          <input checked="checked" id="user_layouts_default" name="user_layouts" type="radio" value="default"/>
+          <label for="user_layouts_default" title="default">
+           <span>
+            default
+           </span>
+          </label>
+         </li>
+         <li class="layout layout-no-bottom-boxes">
+          <input id="user_layouts_no-bottom-boxes" name="user_layouts" type="radio" value="no-bottom-boxes"/>
+          <label for="user_layouts_no-bottom-boxes" title="no-bottom-boxes">
+           <span>
+            no-bottom-boxes
+           </span>
+          </label>
+         </li>
+         <li class="layout layout-no-latest-boxes">
+          <input id="user_layouts_no-latest-boxes" name="user_layouts" type="radio" value="no-latest-boxes"/>
+          <label for="user_layouts_no-latest-boxes" title="no-latest-boxes">
+           <span>
+            no-latest-boxes
+           </span>
+          </label>
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div class="ja-cpanel-action clearfix">
+       <a class="button" href="#" onclick="cpanel_apply();return false;" title="Apply setting">
+        <span>
+         Apply
+        </span>
+       </a>
+       <a href="#" onclick="cpanel_reset();return false;" title="Reset to default setting">
+        <span>
+         Reset
+        </span>
+       </a>
+      </div>
+     </div>
+     <a href="#" id="ja-cpanel-toggle">
+      <span>
+       Cpanel
+      </span>
+     </a>
+    </div>
+   </div>
+   <script type="text/javascript">
+    var tmpl_name = 'business8';
+    window.addEvent('load', function () {
+        $('ja-cpanel-toggle').status == 'close';
+        $('ja-cpanel-toggle').slider = new Fx.Slide('ja-cpanel-main', {duration: 400});
+        $('ja-cpanel-toggle').slider.hide();
+        $('ja-cpanel').setStyle ('top', 0);
+        $('ja-cpanel-toggle').addEvent ('click', function (e) {
+            this.slider.toggle();
+            if (this.hasClass ('open')) {
+                this.removeClass ('open').addClass ('close');
+            } else {
+                this.removeClass ('close').addClass ('open');
+            }
+
+            if(e){
+                e.stop();
+            }
+        });
+    });
+   </script>
+   <div class="wrap" id="ja-mainnav">
+    <div class="main">
+     <div class="main-inner1 clearfix">
+      <div class="ja-megamenu clearfix" id="ja-megamenu">
+       <ul class="megamenu level0">
+        <li class="mega first">
+         <a class="mega first" href="https://pcsx2.net/" id="menu435" title="Home">
+          <span class="has-image has-desc" style="background-image:url(/images/stories/frontend/static/home-icon.png);">
+           <span class="menu-title">
+            Home
+           </span>
+           <span class="menu-desc">
+            News
+           </span>
+          </span>
+         </a>
+        </li>
+        <li class="mega">
+         <a class="mega" href="/getting-started.html" id="menu455" title="Getting Started">
+          <span class="has-image has-desc" style="background-image:url(/images/stories/frontend/static/getting-started-icon.png);">
+           <span class="menu-title">
+            Getting Started
+           </span>
+           <span class="menu-desc">
+            Start here!
+           </span>
+          </span>
+         </a>
+        </li>
+        <li class="mega haschild">
+         <a class="mega haschild" href="/download.html" id="menu506" title="Download">
+          <span class="menu-title">
+           Download
+          </span>
+          <span class="menu-desc">
+           Get PCSX2 here
+          </span>
+         </a>
+         <div class="childcontent cols2">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 240px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="/download/releases.html" id="menu507" title="Releases">
+                  <span class="menu-title">
+                   Releases
+                  </span>
+                  <span class="menu-desc">
+                   Latest stable releases
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="/download/releases/windows.html" id="menu515" title="Windows">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-For-Windows-s.png);">
+                     <span class="menu-title">
+                      Windows
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/linux.html" id="menu517" title="Linux">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-For-Linux-s.png);">
+                     <span class="menu-title">
+                      Linux
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/mac.html" id="menu518" title="Mac">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-For-Mac-s.png);">
+                     <span class="menu-title">
+                      Mac
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/source-code.html" id="menu566" title="Source code">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-Source-code.png);">
+                     <span class="menu-title">
+                      Source code
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/archive-download.html" id="menu543" title="Archive downloads">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-archive.png);">
+                     <span class="menu-title">
+                      Archive downloads
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega last">
+                   <a class="mega last" href="/download/releases/tools.html" id="menu571" title="Tools">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-tool.png);">
+                     <span class="menu-title">
+                      Tools
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+            <div class="megacol column2 last" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="/download/development.html" id="menu525" title="Development">
+                  <span class="menu-title">
+                   Development
+                  </span>
+                  <span class="menu-desc">
+                   Daily development builds, possibly unstable
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="/download/development/dev-windows.html" id="menu526" title="Windows">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/svn-icon.png);">
+                     <span class="menu-title">
+                      Windows
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega last">
+                   <a class="mega last" href="https://launchpad.net/%7Epcsx2-team/+archive/ubuntu/pcsx2-daily" id="menu1431" target="_blank" title="Linux">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/svn-icon.png);">
+                     <span class="menu-title">
+                      Linux
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+        <li class="mega haschild">
+         <a class="mega haschild" href="https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/Configuration_Guide/Configuration_Guide.md" id="menu508" title="Guide">
+          <span class="menu-title">
+           Guide
+          </span>
+          <span class="menu-desc">
+           Config Guide
+          </span>
+         </a>
+         <div class="childcontent cols2">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first" href="https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/Configuration_Guide/Configuration_Guide.md" id="menu509" title="English guide">
+                  <span class="menu-title">
+                   English guide
+                  </span>
+                 </a>
+                </div>
+               </div>
+              </li>
+              <li class="mega">
+               <a class="mega" href="/config-guide/guide-translations.html" id="menu594" title="Guide translations">
+                <span class="menu-title">
+                 Guide translations
+                </span>
+               </a>
+              </li>
+             </ul>
+            </div>
+            <div class="megacol column2 last" style="width: 250px;">
+             <ul class="megamenu level1">
+              <li class="mega first">
+               <a class="mega first" href="https://forums.pcsx2.net/Thread-Program-and-Guide-translation-applications" id="menu568" target="_blank" title="Translate it!">
+                <span class="menu-title">
+                 Translate it!
+                </span>
+                <span class="menu-desc">
+                 Translate the guide or program to your language
+                </span>
+               </a>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+        <li class="mega haschild">
+         <a class="mega haschild" href="#" id="menu546" title="Support">
+          <span class="menu-title">
+           Support
+          </span>
+          <span class="menu-desc">
+           Need help?
+          </span>
+         </a>
+         <div class="childcontent cols2">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="https://forums.pcsx2.net" id="menu547" target="_blank" title="Support Forum">
+                  <span class="menu-title">
+                   Support Forum
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="https://forums.pcsx2.net" id="menu550" target="_blank" title="Official forum">
+                    <span class="menu-title">
+                     Official forum
+                    </span>
+                    <span class="menu-desc">
+                     Join thousands of members to get help!
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+            <div class="megacol column2 last" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="#" id="menu548" title="Useful info">
+                  <span class="menu-title">
+                   Useful info
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/PCSX2_FAQ.md" id="menu549" title="Frequently Asked Questions">
+                    <span class="menu-title">
+                     Frequently Asked Questions
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega last">
+                   <a class="mega last" href="https://wiki.pcsx2.net" id="menu599" target="_blank" title="PCSX2 Wiki">
+                    <span class="menu-title">
+                     PCSX2 Wiki
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+        <li class="mega">
+         <a class="mega" href="/compatibility-list.html" id="menu512" title="Compatibility">
+          <span class="has-image has-desc" style="background-image:url(/images/stories/frontend/static/compat-menu.png);">
+           <span class="menu-title">
+            Compatibility
+           </span>
+           <span class="menu-desc">
+            Check your games!
+           </span>
+          </span>
+         </a>
+        </li>
+        <li class="mega last haschild">
+         <a class="mega last haschild" href="/demo-videos-screenshots.html" id="menu544" title="Demo">
+          <span class="menu-title">
+           Demo
+          </span>
+          <span class="menu-desc">
+           Screens and videos
+          </span>
+         </a>
+         <div class="childcontent cols1">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first">
+               <a class="mega first" href="/demo-videos-screenshots/screenshots.html" id="menu567" title="Screenshots">
+                <span class="menu-title">
+                 Screenshots
+                </span>
+               </a>
+              </li>
+              <li class="mega">
+               <a class="mega" href="/demo-videos-screenshots/videos.html" id="menu595" title="Videos">
+                <span class="menu-title">
+                 Videos
+                </span>
+               </a>
+              </li>
+              <li class="mega last">
+               <a class="mega last" href="https://www.youtube.com/user/PCSX2team" id="menu651" target="_blank" title="Youtube Channel">
+                <span class="menu-title">
+                 Youtube Channel
+                </span>
+               </a>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+       </ul>
+      </div>
+      <script type="text/javascript">
+       var megamenu = new jaMegaMenuMoo ('ja-megamenu', {
+                    'bgopacity': 0,
+                    'delayHide': 10,
+                    'slide'    : 0,
+                    'fading'   : 0,
+                    'direction': 'down',
+                    'action'   : 'mouseover',
+                    'tips'     : false,
+                    'duration' : 300,
+                    'hidestyle': 'fastwhenshow'
+                });
+      </script>
+      <!-- jdoc:include type="menu" level="0" / -->
+      <ul class="no-display">
+       <li>
+        <a href="#ja-content" title="Skip to content">
+         Skip to content
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <!-- MAIN CONTAINER -->
+   <div class="wrap ja-l1" id="ja-container">
+    <div class="main clearfix">
+     <div id="ja-mainbody" style="width:100%">
+      <!-- CONTENT -->
+      <div id="ja-main" style="width:85%">
+       <div class="inner clearfix">
+        <div id="system-message-container">
+        </div>
+        <div class="clearfix" id="ja-contentwrap">
+         <div class="column" id="ja-content" style="width:100%">
+          <div class="column" id="ja-current-content" style="width:100%">
+           <div class="ja-content-main clearfix" id="ja-content-main">
+            <div class="single-article">
+             <div class="item-page clearfix">
+              <h2 class="contentheading">
+               <a href="/299-q2-2021-progress-report.html">
+                Q2 2021 Progress Report
+               </a>
+              </h2>
+              <div style="text-align:center;">
+               <ins class="adsbygoogle" data-ad-client="ca-pub-7741304783035041" data-ad-type="text_image" data-color-bg="FFFFFF" data-color-border="000000" data-color-link="0088CC" data-color-text="555555" data-color-url="AAAAAA" style="display:inline-block;width:468px;height:60px">
+               </ins>
+               <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+               </script>
+              </div>
+              <p>
+               <img alt="progress rep q2 2021" height="104" src="/images/stories/frontend/progress_reports/q2-2021/progrepq22021.jpg" style="display: block; margin-left: auto; margin-right: auto;" width="563"/>
+              </p>
+              <p style="text-align: center;">
+               Written by
+               <a href="https://forums.pcsx2.net/User-lightningterror" rel="noopener" target="_blank">
+                lightningterror
+               </a>
+              </p>
+              <h1>
+               Core Improvements
+              </h1>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                DEV9 improvements:
+               </strong>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4381">
+                #4381
+               </a>
+               DEV9: Do not apply byteswapping to TX/RX FIFO writes/reads. By
+               <a href="https://github.com/TheLastRar">
+                TheLastRar
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Remove the byte swapping done to TX/RX FIFO writes/reads performed via registers.
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes Twisted Metal: Black Online Public Beta v. 1.0 unable to initialize network adapter.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4364">
+                #4364
+               </a>
+               DEV9: add ATA Idle Immediate (E1) stub. By
+               <a href="https://github.com/macmenot">
+                macmenot
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes HDD support for Street Fighter Alpha Anthology.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4403">
+                #4403
+               </a>
+               DEV9: consistently prefix all console output with DEV9. By
+               <a href="https://github.com/macmenot">
+                macmenot
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4429">
+                #4429
+               </a>
+               DEV9: Update ATA code for wchar GHC. By
+               <a href="https://github.com/TheLastRar">
+                TheLastRar
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4496">
+                #4496
+               </a>
+               DEV9: PCAP, check size of read packet. By
+               <a href="https://github.com/TheLastRar">
+                TheLastRar
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               In pcap, check size of read packet. If the size exceeds the buffer we are using, drop the packet.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4448">
+                #4448
+               </a>
+               DEV9: Always use binary mode for HDD file. By
+               <a href="https://github.com/TheLastRar">
+                TheLastRar
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Opening the file in binary mode is the intended behaviour (and was done in the most common situation),
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4449">
+                #4449
+               </a>
+               DEV9: Fix potential out of bounds access when manual DNS1 &amp; automatic DNS2 are used together. By
+               <a href="https://github.com/TheLastRar">
+                TheLastRar
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               If DNS1 was manually specified, but DNS2 set to be automatically assigned, an off by one error could result in an out of bounds access to an array of adapter DNS addresses.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4442">
+                #4442
+               </a>
+               DEV9: Increase min HDD size to 40GiB. By
+               <a href="https://github.com/TheLastRar">
+                TheLastRar
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Most games expect a HDD of 40GiB in size, and may fail to install as a result (and display a confusing error message).
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4304">
+                #4304
+               </a>
+               DEV9: Internal DHCP support. By
+               <a href="https://github.com/TheLastRar">
+                TheLastRar
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Adds an internal DHCP similer to what CLR_DEV9 offers for pcap &amp; tap.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4433">
+                #4433
+               </a>
+               DEV9: Correctly populate DNS2 field with DNS2 IP. By
+               <a href="https://github.com/TheLastRar">
+                TheLastRar
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Correctly populate DNS2 field with DNS2 IP in the DHCP section of the network ui.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4435">
+                #4435
+               </a>
+               DEV9: Sleep instead of yield in RxThread. By
+               <a href="https://github.com/TheLastRar">
+                TheLastRar
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Yield might not leave the thread asleep long enough to prevent it from causing excessive CPU load.
+               <br/>
+               This also brings PCSX2 inline with CLR_DEV9 (which also sleeps for 1ms).
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                Memory card improvements:
+               </strong>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3941">
+                #3941
+               </a>
+               Memory card: Folder memcards: Add an index file to track order of files. By
+               <a href="https://github.com/CookiePLMonster">
+                CookiePLMonster
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Adds an index file for folder memory cards in order to track timestamps and order of files in the FAT partition properly. This normally shouldn't matter, but there are at least a few games (ie. GTA games) which rely on the order of files on the memory card. Previously, folder memcards would not care about the order and populate the partition in whatever order the host filesystem provided the files (so, in the case of NTFS partitions, alphabetically). In reality, FAT partitions don't specify the order of files, which means in practice they are sorted by the order of creation.
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes saving in GTA games with folder memory cards.
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                microVU improvements:
+               </strong>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/6f7890b709d5e3f7f5b824781e493455efc92339">
+                6f7890b
+               </a>
+               microVU: Fix mistake when setting Status Flag bits for Signed/Zero. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                Gif improvements:
+               </strong>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/b60765e976f6b1c45117bbdd042f8d6698c63002">
+                b60765e
+               </a>
+               Gif: Remove MTVU spam that isn't required. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Solves stuttering in MTVU mode in some games, and gets rid of some annoying asserts which mean nothing.
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                SPU2 improvements:
+               </strong>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3825">
+                #3825
+               </a>
+               SPU2: Change default of latency slider. By
+               <a href="https://github.com/RedDevilus">
+                RedDevilus
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/17519c21b4eeefbadaad3374bd98bdd43d44f1a6">
+                17519c2
+               </a>
+               SPU2: Fix hi def audio streaming. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4474">
+                #4474
+               </a>
+               SPU2: Remove cycleptr, grab current cycles directly. By
+               <a href="https://github.com/Ziemas">
+                Ziemas
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               This just changes the SPU2 to get the current IOP cycle directly instead of through a pointer. The non-pointer path seems to have been given up on anyway and there seems to be little reason for hiding it behind a pointer.
+              </p>
+              <p style="padding-left: 40px;">
+               This removes the path where SPU2 runs off the provided cycle argument to SPU2Async, but that was unused anyway.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4437">
+                #4437
+               </a>
+               SPU: Make SPU use the DMA registers from iopHw. By
+               <a href="https://github.com/Ziemas">
+                Ziemas
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               The SPU was managing its own DMA Addresses, this makes it use the iopHw functionality for this instead.
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                PAD improvements:
+               </strong>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4331">
+                #4331
+               </a>
+               PAD: Just enable pressure on CMD 0x4F. By
+               <a href="https://github.com/KrossX">
+                KrossX
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes Warriors of Might and Magic gamepad not functioning properly.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4466">
+                #4466
+               </a>
+               PAD: Fix gamepad choice not affecting rumble test on Linux. By
+               <a href="https://github.com/Lahvuun">
+                Lahvuun
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               This change causes the currently selected gamepad to rumble instead of the first one.
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                Eyetoy improvements:
+               </strong>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4415">
+                #4415
+               </a>
+               Eyetoy: Motion button support. By
+               <a href="https://github.com/Florin9doi">
+                Florin9doi
+               </a>
+               .
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                Debuggers improvements:
+               </strong>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4345">
+                #4345
+               </a>
+               Debugger: Bios thread view support. By
+               <a href="https://github.com/F0bes">
+                F0bes
+               </a>
+               .
+              </p>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                Misc core improvements:
+               </strong>
+              </p>
+              <p>
+               #
+               <a href="https://github.com/PCSX2/pcsx2/pull/4399">
+                4399
+               </a>
+               Core / VU: Disable MTVU when VU1 Interpreter is selected. By
+               <a href="https://github.com/F0bes">
+                F0bes
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/3860">
+                #3860
+               </a>
+               FPU: Remove FPU Compare Hack. By
+               <a href="https://github.com/kozarovv">
+                kozarovv
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               The hack is no longer needed as full Clamping mode can be used instead.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4461">
+                #4461
+               </a>
+               Misc: Differentiate Impossible block clearing message from IOP &amp; EE. By
+               <a href="https://github.com/F0bes">
+                F0bes
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Prefix the "Impossible block clearing failure" with "[IOP]" or "[EE]" depending on the recompiler.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4425">
+                #4425
+               </a>
+               PSX: Fix Emulated PSX GPU Version. By
+               <a href="https://github.com/Nobbs66">
+                Nobbs66
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Previously it was thought that the PS2 would emulate the v2 GPU, but hardware tests show that it emulates the V0 GPU.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4460">
+                #4460
+               </a>
+               Core: Make DMA's instant during the BIOS. By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               ,
+               <a href="https://github.com/tadanokojin">
+                tadanokojin
+               </a>
+               , and
+               <a class="user-mention" data-hovercard-type="user" data-hovercard-url="/users/PSI-Rockin/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/PSI-Rockin">
+                PSI-Rockin
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               This hackfixes the BIOS to avoid a Data Cache bug caused by a DMA buffer being overwritten during a transfer without waiting, which messes up the fonts in the BIOS. Fixing this correctly would require implementing the Data Cache, which is something which would make the emulator basically unusable, so this is a reasonable solution, it is only enabled during the BIOS screen.
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes certain bios revisions rendering text incorrectly.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4498">
+                #4498
+               </a>
+               iR5900: Move recConstBuf memory near recompiler memory. By
+               <a href="https://github.com/tellowkrinkle">
+                TellowKrinkle
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Fixes an issue where recConstBuf was too far away from the main recompiler to LEA in 64-bit builds.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4482">
+                #4482
+               </a>
+               CDVD: Fix disc drive path issues on Windows. By
+               <a href="https://github.com/turtlelic">
+                turtleli
+               </a>
+               .
+              </p>
+              <ul>
+               <li>
+                Fixes
+                <span class="reference">
+                 <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-hovercard-type="issue" data-hovercard-url="/PCSX2/pcsx2/issues/3910/hovercard" data-id="738529974" data-permission-text="Title is private" data-url="https://github.com/PCSX2/pcsx2/issues/3910" href="https://github.com/PCSX2/pcsx2/issues/3910">
+                  CDVD Regression: Booting a physical disc inserted after opening PCSX2 doesn't work.
+                  <span class="issue-shorthand">
+                   #3910
+                  </span>
+                 </a>
+                </span>
+                (Regression only affects Windows).
+               </li>
+               <li>
+                Fixes an issue where the drive choice is cleared if there is no disc in the selected drive when PCSX2 is first opened (Should only affect Windows, but non-Windows only code is touched too).
+               </li>
+              </ul>
+              <hr/>
+              <h1>
+               GSdx Improvements
+              </h1>
+              <p>
+               <strong>
+                <span style="color: #00ccff;">
+                 [Enhancement]
+                </span>
+                Misc GSdx improvements:
+               </strong>
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4350">
+                #4350
+               </a>
+               GSdx-gui: Remove partial and full crc hack levels on release builds. By
+               <a href="https://github.com/lightningterror">
+                lightningterror
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Normal users shouldn't really need to choose partial or full since automatic already does that.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4383">
+                #4383
+               </a>
+               GSdx-hw: Some minor cleanups. By
+               <a href="https://github.com/lightningterror">
+                lightningterror
+               </a>
+               .
+              </p>
+              <hr/>
+              <h1>
+               TAS (Tool Assisted Speedrun) Utility Improvements
+              </h1>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4382">
+                #4382
+               </a>
+               Recording: Resolve crash when closing emulator involving GUI elements. By
+               <a href="https://github.com/xTVaser">
+                xTVaser
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/e50a4463a532379296a7bc97195f899aa215514d">
+                e50a446
+               </a>
+               Recording-gui: Add close box to New Input Recording. By
+               <a href="https://github.com/lightningterror">
+                lightningterror
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4393">
+                #4393
+               </a>
+               Recording: Allow configuration of the frame advance amount. By
+               <a href="https://github.com/xTVaser">
+                xTVaser
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Adds a GUI configurable setting to control how many frames the frame-advance feature should advance.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4392">
+                #4392
+               </a>
+               Recording: Add warning when creating a save-state recording. By
+               <a href="https://github.com/xTVaser">
+                xTVaser
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Adds a brief warning explaining why you may want to avoid save-state recordings, and what would have to be done if a bad state is achieved.
+              </p>
+              <hr/>
+              <h1>
+               IPC (Interprocess Communication) Improvements
+              </h1>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4337">
+                #4337
+               </a>
+               IPC: Remove possible memory corruption due to strcat on provided pointer. By
+               <a href="https://github.com/GovanifY">
+                GovanifY
+               </a>
+               .
+              </p>
+              <hr/>
+              <h1>
+               GameDB Improvements
+              </h1>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/commit/467659200dd8165444eae402350b56f8ec2f26cf">
+                4676592
+               </a>
+               GameDB: Add patches for Elemental Gerad and K-1 Grand Prix 2006.By
+               <a href="https://github.com/refractionpcsx2">
+                refractionpcsx2
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4388">
+                #4388
+               </a>
+               GameDB: Adds fixes for Energy Airforce - Aim Strike , K-1 World Grand Prix 2006. By
+               <a href="https://github.com/Mrlinkwii">
+                Mrlinkwii
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4405">
+                #4405
+               </a>
+               GameDB: add Nearest EErounding to SSX and SSX tricky. By
+               <a href="https://github.com/Mrlinkwii">
+                Mrlinkwii
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4462">
+                #4462
+               </a>
+               GameDB: Add Kickstart for Rayman Raving Rabbids. By
+               <a href="https://github.com/icup321">
+                icup321
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4478">
+                #4478
+               </a>
+               GameDB: Adds VU clamping mode extra to Enthusia Professional Racing. By
+               <a href="https://github.com/Mrlinkwii">
+                Mrlinkwii
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4488">
+                #4488
+               </a>
+               GameDB: Remove no longer needed 'OPHFLagHack' for Naruto - Uzumaki Chronicles 2. By
+               <a href="https://github.com/Mrlinkwii">
+                Mrlinkwii
+               </a>
+               .
+              </p>
+              <hr/>
+              <h1>
+               Misc Improvements
+              </h1>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4278">
+                #4278
+               </a>
+               GUI: Grayout Instant VU1 when MTVU is enabled. By
+               <a href="https://github.com/RedDevilus">
+                RedDevilus
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4377">
+                #4377
+               </a>
+               GUI: Revise console with newline on compile + title. By
+               <a href="https://github.com/RedDevilus">
+                RedDevilus
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4416">
+                #4416
+               </a>
+               GUI: Swap buttons Browse... and Ask when booting and default to unchecked state. By
+               <a href="https://github.com/RedDevilus">
+                RedDevilus
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4378">
+                #4378
+               </a>
+               GUI: change window to debug in the menu and move blockdump to the debug menu. By
+               <a href="https://github.com/Mrlinkwii">
+                Mrlinkwii
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4431">
+                #4431
+               </a>
+               GUI: update the 2 smaller app icons. By
+               <a href="https://github.com/Mrlinkwii">
+                Mrlinkwii
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4438">
+                #4438
+               </a>
+               GUI: change 'Console to Stdio' to 'Program Log to Stdio' in UI. By
+               <a href="https://github.com/Mrlinkwii">
+                Mrlinkwii
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4454">
+                #4454
+               </a>
+               GUI: Rename PSX references to PS1 distinguish between PS1 and DVR. By
+               <a href="https://github.com/Florin9doi">
+                Florin9doi
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4329">
+                #4329
+               </a>
+               Misc: Remove SSE2/SSE3 support. By
+               <a href="https://github.com/GovanifY">
+                GovanifY
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Moving forward with our goal to clean up and modernize the code we are removing SSE2/3 support.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4444">
+                #4444
+               </a>
+               Misc: Save ELF last path when auto-running an elf. By
+               <a href="https://github.com/F0bes">
+                F0bes
+               </a>
+               .
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4343">
+                #4343
+               </a>
+               Misc: Enable GS debugger on CI artifacts. By
+               <a href="https://github.com/lightningterror">
+                lightningterror
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Adds an CI environment variable to enable GS debugger on CI artifacts. This can also be enabled locally to enable the GS debugger.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4418">
+                #4418
+               </a>
+               CI: Validate GameDB changes in GitHub Actions. By
+               <a href="https://github.com/xTVaser">
+                xTVaser
+               </a>
+               .
+              </p>
+              <p style="padding-left: 40px;">
+               Currently, the emulator will fully validate the GameDB, which is how we've been catching these recent mistakes. But this adds a CI check to validate the file in a very similar manner at build time.
+              </p>
+              <p>
+               <a href="https://github.com/PCSX2/pcsx2/pull/4180">
+                #4180
+               </a>
+               CI: Add an explicit flag to retain debugging artifacts (.pdb, .exp, .lib, etc) in Windows builds. By
+               <a href="https://github.com/xTVaser">
+                xTVaser
+               </a>
+               .
+              </p>
+              <hr/>
+              <p style="text-align: center;">
+               dev 1165 and up (last add 1296)
+              </p>
+              <p style="text-align: center;">
+               And that's all from us, see you next time in our 2021 Q3 Report!
+              </p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- //CONTENT -->
+      <!-- LEFT COLUMN-->
+      <div class="column sidebar" id="ja-left" style="width:15%">
+       <div class="ja-colswrap clearfix ja-l1">
+        <div class="ja-col column" id="ja-left1" style="width:100%">
+         <div class="ja-moduletable moduletable_menu clearfix" id="Mod23">
+          <h3>
+           <span>
+            Food for thought
+           </span>
+          </h3>
+          <div class="ja-box-ct clearfix">
+           <ul class="nav menutest mod-list">
+            <li class="item-437">
+             <a href="/developer-blog.html">
+              Developer Blog
+             </a>
+            </li>
+            <li class="item-552">
+             <a href="/meet-the-team.html">
+              Meet the team
+             </a>
+            </li>
+            <li class="item-551">
+             <a href="/article-archive.html">
+              Article archive
+             </a>
+            </li>
+            <li class="item-1908">
+             <a href="/site-map.html">
+              Site Map
+             </a>
+            </li>
+           </ul>
+          </div>
+         </div>
+         <div class="ja-moduletable moduletable clearfix" id="Mod110">
+          <div class="ja-box-ct clearfix">
+           <div class="custom">
+            <p>
+             <h3>
+              <a href="/compatibility-list.html" style="color:#033D63;">
+               Compatibility overview
+              </a>
+             </h3>
+             <p style="font-size: 120%; font-weight: bold;">
+              2689 games
+             </p>
+             Perfect: 0.74% - 20
+             <div class="progress-bar perfect">
+              <span style="width:0.74%;">
+              </span>
+             </div>
+             Playable: 97.66% - 2626
+             <div class="progress-bar playable">
+              <span style="width:97.66%;">
+              </span>
+             </div>
+             Ingame: 1.08% - 29
+             <div class="progress-bar ingame">
+              <span style="width:1.08%;">
+              </span>
+             </div>
+             Menus: 0.3% - 8
+             <div class="progress-bar menu">
+              <span style="width:0.3%;">
+              </span>
+             </div>
+             Intro: 0.15% - 4
+             <div class="progress-bar intro">
+              <span style="width:0.15%;">
+              </span>
+             </div>
+             Nothing: 0.07% - 2
+             <div class="progress-bar nothing">
+              <span style="width:0.07%;">
+              </span>
+             </div>
+            </p>
+           </div>
+          </div>
+         </div>
+         <div class="ja-moduletable moduletable-search clearfix" id="Mod35">
+          <div class="ja-box-ct clearfix">
+           <form action="/eula.html" class="search-search" method="post">
+            <input class="inputbox-search" id="mod-search-searchword" maxlength="200" name="searchword" onblur="if (this.value=='') this.value='Search ...';" onfocus="if (this.value=='Search ...') this.value='';" size="10" type="text" value="Search ..."/>
+            <input class="button-search" onclick="this.form.searchword.focus();" type="submit" value="GO"/>
+            <input name="task" type="hidden" value="search"/>
+            <input name="option" type="hidden" value="com_search"/>
+            <input name="Itemid" type="hidden" value="663"/>
+           </form>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- //LEFT COLUMN-->
+     </div>
+    </div>
+   </div>
+   <!-- //MAIN CONTAINER -->
+   <div class="wrap" id="ja-navhelper">
+    <div class="main">
+     <div class="main-inner1 clearfix">
+      <div class="ja-breadcrums">
+       <span class="breadcrumbsbread pathway">
+        <strong>
+         You are here:
+        </strong>
+        <a class="pathway" href="/">
+         Home
+        </a>
+        <img alt="" src="/media/system/images/arrow.png"/>
+        <a class="pathway" href="/eula.html">
+         EULA
+        </a>
+        <img alt="" src="/media/system/images/arrow.png"/>
+        <a class="pathway" href="/">
+         News
+        </a>
+        <img alt="" src="/media/system/images/arrow.png"/>
+        Q2 2021 Progress Report
+       </span>
+      </div>
+      <ul class="ja-links">
+       <li class="top">
+        <a href="javascript:scroll(0,0)" title="Back to top">
+         Top
+        </a>
+       </li>
+      </ul>
+      <ul class="no-display">
+       <li>
+        <a href="#ja-content" title="Skip to content">
+         Skip to content
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="wrap" id="ja-footer">
+    <div class="main clearfix">
+     <div class="ja-copyright">
+     </div>
+     <br/>
+     Webdesign and code © 2021 PCSX2 Team | Modified template from Joomla Web Design |
+     <a href="/privacy-policy.html">
+      Privacy Policy
+     </a>
+     |
+     <a href="/eula.html">
+      EULA
+     </a>
+    </div>
+   </div>
+  </div>
+  <script data-cf-beacon='{"rayId":"68dc3601daa32ac2","token":"c919a4e35e434ed2b63079aa661a82c0","version":"2021.8.1","si":10}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js">
+  </script>
+ </body>
+</html>

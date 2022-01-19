@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en-gb" xml:lang="en-gb" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <base href="https://pcsx2.net/developer-blog/225-pcsx2-optimization.html"/>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="pcsx2, pc, ps2, emulation, emulator, playstation, games, geforce, radeon, intel, amd, f2p, gaming, video games, sony, game, play, free, download, freeware, online" name="keywords"/>
+  <meta content="ZeroFrog" name="author"/>
+  <meta content="PCSX2 a Playstation 2 emulator for Windows, Linux and Mac" name="description"/>
+  <meta content="Joomla! - Open Source Content Management" name="generator"/>
+  <title>
+   PCSX2 - The Playstation 2 emulator - PCSX2 Optimization
+  </title>
+  <link href="https://pcsx2.net/component/search/?Itemid=437&amp;catid=81&amp;id=225&amp;format=opensearch" rel="search" title="Search PCSX2 - The Playstation 2 emulator" type="application/opensearchdescription+xml"/>
+  <link href="/index.php?jat3action=gzip&amp;jat3type=css&amp;jat3file=cache%2Ft3%2Fcss_a5b86.css" rel="stylesheet" type="text/css"/>
+  <script class="joomla-script-options new" type="application/json">
+   {"csrf.token":"e80d194fb09c5d253b61d7aa83f6d470","system.paths":{"root":"","base":""}}
+  </script>
+  <script src="https://pcsx2.net/plugins/system/yvsmiley/default.js" type="text/javascript">
+  </script>
+  <script src="/media/system/js/mootools-core.js" type="text/javascript">
+  </script>
+  <script src="/media/system/js/core.js" type="text/javascript">
+  </script>
+  <script src="/media/jui/js/jquery.min.js" type="text/javascript">
+  </script>
+  <script src="/media/jui/js/jquery-noconflict.js" type="text/javascript">
+  </script>
+  <script src="/media/jui/js/jquery-migrate.min.js" type="text/javascript">
+  </script>
+  <script src="/media/system/js/caption.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/core.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/menu/mega.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/fadeinout.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/mootools-more-s.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/resize.js" type="text/javascript">
+  </script>
+  <script src="/libraries/videobox/js/videobox.js" type="text/javascript">
+  </script>
+  <script src="/libraries/videobox/js/functions.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+  </script>
+  <!--[if ie]><link href="/plugins/system/jat3/jat3/base-themes/default/css/template-ie.css" type="text/css" rel="stylesheet" /><![endif]-->
+  <!--[if ie 7]><link href="/plugins/system/jat3/jat3/base-themes/default/css/template-ie7.css" type="text/css" rel="stylesheet" /><![endif]-->
+  <!--[if ie 7]><link href="/templates/business8/css/template-ie7.css" type="text/css" rel="stylesheet" /><![endif]-->
+  <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <style type="text/css">
+   /*dynamic css*/
+
+    body.bd .main {width: 100%;}
+    body.bd #ja-wrapper {min-width: 100%;}
+  </style>
+  <script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+  </script>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-387767-1', 'pcsx2.net');
+  ga('send', 'pageview');
+  </script>
+  <!-- Universal Google Analytics Plugin by PB Web Development -->
+ </head>
+ <body class="bd fs3 com_content">
+  <a id="Top">
+  </a>
+  <div id="ja-wrapper">
+   <div class="wrap" id="ja-header">
+    <div class="main">
+     <div class="main-inner1 clearfix">
+      <a href="/" title="PCSX2 - The Playstation 2 emulator">
+       <img alt="PCSX2 homepage" height="120" src="/templates/business8/themes/classic/images/logo_classic.png" width="452"/>
+      </a>
+     </div>
+    </div>
+   </div>
+   <div id="ja-cpanel-wrapper">
+    <div id="ja-cpanel">
+     <div id="ja-cpanel-main">
+      <div class="ja-cpanel-tools clearfix">
+       <h3>
+        Font Size
+       </h3>
+       <div class="ja-box-usertools">
+        <ul class="ja-usertools-font clearfix">
+         <li class="font-inc">
+          <a onclick="switchFontSize('business8_font', 'inc');return false;" title="Increase font size">
+           <span>
+            Increase font size
+           </span>
+          </a>
+         </li>
+         <li class="font-dec">
+          <a onclick="switchFontSize('business8_font', 'dec');return false;" title="Decrease font size">
+           <span>
+            Decrease font size
+           </span>
+          </a>
+         </li>
+         <li class="font-reset">
+          <a onclick="switchFontSize('business8_font', 'reset');return false;" title="Default font size">
+           <span>
+            Default font size
+           </span>
+          </a>
+         </li>
+        </ul>
+       </div>
+       <script type="text/javascript">
+        var DefaultFontSize=parseInt('3');
+  var CurrentFontSize=parseInt('3');
+       </script>
+       <h3>
+        Profile
+       </h3>
+       <div class="ja-box-usertools">
+        <ul class="ja-usertools-profile clearfix">
+         <li class="profile profile-active">
+          <input checked="checked" id="user_profile_classic" name="user_profile" type="radio" value="classic"/>
+          <label for="user_profile_classic" title="classic">
+           <span>
+            classic
+           </span>
+          </label>
+         </li>
+         <li class="profile">
+          <input id="user_profile_default" name="user_profile" type="radio" value="default"/>
+          <label for="user_profile_default" title="default">
+           <span>
+            default
+           </span>
+          </label>
+         </li>
+        </ul>
+       </div>
+       <h3>
+        Layout
+       </h3>
+       <div class="ja-box-usertools">
+        <ul class="ja-usertools-layout clearfix">
+         <li class="layout layout-default-active">
+          <input checked="checked" id="user_layouts_default" name="user_layouts" type="radio" value="default"/>
+          <label for="user_layouts_default" title="default">
+           <span>
+            default
+           </span>
+          </label>
+         </li>
+         <li class="layout layout-no-bottom-boxes">
+          <input id="user_layouts_no-bottom-boxes" name="user_layouts" type="radio" value="no-bottom-boxes"/>
+          <label for="user_layouts_no-bottom-boxes" title="no-bottom-boxes">
+           <span>
+            no-bottom-boxes
+           </span>
+          </label>
+         </li>
+         <li class="layout layout-no-latest-boxes">
+          <input id="user_layouts_no-latest-boxes" name="user_layouts" type="radio" value="no-latest-boxes"/>
+          <label for="user_layouts_no-latest-boxes" title="no-latest-boxes">
+           <span>
+            no-latest-boxes
+           </span>
+          </label>
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div class="ja-cpanel-action clearfix">
+       <a class="button" href="#" onclick="cpanel_apply();return false;" title="Apply setting">
+        <span>
+         Apply
+        </span>
+       </a>
+       <a href="#" onclick="cpanel_reset();return false;" title="Reset to default setting">
+        <span>
+         Reset
+        </span>
+       </a>
+      </div>
+     </div>
+     <a href="#" id="ja-cpanel-toggle">
+      <span>
+       Cpanel
+      </span>
+     </a>
+    </div>
+   </div>
+   <script type="text/javascript">
+    var tmpl_name = 'business8';
+    window.addEvent('load', function () {
+        $('ja-cpanel-toggle').status == 'close';
+        $('ja-cpanel-toggle').slider = new Fx.Slide('ja-cpanel-main', {duration: 400});
+        $('ja-cpanel-toggle').slider.hide();
+        $('ja-cpanel').setStyle ('top', 0);
+        $('ja-cpanel-toggle').addEvent ('click', function (e) {
+            this.slider.toggle();
+            if (this.hasClass ('open')) {
+                this.removeClass ('open').addClass ('close');
+            } else {
+                this.removeClass ('close').addClass ('open');
+            }
+
+            if(e){
+                e.stop();
+            }
+        });
+    });
+   </script>
+   <div class="wrap" id="ja-mainnav">
+    <div class="main">
+     <div class="main-inner1 clearfix">
+      <div class="ja-megamenu clearfix" id="ja-megamenu">
+       <ul class="megamenu level0">
+        <li class="mega first">
+         <a class="mega first" href="https://pcsx2.net/" id="menu435" title="Home">
+          <span class="has-image has-desc" style="background-image:url(/images/stories/frontend/static/home-icon.png);">
+           <span class="menu-title">
+            Home
+           </span>
+           <span class="menu-desc">
+            News
+           </span>
+          </span>
+         </a>
+        </li>
+        <li class="mega">
+         <a class="mega" href="/getting-started.html" id="menu455" title="Getting Started">
+          <span class="has-image has-desc" style="background-image:url(/images/stories/frontend/static/getting-started-icon.png);">
+           <span class="menu-title">
+            Getting Started
+           </span>
+           <span class="menu-desc">
+            Start here!
+           </span>
+          </span>
+         </a>
+        </li>
+        <li class="mega haschild">
+         <a class="mega haschild" href="/download.html" id="menu506" title="Download">
+          <span class="menu-title">
+           Download
+          </span>
+          <span class="menu-desc">
+           Get PCSX2 here
+          </span>
+         </a>
+         <div class="childcontent cols2">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 240px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="/download/releases.html" id="menu507" title="Releases">
+                  <span class="menu-title">
+                   Releases
+                  </span>
+                  <span class="menu-desc">
+                   Latest stable releases
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="/download/releases/windows.html" id="menu515" title="Windows">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-For-Windows-s.png);">
+                     <span class="menu-title">
+                      Windows
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/linux.html" id="menu517" title="Linux">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-For-Linux-s.png);">
+                     <span class="menu-title">
+                      Linux
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/mac.html" id="menu518" title="Mac">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-For-Mac-s.png);">
+                     <span class="menu-title">
+                      Mac
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/source-code.html" id="menu566" title="Source code">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-Source-code.png);">
+                     <span class="menu-title">
+                      Source code
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/archive-download.html" id="menu543" title="Archive downloads">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-archive.png);">
+                     <span class="menu-title">
+                      Archive downloads
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega last">
+                   <a class="mega last" href="/download/releases/tools.html" id="menu571" title="Tools">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-tool.png);">
+                     <span class="menu-title">
+                      Tools
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+            <div class="megacol column2 last" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="/download/development.html" id="menu525" title="Development">
+                  <span class="menu-title">
+                   Development
+                  </span>
+                  <span class="menu-desc">
+                   Daily development builds, possibly unstable
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="/download/development/dev-windows.html" id="menu526" title="Windows">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/svn-icon.png);">
+                     <span class="menu-title">
+                      Windows
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega last">
+                   <a class="mega last" href="https://launchpad.net/%7Epcsx2-team/+archive/ubuntu/pcsx2-daily" id="menu1431" target="_blank" title="Linux">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/svn-icon.png);">
+                     <span class="menu-title">
+                      Linux
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+        <li class="mega haschild">
+         <a class="mega haschild" href="https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/Configuration_Guide/Configuration_Guide.md" id="menu508" title="Guide">
+          <span class="menu-title">
+           Guide
+          </span>
+          <span class="menu-desc">
+           Config Guide
+          </span>
+         </a>
+         <div class="childcontent cols2">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first" href="https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/Configuration_Guide/Configuration_Guide.md" id="menu509" title="English guide">
+                  <span class="menu-title">
+                   English guide
+                  </span>
+                 </a>
+                </div>
+               </div>
+              </li>
+              <li class="mega">
+               <a class="mega" href="/config-guide/guide-translations.html" id="menu594" title="Guide translations">
+                <span class="menu-title">
+                 Guide translations
+                </span>
+               </a>
+              </li>
+             </ul>
+            </div>
+            <div class="megacol column2 last" style="width: 250px;">
+             <ul class="megamenu level1">
+              <li class="mega first">
+               <a class="mega first" href="https://forums.pcsx2.net/Thread-Program-and-Guide-translation-applications" id="menu568" target="_blank" title="Translate it!">
+                <span class="menu-title">
+                 Translate it!
+                </span>
+                <span class="menu-desc">
+                 Translate the guide or program to your language
+                </span>
+               </a>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+        <li class="mega haschild">
+         <a class="mega haschild" href="#" id="menu546" title="Support">
+          <span class="menu-title">
+           Support
+          </span>
+          <span class="menu-desc">
+           Need help?
+          </span>
+         </a>
+         <div class="childcontent cols2">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="https://forums.pcsx2.net" id="menu547" target="_blank" title="Support Forum">
+                  <span class="menu-title">
+                   Support Forum
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="https://forums.pcsx2.net" id="menu550" target="_blank" title="Official forum">
+                    <span class="menu-title">
+                     Official forum
+                    </span>
+                    <span class="menu-desc">
+                     Join thousands of members to get help!
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+            <div class="megacol column2 last" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="#" id="menu548" title="Useful info">
+                  <span class="menu-title">
+                   Useful info
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/PCSX2_FAQ.md" id="menu549" title="Frequently Asked Questions">
+                    <span class="menu-title">
+                     Frequently Asked Questions
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega last">
+                   <a class="mega last" href="https://wiki.pcsx2.net" id="menu599" target="_blank" title="PCSX2 Wiki">
+                    <span class="menu-title">
+                     PCSX2 Wiki
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+        <li class="mega">
+         <a class="mega" href="/compatibility-list.html" id="menu512" title="Compatibility">
+          <span class="has-image has-desc" style="background-image:url(/images/stories/frontend/static/compat-menu.png);">
+           <span class="menu-title">
+            Compatibility
+           </span>
+           <span class="menu-desc">
+            Check your games!
+           </span>
+          </span>
+         </a>
+        </li>
+        <li class="mega last haschild">
+         <a class="mega last haschild" href="/demo-videos-screenshots.html" id="menu544" title="Demo">
+          <span class="menu-title">
+           Demo
+          </span>
+          <span class="menu-desc">
+           Screens and videos
+          </span>
+         </a>
+         <div class="childcontent cols1">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first">
+               <a class="mega first" href="/demo-videos-screenshots/screenshots.html" id="menu567" title="Screenshots">
+                <span class="menu-title">
+                 Screenshots
+                </span>
+               </a>
+              </li>
+              <li class="mega">
+               <a class="mega" href="/demo-videos-screenshots/videos.html" id="menu595" title="Videos">
+                <span class="menu-title">
+                 Videos
+                </span>
+               </a>
+              </li>
+              <li class="mega last">
+               <a class="mega last" href="https://www.youtube.com/user/PCSX2team" id="menu651" target="_blank" title="Youtube Channel">
+                <span class="menu-title">
+                 Youtube Channel
+                </span>
+               </a>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+       </ul>
+      </div>
+      <script type="text/javascript">
+       var megamenu = new jaMegaMenuMoo ('ja-megamenu', {
+                    'bgopacity': 0,
+                    'delayHide': 10,
+                    'slide'    : 0,
+                    'fading'   : 0,
+                    'direction': 'down',
+                    'action'   : 'mouseover',
+                    'tips'     : false,
+                    'duration' : 300,
+                    'hidestyle': 'fastwhenshow'
+                });
+      </script>
+      <!-- jdoc:include type="menu" level="0" / -->
+      <ul class="no-display">
+       <li>
+        <a href="#ja-content" title="Skip to content">
+         Skip to content
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <!-- MAIN CONTAINER -->
+   <div class="wrap ja-l1" id="ja-container">
+    <div class="main clearfix">
+     <div id="ja-mainbody" style="width:100%">
+      <!-- CONTENT -->
+      <div id="ja-main" style="width:85%">
+       <div class="inner clearfix">
+        <div id="system-message-container">
+        </div>
+        <div class="clearfix" id="ja-contentwrap">
+         <div class="column" id="ja-content" style="width:100%">
+          <div class="column" id="ja-current-content" style="width:100%">
+           <div class="ja-content-main clearfix" id="ja-content-main">
+            <div class="single-article">
+             <div class="item-page clearfix">
+              <h2 class="contentheading">
+               <a href="/developer-blog/225-pcsx2-optimization.html">
+                PCSX2 Optimization
+               </a>
+              </h2>
+              <div class="article-tools clearfix">
+               <dl class="article-info">
+                <dd class="create">
+                 Created:
+                 <span>
+                  30 January 2007
+                 </span>
+                </dd>
+                <dd class="createdby">
+                 Written by
+                 <span>
+                  ZeroFrog
+                 </span>
+                </dd>
+               </dl>
+              </div>
+              <div style="text-align:center;">
+               <ins class="adsbygoogle" data-ad-client="ca-pub-7741304783035041" data-ad-type="text_image" data-color-bg="FFFFFF" data-color-border="000000" data-color-link="0088CC" data-color-text="555555" data-color-url="AAAAAA" style="display:inline-block;width:468px;height:60px">
+               </ins>
+               <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+               </script>
+              </div>
+              <p>
+               Many people have visited the forums giving ideas on how and where Pcsx2 should be optimized. While most ideas sound solid on the outside, they usually will not work in practice for various reasons. This blog will answer some of those burning questions on what Pcsx2 optimizations are important and where development work should be put in to make things run faster. We will touch on why the GPU is the bottleneck on some games and why the CPU is on others. We will also go into the distribution of workload of the various components of Pcsx2 as it is computing away. And most important, we will cover plugin design so that system resources are distributed nicely.
+               <br/>
+               <br/>
+               First a note to the people that have played around with optimization or will play around with it. Be careful when measuring performance with frames per second! If anyone told me their optimization gained 5 fps for a certain game, I would not understand what that means! Why? Well if a game went from 5 fps to 10 fps, that means each frame took 200ms and now it takes 100ms. The optimization saved 100ms of CPU time per frame and now the game is 2x faster (this doesn't happen anymore)! If a game went from 60 fps to 65 fps, each frame took 16.6 ms and now it takes 15.4 ms. This is only 1.2 ms of saved time per frame, and the game is only 1.06 times faster. Which optimization do you think is better? Also a 1-2% speed difference is
+               <strong>
+                not
+               </strong>
+               statistically big enough to say that the optimization is useful. In fact, the fps counter in the title bar fluctuates between 1-2% all the time. So you'll just be picking up noise.
+              </p>
+              <p>
+               <br/>
+               <strong>
+                Introduction
+               </strong>
+               <br/>
+               <br/>
+               <img alt="" border="0" src="/images/stories/frontend/devblog/pcsx2-optimization.jpg"/>
+               <br/>
+               <br/>
+               The major components of Pcsx2 are shown in the figure. The heart of Pcsx2 is the dynamic translators of the various PS2 instruction sets, most often called the recompilers. Note that there are three hearts that Pcsx2 can be compiled with depending on your CPU: the interpreter (actually always present), x86, and x86-64. Starting with 0.9.3, Pcsx2 has been retrofitted to compile the interpreter on any little-endian CPU architecture by compiling with the PCSX2_NORECBUILD define. There is also the memory management scheme that factors into dynamic translation since memory accesses can be optimized away instead of calling one huge MemoryRead(address, value) that redirects execution to the various hardware components. The DMA connects all data that is passed to the sub-components of Pcsx2. To the right are the components that are just interface stubs that interact with the plugins. At the bottom are the components that are implemented in Pcsx2 without any plugins. The reason for no plugins is that these components require tight synchronization between the Pcsx2 hardware registers, so having the component in a plugin will unnecessarily complicate and slow down things. Note that IPU can be argued to be a plugin on its own, however the actual MPEG2 decoding part of IPU is not the problem as much as the DMA communication between it and the EE.
+               <br/>
+               <br/>
+               The Graphysic Synthesizer (GS) plugin accepts a stream of commands to render geometry to its 4Mb video memory. This stream usually comes from VU1, VIF, or a DMA transfer. Data from VU1 is usually 3d geometry, data from VIF/DMA is usually textures or static 2D geometry. From time to time, the EE can request to read the GS memory from the VIF. Also, the GS sets various hardware registers so that the EE can synchronize with it. In MTGS mode, the GS has its own thread to do the stream processing and these hardware registers are emulated on the main EE thread to avoid having the EE wait for the GS to complete. In this way, the GS and EE can be detached and memory won't get corrupted. Ideally the GS plugin should offload as much computation off to the GPU and leave the CPU alone, this however is possible to a certain degree because of drivers (see the "Graphics Synthesizer, GPUs, and Dual Cores" blog).
+               <br/>
+               <br/>
+               The Sound Processing Unit (SPU2) plugin accepts a stream of commands through DMA. The stream usually writes/reads SPU2 memory and sets various channel modes. These channels play their data on a separate thread that produces raw PCM data to send to the sound card. At the moment, the communication between SPU2 and DMA is pretty buggy.
+               <br/>
+               <br/>
+               The CDVD plugin just worries about reading data from ISOs or DVD drives. Various caching and read-ahead techniques have to be applied in order to make the reading fast and not noticeable to the user.
+               <br/>
+               <br/>
+               The rest of the plugins are either not implemented like USB and FireWire or are pretty standard across emulators.
+               <br/>
+               <br/>
+               <strong>
+                Optimization
+               </strong>
+               <br/>
+               <br/>
+               When running, Pcsx2 spends most of its time in recompiled code (EE/IOP or VUs). When in the EE recompiler, most components are executed as hardware registers are written through the memory write functions. About every 512 EE cycles, the recompilers call cpuBranchTest to update counters, give IOP enough time to catch up, and perform other system stuff. The VU programs are usually executed as soon as the program is started in the VIF. If VU1 is executed, the recompilers don't exit until the VU program exits. If VU0 is executed, only 512 VU cycles are executed then control is given to the EE so it can catch up (synchronizing VU0 can be very tricky). IOP recompilers usually don't take up a lot of CPU time. Besides the fact that IOP runs 8 times slower than EE, it is also a 32bit processor, so things are fairly quick.
+               <br/>
+               The rest of Pcsx2 time is spent in pipelining the data through the various components. A good amount of time is also spend in the VIF UNPACK function, however this function is super-optimized (see iVif.cpp or iVif.S) so nothing can be done about that anymore. IPU also does MPEG2 decompression, so it is arguably computationally intensive during movies (however this isn't the case at all).
+               <br/>
+               <br/>
+               Because Pcsx2 is written in C/C++, function calls and pipelining is very fast. Many people believe that rearranging code and optimizing the calling conventions will speed things up. This is
+               <strong>
+                not
+               </strong>
+               the case at all. Although there do exist functions that could benefit from some hand-coded assembly, you will not see a statistical speed difference because the assembly code might not have improved speed too much, or the function is not called often enough to really matter. For example, it is stupid to optimize the recInit function, it is called only once per game!
+               <br/>
+               <br/>
+               <strong>
+                Recompiler Optimizations
+               </strong>
+               <br/>
+               <br/>
+               In short, don't waste your time optimizing the ADD or MULT instruction ...or any single instruction for that matter. The bottleneck of the recompilers is the way the registers are allocated. Also, registers are not tracked across simple blocks meaning that they are all dumped to memory at the end of each block, which is very suboptimal. My advice is not to touch any recompiler unless you know what is going on. If you are inclined to optimize recompilers, do the EE. The VU recompilers are
+               <strong>
+                very
+               </strong>
+               fast at the moment, so don't waste your time because you might kill compatibility... and IOP is just not worth it. When running a profiler, you might see the cpuBranchTest function pop up a lot... don't waste your time by rearranging code out of the function or trying to call the function less frequently, it won't work.
+               <br/>
+               <br/>
+               <strong>
+                GS plugin optimizations
+               </strong>
+               <br/>
+               <br/>
+               There have been various suggestions to use shaders to offload as much computation as possible. This is exactly what ZeroGS does! In fact, ZeroGS does it so well that your GPU will cry (hence the name KOSMOS). The biggest problem with the GS plugin is managing the render targets and caching the textures. Also, the trick to everything is
+               <strong>
+                never
+               </strong>
+               (and I really mean never) to transfer GPU memory to system memory. This problem is actually very common with many games because game developers just do crazy shit with the GS... sometimes I get the urge to email companies asking them 'what were you on when you programmed this?'. This is the reason why certain games are much slower than others. Sometimes the problem is fixable, sometimes it isn't (this is a good time to mention that the ocean zbuffer bug in FF12 is exactly due to this problem... and ZeroGS ingeniously ignores the memory transfer so FF12 is nice and fast... hence the bug).
+               <br/>
+               <br/>
+               Someone in the forums suggested executing VU1 instructions in the GPU vertex shaders. If you look at the shader and VU instruction sets, you'll see that they are very similar, so I can understand why someone would think this. However this is not possible because VUs are
+               <strong>
+                way
+               </strong>
+               more complex than vertex shaders! In fact, it is suicide to consider the amount of code reengineering that would have to be done just to get the GPU to execute a simple VU program... the GPU already has enough work to do. While on the subject of VU, it is also useful to mention that it is suicide to even consider putting the VU recompilers in their own CPU thread that can execute concurrently with the EE! Making things multi-threaded is tricky because of the data sharing between the two threads. In fact, putting the VU execution on another thread would probably slow things down more than speed up. The reason multithreading on the GS works so well is because the EE doesn't have to stop to synchronize with the GS, all it has to do is copy the stream it wants to send to the GS in a temporary buffer. The GS plugin will process it when it gets the time.
+               <br/>
+               <br/>
+               <strong>
+                SPU2 optimizations
+               </strong>
+               <br/>
+               <br/>
+               Don't know what's going on here. SPU2 really needs reworking. And it isn't just the plugin, there is a whole synchronization issue with DMA and SPU2 that has to be taken care of. The SPU2 should be multithreaded and it shouldn't require any huge synchronization with the main thread. If anyone will work on something, it should be SPU2.
+               <br/>
+               <br/>
+               <strong>
+                Other optimizations
+               </strong>
+               <br/>
+               <br/>
+               Most other components of Pcsx2 are already pretty optimized. To summarize, the biggest bottlenecks are the recompilers, GS plugin, and SPU2. Currently x86-64 versions of the recompilers are being developed. ZeroGS OpenGL will be released as open source soon, so people can contribute their own changes if necessary. Actually, future versions of ZeroGS will have a complex patch system that will enable gamers to tweak settings so that the game is as fast as possible (even dual core users can see a big performance gain with the correctly tweaked settings). No one is maintaining SPU2.... but that will change if this continues.
+               <br/>
+               <br/>
+               The last hope for optimization is actually x86-64. As to how much performance will increase... not even I know, but we shall see later in the year when Pcsx2 x64 releases (for Linux too).
+               <br/>
+               <br/>
+               <strong>
+                Moral of the blog
+               </strong>
+               Optimization is time consuming and it is more of an art than science. Programs are developed much faster and have less bugs when you don't have to worry about optimizing (Java is a great example of a language where it is easy to develop programs, but very hard to have it run fast.. by design I guess). But no matter the application, having it go faster is much better than having it go slower. A lot of game companies spend a lot of money optimizing their code because it is that important. The reason most newer games have beautiful graphics running in real-time is not just because GPUs are getting faster, but also companies are getting better at optimizing their game engines. For example, games when the PS2 was first released look inferior to what new PS2 games look today. And with the way things are going in the software industry, it looks like C++ will stick around for a very long time because of its optimization capabilities. Learn C++, there are many books I can recommend, but the best way to learn is to actually go and program something.
+               <br/>
+               <br/>
+              </p>
+              <div style="font-style: italic; font-size: 10pt; font-weight: bold; text-align: right;">
+               <a href="http://forums.pcsx2.net/thread-9750.html">
+                Post a Comment!
+               </a>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- //CONTENT -->
+      <!-- LEFT COLUMN-->
+      <div class="column sidebar" id="ja-left" style="width:15%">
+       <div class="ja-colswrap clearfix ja-l1">
+        <div class="ja-col column" id="ja-left1" style="width:100%">
+         <div class="ja-moduletable moduletable_menu clearfix" id="Mod23">
+          <h3>
+           <span>
+            Food for thought
+           </span>
+          </h3>
+          <div class="ja-box-ct clearfix">
+           <ul class="nav menutest mod-list">
+            <li class="item-437 current active">
+             <a href="/developer-blog.html">
+              Developer Blog
+             </a>
+            </li>
+            <li class="item-552">
+             <a href="/meet-the-team.html">
+              Meet the team
+             </a>
+            </li>
+            <li class="item-551">
+             <a href="/article-archive.html">
+              Article archive
+             </a>
+            </li>
+            <li class="item-1908">
+             <a href="/site-map.html">
+              Site Map
+             </a>
+            </li>
+           </ul>
+          </div>
+         </div>
+         <div class="ja-moduletable moduletable clearfix" id="Mod110">
+          <div class="ja-box-ct clearfix">
+           <div class="custom">
+            <p>
+             <h3>
+              <a href="/compatibility-list.html" style="color:#033D63;">
+               Compatibility overview
+              </a>
+             </h3>
+             <p style="font-size: 120%; font-weight: bold;">
+              2689 games
+             </p>
+             Perfect: 0.74% - 20
+             <div class="progress-bar perfect">
+              <span style="width:0.74%;">
+              </span>
+             </div>
+             Playable: 97.66% - 2626
+             <div class="progress-bar playable">
+              <span style="width:97.66%;">
+              </span>
+             </div>
+             Ingame: 1.08% - 29
+             <div class="progress-bar ingame">
+              <span style="width:1.08%;">
+              </span>
+             </div>
+             Menus: 0.3% - 8
+             <div class="progress-bar menu">
+              <span style="width:0.3%;">
+              </span>
+             </div>
+             Intro: 0.15% - 4
+             <div class="progress-bar intro">
+              <span style="width:0.15%;">
+              </span>
+             </div>
+             Nothing: 0.07% - 2
+             <div class="progress-bar nothing">
+              <span style="width:0.07%;">
+              </span>
+             </div>
+            </p>
+           </div>
+          </div>
+         </div>
+         <div class="ja-moduletable moduletable-search clearfix" id="Mod35">
+          <div class="ja-box-ct clearfix">
+           <form action="/developer-blog.html" class="search-search" method="post">
+            <input class="inputbox-search" id="mod-search-searchword" maxlength="200" name="searchword" onblur="if (this.value=='') this.value='Search ...';" onfocus="if (this.value=='Search ...') this.value='';" size="10" type="text" value="Search ..."/>
+            <input class="button-search" onclick="this.form.searchword.focus();" type="submit" value="GO"/>
+            <input name="task" type="hidden" value="search"/>
+            <input name="option" type="hidden" value="com_search"/>
+            <input name="Itemid" type="hidden" value="437"/>
+           </form>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- //LEFT COLUMN-->
+     </div>
+    </div>
+   </div>
+   <!-- //MAIN CONTAINER -->
+   <div class="wrap" id="ja-navhelper">
+    <div class="main">
+     <div class="main-inner1 clearfix">
+      <div class="ja-breadcrums">
+       <span class="breadcrumbsbread pathway">
+        <strong>
+         You are here:
+        </strong>
+        <a class="pathway" href="/">
+         Home
+        </a>
+        <img alt="" src="/media/system/images/arrow.png"/>
+        <a class="pathway" href="/developer-blog.html">
+         Developer Blog
+        </a>
+        <img alt="" src="/media/system/images/arrow.png"/>
+        PCSX2 Optimization
+       </span>
+      </div>
+      <ul class="ja-links">
+       <li class="top">
+        <a href="javascript:scroll(0,0)" title="Back to top">
+         Top
+        </a>
+       </li>
+      </ul>
+      <ul class="no-display">
+       <li>
+        <a href="#ja-content" title="Skip to content">
+         Skip to content
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="wrap" id="ja-footer">
+    <div class="main clearfix">
+     <div class="ja-copyright">
+     </div>
+     <br/>
+     Webdesign and code © 2021 PCSX2 Team | Modified template from Joomla Web Design |
+     <a href="/privacy-policy.html">
+      Privacy Policy
+     </a>
+     |
+     <a href="/eula.html">
+      EULA
+     </a>
+    </div>
+   </div>
+  </div>
+  <script data-cf-beacon='{"rayId":"68dc35eab9ad6390","token":"c919a4e35e434ed2b63079aa661a82c0","version":"2021.8.1","si":10}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js">
+  </script>
+ </body>
+</html>

@@ -1,0 +1,109 @@
+{{ define "main" }}
+<script defer src="https://unpkg.com/underscore@1.13.2/underscore-min.js"></script>
+<script defer src="https://unpkg.com/dot@1.1.3/doT.min.js"></script>
+<script defer src="https://unpkg.com/fuse.js@6.5.3/dist/fuse.min.js"></script>
+<script defer src="/js/compat-table.js"></script>
+<div class="container">
+  <div class="row mt-5">
+    <h2>Compatiblity List</h2>
+  </div>
+  <div class="row mt-3">
+    <p>
+      This list will help you determine how compatible games are with PCSX2
+    </p>
+  </div>
+  <!-- search bar -->
+  <div class="row mt-4">
+    <div class="div col-12">
+      <form class="input-group" onsubmit="return false">
+        <div class="form-outline compat-form">
+          <input type="search" id="compat-search" class="form-control" />
+          <label class="form-label" for="form1"
+            >Search By - Title, Serial or CRC</label
+          >
+          <div class="form-notch">
+            <div class="form-notch-leading"></div>
+            <div class="form-notch-middle"></div>
+            <div class="form-notch-trailing"></div>
+        </div>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="row flex-column-reverse flex-md-row mt-3">
+    <div class="col-12 col-md-10">
+      <div class="row d-flex justify-content-center justify-content-md-start">
+      <!-- compat buttons -->
+      {{ partial "compat/filter-button.html" (dict "context" $
+      "explanation" "The game runs flawlessly with no graphical or speed issues (can be in Software mode)"
+      "filter" "perfect") }}
+      {{ partial "compat/filter-button.html" (dict "context" $
+      "explanation" "You can get from 'new game' to 'end credits' (regardless of speed)"
+      "filter" "playable") }}
+      {{ partial "compat/filter-button.html" (dict "context" $
+      "explanation" "You can get through menus, intro cutscenes / videos, and see ingame graphics, but either due to graphical bugs, crashes, un-resolved errors, you can't play through the entire game"
+      "filter" "ingame") }}
+      {{ partial "compat/filter-button.html" (dict "context" $
+      "explanation" "You can get into the menus, be it past 3D / video intro, memcard checks etc, but when starting a new game, it will lock up, crash, enter a loop etc"
+      "filter" "menus") }}
+      {{ partial "compat/filter-button.html" (dict "context" $
+      "explanation" "The game will show 2D logos, or video, but will not get into menus. This could be one screen, or 20, but won't show much"
+      "filter" "intro") }}
+      {{ partial "compat/filter-button.html" (dict "context" $
+      "explanation" "Exactly what it says, this game crashes before showing any graphics, making any sound etc!"
+      "filter" "nothing") }}
+      </div>
+    </div>
+    <div class="col-12 col-md-2 d-flex justify-content-end mb-3 mb-md-0">
+      <div class="dropdown">
+        <button
+          class="btn btn-primary dropdown-toggle"
+          type="button"
+          id="compat-page-size"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+          data-mdb-trigger="hover"
+        >
+          25 Per Page
+        </button>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          id="compat-page-size-list"
+          aria-labelledby="compat-page-size"
+        >
+          <li><a class="dropdown-item" href="#" value="25">25</a></li>
+          <li><a class="dropdown-item" href="#" value="50">50</a></li>
+          <li><a class="dropdown-item" href="#" value="100">100</a></li>
+          <li><a class="dropdown-item" href="#" value="250">250</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- The Actual Table -->
+  <div class="row mt-2">
+    <div class="table-responsive">
+      <table class="table" id="compat-table">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Serial</th>
+            <!-- Put the flag here-->
+            <th scope="col">CRC</th>
+            <th scope="col">Tested Version</th>
+            <th scope="col">Last Updated</th>
+          </tr>
+        </thead>
+        <tbody id="compat-table-body"></tbody>
+      </table>
+    </div>
+    <!-- Table Buttons -->
+    <div
+      class="row justify-content-center mt-3"
+      id="compat-pagination-container"
+    ></div>
+  </div>
+</div>
+{{ end }}

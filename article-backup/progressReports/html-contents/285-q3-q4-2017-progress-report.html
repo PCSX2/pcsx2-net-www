@@ -1,0 +1,303 @@
+<div class="single-article">
+ <div class="item-page clearfix">
+  <h2 class="contentheading">
+   <a href="/285-q3-q4-2017-progress-report.html">
+    Happy New Year - Q3 &amp; Q4 2017 progress report
+   </a>
+  </h2>
+  <div style="text-align:center;">
+   <ins class="adsbygoogle" data-ad-client="ca-pub-7741304783035041" data-ad-type="text_image" data-color-bg="FFFFFF" data-color-border="000000" data-color-link="0088CC" data-color-text="555555" data-color-url="AAAAAA" style="display:inline-block;width:468px;height:60px">
+   </ins>
+   <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+   </script>
+  </div>
+  <p>
+   <img alt="progress rep q3 q4 2017" height="104" src="/images/stories/frontend/progress_reports/q3-q4-2017/progress-rep-q3-q4-2017.jpg" style="display: block; margin-left: auto; margin-right: auto;" width="563"/>
+  </p>
+  <p style="text-align: center;">
+   Written by
+   <a href="https://forums.pcsx2.net/User-CK1" rel="noopener" target="_blank">
+    CK1
+   </a>
+   and
+   <a href="https://forums.pcsx2.net/User-lightningterror" rel="noopener" target="_blank">
+    lightningterror
+   </a>
+  </p>
+  <p>
+   Happy New Year to everyone from the PCSX2 team, we wish you the best for the new year, with lots of PCSX2 gaming playing your favorite classics
+   <img alt="Smile" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/smile.gif" width="20"/>
+   Onto the news!
+  </p>
+  <p>
+   A bit later than expected , here is the Q3 &amp; Q4 2017 progress report.
+  </p>
+  <p>
+   Of course there are other changes not mentioned in the report as well so progress is still moving along
+   <img alt="Razz" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/tongue.gif" width="20"/>
+  </p>
+  <p>
+   Here are the highlighted changes that we hope will strike your fancy
+   <img alt="Very Happy" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/biggrin.gif" width="20"/>
+  </p>
+  <center>
+   <br/>
+   <br/>
+  </center>
+  <p>
+   <span style="color: #018ddd;">
+    [Enhancement]
+   </span>
+   <span style="font-weight: bold; text-decoration: underline;">
+    <a href="https://github.com/PCSX2/pcsx2/pull/2067" rel="noopener" target="_blank">
+     PSX:Memory card support
+    </a>
+   </span>
+   by
+   <a href="https://github.com/RedPanda4552" rel="noopener" target="_blank">
+    RedPanda4552
+   </a>
+   <br/>
+   <br/>
+   OriginallyPSX memory card creation was not possible through the emulator and games could not see when a memory card was inserted. In addition, a hack has been added that allows PCSX2 to "view" PSX memory cards as a Pocketstation to fix compatibility with certain PSX games such as Final Fantasy VIII. More details on that addition can be found
+   <a>
+   </a>
+   <a href="https://github.com/PCSX2/pcsx2/pull/2208" rel="noopener" target="_blank">
+    here
+   </a>
+   !
+   <br/>
+   <br/>
+   This change adds/enhances the following additions:
+  </p>
+  <ul>
+   <li>
+    Adds a checkbox to the memory card creation screen allowing PSX cards to be created, as well as the logic for writing in tothe empty card.
+   </li>
+   <li>
+    Modifying the existing preprocessor based SIO interrupts to instead work based on the running game's type (PSX/PS2). This allows PS2 games to skip the delays as they were before, but for PSX games to use the delays, which are necessary for memory card interaction.
+   </li>
+  </ul>
+  <p>
+   <br/>
+   <span style="color: #018ddd;">
+    [Enhancement]
+   </span>
+   <span style="font-weight: bold; text-decoration: underline;">
+    GSdx Enhancements
+   </span>
+   <br/>
+   <br/>
+   <a href="https://github.com/PCSX2/pcsx2/pull/2145" rel="noopener" target="_blank">
+    Extend "Preload Frame Data" support to Direct3D
+   </a>
+   by
+   <a href="https://github.com/lightningterror" rel="noopener" target="_blank">
+    lightningterror
+   </a>
+   - This hack allows for the "Preload Frame Data" (that is currently present in the OpenGL renderer) to be used in D3D renderers. It is used to fix various effects that are currently broken or not rendered properly in D3D renderers.
+   <br/>
+   <br/>
+   <a href="https://github.com/PCSX2/pcsx2/pull/2086" rel="noopener" target="_blank">
+    "Frame Buffer Conversion"
+   </a>
+   hack by
+   <a href="https://github.com/lightningterror" rel="noopener" target="_blank">
+    lightningterror
+   </a>
+   - This hack enables 4-bit and 8-bit textures to be converted on the CPU instead of the GPU. It will fix glitches in games that use these types of textures.
+   <br/>
+   <br/>
+   <a href="https://github.com/PCSX2/pcsx2/pull/2099" rel="noopener" target="_blank">
+    "Automatic" Mipmapping
+   </a>
+   option by
+   <a href="https://github.com/lightningterror" rel="noopener" target="_blank">
+    lightningterror
+   </a>
+   - This option enables automatic mipmapping on the hardware render if a game is pre configured to use mipmapping in the code.
+   <br/>
+   <br/>
+   <br/>
+   <span style="color: #018ddd;">
+    [Enhancement]
+   </span>
+   <span style="font-weight: bold; text-decoration: underline;">
+    GUI Changes and Enhancements
+   </span>
+   <br/>
+   <br/>
+   <a href="https://github.com/PCSX2/pcsx2/pull/1934" rel="noopener" target="_blank">
+    "Always ask when booting"
+   </a>
+   option by
+   <a href="https://github.com/ssakash" rel="noopener" target="_blank">
+    ssakash
+   </a>
+   -When enabled, this option opens the file explorer to directly select the ISO at each boot instance instead of relying on the Recent ISO list.
+   <br/>
+   <br/>
+   <a href="https://github.com/PCSX2/pcsx2/pull/2000" rel="noopener" target="_blank">
+    "Adaptive Vsync"
+   </a>
+   support by
+   <a href="https://github.com/gregory38" rel="noopener" target="_blank">
+    gregory38
+   </a>
+   - Adaptive Vsync support and GUI optionhave been added to PCSX2 for OpenGL render to further help with screen tearing.
+   <br/>
+   <br/>
+   <a href="https://github.com/PCSX2/pcsx2/pull/2003" rel="noopener" target="_blank">
+    Restore "Defaults" button to GS panel
+   </a>
+   by
+   <a href="https://github.com/ssakash" rel="noopener" target="_blank">
+    ssakash
+   </a>
+   -Added Restore Defaults button to the GS panel of Emulation settings dialog.
+   <br/>
+   <br/>
+   <a href="https://github.com/PCSX2/pcsx2/pull/2080" rel="noopener" target="_blank">
+    "Clear ISO list"
+   </a>
+   option by
+   <a href="https://github.com/RedPanda4552" rel="noopener" target="_blank">
+    RedPanda4552
+   </a>
+   -This option will clear the cached ISOs (Recent ISO list) that were used in the past. Should help with reducing clutter on large lists.
+   <br/>
+   <br/>
+   <span style="color: #018ddd;">
+    [Enhancement]
+   </span>
+   <span style="font-weight: bold; text-decoration: underline;">
+    Translation Updates
+   </span>
+   <br/>
+   <br/>
+   We are always seeking new translations for the PCSX2 GUI in your favorite languages! The table
+   <a href="https://github.com/PCSX2/pcsx2/wiki/PCSX2-Version-Guide-for-Translations" rel="noopener" target="_blank">
+    here
+   </a>
+   will show you the most up to date information on the translation statuses of languages that are currently included with PCSX2. If you see your language missing or would like to update a translation, feel free to get started
+   <a>
+   </a>
+   <a href="https://forums.pcsx2.net/Thread-Program-and-Guide-translation-applications" rel="noopener" target="_blank">
+    here
+   </a>
+   !
+   <br/>
+   <br/>
+   <a href="https://github.com/PCSX2/pcsx2/pull/1966" rel="noopener" target="_blank">
+    Danish Translation
+   </a>
+   by
+   <a href="https://github.com/rffontenelle" rel="noopener" target="_blank">
+    rffontenelle
+   </a>
+   and
+   <a href="https://forums.pcsx2.net/User-Jakob5566" rel="noopener" target="_blank">
+    Jakob5566
+   </a>
+   - A brand new Danish GUI translated has been added! I don't have anything witty to say in Danish, sorry.
+   <img alt="Razz" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/tongue.gif" width="20"/>
+   <br/>
+   <br/>
+   <a href="https://github.com/PCSX2/pcsx2/pull/2155" rel="noopener" target="_blank">
+    Italian Translation
+   </a>
+   by
+   <a href="https://github.com/Leucos8" rel="noopener" target="_blank">
+    Leucos8
+   </a>
+   - The Italian GUI translation has been updated for accuracy.
+   <br/>
+   <br/>
+   <a href="https://github.com/PCSX2/pcsx2/pull/2127" rel="noopener" target="_blank">
+    Spanish Translation
+   </a>
+   by
+   <a href="https://github.com/IlDucci" rel="noopener" target="_blank">
+    IlDucci
+   </a>
+   - The Spanish GUI translation has been updated for accuracy.
+   <br/>
+   <br/>
+   <a href="https://github.com/PCSX2/pcsx2/pull/2209" rel="noopener" target="_blank">
+    Portuguese (Brazil) Translation
+   </a>
+   by
+   <a href="https://github.com/altiereslima" rel="noopener" target="_blank">
+    altiereslima
+   </a>
+   - The Portuguese (Brazil) GUI translation has been updated for accuracy.
+   <br/>
+   <br/>
+   <a href="https://github.com/PCSX2/pcsx2/pull/2209" rel="noopener" target="_blank">
+    German Translation
+   </a>
+   by
+   <a href="https://github.com/FiLeonard" rel="noopener" target="_blank">
+    FiLeonard
+   </a>
+   - The German GUI translation has been updated for accuracy.
+   <br/>
+   <br/>
+   <a href="https://github.com/PCSX2/pcsx2/pull/1989" rel="noopener" target="_blank">
+    Czech Translation
+   </a>
+   by
+   <a href="https://github.com/frantisekz" rel="noopener" target="_blank">
+    frantisekz
+   </a>
+   - The Czech GUI translation has been updated for accuracy.
+   <br/>
+   <br/>
+   <a href="https://github.com/PCSX2/pcsx2/pull/2119" rel="noopener" target="_blank">
+    French Translation
+   </a>
+   by
+   <a href="https://github.com/atomic83GitHub" rel="noopener" target="_blank">
+    atomic83GitHub
+   </a>
+   - The French GUI translation has been updated for accuracy.
+   <br/>
+   <br/>
+   <a href="https://github.com/PCSX2/pcsx2/pull/1850" rel="noopener" target="_blank">
+    Norwegian Translation
+   </a>
+   by
+   <a href="https://github.com/DandelionSprout" rel="noopener" target="_blank">
+    DandelionSprout
+   </a>
+   - The Norwegian GUI translation has been updated for accuracy.
+   <br/>
+   <br/>
+   <a href="https://github.com/PCSX2/pcsx2/pull/2140" rel="noopener" target="_blank">
+    Swedish Translation
+   </a>
+   by
+   <a href="https://github.com/pgert" rel="noopener" target="_blank">
+    pgert
+   </a>
+   - The Swedish GUI translation has been updated for accuracy.
+   <br/>
+   <br/>
+   <a href="https://github.com/PCSX2/pcsx2/pull/2029" rel="noopener" target="_blank">
+    Turkish Translation
+   </a>
+   by
+   <a href="https://forums.pcsx2.net/User-PyramidHead" rel="noopener" target="_blank">
+    PyramidHead
+   </a>
+   - The Turkish GUI translation has been updated for accuracy.
+  </p>
+  <p>
+  </p>
+  <p>
+   Expect some more news about pcsx2.net from Bositman in a couple of days, even though he said it would be before this progress report
+   <img alt="Razz" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/tongue.gif" width="20"/>
+  </p>
+ </div>
+</div>

@@ -1,0 +1,132 @@
+module:
+  hugoVersion:
+    extended: true
+baseURL: '/'
+publishDir: 'public/'
+permalinks:
+  posts: /:year/:month/:title/
+disableKinds:
+  # users dont need to see the taxonomy listing pages
+  - "taxonomy"
+ignoreErrors:
+  # users dont need to see the taxonomy listing pages
+  - "error-disable-taxonomy"
+languageCode: en-us
+title: PCSX2
+theme:
+  - pcsx2
+defaultContentLanguage: en
+paginate: 20
+# Code Styling
+markup:
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    lineAnchors: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    style: monokai
+    tabWidth: 4
+  tableOfContents:
+    ordered: false
+    endLevel: 3
+    startLevel: 2
+enableEmoji: true
+# Website Parameters
+params:
+  social:
+    - name: Discord
+      icon: fab fa-discord
+      weight: 1
+      url: 'https://discord.com/invite/TCz3t9k'
+    - name: Github
+      icon: fab fa-github
+      weight: 2
+      url: 'https://github.com/PCSX2'
+    - name: Forums
+      icon: fab fa-wpforms
+      weight: 4
+      url: 'https://forums.pcsx2.net/'
+    - name: Wiki
+      icon: fas fa-book
+      weight: 6
+      url: 'https://wiki.pcsx2.net'
+    - name: Twitter
+      icon: fab fa-twitter
+      weight: 3
+      url: 'https://twitter.com/PCSX2'
+    - name: YouTube
+      icon: fab fa-youtube
+      weight: 5
+      url: 'https://www.youtube.com/user/PCSX2team'
+taxonomies:
+  category: categories
+  tag: tags
+  author: authors
+languages:
+  en:
+    # baseURL: 'https://pcsx2.net/en/'
+    languageName: ':uk:'
+    menu:
+      main:
+        - name: Download
+          title: Downloads
+          weight: 1
+          url: /downloads
+        - name: Compatibility
+          title: Compatibility List
+          weight: 2
+          url: /compat
+        - name: Blog
+          title: Dev Blog
+          weight: 3
+          url: /blog
+        - name: Wiki
+          url: https://wiki.pcsx2.net
+        - name: Documentation
+          title: Documentation
+          weight: 4
+          url: /docs
+        # TODO - temporarily disabled until page is finished
+        # - name: About
+        #   title: About the Project
+        #   weight: 5
+        #   url: /about
+  # TODO - translation
+  # fr:
+  #   baseURL: 'https://pcsx2.net/fr/'
+  #   languageName: ':fr:'
+  #   menu:
+  #     main:
+  #       - name: Télécharger
+  #         title: Téléchargements
+  #         weight: 1
+  #         url: /downloads
+  #       - name: Compatibilité
+  #         title: Liste de compatibilité
+  #         weight: 2
+  #         url: /compat
+  #       - name: Blog
+  #         title: Dev Blog
+  #         weight: 3
+  #         url: /blog
+  #       - name: Documentation
+  #         title: Documentation
+  #         weight: 4
+  #         url: /docs
+  #       - name: À propos
+  #         title: À propos du projet
+  #         weight: 5
+  #         url: /about
+  #       - name: Discord
+  #         weight: 6
+  #         url: 'https://discord.com/invite/TCz3t9k'
+  #         pre: fa fa-discord
+  #       - name: Github
+  #         weight: 7
+  #         url: 'https://github.com/PCSX2/pcsx2'
+  #         pre: fa fa-github

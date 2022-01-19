@@ -1,0 +1,20 @@
+{{ $dateTime := .PublishDate.Format "2006-01-02" }}
+{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+<div class="row">
+  <div class="col-md-auto">
+    <strong class="tertiary-color">Authored By:&nbsp;</strong>
+    {{ .Params.mainAuthor }}
+  </div>
+  {{ if .Params.secondaryAuthors }}
+  <div class="col-md-auto">
+    <strong class="tertiary-color">Co-Authored By:&nbsp;</strong>
+    {{ delimit .Params.secondaryAuthors ", " }}
+  </div>
+  {{ end }}
+  <div class="col-md-auto">
+    <strong class="tertiary-color">Published:&nbsp;</strong>
+    <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+  </div>
+</div>
+
+

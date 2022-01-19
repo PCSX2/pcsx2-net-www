@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en-gb" xml:lang="en-gb" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <base href="https://pcsx2.net/eula/79-frontpage-news/274-jan-feb-2016-progress-report.html"/>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <meta content="pcsx2, pc, ps2, emulation, emulator, playstation, games, geforce, radeon, intel, amd, f2p, gaming, video games, sony, game, play, free, download, freeware, online" name="keywords"/>
+  <meta content="bositman" name="author"/>
+  <meta content="PCSX2 a Playstation 2 emulator for Windows, Linux and Mac" name="description"/>
+  <meta content="Joomla! - Open Source Content Management" name="generator"/>
+  <title>
+   PCSX2 - The Playstation 2 emulator - January - February 2016 progress report
+  </title>
+  <link href="https://pcsx2.net/component/search/?Itemid=663&amp;catid=79&amp;id=274&amp;format=opensearch" rel="search" title="Search PCSX2 - The Playstation 2 emulator" type="application/opensearchdescription+xml"/>
+  <link href="/index.php?jat3action=gzip&amp;jat3type=css&amp;jat3file=cache%2Ft3%2Fcss_a5b86.css" rel="stylesheet" type="text/css"/>
+  <script class="joomla-script-options new" type="application/json">
+   {"csrf.token":"518b0015b31268fafe081bb17d5c5e51","system.paths":{"root":"","base":""}}
+  </script>
+  <script src="https://pcsx2.net/plugins/system/yvsmiley/default.js" type="text/javascript">
+  </script>
+  <script src="/media/system/js/mootools-core.js" type="text/javascript">
+  </script>
+  <script src="/media/system/js/core.js" type="text/javascript">
+  </script>
+  <script src="/media/jui/js/jquery.min.js" type="text/javascript">
+  </script>
+  <script src="/media/jui/js/jquery-noconflict.js" type="text/javascript">
+  </script>
+  <script src="/media/jui/js/jquery-migrate.min.js" type="text/javascript">
+  </script>
+  <script src="/media/system/js/caption.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/core.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/menu/mega.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/fadeinout.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/mootools-more-s.js" type="text/javascript">
+  </script>
+  <script src="/plugins/system/jat3/jat3/base-themes/default/js/resize.js" type="text/javascript">
+  </script>
+  <script src="/libraries/videobox/js/videobox.js" type="text/javascript">
+  </script>
+  <script src="/libraries/videobox/js/functions.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+  </script>
+  <!--[if ie]><link href="/plugins/system/jat3/jat3/base-themes/default/css/template-ie.css" type="text/css" rel="stylesheet" /><![endif]-->
+  <!--[if ie 7]><link href="/plugins/system/jat3/jat3/base-themes/default/css/template-ie7.css" type="text/css" rel="stylesheet" /><![endif]-->
+  <!--[if ie 7]><link href="/templates/business8/css/template-ie7.css" type="text/css" rel="stylesheet" /><![endif]-->
+  <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <style type="text/css">
+   /*dynamic css*/
+
+    body.bd .main {width: 100%;}
+    body.bd #ja-wrapper {min-width: 100%;}
+  </style>
+  <script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+  </script>
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-387767-1', 'pcsx2.net');
+  ga('send', 'pageview');
+  </script>
+  <!-- Universal Google Analytics Plugin by PB Web Development -->
+ </head>
+ <body class="bd fs3 com_content">
+  <a id="Top">
+  </a>
+  <div id="ja-wrapper">
+   <div class="wrap" id="ja-header">
+    <div class="main">
+     <div class="main-inner1 clearfix">
+      <a href="/" title="PCSX2 - The Playstation 2 emulator">
+       <img alt="PCSX2 homepage" height="120" src="/templates/business8/themes/classic/images/logo_classic.png" width="452"/>
+      </a>
+     </div>
+    </div>
+   </div>
+   <div id="ja-cpanel-wrapper">
+    <div id="ja-cpanel">
+     <div id="ja-cpanel-main">
+      <div class="ja-cpanel-tools clearfix">
+       <h3>
+        Font Size
+       </h3>
+       <div class="ja-box-usertools">
+        <ul class="ja-usertools-font clearfix">
+         <li class="font-inc">
+          <a onclick="switchFontSize('business8_font', 'inc');return false;" title="Increase font size">
+           <span>
+            Increase font size
+           </span>
+          </a>
+         </li>
+         <li class="font-dec">
+          <a onclick="switchFontSize('business8_font', 'dec');return false;" title="Decrease font size">
+           <span>
+            Decrease font size
+           </span>
+          </a>
+         </li>
+         <li class="font-reset">
+          <a onclick="switchFontSize('business8_font', 'reset');return false;" title="Default font size">
+           <span>
+            Default font size
+           </span>
+          </a>
+         </li>
+        </ul>
+       </div>
+       <script type="text/javascript">
+        var DefaultFontSize=parseInt('3');
+  var CurrentFontSize=parseInt('3');
+       </script>
+       <h3>
+        Profile
+       </h3>
+       <div class="ja-box-usertools">
+        <ul class="ja-usertools-profile clearfix">
+         <li class="profile profile-active">
+          <input checked="checked" id="user_profile_classic" name="user_profile" type="radio" value="classic"/>
+          <label for="user_profile_classic" title="classic">
+           <span>
+            classic
+           </span>
+          </label>
+         </li>
+         <li class="profile">
+          <input id="user_profile_default" name="user_profile" type="radio" value="default"/>
+          <label for="user_profile_default" title="default">
+           <span>
+            default
+           </span>
+          </label>
+         </li>
+        </ul>
+       </div>
+       <h3>
+        Layout
+       </h3>
+       <div class="ja-box-usertools">
+        <ul class="ja-usertools-layout clearfix">
+         <li class="layout layout-default-active">
+          <input checked="checked" id="user_layouts_default" name="user_layouts" type="radio" value="default"/>
+          <label for="user_layouts_default" title="default">
+           <span>
+            default
+           </span>
+          </label>
+         </li>
+         <li class="layout layout-no-bottom-boxes">
+          <input id="user_layouts_no-bottom-boxes" name="user_layouts" type="radio" value="no-bottom-boxes"/>
+          <label for="user_layouts_no-bottom-boxes" title="no-bottom-boxes">
+           <span>
+            no-bottom-boxes
+           </span>
+          </label>
+         </li>
+         <li class="layout layout-no-latest-boxes">
+          <input id="user_layouts_no-latest-boxes" name="user_layouts" type="radio" value="no-latest-boxes"/>
+          <label for="user_layouts_no-latest-boxes" title="no-latest-boxes">
+           <span>
+            no-latest-boxes
+           </span>
+          </label>
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div class="ja-cpanel-action clearfix">
+       <a class="button" href="#" onclick="cpanel_apply();return false;" title="Apply setting">
+        <span>
+         Apply
+        </span>
+       </a>
+       <a href="#" onclick="cpanel_reset();return false;" title="Reset to default setting">
+        <span>
+         Reset
+        </span>
+       </a>
+      </div>
+     </div>
+     <a href="#" id="ja-cpanel-toggle">
+      <span>
+       Cpanel
+      </span>
+     </a>
+    </div>
+   </div>
+   <script type="text/javascript">
+    var tmpl_name = 'business8';
+    window.addEvent('load', function () {
+        $('ja-cpanel-toggle').status == 'close';
+        $('ja-cpanel-toggle').slider = new Fx.Slide('ja-cpanel-main', {duration: 400});
+        $('ja-cpanel-toggle').slider.hide();
+        $('ja-cpanel').setStyle ('top', 0);
+        $('ja-cpanel-toggle').addEvent ('click', function (e) {
+            this.slider.toggle();
+            if (this.hasClass ('open')) {
+                this.removeClass ('open').addClass ('close');
+            } else {
+                this.removeClass ('close').addClass ('open');
+            }
+
+            if(e){
+                e.stop();
+            }
+        });
+    });
+   </script>
+   <div class="wrap" id="ja-mainnav">
+    <div class="main">
+     <div class="main-inner1 clearfix">
+      <div class="ja-megamenu clearfix" id="ja-megamenu">
+       <ul class="megamenu level0">
+        <li class="mega first">
+         <a class="mega first" href="https://pcsx2.net/" id="menu435" title="Home">
+          <span class="has-image has-desc" style="background-image:url(/images/stories/frontend/static/home-icon.png);">
+           <span class="menu-title">
+            Home
+           </span>
+           <span class="menu-desc">
+            News
+           </span>
+          </span>
+         </a>
+        </li>
+        <li class="mega">
+         <a class="mega" href="/getting-started.html" id="menu455" title="Getting Started">
+          <span class="has-image has-desc" style="background-image:url(/images/stories/frontend/static/getting-started-icon.png);">
+           <span class="menu-title">
+            Getting Started
+           </span>
+           <span class="menu-desc">
+            Start here!
+           </span>
+          </span>
+         </a>
+        </li>
+        <li class="mega haschild">
+         <a class="mega haschild" href="/download.html" id="menu506" title="Download">
+          <span class="menu-title">
+           Download
+          </span>
+          <span class="menu-desc">
+           Get PCSX2 here
+          </span>
+         </a>
+         <div class="childcontent cols2">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 240px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="/download/releases.html" id="menu507" title="Releases">
+                  <span class="menu-title">
+                   Releases
+                  </span>
+                  <span class="menu-desc">
+                   Latest stable releases
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="/download/releases/windows.html" id="menu515" title="Windows">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-For-Windows-s.png);">
+                     <span class="menu-title">
+                      Windows
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/linux.html" id="menu517" title="Linux">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-For-Linux-s.png);">
+                     <span class="menu-title">
+                      Linux
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/mac.html" id="menu518" title="Mac">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-For-Mac-s.png);">
+                     <span class="menu-title">
+                      Mac
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/source-code.html" id="menu566" title="Source code">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-Source-code.png);">
+                     <span class="menu-title">
+                      Source code
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega">
+                   <a class="mega" href="/download/releases/archive-download.html" id="menu543" title="Archive downloads">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-archive.png);">
+                     <span class="menu-title">
+                      Archive downloads
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega last">
+                   <a class="mega last" href="/download/releases/tools.html" id="menu571" title="Tools">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/Download-tool.png);">
+                     <span class="menu-title">
+                      Tools
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+            <div class="megacol column2 last" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="/download/development.html" id="menu525" title="Development">
+                  <span class="menu-title">
+                   Development
+                  </span>
+                  <span class="menu-desc">
+                   Daily development builds, possibly unstable
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="/download/development/dev-windows.html" id="menu526" title="Windows">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/svn-icon.png);">
+                     <span class="menu-title">
+                      Windows
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega last">
+                   <a class="mega last" href="https://launchpad.net/%7Epcsx2-team/+archive/ubuntu/pcsx2-daily" id="menu1431" target="_blank" title="Linux">
+                    <span class="has-image" style="background-image:url(/images/stories/frontend/static/svn-icon.png);">
+                     <span class="menu-title">
+                      Linux
+                     </span>
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+        <li class="mega haschild">
+         <a class="mega haschild" href="https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/Configuration_Guide/Configuration_Guide.md" id="menu508" title="Guide">
+          <span class="menu-title">
+           Guide
+          </span>
+          <span class="menu-desc">
+           Config Guide
+          </span>
+         </a>
+         <div class="childcontent cols2">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first" href="https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/Configuration_Guide/Configuration_Guide.md" id="menu509" title="English guide">
+                  <span class="menu-title">
+                   English guide
+                  </span>
+                 </a>
+                </div>
+               </div>
+              </li>
+              <li class="mega">
+               <a class="mega" href="/config-guide/guide-translations.html" id="menu594" title="Guide translations">
+                <span class="menu-title">
+                 Guide translations
+                </span>
+               </a>
+              </li>
+             </ul>
+            </div>
+            <div class="megacol column2 last" style="width: 250px;">
+             <ul class="megamenu level1">
+              <li class="mega first">
+               <a class="mega first" href="https://forums.pcsx2.net/Thread-Program-and-Guide-translation-applications" id="menu568" target="_blank" title="Translate it!">
+                <span class="menu-title">
+                 Translate it!
+                </span>
+                <span class="menu-desc">
+                 Translate the guide or program to your language
+                </span>
+               </a>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+        <li class="mega haschild">
+         <a class="mega haschild" href="#" id="menu546" title="Support">
+          <span class="menu-title">
+           Support
+          </span>
+          <span class="menu-desc">
+           Need help?
+          </span>
+         </a>
+         <div class="childcontent cols2">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="https://forums.pcsx2.net" id="menu547" target="_blank" title="Support Forum">
+                  <span class="menu-title">
+                   Support Forum
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="https://forums.pcsx2.net" id="menu550" target="_blank" title="Official forum">
+                    <span class="menu-title">
+                     Official forum
+                    </span>
+                    <span class="menu-desc">
+                     Join thousands of members to get help!
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+            <div class="megacol column2 last" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first group">
+               <div class="group">
+                <div class="group-title">
+                 <a class="mega first group" href="#" id="menu548" title="Useful info">
+                  <span class="menu-title">
+                   Useful info
+                  </span>
+                 </a>
+                </div>
+                <div class="group-content">
+                 <ul class="megamenu level1">
+                  <li class="mega first">
+                   <a class="mega first" href="https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/PCSX2_FAQ.md" id="menu549" title="Frequently Asked Questions">
+                    <span class="menu-title">
+                     Frequently Asked Questions
+                    </span>
+                   </a>
+                  </li>
+                  <li class="mega last">
+                   <a class="mega last" href="https://wiki.pcsx2.net" id="menu599" target="_blank" title="PCSX2 Wiki">
+                    <span class="menu-title">
+                     PCSX2 Wiki
+                    </span>
+                   </a>
+                  </li>
+                 </ul>
+                </div>
+               </div>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+        <li class="mega">
+         <a class="mega" href="/compatibility-list.html" id="menu512" title="Compatibility">
+          <span class="has-image has-desc" style="background-image:url(/images/stories/frontend/static/compat-menu.png);">
+           <span class="menu-title">
+            Compatibility
+           </span>
+           <span class="menu-desc">
+            Check your games!
+           </span>
+          </span>
+         </a>
+        </li>
+        <li class="mega last haschild">
+         <a class="mega last haschild" href="/demo-videos-screenshots.html" id="menu544" title="Demo">
+          <span class="menu-title">
+           Demo
+          </span>
+          <span class="menu-desc">
+           Screens and videos
+          </span>
+         </a>
+         <div class="childcontent cols1">
+          <div class="childcontent-inner-wrap">
+           <div class="childcontent-inner clearfix">
+            <div class="megacol column1 first" style="width: 200px;">
+             <ul class="megamenu level1">
+              <li class="mega first">
+               <a class="mega first" href="/demo-videos-screenshots/screenshots.html" id="menu567" title="Screenshots">
+                <span class="menu-title">
+                 Screenshots
+                </span>
+               </a>
+              </li>
+              <li class="mega">
+               <a class="mega" href="/demo-videos-screenshots/videos.html" id="menu595" title="Videos">
+                <span class="menu-title">
+                 Videos
+                </span>
+               </a>
+              </li>
+              <li class="mega last">
+               <a class="mega last" href="https://www.youtube.com/user/PCSX2team" id="menu651" target="_blank" title="Youtube Channel">
+                <span class="menu-title">
+                 Youtube Channel
+                </span>
+               </a>
+              </li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+        </li>
+       </ul>
+      </div>
+      <script type="text/javascript">
+       var megamenu = new jaMegaMenuMoo ('ja-megamenu', {
+                    'bgopacity': 0,
+                    'delayHide': 10,
+                    'slide'    : 0,
+                    'fading'   : 0,
+                    'direction': 'down',
+                    'action'   : 'mouseover',
+                    'tips'     : false,
+                    'duration' : 300,
+                    'hidestyle': 'fastwhenshow'
+                });
+      </script>
+      <!-- jdoc:include type="menu" level="0" / -->
+      <ul class="no-display">
+       <li>
+        <a href="#ja-content" title="Skip to content">
+         Skip to content
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <!-- MAIN CONTAINER -->
+   <div class="wrap ja-l1" id="ja-container">
+    <div class="main clearfix">
+     <div id="ja-mainbody" style="width:100%">
+      <!-- CONTENT -->
+      <div id="ja-main" style="width:85%">
+       <div class="inner clearfix">
+        <div id="system-message-container">
+        </div>
+        <div class="clearfix" id="ja-contentwrap">
+         <div class="column" id="ja-content" style="width:100%">
+          <div class="column" id="ja-current-content" style="width:100%">
+           <div class="ja-content-main clearfix" id="ja-content-main">
+            <div class="single-article">
+             <div class="item-page clearfix">
+              <h2 class="contentheading">
+               <a href="/274-jan-feb-2016-progress-report.html">
+                January - February 2016 progress report
+               </a>
+              </h2>
+              <div style="text-align:center;">
+               <ins class="adsbygoogle" data-ad-client="ca-pub-7741304783035041" data-ad-type="text_image" data-color-bg="FFFFFF" data-color-border="000000" data-color-link="0088CC" data-color-text="555555" data-color-url="AAAAAA" style="display:inline-block;width:468px;height:60px">
+               </ins>
+               <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+               </script>
+              </div>
+              <p>
+               <img alt="Progress report 1-2 2016" border="0" height="104" src="/images/stories/frontend/progress_reports/1-2-2016/progress-rep-1-2-2016.jpg" style="display: block; margin-left: auto; margin-right: auto;" width="563"/>
+              </p>
+              <p style="text-align: justify;">
+               Hello everyone and welcome to another glorious PCSX2 progress report! This time we've got a lot of GSdx improvements to share with you. We also have an announcement regarding the progress reports.
+              </p>
+              <p style="text-align: justify;">
+               Those of you who have been following them probably know that we've been a little late with them pretty much every time. The reason for this is lack of manpower - for the most part, the same people that work on the emulator itself write the progress reports. Because of that there are many times when they'd rather spend their free time improving the emulator rather than writing about the improvements. With this in mind we have decided that from now on
+               <em>
+                our progress reports will be released every three months
+               </em>
+               .
+              </p>
+              <p style="text-align: justify;">
+               This will enable us to release higher quality progress reports as well as dedicate more time to development.
+               <br/>
+               If you wish to follow development more closely then you can always check out what's going on over at
+               <a href="https://github.com/PCSX2/pcsx2" target="_blank">
+                Github
+               </a>
+               .
+              </p>
+              <p style="text-align: justify;">
+               Now with that out of the way, let's get down to it!
+              </p>
+              <p>
+               <br/>
+               <br/>
+               <span style="color: #018ddd;">
+                [Enhancement]
+               </span>
+               <span style="font-weight: bold; text-decoration: underline;">
+                GSDX-OpenGL: Fast accurate blending
+               </span>
+               by
+               <a href="https://github.com/gregory38" target="_blank">
+                Gregory
+               </a>
+               and
+               <a href="https://github.com/turtleli" target="_blank">
+                Turtleli
+               </a>
+               <br/>
+               <br/>
+               As most of you know, Blending Unit Accuracy is an option where a SW blending unit is emulated through the fragment shader with the intent of reproducing the blending unit output of the GS. This option fixes blending issues in a lot of games - Valkyrie Profile 2, Rule of Rose and Bakugan Battle Brawlers are examples. One of the major disadvantages of this from a user perspective is that increasing the accuracy increases the demand on the system. In a worst case scenario this can drop performance well below an acceptable level.
+               <br/>
+               <br/>
+               Two reasons why poor performance was observed on some games while using accurate blending:
+              </p>
+              <ul>
+               <li>
+                Primitives being drawn one by one when any primitive overlap is detected
+               </li>
+               <li>
+                The GPU Texture Cache needs to be flushed at each instances of reading a target.
+               </li>
+              </ul>
+              <p>
+               <br/>
+               <span style="font-weight: bold;">
+                Turtleli
+               </span>
+               fixed the first issue by reworking the code so that non-overlapping consecutive sprite primitives are drawn together when sprite overlap is detected, which can greatly reduce the number of barriers used and therefore improve rendering speed when accurate blending is enabled.
+               <br/>
+               <br/>
+               <span style="font-weight: bold;">
+                Gregory
+               </span>
+               has tackled the second issue by not flushing the texture cache between primitives when we are emulating the Frame buffer mask on an alpha channel. Normally if you don't flush the cache you wouldn't know what you're reading - it could be an old cached value or it could be a value written in the render target or it could even be something undefined. Fortunately the "Undefined" case is rather unlikely as read and write paths are separated for performance and memory is designed to handle both read/write at the same time/same address.
+               <br/>
+               <br/>
+               In the end, it all comes down to the case of "Cached value" VS "Current value". In order to generate an effect, the fragment shader needs to read the masked bits and then merge them with the new alpha value. Since the alpha channel isn't blended (due to GS limitations), the masked bits in the target are constant. This also means that said bits are the same in the cache (which contains the value of rendering target at a random time). Because of this we don't care which data is read, cached or not, the required bits will be the same. This provides a significant increase at speed on games like
+               <span style="font-style: italic;">
+                Xenosaga
+               </span>
+               .
+               <br/>
+               <br/>
+               <span style="font-weight: bold;">
+                Note:
+               </span>
+               The former slow method of accurate blending can still be used by enabling "Safe Accurate blending" on HW hacks. ( useful for checking on regressions caused by the current fast blending)
+              </p>
+              <table>
+               <caption>
+                <span style="color: #3a90dc;">
+                 <span style="font-size: large;">
+                  Speed impact of Fast accurate blending
+                 </span>
+                </span>
+               </caption>
+               <tbody>
+                <tr>
+                 <th style="text-align: center; border: 1px solid; padding: 3px;">
+                  <strong>
+                   Game
+                  </strong>
+                 </th>
+                 <th style="text-align: center; border: 1px solid; padding: 3px;">
+                  <strong>
+                   Blending unit accuracy [disabled]
+                  </strong>
+                 </th>
+                 <th style="text-align: center; border: 1px solid; padding: 3px;">
+                  <strong>
+                   Blending unit accuracy [medium] (before)
+                  </strong>
+                 </th>
+                 <th style="text-align: center; border: 1px solid; padding: 3px;">
+                  <strong>
+                   Blending unit accuracy [medium] (now)
+                  </strong>
+                 </th>
+                </tr>
+                <tr>
+                 <td style="text-align: center; border: 1px solid; padding: 3px;">
+                  Xenosaga
+                 </td>
+                 <td style="text-align: center; border: 1px solid; padding: 3px;">
+                  172
+                 </td>
+                 <td style="text-align: center; border: 1px solid; padding: 3px;">
+                  36
+                 </td>
+                 <td style="text-align: center; border: 1px solid; padding: 3px;">
+                  153
+                 </td>
+                </tr>
+                <tr>
+                 <td style="text-align: center; border: 1px solid; padding: 3px;">
+                  Zone of the Enders
+                 </td>
+                 <td style="text-align: center; border: 1px solid; padding: 3px;">
+                  172
+                 </td>
+                 <td style="text-align: center; border: 1px solid; padding: 3px;">
+                  27
+                 </td>
+                 <td style="text-align: center; border: 1px solid; padding: 3px;">
+                  156
+                 </td>
+                </tr>
+               </tbody>
+              </table>
+              <p>
+               <br/>
+               <br/>
+               <span style="color: #018ddd;">
+                [Enhancement]
+               </span>
+               <span style="font-weight: bold; text-decoration: underline;">
+                GSDX-OpenGL: Depth buffer lookup optimization
+               </span>
+               by
+               <a href="https://github.com/gregory38" target="_blank">
+                Gregory
+               </a>
+               <br/>
+               <br/>
+               The Graphics synthesizer (GS) is allowed to overlap the depth buffer and the color buffer. In order to support it on a standard PC GPU, HW depth was created to convert between the depth and color format which resolves tons of issues related to the depth textures. Unfortunately it is quite costly on performance.
+               <br/>
+               <br/>
+               After some observations, it was found that at several instances the depth buffer is useless, not read, not written. GSdx was updated to not handle the depth buffer when it isn't used by the game. It removes most of the overhead of the HW depth option on games like Tekken 5.
+              </p>
+              <table>
+               <caption>
+                <span style="color: #3a90dc;">
+                 <span style="font-size: large;">
+                  Speed impact of depth buffer lookup optimization
+                 </span>
+                </span>
+               </caption>
+               <tbody>
+                <tr>
+                 <th style="text-align: center; border: 1px solid; padding: 3px;">
+                  <strong>
+                   Game
+                  </strong>
+                 </th>
+                 <th style="text-align: center; border: 1px solid; padding: 3px;">
+                  <strong>
+                   HW depth [disabled]
+                  </strong>
+                 </th>
+                 <th style="text-align: center; border: 1px solid; padding: 3px;">
+                  <strong>
+                   HW depth [enabled] (before)
+                  </strong>
+                 </th>
+                 <th style="text-align: center; border: 1px solid; padding: 3px;">
+                  <strong>
+                   HW depth [enabled] (now)
+                  </strong>
+                 </th>
+                </tr>
+                <tr>
+                 <td style="border: 1px solid; padding: 3px;">
+                  Tekken 5
+                 </td>
+                 <td style="text-align: center; border: 1px solid; padding: 3px;">
+                  215
+                 </td>
+                 <td style="text-align: center; border: 1px solid; padding: 3px;">
+                  32
+                 </td>
+                 <td style="text-align: center; border: 1px solid;">
+                  205
+                 </td>
+                </tr>
+               </tbody>
+              </table>
+              <p>
+               <br/>
+               <br/>
+               <span style="color: #018ddd;">
+                [Enhancement]
+               </span>
+               <span style="font-weight: bold; text-decoration: underline;">
+                GSDX-FX: Post-Processing updates
+               </span>
+               by
+               <a href="https://github.com/Asmodean" target="_blank">
+                Asmodean
+               </a>
+               <br/>
+               <br/>
+               Asmodean has updated his effects suite with improved cel edges of the cel shader and a new debanding shader along with Timothy Lottes' CRT emulation shader.
+               <br/>
+               <br/>
+               Here are some comparison screenshots showing the effect of the CRT emulation shader:
+               <br/>
+               <br/>
+               <a href="/images/stories/frontend/progress_reports/1-2-2016/gundam-noshader.png" target="_blank">
+                <img alt="gundam" border="0" height="198" src="/images/stories/frontend/progress_reports/1-2-2016/gundam-noshader-s.png" title="gundam" width="353"/>
+               </a>
+               <a href="/images/stories/frontend/progress_reports/1-2-2016/gundam-shader.png" target="_blank">
+                <img alt="gundam" border="0" height="198" src="/images/stories/frontend/progress_reports/1-2-2016/gundam-shader-s.png" title="gundam" width="353"/>
+               </a>
+               <br/>
+               <a href="/images/stories/frontend/progress_reports/1-2-2016/dmc3-noshader.png" target="_blank">
+                <img alt="dmc3" border="0" height="198" src="/images/stories/frontend/progress_reports/1-2-2016/dmc3-noshader-s.png" title="dmc3" width="353"/>
+               </a>
+               <a href="/images/stories/frontend/progress_reports/1-2-2016/dmc3-shader.png" target="_blank">
+                <img alt="dmc3" border="0" height="198" src="/images/stories/frontend/progress_reports/1-2-2016/dmc3-shader-s.png" title="dmc3" width="353"/>
+               </a>
+               <br/>
+               <br/>
+               <br/>
+               <span style="color: #ff3333;">
+                [Bug-Fix]
+               </span>
+               <span style="font-weight: bold; text-decoration: underline;">
+                GSDX: Proper handling of 576P/720P/1080I video modes
+               </span>
+               by
+               <a href="https://github.com/ssakash" target="_blank">
+                ssakash
+               </a>
+               <br/>
+               <br/>
+               <span style="font-weight: bold;">
+                1080P (before)
+               </span>
+               <br/>
+               <a href="/images/stories/frontend/progress_reports/1-2-2016/height-broken.png" target="_blank">
+                <img alt="video mode test" border="0" height="148" src="/images/stories/frontend/progress_reports/1-2-2016/height-broken-s.png" title="video mode test" width="353"/>
+               </a>
+               <br/>
+               <span style="font-weight: bold;">
+                1080P (now)
+               </span>
+               <br/>
+               <a href="/images/stories/frontend/progress_reports/1-2-2016/height-fixed.png" target="_blank">
+                <img alt="video mode test fixed" border="0" height="298" src="/images/stories/frontend/progress_reports/1-2-2016/height-fixed-s.png" title="video mode test fixed" width="353"/>
+               </a>
+               <br/>
+               <span style="font-weight: bold;">
+                Note:
+               </span>
+               This screenshot is of an ELF file called "Video mode test" which was designed to observe the Display/SMODE registers value changes at each video modes.
+               <br/>
+               <br/>
+               <span style="font-weight: bold;">
+                Gitaroo Man [PAL] (before)
+               </span>
+               <br/>
+               <a href="/images/stories/frontend/progress_reports/1-2-2016/gitarooman-broken.png" target="_blank">
+                <img alt="gitaroo man broken" border="0" height="149" src="/images/stories/frontend/progress_reports/1-2-2016/gitarooman-broken-s.png" title="gitaroo man broken" width="353"/>
+               </a>
+               <br/>
+               <br/>
+               <span style="font-weight: bold;">
+                Gitaroo Man [PAL] (now)
+               </span>
+               <br/>
+               <a href="/images/stories/frontend/progress_reports/1-2-2016/gitarooman-fixed.png" target="_blank">
+                <img alt="gitaroo man broken" border="0" height="298" src="/images/stories/frontend/progress_reports/1-2-2016/gitarooman-fixed-s.png" title="gitaroo man broken" width="353"/>
+               </a>
+               <br/>
+               <span style="font-weight: bold;">
+                Note:
+               </span>
+               The NTSC version of Gitaroo Man didn't suffer the following issue since it uses a height of 448 whereas the PAL version uses 576.
+               <br/>
+               <br/>
+               The physical display dimensions (CRTC size) of the video modes can be found using the value of the following display registers:
+              </p>
+              <ul>
+               <li>
+                DW - Display Width
+               </li>
+               <li>
+                DH - Display Height
+               </li>
+               <li>
+                MAGH - Horizontal Magnification factor
+               </li>
+               <li>
+                MAGV - Vertical Magnification factor
+               </li>
+              </ul>
+              <p>
+               <br/>
+               The width and height are calculated by the formula
+               <span style="font-weight: bold;">
+                (DW+1) / (MAGH + 1)
+               </span>
+               and
+               <span style="font-weight: bold;">
+                (DH+1) / (MAGV + 1)
+               </span>
+               respectively. Different video modes use different magnification factors and it depends on the game as well.
+               <br/>
+               <br/>
+               Previously there was a saturation limit for display height (DH) as it's generally not higher than 640 for NTSC / PAL video modes. However, that wasn't the case for other VESA/DTV (576P,720P...1080I) video modes since they utilize a bigger display height (DH) and scale it according to the magnification factor. To solve this, the saturation limit is ignored for video modes other than NTSC/PAL as those do have the possibility of producing a higher DH value. The check was ultimately placed on CRTC height instead of DH to avoid any possible conflicts with the vertical magnification factor scaling.
+               <br/>
+               <br/>
+               Another part of the fix was to prevent a bad division of height when the
+               <span style="font-weight: bold;">
+                INT
+               </span>
+               and
+               <span style="font-weight: bold;">
+                FFMD
+               </span>
+               register values were set. Previously the code did the division twice since we were receiving the height of the device size instead of the display rectangle. We don't need to divide once again as device size already goes through the halving of height when the respective register values are set.
+               <br/>
+               <br/>
+               <br/>
+               <span style="color: #ff3333;">
+                [Bug-Fix]
+               </span>
+               <span style="font-weight: bold; text-decoration: underline;">
+                PCSX2: GUI Improvements
+               </span>
+               by
+               <a href="https://github.com/ssakash" target="_blank">
+                ssakash
+               </a>
+               ,
+               <a href="https://github.com/turtleli" target="_blank">
+                Turtleli
+               </a>
+               and
+               <a href="https://github.com/NZJenkins" target="_blank">
+                NZJenkins
+               </a>
+              </p>
+              <ul>
+               <li>
+                Console Window: Improved size handling and better autodock behavior when maximized.
+               </li>
+               <li>
+                Console Window: make enable/disable/restore defaults affect all menu items.
+               </li>
+               <li>
+                Debugger: proper deletion of breakpoint when multiple breakpoints are present.
+               </li>
+               <li>
+                Debugger: prevent unexpected resuming when stepping into/over disabled breakpoints.
+               </li>
+               <li>
+                Debugger: stepout works without any preceding step in / step over.
+               </li>
+               <li>
+                GSFrame: Resolution is displayed at titlebar with respect to upscaling value.
+               </li>
+               <li>
+                VideoPanel: Better gray out of dialog elements.
+               </li>
+              </ul>
+              <p>
+               <br/>
+               <span style="color: #ff3333;">
+                [Bug-Fix]
+               </span>
+               <span style="font-weight: bold; text-decoration: underline;">
+                PCSX2-Auto test suite
+               </span>
+               by
+               <a href="https://github.com/gregory38" target="_blank">
+                Gregory
+               </a>
+               ,
+               <a href="https://github.com/ramapcsx2" target="_blank">
+                Rama
+               </a>
+               and
+               <a href="https://github.com/refractionpcsx2" target="_blank">
+                Refraction
+               </a>
+               <br/>
+               <br/>
+               The
+               <a href="https://github.com/unknownbrackets/ps2autotests" target="_blank">
+                PS2 Autotests
+               </a>
+               is a repository created by
+               <a href="https://github.com/unknownbrackets" target="_blank">
+                Unknown brackets
+               </a>
+               .
+               <br/>
+               <br/>
+               PS2 Autotests consists of multiple small programs for the PS2 with each one being a different test. It tests certain things and then simply writes out a log of what it did and what happened when it did those things. These tests are run on real hardware and then we save that log.
+               <br/>
+               <br/>
+               After that an emulator can execute the same small program and get its own log. If what happened on the real hardware is different from what happened in the emulator then guess what? You've got a bug, or at least a potential problem. Even better, it's quite easy to reproduce.
+               <br/>
+               <br/>
+               Gregory has recently added a perl script which makes it easier to run such tests and allows faster debugging for the developers - these tests have already helped our developers fix a couple of issues. (few of them are listed below for reference)
+              </p>
+              <ul>
+               <li>
+                <a href="https://github.com/PCSX2/pcsx2/commit/46a2f6ed24067dfdc2002ff9a1a365d941ff7779" target="_blank">
+                 EE-Interpreter: Fix a subtle bug in a QFSRV
+                </a>
+               </li>
+               <li>
+                <a href="https://github.com/PCSX2/pcsx2/commit/ba62ce9e933499f94a613f34a0a02361fd870fc6" target="_blank">
+                 IOP: Fix MTLO Instruction
+                </a>
+               </li>
+               <li>
+                <a href="https://github.com/PCSX2/pcsx2/commit/5efbf2a8023432d4ff6f9564e77eda7714c4f91d" target="_blank">
+                 DMAC: Most significant bits of MADR is fixed to 0 in 8/9 channels
+                </a>
+               </li>
+               <li>
+                <a href="https://github.com/PCSX2/pcsx2/commit/cf993c2a3632a6371fc807da1ee6b945ccca5b9d" target="_blank">
+                 Vif-Recompiler: Fix skip size calculation.
+                </a>
+               </li>
+               <li>
+                <a href="https://github.com/PCSX2/pcsx2/commit/e5e0f85b50feb943e761944ca4a368402a1600f2" target="_blank">
+                 Vif-Recompiler: Proper handling when domode is set to 3.
+                </a>
+               </li>
+              </ul>
+              <p>
+               <br/>
+               <span style="color: #ff3333;">
+                [Bug-Fix]
+               </span>
+               <span style="font-weight: bold; text-decoration: underline;">
+                PCSX2-Vector Units: Scarface I bit hack
+               </span>
+               by
+               <a href="https://github.com/refractionpcsx2" target="_blank">
+                Refraction
+               </a>
+               <br/>
+               <br/>
+               <span style="font-weight: bold;">
+                Scarface - The World is Yours
+               </span>
+               has a certain way of doing it's vector programs which is a pain for recompilers, most games upload a program with specific instructions to process vectors in a set of order with a common outcome. However the following game does things a little bit differently, instead of having a vector program for certain processes and then just changing the input data, scarface constantly changes what is known as the
+               <span style="font-weight: bold;">
+                I bit
+               </span>
+               in its VU program.
+               <br/>
+               <br/>
+               The issue here is that the recompiler creates a hexadecimal hash of the entire program, one little change to the program (in this case, an I bit value in place of an operation code) and then the hash changes completely, telling the recompiler that this is a new program and not the same one it had previously recompiled, so it recompiles it over and over again until it runs out of memory.
+               <br/>
+               <br/>
+               To workaround the following issue, a new hack was added to check for the status of the I bit value and then avoid constant recompilation when only the I bit value has been changed at the specific address. Maybe in the future we can deal with this in a accurate way, but it's not an easy thing to check without compromising on speed.
+               <br/>
+               <br/>
+               This is an optional hack which can be found under the
+               <span style="font-weight: bold;">
+                Gamefixes
+               </span>
+               tab of the emulator as it is slower to handle things this way and is quite specific, but it was requested by quite a few users, so we obliged!
+               <br/>
+               <br/>
+               <br/>
+               <span style="color: #1bc449;">
+                [New Feature]
+               </span>
+               <span style="font-weight: bold; text-decoration: underline;">
+                LilyPad: Add Pop'n Music controller support
+               </span>
+               by
+               <a href="https://github.com/ekudritski" target="_blank">
+                ekudritski
+               </a>
+               <br/>
+               <br/>
+               <a href="/images/stories/frontend/progress_reports/1-2-2016/lilypad-pop-n-music.png" target="_blank">
+                <img alt="gitaroo man broken" border="0" height="521" src="/images/stories/frontend/progress_reports/1-2-2016/lilypad-pop-n-music-s.png" title="gitaroo man broken" width="550"/>
+               </a>
+               <br/>
+               <br/>
+               Native support for the
+               <span style="font-weight: bold;">
+                Pop'n Music controller
+               </span>
+               has been added to LilyPad. Several users had requested this feature since a few games rely on said controller and it's quite hard and troublesome to simulate the behavior of the controller using macros and third party programs.
+              </p>
+              <p>
+               That was it for these 2 months!. The next report will come around June, but hopefully we will show signs of life before that
+               <img alt="Wink" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/wink.gif" width="20"/>
+               As always, check out our
+               <a href="https://github.com/PCSX2/pcsx2" target="_blank">
+                github repository
+               </a>
+               for daily updates to PCSX2.
+              </p>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- //CONTENT -->
+      <!-- LEFT COLUMN-->
+      <div class="column sidebar" id="ja-left" style="width:15%">
+       <div class="ja-colswrap clearfix ja-l1">
+        <div class="ja-col column" id="ja-left1" style="width:100%">
+         <div class="ja-moduletable moduletable_menu clearfix" id="Mod23">
+          <h3>
+           <span>
+            Food for thought
+           </span>
+          </h3>
+          <div class="ja-box-ct clearfix">
+           <ul class="nav menutest mod-list">
+            <li class="item-437">
+             <a href="/developer-blog.html">
+              Developer Blog
+             </a>
+            </li>
+            <li class="item-552">
+             <a href="/meet-the-team.html">
+              Meet the team
+             </a>
+            </li>
+            <li class="item-551">
+             <a href="/article-archive.html">
+              Article archive
+             </a>
+            </li>
+            <li class="item-1908">
+             <a href="/site-map.html">
+              Site Map
+             </a>
+            </li>
+           </ul>
+          </div>
+         </div>
+         <div class="ja-moduletable moduletable clearfix" id="Mod110">
+          <div class="ja-box-ct clearfix">
+           <div class="custom">
+            <p>
+             <h3>
+              <a href="/compatibility-list.html" style="color:#033D63;">
+               Compatibility overview
+              </a>
+             </h3>
+             <p style="font-size: 120%; font-weight: bold;">
+              2689 games
+             </p>
+             Perfect: 0.74% - 20
+             <div class="progress-bar perfect">
+              <span style="width:0.74%;">
+              </span>
+             </div>
+             Playable: 97.66% - 2626
+             <div class="progress-bar playable">
+              <span style="width:97.66%;">
+              </span>
+             </div>
+             Ingame: 1.08% - 29
+             <div class="progress-bar ingame">
+              <span style="width:1.08%;">
+              </span>
+             </div>
+             Menus: 0.3% - 8
+             <div class="progress-bar menu">
+              <span style="width:0.3%;">
+              </span>
+             </div>
+             Intro: 0.15% - 4
+             <div class="progress-bar intro">
+              <span style="width:0.15%;">
+              </span>
+             </div>
+             Nothing: 0.07% - 2
+             <div class="progress-bar nothing">
+              <span style="width:0.07%;">
+              </span>
+             </div>
+            </p>
+           </div>
+          </div>
+         </div>
+         <div class="ja-moduletable moduletable-search clearfix" id="Mod35">
+          <div class="ja-box-ct clearfix">
+           <form action="/eula.html" class="search-search" method="post">
+            <input class="inputbox-search" id="mod-search-searchword" maxlength="200" name="searchword" onblur="if (this.value=='') this.value='Search ...';" onfocus="if (this.value=='Search ...') this.value='';" size="10" type="text" value="Search ..."/>
+            <input class="button-search" onclick="this.form.searchword.focus();" type="submit" value="GO"/>
+            <input name="task" type="hidden" value="search"/>
+            <input name="option" type="hidden" value="com_search"/>
+            <input name="Itemid" type="hidden" value="663"/>
+           </form>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- //LEFT COLUMN-->
+     </div>
+    </div>
+   </div>
+   <!-- //MAIN CONTAINER -->
+   <div class="wrap" id="ja-navhelper">
+    <div class="main">
+     <div class="main-inner1 clearfix">
+      <div class="ja-breadcrums">
+       <span class="breadcrumbsbread pathway">
+        <strong>
+         You are here:
+        </strong>
+        <a class="pathway" href="/">
+         Home
+        </a>
+        <img alt="" src="/media/system/images/arrow.png"/>
+        <a class="pathway" href="/eula.html">
+         EULA
+        </a>
+        <img alt="" src="/media/system/images/arrow.png"/>
+        <a class="pathway" href="/">
+         News
+        </a>
+        <img alt="" src="/media/system/images/arrow.png"/>
+        January - February 2016 progress report
+       </span>
+      </div>
+      <ul class="ja-links">
+       <li class="top">
+        <a href="javascript:scroll(0,0)" title="Back to top">
+         Top
+        </a>
+       </li>
+      </ul>
+      <ul class="no-display">
+       <li>
+        <a href="#ja-content" title="Skip to content">
+         Skip to content
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="wrap" id="ja-footer">
+    <div class="main clearfix">
+     <div class="ja-copyright">
+     </div>
+     <br/>
+     Webdesign and code © 2021 PCSX2 Team | Modified template from Joomla Web Design |
+     <a href="/privacy-policy.html">
+      Privacy Policy
+     </a>
+     |
+     <a href="/eula.html">
+      EULA
+     </a>
+    </div>
+   </div>
+  </div>
+  <script data-cf-beacon='{"rayId":"68dc36295d722c07","token":"c919a4e35e434ed2b63079aa661a82c0","version":"2021.8.1","si":10}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js">
+  </script>
+ </body>
+</html>

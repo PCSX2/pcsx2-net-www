@@ -1,0 +1,793 @@
+<div class="single-article">
+ <div class="item-page clearfix">
+  <h2 class="contentheading">
+   <a href="/299-q2-2021-progress-report.html">
+    Q2 2021 Progress Report
+   </a>
+  </h2>
+  <div style="text-align:center;">
+   <ins class="adsbygoogle" data-ad-client="ca-pub-7741304783035041" data-ad-type="text_image" data-color-bg="FFFFFF" data-color-border="000000" data-color-link="0088CC" data-color-text="555555" data-color-url="AAAAAA" style="display:inline-block;width:468px;height:60px">
+   </ins>
+   <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+   </script>
+  </div>
+  <p>
+   <img alt="progress rep q2 2021" height="104" src="/images/stories/frontend/progress_reports/q2-2021/progrepq22021.jpg" style="display: block; margin-left: auto; margin-right: auto;" width="563"/>
+  </p>
+  <p style="text-align: center;">
+   Written by
+   <a href="https://forums.pcsx2.net/User-lightningterror" rel="noopener" target="_blank">
+    lightningterror
+   </a>
+  </p>
+  <h1>
+   Core Improvements
+  </h1>
+  <p>
+   <strong>
+    <span style="color: #00ccff;">
+     [Enhancement]
+    </span>
+    DEV9 improvements:
+   </strong>
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4381">
+    #4381
+   </a>
+   DEV9: Do not apply byteswapping to TX/RX FIFO writes/reads. By
+   <a href="https://github.com/TheLastRar">
+    TheLastRar
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Remove the byte swapping done to TX/RX FIFO writes/reads performed via registers.
+  </p>
+  <p style="padding-left: 40px;">
+   Fixes Twisted Metal: Black Online Public Beta v. 1.0 unable to initialize network adapter.
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4364">
+    #4364
+   </a>
+   DEV9: add ATA Idle Immediate (E1) stub. By
+   <a href="https://github.com/macmenot">
+    macmenot
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Fixes HDD support for Street Fighter Alpha Anthology.
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4403">
+    #4403
+   </a>
+   DEV9: consistently prefix all console output with DEV9. By
+   <a href="https://github.com/macmenot">
+    macmenot
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4429">
+    #4429
+   </a>
+   DEV9: Update ATA code for wchar GHC. By
+   <a href="https://github.com/TheLastRar">
+    TheLastRar
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4496">
+    #4496
+   </a>
+   DEV9: PCAP, check size of read packet. By
+   <a href="https://github.com/TheLastRar">
+    TheLastRar
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   In pcap, check size of read packet. If the size exceeds the buffer we are using, drop the packet.
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4448">
+    #4448
+   </a>
+   DEV9: Always use binary mode for HDD file. By
+   <a href="https://github.com/TheLastRar">
+    TheLastRar
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Opening the file in binary mode is the intended behaviour (and was done in the most common situation),
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4449">
+    #4449
+   </a>
+   DEV9: Fix potential out of bounds access when manual DNS1 &amp; automatic DNS2 are used together. By
+   <a href="https://github.com/TheLastRar">
+    TheLastRar
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   If DNS1 was manually specified, but DNS2 set to be automatically assigned, an off by one error could result in an out of bounds access to an array of adapter DNS addresses.
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4442">
+    #4442
+   </a>
+   DEV9: Increase min HDD size to 40GiB. By
+   <a href="https://github.com/TheLastRar">
+    TheLastRar
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Most games expect a HDD of 40GiB in size, and may fail to install as a result (and display a confusing error message).
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4304">
+    #4304
+   </a>
+   DEV9: Internal DHCP support. By
+   <a href="https://github.com/TheLastRar">
+    TheLastRar
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Adds an internal DHCP similer to what CLR_DEV9 offers for pcap &amp; tap.
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4433">
+    #4433
+   </a>
+   DEV9: Correctly populate DNS2 field with DNS2 IP. By
+   <a href="https://github.com/TheLastRar">
+    TheLastRar
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Correctly populate DNS2 field with DNS2 IP in the DHCP section of the network ui.
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4435">
+    #4435
+   </a>
+   DEV9: Sleep instead of yield in RxThread. By
+   <a href="https://github.com/TheLastRar">
+    TheLastRar
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Yield might not leave the thread asleep long enough to prevent it from causing excessive CPU load.
+   <br/>
+   This also brings PCSX2 inline with CLR_DEV9 (which also sleeps for 1ms).
+  </p>
+  <p>
+   <strong>
+    <span style="color: #00ccff;">
+     [Enhancement]
+    </span>
+    Memory card improvements:
+   </strong>
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/3941">
+    #3941
+   </a>
+   Memory card: Folder memcards: Add an index file to track order of files. By
+   <a href="https://github.com/CookiePLMonster">
+    CookiePLMonster
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Adds an index file for folder memory cards in order to track timestamps and order of files in the FAT partition properly. This normally shouldn't matter, but there are at least a few games (ie. GTA games) which rely on the order of files on the memory card. Previously, folder memcards would not care about the order and populate the partition in whatever order the host filesystem provided the files (so, in the case of NTFS partitions, alphabetically). In reality, FAT partitions don't specify the order of files, which means in practice they are sorted by the order of creation.
+  </p>
+  <p style="padding-left: 40px;">
+   Fixes saving in GTA games with folder memory cards.
+  </p>
+  <p>
+   <strong>
+    <span style="color: #00ccff;">
+     [Enhancement]
+    </span>
+    microVU improvements:
+   </strong>
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/commit/6f7890b709d5e3f7f5b824781e493455efc92339">
+    6f7890b
+   </a>
+   microVU: Fix mistake when setting Status Flag bits for Signed/Zero. By
+   <a href="https://github.com/refractionpcsx2">
+    refractionpcsx2
+   </a>
+   .
+  </p>
+  <p>
+   <strong>
+    <span style="color: #00ccff;">
+     [Enhancement]
+    </span>
+    Gif improvements:
+   </strong>
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/commit/b60765e976f6b1c45117bbdd042f8d6698c63002">
+    b60765e
+   </a>
+   Gif: Remove MTVU spam that isn't required.By
+   <a href="https://github.com/refractionpcsx2">
+    refractionpcsx2
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Solves stuttering in MTVU mode in some games, and gets rid of some annoying asserts which mean nothing.
+  </p>
+  <p>
+   <strong>
+    <span style="color: #00ccff;">
+     [Enhancement]
+    </span>
+    SPU2 improvements:
+   </strong>
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/3825">
+    #3825
+   </a>
+   SPU2: Change default of latency slider.By
+   <a href="https://github.com/RedDevilus">
+    RedDevilus
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/commit/17519c21b4eeefbadaad3374bd98bdd43d44f1a6">
+    17519c2
+   </a>
+   SPU2: Fix hi def audio streaming.By
+   <a href="https://github.com/refractionpcsx2">
+    refractionpcsx2
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4474">
+    #4474
+   </a>
+   SPU2: Remove cycleptr, grab current cycles directly. By
+   <a href="https://github.com/Ziemas">
+    Ziemas
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   This just changes the SPU2 to get the current IOP cycle directly instead of through a pointer. The non-pointer path seems to have been given up on anyway and there seems to be little reason for hiding it behind a pointer.
+  </p>
+  <p style="padding-left: 40px;">
+   This removes the path where SPU2 runs off the provided cycle argument to SPU2Async, but that was unused anyway.
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4437">
+    #4437
+   </a>
+   SPU: Make SPU use the DMA registers from iopHw. By
+   <a href="https://github.com/Ziemas">
+    Ziemas
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   The SPU was managing its own DMA Addresses, this makes it use the iopHw functionality for this instead.
+  </p>
+  <p>
+   <strong>
+    <span style="color: #00ccff;">
+     [Enhancement]
+    </span>
+    PAD improvements:
+   </strong>
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4331">
+    #4331
+   </a>
+   PAD: Just enable pressure on CMD 0x4F.By
+   <a href="https://github.com/KrossX">
+    KrossX
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Fixes Warriors of Might and Magic gamepad not functioning properly.
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4466">
+    #4466
+   </a>
+   PAD: Fix gamepad choice not affecting rumble test on Linux. By
+   <a href="https://github.com/Lahvuun">
+    Lahvuun
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   This change causes the currently selected gamepad to rumble instead of the first one.
+  </p>
+  <p>
+   <strong>
+    <span style="color: #00ccff;">
+     [Enhancement]
+    </span>
+    Eyetoy improvements:
+   </strong>
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4415">
+    #4415
+   </a>
+   Eyetoy: Motion button support. By
+   <a href="https://github.com/Florin9doi">
+    Florin9doi
+   </a>
+   .
+  </p>
+  <p>
+   <strong>
+    <span style="color: #00ccff;">
+     [Enhancement]
+    </span>
+    Debuggers improvements:
+   </strong>
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4345">
+    #4345
+   </a>
+   Debugger: Bios thread view support. By
+   <a href="https://github.com/F0bes">
+    F0bes
+   </a>
+   .
+  </p>
+  <p>
+   <strong>
+    <span style="color: #00ccff;">
+     [Enhancement]
+    </span>
+    Misc core improvements:
+   </strong>
+  </p>
+  <p>
+   #
+   <a href="https://github.com/PCSX2/pcsx2/pull/4399">
+    4399
+   </a>
+   Core / VU: Disable MTVU when VU1 Interpreter is selected. By
+   <a href="https://github.com/F0bes">
+    F0bes
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/3860">
+    #3860
+   </a>
+   FPU: Remove FPU Compare Hack.By
+   <a href="https://github.com/kozarovv">
+    kozarovv
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   The hack is no longer needed as full Clamping mode can be used instead.
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4461">
+    #4461
+   </a>
+   Misc: Differentiate Impossible block clearing message from IOP &amp; EE. By
+   <a href="https://github.com/F0bes">
+    F0bes
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Prefix the "Impossible block clearing failure" with "[IOP]" or "[EE]" depending on the recompiler.
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4425">
+    #4425
+   </a>
+   PSX: Fix Emulated PSX GPU Version. By
+   <a href="https://github.com/Nobbs66">
+    Nobbs66
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Previously it was thought that the PS2 would emulate the v2 GPU, but hardware tests show that it emulates the V0 GPU.
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4460">
+    #4460
+   </a>
+   Core: Make DMA's instant during the BIOS. By
+   <a href="https://github.com/refractionpcsx2">
+    refractionpcsx2
+   </a>
+   ,
+   <a href="https://github.com/tadanokojin">
+    tadanokojin
+   </a>
+   , and
+   <a class="user-mention" data-hovercard-type="user" data-hovercard-url="/users/PSI-Rockin/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/PSI-Rockin">
+    PSI-Rockin
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   This hackfixes the BIOS to avoid a Data Cache bug caused by a DMA buffer being overwritten during a transfer without waiting, which messes up the fonts in the BIOS. Fixing this correctly would require implementing the Data Cache, which is something which would make the emulator basically unusable, so this is a reasonable solution, it is only enabled during the BIOS screen.
+  </p>
+  <p style="padding-left: 40px;">
+   Fixes certain bios revisions rendering text incorrectly.
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4498">
+    #4498
+   </a>
+   iR5900: Move recConstBuf memory near recompiler memory. By
+   <a href="https://github.com/tellowkrinkle">
+    TellowKrinkle
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Fixes an issue where recConstBuf was too far away from the main recompiler to LEA in 64-bit builds.
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4482">
+    #4482
+   </a>
+   CDVD: Fix disc drive path issues on Windows. By
+   <a href="https://github.com/turtlelic">
+    turtleli
+   </a>
+   .
+  </p>
+  <ul>
+   <li>
+    Fixes
+    <span class="reference">
+     <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-hovercard-type="issue" data-hovercard-url="/PCSX2/pcsx2/issues/3910/hovercard" data-id="738529974" data-permission-text="Title is private" data-url="https://github.com/PCSX2/pcsx2/issues/3910" href="https://github.com/PCSX2/pcsx2/issues/3910">
+      CDVD Regression: Booting a physical disc inserted after opening PCSX2 doesn't work.
+      <span class="issue-shorthand">
+       #3910
+      </span>
+     </a>
+    </span>
+    (Regression only affects Windows).
+   </li>
+   <li>
+    Fixes an issue where the drive choice is cleared if there is no disc in the selected drive when PCSX2 is first opened (Should only affect Windows, but non-Windows only code is touched too).
+   </li>
+  </ul>
+  <hr/>
+  <h1>
+   GSdx Improvements
+  </h1>
+  <p>
+   <strong>
+    <span style="color: #00ccff;">
+     [Enhancement]
+    </span>
+    Misc GSdx improvements:
+   </strong>
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4350">
+    #4350
+   </a>
+   GSdx-gui: Remove partial and full crc hack levels on release builds. By
+   <a href="https://github.com/lightningterror">
+    lightningterror
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Normal users shouldn't really need to choose partial or full since automatic already does that.
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4383">
+    #4383
+   </a>
+   GSdx-hw: Some minor cleanups. By
+   <a href="https://github.com/lightningterror">
+    lightningterror
+   </a>
+   .
+  </p>
+  <hr/>
+  <h1>
+   TAS (Tool Assisted Speedrun) Utility Improvements
+  </h1>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4382">
+    #4382
+   </a>
+   Recording: Resolve crash when closing emulator involving GUI elements. By
+   <a href="https://github.com/xTVaser">
+    xTVaser
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/commit/e50a4463a532379296a7bc97195f899aa215514d">
+    e50a446
+   </a>
+   Recording-gui: Add close box to New Input Recording. By
+   <a href="https://github.com/lightningterror">
+    lightningterror
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4393">
+    #4393
+   </a>
+   Recording: Allow configuration of the frame advance amount. By
+   <a href="https://github.com/xTVaser">
+    xTVaser
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Adds a GUI configurable setting to control how many frames the frame-advance feature should advance.
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4392">
+    #4392
+   </a>
+   Recording: Add warning when creating a save-state recording. By
+   <a href="https://github.com/xTVaser">
+    xTVaser
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Adds a brief warning explaining why you may want to avoid save-state recordings, and what would have to be done if a bad state is achieved.
+  </p>
+  <hr/>
+  <h1>
+   IPC (Interprocess Communication) Improvements
+  </h1>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4337">
+    #4337
+   </a>
+   IPC: Remove possible memory corruption due to strcat on provided pointer. By
+   <a href="https://github.com/GovanifY">
+    GovanifY
+   </a>
+   .
+  </p>
+  <hr/>
+  <h1>
+   GameDB Improvements
+  </h1>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/commit/467659200dd8165444eae402350b56f8ec2f26cf">
+    4676592
+   </a>
+   GameDB: Add patches for Elemental Gerad and K-1 Grand Prix 2006.By
+   <a href="https://github.com/refractionpcsx2">
+    refractionpcsx2
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4388">
+    #4388
+   </a>
+   GameDB: Adds fixes for Energy Airforce - Aim Strike , K-1 World Grand Prix 2006. By
+   <a href="https://github.com/Mrlinkwii">
+    Mrlinkwii
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4405">
+    #4405
+   </a>
+   GameDB: add Nearest EErounding to SSX and SSX tricky. By
+   <a href="https://github.com/Mrlinkwii">
+    Mrlinkwii
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4462">
+    #4462
+   </a>
+   GameDB: Add Kickstart for Rayman Raving Rabbids. By
+   <a href="https://github.com/icup321">
+    icup321
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4478">
+    #4478
+   </a>
+   GameDB: Adds VU clamping mode extra to Enthusia Professional Racing. By
+   <a href="https://github.com/Mrlinkwii">
+    Mrlinkwii
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4488">
+    #4488
+   </a>
+   GameDB: Remove no longer needed 'OPHFLagHack' for Naruto - Uzumaki Chronicles 2. By
+   <a href="https://github.com/Mrlinkwii">
+    Mrlinkwii
+   </a>
+   .
+  </p>
+  <hr/>
+  <h1>
+   Misc Improvements
+  </h1>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4278">
+    #4278
+   </a>
+   GUI: Grayout Instant VU1 when MTVU is enabled. By
+   <a href="https://github.com/RedDevilus">
+    RedDevilus
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4377">
+    #4377
+   </a>
+   GUI: Revise console with newline on compile + title. By
+   <a href="https://github.com/RedDevilus">
+    RedDevilus
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4416">
+    #4416
+   </a>
+   GUI: Swap buttons Browse... and Ask when booting and default to unchecked state. By
+   <a href="https://github.com/RedDevilus">
+    RedDevilus
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4378">
+    #4378
+   </a>
+   GUI: change window to debug in the menu and move blockdump to the debug menu. By
+   <a href="https://github.com/Mrlinkwii">
+    Mrlinkwii
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4431">
+    #4431
+   </a>
+   GUI: update the 2 smaller app icons. By
+   <a href="https://github.com/Mrlinkwii">
+    Mrlinkwii
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4438">
+    #4438
+   </a>
+   GUI: change 'Console to Stdio' to 'Program Log to Stdio' in UI. By
+   <a href="https://github.com/Mrlinkwii">
+    Mrlinkwii
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4454">
+    #4454
+   </a>
+   GUI: Rename PSX references to PS1 distinguish between PS1 and DVR. By
+   <a href="https://github.com/Florin9doi">
+    Florin9doi
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4329">
+    #4329
+   </a>
+   Misc: Remove SSE2/SSE3 support.By
+   <a href="https://github.com/GovanifY">
+    GovanifY
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Moving forward with our goal to clean up and modernize the code we are removing SSE2/3 support.
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4444">
+    #4444
+   </a>
+   Misc: Save ELF last path when auto-running an elf.By
+   <a href="https://github.com/F0bes">
+    F0bes
+   </a>
+   .
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4343">
+    #4343
+   </a>
+   Misc: Enable GS debugger on CI artifacts. By
+   <a href="https://github.com/lightningterror">
+    lightningterror
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Adds an CI environment variable to enable GS debugger on CI artifacts. This can also be enabled locally to enable the GS debugger.
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4418">
+    #4418
+   </a>
+   CI: Validate GameDB changes in GitHub Actions. By
+   <a href="https://github.com/xTVaser">
+    xTVaser
+   </a>
+   .
+  </p>
+  <p style="padding-left: 40px;">
+   Currently, the emulator will fully validate the GameDB, which is how we've been catching these recent mistakes. But this adds a CI check to validate the file in a very similar manner at build time.
+  </p>
+  <p>
+   <a href="https://github.com/PCSX2/pcsx2/pull/4180">
+    #4180
+   </a>
+   CI: Add an explicit flag to retain debugging artifacts (.pdb, .exp, .lib, etc) in Windows builds. By
+   <a href="https://github.com/xTVaser">
+    xTVaser
+   </a>
+   .
+  </p>
+  <hr/>
+  <p style="text-align: center;">
+   dev 1165 and up (last add 1296)
+  </p>
+  <p style="text-align: center;">
+   And that's all from us, see you next time in our 2021 Q3 Report!
+  </p>
+ </div>
+</div>

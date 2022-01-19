@@ -1,0 +1,250 @@
+\:root
+  --controller-triangle: #00d4ca
+  --controller-circle: #ff5653
+  --controller-cross: #8dbbf2
+  --controller-square: #f887d6
+  /* compat colors */
+  --compat-perfect: #BA68C8
+  --compat-playable: #9CCC65
+  --compat-ingame: #29B6F6
+  --compat-menus: #FBC02D
+  --compat-intro: #F57C00
+  --compat-nothing: #D32F2F
+
+// Sizing and Spacing
+.vh-50
+  height: 50vh
+
+.vh-60
+  height: 60vh
+
+.vh-100
+  height: 100vh
+
+.flex-gap *
+  margin: 0.5rem
+
+// Margins and Padding
+.no-horizontal-margins
+  margin-right: 0
+  margin-left: 0
+  padding-right: 0
+  padding-left: 0
+
+// General Classes
+body
+  background-color: var(--main-bg-color)
+  color: var(--text-color)
+  font-family: 'Lexend', sans-serif
+
+h1, h2
+  font-weight: 700
+  color: var(--heading-color)
+
+details > div
+  margin-top: 0.5em
+
+#content
+  padding: 0
+
+// Coloring
+.secondary-bg-color
+  background-color: var(--secondary-bg-color)
+
+.tertiary-color
+  color: var(--tertiary-color)
+
+.tertiary-bg-color
+  background-color: var(--tertiary-bg-color)
+
+.polygon
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background: -webkit-linear-gradient(10deg, var(--polygon-color-a), var(--polygon-color-b)) !important
+    background: linear-gradient(10deg, var(--polygon-color-a), var(--polygon-color-b)) !important;
+    transform: skewY(-5deg) scale(1) !important
+    z-index: -1
+  &.bg-color::before
+    background: var(--main-bg-color) !important
+
+.vGap100
+  height: 100px
+
+// Text Formatting
+.text-truncate
+  white-space: unset
+
+// Buttons
+.btn
+  display: flex
+  align-items: center
+  font-weight: 700
+  > i
+    margin: 0
+    margin-right: 0.5em
+  &:hover
+    color: var(--main-bg-color)
+  &.bold
+    font-weight: 700
+  &.controller
+    color: #000
+    &:hover
+      color: #585858
+    &.triangle
+      background-color: var(--controller-triangle)
+    &.circle
+      background-color: var(--controller-circle)
+    &.cross
+      background-color: var(--controller-cross)
+    &.square
+      background-color: var(--controller-square)
+
+.spinner-border
+  width: 1em
+  height: 1em
+  margin-left: 1em
+  margin-right: 1em
+
+.btn-primary
+  color: var(--heading-color)
+  background-color: var(--primary-color)
+  &:focus, &.focus, &:hover
+    background-color: var(--primary-color)
+
+.btn-outline-info:hover
+  color: var(--primary-color)
+
+button .material-icons-outlined
+  margin-left: 0
+
+// Navigation
+.navbar
+  background-color: var(--main-bg-color)
+  border-bottom-color: var(--tertiary-color)
+  border-bottom-width: 2px
+  border-bottom-style: solid
+
+.nav-icon
+  padding-right: 0.5em
+
+.nav-link
+  display: inline-block
+
+.navbar-brand
+  align-items: center
+  &.scrolled
+    visibility: visible
+
+.navbar-brand, .nav-link
+  font-weight: 700
+  color: var(--heading-color) !important
+  transition: color .05s ease-in-out
+  &:hover
+    color: var(--link-color) !important
+    transition: color .05s ease-in-out
+
+.navbar-toggler
+  padding-left: 0
+  > i
+    color: var(--heading-color)
+
+.logo-text
+  margin-left: 0.25em
+  margin-bottom: 0
+
+.brand-logo
+  height: 2em
+
+#language-dropdown
+  padding: 0
+  background-color: unset
+  box-shadow: none
+  font-size: 1rem
+
+#language-dropdown-container
+  margin-right: 1rem
+
+.theme-icon
+  color: var(--theme-icon-color)
+
+// Ads
+.ad
+  background-color: var(--secondary-background-color)
+
+// Footer
+.footer
+  padding-bottom: 1em
+  color: var(--text-color-dimmed)
+  position: relative
+  padding-top: 100px;
+  padding-bottom: 2rem;
+  clip-path: polygon(0 100px, 0 100%, 100% 100%, 100% 0);
+  a
+    color: var(--text-color)
+    &:hover
+      color: var(--link-color)
+  i
+    font-size: 1.5rem;
+  .icons
+    gap: 1rem;
+
+// Icons
+.error-icon
+  color: var(--error-color)
+  margin-right: 0.5em
+
+// Links
+a
+  color: var(--link-color)
+  .disabled
+    pointer-events: none
+    cursor: default
+  &:hover
+    color: var(--link-color)
+
+// Dropdowns
+.dropdown
+  color: var(--heading-color)
+
+.dropdown-menu
+  background-color: var(--secondary-bg-color)
+
+.dropdown-item
+  color: var(--heading-color)
+
+// Tables
+thead, th
+  color: var(--heading-color)
+
+tr, .table-striped > tbody > tr:nth-of-type(2n)
+  color: var(--text-color)
+
+tbody > tr:nth-of-type(2n)
+  background-color: var(--secondary-bg-color)
+
+td
+  font-weight: 400
+  vertical-align: middle
+  > a
+    font-weight: 700
+    display: inline-block
+  > ul
+    padding-left: 1rem
+    margin: 0
+
+// Pagination
+.btn-pagination
+  padding-left: 1.25em
+  padding-right: 1.25em
+  color: var(--text-color)
+  background-color: var(--secondary-bg-color)
+  &:hover
+    color: var(--heading-color)
+  &.active
+    color: var(--primary-color)

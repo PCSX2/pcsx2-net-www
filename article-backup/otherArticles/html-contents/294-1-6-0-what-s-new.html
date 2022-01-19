@@ -1,0 +1,461 @@
+<div class="single-article">
+ <div class="item-page clearfix">
+  <h2 class="contentheading">
+   <a href="/294-1-6-0-what-s-new.html">
+    1.6.0 - What's new
+   </a>
+  </h2>
+  <div style="text-align:center;">
+   <ins class="adsbygoogle" data-ad-client="ca-pub-7741304783035041" data-ad-type="text_image" data-color-bg="FFFFFF" data-color-border="000000" data-color-link="0088CC" data-color-text="555555" data-color-url="AAAAAA" style="display:inline-block;width:468px;height:60px">
+   </ins>
+   <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+   </script>
+  </div>
+  <p>
+   <img alt="whatsnew160" src="/images/stories/frontend/static/whatsnew160.webp" style="display: block; margin-left: auto; margin-right: auto;"/>
+  </p>
+  <p style="text-align: center;">
+   Written by
+   <a href="https://forums.pcsx2.net/User-ssakash" rel="noopener" target="_blank">
+    ssakash
+   </a>
+  </p>
+  <p>
+  </p>
+  <p>
+   We understand that everyone is thrilled over the release of our new stable version. In this report, we'll be covering all the significant improvements made in our new release in comparison to the previous stable version 1.4.
+  </p>
+  <h2>
+   <span style="text-decoration: underline;">
+    Games which went from nothing to playable
+   </span>
+  </h2>
+  <p>
+   This section covers games which went from not rendering anything to being playable, these issues are the most straight forward to fix, we debug these issues by monitoring all the abnormal activities occurring in the core leading to the game to crash and a solution is worked on to correct that behavior.
+  </p>
+  <p>
+   <span style="font-weight: bold;">
+    <span style="text-decoration: underline;">
+     -Preliminary PSX support
+    </span>
+   </span>
+   has been added! Go try them out yourself, though do note that the PSX backward compatibility is still in its infant state and needs lots of work to be done before it reaches a perfect state.
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q3-2016/teaser.png" target="_blank">
+    <img alt="Teaser" border="0" height="257" src="/images/stories/frontend/progress_reports/q3-2016/teaser_s.png" title="Teaser" width="353"/>
+   </a>
+   <br/>
+   <br/>
+   <span style="font-weight: bold;">
+    <span style="text-decoration: underline;">
+     -Dropship United Peace Force
+    </span>
+   </span>
+   went from not being able to get into main menu to being
+   <span style="color: #9acd32;">
+    playable
+   </span>
+   !
+  </p>
+  <p>
+   As it turns out, our VU branching subroutines had a longstanding bug which failed to account for a branch delay slot inside of another branch delay slot (this is as stupid as it sounds). In other words, the branch was being read as a NOP and got stuck running the wrong code until the game would crash. Never underestimate PS2 developers. If you think they won't do something that's forbidden in the manual, you're dead wrong.
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/2018-2019/dropship-united-peace-force.png" target="_blank">
+    <img alt="dropship-united-peace-force" border="0" height="199" src="/images/stories/frontend/progress_reports/2018-2019/dropship-united-peace-force-s.png" title="dropship-united-peace-force" width="353"/>
+   </a>
+   <br/>
+   <br/>
+   <br/>
+  </p>
+  <p>
+   -All of the
+   <span style="font-weight: bold;">
+    <span style="text-decoration: underline;">
+     World Rally championship
+    </span>
+   </span>
+   (with the exception of WRC 4 which needs a patch -
+   <a href="https://forums.pcsx2.net/Thread-Fixing-unplayable-games" rel="noopener" target="_blank">
+    get it here
+   </a>
+   )games are now
+   <span style="color: #9acd32;">
+    playable
+   </span>
+   !
+   <br/>
+   <br/>
+   This was fixed by properly handling branches in delay slots, the old behavior wasn't addressing this properly and the new behavior was shown to be accurate to the original hardware through tests ran from the EE PS2 testsuite.
+  </p>
+  <p>
+   -Games which relied on
+   <span style="font-weight: bold;">
+    game specific patches/hacks
+   </span>
+   no longer need them anymore to boot!
+   <br/>
+   <br/>
+   Due to series of improvements in our core functions and recompilers, games like
+   <span style="font-weight: bold;">
+    Jak X, Spongebob the Movie, Spongebob Battle for Bikini Bottom,The Incredibles, The Incredibles Rise of the Underminer, Soukou Kihei Armodyne, Garfield Saving Arlene, Tales of Fandom Vol. 2
+   </span>
+   are now
+   <span style="color: #9acd32;">
+    playable
+   </span>
+   without requiring the usage of any hacks or game specific patches.
+   <br/>
+   <br/>
+   This might not come of as a surprise to most users since these games were still playable in the older versions through the use of game specific patches, but handling this accurately would mean there are no potential side effects from the game specific patches and it brings us one step closer to the goal of emulation accuracy, which we strive to improve.
+  </p>
+  <h2>
+   <span style="text-decoration: underline;">
+    Graphics Synthesizer bug fixes
+   </span>
+  </h2>
+  <p>
+   This section covers games which received an improvement in visual accuracy, these issues are mostly hard to debug due to the abnormal way of how the Graphics synthesizer handles most functions and the lack of any proper documentation regarding them, our GS developers however always try their best to fix them!
+  </p>
+  <p>
+   <span style="font-weight: bold;">
+    <span style="text-decoration: underline;">
+     -GSdx: Implementation of fixed TEX0 context for all renderers
+    </span>
+   </span>
+  </p>
+  <p>
+   Fixes texture corruption in games like
+   <span style="font-weight: bold;">
+    Lupin: The Third and James Bond 007 Nightfire
+   </span>
+   .
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/2018-2019/007-nightfire-before.jpg" target="_blank">
+    <img alt="007-nightfire-before" border="0" height="199" src="/images/stories/frontend/progress_reports/2018-2019/007-nightfire-before-s.jpg" title="007-nightfire-before" width="353"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/2018-2019/007-nightfire-after.jpg" target="_blank">
+    <img alt="007-nightfire-after" border="0" height="199" src="/images/stories/frontend/progress_reports/2018-2019/007-nightfire-after-s.jpg" title="007-nightfire-after" width="353"/>
+   </a>
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/1.6/lupin_1.4.jpg" target="_blank">
+    <img alt="lupin 1.4" border="0" height="199" src="/images/stories/frontend/1.6/lupin_1.4s.jpg" title="" width="353"/>
+   </a>
+   <a href="/images/stories/frontend/1.6/lupin_1.6.jpg" target="_blank">
+    <img alt="lupin 1.6" border="0" height="199" src="/images/stories/frontend/1.6/lupin_1.6s.jpg" title="" width="353"/>
+   </a>
+  </p>
+  <p>
+  </p>
+  <div>
+   <span style="font-weight: bold;">
+    <span style="text-decoration: underline;">
+     -GSdx: Improvements in the D3D11 renderer
+    </span>
+   </span>
+   <br/>
+   <p>
+    For a while, the D3D11 renderer has been lagging behind in terms of emulation accuracy in comparison to the OpenGL renderer, the renderer has now gone through various improvements by backporting changes like channel/texture shuffle, depth emulation and texture conversions from OpenGL and is now much improved compared to the 1.4 version.
+   </p>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q1-2018/d3d-fixes-before-after.jpg" target="_blank">
+    <img alt="d3d fixes before after" src="/images/stories/frontend/progress_reports/q1-2018/d3d-fixes-before-after.jpg"/>
+   </a>
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/2018-2019/Blood-Will-Tell-l.jpg" target="_blank">
+    <img alt="Blood Will Tell" height="261" src="/images/stories/frontend/progress_reports/2018-2019/Blood-Will-Tell.jpg" width="634"/>
+   </a>
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/6-2015/fifa_street_broken.jpg" target="_blank">
+    <img alt="fifa_street_broke" border="0" height="265" src="/images/stories/frontend/progress_reports/6-2015/fifa_street_broken.jpg" title="Fifa street broken" width="353"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/6-2015/fifa_street_fixed.jpg" target="_blank">
+    <img alt="fifa_street_fixed" border="0" height="265" src="/images/stories/frontend/progress_reports/6-2015/fifa_street_fixed.jpg" title="fifa_street_fixed" width="353"/>
+   </a>
+  </div>
+  <p style="font-weight: bold; text-decoration: underline;">
+   -GSdx-PCRTC: Improved calculation of output circuit dimensions and add unsupported functions
+  </p>
+  <div>
+   Previously the height of the framebuffer was calculated using guesswork based on the width of the framebuffer. This method was obviously wrong and it caused some conflicts when scaling the buffer for upscaled resolutions. This was fixed by using the height of the output circuit as a base for the framebuffer height. This fixed upscaling issues with lots of games which didn't have adequate buffer size in 1.4 version.
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/CNK-before.png" target="_blank">
+    <img alt="Crash Nitro Kart Before" border="0" height="265" src="/images/stories/frontend/progress_reports/q2-2016/CNK-before_s.png" title="Crash Nitro Kart Before" width="353"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/CNK-after.png" target="_blank">
+    <img alt="Crash Nitro Kart after" border="0" height="265" src="/images/stories/frontend/progress_reports/q2-2016/CNK-after_s.png" title="Crash Nitro Kart after" width="353"/>
+   </a>
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/RBR-before.png" target="_blank">
+    <img alt="Richard Burns Rally Before" border="0" height="265" src="/images/stories/frontend/progress_reports/q2-2016/RBR-before_s.png" title="Richard Burns Rally Before" width="353"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/RBR-after.png" target="_blank">
+    <img alt="Richard Burns Rally after" border="0" height="265" src="/images/stories/frontend/progress_reports/q2-2016/RBR-after_s.png" title="Richard Burns Rally after" width="353"/>
+   </a>
+   <br/>
+   <br/>
+   <span style="text-decoration: underline; font-weight: bold;">
+    -Addition of Feedback write support
+   </span>
+   : Using the feedback write circuit, we can write a specific rectangular area in the output image to an arbitrary position in a local buffer at an arbitrary sampling rate dependent on the status of feedback write setting registers. This feature was not implemented before, and implementation of this allows games like Xenosaga to make use of the feedback write mechanism to convert the color to a luminance greyscale. This fix is exclusive to the OpenGL renderer at the moment.
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q4-2016/xenosaga-before.jpg" target="_blank">
+    <img alt="Xenosaga" border="0" height="198" src="/images/stories/frontend/progress_reports/q4-2016/xenosaga-before-s.jpg" title="Xenosaga" width="353"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q4-2016/xenosaga-after.jpg" target="_blank">
+    <img alt="Xenosaga" border="0" height="198" src="/images/stories/frontend/progress_reports/q4-2016/xenosaga-after-s.jpg" title="Xenosaga" width="353"/>
+   </a>
+   <br/>
+   <br/>
+   <span style="text-decoration: underline; font-weight: bold;">
+    -Improved merge circuit emulation
+   </span>
+   : In some cases the GS is configured to use two side by side display rectangles for rendering. The rectangles are merged by the GS's merge circuit and the resulting image is sent to the TV. The horizontal position of the display rectangles, however, was ignored when emulating the merge circuit, which caused image overlap issues where only half the image was displayed. The display rectangles' horizontal position is now taken into account, which fixes the image overlap issues and makes split screen mode in Time Crisis 2 and 3 playable.
+   <br/>
+   <br/>
+   <span style="text-decoration: underline;">
+    Time Crisis 2
+   </span>
+   <span style="font-weight: bold;">
+    (before)
+   </span>
+   <span style="font-weight: bold;">
+    (
+    <span style="color: #66cc33;">
+     320 X 224
+    </span>
+    )
+   </span>
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/timecrisis-before.png" target="_blank">
+    <img alt="Time Crisis 2 Before" border="0" height="224" src="/images/stories/frontend/progress_reports/q2-2016/timecrisis-before.png" title="Time Crisis 2 Before" width="320"/>
+   </a>
+   <br/>
+   <br/>
+   <span style="text-decoration: underline;">
+    Time Crisis 2
+   </span>
+   <span style="font-weight: bold;">
+    (now)
+   </span>
+   <span style="font-weight: bold;">
+    (
+    <span style="color: #66cc33;">
+     640 X 224
+    </span>
+    )
+   </span>
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/timecrisis-after.png" target="_blank">
+    <img alt="Time Crisis 2 after" border="0" height="224" src="/images/stories/frontend/progress_reports/q2-2016/timecrisis-after.png" title="Time Crisis 2 after" width="640"/>
+   </a>
+   <br/>
+   <br/>
+   <span style="text-decoration: underline; font-weight: bold;">
+    -Support double scan mode
+   </span>
+   : The output size for games are halved whenever the INT and FFMD flag are set in the display mode registers, however there was a bug which led the halving to be done twice unintentionally, this behavior was fixed to get proper output back on games like Gitaroo man.
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/1-2-2016/gitarooman-broken.png" target="_blank">
+    <img alt="[Image: gitarooman-broken-s.png]" height="131" src="/images/stories/frontend/progress_reports/1-2-2016/gitarooman-broken-s.png" width="291"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/1-2-2016/gitarooman-fixed.png" target="_blank">
+    <img alt="[Image: gitarooman-broken-s.png]" height="250" src="/images/stories/frontend/progress_reports/1-2-2016/gitarooman-fixed-s.png" width="278"/>
+   </a>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/1-2-2016/height-broken.png" target="_blank">
+    <img alt="[Image: gitarooman-broken-s.png]" src="/images/stories/frontend/progress_reports/1-2-2016/height-broken-s.png"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/1-2-2016/height-fixed.png" target="_blank">
+    <img alt="[Image: gitarooman-broken-s.png]" height="236" src="/images/stories/frontend/progress_reports/1-2-2016/height-fixed-s.png" width="280"/>
+   </a>
+  </div>
+  <p>
+  </p>
+  <div>
+   <p style="font-weight: bold; text-decoration: underline;">
+    -GSdx: Hardware mipmapping support
+   </p>
+   <p>
+    Previously, all the hardware renderers suffered from mipmapping issues due to various unimplemented functions. For example, whenever mipmapping is performed, it is necessary to set the base pointer address and the buffer width of the textures of two (or) more mipmap levels, even this basic function was not emulated before as there wasn't much priority on getting mipmapping to work on hardware renderers.
+    <br/>
+    <br/>
+    The main reasons were that only some few games (around 10-30) had mipmapping related issues which is quite a small amount of games in comparison to the whole PS2 library and there was also a possibility that mipmapping could influence the performance negatively, so none of the developers were planning on tackling it, as at that time, there were far more severe bugs related to the CLUT, Texture cache, display rectangle setup and Z buffer which were more prioritized. However, mipmapping has now finally been implemented!
+   </p>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q4-2016/ratchet-before1.jpg" target="_blank">
+    <img alt="Ratchet and Clank" border="0" height="309" src="/images/stories/frontend/progress_reports/q4-2016/ratchet-before1-s.jpg" title="Ratchet and Clank" width="353"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q4-2016/ratchet-after1.jpg" target="_blank">
+    <img alt="Ratchet and Clank" border="0" height="309" src="/images/stories/frontend/progress_reports/q4-2016/ratchet-after1-s.jpg" title="Ratchet and Clank" width="353"/>
+   </a>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q4-2016/ratchet-before2.jpg" target="_blank">
+    <img alt="Ratchet and Clank" border="0" height="309" src="/images/stories/frontend/progress_reports/q4-2016/ratchet-before2-s.jpg" title="Ratchet and Clank" width="353"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q4-2016/ratchet-after2.jpg" target="_blank">
+    <img alt="Ratchet and Clank" border="0" height="309" src="/images/stories/frontend/progress_reports/q4-2016/ratchet-after2-s.jpg" title="Ratchet and Clank" width="353"/>
+   </a>
+  </div>
+  <p>
+   <span style="font-weight: bold; text-decoration: underline;">
+    GSdx-HW: Improved texture search and validations in texture cache
+   </span>
+  </p>
+  <div>
+   Improve texture search/invalidation in render target by correctly matching vertex offset draws with buffer offset reads in the texture cache, the eyes are now properly rendered in hardware mode.
+  </div>
+  <p>
+  </p>
+  <table>
+   <tbody>
+    <tr>
+     <td style="text-align: center;">
+      Before
+     </td>
+     <td style="text-align: center;">
+      After
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="/images/stories/frontend/progress_reports/q3-2019/gsdx-3018-before.png" target="_blank">
+       <img alt="gsdx 3018 before" height="264" src="/images/stories/frontend/progress_reports/q3-2019/gsdx-3018-before-s.png" width="353"/>
+      </a>
+     </td>
+     <td>
+      <a href="/images/stories/frontend/progress_reports/q3-2019/gsdx-3018-after.png" target="_blank">
+       <img alt="gsdx 3018 after" height="264" src="/images/stories/frontend/progress_reports/q3-2019/gsdx-3018-after-s.png" width="353"/>
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <h2>
+   <span style="text-decoration: underline;">
+    Core bug fixes
+   </span>
+  </h2>
+  <p>
+   <br/>
+   This section covers games which received an improvement in timing/graphical accuracy through the changes made in the core Vector units/Emotion Engine, recompilers and their relevant submodules.
+  </p>
+  <div>
+   <span style="font-weight: bold;">
+    <span style="text-decoration: underline;">
+     Counters: Accurate Hblank calculation for all video modes
+    </span>
+   </span>
+   <br/>
+   <div>
+    The horizontal blanking interval calculation algorithm used by video modes were modified to adapt to each and every different video mode, this change led to fixing texture corruption and irregular timings in some PSX and PS2 games.
+    <br/>
+    <br/>
+    <a href="/images/stories/frontend/1.6/hblank-fix.png" target="_blank">
+     <img alt="H-blank fix" border="0" height="128" src="/images/stories/frontend/1.6/hblank-fix-s.png" title="H-blank fix" width="340"/>
+    </a>
+   </div>
+  </div>
+  <p>
+  </p>
+  <div>
+   <span style="font-weight: bold;">
+    <span style="text-decoration: underline;">
+     IPU: Improved emulation of the PACK command
+    </span>
+   </span>
+   <br/>
+   <div>
+    The pack command was modified to convert from RGB32 to RGB16/INDX4 instead of RAW8 to RGB16/INDX4. This change fixed FMV issues in "Hisshou Pachinko PachiSlot Kouryaku" series of games.
+   </div>
+   <br/>
+   <table>
+    <tbody>
+     <tr>
+      <td style="text-align: center;">
+       Before
+      </td>
+      <td style="text-align: center;">
+       After
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <a href="/images/stories/frontend/progress_reports/q3-2019/core-3119-before.png" target="_blank">
+        <img alt="core 3119 before" height="247" src="/images/stories/frontend/progress_reports/q3-2019/core-3119-before.png" width="353"/>
+       </a>
+      </td>
+      <td>
+       <a href="/images/stories/frontend/progress_reports/q3-2019/core-3119-after.png" target="_blank">
+        <img alt="core 3119 after" height="247" src="/images/stories/frontend/progress_reports/q3-2019/core-3119-after.png" width="353"/>
+       </a>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+  <p>
+   <span style="font-weight: bold; text-decoration: underline;">
+    VIF: Timing fix for MSCALF, MSCNT instructions
+   </span>
+  </p>
+  <p>
+   Previously the MSCALF and MSCNT instructions were delayed along with the MSCAL instruction, these instructions trigger the execution of the micro instructions in VU1. This was done in order to fix the graphics on the Snowblind Engine games such as Baldur's Gate: Dark Alliance and Champions of Norrath; However, delaying this seemed to cause quite a few shadow problems on games like Downhill Domination, Twisted Metal and potentially other games. These instructions are now properly handled resolving the issue.
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/Downhil-Before.jpg" target="_blank">
+    <img alt="DownHill Domination before" border="0" height="265" src="/images/stories/frontend/progress_reports/q2-2016/Downhil-Before_s.jpg" title="DownHill Domination before" width="353"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/Downhil-after.jpg" target="_blank">
+    <img alt="DownHill Domination after" border="0" height="265" src="/images/stories/frontend/progress_reports/q2-2016/Downhil-after_s.jpg" title="DownHill Domination after" width="353"/>
+   </a>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/twisted-metal-before.png" target="_blank">
+    <img alt="Twisted Metal before" border="0" height="247" src="/images/stories/frontend/progress_reports/q2-2016/twisted-metal-before_s.png" title="Twisted Metal before" width="353"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/twisted-metal-after.png" target="_blank">
+    <img alt="Twisted Metal after" border="0" height="247" src="/images/stories/frontend/progress_reports/q2-2016/twisted-metal-after_s.png" title="Twisted Metal after" width="353"/>
+   </a>
+  </p>
+  <div>
+   <b>
+    <span style="text-decoration: underline;">
+     VU0: Fix CFC2 transfers from TPC register
+    </span>
+   </b>
+   <div>
+    An instruction sequence with the CFC2 instruction had abnormal behavior when compared to the PS2 hardware on our tests, this behavior was rectified to bring you no longer levitating skirts in Street Fighter EX 3.
+    <br/>
+    <br/>
+    <a href="/images/stories/frontend/progress_reports/q1-2017/sfex-before.png" target="_blank">
+     <img alt="Street Fighter EX 3" border="0" height="199" src="/images/stories/frontend/progress_reports/q1-2017/sfex-before-s.png" title="Street Fighter EX 3" width="353"/>
+    </a>
+    <a href="/images/stories/frontend/progress_reports/q1-2017/sfex-after.png" target="_blank">
+     <img alt="Street Fighter EX 3" border="0" height="199" src="/images/stories/frontend/progress_reports/q1-2017/sfex-after-s.png" title="Street Fighter EX 3" width="353"/>
+    </a>
+   </div>
+  </div>
+  <p>
+  </p>
+  <hr/>
+  <p>
+   The changes highlighted here are intended to show the strides made in emulation accuracy from the previous stable release, this report doesn't cover all the bug fixes and improvements, you can see all our other changes to the SPU2/GUI/Controllers module on our progress reports archived in
+   <a href="/?start=5" target="_blank">
+    our site
+   </a>
+   .
+  </p>
+ </div>
+</div>

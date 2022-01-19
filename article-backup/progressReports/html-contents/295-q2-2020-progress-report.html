@@ -1,0 +1,676 @@
+<div class="single-article">
+ <div class="item-page clearfix">
+  <h2 class="contentheading">
+   <a href="/295-q2-2020-progress-report.html">
+    Q2 2020 Progress Report
+   </a>
+  </h2>
+  <div style="text-align:center;">
+   <ins class="adsbygoogle" data-ad-client="ca-pub-7741304783035041" data-ad-type="text_image" data-color-bg="FFFFFF" data-color-border="000000" data-color-link="0088CC" data-color-text="555555" data-color-url="AAAAAA" style="display:inline-block;width:468px;height:60px">
+   </ins>
+   <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+   </script>
+  </div>
+  <p>
+   <img alt="progress rep q2 2020" height="104" src="/images/stories/frontend/progress_reports/q2-2020/q2-2020-report.png" style="display: block; margin-left: auto; margin-right: auto;" width="563"/>
+  </p>
+  <p style="text-align: center;">
+   Written by
+   <a href="https://forums.pcsx2.net/User-lightningterror" rel="noopener" target="_blank">
+    lightningterror
+    <br/>
+   </a>
+  </p>
+  <p>
+   <a href="https://forums.pcsx2.net/User-lightningterror" rel="noopener" target="_blank">
+   </a>
+  </p>
+  <h1>
+   GSdx Improvements
+  </h1>
+  <p>
+   <span style="color: #00ccff;">
+    [Accuracy Enhancement]
+   </span>
+   <strong>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3414">
+     #3414
+    </a>
+    ,
+    <a href="https://github.com/PCSX2/pcsx2/pull/3433">
+     #3433
+    </a>
+    (HW/SW) Z-Buffer improvements. By
+    <a href="https://github.com/lightningterror">
+     lightningterror
+    </a>
+    ,
+    <a href="https://github.com/refractionpcsx2">
+     refraction
+    </a>
+    and
+    <a href="https://github.com/KrossX">
+     KrossX
+    </a>
+    , backport from Dobiestation.
+   </strong>
+  </p>
+  <p>
+   A huge boost in accuracy that we've accomplished was improving Z-Buffer emulation on both hardware and software renderers. What this means is that a lot of games received a boost in accuracy throughout the ps2 game library. Many text and HUD issues have been resolved. So far these are the games that we know of that show an improvement:
+  </p>
+  <ul>
+   <li>
+    Itadaki Street 3 (text display),
+   </li>
+   <li>
+    Midnight Club 3 (text input),
+   </li>
+   <li>
+    Rozen Maiden DuellWalzer (text)
+   </li>
+   <li>
+    F1 2004 (starting lights),
+   </li>
+   <li>
+    Alone in the Dark (improper controller display),
+   </li>
+   <li>
+    Silent Hill 2 and 3 (textures not showing on different angles such as toilet),
+   </li>
+   <li>
+    Syphon Filter: The Omega Strain (weapon HUD),
+   </li>
+   <li>
+    Tomb Raider Angel of Darkness (book pictures).
+   </li>
+  </ul>
+  <p>
+   For anyone interested what Z-Buffering is and it's technical aspects, there is a nice wiki page that you can read
+   <a href="https://en.wikipedia.org/wiki/Z-buffering">
+    here
+   </a>
+   .
+  </p>
+  <p>
+   Here are some eye candy image comparisons from some of the mentioned games
+   <img alt="Smile" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/smile.gif" width="20"/>
+  </p>
+  <p>
+   Itadaki Street:
+  </p>
+  <p>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/Itadaki-Street-before.png" target="_blank">
+    <img alt="Itadaki-Street-before" border="0" height="224" src="/images/stories/frontend/progress_reports/q2-2020/Itadaki-Street-before_resize.png" width="320"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/Itadaki-Street-after.png" target="_blank">
+    <img alt="Itadaki-Street-after" border="0" height="224" src="/images/stories/frontend/progress_reports/q2-2020/Itadaki-Street-after_resize.png" width="320"/>
+   </a>
+  </p>
+  <p>
+   Rozen Maiden DuellWalzer:
+  </p>
+  <p>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/Rozen-Maiden-DuellWalzer-before.png" target="_blank">
+    <img alt="Rozen Maiden DuellWalzer before resize" height="224" src="/images/stories/frontend/progress_reports/q2-2020/Rozen-Maiden-DuellWalzer-before_resize.png" width="320"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/Rozen-Maiden-DuellWalzer-after.png" target="_blank">
+    <img alt="Rozen Maiden DuellWalzer after" height="224" src="/images/stories/frontend/progress_reports/q2-2020/Rozen-Maiden-DuellWalzer-after_resize.png" width="320"/>
+   </a>
+  </p>
+  <p>
+   Tomb Raider Angel of Darkness:
+  </p>
+  <p>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/Tomb-Raider-Angel-of-Darkness-before.png" target="_blank">
+    <img alt="Tomb Raider Angel of Darkness before" height="320" src="/images/stories/frontend/progress_reports/q2-2020/Tomb-Raider-Angel-of-Darkness-before_resize.png" width="320"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/Tomb-Raider-Angel-of-Darkness-after.png" target="_blank">
+    <img alt="Tomb Raider Angel of Darkness after" height="320" src="/images/stories/frontend/progress_reports/q2-2020/Tomb-Raider-Angel-of-Darkness-after_resize.png" width="320"/>
+   </a>
+  </p>
+  <p>
+   Alone in the Dark:
+  </p>
+  <p>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/Alone-in-the-Dark-before.png" target="_blank">
+    <img alt="Alone in the Dark before" height="320" src="/images/stories/frontend/progress_reports/q2-2020/Alone-in-the-Dark-before_resize.png" width="320"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/Alone-in-the-Dark-after.png" target="_blank">
+    <img alt="Alone in the Dark after" height="320" src="/images/stories/frontend/progress_reports/q2-2020/Alone-in-the-Dark-after_resize.png" width="320"/>
+   </a>
+  </p>
+  <p>
+   <span style="color: #00ccff;">
+    [Accuracy Enhancement]
+   </span>
+   <strong>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3436">
+     #3436
+    </a>
+    (HW) Improved Texture shuffle detection. By
+    <a href="https://github.com/lightningterror">
+     lightningterror
+    </a>
+    and
+    <a href="https://github.com/tadanokojin">
+     kojin
+    </a>
+    .
+   </strong>
+  </p>
+  <p>
+   To put it simply it improves the effect detection so that games can be properly rendered, plus we removed the CRC hacks that were in its place to skip the bad draw calls. So far we know of only two games that hit the code path such as Onimusha 3 and Devil May Cry 3, but we believe there are more that we don't know of.
+  </p>
+  <p>
+   Everybody loves image comparisons right?
+  </p>
+  <p>
+   Onimusha 3:
+  </p>
+  <p>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/Onimusha-3-before.png" target="_blank">
+    <img alt="Onimusha 3 before" height="269" src="/images/stories/frontend/progress_reports/q2-2020/Onimusha-3-before_resize.png" width="307"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/Onimusha-3-after.png" target="_blank">
+    <img alt="Onimusha 3 after" height="269" src="/images/stories/frontend/progress_reports/q2-2020/Onimusha-3-after_resize.png" width="307"/>
+   </a>
+  </p>
+  <p>
+   Devil May Cry 3:
+  </p>
+  <p>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/DMC3-before.png" target="_blank">
+    <img alt="DMC3 before" height="269" src="/images/stories/frontend/progress_reports/q2-2020/DMC3-before_resize.png" width="307"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/DMC3-after.png" target="_blank">
+    <img alt="DMC3 after" height="269" src="/images/stories/frontend/progress_reports/q2-2020/DMC3-after_resize.png" width="307"/>
+   </a>
+  </p>
+  <p>
+  </p>
+  <p>
+   <span style="color: #00ccff;">
+    [Accuracy Enhancement]
+   </span>
+   <strong>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3131">
+     #3131
+    </a>
+    (HW) Invalidate Source with overlapping draw. By
+    <a href="https://github.com/iMineLink">
+     iMineLink
+    </a>
+    .
+   </strong>
+  </p>
+  <p>
+   Improve texture cache Source objects invalidation logic taking into account overlapping with current draw.
+   <br/>
+   Fixes eyes rendering for the Major in Jak 1.
+  </p>
+  <p>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/Jak-before.png" target="_blank">
+    <img alt="Jak before" height="269" src="/images/stories/frontend/progress_reports/q2-2020/Jak-before_resize.png" width="307"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/Jak-after.png" target="_blank">
+    <img alt="Jak after" height="269" src="/images/stories/frontend/progress_reports/q2-2020/Jak-after_resize.png" width="307"/>
+   </a>
+  </p>
+  <p>
+   <span style="color: #00ccff;">
+    [Accuracy Enhancement]
+   </span>
+   <strong>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3075">
+     #3075
+    </a>
+    (HW) Extend Software Sprite Renderer to Dragonball Z Budokai Tenkaichi 2 and 3. By
+    <a href="https://github.com/iMineLink">
+     iMineLink
+    </a>
+    .
+   </strong>
+  </p>
+  <p>
+   Previously we've discussed that we have a new feature called SWSpriteRenderer that we use to properly render the Jak character model in Jak games. Now we are extending the feature as well as improving the SWSpriteRenderer code itself to work on Budokai Tenkaichi 2 and 3 games. This improves rendering of Kaio-ken effect in Dragonball Z Budokai Tenkaichi 2, as well as improve character silhouette in Dragonball Z Budokai Tenkaichi 2 and 3 when a character is hidden from displaying from an obstacle (rock for example), as well as properly render character flashing on a charged attack.
+  </p>
+  <p>
+   So far only Jak and Budokai Tenkaichi 2 and 3 games use this feature. In the future we plan on finding more games that can benefit from this, further improve the feature and always enable it by default along with auto detection.
+  </p>
+  <p>
+   Budokai Tenkaichi 2:
+  </p>
+  <p>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/DBZBT2-before.png" target="_blank">
+    <img alt="DBZBT2 before" height="307" src="/images/stories/frontend/progress_reports/q2-2020/DBZBT2-before_resize.png" width="307"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/DBZBT2-after.png" target="_blank">
+    <img alt="DBZBT2 after" height="307" src="/images/stories/frontend/progress_reports/q2-2020/DBZBT2-after_resize.png" width="307"/>
+   </a>
+  </p>
+  <p>
+   Budokai Tenkaichi 3:
+  </p>
+  <p>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/DBZBT3-before.png" target="_blank">
+    <img alt="DBZBT3 before" height="269" src="/images/stories/frontend/progress_reports/q2-2020/DBZBT3-before_resize.png" width="307"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/DBZBT3-after.png" target="_blank">
+    <img alt="DBZBT3 after" height="269" src="/images/stories/frontend/progress_reports/q2-2020/DBZBT3-after_resize.png" width="307"/>
+   </a>
+  </p>
+  <p>
+   <span style="color: #00ccff;">
+    [Accuracy Enhancement]
+   </span>
+   <strong>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3027">
+     #3027
+    </a>
+    (HW) Add dithering support. By
+    <a href="https://github.com/KrossX">
+     KrossX
+    </a>
+    .
+   </strong>
+  </p>
+  <p>
+   Dithering support has been added on all hardware renderers. Another great step in increasing accuracy which further matches or gets close to Software renderer. For more specifics about what dithering is you can check this link
+   <a href="https://en.wikipedia.org/wiki/Dither">
+    here
+   </a>
+   . For those who wish to turn off dithering on the latest development builds they can do so with the Page Down key which is temporary or edit the GSdx ini file which is permanent. There are 3 levels. Off, Scaled and Unscaled. A lot of games use dithering so here is an example below from Castlevania.
+  </p>
+  <p>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/castlevania-before.png" target="_blank">
+    <img alt="castlevania before" height="269" src="/images/stories/frontend/progress_reports/q2-2020/castlevania-before_resize.png" width="307"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/castlevania-after.png" target="_blank">
+    <img alt="castlevania after" height="269" src="/images/stories/frontend/progress_reports/q2-2020/castlevania-after_resize.png" width="307"/>
+   </a>
+  </p>
+  <p>
+  </p>
+  <p>
+   <span style="color: #00ccff;">
+    [Accuracy Enhancement]
+   </span>
+   <strong>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3264">
+     #3264
+    </a>
+    (HW) Color clip blending improvements. By
+    <a href="https://github.com/lightningterror">
+     lightningterror
+    </a>
+    .
+   </strong>
+  </p>
+  <ul>
+   <li>
+    Enable non recursive blending when blending is set to None. Previously non recursive blending was enabled only when blending was set to Basic or higher, and now it will be active on None option as well as there are 0 drawbacks. It is faster so games will gain a couple of FPS when blending is disabled and it is also more accurate. A win - win situation.
+   </li>
+  </ul>
+  <ul>
+   <li>
+    (OpenGL) Always use accurate sw blending on Safe/Accurate Frame buffer masking instead of accumulation mode. Fixes shadows in Superman Shadows of Apokolips, see image comparison below.
+   </li>
+  </ul>
+  <p>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/Superman-Shadows-of-Apokolips-before.png" target="_blank">
+    <img alt="Superman Shadows of Apokolips before" height="224" src="/images/stories/frontend/progress_reports/q2-2020/Superman-Shadows-of-Apokolips-before_resize.png" width="320"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/Superman-Shadows-of-Apokolips-after.png" target="_blank">
+    <img alt="Superman Shadows of Apokolips after" height="224" src="/images/stories/frontend/progress_reports/q2-2020/Superman-Shadows-of-Apokolips-after_resize.png" width="320"/>
+   </a>
+  </p>
+  <p>
+  </p>
+  <p>
+   <span style="color: #00ccff;">
+    [Misc Enhancements]
+   </span>
+   <strong>
+    Other important GSdx changes:
+   </strong>
+  </p>
+  <ul>
+   <li>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3274">
+     #3247
+    </a>
+    (PSX/PS1 emu) PS1 emulator plugin support has been dropped/removed, as the code wasn't maintained at all and the feature was barely working. What does this mean? GSdx as a plugin can no longer be used on other ps1 emulators that support a plugin interface such as ePSXe. PS1 titles can still be played using PCSX2. By
+    <a href="https://github.com/lightningterror">
+     lightningterror
+    </a>
+    .
+   </li>
+  </ul>
+  <ul>
+   <li>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3304">
+     #3304
+    </a>
+    (HW) Custom Resolution has been removed from the GUI. The option didn't work properly with many features such as Depth Emulation, Destination Alpha Test and many more, breaking accurate emulation in the process. For anyone still wishing to use Custom Resolution even though we strongly advise against it, they can modify the GSdx ini file. By
+    <a href="https://github.com/lightningterror">
+     lightningterror
+    </a>
+    .
+   </li>
+  </ul>
+  <ul>
+   <li>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3263">
+     #3263
+    </a>
+    (HW/SW) Mirror RGBAQ to 0x11. FixesRidge Racer V shadows, see image comparison below. By
+    <a href="https://github.com/tadanokojin">
+     kojin
+    </a>
+    and
+    <a href="https://github.com/PSI-Rockin">
+     PSI-Rockin
+    </a>
+    , backport from Dobiestation.
+   </li>
+  </ul>
+  <p style="padding-left: 30px;">
+   <a href="/images/stories/frontend/progress_reports/q2-2020/Ridge-Racer-V-before.png" target="_blank">
+    <img alt="Ridge Racer V before" height="239" src="/images/stories/frontend/progress_reports/q2-2020/Ridge-Racer-V-before_resize.png" width="320"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/Ridge-Racer-V-after.png" target="_blank">
+    <img alt="Ridge Racer V after" height="239" src="/images/stories/frontend/progress_reports/q2-2020/Ridge-Racer-V-after_resize.png" width="320"/>
+   </a>
+  </p>
+  <ul>
+   <li>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3279">
+     #3279
+    </a>
+    (HW/SW) Mask A+D addresses. Fixes network configuration wizard display issues on some games, see image comparison below. By
+    <a href="https://github.com/refractionpcsx2">
+     refraction
+    </a>
+    , backport from Dobiestation.
+   </li>
+  </ul>
+  <p style="padding-left: 30px;">
+   <a href="/images/stories/frontend/progress_reports/q2-2020/network-config-before.png" target="_blank">
+    <img alt="network config before" height="240" src="/images/stories/frontend/progress_reports/q2-2020/network-config-before_resize.png" width="320"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/network-config-after.png" target="_blank">
+    <img alt="network config after" height="240" src="/images/stories/frontend/progress_reports/q2-2020/network-config-after_resize.png" width="320"/>
+   </a>
+  </p>
+  <ul>
+   <li>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3440">
+     #3440
+    </a>
+    (HW) Alpha Stencil hack has been now completely removed from the Direct3D10/11 renderer as well. As it was the case with OpenGL now DATE Accuracy renders the effects properly with little to no side effects, leaving Alpha Stencil completely useless. In 9 out of 10 cases Alpha Stencil used to break plenty of post processing effects which was an awful hack. By
+    <a href="https://github.com/lightningterror">
+     lightningterror
+    </a>
+    .
+   </li>
+  </ul>
+  <p>
+  </p>
+  <hr/>
+  <h1>
+   Core Improvements
+  </h1>
+  <p>
+   <span style="color: #00ccff;">
+    [Accuracy Enhancement]
+   </span>
+   <strong>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3311">
+     #3311
+    </a>
+    ,
+    <a href="https://github.com/PCSX2/pcsx2/pull/3400">
+     #3400
+    </a>
+    IPU Improvements. By
+    <a href="https://github.com/turtleli">
+     turtleli
+    </a>
+    .
+   </strong>
+  </p>
+  <ul>
+   <li>
+    Adds dithering to the RGB32-&gt;RGB16 conversion (see images from Hisshou Pachinko PachiSlot Kouryaku Series Vol 10 - carefully
+    <img alt="Razz" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/tongue.gif" width="20"/>
+    ).
+   </li>
+  </ul>
+  <p style="padding-left: 30px;">
+   <a href="/images/stories/frontend/progress_reports/q2-2020/Hisshou-Pachinko-PachiSlot-Kouryaku-Series-Vol-10-before.png" target="_blank">
+    <img alt="Hisshou Pachinko PachiSlot Kouryaku Series Vol 10 before" height="224" src="/images/stories/frontend/progress_reports/q2-2020/Hisshou-Pachinko-PachiSlot-Kouryaku-Series-Vol-10-before_resize.png" width="320"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/Hisshou-Pachinko-PachiSlot-Kouryaku-Series-Vol-10-after.png" target="_blank">
+    <img alt="Hisshou Pachinko PachiSlot Kouryaku Series Vol 10 after" height="224" src="/images/stories/frontend/progress_reports/q2-2020/Hisshou-Pachinko-PachiSlot-Kouryaku-Series-Vol-10-after_resize.png" width="320"/>
+   </a>
+  </p>
+  <ul>
+   <li>
+    Adds SSE2 implementation of RGB32-&gt;RGB16 conversion (speed on the opening FMV in Hisshou Pachinko PachiSlot Kouryaku Series Vol 10 goes from ~175% to ~275% with frame limiter disabled using GSdx software mode).
+   </li>
+  </ul>
+  <ul>
+   <li>
+    Implements VQ (see images from Klonoa 2).
+   </li>
+  </ul>
+  <p style="padding-left: 30px;">
+   <a href="/images/stories/frontend/progress_reports/q2-2020/klonoa-2-before.png" target="_blank">
+    <img alt="klonoa 2 before" height="256" src="/images/stories/frontend/progress_reports/q2-2020/klonoa-2-before_resize.png" width="320"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2020/klonoa-2-after.png" target="_blank">
+    <img alt="klonoa 2 after" height="256" src="/images/stories/frontend/progress_reports/q2-2020/klonoa-2-after_resize.png" width="320"/>
+   </a>
+  </p>
+  <p>
+  </p>
+  <ul>
+   <li>
+    Removes GameDB patches for Klonoa 2, and revert workaround for Klonoa 2 crashes which are no longer needed.
+   </li>
+  </ul>
+  <p>
+  </p>
+  <p>
+   <span style="color: #00ccff;">
+    [Misc Enhancements]
+   </span>
+   <strong>
+    Other important Core changes:
+   </strong>
+  </p>
+  <ul>
+   <li>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3386">
+     #3386
+    </a>
+    SuperVU legacy recompiler has been completely removed. In order to move forward and make things easier (for example adding 64bit support) we have decided to completely remove the legacy SuperVU recompiler. By
+    <a href="https://github.com/PCSX2/pcsx2/pull/3386">
+     arcum42
+    </a>
+    .
+   </li>
+  </ul>
+  <ul>
+   <li>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3361">
+     #3361
+    </a>
+    Allow reading of 8bit timers (and other hardware pages). Fixes Robin Hood (character not being able to move, enemies not spawning, missing UI elements). By
+    <a href="https://github.com/refractionpcsx2">
+     refraction
+    </a>
+    .
+   </li>
+  </ul>
+  <ul>
+   <li>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3385">
+     #3385
+    </a>
+    Fix situation where a VIF IRQ triggers and the game triggers a STOPcausing the IRQ to never trigger.Fixes Nitro Bike (hanging). By
+    <a href="https://github.com/refractionpcsx2">
+     refraction
+    </a>
+    .
+   </li>
+  </ul>
+  <ul>
+   <li>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3095">
+     #3095
+    </a>
+    Make recLUT not hardcoded to 32 MB.This change makes the EE recompiler not hardcoded to working with 32 MB of RAM.This may be helpful if anybody else in the future wants to emulate a PS2 dev kit with 128 MB of RAM. By
+    <a href="https://github.com/water111">
+     water111
+    </a>
+    .
+   </li>
+  </ul>
+  <ul>
+   <li>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3324">
+     #3324
+    </a>
+    Implemented memory mode check in COP0.This makes Next Generation Tennis 2003 (Roland Garros French Open 2003) and Spongebob Squarepants Battle for Bikini Bottom (PAL release) work. By
+    <a href="https://github.com/prafullpcsx2">
+     prafullpcsx2
+    </a>
+    and
+    <a href="https://github.com/refractionpcsx2">
+     refraction
+    </a>
+    .
+   </li>
+  </ul>
+  <hr/>
+  <h1>
+   SPU2-X Improvements
+  </h1>
+  <ul>
+   <li>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3244">
+     #3244
+    </a>
+    XAudio 2.7 has been removed as it's no longer needed since Windows 7 is no longer supported. By
+    <a href="https://github.com/MonJamp">
+     MonJamp
+    </a>
+    .
+   </li>
+   <li>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3454">
+     #3454
+    </a>
+    Rewrite the spu2-x dialog on Linux in wxwidgets. By
+    <a href="https://github.com/PCSX2/pcsx2/pull/3386">
+     arcum42
+    </a>
+    .
+   </li>
+  </ul>
+  <hr/>
+  <h1>
+   GameDB Improvements
+  </h1>
+  <ul>
+   <li>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3376">
+     #3376
+    </a>
+    Performance patch fix for Primal and Ghosthunter.Fix for terrible performance in US versions of Primal (all the time) and Ghosthunter (when encountering Teddy Bear and in the moment of Gator-Man's rush attack, maybe a few other cases). By
+    <a href="https://github.com/RazielZnot">
+     RazielZnot
+    </a>
+    .
+   </li>
+  </ul>
+  <ul>
+   <li>
+    Other GameDB additions or deletions have been done throughout the Q2 cycle as well.
+   </li>
+  </ul>
+  <hr/>
+  <h1>
+   Misc Improvements
+  </h1>
+  <ul>
+   <li>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3357">
+     #3357
+    </a>
+    Preliminary work on macOS support, it still needs a lot work but it's a great step moving forward. By
+    <a href="https://github.com/tellowkrinkle">
+     tellowkrinkle
+    </a>
+    .
+   </li>
+  </ul>
+  <ul>
+   <li>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3477">
+     #3477
+    </a>
+    ,
+    <a href="https://github.com/PCSX2/pcsx2/pull/3423">
+     #3423
+    </a>
+    Better DPI scaling support. Fixed some texts being cut off from the GUI on several plugins as well as the glitchy logo when using DPI scaling. By
+    <a href="https://github.com/lightningterror">
+     lightningterror
+    </a>
+    and
+    <a href="https://github.com/Ryudo300">
+     Ryudo300
+    </a>
+    .
+   </li>
+  </ul>
+  <ul>
+   <li>
+    <a href="https://github.com/PCSX2/pcsx2/pull/3420">
+     #3420
+    </a>
+    Switch over the null plugins dialog code to use wxWidgets instead of gtk on Linux.By
+    <a href="https://github.com/PCSX2/pcsx2/pull/3386">
+     arcum42
+    </a>
+    .
+   </li>
+  </ul>
+  <ul>
+   <li>
+    Windows 7 and Windows 8 support has been dropped in order to move forward.
+   </li>
+  </ul>
+  <ul>
+   <li>
+    There have been other improvements made such as more code cleanups, bug fixes and other improvements but we won't mention them since they aren't that big of a deal.
+   </li>
+  </ul>
+  <p>
+  </p>
+  <hr/>
+  <h1>
+   Future Plans
+  </h1>
+  <p>
+   64 bit support is in progress and getting along nicely, more work on macOS support, more juicy new core accuracy improvements that will be mentioned in the next report, more code cleanups, refactoring, overhauling and so on.
+  </p>
+  <hr/>
+  <p style="text-align: center;">
+   And that's all from us, see you next time in our Q3 Report!
+  </p>
+ </div>
+</div>

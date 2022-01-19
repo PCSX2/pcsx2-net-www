@@ -1,0 +1,27 @@
+<div class="vGap100"></div>
+<div class="footer secondary-bg-color">
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-12 col-md">
+        <img class="brand-logo" src="/img/pcsx2-logo.png" alt="PCSX2 Logo">
+        <strong class="logo-text">PCSX2</strong>
+        An Open-Source Playstation 2 Emulator
+      </div>
+      <div class="col-12 mt-3 mt-md-0 col-md-auto d-flex align-items-center icons">
+        {{ range .Site.Params.social }}
+        <a href="{{ .url }}" {{ if in .url "http" }}target="blank" {{ end }}>
+          <span>
+            <i class="footer-icon {{ .icon }}"></i>
+          </span>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+    <hr>
+    <div class="row mt-3">
+      <div class="col d-flex justify-content-start">
+        © {{ dateFormat "2006" now }} PCSX2. All Rights Reserved.
+      </div>
+    </div>
+  </div>
+</div>

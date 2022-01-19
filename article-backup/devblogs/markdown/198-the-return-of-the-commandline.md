@@ -1,0 +1,80 @@
+<div class="single-article">
+
+<div class="item-page clearfix">
+
+<div style="text-align:center;">
+
+</div>
+
+After its absence for many moons, the Commandline functionality will
+finally be restored to PCSX2. Third-party frontend and config-manager
+authors rejoice! ... and hopefully stop hating my guts, too.  
+  
+To paraphrase Darth Vader: **"Witness the power of this fully armed and
+operational Command line-driven battlestation."**  
+  
+*(we all know a command line-driven death star would have been way
+cooler than some click-and-drag crap.)*  
+  
+The new PCSX2 command line should be functional in our next beta
+release, which should be out pretty soon, and it will work as follows:  
+  
+Syntax: **pcsx2 \[IsoFile\] --toggle --option=value ... etc**
+
+-   IsoFile - optional ISO image to load and run on startup; uses the
+    PCSX2 internal ISO loader.
+
+  
+General Options :
+
+-   --cfg=\[file\] {specify a custom configuration file to use instead
+    of PCSX2.ini (does not affect plugins)}
+-   --cfgpath=\[dir\] {specifies the config folder; applies to pcsx2 +
+    plugins}
+-   --help {display this help text}
+-   --forcewiz {forces running of the First-time Wizard (selection of
+    docs folders and what-not)}
+
+  
+Auto-Run Options :
+
+-   --elf=\[file\] {executes an ELF image}
+-   --nogui {disables display of the gui on exit (program auto-exits)}
+-   --nodisc {boots with an empty dvd tray; use this to boot into the
+    PS2 system menu}
+-   --usecd {uses the configured CDVD plugin instead of IsoFile}
+
+  
+Compatibility Options:
+
+-   --nohacks {disables all speedhacks}
+-   --gamefixes=\[fix,fix\] {Enable specific gamefixes for this session.
+    Valid fixes in 0.9.7 are: VuAddSub, VuClipFlag, FpuCompare,
+    FpuNegDiv, XGKick, IpuWait, EETiming, SkipMpeg }
+-   --fullboot {disables the quick boot feature, forcing you to sit
+    through the PS2 startup splash screens}
+
+  
+Plugin Overrides (specified dlls will be used in place of configured
+dlls):
+
+-   --cdvd=\[dllpath\] {override for the CDVD plugin}
+-   --gs=\[dllpath\] {override for the GS plugin}
+-   --spu=\[dllpath\] {override for the SPU2 plugin}
+-   --pad=\[dllpath\] {override for the PAD plugin only}
+-   --dev9=\[dllpath\] {override for the DEV9 plugin}
+-   --usb=\[dllpath\] {override for the USB plugin only}
+
+  
+  
+
+<div
+style="font-style: italic; font-size: 10pt; font-weight: bold; text-align: right;">
+
+[Post a Comment!](http://forums.pcsx2.net/thread-15372.html)
+
+</div>
+
+</div>
+
+</div>

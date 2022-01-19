@@ -1,0 +1,62 @@
+<nav class="navbar navbar-dark bg-faded justify-content-end navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand w-25" href="">
+      <img class="brand-logo" src="/img/pcsx2-logo.png" alt="PCSX2 Logo">
+      <strong class="logo-text">PCSX2</strong>
+    </a>
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse w-100 justify-content-center" id="navbarSupportedContent">
+      <ul class="navbar-nav nav-middle w-75 pe-3 pe-md-0 justify-content-center">
+        {{ range .Site.Menus.main }}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ .URL }}" {{ if in .URL "http" }}target="blank" {{ end }}>{{ .Name | safeHTML }}</a>
+        </li>
+        {{ end }}
+      </ul>
+      <ul class="navbar-nav nav-right w-25 pe-3 pe-md-0 justify-content-end">
+        {{ if gt (len .Site.Params.social) }}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarLinksDropdownMenu" role="button" data-mdb-display="static" data-mdb-toggle="dropdown" aria-expanded="false">
+            Links
+          </a>
+          <ul class="dropdown-menu dropdown-menu-md-end" aria-labelledby="navbarLinksDropdownMenu">
+            {{ range .Site.Params.social }}
+            <li class="nav-item">
+              <a class="dropdown-item" href="{{ .url }}" {{ if in .url "http" }}target="blank" {{ end }}>
+                <span>
+                  <i class="nav-icon {{ .icon }}"></i>
+                  {{ .name }}
+                </span>
+              </a>
+            </li>
+            {{ end }}
+          </ul>
+        </li>
+        {{ end }}
+        {{ if gt (len .Site.Home.AllTranslations) 1 }}
+        <li class="nav-item">
+          <div class="dropdown" id="language-dropdown-container">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="language-dropdown"
+              data-mdb-toggle="dropdown" aria-expanded="false" data-mdb-ripple-duration="none">
+              🇺🇸
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" id="language-dropdown-list" aria-labelledby="language-dropdown">
+              {{ range $.Site.Home.AllTranslations }}
+              <li><a class="dropdown-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+              {{ end }}
+            </ul>
+          </div>
+        </li>
+        {{ end }}
+        <li class="nav-item">
+          <a role="button" class="nav-link" id="theme-button">
+            <i class="far fa-moon theme-icon" title="Dark Theme"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

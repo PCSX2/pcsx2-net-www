@@ -1,0 +1,262 @@
+<div class="single-article">
+ <div class="item-page clearfix">
+  <h2 class="contentheading">
+   <a href="/244-pcsx2-1-0-released.html">
+    PCSX2 1.0 released!
+   </a>
+  </h2>
+  <div style="text-align:center;">
+   <ins class="adsbygoogle" data-ad-client="ca-pub-7741304783035041" data-ad-type="text_image" data-color-bg="FFFFFF" data-color-border="000000" data-color-link="0088CC" data-color-text="555555" data-color-url="AAAAAA" style="display:inline-block;width:468px;height:60px">
+   </ins>
+   <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+   </script>
+  </div>
+  <p>
+   After many long years of development, debugging and testing effort, we have reached a point where PCSX2 runs a great majority of the games, and there are no important issues that could possibly be fixed without requiring major modifications to the emulator.
+   <br/>
+   <br/>
+   Because of that (and because we already felt it was overdue), we decided to stop thinking of new things to do for a bit, polish the stability, compatibility and existing features and release the result as the first major version of PCSX2!
+   <br/>
+   <br/>
+   There have been tons of changes since the last release, including improvements to Jake Stine's wxWidgets GUI overhaul, cottonvibes' new multithreaded VU core and improvements on the primary plugins.
+  </p>
+  <p>
+   This release is a big milestone that marks the way to new features and improvements!
+   <br/>
+   <br/>
+   Here is an excerpt of the latest changes:
+   <br/>
+   <br/>
+   <strong>
+    Windows
+   </strong>
+   <br/>
+   <br/>
+   <strong>
+    Core:
+   </strong>
+  </p>
+  <ul>
+   <li>
+    Video timing adjustments
+   </li>
+   <li>
+    microVU fixes for Metal Gear Solid 2 and others
+   </li>
+   <li>
+    General speedups
+   </li>
+   <li>
+    microVU speedup
+   </li>
+   <li>
+    New GIF unit that mimics the real one better
+   </li>
+   <li>
+    microVU elementary function bug fixed (affecting Valkyrie Profile 2, Radiata Stories and Star Ocean 3)
+   </li>
+   <li>
+    Implemented Multi-Threaded VU! A new speed hack with almost 100% compatibility with games, using a third core to run the VU1 unit separately
+   </li>
+   <li>
+    CDVD fixes (Time Crisis boots now)
+   </li>
+   <li>
+    Added support for progressive scan timings
+   </li>
+   <li>
+    Path 3 arbitration and timing refinements
+   </li>
+   <li>
+    Added Finnish, Malaysian, Korean, French, Indonesian, Italian, Japanese and Polish translations
+   </li>
+  </ul>
+  <p>
+   <br/>
+   <strong>
+    SPU2-X:
+   </strong>
+  </p>
+  <ul>
+   <li>
+    Configurable output volume
+   </li>
+   <li>
+    Fixes to reverb
+   </li>
+   <li>
+    Various sound looping fixes
+   </li>
+   <li>
+    Improved time stretcher
+   </li>
+   <li>
+    Reverse phase audio quality improved
+   </li>
+  </ul>
+  <p>
+   <br/>
+   <strong>
+    GSdx:
+   </strong>
+  </p>
+  <ul>
+   <li>
+    Fixed RGB mode movie recording
+   </li>
+   <li>
+    Texture cache change that fixes some black screening games
+   </li>
+   <li>
+    Implemented NVidia FXAA 3.10, page up key activates it
+   </li>
+   <li>
+    Better multithreading
+   </li>
+   <li>
+    Arc the Lad bad fog fix
+   </li>
+   <li>
+    Fixed shadows in software renderer
+   </li>
+   <li>
+    Implementation of GSdx "Shadeboost" project (saturation, brightness, contrast settings)
+   </li>
+   <li>
+    User configurable hacks in the GUI
+   </li>
+   <li>
+    Fixed flickering in many FMVs
+   </li>
+   <li>
+    Implementation of GSdx "Cutie" project (various extra CRC hacks)
+   </li>
+  </ul>
+  <p>
+   <br/>
+   <strong>
+    Lilypad:
+   </strong>
+  </p>
+  <ul>
+   <li>
+    Pad state getting stuck with savestates bug fixed
+   </li>
+  </ul>
+  <p>
+   <br/>
+   <strong>
+    USBqemu:
+   </strong>
+  </p>
+  <ul>
+   <li>
+    Revamped it a bit
+   </li>
+  </ul>
+  <p>
+   <br/>
+   <strong>
+    Linux:
+   </strong>
+   <br/>
+   <br/>
+   <strong>
+    OnePad changes:
+   </strong>
+  </p>
+  <ul>
+   <li>
+    New dialog configuration panel
+   </li>
+   <li>
+    Improved support of various pad (sixaxis)/mouse/wiimote
+   </li>
+   <li>
+    Added support for more controllers
+   </li>
+   <li>
+    Added support for pressure-sensitive buttons
+   </li>
+  </ul>
+  <p>
+   <br/>
+   <strong>
+    GSdx:
+   </strong>
+  </p>
+  <ul>
+   <li>
+    GSdx ported for Linux! Based on OpenGL 3.3 with some 4.x hardware independent extensions. Requires OpenGL 4.2 drivers and is still in experimental stages. Don't expect the hardware renderer to run properly, but the Software renderer should be fine.
+   </li>
+  </ul>
+  <ul>
+   <li>
+    Added support for configuration and keyboard shortcuts from PCSX2
+   </li>
+  </ul>
+  <p>
+   <br/>
+   <strong>
+    ZZogl:
+   </strong>
+  </p>
+  <ul>
+   <li>
+    Added support for configuration and keyboard shortcuts from PCSX2
+   </li>
+   <li>
+    Added a GLSL backend to replace CG. Like GSdx, it requires OpenGL 4.2 drivers. Only available with PCSX2 self-compilation.
+   </li>
+  </ul>
+  <p>
+   <br/>
+   <strong>
+    PCSX2 GUI:
+   </strong>
+  </p>
+  <ul>
+   <li>
+    Added thread timing information to see the CPU usage in the status bar
+   </li>
+   <li>
+    Fix multiple frame/box letters sizing.
+   </li>
+  </ul>
+  <p>
+   <br/>
+   <br/>
+   In addition to these changes we found a fixed several bugs that could lead to crashes in various situations.
+   <br/>
+   The PCSX2 executable has been built and tested with PGO optimizations enabled so it will be an extra 10% faster over regular SVN builds.
+   <br/>
+   <br/>
+   We hope you enjoy this first major version release and have fun playing your games on it!
+   <img alt="Smile" class="yvSmiley" height="20" src="https://pcsx2.net/images/stories/frontend/smilies/smile.gif" width="20"/>
+  </p>
+  <p style="text-align: center;">
+   <span style="font-size: medium;">
+    <a href="/download.html" title="Head to the download section!">
+    </a>
+    <a href="http://www.reddit.com/r/gaming/comments/xmvhm/ps2_emulator_pcsx2_version_10_out/" target="_blank">
+     Share on reddit here!
+    </a>
+   </span>
+  </p>
+  <p style="text-align: center;">
+   <span style="font-size: medium;">
+    <a href="/download.html" title="Head to the download section!">
+     Head to the download section!
+    </a>
+   </span>
+  </p>
+  <p style="text-align: center;">
+   <span style="font-size: medium;">
+    <a href="/download.html" title="Head to the download section!">
+     <img alt="Download!" border="0" height="40" src="/images/jdownloads/downloadimages/download_blue.png" width="120"/>
+    </a>
+   </span>
+  </p>
+ </div>
+</div>

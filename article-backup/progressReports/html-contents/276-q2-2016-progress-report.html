@@ -1,0 +1,465 @@
+<div class="single-article">
+ <div class="item-page clearfix">
+  <h2 class="contentheading">
+   <a href="/276-q2-2016-progress-report.html">
+    Q2 2016 progress report
+   </a>
+  </h2>
+  <div style="text-align:center;">
+   <ins class="adsbygoogle" data-ad-client="ca-pub-7741304783035041" data-ad-type="text_image" data-color-bg="FFFFFF" data-color-border="000000" data-color-link="0088CC" data-color-text="555555" data-color-url="AAAAAA" style="display:inline-block;width:468px;height:60px">
+   </ins>
+   <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+   </script>
+  </div>
+  <p>
+   <img alt="Progress report q2 2016" border="0" height="104" src="/images/stories/frontend/progress_reports/q2-2016/progress-rep-q2-2016.jpg" style="display: block; margin-left: auto; margin-right: auto;" width="563"/>
+  </p>
+  <hr/>
+  <p>
+   Hey everyone and welcome to another spectacular PCSX2 progress report! As you may have read in the last report we have moved from doing reports monthly to quarterly in order to better focus our manpower. Today's report is our first quarterly report and as such there are quite a lot of improvements and changes to go over. Before we do that however we need to ask for
+   <span style="font-weight: bold;">
+    your
+   </span>
+   help!
+   <br/>
+   <br/>
+   As you probably know PCSX2 is cross platform and runs on Windows and Linux. Because of this we need testers for each of those platforms in order to be effective at developing for them. Currently we have a very problematic lack of testers on Linux. We would like to take this opportunity to invite those of you with Linux experience to help the project out and become a Linux tester! Ideally you should be completely comfortable working in Linux (whatever flavor you choose as long as PCSX2 is compatible with it!) and you should have or be willing to develop the knowledge to debug various issues with the emulator in that environment. If this sounds like you and you want to help us out then please head over to
+   <a href="http://forums.pcsx2.net/Thread-Q2-2016-progress-report" target="_blank">
+    <strong>
+     our forum thread here
+    </strong>
+   </a>
+   and let us know!
+   <br/>
+   <br/>
+   With that out of the way let's jump right in to the PCSX2 progress report for Q2 2016! Strap yourself in for the ride because here we go!
+  </p>
+  <p>
+   <span style="color: #00bfff;">
+    [Enhancement]
+   </span>
+   <span style="font-weight: bold;">
+    <span style="text-decoration: underline;">
+     OnePAD: Updated GUI
+    </span>
+   </span>
+   by
+   <a href="https://github.com/kust2708" target="_blank">
+    kust2708
+   </a>
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/onepad_old.png" target="_blank">
+    <img alt="onepad" border="0" height="198" src="/images/stories/frontend/progress_reports/q2-2016/onepad_old_s.png" title="Onepad before" width="353"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/onepad_new.png" target="_blank">
+    <img alt="gundam" border="0" height="198" src="/images/stories/frontend/progress_reports/q2-2016/onepad_new_s.png" title="Onepad after" width="353"/>
+   </a>
+   <br/>
+   OnePAD is the default pad plugin for PCSX2 on Linux. Recently kust2708 updated OnePAD's UI to make it a bit nicer and more user friendly. Instead of the drab gray buttons laid out in a sort of Dual Shock arrangement users can now much more intuitively configure their controllers with a nice Dual Shock 2 graphic.
+   <br/>
+   <br/>
+   <br/>
+   <span style="color: #00bfff;">
+    [Enhancement]
+   </span>
+   <span style="font-weight: bold;">
+    <span style="text-decoration: underline;">
+     Core: Automatic aspect ratio switch during FMV playback
+    </span>
+   </span>
+   by
+   <a href="https://github.com/FlatOutPS2" target="_blank">
+    FlatOut
+   </a>
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/auto-aspect-ratio-switch.png" target="_blank">
+    <img alt="auto aspect ratio switch" border="0" height="601" src="/images/stories/frontend/progress_reports/q2-2016/auto-aspect-ratio-switch.png" title="auto aspect ratio switch" width="837"/>
+   </a>
+   <br/>
+   <br/>
+   Most games with a widescreen option (through either in-game setting or widescreen patch) have FMVs that are fixed to the original 4:3 aspect ratio. Those videos will appear horizontally stretched when playing a game in widescreen. This new option automatically switches PCSX2's aspect ratio to 4:3 when an FMV begins and back to widescreen when it ends, so both the in-game part and the FMV's are displayed correctly.
+   <br/>
+   <br/>
+   <br/>
+   <span style="color: #ff3333;">
+    [Bug-Fix]
+   </span>
+   <span style="font-weight: bold;">
+    <span style="text-decoration: underline;">
+     CDVDgigaherz: Fixed dual layer DVD reading
+    </span>
+   </span>
+   by
+   <a href="https://github.com/turtleli" target="_blank">
+    turtleli
+   </a>
+   <br/>
+   <br/>
+   Dual layer DVDs have never worked properly with CDVDgigaherz and it turns out that there were quite a few issues:
+  </p>
+  <ul>
+   <li>
+    DVD layer information sector addresses were not converted from big endian to little endian.
+   </li>
+   <li>
+    Windows filesystem drivers prevented layer 1 sectors from being read due to boundary checks.
+   </li>
+   <li>
+    Dual layer DVDs were reported to PCSX2 as having multiple tracks, when all single session DVDs only have one track.
+   </li>
+   <li>
+    Generation of the Table of Contents was skipped.
+   </li>
+   <li>
+    The layer break address was off by one.
+   </li>
+   <li>
+    PTP DVDs were wrongly recognized as OTP DVDs.
+   </li>
+  </ul>
+  <p>
+   These issues are now fixed so dual layer DVDs should now be playable with CDVDgigaherz. A list of games affected by this change can be found
+   <a href="https://en.wikipedia.org/wiki/List_of_PlayStation_2_DVD-9_games" target="_blank">
+    on Wikipedia
+   </a>
+   .
+   <br/>
+   <br/>
+   <br/>
+   <span style="color: #00bfff;">
+    [Enhancement]
+   </span>
+   <span style="font-weight: bold;">
+    <span style="text-decoration: underline;">
+     CDVD: Improved ISO layer break detection algorithm
+    </span>
+   </span>
+   by
+   <a href="https://github.com/turtleli" target="_blank">
+    turtleli
+   </a>
+   <br/>
+   <br/>
+   When using large DVD ISOs (&gt;4.3GB e.g. dual layer DVDs) a brute force approach was used to detect the layer break address. The algorithm would start from the middle of the ISO and search outwards until the layer break was found.
+   <br/>
+   <br/>
+   This approach wasn't optimal due to the following reasons:
+  </p>
+  <ul>
+   <li>
+    PCSX2 would appear to be unresponsive while it searches for the layer break address the first time the ISO is booted.
+   </li>
+   <li>
+    The layer break address needs to be cached to speed up subsequent loads.
+   </li>
+   <li>
+    If there is no layer break, the entire DVD would be searched each time the ISO is booted - this could take a few minutes.
+   </li>
+  </ul>
+  <p>
+   Doing it this way was unnecessary. The DVD layer 0 Primary Volume Descriptor contains the total number of sectors on layer 0 of the DVD. For a single layer DVD this is equal to the total DVD sector count. For a dual layer DVD, however, this sector count is equal to the first logical sector number on layer 1. Using this knowledge a much faster and simpler layer break search algorithm was implemented.
+   <br/>
+   <br/>
+   <br/>
+   <span style="color: #00bfff;">
+    [Enhancement]
+   </span>
+   <span style="font-weight: bold;">
+    <span style="text-decoration: underline;">
+     GSDX: Fast texture invalidation
+    </span>
+   </span>
+   by
+   <a href="https://github.com/gregory38" target="_blank">
+    Gregory
+   </a>
+   <br/>
+   <br/>
+   Not too long ago the half screen issue caused by the texture cache was fixed for Snowblind engine games. However even with this fix the games were still too demanding even for beastly machines. In order to figure out why, a GS dump was profiled. The profile revealed that a single loop in the texture cache management code was very busy. The loop in question was responsible for computing the block invalidation of certain special textures. They are special because the width of the buffer which contains them is smaller than the width of the texture in texels. As a result, when a block is invalidated all the repeating blocks must also be invalidated. The texture then becomes like a Swiss cheese full of holes which requires uploading lots of small textures to fill. Doing it this way is very efficient at reducing the usage of PCIe bandwidth but unfortunately it requires too much CPU time.
+   <br/>
+   <br/>
+   In order to resolve this issue, we skip the block invalidation and completely invalidate the whole texture instead. This avoids the busy loop we discussed above. The texture is then uploaded in one go instead of many small uploads which greatly reduces the driver overhead. As a trade-off it increases the PCIe bandwidth requirement by 20-30%. However at this point PCIe is up to the third generation (and soon the fourth) so a good deal of bandwidth is available. Benchmarks show that this change produces a nice speedup - however some scenes were
+   <span style="font-style: italic;">
+    still
+   </span>
+   too slow.
+   <br/>
+   <br/>
+   Further profiling revealed that the game reads the render target a lot. This is slow because you need to flush the full GPU pipeline first. Nothing can be done about this part unfortunately. But next you need to transfer the GPU data to the CPU. Before we were transferring the full framebuffer which is millions of pixels. However the game only needs data for a few hundred of them. Gregory updated the code to transfer only the useful pixels.
+   <br/>
+   <br/>
+   These two improvements combined provided a major speed boost for Snowblind engine games. They are almost two times faster now! If you have a good processor with an Nvidia GPU then you should be able to enjoy them in full upscaled glory now!
+  </p>
+  <table>
+   <caption>
+    <span style="color: #3a90dc;">
+     <span style="font-size: large;">
+      Speed Impact of Fast Texture Invalidation
+     </span>
+    </span>
+   </caption>
+   <tbody>
+    <tr>
+     <th style="text-align: center; border: 1px solid; padding: 3px;">
+      <strong>
+       Game
+      </strong>
+     </th>
+     <th style="text-align: center; border: 1px solid; padding: 3px;">
+      <strong>
+       1.4.0 Release
+      </strong>
+     </th>
+     <th style="text-align: center; border: 1px solid; padding: 3px;">
+      <strong>
+       1.5.0 w/FTI
+      </strong>
+     </th>
+    </tr>
+    <tr>
+     <td style="text-align: center; border: 1px solid; padding: 3px;">
+      Baldur's Gate: Dark Alliance
+     </td>
+     <td style="text-align: center; border: 1px solid; padding: 3px;">
+      30
+     </td>
+     <td style="text-align: center; border: 1px solid; padding: 3px;">
+      80
+     </td>
+    </tr>
+    <tr>
+     <td style="text-align: center; border: 1px solid; padding: 3px;">
+      Champions of Norrath
+     </td>
+     <td style="text-align: center; border: 1px solid; padding: 3px;">
+      52
+     </td>
+     <td style="text-align: center; border: 1px solid; padding: 3px;">
+      105
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <p>
+   <br/>
+   <br/>
+   <span style="color: #ff3333;">
+    [Bug-Fix]
+   </span>
+   <span style="font-weight: bold;">
+    <span style="text-decoration: underline;">
+     GSDX: Improved detection of Framebuffer size
+    </span>
+   </span>
+   by
+   <a href="https://github.com/ssakash" target="_blank">
+    ssakash
+   </a>
+   <br/>
+   <br/>
+   Previously the height of the framebuffer was calculated using guesswork based on the width of the framebuffer. This method was obviously wrong and it caused some conflicts when scaling the buffer for upscaled resolutions. This was fixed by using the height of the output circuit as a base for the framebuffer height.
+   <br/>
+   <br/>
+   Here are some comparison screenshots showing the issues fixed by this change:
+   <br/>
+   <br/>
+   <br/>
+   <span style="font-weight: bold;">
+    <span style="text-decoration: underline;">
+     Crash Nitro Kart
+    </span>
+   </span>
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/CNK-before.png" target="_blank">
+    <img alt="Crash Nitro Kart Before" border="0" height="265" src="/images/stories/frontend/progress_reports/q2-2016/CNK-before_s.png" title="Crash Nitro Kart Before" width="353"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/CNK-after.png" target="_blank">
+    <img alt="Crash Nitro Kart after" border="0" height="265" src="/images/stories/frontend/progress_reports/q2-2016/CNK-after_s.png" title="Crash Nitro Kart after" width="353"/>
+   </a>
+   <br/>
+   <span style="font-weight: bold;">
+    <span style="text-decoration: underline;">
+     Richard Burns Rally
+    </span>
+   </span>
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/RBR-before.png" target="_blank">
+    <img alt="Richard Burns Rally Before" border="0" height="265" src="/images/stories/frontend/progress_reports/q2-2016/RBR-before_s.png" title="Richard Burns Rally Before" width="353"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/RBR-after.png" target="_blank">
+    <img alt="Richard Burns Rally after" border="0" height="265" src="/images/stories/frontend/progress_reports/q2-2016/RBR-after_s.png" title="Richard Burns Rally after" width="353"/>
+   </a>
+   <br/>
+   <br/>
+   <span style="color: #ff3333;">
+    [Bug-Fix]
+   </span>
+   <span style="font-weight: bold;">
+    <span style="text-decoration: underline;">
+     GSDX: Enable reading of Depth Buffer
+    </span>
+   </span>
+   by
+   <a href="https://github.com/gregory38" target="_blank">
+    Gregory
+   </a>
+   <br/>
+   <br/>
+   There are certain scenarios where the Core (EE) reads the depth buffer to free the GS memory
+   <span style="font-weight: bold;">
+    (4 MB)
+   </span>
+   and do some effects. During this time the buffer is saved in the EE memory
+   <span style="font-weight: bold;">
+    (32 MB)
+   </span>
+   and is restored after the completion of said effects.
+   <br/>
+   <br/>
+   <span style="font-weight: bold;">
+    Gregory
+   </span>
+   has emulated this behavior by converting the GPU depth buffer to GS format and by sending it to the EE when it wants to read the depth buffer. This implementation has finally fixed the lens flare issue on Kingdom Hearts II and also some depth related issues on ICO and Nocturne.
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/kingdom-hearts2-before.jpg" target="_blank">
+    <img alt="Kingdom Hearts 2 Before" border="0" height="199" src="/images/stories/frontend/progress_reports/q2-2016/kingdom-hearts2-before_s.jpg" title="Kingdom Hearts 2 Before" width="353"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/kingdom-hearts2-after.jpg" target="_blank">
+    <img alt="Kingdom Hearts 2 after" border="0" height="199" src="/images/stories/frontend/progress_reports/q2-2016/kingdom-hearts2-after_s.jpg" title="Kingdom Hearts 2 after" width="353"/>
+   </a>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/ICO-before.png" target="_blank">
+    <img alt="ICO Before" border="0" height="265" src="/images/stories/frontend/progress_reports/q2-2016/ICO-before_s.png" title="ICO before" width="353"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/ICO-after.png" target="_blank">
+    <img alt="ICO after" border="0" height="265" src="/images/stories/frontend/progress_reports/q2-2016/ICO-after_s.png" title="ICO after" width="353"/>
+   </a>
+   <br/>
+   <br/>
+   <br/>
+   <span style="color: #ff3333;">
+    [Bug-Fix]
+   </span>
+   <span style="font-weight: bold;">
+    <span style="text-decoration: underline;">
+     GSDX: Improved PCRTC merge circuit emulation
+    </span>
+   </span>
+   by
+   <a href="https://github.com/turtleli" target="_blank">
+    turtleli
+   </a>
+   and
+   <a href="https://github.com/ssakash" target="_blank">
+    ssakash
+   </a>
+   <br/>
+   <br/>
+   In some cases the GS is configured to use two side by side display rectangles for rendering. The rectangles are merged by the GS's merge circuit and the resulting image is sent to the TV.
+   <br/>
+   <br/>
+   The horizontal position of the display rectangles, however, was ignored when emulating the merge circuit, which caused image overlap issues where only half the image was displayed. The display rectangles' horizontal position is now taken into account, which fixes the image overlap issues and makes split screen mode in Time Crisis 2 and 3 playable.
+   <br/>
+   <br/>
+   <span style="text-decoration: underline;">
+    Time Crisis 2
+   </span>
+   <span style="font-weight: bold;">
+    (before)
+   </span>
+   <span style="font-weight: bold;">
+    (
+    <span style="color: #66cc33;">
+     320 X 224
+    </span>
+    )
+   </span>
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/timecrisis-before.png" target="_blank">
+    <img alt="Time Crisis 2 Before" border="0" height="224" src="/images/stories/frontend/progress_reports/q2-2016/timecrisis-before.png" title="Time Crisis 2 Before" width="320"/>
+   </a>
+   <br/>
+   <br/>
+   <span style="text-decoration: underline;">
+    Time Crisis 2
+   </span>
+   <span style="font-weight: bold;">
+    (now)
+   </span>
+   <span style="font-weight: bold;">
+    (
+    <span style="color: #66cc33;">
+     640 X 224
+    </span>
+    )
+   </span>
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/timecrisis-after.png" target="_blank">
+    <img alt="Time Crisis 2 after" border="0" height="224" src="/images/stories/frontend/progress_reports/q2-2016/timecrisis-after.png" title="Time Crisis 2 after" width="640"/>
+   </a>
+   <br/>
+   <br/>
+   <br/>
+   <span style="color: #ff3333;">
+    [Bug-Fix]
+   </span>
+   <span style="font-weight: bold;">
+    <span style="text-decoration: underline;">
+     VIF: Timing fix for MSCALF, MSCNT instructions
+    </span>
+   </span>
+   by
+   <a href="https://github.com/refractionpcsx2" target="_blank">
+    Refraction
+   </a>
+   <br/>
+   <br/>
+   Previously the
+   <span style="font-weight: bold;">
+    MSCALF
+   </span>
+   and
+   <span style="font-weight: bold;">
+    MSCNT
+   </span>
+   instructions were delayed along with the
+   <span style="font-weight: bold;">
+    MSCAL
+   </span>
+   instruction, these instructions trigger the execution of the micro instructions in VU1. This was done in order to fix the graphics on the Snowblind Engine games such as Baldur's Gate: Dark Alliance and Champions of Norrath; However, delaying this seemed to cause quite a few shadow problems on games like Downhill Domination, Twisted Metal and potentially other games.
+   <br/>
+   <br/>
+   Refraction fixed these issues by reworking the code to only allow delays for the
+   <span style="font-weight: bold;">
+    MSCAL
+   </span>
+   instruction.
+   <br/>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/Downhil-Before.jpg" target="_blank">
+    <img alt="DownHill Domination before" border="0" height="265" src="/images/stories/frontend/progress_reports/q2-2016/Downhil-Before_s.jpg" title="DownHill Domination before" width="353"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/Downhil-after.jpg" target="_blank">
+    <img alt="DownHill Domination after" border="0" height="265" src="/images/stories/frontend/progress_reports/q2-2016/Downhil-after_s.jpg" title="DownHill Domination after" width="353"/>
+   </a>
+   <br/>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/twisted-metal-before.png" target="_blank">
+    <img alt="Twisted Metal before" border="0" height="247" src="/images/stories/frontend/progress_reports/q2-2016/twisted-metal-before_s.png" title="Twisted Metal before" width="353"/>
+   </a>
+   <a href="/images/stories/frontend/progress_reports/q2-2016/twisted-metal-after.png" target="_blank">
+    <img alt="Twisted Metal after" border="0" height="247" src="/images/stories/frontend/progress_reports/q2-2016/twisted-metal-after_s.png" title="Twisted Metal after" width="353"/>
+   </a>
+  </p>
+  <p>
+   As usual, there were even more additions and developments while this report was being written but they will be included in our next quarterly report. Thanks to everyone who worked on this, ssakash, refraction, gregory, dogen, Nobbs66, FlatOut, turtleli and a special thanks to Blyss Sarania, the whole team is by his side through the rough times he is going through.
+  </p>
+ </div>
+</div>
