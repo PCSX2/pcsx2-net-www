@@ -569,7 +569,7 @@ button.compat {
 
 #splash-screen {
   grid-area: 1/1/1/1;
-  background-image: url("/img/poor-perf-splash.png");
+  background-image: url("/PCSX2.github.io//img/poor-perf-splash.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center; }
