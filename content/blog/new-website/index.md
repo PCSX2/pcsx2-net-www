@@ -6,7 +6,7 @@ draft: false
 tags:
   - "devblog"
 mainAuthor: Vaser
-previewImage: "/blog/new-website/poor-perf-splash.png"
+previewImage: "/blog/new-website/poor-perf-splash.webp"
 ---
 
 For a myriad of reasons, we've migrated to a new website.  It should be much easier to maintain and edit -- so hopefully this translates into more interesting articles and quicker progress-reports.

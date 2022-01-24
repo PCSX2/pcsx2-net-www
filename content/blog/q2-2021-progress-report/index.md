@@ -10,7 +10,7 @@ tags:
   - "progress-report"
 aliases:
   - "/299-q2-2021-progress-report"
-previewImage: "/blog/q2-2021-progress-report/progrepq22021.jpg"
+previewImage: "/blog/q2-2021-progress-report/progrepq22021.webp"
 toc: true
 ---
 

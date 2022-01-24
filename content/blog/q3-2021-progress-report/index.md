@@ -10,7 +10,7 @@ secondaryAuthors:
   - "lightningterror"
 aliases:
   - "/300-q3-2021-progress-report"
-previewImage: "/blog/q3-2021-progress-report/img/FFX_correct_sws.jpg"
+previewImage: "/blog/q3-2021-progress-report/img/FFX_correct_sws.webp"
 toc: true
 ---
 
@@ -177,7 +177,7 @@ In essence, IPU handles FMV/cutscenes and this PR improves some issues with them
 
 Hype Time Quest: Before &gt; After
 
-{{< img-cmp before="./img/Hype-Time-Quest-befores.jpg" after="./img/Hype-Time-Quest-afters.jpg">}}
+{{< img-cmp before="./img/Hype-Time-Quest-befores.webp" after="./img/Hype-Time-Quest-afters.webp">}}
 
 {{< progress/github-link prNums="4613" title="IPU: Store thresholds for color conversions in u16, bump savestate version" authors="kozarovv" >}}
 
@@ -207,10 +207,10 @@ Playing PS1 games has been a passion for some but we don't recommend it in its c
 Here are some example comparisons of the improvements we witnessed:
 
 Resident Evil: Before &gt; After
-{{< img-cmp-slider before="./img/RE-befores.jpg" after="./img/RE-afters.jpg">}}
+{{< img-cmp-slider before="./img/RE-befores.webp" after="./img/RE-afters.webp">}}
 
 Street Fighter EX Plus Alpha: Before &gt; After
-{{< img-cmp-slider before="./img/SF-EX-befores.webp" after="./img/SF-EX-afters.jpg">}}
+{{< img-cmp-slider before="./img/SF-EX-befores.webp" after="./img/SF-EX-afters.webp">}}
 
 {{< progress/github-link prNums="4676" title="IOPBios: Fix OOB read when IRQ line is invalid" authors="F0bes" >}}
 
@@ -270,31 +270,31 @@ Final Fantasy X: Before &gt; After - [#983](https://github.com/PCSX2/pcsx2/issue
 
 Look at the weird line on the tree (bottom left) and the black triangle that is right of Tidus.
 
-{{< img-cmp-slider before="./img/FFX_blue_wrong_SWs.jpg" after="./img/FFX_blue_correct_SWs.jpg">}}
+{{< img-cmp-slider before="./img/FFX_blue_wrong_SWs.webp" after="./img/FFX_blue_correct_SWs.webp">}}
 
 Final Fantasy X: Before &gt; After - [#3341](https://github.com/PCSX2/pcsx2/issues/3341)
 
 Look at the blue triangle below Tidus.
 
-{{< img-cmp-slider before="./img/ffx_wrong_sws.jpg" after="./img/FFX_correct_sws.jpg">}}
+{{< img-cmp-slider before="./img/ffx_wrong_sws.webp" after="./img/FFX_correct_sws.webp">}}
 
 Doko Demo Issho - Toro to Ippai, Toro to Kyuujitsu: Before &gt; After - [#4674](https://github.com/PCSX2/pcsx2/issues/4674)
 
 Look at the eyes of these weird cat characters.
 
-{{< img-cmp-slider before="./img/toro_wrong_SWs.jpg" after="./img/toro_correct_SWs.jpg">}}
+{{< img-cmp-slider before="./img/toro_wrong_SWs.webp" after="./img/toro_correct_SWs.webp">}}
 
 Football 2002: Before &gt; After
 
 Look at the number 4 on the orange shirt.
 
-{{< img-cmp-slider before="./img/Football_2002_wrong_sws.jpg" after="./img/Football_2002_correct_SWs.jpg">}}
+{{< img-cmp-slider before="./img/Football_2002_wrong_sws.webp" after="./img/Football_2002_correct_SWs.webp">}}
 
 Syphon Filter - Dark Mirror: Before &gt; After
 
 Look at the shadows of the character, a harder one to see than the other comparisons.
 
-{{< img-cmp-slider before="./img/Syphon_dark_mirror_wrong_sws.jpg" after="./img/Syphon_dark_mirror_correct_SWs.jpg">}}
+{{< img-cmp-slider before="./img/Syphon_dark_mirror_wrong_sws.webp" after="./img/Syphon_dark_mirror_correct_SWs.webp">}}
 
 These are just a few examples, of course there are more.
 
@@ -304,7 +304,7 @@ These are just a few examples, of course there are more.
 
 {{< progress/github-link prNums="4811" title="GS: Test for th for tex0 flush" authors="tadanokojin" >}}
 
-{{< img-cmp before="./img/VampireNightBrokenBulletss.jpg" after="./img/vampire_fixeds.jpg">}}
+{{< img-cmp before="./img/VampireNightBrokenBulletss.webp" after="./img/vampire_fixeds.webp">}}
 
 ## Misc Improvements
 ### GUI
@@ -380,7 +380,7 @@ So in essence, if you have a 4th gen intel or higher with exception the Pentiums
 
 {{< progress/github-link prNums="4527" title="KeyboardQueue: Remove a Windows-specific critsec" authors="CookiePLMonster" >}}
 
-{{< progress/github-link prNums="4554" title="3rdparty: add jpgd project" authors="tadanokojin" >}}
+{{< progress/github-link prNums="4554" title="3rdparty: add webpd project" authors="tadanokojin" >}}
 
 {{< progress/github-link prNums="4566" title="Misc: Don't update homebrew when not necessary" authors="tellowkrinkle" >}}
 

@@ -8,7 +8,7 @@ tags:
 mainAuthor: bositman
 aliases:
   - "/301-aethersx2-pcsx2-mobile"
-previewImage: "/blog/aethersx2-brings-pcsx2-to-mobile/AetherSX2sm.jpg"
+previewImage: "/blog/aethersx2-brings-pcsx2-to-mobile/AetherSX2sm.webp"
 ---
 
 An exciting bit of news! As you have probably seen by now, there is a new Android emulator in town called AetherSX2, which shows to have very promising performance and compatibility. While the latter is due to it being based on an LGPL licensed emulator for PC (that's us!), the former is due to the clever work of the developer Tahlreth.
@@ -39,4 +39,4 @@ For your own safety, be sure NOT to:
 
 Please wait for follow-up announcements and information from Tahlreth directly on [/r/AetherSX2](https://www.reddit.com/r/AetherSX2/).
 
-![](./AetherSX2sm.jpg)
+![](./AetherSX2sm.webp)
