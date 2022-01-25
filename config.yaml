@@ -38,6 +38,7 @@ markup:
 enableEmoji: true
 # Website Parameters
 params:
+  description: "An Open-Source PS2 Emulator"
   social:
     - name: Discord
       icon: fab fa-discord

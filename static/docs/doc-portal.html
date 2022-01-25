@@ -34,6 +34,7 @@
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md'
       },
+      basePath: '/docs/',
       subMaxLevel: 3,
       notFoundPage: true,
       auto2top: true,
@@ -92,7 +93,7 @@
                 .replace(/\/master/, "/edit/master");
             } else {
               url =
-                "https://github.com/PCSX2/PCSX2.github.io/edit/master/static" +
+                "https://github.com/PCSX2/pcsx2-net-www/edit/main/static" +
                 vm.route.file;
             }
             var editHtml = `<p class="docs-edit-link"><a href="${url}" target="_blank" rel="noopener"><img class="emoji" src="https://github.githubassets.com/images/icons/emoji/memo.png" alt="memo"> Edit This Page</a></p>\n\n`;

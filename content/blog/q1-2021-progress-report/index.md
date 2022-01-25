@@ -8,7 +8,6 @@ tags:
 mainAuthor: lightningterror
 aliases:
   - "/298-q1-2021-progress-report"
-previewImage: "/blog/q1-2021-progress-report/img/ss_after_s.webp"
 toc: true
 ---
 
