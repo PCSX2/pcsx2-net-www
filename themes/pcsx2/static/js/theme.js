@@ -51,10 +51,27 @@ document.querySelectorAll('.card.ease-in').forEach((i) => {
 });
 
 // Listen for system theme changes
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener(function (e) {
-  if (e.matches) {
-    setTheme('theme-dark');
-  } else {
-    setTheme('theme-light');
+const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+try {
+  // Chrome & Firefox
+  darkMediaQuery.addEventListener('change', (e) => {
+    if (e.matches) {
+      setTheme('theme-dark');
+    } else {
+      setTheme('theme-light');
+    }
+  });
+} catch (e1) {
+  try {
+    // Safari
+    darkMediaQuery.addListener((e) => {
+      if (e.matches) {
+        setTheme('theme-dark');
+      } else {
+        setTheme('theme-light');
+      }
+    });
+  } catch (e2) {
+    console.error(e2);
   }
-});
+}
