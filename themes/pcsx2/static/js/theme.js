@@ -21,9 +21,14 @@ $("#theme-button").on("click", function (evt) {
 $(document).ready(function () {
   let savedTheme = localStorage.getItem('pcsx2-theme');
   if (savedTheme !== undefined && savedTheme === "theme-light") {
-      $("#theme-button").html('<i class="far fa-moon theme-icon" title="Change to Dark Theme"></i>');
+    $("#theme-button").html('<i class="far fa-moon theme-icon" title="Change to Dark Theme"></i>');
   } else {
-    setTheme('theme-dark');
+    // Use System Theme
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setTheme('theme-dark');
+    } else {
+      setTheme('theme-light');
+    }
   }
 });
 
@@ -42,5 +47,14 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.card.ease-in').forEach((i) => {
   if (i) {
     observer.observe(i);
+  }
+});
+
+// Listen for system theme changes
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener(function (e) {
+  if (e.matches) {
+    setTheme('theme-dark');
+  } else {
+    setTheme('theme-light');
   }
 });
