@@ -140,15 +140,15 @@ searchInput.oninput = function () {
     filterData();
   }, 250);
   let tableBody = document.getElementById("compat-table-body");
-  if (tableBody.innerHTML != `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo" src="/img/pcsx2-logo.svg"></object></td></tr>`) {
-    tableBody.innerHTML = `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo" src="$/img/pcsx2-logo.svg"></object></td></tr>`;
+  if (tableBody.innerHTML != `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo" src="/img/pcsx2-logo.webp"></object></td></tr>`) {
+    tableBody.innerHTML = `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo" src="$/img/pcsx2-logo.webp"></object></td></tr>`;
   }
 }
 
 function tableLoading() {
   let tableBody = document.getElementById("compat-table-body");
-  if (tableBody.innerHTML != `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo" src="/img/pcsx2-logo.svg"></object></td></tr>`) {
-    tableBody.innerHTML = `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo" src="/img/pcsx2-logo.svg"></object></td></tr>`;
+  if (tableBody.innerHTML != `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo" src="/img/pcsx2-logo.webp"></object></td></tr>`) {
+    tableBody.innerHTML = `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo" src="/img/pcsx2-logo.webp"></object></td></tr>`;
   }
 }
 
