@@ -41,10 +41,16 @@
           </div>
         </li>
         {{ end }}
-        <li class="nav-item">
-          <a role="button" class="nav-link" id="theme-button">
-            <i class="far fa-moon theme-icon" title="Dark Theme"></i>
-          </a>
+        <div class="navbar-divider d-none d-md-block">&nbsp;</div>
+        <li class="nav-item d-flex align-items-center">
+          <div>
+            <input type="checkbox" class="theme-toggle" id="theme-toggle">
+            <label for="theme-toggle" class="theme-toggle-label">
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+              <span class="theme-toggle-ball"></span>
+            </label>
+          </div>
         </li>
       </ul>
     </div>
