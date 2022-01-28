@@ -10,6 +10,7 @@
     }
 </script>
 {{- partial "head.html" . -}}
+
 <body>
     <div class="d-flex flex-column min-vh-100">
         {{- partial "navbar.html" . -}}
@@ -21,5 +22,10 @@
         {{- partial "footer.html" . -}}
         {{ end }}
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.5.0/dist/lazyload.min.js"></script>
+    <script>
+        var lazyLoadInstance = new LazyLoad({});
+    </script>
 </body>
+
 </html>

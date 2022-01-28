@@ -23,7 +23,7 @@ let latestArtifactDropdown = doT.template(`
 let tableLoading = doT.template(`
 <tr style="align-content: center;text-align: center;">
   <td colspan="{{= it.colspan}}">
-    <img class="loading-logo" src="/img/pcsx2-logo.webp">
+    <img class="loading-logo lazy" data-src="/img/pcsx2-logo.webp">
   </td>
 </tr>
 `)
