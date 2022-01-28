@@ -86,8 +86,6 @@ languages:
           title: Dev Blog
           weight: 3
           url: /blog
-        - name: Wiki
-          url: https://wiki.pcsx2.net
         - name: Documentation
           title: Documentation
           weight: 4

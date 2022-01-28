@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-md-6">
     <div class="img-compare-container">
-      <img src="{{ .Get "after" }}" alt="" draggable="false">
+      <img data-src="{{ .Get "after" }}" class="lazy" alt="" draggable="false">
       <div class="img-clipper">
-        <img src="{{ .Get "before" }}" alt="" draggable="false">
+        <img data-src="{{ .Get "before" }}" class="lazy" alt="" draggable="false">
+        <div class="img-cmp-label before">Before</div>
       </div>
-      <div class="img-cmp-label before">Before</div>
       <div class="img-cmp-label after">After</div>
     </div>
   </div>

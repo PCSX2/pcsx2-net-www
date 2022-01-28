@@ -3,12 +3,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- OpenGraph Tags -->
   {{ template "_internal/opengraph.html" . }}
-  <link rel="shortcut icon" type="image/png" href="/img/favicon.png" />
+  <link rel="shortcut icon" href="/img/favicon.webp" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css" rel="stylesheet" />
   <link href="/css/thirdparty/skeleton-loading.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Lexend:ital,wght@0,300;0,400;0,700;1,400&display=swap" />
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Lexend:ital,wght@0,300;0,400;0,700;1,400&display=swap">
+    href="https://fonts.googleapis.com/css2?family=Lexend:ital,wght@0,300;0,400;0,700;1,400&display=swap" media="print"
+    onload="this.media='all'" />
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Fira+Code:wght@300;400;700&display=swap" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Fira+Code:wght@300;400;700&display=swap" media="print"
+    onload="this.media='all'" />
+  <!-- Theme CSS -->
   {{ $sass := resources.Get "sass/main.sass" }}
   {{ $style := $sass | resources.ToCSS }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
@@ -21,4 +32,5 @@
   {{ $title = print .Site.Title " | A PS2 Emulator" }}
   {{ end }}
   <title>{{ $title }}</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 </head>
