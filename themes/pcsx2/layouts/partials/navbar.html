@@ -1,40 +1,30 @@
-<nav class="navbar navbar-dark bg-faded sticky-top justify-content-end navbar-expand-lg">
-  <div class="container">
-    <a class="navbar-brand w-25" href="/">
+<nav class="navbar navbar-dark bg-faded sticky-top justify-content-center navbar-expand-lg">
+  <div class="container pl-5">
+    <a class="navbar-brand" href="/">
       <img class="brand-logo" src="/img/pcsx2-logo.webp" alt="PCSX2 Logo">
-      <strong class="logo-text">PCSX2</strong>
     </a>
     <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </button>
-    <div class="collapse navbar-collapse w-100 justify-content-center" id="navbarSupportedContent">
-      <ul class="navbar-nav nav-middle w-75 pe-3 pe-md-0 justify-content-center">
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+      <ul class="navbar-nav nav-middle pe-3 pe-md-0 justify-content-center">
         {{ range .Site.Menus.main }}
         <li class="nav-item">
           <a class="nav-link" href="{{ .URL }}" {{ if in .URL "http" }}target="blank" {{ end }}>{{ .Name | safeHTML }}</a>
         </li>
         {{ end }}
       </ul>
-      <ul class="navbar-nav nav-right w-25 pe-3 pe-md-0 justify-content-end">
+      <div class="navbar-divider d-none d-md-block">&nbsp;</div>
+      <ul class="navbar-nav nav-right pe-3 pe-md-0 justify-content-end">
         {{ if gt (len .Site.Params.social) }}
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarLinksDropdownMenu" role="button" data-mdb-display="static" data-mdb-toggle="dropdown" aria-expanded="false">
-            Links
+        {{ range .Site.Params.social }}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ .url }}" {{ if in .url "http" }}target="blank" {{ end }}>
+            {{ .name }}
           </a>
-          <ul class="dropdown-menu dropdown-menu-md-end" aria-labelledby="navbarLinksDropdownMenu">
-            {{ range .Site.Params.social }}
-            <li class="nav-item">
-              <a class="dropdown-item" href="{{ .url }}" {{ if in .url "http" }}target="blank" {{ end }}>
-                <span>
-                  <i class="nav-icon {{ .icon }}"></i>
-                  {{ .name }}
-                </span>
-              </a>
-            </li>
-            {{ end }}
-          </ul>
         </li>
+        {{ end }}
         {{ end }}
         {{ if gt (len .Site.Home.AllTranslations) 1 }}
         <li class="nav-item">
