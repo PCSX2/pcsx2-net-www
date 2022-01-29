@@ -11,7 +11,7 @@
   "fuse.js": {
     "pinnedVersion": "6.5.3",
     "js": {
-      "directoryToSave": "./themes/pcsx2/static/js/vendor/fuse",
+      "directoryToSave": "./themes/pcsx2/static/js/vendor/fuse.js",
       "baseUrlToFetch": "https://unpkg.com/fuse.js",
       "filesToVendor": ["dist/fuse.min.js"],
       "deferredLoad": true
@@ -38,12 +38,12 @@
   "mdb-ui-kit": {
     "pinnedVersion": "3.10.2",
     "css": {
-      "directoryToSave": "./themes/pcsx2/static/css/vendor/mdb",
+      "directoryToSave": "./themes/pcsx2/static/css/vendor/mdb-ui-kit",
       "baseUrlToFetch": "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit",
       "filesToVendor": ["mdb.min.css"]
     },
     "js": {
-      "directoryToSave": "./themes/pcsx2/static/js/vendor/mdb",
+      "directoryToSave": "./themes/pcsx2/static/js/vendor/mdb-ui-kit",
       "baseUrlToFetch": "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit",
       "filesToVendor": ["mdb.min.js"],
       "deferredLoad": true
@@ -65,14 +65,6 @@
       "baseUrlToFetch": "https://unpkg.com/underscore",
       "filesToVendor": ["underscore-min.js"],
       "deferredLoad": true
-    }
-  },
-  "font-awesome": {
-    "pinnedVersion": "5.15.1",
-    "css": {
-      "directoryToSave": "./themes/pcsx2/static/css/vendor/font-awesome",
-      "baseUrlToFetch": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome",
-      "filesToVendor": ["css/all.min.css"]
     }
   },
   "vanilla-lazyload": {
