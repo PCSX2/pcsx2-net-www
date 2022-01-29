@@ -1,7 +1,4 @@
 {{ define "main" }}
-<script defer src="https://unpkg.com/dot@1.1.3/doT.min.js"></script>
-<script defer src="https://unpkg.com/marked@4.0.8/marked.min.js"></script>
-<script defer src="/js/release-page.js"></script>
 <div class="container">
   <div class="row mt-5">
     <div class="row mb-3" id="outage-alert" style="display: none;">
@@ -210,4 +207,7 @@
     <div class="row justify-content-end mt-3 pagination-container" id="pull-request-pagination-container"></div>
   </div>
 </div>
+<script defer src="/js/vendor/dot@1.1.2/doT.min.js"></script>
+<script defer src="/js/vendor/marked@4.0.8/marked.min.js"></script>
+<script defer src="/js/release-page.js"></script>
 {{ end }}
