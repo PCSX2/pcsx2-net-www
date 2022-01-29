@@ -8,8 +8,8 @@
       "deferredLoad": true
     }
   },
-  "fuse": {
-    "pinnedVersion": "0.4.0",
+  "fuse.js": {
+    "pinnedVersion": "6.5.3",
     "js": {
       "directoryToSave": "./themes/pcsx2/static/js/vendor/fuse",
       "baseUrlToFetch": "https://unpkg.com/fuse.js",
@@ -68,7 +68,7 @@
     }
   },
   "font-awesome": {
-    "pinnedVersion": "3.10.2",
+    "pinnedVersion": "5.15.1",
     "css": {
       "directoryToSave": "./themes/pcsx2/static/css/vendor/font-awesome",
       "baseUrlToFetch": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome",
