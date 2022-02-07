@@ -4,3 +4,6 @@ tasks:
   new-article:
     cmds:
       - python ./scripts/make-new-article.py
+  vendor-deps:
+    cmds:
+      - python ./scripts/vendor-deps.py

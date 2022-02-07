@@ -1,0 +1,93 @@
+{
+  "dot": {
+    "pinnedVersion": "1.1.3",
+    "js": {
+      "directoryToSave": "./themes/pcsx2/static/js/vendor/dot",
+      "baseUrlToFetch": "https://unpkg.com/dot",
+      "filesToVendor": ["doT.min.js"],
+      "deferredLoad": true
+    }
+  },
+  "fuse.js": {
+    "pinnedVersion": "6.5.3",
+    "js": {
+      "directoryToSave": "./themes/pcsx2/static/js/vendor/fuse.js",
+      "baseUrlToFetch": "https://unpkg.com/fuse.js",
+      "filesToVendor": ["dist/fuse.min.js"],
+      "deferredLoad": true
+    }
+  },
+  "jquery": {
+    "pinnedVersion": "3.6.0",
+    "js": {
+      "directoryToSave": "./themes/pcsx2/static/js/vendor/jquery",
+      "baseUrlToFetch": "https://unpkg.com/jquery",
+      "filesToVendor": ["dist/jquery.min.js"],
+      "deferredLoad": true
+    }
+  },
+  "marked": {
+    "pinnedVersion": "4.0.12",
+    "js": {
+      "directoryToSave": "./themes/pcsx2/static/js/vendor/marked",
+      "baseUrlToFetch": "https://unpkg.com/marked",
+      "filesToVendor": ["marked.min.js"],
+      "deferredLoad": true
+    }
+  },
+  "mdb-ui-kit": {
+    "pinnedVersion": "3.10.2",
+    "css": {
+      "directoryToSave": "./themes/pcsx2/static/css/vendor/mdb-ui-kit",
+      "baseUrlToFetch": "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit",
+      "filesToVendor": ["mdb.min.css"]
+    },
+    "js": {
+      "directoryToSave": "./themes/pcsx2/static/js/vendor/mdb-ui-kit",
+      "baseUrlToFetch": "https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit",
+      "filesToVendor": ["mdb.min.js"],
+      "deferredLoad": true
+    }
+  },
+  "three": {
+    "pinnedVersion": "0.137.5",
+    "js": {
+      "directoryToSave": "./themes/pcsx2/static/js/vendor/three",
+      "baseUrlToFetch": "https://unpkg.com/three",
+      "filesToVendor": ["build/three.min.js"],
+      "deferredLoad": true
+    }
+  },
+  "underscore": {
+    "pinnedVersion": "1.13.2",
+    "js": {
+      "directoryToSave": "./themes/pcsx2/static/js/vendor/underscore",
+      "baseUrlToFetch": "https://unpkg.com/underscore",
+      "filesToVendor": ["underscore-min.js"],
+      "deferredLoad": true
+    }
+  },
+  "vanilla-lazyload": {
+    "pinnedVersion": "17.5.0",
+    "js": {
+      "directoryToSave": "./themes/pcsx2/static/js/vendor/vanilla-lazyload",
+      "baseUrlToFetch": "https://cdn.jsdelivr.net/npm/vanilla-lazyload",
+      "filesToVendor": ["dist/lazyload.min.js"]
+    }
+  },
+  "cookieconsent": {
+    "pinnedVersion": "3.1.1",
+    "css": {
+      "directoryToSave": "./themes/pcsx2/static/css/vendor/cookieconsent",
+      "baseUrlToFetch": "https://cdn.jsdelivr.net/npm/cookieconsent",
+      "filesToVendor": ["build/cookieconsent.min.css"]
+    },
+    "js": {
+      "directoryToSave": "./themes/pcsx2/static/js/vendor/cookieconsent",
+      "baseUrlToFetch": "https://cdn.jsdelivr.net/npm/cookieconsent",
+      "filesToVendor": ["build/cookieconsent.min.js"],
+      "deferredLoad": true,
+      "additionalAttributes": ["data-cfasync=\"false\""]
+    }
+  }
+}

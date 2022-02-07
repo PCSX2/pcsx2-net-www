@@ -22,8 +22,12 @@
         {{- partial "footer.html" . -}}
         {{ end }}
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.5.0/dist/lazyload.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+    <!-- javascript libraries that are used on every page -->
+    <script defer src="/js/vendor/mdb-ui-kit@3.10.2/mdb.min.js"></script>
+    <script defer src="/js/vendor/jquery@3.6.0/jquery.min.js"></script>
+    <script defer src="/js/theme.js"></script>
+    <script src="/js/vendor/vanilla-lazyload@17.5.0/lazyload.min.js"></script>
+    <script src="/js/vendor/cookieconsent@3.1.1/cookieconsent.min.js"></script>
     <script>
         const lazyLoadInstance = new LazyLoad({});
         window.cookieconsent.initialise({
@@ -37,6 +41,7 @@
             }
         });
     </script>
+    {{ block "additionalScripts" . }}
+    {{ end }}
 </body>
-
 </html>

@@ -38,6 +38,7 @@ function isMobile() {
 function init() {
   // Skip animation completely on mobile
   if (isMobile()) {
+    $("#splash-screen").addClass("slow-performance");
     return;
   }
 
@@ -162,7 +163,7 @@ function onWindowResize() {
 }
 
 var poorPerfFrames = 0;
-var maxPoorPerfFrames = 50;
+var maxPoorPerfFrames = 10;
 function animate() {
   var id = requestAnimationFrame(animate);
   const t0 = performance.now();
@@ -172,6 +173,7 @@ function animate() {
   // then stop rendering, we'll just pause and it will use whatever was the last frame
   if (t1 - t0 > 33) {
     poorPerfFrames += 1;
+    console.log("Slow Frame");
     if (poorPerfFrames > maxPoorPerfFrames) {
       cancelAnimationFrame(id);
     }

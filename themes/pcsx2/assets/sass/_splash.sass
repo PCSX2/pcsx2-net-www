@@ -32,7 +32,9 @@
 
 #splash-screen
   grid-area: 1/1/1/1
-  background-image: url('#{$base-url}img/poor-perf-splash.webp')
-  background-repeat: no-repeat
-  background-size: cover
-  background-position: center
+  background: black;
+  &.slow-performance
+    background-image: url('#{$base-url}img/poor-perf-splash.webp')
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center
