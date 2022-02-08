@@ -86,11 +86,11 @@ languages:
           title: Dev Blog
           weight: 3
           url: /blog
-        - name: Documentation
-          title: Documentation
-          weight: 4
-          url: /docs
         # TODO - temporarily disabled until page is finished
+        # - name: Documentation
+        #   title: Documentation
+        #   weight: 4
+        #   url: /docs
         # - name: About
         #   title: About the Project
         #   weight: 5

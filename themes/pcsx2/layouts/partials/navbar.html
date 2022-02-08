@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-faded sticky-top justify-content-center navbar-expand-lg">
   <div class="container pl-5">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand d-block d-lg-none" href="/">
       <img class="brand-logo lazy" data-src="/img/pcsx2-logo.webp" alt="PCSX2 Logo">
     </a>
     <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
@@ -8,6 +8,9 @@
       <i class="fas fa-bars"></i>
     </button>
     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+      <a class="navbar-brand d-none d-lg-block" href="/">
+        <img class="brand-logo lazy" data-src="/img/pcsx2-logo.webp" alt="PCSX2 Logo">
+      </a>
       <ul class="navbar-nav nav-middle pe-3 pe-md-0 justify-content-center">
         {{ range .Site.Menus.main }}
         <li class="nav-item">
@@ -15,7 +18,8 @@
         </li>
         {{ end }}
       </ul>
-      <div class="navbar-divider d-none d-md-block">&nbsp;</div>
+      <div class="navbar-divider d-none d-lg-block">&nbsp;</div>
+      <!-- External Links -->
       <ul class="navbar-nav nav-right pe-3 pe-md-0 justify-content-end">
         {{ if gt (len .Site.Params.social) }}
         {{ range .Site.Params.social }}
@@ -26,7 +30,11 @@
         </li>
         {{ end }}
         {{ end }}
-        {{ if gt (len .Site.Home.AllTranslations) 1 }}
+      </ul>
+      <!-- Translations -->
+      {{ if gt (len .Site.Home.AllTranslations) 1 }}
+      <div class="navbar-divider d-none d-lg-block">&nbsp;</div>
+      <ul class="navbar-nav nav-right pe-3 pe-md-0 justify-content-end"></ul>
         <li class="nav-item">
           <div class="dropdown" id="language-dropdown-container">
             <button class="btn btn-primary dropdown-toggle" type="button" id="language-dropdown"
@@ -40,9 +48,12 @@
             </ul>
           </div>
         </li>
-        {{ end }}
-        <div class="navbar-divider d-none d-md-block">&nbsp;</div>
-        <li class="nav-item d-flex align-items-center">
+      </ul>
+      {{ end }}
+      <div class="navbar-divider d-none d-lg-block">&nbsp;</div>
+      <!-- Settings -->
+      <ul class="navbar-nav nav-right pe-3 pe-md-0 justify-content-end">
+        <li class="nav-item nav-link d-flex align-items-center">
           <div>
             <input type="checkbox" class="theme-toggle" id="theme-toggle">
             <label for="theme-toggle" class="theme-toggle-label">
