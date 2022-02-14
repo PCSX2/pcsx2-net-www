@@ -43,5 +43,22 @@
     </script>
     {{ block "additionalScripts" . }}
     {{ end }}
+    <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0996284081546238" crossorigin="anonymous"></script>
+    <script>
+        // based on code found at:
+        // https://stackoverflow.com/questions/55695667/adsense-injecting-style-tag-into-my-page-in-chrome
+        var flex = document.getElementsByClassName('min-vh-100')[0];
+        const googleObserver = new MutationObserver(function (mutations, observer) {
+            flex.style.height = "";
+            flex.style.minHeight = "";
+        });
+        googleObserver.observe(flex, {
+            attributes: true,
+            attributeFilter: ['style']
+        });
+        if (!adsbygoogle.loaded) {
+            // TODO - change ad containers to placeholders
+        }
+    </script>
 </body>
 </html>

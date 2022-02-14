@@ -23,11 +23,8 @@
         {{ $paginator := .Paginate (where .Pages "Type" "blog") }}
         {{ range $index, $page := $paginator.Pages }}
         {{ partial "post-card.html" (dict "context" $ "post" . "easeDirection" "right" "alternateBackground" true) }}
-
         {{ if eq ( mod (add $index 1) 5 ) 0 }}
-        <!-- <div class="col-12 mb-5">
-          {{- partial "advertisement.html" . -}}
-        </div> -->
+          {{- partial "ads/horizontal-col.html" . -}}
         {{ end }}
         {{ end }}
         <!-- TODO - make this look nice -->

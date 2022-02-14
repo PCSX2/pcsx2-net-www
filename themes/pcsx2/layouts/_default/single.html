@@ -16,6 +16,9 @@
       {{ .Content }}
     </div>
   </div>
+  {{ partial "ads/horizontal-row.html" }}
 </div>
+{{ end }}
+{{ define "additionalScripts" }}
 <script defer src="/js/comparisons.js"></script>
 {{ end }}
