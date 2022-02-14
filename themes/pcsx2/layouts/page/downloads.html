@@ -74,7 +74,7 @@
       </div>
     </div>
   </div>
-  <!-- <div class="container text-center mt-5 mb-5 p-5 ad">Advertisement</div> -->
+  {{- partial "ads/horizontal-row.html" -}}
   <div class="row mt-5" id="stable-list">
     <h5>Stable Release List</h5>
   </div>
@@ -147,7 +147,7 @@
       </div>
     </div>
   </div>
-  <!-- <div class="container text-center mt-5 mb-5 p-5 ad">Advertisement</div> -->
+  {{- partial "ads/horizontal-row.html" -}}
   <div class="row mt-5" id="nightly-list">
     <h5>Nightly Release List</h5>
   </div>
@@ -206,6 +206,7 @@
     </div>
     <div class="row justify-content-end mt-3 pagination-container" id="pull-request-pagination-container"></div>
   </div>
+  {{- partial "ads/horizontal-row.html" -}}
 </div>
 {{ end }}
 {{ define "additionalScripts" }}
