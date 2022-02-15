@@ -38,4 +38,4 @@ For your own safety, be sure NOT to:
 
 Please wait for follow-up announcements and information from Tahlreth directly on [/r/AetherSX2](https://www.reddit.com/r/AetherSX2/).
 
-![](./AetherSX2sm.webp)
+![](./feature-AetherSX2sm.webp)
