@@ -18,20 +18,26 @@ This repository has the main hugo theme, as well as the articles and content ass
 
 ### Windows
 
-Get Scoop - https://scoop.sh/
+Setup Scoop as per instructions at https://scoop.sh/.
 
-```bash
+Open Powershell and install the following.
+
+```
+scoop install git
 scoop bucket add extras
 scoop install hugo-extended python task
 ```
 
-Run it locally
+Navigate to your local git repository for the site and use the below to start the server.
 
-```bash
+To start the server you will need to be in your Github repository that contains config.yaml.
+
+```
+cd C:\Users\user\Documents\GitHub\pcsx2-net-www
 hugo server -D
 ```
 
-View it - http://localhost:1313/
+Browse to http://localhost:1313/
 
 ### Linux
 
