@@ -7,3 +7,6 @@ tasks:
   vendor-deps:
     cmds:
       - python ./scripts/vendor-deps.py
+  convert-compat:
+    cmds:
+      - python ./scripts/coerce-compat-data.py
