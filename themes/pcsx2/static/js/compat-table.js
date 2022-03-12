@@ -140,15 +140,15 @@ searchInput.oninput = function () {
     filterData();
   }, 250);
   let tableBody = document.getElementById("compat-table-body");
-  if (tableBody.innerHTML != `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo lazy" data-src="/img/pcsx2-logo.webp"></object></td></tr>`) {
-    tableBody.innerHTML = `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo lazy" data-src="$/img/pcsx2-logo.webp"></object></td></tr>`;
+  if (tableBody.innerHTML != `<tr style="align-content: center;text-align: center;"><td colspan="6"><img class="loading-logo lazy" data-src="/img/pcsx2-logo.webp"></object></td></tr>`) {
+    tableBody.innerHTML = `<tr style="align-content: center;text-align: center;"><td colspan="6"><img class="loading-logo lazy" data-src="$/img/pcsx2-logo.webp"></object></td></tr>`;
   }
 }
 
 function tableLoading() {
   let tableBody = document.getElementById("compat-table-body");
-  if (tableBody.innerHTML != `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo lazy" data-src="/img/pcsx2-logo.webp"></object></td></tr>`) {
-    tableBody.innerHTML = `<tr style="align-content: center;text-align: center;"><td colspan="5"><img class="loading-logo lazy" data-src="/img/pcsx2-logo.webp"></object></td></tr>`;
+  if (tableBody.innerHTML != `<tr style="align-content: center;text-align: center;"><td colspan="6"><img class="loading-logo lazy" data-src="/img/pcsx2-logo.webp"></object></td></tr>`) {
+    tableBody.innerHTML = `<tr style="align-content: center;text-align: center;"><td colspan="6"><img class="loading-logo lazy" data-src="/img/pcsx2-logo.webp"></object></td></tr>`;
   }
 }
 
@@ -174,8 +174,44 @@ function getEmojiFlag(region) {
 }
 
 // HTML Templates
-let rowTemplate = doT.template(`<tr><td class="game-title"><i class="fas fa-circle compat-status {{=it.status}}"></i>&nbsp;{{=it.title}}</td><td>{{=it.flag}}&nbsp;{{=it.serial}}</td><td>{{=it.crc}}</td><td>{{=it.testedVersion}}</td><td>{{=it.lastUpdated}}</td></tr>`);
-let pageButtonTemplate = doT.template('<div class="col-auto"><button type="button" class="btn btn-pagination{{? it.active }} active{{?}}" value="{{=it.val}}" {{? it.disabled }}disabled{{?}}>{{=it.val}}</button></div>')
+let rowTemplate = doT.template(`
+<tr>
+  <td class="game-title">
+    <i class="fas fa-circle compat-status {{=it.status}}"></i>
+    &nbsp;
+    {{=it.title}}
+  </td>
+  <td class="table-no-wrap">
+    {{=it.flag}}
+    &nbsp;
+    {{=it.serial}}
+  </td>
+  <td>
+    {{=it.crc}}
+  </td>
+  <td class="d-none d-md-table-cell">
+    {{=it.testedVersion}}
+  </td>
+  <td class="d-none d-md-table-cell">
+    {{=it.lastUpdated}}
+  </td>
+  <td class="table-no-wrap">
+    <span>
+      {{? it.links && it.links.wikiLink && it.links.forumLink }}
+        {{? it.links.wikiLink }}
+          <a href="{{=it.links.wikiLink}}"><i class="fa-solid fa-circle-info"></i></a>
+        {{?}}
+        {{? it.links.forumLink }}
+          <a href="{{=it.links.forumLink}}"><i class="fa-solid fa-comments"></i></a>
+        {{?}}
+      {{?}}
+    </span>
+  </td>
+</tr>`);
+let pageButtonTemplate = doT.template(`
+<div class="col-auto">
+  <button type="button" class="btn btn-pagination{{? it.active }} active{{?}}" value="{{=it.val}}" {{? it.disabled }}disabled{{?}}>{{=it.val}}</button>
+</div>`);
 
 // Initialize the Compatibility Table, given an array of compatibility objects.
 function renderTable() {
@@ -199,7 +235,11 @@ function renderTable() {
         serial: entry.serial,
         crc: entry.crc,
         testedVersion: entry.last_tested_version,
-        lastUpdated: lastUpdatedDateStr
+        lastUpdated: lastUpdatedDateStr,
+        links: {
+          wikiLink: entry.wiki_link,
+          forumLink: entry.forum_link
+        }
       })
     }
   }
