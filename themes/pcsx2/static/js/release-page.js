@@ -253,7 +253,7 @@ function renderPreviousReleases(category, noScroll) {
       url: release.url,
       releaseDate: new Date(release.createdAt).toLocaleDateString(),
       platforms: platforms,
-      releaseNotes: release.description == undefined ? null : marked(truncateDescription(release.description))
+      releaseNotes: release.description == undefined ? null : marked.parse(truncateDescription(release.description))
     };
     $(selector).append(releaseRow(templateData));
   }

@@ -75,7 +75,7 @@
     </div>
   </div>
   {{- partial "ads/horizontal-row.html" -}}
-  <div class="row mt-5" id="stable-list">
+  <div class="row mt-5 scroll-fix" id="stable-list">
     <h5>Stable Release List</h5>
   </div>
   <div class="row mt-2">
@@ -148,7 +148,7 @@
     </div>
   </div>
   {{- partial "ads/horizontal-row.html" -}}
-  <div class="row mt-5" id="nightly-list">
+  <div class="row mt-5 scroll-fix" id="nightly-list">
     <h5>Nightly Release List</h5>
   </div>
   <div class="row mt-2">
@@ -186,7 +186,7 @@
       request itself.
     </p>
   </div>
-  <div class="row mt-2" id="pull-requests-list">
+  <div class="row mt-2 scroll-fix" id="pull-requests-list">
     <div class="table-responsive">
       <table class="table table-sm" id="pull-request-table">
         <thead>
@@ -210,7 +210,7 @@
 </div>
 {{ end }}
 {{ define "additionalScripts" }}
-<script defer src="/js/vendor/dot@1.1.3/doT.min.js"></script>
-<script defer src="/js/vendor/marked@4.0.12/marked.min.js"></script>
-<script defer src="/js/release-page.js"></script>
+<script src="/js/vendor/dot@1.1.3/doT.min.js"></script>
+<script src="/js/vendor/marked@4.0.12/marked.min.js"></script>
+<script src="/js/release-page.js"></script>
 {{ end }}
