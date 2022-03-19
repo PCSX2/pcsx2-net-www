@@ -1,5 +1,10 @@
+{{ $colWidth := "6" }}
+{{ if isset .Params `full-width` }}
+  {{ $colWidth = "12" }}
+{{ end }}
+
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-12 col-md-{{ $colWidth }}">
     <div class="img-compare-container">
       <img data-src="{{ .Get "after" }}" class="lazy" alt="" draggable="false">
       <div class="img-clipper">
