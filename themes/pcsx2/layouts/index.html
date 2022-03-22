@@ -1,7 +1,8 @@
 {{ define "main" }}
 <div class="container-fluid home-header align-middle">
   <div id="splash-screen" class="vh-60">
-    <video id="splash-video" src="{{.Site.BaseURL}}vid/splash.mp4" poster="{{.Site.BaseURL}}img/splash-poster.webp" autoplay muted loop></video>
+    <video id="splash-video" src="{{.Site.BaseURL}}vid/splash.mp4" poster="{{.Site.BaseURL}}img/splash-poster.webp"
+      autoplay muted loop></video>
   </div>
   <div class="container d-flex justify-content-center home-header-contents">
     <h1 class="splash-title" id="navbarScrollTarget">PCSX2</h1>
@@ -42,15 +43,21 @@
                 PCSX2 is a free and open-source PlayStation 2 (PS2) emulator. Its purpose is to emulate the PS2's
                 hardware,
                 using a combination of MIPS CPU <a href="https://en.wikipedia.org/wiki/Interpreter_(computing)"
-                  target="_blank" rel="noopener noreferrer">Interpreters</a>, <a href="https://en.wikipedia.org/wiki/Dynamic_recompilation"
-                  target="_blank" rel="noopener noreferrer">Recompilers</a> and a <a href="https://en.wikipedia.org/wiki/Virtual_machine"
-                  target="_blank" rel="noopener noreferrer">Virtual Machine</a> which manages hardware
+                  target="_blank" rel="noopener noreferrer">Interpreters</a>, <a
+                  href="https://en.wikipedia.org/wiki/Dynamic_recompilation" target="_blank"
+                  rel="noopener noreferrer">Recompilers</a> and a <a
+                  href="https://en.wikipedia.org/wiki/Virtual_machine" target="_blank" rel="noopener noreferrer">Virtual
+                  Machine</a> which manages hardware
                 states and PS2 system memory.
               </p>
               <p>
                 The project has been running for almost 20 years. Past versions could only run a few public domain
                 game demos, but newer versions can run most games at full speed, including popular titles such as Final
                 Fantasy X and Devil May Cry 3.
+              </p>
+              <p>
+                Over 98% of the official PS2 library is considered playable or perfect, with the remainder atleast making it to the menus. For
+                more information on compatibility, <a href="/compat">see here.</a>
               </p>
               <p>
                 PCSX2 allows you to play PS2 games on your PC, with many additional features
@@ -149,7 +156,10 @@
 </div>
 {{ end }}
 {{ define "additionalScripts" }}
-{{/*  <script defer src="/js/vendor/three@0.137.5/three.min.js"></script>  */}}
-{{/*  <script src="https://unpkg.com/dat.gui@0.7.7/build/dat.gui.min.js"></script>  */}}
-{{/*  <script defer src="/js/tower-gfx.js"></script>  */}}
+{{/*
+<script defer src="/js/vendor/three@0.137.5/three.min.js"></script> */}}
+{{/*
+<script src="https://unpkg.com/dat.gui@0.7.7/build/dat.gui.min.js"></script> */}}
+{{/*
+<script defer src="/js/tower-gfx.js"></script> */}}
 {{ end }}
