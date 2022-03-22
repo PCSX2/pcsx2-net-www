@@ -5,7 +5,7 @@
 {{ end }}
 {{ $prLinks := slice }}
 {{ range $index, $element := $prs }}
-{{ $prLinks = $prLinks | append (printf "https://github.com/PCSX2/pcsx2/pull/%d" $element) }}
+{{ $prLinks = $prLinks | append (printf "https://github.com/PCSX2/pcsx2/pull/%s" $element) }}
 {{ end }}
 
 {{ $shas := (split (.Get "shas") ",") }}
