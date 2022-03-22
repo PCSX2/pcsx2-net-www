@@ -45,6 +45,7 @@ function init() {
   let container = document.getElementById('splash-screen');
 
   if (!isWebGLAvailable()) {
+    $("#splash-screen").addClass("slow-performance");
     return;
   }
 

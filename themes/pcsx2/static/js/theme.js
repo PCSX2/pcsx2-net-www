@@ -13,17 +13,17 @@ $("#theme-toggle").on("change", function (evt) {
   }
 });
 
-$(document).ready(function () {
+$(function() {
   let savedTheme = localStorage.getItem('pcsx2-theme');
-  if (savedTheme !== undefined && savedTheme === "theme-light") {
-    $('#theme-toggle').prop('checked', true);
-  } else {
+  if (savedTheme === undefined || savedTheme === null || savedTheme === "" || savedTheme === "null") {
     // Use System Theme
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       setTheme('theme-dark');
     } else {
       setTheme('theme-light');
     }
+  } else {
+    setTheme(savedTheme);
   }
 });
 
@@ -40,7 +40,7 @@ try {
   });
 } catch (e1) {
   try {
-    // Safari
+    // Safari - ignore the deprecation
     darkMediaQuery.addListener((e) => {
       if (e.matches) {
         setTheme('theme-dark');
