@@ -49,15 +49,6 @@
       "deferredLoad": true
     }
   },
-  "three": {
-    "pinnedVersion": "0.137.5",
-    "js": {
-      "directoryToSave": "./themes/pcsx2/static/js/vendor/three",
-      "baseUrlToFetch": "https://unpkg.com/three",
-      "filesToVendor": ["build/three.min.js"],
-      "deferredLoad": true
-    }
-  },
   "underscore": {
     "pinnedVersion": "1.13.2",
     "js": {
