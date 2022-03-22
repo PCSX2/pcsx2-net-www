@@ -1,6 +1,8 @@
 {{ define "main" }}
 <div class="container-fluid home-header align-middle">
-  <div id="splash-screen" class="vh-60"></div>
+  <div id="splash-screen" class="vh-60">
+    <video id="splash-video" src="{{.Site.BaseURL}}vid/splash.mp4" poster="{{.Site.BaseURL}}img/splash-poster.webp" autoplay muted loop></video>
+  </div>
   <div class="container d-flex justify-content-center home-header-contents">
     <h1 class="splash-title" id="navbarScrollTarget">PCSX2</h1>
     <p class="splash-description">An Open-Source Playstation 2 Emulator</p>
@@ -147,7 +149,7 @@
 </div>
 {{ end }}
 {{ define "additionalScripts" }}
-<script defer src="/js/vendor/three@0.137.5/three.min.js"></script>
+{{/*  <script defer src="/js/vendor/three@0.137.5/three.min.js"></script>  */}}
 {{/*  <script src="https://unpkg.com/dat.gui@0.7.7/build/dat.gui.min.js"></script>  */}}
-<script defer src="/js/tower-gfx.js"></script>
+{{/*  <script defer src="/js/tower-gfx.js"></script>  */}}
 {{ end }}
