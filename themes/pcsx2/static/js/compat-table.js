@@ -19,12 +19,57 @@ window.onload = async () => {
   tableLoading();
   dataReq = await fetch(`/compat/data.json`);
   let compatData = await dataReq.json();
+  calculatePercentages(compatData);
   sortedData = _.sortBy(compatData, 'title');
   currentData = sortedData;
   setTimeout(() => {
     renderTable();
   }, 250);
 };
+
+function round(value, precision) {
+  var multiplier = Math.pow(10, precision || 0);
+  return Math.round(value * multiplier) / multiplier;
+}
+
+function calculatePercentages(data) {
+  let totalEntries = data.length;
+  let totalPerfect = 0;
+  let totalPlayable = 0;
+  let totalIngame = 0;
+  let totalMenus = 0;
+  let totalIntro = 0;
+  let totalNothing = 0;
+  data.forEach(entry => {
+    switch (entry.status.toLowerCase()) {
+      case 'perfect':
+        totalPerfect++;
+        break;
+      case 'playable':
+        totalPlayable++;
+        break;
+      case 'ingame':
+        totalIngame++;
+        break;
+      case 'menus':
+        totalMenus++;
+        break;
+      case 'intro':
+        totalIntro++;
+        break;
+      case 'nothing':
+        totalNothing++;
+        break;
+    }
+  });
+
+  document.getElementById("compat-filter-perfect").innerText = `Perfect - ${round(totalPerfect / totalEntries * 100, 2)}%`;
+  document.getElementById("compat-filter-playable").innerText = `Playable - ${round(totalPlayable / totalEntries * 100, 2)}%`;
+  document.getElementById("compat-filter-ingame").innerText = `In Game - ${round(totalIngame / totalEntries * 100, 2)}%`;
+  document.getElementById("compat-filter-menus").innerText = `Menus - ${round(totalMenus / totalEntries * 100, 2)}%`;
+  document.getElementById("compat-filter-intro").innerText = `Intro - ${round(totalIntro / totalEntries * 100, 2)}%`;
+  document.getElementById("compat-filter-nothing").innerText = `Nothing - ${round(totalNothing / totalEntries * 100, 2)}%`;
+}
 
 // config
 let paginationButtonCount = 5;
