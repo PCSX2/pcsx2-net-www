@@ -33,8 +33,6 @@
 
         function loadGoogleAds() {
             $.getScript("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0996284081546238", () => {
-                // Initially Pause Cookies
-                (adsbygoogle = window.adsbygoogle || []).pauseAdRequests = 1;
                 // based on code found at:
                 // https://stackoverflow.com/questions/55695667/adsense-injecting-style-tag-into-my-page-in-chrome
                 var flex = document.getElementsByClassName('min-vh-100')[0];
@@ -46,6 +44,10 @@
                     attributes: true,
                     attributeFilter: ['style']
                 });
+
+                if (!adsbygoogle.loaded) {
+                    // TODO - change ad containers to placeholders
+                }
             })
         }
 
@@ -74,10 +76,6 @@
                 }
             }
         });
-
-        if (!adsbygoogle.loaded) {
-            // TODO - change ad containers to placeholders
-        }
     </script>
     {{ block "additionalScripts" . }}
     {{ end }}
