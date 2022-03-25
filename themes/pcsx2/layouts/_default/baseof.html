@@ -30,6 +30,25 @@
     <script src="/js/vendor/cookieconsent@3.1.1/cookieconsent.min.js"></script>
     <script>
         const lazyLoadInstance = new LazyLoad({});
+
+        function loadGoogleAds() {
+            $.getScript("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0996284081546238", () => {
+                // Initially Pause Cookies
+                (adsbygoogle = window.adsbygoogle || []).pauseAdRequests = 1;
+                // based on code found at:
+                // https://stackoverflow.com/questions/55695667/adsense-injecting-style-tag-into-my-page-in-chrome
+                var flex = document.getElementsByClassName('min-vh-100')[0];
+                const googleObserver = new MutationObserver(function (mutations, observer) {
+                    flex.style.height = "";
+                    flex.style.minHeight = "";
+                });
+                googleObserver.observe(flex, {
+                    attributes: true,
+                    attributeFilter: ['style']
+                });
+            })
+        }
+
         window.cookieconsent.initialise({
             "palette": {
                 "popup": {
@@ -38,27 +57,30 @@
                 "button": {
                     "background": "#f1d600"
                 }
+            },
+            "type": "opt-in",
+            onInitialise: function (status) {
+                var type = this.options.type;
+                var didConsent = this.hasConsented();
+                if (type == 'opt-in' && didConsent) {
+                    loadGoogleAds();
+                }
+            },
+            onStatusChange: function (status, chosenBefore) {
+                var type = this.options.type;
+                var didConsent = this.hasConsented();
+                if (type == 'opt-in' && didConsent) {
+                    loadGoogleAds();
+                }
             }
         });
-    </script>
-    {{ block "additionalScripts" . }}
-    {{ end }}
-    <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0996284081546238" crossorigin="anonymous"></script>
-    <script>
-        // based on code found at:
-        // https://stackoverflow.com/questions/55695667/adsense-injecting-style-tag-into-my-page-in-chrome
-        var flex = document.getElementsByClassName('min-vh-100')[0];
-        const googleObserver = new MutationObserver(function (mutations, observer) {
-            flex.style.height = "";
-            flex.style.minHeight = "";
-        });
-        googleObserver.observe(flex, {
-            attributes: true,
-            attributeFilter: ['style']
-        });
+
         if (!adsbygoogle.loaded) {
             // TODO - change ad containers to placeholders
         }
     </script>
+    {{ block "additionalScripts" . }}
+    {{ end }}
 </body>
+
 </html>
