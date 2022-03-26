@@ -1,0 +1,36 @@
+name: Update Compatibility Data
+
+on:
+  schedule:
+    - cron: "0 16 * * 1" # every monday @ 12pm EST - https://crontab.guru/#0_16_*_*_1
+
+jobs:
+  update-compat:
+    if: github.repository == 'PCSX2/pcsx2-net-www' # Don't make these PRs on people's forks
+    name: Update Compatibility Data
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download Latest
+        run: wget -O data.json https://forums.pcsx2.net/data/data.json
+
+      - name: Coerce Data
+        run: python ./scripts/coerce-compat-data.py
+
+      - name: Update File
+        run: mv ./data-new.json ./static/compat/data.json
+
+      - name: Cleanup
+        run: rm ./data.json
+
+      # TODO - consider direct committing this once we have confidence
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: "Compat Data: Update compatibility data"
+          commit-message: "compat: Update to latest compatibility data"
+          committer: "PCSX2 Bot <PCSX2Bot@users.noreply.github.com>"
+          author: "PCSX2 Bot <PCSX2Bot@users.noreply.github.com>"
+          body: "Weekly automatic update of Compatibility Data"
+          reviewers: xTVaser
