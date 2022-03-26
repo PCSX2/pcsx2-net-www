@@ -9,6 +9,8 @@ toc: true
 
 In order for PCSX2 to function properly, both a legitimate BIOS and copies of games must be obtained from **your own** Playstation 2 console and original Playstation 2 discs respectively.  The following explains the recommended ways to accomplish both of these tasks.
 
+If you require further help, please visit our forums or ask in our Discord's help channels.
+
 ## How to dump your PS2 BIOS
 
 Dumping your PS2 BIOS requires a mod to your PS2 to allow arbitrary code execution.
@@ -19,6 +21,7 @@ Dumping your PS2 BIOS requires a mod to your PS2 to allow arbitrary code executi
     - Works for all but the newest (9xxxx serial number with a date code larger than 8B) slim PS2s. Can be found online for ~10 USD. Minimal effort.
 2. FreeDVDBoot
     - Works for many slim models, and some phat models. Slight effort, but free.
+    - You will require a blank DVD for this method to work!
 3. Disc swap exploits
     - Technical in nature, involves hardware tampering. Guides can be found quickly by Googling.
 4. Mod chips
