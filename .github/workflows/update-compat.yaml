@@ -18,8 +18,10 @@ jobs:
       - name: Coerce Data
         run: python ./scripts/coerce-compat-data.py
 
-      - name: Update File
-        run: mv ./data-new.json ./static/compat/data.json
+      - name: Update Files
+        run: |
+          mv -f ./data-new.json ./static/compat/data.json
+          mv -f ./data-new.min.json ./static/compat/data.min.json
 
       - name: Cleanup
         run: rm ./data.json

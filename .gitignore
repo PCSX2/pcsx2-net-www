@@ -3,3 +3,4 @@ resources/
 public/
 node_modules/
 data*.json
+!static/compat/*.json
