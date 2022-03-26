@@ -1,7 +1,7 @@
 ---
 title: "PCSX2 Basic Setup Guide"
 date: 2022-03-26
-summary: ""
+summary: "How to dump your BIOS and game files from your own Playstation 2 console and game discs"
 draft: false
 mainAuthor: Vaser
 toc: true
