@@ -22,7 +22,7 @@
       <div class="navbar-divider d-none d-lg-block">&nbsp;</div>
       <!-- External Links -->
       <ul class="navbar-nav nav-right pe-3 pe-md-0 justify-content-end">
-        {{ if gt (len .Site.Params.social) }}
+        {{ if gt (len .Site.Params.social) 0 }}
         {{ range .Site.Params.social }}
         <li class="nav-item">
           <a class="nav-link" href="{{ .url }}" {{ if in .url "http" }}target="blank" {{ end }}>
