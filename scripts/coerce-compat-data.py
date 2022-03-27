@@ -56,3 +56,6 @@ for entry in data:
 
 with open('./data-new.json', 'w') as json_file:
   json.dump(new_data, json_file, indent=2)
+
+with open('./data-new.min.json', 'w') as json_file:
+  json.dump(new_data, json_file)

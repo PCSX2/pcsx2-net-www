@@ -1,0 +1,36 @@
+name: Build Website
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-for-pngs:
+    name: Check for PNGs
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Generate Website
+        run: python ./.github/scripts/check-for-pngs.py
+
+  hugo-build:
+    name: Hugo Build
+    runs-on: ubuntu-latest
+    needs: check-for-pngs
+    timeout-minutes: 5
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Get Package Dependencies
+        run: sudo snap install hugo --channel=extended
+
+      - name: Generate Website
+        run: hugo
