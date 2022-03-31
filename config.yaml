@@ -83,7 +83,7 @@ languages:
           weight: 2
           url: /compat
         - name: Blog
-          title: Dev Blog
+          title: Blog
           weight: 3
           url: /blog
         # TODO - temporarily disabled until page is finished
