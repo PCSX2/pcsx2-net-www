@@ -36,4 +36,6 @@ with open(pathFile, 'a') as f:
     f.write("aliases:\n")
     for alias in aliasLinks.split(","):
       f.write("  - \"{}\"\n".format(alias))
+      f.write("  - \"{}.html\"\n".format(alias))
+      f.write("  - \"{}.htm\"\n".format(alias))
   f.write('---\n')

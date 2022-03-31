@@ -8,6 +8,8 @@ tags:
 mainAuthor: refraction
 aliases:
   - "/88-path-masking-geometry-syncing"
+  - "/88-path-masking-geometry-syncing.html"
+  - "/88-path-masking-geometry-syncing.htm"
 toc: false
 ---
 
