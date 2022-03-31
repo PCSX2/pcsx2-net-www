@@ -22,6 +22,7 @@ Dumping your PS2 BIOS requires a mod to your PS2 to allow arbitrary code executi
 2. FreeDVDBoot
     - Works for many slim models, and some phat models. Slight effort, but free.
     - You will require a blank DVD for this method to work!
+      - It is recommended to use a **DVD-R** disc that supports atleast 4x speed, burned at 4x speed.
 3. Disc swap exploits
     - Technical in nature, involves hardware tampering. Guides can be found quickly by Googling.
 4. Mod chips
@@ -43,11 +44,13 @@ Hosted by the PCSX2 Project:
 
 - Download the ISO which matches your console: https://github.com/CTurt/FreeDVDBoot/tree/master/PREBUILT%20ISOs
 - Burn the ISO to a DVD.
+  - It is recommended to use a **DVD-R** disc that supports atleast 4x speed, burned at 4x speed.
 - Insert the burned FreeDVDBoot disc, then reset/turn on the PS2. uLaunchELF should open.
 
 ### Dumping the BIOS
 
 - Insert your USB flash drive with the BIOS dumper (binary version) on it.
+  - Your milage may vary here, some people report USB 3.0 drives being usable while others claim they are not.  For this reason it appears to be more-so dependent on the drive rather than the USB version so we cannot provide an exhaustive list for success.
 - Navigate uLaunchELF to the device named mass: and open it.
 - Locate and run `DUMPBIOS-MASS.ELF`.
 
