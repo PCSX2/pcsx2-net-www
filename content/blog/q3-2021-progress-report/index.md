@@ -10,6 +10,8 @@ secondaryAuthors:
   - "lightningterror"
 aliases:
   - "/300-q3-2021-progress-report"
+  - "/300-q3-2021-progress-report.html"
+  - "/300-q3-2021-progress-report.htm"
 toc: true
 ---
 
