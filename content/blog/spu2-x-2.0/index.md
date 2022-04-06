@@ -1,9 +1,18 @@
-::: {.single-article}
-::: {.item-page .clearfix}
-## [SPU2-X 2.0!](/81-spu2-x-2-0.html) {#spu2-x-2.0 .contentheading}
+---
+title: "Spu2-X 2.0"
+date: 2011-06-27T00:00:00
+summary: "Not even 2 weeks ago we released SPU2-X 1.5, yet today we feel that the plugin has matured enough for another release."
+draft: false
+tags:
+  - "devblog"
+mainAuthor: rama
+aliases:
+  - "/81-spu2-x-2-0"
+  - "/81-spu2-x-2-0.html"
+  - "/81-spu2-x-2-0.htm"
+---
 
-Not even 2 weeks ago we released SPU2-X 1.5, yet today we feel that the
-plugin has matured enough for another release.
+Not even 2 weeks ago we released SPU2-X 1.5, yet today we feel that the plugin has matured enough for another release.
 This time the changes are significant enough to do the version jump to
 2.0
 😊
@@ -42,8 +51,3 @@ Among the fixed games are titles such as:
 -   Devil May Cry (PAL)
 -   Gradius 3+4
 -   Everything that uses digital effects
-
-
-Download **[here](/download/finish/9-plugins/16-spu2-x.html)** .
-:::
-:::
