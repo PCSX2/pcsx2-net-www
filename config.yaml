@@ -3,8 +3,6 @@ module:
     extended: true
 baseURL: '/'
 publishDir: 'public/'
-permalinks:
-  posts: /:year/:month/:title/
 disableKinds:
   # users dont need to see the taxonomy listing pages
   - "taxonomy"
