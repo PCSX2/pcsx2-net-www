@@ -20,7 +20,7 @@ to everyone that helped them. Without their work, PCSX2 would not exist,
 and neither would the Playground project!\
 - Thanks to the PCSX2 team once more for graciously hosting our forums.\
 - Thanks to the PCSX2 team once again for providing hosting space
-☺️\
+😊\
 - Thanks to Gigaherz for the render used in the playground logo\
 - Thanks to all the people who tried the various Playground revisions
 over these months, providing us with helpful feedback\
@@ -30,7 +30,7 @@ would have not been possible!\
 The PCSX2 team decided to support this project by having the official
 beta testers also test it and hosting their binary and forum, since
 they\'ve been doing some great job
-☺️\
+😊\
 You can grab the new binary which includes a plugin pack (and a heavily
 modified SPU2Ghz for your sound pleasure!) in our download section here\
 For more information,check the dedicated forum
@@ -38,11 +38,11 @@ For more information,check the dedicated forum
 \
 Also,today we open our **new official forums** , hosted right here at
 pcsx2.net
-☺️ We would like to thank Bobbi and the NGemu
+😊 We would like to thank Bobbi and the NGemu
 network for hosting our forums for so long!\
 Our new forum is totally dedicated to PCSX2 and has sections for the
 official release,the public beta, plugins and the playground build
-☺️\
+😊\
 We hope you enjoy it, you can visit by clicking
 **[here](http://forums.pcsx2.net/index.php)**\
 \

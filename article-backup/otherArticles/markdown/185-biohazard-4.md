@@ -6,7 +6,7 @@
 :::
 
 Time to brighten up the front page of this site with some sexy news.
-☺️\
+😊\
 \
 **Parotaku** one of our long serving betatesters has been having \'fun\'
 testing *Biohazard 4 (Resident Evil 4)* under the WIP PCSX2 0.9 beta.

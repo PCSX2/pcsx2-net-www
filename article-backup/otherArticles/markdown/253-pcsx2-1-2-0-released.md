@@ -20,7 +20,7 @@ One big change in this release is the integration of the wide screen
 patches made by the community for the community numbering nearly 1200
 games patched to support proper 16:9 aspect ratio. A huge thanks to
 everyone who has contributed for this and keep up the great job
-☺️
+😊
 
 Here are a rundown of the biggest changes in this release:\
 \

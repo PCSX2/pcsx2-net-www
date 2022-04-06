@@ -16,7 +16,7 @@ out.\
 \
 Zerospu2 0.4.6 has been ported to mac using cross-platform Portaudio
 library, i recommend all users to use it
-☺️\
+😊\
 \
 Zeydlitz has recently worked on z-buffer swizzling for the ZZOgl plugin
 and this has fixed a lot of missing textures problems for us. I also

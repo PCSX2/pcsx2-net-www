@@ -4,7 +4,7 @@
 
 It has been a long time since the last news concerning PCSX2, so I
 thought I\'d bring you up to date
-☺️\
+😊\
 Development of the new 0.9.7 version of the emulator with the all new
 GUI is going strong and soon all the old GUI functionality will be
 implemented. After that it\'s bug hunting time and then a beta release!\
@@ -66,7 +66,7 @@ surprise you!\
 \
 There is no set date for the beta release, since there are still a bunch
 of bugs lying around but it\'s safe to say we are getting close
-☺️\
+😊\
 \
 You can compile it yourselves, from our [GoogleCode
 SVN](http://code.google.com/p/pcsx2/source/checkout) but **no support

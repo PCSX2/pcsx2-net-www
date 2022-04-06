@@ -48,7 +48,7 @@ size: 64x64, 48x48, 32x32, and 16x16. This way you can ensure icons look
 as intended at each size.\
 \
 So good luck!
-☺️ You can post your application in this thread
+😊 You can post your application in this thread
 [HERE](http://forums.pcsx2.net/Thread-PCSX2-Logo-Design-Entries)\
 \
 On other news,the PCSX2 guide has been fully updated for 0.9.6. So now
@@ -56,6 +56,6 @@ it\'s the best time if someone wants to translate it to another
 language. You can submit your application in this thread
 [HERE](http://forums.pcsx2.net/Thread-Program-and-Guide-translation-applications)
 if the spot for that language is still open
-☺️
+😊
 :::
 :::

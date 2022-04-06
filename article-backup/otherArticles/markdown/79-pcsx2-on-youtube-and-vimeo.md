@@ -5,7 +5,7 @@
 While trying to make PCSX2 known to more people, I decided to create a
 YouTube and Vimeo channel to post HD videos of PCSX2 running games, for
 people to see how well it runs
-☺️\
+😊\
 \
 You can check them out here:\
 Youtube:\
@@ -18,7 +18,7 @@ Vimeo:\
 quality HD version)\
 \
 Support us by commenting and pressing the like button!
-☺️\
+😊\
 \
 Also don\'t forget to visit our Facebook and Twitter pages:\
 <http://twitter.com/#!/PCSX2>\

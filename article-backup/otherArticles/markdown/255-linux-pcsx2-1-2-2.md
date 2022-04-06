@@ -8,7 +8,7 @@
 Dear Linux users,\
 \
 Here is a new release of the greatest PS2 emulator
-☺️\
+😊\
 At version 1.2.2 it is ahead of Windows this time
 😉\
 \

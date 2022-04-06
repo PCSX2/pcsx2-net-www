@@ -46,7 +46,7 @@ what was posted about this:
 
 You can download both files from our [Mac Downloads
 section](/download/releases/mac.html) . Keep up the good work zedr0n
-☺️
+😊
 
 [PCSX2 Mac website/blog](http://pcsx2mac.net/)
 

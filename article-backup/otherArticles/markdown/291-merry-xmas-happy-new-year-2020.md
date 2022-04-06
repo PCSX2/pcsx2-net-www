@@ -21,7 +21,7 @@ tester and contributor General Plot, we\'ve had some really good times
 and laughs over the years messing around with PCSX2 and breaking stuff!
 He doesn\'t have time to dedicate to PCSX2 anymore due to the good old
 real life (TM), but he will still keep an eye on us
-☺️
+😊
 
 Till next time, which will probably be release time, have a great 2020!
 :::

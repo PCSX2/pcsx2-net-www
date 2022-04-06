@@ -36,7 +36,7 @@ As a consolation, if you are in to Dreamcast emulation, the long awaited
 \
 Just to excite you a little more, here are a few shots I\'ve taken with
 some of the new fixes for 0.9.4. Enjoy
-☺️
+😊
 
 ::: {style="text-align: center;"}
 [![Grandia2](/images/stories/frontend/0.9.3/Grandia2t.jpg)](/images/stories/frontend/0.9.3/Grandia2.jpg)

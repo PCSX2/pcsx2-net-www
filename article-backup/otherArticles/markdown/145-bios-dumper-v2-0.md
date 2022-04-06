@@ -17,7 +17,7 @@ PCSX2 0.9.4 will be using the new format BIOS (\*.p2b) created by **BIOS
 Dumper v2.0** , as it dumps a more \"complete\" copy of the BIOS. It is
 **highly** recommended that you redump your BIOS to get a more complete
 dump and thus enable PCSX2 to more accurately emulate the PlayStation 2
-☺️\
+😊\
 \
 You won\'t need to throw away your old BIOS files, as a convertor will
 be released in the future to convert the older format to **P2B** .

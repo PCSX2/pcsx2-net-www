@@ -7,7 +7,7 @@
 
 Work has never stopped since the release of **PCSX2 0.9.1** , in fact it
 rarely does
-☺️\
+😊\
 \
 Refraction has made significant fixes to counters making games much more
 stable. For instance, *Final Fantasy X-2* is now stable enough to be

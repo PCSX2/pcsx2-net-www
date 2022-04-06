@@ -7,7 +7,7 @@ since the last beta release of PCSX2, the new beta version is finally
 ready!\
 The most notable change is the all new GUI powered by wxWidgets, but the
 amount of improvements in this release is really amazing
-☺️\
+😊\
 \
 This 0.9.7 release is marked as unstable/beta, meaning it still has some
 known bugs and unimplemented features but it is fully supported by the

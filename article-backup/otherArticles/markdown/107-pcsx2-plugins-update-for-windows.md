@@ -38,6 +38,6 @@ SPU2-X changes:
 
 \
 Enjoy
-☺️
+😊
 :::
 :::

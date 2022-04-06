@@ -8,7 +8,7 @@
 Some days ago we were contacted by a Croatian gaming site
 [goodgame.hr](http://www.goodgame.hr) and were asked to give an
 interview about PCSX2
-☺️ We were happy to answer all the questions and
+😊 We were happy to answer all the questions and
 help make PCSX2 known to even more people, so here it is:\
 \
 *1.Hello. Can you tell us something about yourself before we get on with
@@ -29,7 +29,7 @@ the latest addition of the MTVU speed hack (multi-threaded VU, runs the
 VU1 unit in a separate thread, taking advantage of a third core, since
 EE and GS already run in separate threads) many users got some nice
 \~15% speed up on their quad cores
-☺️
+😊
 
 \
 *3.How much people are working on this project? When has it all
@@ -45,7 +45,7 @@ They started from the PCSX(1) source since the two systems share some
 parts. I joined the team around 2003 assisting in testing and without
 any particular knowledge of the PS2 or computer science. 10 (!!) years
 later, here we are
-☺️\
+😊\
 \
 *4.Is it hard to work on the emulator development and what are the most
 common problems you face?*\
@@ -89,7 +89,7 @@ options PCSX2 has, but since 0.9.8 the emulator comes configured with
 the most compatible settings. All you have to do is install it, choose
 your game and run it. Most games work great with the pre configured
 settings we have
-☺️\
+😊\
 \
 *7.Do you think that you reached the limit in emulator development or
 are there more things to add in PCSX2?*\
@@ -114,7 +114,7 @@ are too slow, glitchy or unplayable at all. Which configuration is
 optimal for PCSX2?*\
 \
 This is one of the most frequent questions we get
-☺️ The truth is, there is no \'golden
+😊 The truth is, there is no \'golden
 configuration\' for everything and this is why we have so many options
 in PCSX2. The best configuration for the system you mentioned in your
 question might be the worst for an older PC. The same goes for various
@@ -124,7 +124,7 @@ games and at nice speeds is the default one with all speed hacks marked
 as \[recommended\] enabled. Of course there are games which are glitch,
 very slow or simply not working for which you cant do anything but hope
 the next version of PCSX2 takes care of those bugs for you
-☺️\
+😊\
 \
 *10.What is your attitude towards new HD editions of different games?
 Maybe they would not be developed if they haven\'t seen the graphic
@@ -137,14 +137,14 @@ their games in HD using PCSX2, Sony would still release these HD remakes
 since it\'s very easy money for them with minimal costs.\
 In addition, some HD remakes add more detail instead of just increasing
 the resolution, something PCSX2 will never be able to do
-☺️\
+😊\
 \
 *11.What percentage of games is compatible with the PCSX2?*\
 \
 According to our compatibility list and if we project that percentage to
 the total of PS2 games, it should be around 70% playable games, huge
 number in my opinion
-☺️\
+😊\
 \
 *12.What is SONY\'s official attitude towards PCSX2?*\
 \
@@ -157,7 +157,7 @@ whole program was created with reverse engineering, no BIOS files are
 provided with it which is a Sony copyright and there is no support for
 piracy in our help forum.\
 So in the end, everyone is happy
-☺️\
+😊\
 \
 *13.Do you think that there is anything illegal with your emulator? Lets
 face it, many users dont have original games but they download illegally
@@ -181,7 +181,7 @@ they would not, thus increasing Sony sales.\
 *14.Considering the small number of people who know how emulators are
 being developed, can you describe the process to us? How much time takes
 between two versions? Do you have strict schedule? Offices? Secretary?
-☺️*\
+😊*\
 \
 I can\'t tell you about the coding process since this was not my role on
 the team, but I can tell you about the release process. We make a new
@@ -219,19 +219,19 @@ started! Now imagine how much time a PS3 emulator would need to start
 running games properly (if it ever happens) considering the PS3 is more
 complex and MUCH more powerful than the PS2\....\
 Still, never say never
-☺️ I\'d just like to warn people to NOT believe
+😊 I\'d just like to warn people to NOT believe
 some youtube videos or websites advertising working PS3 emulators
 because they are all fake and virus infested (we recently found one of
 these sites posted in our forum). It will take years before that will
 happen for real
-☺️\
+😊\
 \
 Thank you for your time and thank you for getting to know the GG public
 with all the details of PCSX2 emulator
-☺️\
+😊\
 Thank you for giving us the chance to talk about PCSX2 and let more
 people know of it
-☺️\
+😊\
 \
 You can check out the posted article here (although it\'s obviously in
 Croatian

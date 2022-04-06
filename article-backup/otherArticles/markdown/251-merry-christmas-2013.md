@@ -12,7 +12,7 @@ We hope you have a nice time off, play some games, visit family and
 enjoy a great New Years, too!\
 Since we get some time off as well, we will be busy preparing a new
 release. Promised!
-☺️\
+😊\
 \
 :::
 :::

@@ -29,7 +29,7 @@ didn\'t like how it ended up last time. I\'ve already used many of the
 ideas posted in the last redesign thread on our forum, I\'ve fixed a few
 stuff that were buggy, reduced both CSS and javascript and finally got
 themes working
-☺️ It\'s still pretty bad code wise but I\'ve done
+😊 It\'s still pretty bad code wise but I\'ve done
 my best to improve it and will keep at it.
 
 I\'m not sure when it will be done, but it might be synchronized with a

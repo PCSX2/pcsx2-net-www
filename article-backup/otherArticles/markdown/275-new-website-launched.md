@@ -13,7 +13,7 @@ Since we needed to upgrade to the latest Joomla 3, I decided to also
 make the website look more modern and closer to our old, initial one. I
 really liked the Dolphin website look, so you\'ll find some elements
 close to their design
-☺️
+😊
 
 Here\'s what\'s changed:
 
@@ -31,12 +31,12 @@ Here\'s what\'s changed:
     larger resolutions as well (it\'s NOT responsive though..)
 -   Nicer compatibility overview bars
 -   New logo and fav icon! Thanks bmate
-    ☺️
+    😊
 -   Many CSS fixes and cleanups
 
 In general I tried giving the website a more game-y look and I think in
 that regard it was a success
-☺️
+😊
 
 You can complain on how you don\'t like the new look, as usual, in this
 thread! ![Very

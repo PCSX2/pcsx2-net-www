@@ -15,7 +15,7 @@ Do note this version requires Pixel Shader 2 and SSE2. Unfortunately the
 Pixel Shader thing can no longer be helped due to microsoft removing
 Pixelshader 1.1 and 1.4 support from DirectX, so for those without, this
 is an omen to update your graphics card
-☺️\
+😊\
 \
 You can grab it from [here](/download/viewcategory/38-plugins.html)\
 To discuss or get support, you can do so

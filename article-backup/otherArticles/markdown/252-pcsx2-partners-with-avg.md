@@ -49,6 +49,6 @@ and will play a significant role in improving PCSX2.\
 \
 That said, we are already gearing up for a 1.2.0 release, so we will
 keep you posted when that happens!
-☺️
+😊
 :::
 :::

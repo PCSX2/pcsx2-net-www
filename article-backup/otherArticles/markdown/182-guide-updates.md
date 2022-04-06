@@ -11,7 +11,7 @@ PCSX2 site,but small news is better than no news
 After some bugging by Falcon4ever,i sat down and fixed all 200 errors(
 😛 ) that were preventing the configuration guide
 from being XHTML compatible
-☺️ You can check the validity by pressing the XHTML
+😊 You can check the validity by pressing the XHTML
 button at the bottom of the page. So if anyone had problems with it with
 the browser they were using,there is a good chance that its fixed
 now.Note that all the translations have been made using the old html

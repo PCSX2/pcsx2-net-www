@@ -10,12 +10,12 @@ prefers following a configuration step by step instead of reading one.\
 Also, since there are tons of \'best\' configuration videos for PCSX2
 floating around the web, it should be better to have an official one
 which we will support
-☺️\
+😊\
 \
 If there is enough demand, I might create additional videos for speed
 configurations or high end/quality configurations. **Set quality to
 1080p** and enjoy!
-☺️\
+😊\
 \
 
 [

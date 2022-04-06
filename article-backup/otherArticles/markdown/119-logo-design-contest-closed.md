@@ -5,7 +5,7 @@
 The Logo Contest has been closed and the final round of voting is in
 progress. The winner of the contest will be announced here when voting
 has completed.
-☺️\
+😊\
 \
 Again we want to thank everyone who submitted logos for the contest. The
 contest turned out to be a huge success. There were a lot of really

@@ -15,9 +15,9 @@ will attempt to fix it by using some alternative to FastCGI today, so
 you should expect some downtime on both our website and our forum.
 
 Thanks for your patience
-☺️
+😊
 
 Edit: Everything is back online, should feel quite faster too
-☺️
+😊
 :::
 :::

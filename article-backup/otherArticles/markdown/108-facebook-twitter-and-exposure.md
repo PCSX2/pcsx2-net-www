@@ -21,7 +21,7 @@ Eurogamer:
 \
 Big thank you to Eurogamer and Kotaku, i hope you guys enjoyed the
 emulator
-☺️\
+😊\
 \
 **We\'re On Facebook and Twitter!:**\
 \

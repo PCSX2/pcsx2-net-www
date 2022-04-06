@@ -16,7 +16,7 @@ support!\
 \
 You don\'t even need a USB keyboard plugged into your PC, it can be any
 type of keyboard
-☺️ Of course this required us to test (play) even
+😊 Of course this required us to test (play) even
 more **Monster Hunter** together\...\*ahem\*\
 \
 You may be wondering why the first word in the news post is just a bunch

@@ -27,7 +27,7 @@ After weeks of voting, we were finally able to narrow down the winners:\
 We decided the 2nd place in the icon competition would be used as the
 small favicon sites have when you bookmark them,on the portal and
 forums, since we did not have one
-☺️\
+😊\
 \
 So congratulations to [Nanxo](http://forums.pcsx2.net/User-Nanxo) ,
 [Tayfun](http://forums.pcsx2.net/User-Tayfun) ,
@@ -38,6 +38,6 @@ great designs and it was hard picking the winners!\
 \
 Look forward to seeing these new designs in our next official release
 with our new wxWidgets GUI!
-☺️
+😊
 :::
 :::

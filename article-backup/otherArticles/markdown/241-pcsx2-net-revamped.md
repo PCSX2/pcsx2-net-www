@@ -8,7 +8,7 @@
 After almost 3 months of under cover preparation, I present you the new
 PCSX2 homepage! The last PCSX2.net redesign was done 7 years ago by
 CKemu and Falcon4ever and now it is my turn to update it
-☺️
+😊
 
 The new website is based on the latest Joomla! platform with a custom
 modified theme for PCSX2, and is no longer bound to our forum. It uses
@@ -90,7 +90,7 @@ new features. Here\'s a short overview:
 -   Share box, so you can like on facebook, +1 on google and share on
     twitter and make PCSX2 known to even more people. You can also share
     news posts after you click on the title
-    ☺️
+    😊
 
 ```{=html}
 <!-- -->
@@ -157,7 +157,7 @@ new features. Here\'s a short overview:
 
 I hope everyone enjoys the website and finds it as exciting as I do,
 even after working on it for so long
-☺️ You can post your feedback or any bugs you find
+😊 You can post your feedback or any bugs you find
 in this forum thread (if you flame it you\'re banned! ![Evil or Very
 Mad](https://pcsx2.net/images/stories/frontend/smilies/evil.gif){.yvSmiley
 width="20" height="20"} ):

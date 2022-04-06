@@ -13,7 +13,7 @@ We\'ve spent the last months on various aspects of the emulator, adding
 to the awesome progress seen in beta 1.\
 This release has been compiled with extensive optimizations, so you can
 expect a small speedup over r3113
-☺️\
+😊\
 \
 Here\'s some of the changes:
 

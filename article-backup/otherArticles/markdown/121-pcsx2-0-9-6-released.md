@@ -46,7 +46,7 @@ and SPS in some games)\
 \
 The older versions will **NOT** be supported in our forums,so
 0.9.4,0.9.5 and playground are not supported anymore
-☺️\
+😊\
 Digg the news by clicking
 [HERE!](http://digg.com/playstation/PCSX2_0_9_6_released_Huge_improvement)\
 \

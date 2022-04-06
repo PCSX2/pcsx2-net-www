@@ -10,7 +10,7 @@ While we\'re still working on the new PCSX2 version, we\'ve also been
 constantly adding to the all important plugins.\
 Every now and then we release a beta plugin pack, so you can test them
 out and benefit from the new features a bit earlier
-☺️\
+😊\
 Head over to the beta downloads page
 [**here**](/download/viewcategory/35-pcsx2-v0-9-7-beta.html) to grab the
 new March 2010 package.\

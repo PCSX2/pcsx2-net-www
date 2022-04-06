@@ -10,7 +10,7 @@ to do that more regularly
 😛\
 \
 In short progress is slow but steady
-☺️\
+😊\
 \
 \* A port to wxWidget 3.0 was done recently, mostly because Debian will
 drop wxWidget 2.8 . It is enabled by default but wx2.8 is still there,

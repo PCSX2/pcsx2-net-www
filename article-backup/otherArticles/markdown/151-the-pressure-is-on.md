@@ -10,7 +10,7 @@ version of **SSSPSX Pad 1.7** to change how its pressure sensitive
 buttons work. If you play games such as **Final Fantasy XII** and **Gran
 Turismo 3** , you will know on the current release you have to press
 X+R2 O+L1 etc, well not anymore
-☺️\
+😊\
 \
 You can find this release in the Download section.\
 \

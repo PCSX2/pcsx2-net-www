@@ -124,7 +124,7 @@ enabled so it will be an extra 10% faster over regular SVN builds.\
 \
 We hope you enjoy this first major version release and have fun playing
 your games on it!
-☺️
+😊
 
 [ [](/download.html "Head to the download section!") [Share on reddit
 here!](http://www.reddit.com/r/gaming/comments/xmvhm/ps2_emulator_pcsx2_version_10_out/)

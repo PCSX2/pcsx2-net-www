@@ -19,7 +19,7 @@ right) which you can grab from our videos section
 seed as much as possible!\
 We will also consider accepting user created videos to host them on our
 torrent tracker in the future
-☺️\
+😊\
 \
 That\'s all for now!
 :::
