@@ -1,12 +1,19 @@
-::: {.single-article}
-::: {.item-page .clearfix}
-## [SPU2-X 1.5!](/82-spu2-x-1-5.html) {#spu2-x-1.5 .contentheading}
+---
+title: "Spu2-X 1.5"
+date: 2011-06-16T00:00:00
+summary: "Hey guys, In light of recent fixes and additions we prepared a new SPU2-X release for you"
+draft: false
+tags:
+  - "devblog"
+mainAuthor: rama
+aliases:
+  - "/82-spu2-x-1-5"
+  - "/82-spu2-x-1-5.html"
+  - "/82-spu2-x-1-5.htm"
+---
 
-Hey guys,
-In light of recent fixes and additions we prepared a new SPU2-X release
-for you
+Hey guys, In light of recent fixes and additions we prepared a new SPU2-X release for you
 😊
-
 
 This one focuses on SPU2 emulation accuracy but there's also the much
 requested volume adjustment feature included.
@@ -35,5 +42,3 @@ Among the fixed games are titles such as:
 - etc
 
 Hope you enjoy, and please report all (new) bugs if you find them!
-:::
-:::
