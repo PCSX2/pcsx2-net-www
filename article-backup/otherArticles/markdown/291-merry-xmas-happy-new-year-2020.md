@@ -17,9 +17,9 @@ concentrated on polishing, bug fixing and documentation. As usual, we
 are fashionably late but we hope the end product will be worth the wait!
 
 I wanted to take this opportunity to say goodbye to our years long
-tester and contributor General Plot, we\'ve had some really good times
+tester and contributor General Plot, we've had some really good times
 and laughs over the years messing around with PCSX2 and breaking stuff!
-He doesn\'t have time to dedicate to PCSX2 anymore due to the good old
+He doesn't have time to dedicate to PCSX2 anymore due to the good old
 real life (TM), but he will still keep an eye on us
 😊
 

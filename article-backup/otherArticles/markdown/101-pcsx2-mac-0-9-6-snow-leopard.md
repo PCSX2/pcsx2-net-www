@@ -9,14 +9,14 @@ the last for this version. You can download it
 repository for pcsx2-mac is always located at
 [pcsx2mac.net](http://pcsx2mac.net/downloads)
 
-\
+
 The main improvement is proper implementation of memory protection
 handling for pcsx2, which should give 25-50% performance boost depending
-on the game.\
-\
+on the game.
+
 This build is only for Snow Leopard 10.6.3 or newer and includes updated
-ZZOgl 0.21.213 and zerospu2 installed by default.\
-\
+ZZOgl 0.21.213 and zerospu2 installed by default.
+
 The ZZOgl-pg r3536 has also been added to plugin repository
 [here](http://pcsx2mac.net/downloads/)
 :::

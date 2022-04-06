@@ -5,7 +5,7 @@
 ::: {style="text-align:center;"}
 :::
 
-Merry Christmas everyone! We know you haven\'t heard from us for a while
+Merry Christmas everyone! We know you haven't heard from us for a while
 (ok for a long time
 😛 ) but it was for good reason!
 
@@ -17,7 +17,7 @@ have been removed (yes, removed
 😛 ) lately, with the DX11 renderer of GSdx quickly
 catching up to OpenGL accuracy levels thanks to several contributors.
 This large boost in progress was incited by gregory helping out the
-newcomers with his in-depth knowledge of GSdx, in between his baby\'s
+newcomers with his in-depth knowledge of GSdx, in between his baby's
 sleep sessions, so he deserves a big thank you from all of us. The core
 has also been improved, while several big PRs are also close to merging,
 making this an exciting time for PCSX2!

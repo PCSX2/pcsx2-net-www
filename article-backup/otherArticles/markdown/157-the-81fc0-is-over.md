@@ -5,8 +5,8 @@
 ::: {style="text-align:center;"}
 :::
 
-**PCSX2 0.9.2** is here!\
-\
+**PCSX2 0.9.2** is here!
+
 This release brings several important changes to **PCSX2** , enhancing
 compatibility and adding several new aspects to the emulator.
 
@@ -22,22 +22,22 @@ compatibility and adding several new aspects to the emulator.
 
 Also included with this release is the new **Patch Browser** and **Patch
 Finder** , the patch browser, allows you to search memory with the tools
-and functions you would be used to with a cheat searcher.\
-\
+and functions you would be used to with a cheat searcher.
+
 The Patch Browser will allow you to enable and disable parts of the
-patch during gameplay, e.g. enabling *Infinite Lives* etc!\
-\
-**HOWEVER!!** - These features are not completed yet, enumerator\'s and
+patch during gameplay, e.g. enabling *Infinite Lives* etc!
+
+**HOWEVER!!** - These features are not completed yet, enumerator's and
 other features are not present, and the patch browser lacks
 functionality! You can still use the patch finder, and an example XML
 file with notes is included with this release (in the root dir of
-PCSX2), and the new format XML files can be used by PCSX2!\
-\
+PCSX2), and the new format XML files can be used by PCSX2!
+
 PCSX2 0.9.2 also comes with a new **zeroGS** plugin, which increases
 graphical support for several games and fixes some of the bugs found in
-the previous version(s).\
-\
-We\'re going to save ourselves some hassle next! We\'re aware many
+the previous version(s).
+
+We're going to save ourselves some hassle next! We're aware many
 people want to play **Final Fantasy X** on PCSX2, as you maybe aware the
 game is now fully playable, however we would like to make two **very
 important** notes:
@@ -49,14 +49,14 @@ important** notes:
 We are releasing via torrent initially, **please** seed for as long as
 possible, we recommend [uTorrent](http://www.utorrent.com/) as a client!
 Direct download from the site will be available once initial flood has
-hit!\
-\
-Enjoy this release!\
+hit!
+
+Enjoy this release!
 :: [Official Screenshots
 Thread](http://forums.ngemu.com/pcsx2-official-forum/80878-post-your-pcsx2-0-9-2-screenshots-here.html)
-- Post your shots from PCSX2 0.9.2 here!\
+- Post your shots from PCSX2 0.9.2 here!
 :: [Files Pack](/download/viewcategory/34-pcsx2-v0-9-2.html) - 7zip
-format, grab 7zip from [www.7-zip.org](http://www.7-zip.org/)\
+format, grab 7zip from [www.7-zip.org](http://www.7-zip.org/)
 :: [Installer Pack](/download/viewcategory/34-pcsx2-v0-9-2.html) -
 Executable installer, for the lazy types!
 :::

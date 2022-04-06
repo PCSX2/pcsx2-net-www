@@ -3,14 +3,14 @@
 ## [PCSX2 0.9.7 sneak peek!](/112-pcsx2-0-9-7-sneak-peek.html) {#pcsx2-0.9.7-sneak-peek .contentheading}
 
 It has been a long time since the last news concerning PCSX2, so I
-thought I\'d bring you up to date
-😊\
+thought I'd bring you up to date
+😊
 Development of the new 0.9.7 version of the emulator with the all new
 GUI is going strong and soon all the old GUI functionality will be
-implemented. After that it\'s bug hunting time and then a beta release!\
-\
-In this news post I\'ll present some of the exciting new features of the
-new GUI builds, for those of you who haven\'t checked it out yet!\
+implemented. After that it's bug hunting time and then a beta release!
+
+In this news post I'll present some of the exciting new features of the
+new GUI builds, for those of you who haven't checked it out yet!
 Click the images to view them in normal size
 
 -   All new menus, for improved usability and faster configuration
@@ -28,7 +28,7 @@ Click the images to view them in normal size
 -   Simplified plugin configuration dialog, with more options
 -   Console output will no longer slow down the emulator when flooded
     thanks to threading
--   Saving states done in the new thread, so gameplay doesn\'t even
+-   Saving states done in the new thread, so gameplay doesn't even
     flinch when you save
 
 ::: {style="text-align: center;"}
@@ -58,16 +58,16 @@ Click the images to view them in normal size
 [![](/images/stories/frontend/0.9.7_sneak/0.9.7_8_thumb.jpg)](/images/stories/frontend/0.9.7_sneak/0.9.7_8.jpg)
 :::
 
-\
-That\'s it! Hope you like the new look and functionality, we are doing
+
+That's it! Hope you like the new look and functionality, we are doing
 our best to make PCSX2 as user friendly as possible. Of course there are
 still some features not shown here, we have to keep something to
-surprise you!\
-\
+surprise you!
+
 There is no set date for the beta release, since there are still a bunch
-of bugs lying around but it\'s safe to say we are getting close
-😊\
-\
+of bugs lying around but it's safe to say we are getting close
+😊
+
 You can compile it yourselves, from our [GoogleCode
 SVN](http://code.google.com/p/pcsx2/source/checkout) but **no support
 will be given for it at the forums!** .

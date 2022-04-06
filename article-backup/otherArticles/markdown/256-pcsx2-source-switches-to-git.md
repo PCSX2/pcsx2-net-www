@@ -5,22 +5,22 @@
 ::: {style="text-align:center;"}
 :::
 
-Hey everyone,\
-\
-We just moved the PCSX2 version control system from SVN over to GIT.\
-The new official source code repository is hosted on GitHub.\
-You can find the source code [here](https://github.com/PCSX2/pcsx2) .\
+Hey everyone,
+
+We just moved the PCSX2 version control system from SVN over to GIT.
+The new official source code repository is hosted on GitHub.
+You can find the source code [here](https://github.com/PCSX2/pcsx2) .
 And the new issue tracker [here](https://github.com/PCSX2/pcsx2/issues)
-.\
-\
+.
+
 Git is more contributor friendly than SVN. The process of sending
-patches to a team member for eventual review has been streamlined.\
+patches to a team member for eventual review has been streamlined.
 Now people can just fork the master repository, add their changes and
-open a pull request if they think it\'s good. The devs can then merge
-the request and the code is live.\
-\
+open a pull request if they think it's good. The devs can then merge
+the request and the code is live.
+
 This change is a pretty big operation, so please excuse (and report) any
-issues you find while we\'re transferring
+issues you find while we're transferring
 😉
 
 Keep in mind the build bot will take some time to update to the new

@@ -11,11 +11,11 @@ public!
 
 Since we needed to upgrade to the latest Joomla 3, I decided to also
 make the website look more modern and closer to our old, initial one. I
-really liked the Dolphin website look, so you\'ll find some elements
+really liked the Dolphin website look, so you'll find some elements
 close to their design
 😊
 
-Here\'s what\'s changed:
+Here's what's changed:
 
 -   Now running the latest Joomla 3 platform
 -   New color scheme, matching the old PCSX2 website one that many
@@ -28,7 +28,7 @@ Here\'s what\'s changed:
     space
 -   News section now adapts to the detected resolution of your screen.
     Now the website should display much better with phones and adapt to
-    larger resolutions as well (it\'s NOT responsive though..)
+    larger resolutions as well (it's NOT responsive though..)
 -   Nicer compatibility overview bars
 -   New logo and fav icon! Thanks bmate
     😊
@@ -38,10 +38,10 @@ In general I tried giving the website a more game-y look and I think in
 that regard it was a success
 😊
 
-You can complain on how you don\'t like the new look, as usual, in this
+You can complain on how you don't like the new look, as usual, in this
 thread! ![Very
 Happy](https://pcsx2.net/images/stories/frontend/smilies/biggrin.gif){.yvSmiley
-width="20" height="20"}\
+width="20" height="20"}
 <http://forums.pcsx2.net/Thread-New-website-launched>
 :::
 :::

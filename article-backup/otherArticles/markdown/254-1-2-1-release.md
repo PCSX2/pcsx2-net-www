@@ -12,7 +12,7 @@ In other news, some sneaky bugs crept in and got past our amazing
 This bugfix release fixes Psychonauts and others that rely on correct
 MFIFO
 
-Sorry for this, we promise it was all refrac\...eerrr some very bad
+Sorry for this, we promise it was all refrac...eerrr some very bad
 luck! ![Very
 Happy](https://pcsx2.net/images/stories/frontend/smilies/biggrin.gif){.yvSmiley
 width="20" height="20"}
