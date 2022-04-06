@@ -1,0 +1,8 @@
+{
+	"Image": {
+		"scope": "markdown,md",
+    "prefix": ["img"],
+    "body": ["{{< img cols=\"${1:colWidth}\" src=\"./img/${2:fileName}\">}}"],
+    "description": "Lazy loaded image which can have a specified size"
+  }
+}
