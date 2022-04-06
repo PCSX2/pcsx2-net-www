@@ -38,7 +38,7 @@ markup:
 enableEmoji: true
 # Website Parameters
 params:
-  description: "An Open-Source PS2 Emulator"
+  description: "PCSX2 is a free, multi-platform and open-source Playstation 2 emulator which supports over 98% of the original PS2 library.  Download the latest version or read up on our most recent development progress."
   social:
     - name: Discord
       icon: fab fa-discord
@@ -83,7 +83,7 @@ languages:
           weight: 2
           url: /compat
         - name: Blog
-          title: Dev Blog
+          title: Blog
           weight: 3
           url: /blog
         # TODO - temporarily disabled until page is finished
@@ -129,3 +129,7 @@ languages:
   #         weight: 7
   #         url: 'https://github.com/PCSX2/pcsx2'
   #         pre: fa fa-github
+sitemap:
+  changefreq: monthly
+  filename: sitemap.xml
+  priority: 0.5

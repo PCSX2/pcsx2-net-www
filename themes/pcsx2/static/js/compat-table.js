@@ -17,7 +17,7 @@ window.onload = async () => {
   document.getElementById("compat-search").value = "";
   document.activeElement.blur();
   tableLoading();
-  dataReq = await fetch(`/compat/data.json`);
+  dataReq = await fetch(`/compat/data.min.json`);
   let compatData = await dataReq.json();
   calculatePercentages(compatData);
   sortedData = _.sortBy(compatData, 'title');

@@ -8,6 +8,8 @@ tags:
 mainAuthor: Bositman
 aliases:
   - "/116-progress-flood"
+  - "/116-progress-flood.html"
+  - "/116-progress-flood.htm"
 toc: false
 ---
 

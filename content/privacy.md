@@ -2,6 +2,9 @@
 type: page
 layout: privacy
 title: Privacy Policy
+summary: Information on the PCSX2 website's privacy policy
+images:
+  - thumbnail-logo.webp
 ---
 
 # Privacy Policy for PCSX2

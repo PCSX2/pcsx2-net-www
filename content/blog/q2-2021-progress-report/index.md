@@ -10,6 +10,8 @@ tags:
   - "progress-report"
 aliases:
   - "/299-q2-2021-progress-report"
+  - "/299-q2-2021-progress-report.html"
+  - "/299-q2-2021-progress-report.htm"
 toc: true
 ---
 

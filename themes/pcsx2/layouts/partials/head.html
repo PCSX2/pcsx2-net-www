@@ -1,33 +1,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="{{ if .Params.summary }}{{ .Params.summary }}{{ else if .Site.Params.Description }}{{ .Site.Params.Description }}{{ end }}"/>
+  <meta name="author" content="PCSX2">
+  <meta name="copyright" content="PCSX2">
   <!-- OpenGraph Tags -->
   {{ template "_internal/opengraph.html" . }}
   <link rel="shortcut icon" href="/img/favicon.webp" />
   <!-- Grid and Component Design -->
   <link href="/css/vendor/mdb-ui-kit@3.10.2/mdb.min.css" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/1f6aa7458d.js" crossorigin="anonymous"></script>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Lexend:ital,wght@0,300;0,400;0,700;1,400&display=swap" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Lexend:ital,wght@0,300;0,400;0,700;1,400&display=swap" media="print"
-    onload="this.media='all'" />
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Fira+Code:wght@300;400;700&display=swap" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Fira+Code:wght@300;400;700&display=swap" media="print"
-    onload="this.media='all'" />
+  <link href="/css/vendor/font-awesome@6.1.1/all.min.css" rel="stylesheet">
   <!-- Theme CSS -->
   <link href="/css/thirdparty/skeleton-loading/skeleton-loading.min.css" rel="stylesheet" />
   {{ $sass := resources.Get "sass/main.sass" }}
   {{ $style := $sass | resources.ToCSS }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-  {{ $title := print .Site.Title " | " .Title }}
-  {{ if .IsHome }}
-  {{ $title = print .Site.Title " | A PS2 Emulator" }}
-  {{ end }}
+  {{ $title := print .Site.Title " - " .Title }}
   <title>{{ $title }}</title>
   <link href="/css/vendor/cookieconsent@3.1.1/cookieconsent.min.css" rel="stylesheet" />
 </head>
