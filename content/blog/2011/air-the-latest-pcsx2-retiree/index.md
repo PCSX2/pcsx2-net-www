@@ -1,9 +1,16 @@
-::: {.single-article}
-::: {.item-page .clearfix}
-## [Air - the latest PCSX2 retiree](/87-air-the-latest-pcsx2-retiree.html) {#air---the-latest-pcsx2-retiree .contentheading}
+---
+title: "Air - The Latest PCSX2 Retiree"
+date: 2011-02-20T00:00:00
+summary: "Jake Stine (Air) has retired from PCSX2, after more than two years of vigorous work on the emulator."
+draft: false
+mainAuthor: Jake Stine
+aliases:
+  - "/87-air-the-latest-pcsx2-retiree"
+  - "/87-air-the-latest-pcsx2-retiree.html"
+  - "/87-air-the-latest-pcsx2-retiree.htm"
+---
 
-Jake Stine (Air) has retired from PCSX2, after more than two years of
-vigorous work on the emulator.
+Jake Stine (Air) has retired from PCSX2, after more than two years of vigorous work on the emulator.
 
 My reason for leaving is simple: I am now married and am taking a job
 that promises to be interesting and challenging, and will be paying me
@@ -29,5 +36,3 @@ bid everyone a proper farewell -- perhaps unusual in emulation, a scene
 where the programmers often silently vanish.
 
 Jake Stine (Air)
-:::
-:::

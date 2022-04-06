@@ -1,5 +1,5 @@
 ---
-title: "Pcsx2 On Youtube And Vimeo"
+title: "PCSX2 On Youtube And Vimeo"
 date: 2011-06-30T00:00:00
 summary: "While trying to make PCSX2 known to more people, I decided to create a YouTube and Vimeo channel to post HD videos of PCSX2 running games, for people to see how well it runs"
 draft: false
