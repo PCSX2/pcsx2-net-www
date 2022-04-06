@@ -4,8 +4,7 @@
 
 It\'s that time of the year again, so i had some time to work on
 pcsx2/mac, now with nice sound as well
-![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-width="20" height="20"} This update is about solving the missing
+😉 This update is about solving the missing
 textures problem that has been plaguing pcsx2/mac for ages.\
 \
 The new build is as always available [here](http://pcsx2mac.net/) . In
@@ -17,8 +16,7 @@ out.\
 \
 Zerospu2 0.4.6 has been ported to mac using cross-platform Portaudio
 library, i recommend all users to use it
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}\
+☺️\
 \
 Zeydlitz has recently worked on z-buffer swizzling for the ZZOgl plugin
 and this has fixed a lot of missing textures problems for us. I also

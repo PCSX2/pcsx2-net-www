@@ -5,8 +5,7 @@
 While trying to make PCSX2 known to more people, I decided to create a
 YouTube and Vimeo channel to post HD videos of PCSX2 running games, for
 people to see how well it runs
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}\
+☺️\
 \
 You can check them out here:\
 Youtube:\
@@ -19,8 +18,7 @@ Vimeo:\
 quality HD version)\
 \
 Support us by commenting and pressing the like button!
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}\
+☺️\
 \
 Also don\'t forget to visit our Facebook and Twitter pages:\
 <http://twitter.com/#!/PCSX2>\

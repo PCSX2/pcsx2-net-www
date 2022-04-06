@@ -21,8 +21,7 @@ e.g. what you see is practically what it\'s emulated at!\
 \
 What?!! near full speed emulation?!! impossible I hear you cry, well I
 did tell you that **zerofrog** was re-writing the eeREC and vuREC
-![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-width="20" height="20"} There\'s a lot to do, as in all honesty *many*
+😉 There\'s a lot to do, as in all honesty *many*
 games got broken with bugs during the transition from the old rec, to
 the new, but he\'s still not blinking, and he is avoiding sleep, so
 hopefully more news eventually!\
@@ -30,7 +29,6 @@ hopefully more news eventually!\
 Enough of that for now, enjoy the video, which you can grab on
 [this](/demo-videos-screenshots/videos.html) page (click the
 \'DOWNLOAD\' image to the right of the details
-![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-width="20" height="20"} ).
+😉 ).
 :::
 :::

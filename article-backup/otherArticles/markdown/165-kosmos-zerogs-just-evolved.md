@@ -11,8 +11,7 @@ Grandia 3: 37-60 FPS\
 \...Yes you read that correctly, and no it\'s not April 1st!\
 \
 **WAIT** !!..Okay so you knew there would be a catch
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"}\
+😛\
 \
 **MTGS** (Multi Threaded GS) has recently become much more stable thanks
 to *zerofrog* and his recent improvements to **ZeroGS** (a GS plugin for

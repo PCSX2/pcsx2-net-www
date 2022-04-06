@@ -35,11 +35,9 @@ The translated guides will be uploaded as soon as possible, after I
 receive them and check for errors and cases of babelfish.You will be
 able to select them by pressing the respective flag buttons on the guide
 page, after they are done
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}\
+☺️\
 \
 Thats all from me, I\'ll get back to the usual beta testing slavery
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+☺️
 :::
 :::

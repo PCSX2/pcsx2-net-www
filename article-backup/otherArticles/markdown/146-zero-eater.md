@@ -53,8 +53,7 @@ steadily and the playable count is going up on our [on site
 compatibility list](/compatibility-list.html) , including some rather
 nice games\...and there is a new plugin coming up\...but you\'ll have to
 wait!
-![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-width="20" height="20"}\
+😉\
 \
 Now enjoy the video which you can grab from here (it\'s a torrent so
 please seed, and check out our other torrented videos here)\

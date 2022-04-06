@@ -16,8 +16,7 @@ support!\
 \
 You don\'t even need a USB keyboard plugged into your PC, it can be any
 type of keyboard
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"} Of course this required us to test (play) even
+☺️ Of course this required us to test (play) even
 more **Monster Hunter** together\...\*ahem\*\
 \
 You may be wondering why the first word in the news post is just a bunch

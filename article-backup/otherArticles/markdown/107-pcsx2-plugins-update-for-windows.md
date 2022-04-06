@@ -38,7 +38,6 @@ SPU2-X changes:
 
 \
 Enjoy
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+☺️
 :::
 :::

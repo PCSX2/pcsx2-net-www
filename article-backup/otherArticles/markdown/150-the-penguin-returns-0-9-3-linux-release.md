@@ -14,8 +14,7 @@ Along with this release you have a couple of new plugins exclusively!
     SSSPSX Pad.
 -   **ZeroGS OGL** - An OpenGL conversion of ZeroGS. No more GSSoft for
     you
-    ![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-    width="20" height="20"}
+    😉
 
 \
 You also have available a 32bit and 64bit build for your pleasure, we do
@@ -37,8 +36,7 @@ As a consolation, if you are in to Dreamcast emulation, the long awaited
 \
 Just to excite you a little more, here are a few shots I\'ve taken with
 some of the new fixes for 0.9.4. Enjoy
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+☺️
 
 ::: {style="text-align: center;"}
 [![Grandia2](/images/stories/frontend/0.9.3/Grandia2t.jpg)](/images/stories/frontend/0.9.3/Grandia2.jpg)

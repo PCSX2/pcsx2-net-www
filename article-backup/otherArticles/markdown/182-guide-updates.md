@@ -7,14 +7,11 @@
 
 Yes i know this wasn\'t what people were expecting of an update from the
 PCSX2 site,but small news is better than no news
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"}\
+😛\
 After some bugging by Falcon4ever,i sat down and fixed all 200 errors(
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"} ) that were preventing the configuration guide
+😛 ) that were preventing the configuration guide
 from being XHTML compatible
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"} You can check the validity by pressing the XHTML
+☺️ You can check the validity by pressing the XHTML
 button at the bottom of the page. So if anyone had problems with it with
 the browser they were using,there is a good chance that its fixed
 now.Note that all the translations have been made using the old html
@@ -31,7 +28,6 @@ Italian translation by Master and corrected by Topper:\
 Guida alla configurazione di PCSX2\
 \
 Great job and sorry for delaying the release of these 2 for some time
-![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-width="20" height="20"}
+😉
 :::
 :::

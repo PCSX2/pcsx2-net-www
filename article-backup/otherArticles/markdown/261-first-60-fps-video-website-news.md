@@ -29,8 +29,7 @@ didn\'t like how it ended up last time. I\'ve already used many of the
 ideas posted in the last redesign thread on our forum, I\'ve fixed a few
 stuff that were buggy, reduced both CSS and javascript and finally got
 themes working
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"} It\'s still pretty bad code wise but I\'ve done
+☺️ It\'s still pretty bad code wise but I\'ve done
 my best to improve it and will keep at it.
 
 I\'m not sure when it will be done, but it might be synchronized with a
@@ -41,8 +40,7 @@ latest 1.8 version, although I\'m still waiting for the software to be
 mature. 1.8 was extremely buggy, 1.8.1 is better but still not good
 enough so I hope with the next 1.8.2 release I will be able to start
 working on it (and a new custom theme it seems
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"} )
+😛 )
 
 Edit: Uploaded new video, this should be with the 60 FPS patch on, sorry
 guys

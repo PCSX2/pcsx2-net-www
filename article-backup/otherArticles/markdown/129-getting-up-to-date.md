@@ -24,7 +24,6 @@ some games (albeit breaking some,still trying to figure out what to do
 with that).\
 Saqib is also working on something behind the scenes,wait and see when
 it\'s done
-![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-width="20" height="20"}
+😉
 :::
 :::

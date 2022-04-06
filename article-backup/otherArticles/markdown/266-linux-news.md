@@ -7,20 +7,17 @@
 
 Hello guys, here are some news on the Linux front. Yes I know, I ought
 to do that more regularly
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"}\
+😛\
 \
 In short progress is slow but steady
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}\
+☺️\
 \
 \* A port to wxWidget 3.0 was done recently, mostly because Debian will
 drop wxWidget 2.8 . It is enabled by default but wx2.8 is still there,
 you can restore is with the -DWX28_API=TRUE build option.
 
 -   Most of regressions were fixed so it will work as bad as before
-    ![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-    width="20" height="20"} No I\'m kidding, it actually works better on
+    😉 No I\'m kidding, it actually works better on
     my PC. Feel free to test it.
 -   Unfortunately Windows is still blocked to wx2.8, [ contributions are
     welcome (first step is to add a wx3.0 library build)

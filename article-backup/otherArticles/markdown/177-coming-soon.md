@@ -6,8 +6,7 @@
 :::
 
 Not going to say much really, I think the video does that
-![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-width="20" height="20"}\
+😉\
 \
 These videos are **AVI** (Xvid) and should be playable under any decent
 media player and are being shared using **Bit Torrent** , thus you will

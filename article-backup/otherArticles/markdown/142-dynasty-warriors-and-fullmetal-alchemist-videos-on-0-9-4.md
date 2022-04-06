@@ -32,7 +32,6 @@ Fullmetal Alchemist 2\
 \
 Please seed for as long as possible! Oh and have some nice summer
 vacations
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+☺️
 :::
 :::

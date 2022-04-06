@@ -28,7 +28,6 @@ PS: Guide to getting online coming soon (a proper one). As linked in the
 last post there is a simple guide with the basic steps you need to take
 in order to get up and running, but i will do a more detailed one later
 for those who don\'t quite understand
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+☺️
 :::
 :::

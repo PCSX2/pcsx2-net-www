@@ -22,8 +22,7 @@ relating to it will be closed and unanswered.\
 \
 That aside i hope you enjoy your new builds, but be sure to check back
 occasionally as i won\'t be informing you of any updates
-![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-width="20" height="20"}\
+😉\
 \
 Head over to the new \"Public Beta\" section of the downloads page to
 grab it.\

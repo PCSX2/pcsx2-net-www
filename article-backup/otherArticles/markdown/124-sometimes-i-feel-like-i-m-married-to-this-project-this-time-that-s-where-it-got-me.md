@@ -19,8 +19,7 @@ gateway to something more than I could have ever imagined. It\'s led me
 to my beautiful wife and great new family. I\'m not sure if this is a
 first for emulation, but I\'m sure anyone would be hard pressed to find
 another example quite like this.
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"}\
+😛\
 \
 All that said, I\'m working my way towards getting back into the swing
 of things. I\'ve still got just a few more quirks to work out, but the

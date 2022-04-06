@@ -31,7 +31,6 @@ Happy April Fools Day! (btw this isnt an april fool)\
 \
 **Update 04/04** : All seems to be back up again now! well done
 Falcon4ever for spotting my mistake -\_- . Welcome back everybody
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+☺️
 :::
 :::

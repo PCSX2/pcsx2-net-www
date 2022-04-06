@@ -20,8 +20,7 @@ One big change in this release is the integration of the wide screen
 patches made by the community for the community numbering nearly 1200
 games patched to support proper 16:9 aspect ratio. A huge thanks to
 everyone who has contributed for this and keep up the great job
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+☺️
 
 Here are a rundown of the biggest changes in this release:\
 \

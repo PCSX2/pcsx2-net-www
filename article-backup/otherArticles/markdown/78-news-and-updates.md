@@ -22,8 +22,7 @@ buggier than the official releases since they are all work in progress.\
 -The [configuration
 guide](/config-guide/official-english-pcsx2-configuration-guide.html)
 has been updated for the 0.9.8 release (a bit late
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"} ) and a new [quick start
+😛 ) and a new [quick start
 guide](http://forums.pcsx2.net/Thread-Quick-Start-PCSX2-Configuration-Guide-v0-9-8)
 has been created by avih aiming to be much more compact and easy to
 read. As always you can apply for translating in [this
@@ -42,13 +41,11 @@ sure to check it out
 eventually become a huge knowledge base for individual game settings and
 known workarounds for bugs, so those of you willing, start contributing
 your findings
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}\
+☺️\
 \
 -Our youtube channel already has over 150,000 video views and almost
 2,000 subscribers!
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"} You can visit it by clicking
+☺️ You can visit it by clicking
 [HERE](http://www.youtube.com/user/PCSX2team) .\
 \
 Check out a small sample of our videos there in our video section
@@ -56,7 +53,6 @@ Check out a small sample of our videos there in our video section
 max quality)\
 \
 That\'s all for now
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+☺️
 :::
 :::

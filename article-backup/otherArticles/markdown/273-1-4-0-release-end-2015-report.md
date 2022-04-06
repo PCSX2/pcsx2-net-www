@@ -13,8 +13,7 @@ Hello PCSX2 followers and a belated Happy New Year!
 
 After being late a couple of days (it\'s a tradition and we can\'t break
 it
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"} ), we present you with a new stable release,
+😛 ), we present you with a new stable release,
 version 1.4.0! Grab it **[HERE](/download/releases.html)**
 
 Along with the release comes our year end report for 2015. The following

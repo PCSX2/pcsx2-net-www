@@ -3,8 +3,7 @@
 ## [SVN snapshots (build bot)](/83-svn-snapshots-build-bot.html) {#svn-snapshots-build-bot .contentheading}
 
 Hey people, I thought this was worth mentioning
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}\
+☺️\
 \
 Orphis was so kind to set up and operate a build bot for PCSX2 SVN
 snapshots.\

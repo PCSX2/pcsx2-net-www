@@ -11,8 +11,7 @@ The first is a mention from our friends at Eurogamer and Kotaku! PCSX2
 was used in an experiment to see what ICO and Shadow of the Colossus
 would be like if they were re-released on the PS3 in HD (Note, they did
 NOT use the PS3\'s upscaling ability
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"} ), Check out these articles below.\
+😛 ), Check out these articles below.\
 \
 (Thanks for Parotaku for finding these)\
 Kotaku:
@@ -22,8 +21,7 @@ Eurogamer:
 \
 Big thank you to Eurogamer and Kotaku, i hope you guys enjoyed the
 emulator
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}\
+☺️\
 \
 **We\'re On Facebook and Twitter!:**\
 \

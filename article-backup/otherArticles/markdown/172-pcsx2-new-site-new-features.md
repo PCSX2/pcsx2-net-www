@@ -27,8 +27,7 @@ shall just list a few:
     easy translation!
 
 One **key** feature is the return of the Donate button
-![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-width="20" height="20"} ![Very
+😉 ![Very
 Happy](https://pcsx2.net/images/stories/frontend/smilies/biggrin.gif){.yvSmiley
 width="20" height="20"}\
 \
@@ -43,8 +42,7 @@ We now also have a working screenshots system on the sites Backend, we
 shall be running a mini competition on the forums for everyone to submit
 their \'sexiest\' screenshot, the best shots will go into the sites
 screenshot section, with your name immortalized
-![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-width="20" height="20"} More info on that soon.\
+😉 More info on that soon.\
 \
 Finally a massive thanks to the testing team, the devs and poor old
 **Falcon4ever** , whom I nagged to death day and night!

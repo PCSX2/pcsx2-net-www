@@ -15,8 +15,7 @@ everyone!\
 \
 This one goes out to Linuzappz, \[RO\]man and GoldFinger ! ( Time to
 make a return
-![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-width="20" height="20"} )\
+😉 )\
 [![expo](/images/stories/frontend/various/shield_thumb.jpg)](/images/stories/frontend/various/shield.jpg)
 :::
 :::

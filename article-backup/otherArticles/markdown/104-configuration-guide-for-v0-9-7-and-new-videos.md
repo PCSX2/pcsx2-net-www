@@ -19,8 +19,7 @@ right) which you can grab from our videos section
 seed as much as possible!\
 We will also consider accepting user created videos to host them on our
 torrent tracker in the future
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}\
+☺️\
 \
 That\'s all for now!
 :::

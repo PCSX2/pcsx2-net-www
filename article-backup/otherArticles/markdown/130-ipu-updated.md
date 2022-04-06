@@ -34,8 +34,7 @@ playable status or had their stability increased!\
 \
 The code is in SVN, do NOT ask for help on the forums. If you guys are
 lucky, i might be nice enough to compile a new beta very soon
-![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-width="20" height="20"}\
+😉\
 \
 Discussion of whats fixed can be found on the [Official
 forums](http://forums.ngemu.com/showthread.php?p=718442#post718442)\

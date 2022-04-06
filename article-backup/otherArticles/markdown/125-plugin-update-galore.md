@@ -31,7 +31,6 @@ first working DEV9 plugin! You can check it out here:
 That\'s it for now,I\'ll try to keep updating the download section with
 the new releases.\
 Enjoy your summer vacations people
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+☺️
 :::
 :::

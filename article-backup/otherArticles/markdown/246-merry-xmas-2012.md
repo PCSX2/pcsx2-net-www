@@ -8,8 +8,7 @@
 It\'s that time of the year again and since everyone else is off
 drink\...celebrating, I\'m the only one left around to wish all our
 visitors and users a Merry Christmas for 2012
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}\
+☺️\
 \
 As you all can see development has been sluggish after the huge 1.0.0
 release (as it always happens after releases) but there are still new
@@ -31,8 +30,7 @@ of most of the changes on PCSX2 itself and its plugins:
 The website also got its share of fixes, with various layout fixes, a
 much nicer looking video gallery under Demo, random screenshot on index
 page really random (
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"} ) and more functionality on the compatibility
+😛 ) and more functionality on the compatibility
 list. I am planning on adding some very handy features to it soon, which
 are still under development but I\'m sure most will appreciate them!
 
@@ -67,14 +65,12 @@ and patches for PCSX2 which are worth a mention:
 Finally, our [Youtube channel](http://www.youtube.com/user/PCSX2team)
 has already exceeded the 1,000,000 views mark! Visit to watch various
 games running on PCSX2 in 1080p quality
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+☺️
 
 \
 That\'s it for now, keep in touch for more news (I promise we\'ll post
 updates more regularly from now on
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"} ) and have a great time with family and friends
+😛 ) and have a great time with family and friends
 (and your PC!)
 :::
 :::

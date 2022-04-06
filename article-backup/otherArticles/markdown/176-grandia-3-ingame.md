@@ -8,8 +8,7 @@
 **General Plot** has been strangely happy these past few days, *slowly*
 taking screenshots and recording a video from **Grandia 3** , beta
 testing has warped his mind, now he finds 0.x-2 FPS \'fun\'
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"} .\
+😛 .\
 \
 So yes you guessed it, there\'s a video with this news post, but you
 have to admit, seeing something in motion truly gives a better

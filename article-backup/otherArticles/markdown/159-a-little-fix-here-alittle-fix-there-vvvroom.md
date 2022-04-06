@@ -6,8 +6,7 @@
 :::
 
 **Refraction** has been \'abit\' busy!
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"} He\'s been \'in the zone\' for the past few
+😛 He\'s been \'in the zone\' for the past few
 nights fixing **VIF Unpacks** , which decompress then send texture and
 vector data to the VUs.\
 \

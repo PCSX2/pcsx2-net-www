@@ -6,8 +6,7 @@
 :::
 
 Time to brighten up the front page of this site with some sexy news.
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}\
+☺️\
 \
 **Parotaku** one of our long serving betatesters has been having \'fun\'
 testing *Biohazard 4 (Resident Evil 4)* under the WIP PCSX2 0.9 beta.

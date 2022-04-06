@@ -15,11 +15,9 @@ will attempt to fix it by using some alternative to FastCGI today, so
 you should expect some downtime on both our website and our forum.
 
 Thanks for your patience
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+☺️
 
 Edit: Everything is back online, should feel quite faster too
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+☺️
 :::
 :::

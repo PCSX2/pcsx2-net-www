@@ -8,8 +8,7 @@
 After [my earlier news post](/246-merry-xmas-2012.html) about some
 incredible tools our community members have developed for PCSX2, it\'s
 time people learn more about them
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}\
+☺️\
 \
 All the tool authors graciously gave us their permission to add their
 various programs to our download system, so you can easily review them

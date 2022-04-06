@@ -4,8 +4,7 @@
 
 This has been considered for a long time and after the two teams met,we
 have come to a merge
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"} The new talented coders have already done great
+☺️ The new talented coders have already done great
 work on the emulator and will now be joined by the old PCSX2 team for an
 even better coding team!\
 \
@@ -25,8 +24,7 @@ the released PCSX2)\
 \
 4)Our forum structure will be re-organized to match these changes after
 a new release has been made
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}\
+☺️\
 \
 On other news,we now host the PCSX2 Mac port made by Zedr0n in our
 forums **[here](http://forums.pcsx2.net/forum-61.html)** . Head there

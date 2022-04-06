@@ -46,8 +46,7 @@ what was posted about this:
 
 You can download both files from our [Mac Downloads
 section](/download/releases/mac.html) . Keep up the good work zedr0n
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+☺️
 
 [PCSX2 Mac website/blog](http://pcsx2mac.net/)
 

@@ -8,11 +8,9 @@
 Dear Linux users,\
 \
 Here is a new release of the greatest PS2 emulator
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}\
+☺️\
 At version 1.2.2 it is ahead of Windows this time
-![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-width="20" height="20"}\
+😉\
 \
 This new release is based on version 1.2.1 plus two additional patches
 regarding GSdx:\

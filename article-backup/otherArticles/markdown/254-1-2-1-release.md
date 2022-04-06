@@ -7,8 +7,7 @@
 
 In other news, some sneaky bugs crept in and got past our amazing
 10-step testing (
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"} ).
+😛 ).
 
 This bugfix release fixes Psychonauts and others that rely on correct
 MFIFO

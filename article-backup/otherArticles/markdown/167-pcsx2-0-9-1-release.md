@@ -36,8 +36,7 @@ are allowed to update your posts with new submissions if you wish.\
 \
 Hopefully people are more imaginative, and post less *Final Fantasy*
 shots
-![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-width="20" height="20"}\
+😉\
 \
 **EDIT:** A regression bug was fixed. Now Makai Kingdom, Grandia II,
 Rez, and Taito Legends should work. It is recommended that you

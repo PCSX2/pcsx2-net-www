@@ -21,8 +21,7 @@ day (CET).\
 And we\'re back online!\
 \
 It took a bit longer than expected (blame ref
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"} ) but hopefully everything is working now.\
+😛 ) but hopefully everything is working now.\
 \
 Cheers,\
 - Falc.

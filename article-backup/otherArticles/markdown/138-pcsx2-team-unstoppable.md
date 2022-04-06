@@ -27,8 +27,7 @@ solve this issue. After the plugin was rewritten they managed to fix the
 problem.\
 \
 (hmm\... that deathmatch versus drkIIRaziel went not the way as I hoped
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"} )
+😛 )
 
 ::: {style="text-align: center;"}
 [![XII1a](/images/stories/frontend/online/XIII-1a_thumb.jpg)](/images/stories/frontend/online/XIII-1a.jpg)

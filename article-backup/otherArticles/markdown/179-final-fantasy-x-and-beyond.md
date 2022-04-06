@@ -12,8 +12,7 @@ effects on other games, so don\'t worry folks there will be news soon
 which doesn\'t involve a *Final Fantasy* ! ![Very
 Happy](https://pcsx2.net/images/stories/frontend/smilies/biggrin.gif){.yvSmiley
 width="20" height="20"}
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"}\
+😛\
 \
 Whilst the game certainly now looks beautiful, it\'s still not playable
 from start to finish, due to various \'looping\' issues and video
@@ -24,8 +23,7 @@ space!\
 To celebrate this bit of progress, we have a large selection of
 screenshots, and one of the sexiest videos I\'ve recorded from PCSX2 in
 awhile
-![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-width="20" height="20"}
+😉
 ![blushing](https://pcsx2.net/images/stories/frontend/smilies/blush.gif){.yvSmiley
 width="20" height="20"}\
 \

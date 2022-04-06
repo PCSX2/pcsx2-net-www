@@ -21,8 +21,7 @@ the request and the code is live.\
 \
 This change is a pretty big operation, so please excuse (and report) any
 issues you find while we\'re transferring
-![Wink](https://pcsx2.net/images/stories/frontend/smilies/wink.gif){.yvSmiley
-width="20" height="20"}
+😉
 
 Keep in mind the build bot will take some time to update to the new
 source code repository, whenever Orphis can get around to it so until

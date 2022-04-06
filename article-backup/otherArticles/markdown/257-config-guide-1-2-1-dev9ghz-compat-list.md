@@ -8,8 +8,7 @@
 I finally got around updated the configuration guide for the 1.2.1
 release with all the new features and also adding some new plugins that
 most people don\'t know about
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"} You can check it out
+☺️ You can check it out
 [here](/config-guide/official-english-pcsx2-configuration-guide.html) as
 usual and you can find instructions on translating it to your language
 [here.](http://forums.pcsx2.net/Thread-Translator-template-1-2-1)

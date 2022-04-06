@@ -7,16 +7,14 @@
 
 Merry Christmas everyone! We know you haven\'t heard from us for a while
 (ok for a long time
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"} ) but it was for good reason!
+😛 ) but it was for good reason!
 
 Development has been going strong for several months with some new
 members joining and others digging even deeper in PCSX2 issues ironing
 them out. People who have been following our
 [github](https://github.com/PCSX2/pcsx2) already know how many hacks
 have been removed (yes, removed
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"} ) lately, with the DX11 renderer of GSdx quickly
+😛 ) lately, with the DX11 renderer of GSdx quickly
 catching up to OpenGL accuracy levels thanks to several contributors.
 This large boost in progress was incited by gregory helping out the
 newcomers with his in-depth knowledge of GSdx, in between his baby\'s
