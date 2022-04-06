@@ -19,7 +19,7 @@ pathFile = "{}/index.md".format(path)
 os.makedirs(path, exist_ok=True)
 with open(pathFile, 'a') as f:
   f.write('---\n')
-  f.write("title: \"{}\"\n".format(title))
+  f.write("title: \"{}\"\n".format(title.title()))
   f.write("date: {}\n".format(date))
   f.write("summary: \"{}\"\n".format(summary))
   f.write("draft: {}\n".format(draft))
