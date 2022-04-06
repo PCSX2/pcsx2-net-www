@@ -1,9 +1,18 @@
-::: {.single-article}
-::: {.item-page .clearfix}
-## [PCSX2 0.9.8!](/85-pcsx2-0-9-8.html) {#pcsx2-0.9.8 .contentheading}
+---
+title: "PCSX2 0.9.8"
+date: 2011-05-01T00:00:00
+summary: "It has been 2 years since our last stable release and today we (finally) bring you the newest stable release: 0.9.8!"
+draft: false
+tags:
+  - "progress-report"
+mainAuthor: rama
+aliases:
+  - "/85-pcsx2-0-9-8"
+  - "/85-pcsx2-0-9-8.html"
+  - "/85-pcsx2-0-9-8.htm"
+---
 
-It has been 2 years since our last stable release and today we (finally)
-bring you the newest stable release: 0.9.8!
+It has been 2 years since our last stable release and today we (finally) bring you the newest stable release: 0.9.8!
 😊
 There has been a massive amount of extensive changes to the emulator as
 a whole, so let's go over some of the biggest ones!
@@ -105,42 +114,6 @@ making many more games work!
 (And it sounds nice, too
 😊 )
 
-
-Downloads depend on your OS. For Windows we offer a full installer, a
-web installer and a binaries package.
-Linux users can fetch a binaries package or use launchpad.
-
-**Windows** :
-Full installer [12.1MB / exe]: [Direct
-download](http://code.google.com/p/pcsx2/downloads/detail?name=pcsx2-0.9.8-r4600-setup.exe&amp;can=2&amp;q=)
-| [Torrent
-download](http://tracker.pcsx2.net/download.php?id=24&amp;name=pcsx2098r4600setup.torrent)
-Web installer [3.05MB / exe]:
-[Download](http://code.google.com/p/pcsx2/downloads/detail?name=pcsx2-0.9.8-r4600-websetup.exe)
-Binaries [2.72MB / 7zip]:
-[Download](http://code.google.com/p/pcsx2/downloads/detail?name=pcsx2-0.9.8-r4600-binaries.7z)
-
-*(NOTE: Full installer includes Microsoft Visual C++ Redistributables,
-which is ideal for offline installs of PCSX2. Web installer optionally
-fetches the Redists from Microsoft.com, if your computer doesn't
-already have them installed.)*
-
-**Linu** x:
-Binaries with correct translation [2.85MB / 7zip]: [Direct
-download](http://code.google.com/p/pcsx2/downloads/detail?name=pcsx2-0.9.8-r4594-linux~translation_fix.tar.gz&amp;can=2&amp;q=)
-| [Torrent
-download](http://tracker.pcsx2.net/download.php?id=25&amp;name=pcsx2-0.9.8-r4594-linux.tar.gz.torrent)
-
-There's also a launchpad version for Debian / Ubuntu x86 available
-[here](https://launchpad.net/~gregory-hainaut/+archive/pcsx2.official.ppa)
-.
-Note: An amd64 launchpad package can be provided when Ubuntu properly
-supports multi-arch (hopefully with Ubuntu 11.10).
-
-**Sourcecode** :
-Archive [10.0MB / 7zip]:
-[Download](/download/releases/source-code/summary/7-source/3-pcsx2-0-9-8-source-code.html)
-
 Don't forget to spread the news! This will be our biggest release
 EVER!
 
@@ -158,5 +131,3 @@ mass viralnesses)
 forums](http://forums.pcsx2.net/Thread-PCSX2-0-9-8--21539)
 
 and of course the digg/del.ici.ous buttons below!
-:::
-:::
