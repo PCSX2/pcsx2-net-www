@@ -4,5 +4,17 @@
     "prefix": ["img"],
     "body": ["{{< img cols=\"${1:colWidth}\" src=\"./img/${2:fileName}\">}}"],
     "description": "Lazy loaded image which can have a specified size"
+  },
+	"Image Compare": {
+		"scope": "markdown,md",
+    "prefix": ["img-cmp"],
+    "body": ["{{< img-cmp before=\"./img/${1:beforePath}\" after=\"./img/${2:afterPath}\">}}"],
+    "description": "Compare two (and hopefully identical) images side-by-side"
+  },
+	"Image Compare Slider": {
+		"scope": "markdown,md",
+    "prefix": ["img-cmp-slider"],
+    "body": ["{{< img-cmp-slider before=\"./img/${1:beforePath}\" after=\"./img/${2:afterPath}\">}}"],
+    "description": "Compare two stacked (and hopefully identical) images with a slider"
   }
 }

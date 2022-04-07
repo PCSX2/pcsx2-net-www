@@ -4,6 +4,8 @@ Below is documentation on the shortcodes we've written to simplify writing conte
 
 If you'd like to learn about shortcodes more indepth, or learn how to make your own, see the following - https://gohugo.io/content-management/shortcodes/
 
+If you use VSCode, the repo comes with snippets for the shortcodes to make writing articles hopefully that much more easier
+
 Arguments in bold are required
 
 - [img-cmp-slider](#img-cmp-slider)
