@@ -129,5 +129,3 @@ mass viralnesses)
 
 [Discuss on the
 forums](http://forums.pcsx2.net/Thread-PCSX2-0-9-8--21539)
-
-and of course the digg/del.ici.ous buttons below!
