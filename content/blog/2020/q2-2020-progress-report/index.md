@@ -44,23 +44,23 @@ games
 
 Itadaki Street:
 
-[<img src="/images/stories/frontend/progress_reports/q2-2020/Itadaki-Street-before_resize.png" width="320" height="224" alt="Itadaki-Street-before" />](/images/stories/frontend/progress_reports/q2-2020/Itadaki-Street-before.png)
-[<img src="/images/stories/frontend/progress_reports/q2-2020/Itadaki-Street-after_resize.png" width="320" height="224" alt="Itadaki-Street-after" />](/images/stories/frontend/progress_reports/q2-2020/Itadaki-Street-after.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/Itadaki-Street-before_resize.webp" width="320" height="224" alt="Itadaki-Street-before" />](/images/stories/frontend/progress_reports/q2-2020/Itadaki-Street-before.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/Itadaki-Street-after_resize.webp" width="320" height="224" alt="Itadaki-Street-after" />](/images/stories/frontend/progress_reports/q2-2020/Itadaki-Street-after.png)
 
 Rozen Maiden DuellWalzer:
 
-[<img src="/images/stories/frontend/progress_reports/q2-2020/Rozen-Maiden-DuellWalzer-before_resize.png" width="320" height="224" alt="Rozen Maiden DuellWalzer before resize" />](/images/stories/frontend/progress_reports/q2-2020/Rozen-Maiden-DuellWalzer-before.png)
-[<img src="/images/stories/frontend/progress_reports/q2-2020/Rozen-Maiden-DuellWalzer-after_resize.png" width="320" height="224" alt="Rozen Maiden DuellWalzer after" />](/images/stories/frontend/progress_reports/q2-2020/Rozen-Maiden-DuellWalzer-after.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/Rozen-Maiden-DuellWalzer-before_resize.webp" width="320" height="224" alt="Rozen Maiden DuellWalzer before resize" />](/images/stories/frontend/progress_reports/q2-2020/Rozen-Maiden-DuellWalzer-before.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/Rozen-Maiden-DuellWalzer-after_resize.webp" width="320" height="224" alt="Rozen Maiden DuellWalzer after" />](/images/stories/frontend/progress_reports/q2-2020/Rozen-Maiden-DuellWalzer-after.png)
 
 Tomb Raider Angel of Darkness:
 
-[<img src="/images/stories/frontend/progress_reports/q2-2020/Tomb-Raider-Angel-of-Darkness-before_resize.png" width="320" height="320" alt="Tomb Raider Angel of Darkness before" />](/images/stories/frontend/progress_reports/q2-2020/Tomb-Raider-Angel-of-Darkness-before.png)
-[<img src="/images/stories/frontend/progress_reports/q2-2020/Tomb-Raider-Angel-of-Darkness-after_resize.png" width="320" height="320" alt="Tomb Raider Angel of Darkness after" />](/images/stories/frontend/progress_reports/q2-2020/Tomb-Raider-Angel-of-Darkness-after.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/Tomb-Raider-Angel-of-Darkness-before_resize.webp" width="320" height="320" alt="Tomb Raider Angel of Darkness before" />](/images/stories/frontend/progress_reports/q2-2020/Tomb-Raider-Angel-of-Darkness-before.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/Tomb-Raider-Angel-of-Darkness-after_resize.webp" width="320" height="320" alt="Tomb Raider Angel of Darkness after" />](/images/stories/frontend/progress_reports/q2-2020/Tomb-Raider-Angel-of-Darkness-after.png)
 
 Alone in the Dark:
 
-[<img src="/images/stories/frontend/progress_reports/q2-2020/Alone-in-the-Dark-before_resize.png" width="320" height="320" alt="Alone in the Dark before" />](/images/stories/frontend/progress_reports/q2-2020/Alone-in-the-Dark-before.png)
-[<img src="/images/stories/frontend/progress_reports/q2-2020/Alone-in-the-Dark-after_resize.png" width="320" height="320" alt="Alone in the Dark after" />](/images/stories/frontend/progress_reports/q2-2020/Alone-in-the-Dark-after.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/Alone-in-the-Dark-before_resize.webp" width="320" height="320" alt="Alone in the Dark before" />](/images/stories/frontend/progress_reports/q2-2020/Alone-in-the-Dark-before.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/Alone-in-the-Dark-after_resize.webp" width="320" height="320" alt="Alone in the Dark after" />](/images/stories/frontend/progress_reports/q2-2020/Alone-in-the-Dark-after.png)
 
 <span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3436](https://github.com/PCSX2/pcsx2/pull/3436) (HW) Improved
@@ -78,13 +78,13 @@ Everybody loves image comparisons right?
 
 Onimusha 3:
 
-[<img src="/images/stories/frontend/progress_reports/q2-2020/Onimusha-3-before_resize.png" width="307" height="269" alt="Onimusha 3 before" />](/images/stories/frontend/progress_reports/q2-2020/Onimusha-3-before.png)
-[<img src="/images/stories/frontend/progress_reports/q2-2020/Onimusha-3-after_resize.png" width="307" height="269" alt="Onimusha 3 after" />](/images/stories/frontend/progress_reports/q2-2020/Onimusha-3-after.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/Onimusha-3-before_resize.webp" width="307" height="269" alt="Onimusha 3 before" />](/images/stories/frontend/progress_reports/q2-2020/Onimusha-3-before.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/Onimusha-3-after_resize.webp" width="307" height="269" alt="Onimusha 3 after" />](/images/stories/frontend/progress_reports/q2-2020/Onimusha-3-after.png)
 
 Devil May Cry 3:
 
-[<img src="/images/stories/frontend/progress_reports/q2-2020/DMC3-before_resize.png" width="307" height="269" alt="DMC3 before" />](/images/stories/frontend/progress_reports/q2-2020/DMC3-before.png)
-[<img src="/images/stories/frontend/progress_reports/q2-2020/DMC3-after_resize.png" width="307" height="269" alt="DMC3 after" />](/images/stories/frontend/progress_reports/q2-2020/DMC3-after.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/DMC3-before_resize.webp" width="307" height="269" alt="DMC3 before" />](/images/stories/frontend/progress_reports/q2-2020/DMC3-before.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/DMC3-after_resize.webp" width="307" height="269" alt="DMC3 after" />](/images/stories/frontend/progress_reports/q2-2020/DMC3-after.png)
 
 <span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3131](https://github.com/PCSX2/pcsx2/pull/3131) (HW) Invalidate
@@ -95,8 +95,8 @@ Improve texture cache Source objects invalidation logic taking into
 account overlapping with current draw.  
 Fixes eyes rendering for the Major in Jak 1.
 
-[<img src="/images/stories/frontend/progress_reports/q2-2020/Jak-before_resize.png" width="307" height="269" alt="Jak before" />](/images/stories/frontend/progress_reports/q2-2020/Jak-before.png)
-[<img src="/images/stories/frontend/progress_reports/q2-2020/Jak-after_resize.png" width="307" height="269" alt="Jak after" />](/images/stories/frontend/progress_reports/q2-2020/Jak-after.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/Jak-before_resize.webp" width="307" height="269" alt="Jak before" />](/images/stories/frontend/progress_reports/q2-2020/Jak-before.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/Jak-after_resize.webp" width="307" height="269" alt="Jak after" />](/images/stories/frontend/progress_reports/q2-2020/Jak-after.png)
 
 <span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3075](https://github.com/PCSX2/pcsx2/pull/3075) (HW) Extend
@@ -120,13 +120,13 @@ auto detection.
 
 Budokai Tenkaichi 2:
 
-[<img src="/images/stories/frontend/progress_reports/q2-2020/DBZBT2-before_resize.png" width="307" height="307" alt="DBZBT2 before" />](/images/stories/frontend/progress_reports/q2-2020/DBZBT2-before.png)
-[<img src="/images/stories/frontend/progress_reports/q2-2020/DBZBT2-after_resize.png" width="307" height="307" alt="DBZBT2 after" />](/images/stories/frontend/progress_reports/q2-2020/DBZBT2-after.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/DBZBT2-before_resize.webp" width="307" height="307" alt="DBZBT2 before" />](/images/stories/frontend/progress_reports/q2-2020/DBZBT2-before.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/DBZBT2-after_resize.webp" width="307" height="307" alt="DBZBT2 after" />](/images/stories/frontend/progress_reports/q2-2020/DBZBT2-after.png)
 
 Budokai Tenkaichi 3:
 
-[<img src="/images/stories/frontend/progress_reports/q2-2020/DBZBT3-before_resize.png" width="307" height="269" alt="DBZBT3 before" />](/images/stories/frontend/progress_reports/q2-2020/DBZBT3-before.png)
-[<img src="/images/stories/frontend/progress_reports/q2-2020/DBZBT3-after_resize.png" width="307" height="269" alt="DBZBT3 after" />](/images/stories/frontend/progress_reports/q2-2020/DBZBT3-after.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/DBZBT3-before_resize.webp" width="307" height="269" alt="DBZBT3 before" />](/images/stories/frontend/progress_reports/q2-2020/DBZBT3-before.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/DBZBT3-after_resize.webp" width="307" height="269" alt="DBZBT3 after" />](/images/stories/frontend/progress_reports/q2-2020/DBZBT3-after.png)
 
 <span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3027](https://github.com/PCSX2/pcsx2/pull/3027) (HW) Add dithering
@@ -141,8 +141,8 @@ do so with the Page Down key which is temporary or edit the GSdx ini
 file which is permanent. There are 3 levels. Off, Scaled and Unscaled. A
 lot of games use dithering so here is an example below from Castlevania.
 
-[<img src="/images/stories/frontend/progress_reports/q2-2020/castlevania-before_resize.png" width="307" height="269" alt="castlevania before" />](/images/stories/frontend/progress_reports/q2-2020/castlevania-before.png)
-[<img src="/images/stories/frontend/progress_reports/q2-2020/castlevania-after_resize.png" width="307" height="269" alt="castlevania after" />](/images/stories/frontend/progress_reports/q2-2020/castlevania-after.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/castlevania-before_resize.webp" width="307" height="269" alt="castlevania before" />](/images/stories/frontend/progress_reports/q2-2020/castlevania-before.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/castlevania-after_resize.webp" width="307" height="269" alt="castlevania after" />](/images/stories/frontend/progress_reports/q2-2020/castlevania-after.png)
 
 <span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3264](https://github.com/PCSX2/pcsx2/pull/3264) (HW) Color clip
@@ -162,8 +162,8 @@ blending improvements. By
     buffer masking instead of accumulation mode. Fixes shadows in
     Superman Shadows of Apokolips, see image comparison below.
 
-[<img src="/images/stories/frontend/progress_reports/q2-2020/Superman-Shadows-of-Apokolips-before_resize.png" width="320" height="224" alt="Superman Shadows of Apokolips before" />](/images/stories/frontend/progress_reports/q2-2020/Superman-Shadows-of-Apokolips-before.png)
-[<img src="/images/stories/frontend/progress_reports/q2-2020/Superman-Shadows-of-Apokolips-after_resize.png" width="320" height="224" alt="Superman Shadows of Apokolips after" />](/images/stories/frontend/progress_reports/q2-2020/Superman-Shadows-of-Apokolips-after.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/Superman-Shadows-of-Apokolips-before_resize.webp" width="320" height="224" alt="Superman Shadows of Apokolips before" />](/images/stories/frontend/progress_reports/q2-2020/Superman-Shadows-of-Apokolips-before.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/Superman-Shadows-of-Apokolips-after_resize.webp" width="320" height="224" alt="Superman Shadows of Apokolips after" />](/images/stories/frontend/progress_reports/q2-2020/Superman-Shadows-of-Apokolips-after.png)
 
 <span style="color: #00ccff;"> \[Misc Enhancements\] </span> **Other
 important GSdx changes:**
@@ -194,8 +194,8 @@ important GSdx changes:**
     [PSI-Rockin](https://github.com/PSI-Rockin) , backport from
     Dobiestation.
 
-[<img src="/images/stories/frontend/progress_reports/q2-2020/Ridge-Racer-V-before_resize.png" width="320" height="239" alt="Ridge Racer V before" />](/images/stories/frontend/progress_reports/q2-2020/Ridge-Racer-V-before.png)
-[<img src="/images/stories/frontend/progress_reports/q2-2020/Ridge-Racer-V-after_resize.png" width="320" height="239" alt="Ridge Racer V after" />](/images/stories/frontend/progress_reports/q2-2020/Ridge-Racer-V-after.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/Ridge-Racer-V-before_resize.webp" width="320" height="239" alt="Ridge Racer V before" />](/images/stories/frontend/progress_reports/q2-2020/Ridge-Racer-V-before.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/Ridge-Racer-V-after_resize.webp" width="320" height="239" alt="Ridge Racer V after" />](/images/stories/frontend/progress_reports/q2-2020/Ridge-Racer-V-after.png)
 
 -   [\#3279](https://github.com/PCSX2/pcsx2/pull/3279) (HW/SW) Mask A+D
     addresses. Fixes network configuration wizard display issues on some
@@ -203,8 +203,8 @@ important GSdx changes:**
     [refraction](https://github.com/refractionpcsx2) , backport from
     Dobiestation.
 
-[<img src="/images/stories/frontend/progress_reports/q2-2020/network-config-before_resize.png" width="320" height="240" alt="network config before" />](/images/stories/frontend/progress_reports/q2-2020/network-config-before.png)
-[<img src="/images/stories/frontend/progress_reports/q2-2020/network-config-after_resize.png" width="320" height="240" alt="network config after" />](/images/stories/frontend/progress_reports/q2-2020/network-config-after.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/network-config-before_resize.webp" width="320" height="240" alt="network config before" />](/images/stories/frontend/progress_reports/q2-2020/network-config-before.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/network-config-after_resize.webp" width="320" height="240" alt="network config after" />](/images/stories/frontend/progress_reports/q2-2020/network-config-after.png)
 
 -   [\#3440](https://github.com/PCSX2/pcsx2/pull/3440) (HW) Alpha
     Stencil hack has been now completely removed from the Direct3D10/11
@@ -228,8 +228,8 @@ important GSdx changes:**
     <img src="https://pcsx2.net/images/stories/frontend/smilies/tongue.gif" class="yvSmiley" width="20" height="20" alt="Razz" />
     ).
 
-[<img src="/images/stories/frontend/progress_reports/q2-2020/Hisshou-Pachinko-PachiSlot-Kouryaku-Series-Vol-10-before_resize.png" width="320" height="224" alt="Hisshou Pachinko PachiSlot Kouryaku Series Vol 10 before" />](/images/stories/frontend/progress_reports/q2-2020/Hisshou-Pachinko-PachiSlot-Kouryaku-Series-Vol-10-before.png)
-[<img src="/images/stories/frontend/progress_reports/q2-2020/Hisshou-Pachinko-PachiSlot-Kouryaku-Series-Vol-10-after_resize.png" width="320" height="224" alt="Hisshou Pachinko PachiSlot Kouryaku Series Vol 10 after" />](/images/stories/frontend/progress_reports/q2-2020/Hisshou-Pachinko-PachiSlot-Kouryaku-Series-Vol-10-after.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/Hisshou-Pachinko-PachiSlot-Kouryaku-Series-Vol-10-before_resize.webp" width="320" height="224" alt="Hisshou Pachinko PachiSlot Kouryaku Series Vol 10 before" />](/images/stories/frontend/progress_reports/q2-2020/Hisshou-Pachinko-PachiSlot-Kouryaku-Series-Vol-10-before.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/Hisshou-Pachinko-PachiSlot-Kouryaku-Series-Vol-10-after_resize.webp" width="320" height="224" alt="Hisshou Pachinko PachiSlot Kouryaku Series Vol 10 after" />](/images/stories/frontend/progress_reports/q2-2020/Hisshou-Pachinko-PachiSlot-Kouryaku-Series-Vol-10-after.png)
 
 -   Adds SSE2 implementation of RGB32-&gt;RGB16 conversion (speed on the
     opening FMV in Hisshou Pachinko PachiSlot Kouryaku Series Vol 10
@@ -240,8 +240,8 @@ important GSdx changes:**
 
 -   Implements VQ (see images from Klonoa 2).
 
-[<img src="/images/stories/frontend/progress_reports/q2-2020/klonoa-2-before_resize.png" width="320" height="256" alt="klonoa 2 before" />](/images/stories/frontend/progress_reports/q2-2020/klonoa-2-before.png)
-[<img src="/images/stories/frontend/progress_reports/q2-2020/klonoa-2-after_resize.png" width="320" height="256" alt="klonoa 2 after" />](/images/stories/frontend/progress_reports/q2-2020/klonoa-2-after.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/klonoa-2-before_resize.webp" width="320" height="256" alt="klonoa 2 before" />](/images/stories/frontend/progress_reports/q2-2020/klonoa-2-before.png)
+[<img src="/images/stories/frontend/progress_reports/q2-2020/klonoa-2-after_resize.webp" width="320" height="256" alt="klonoa 2 after" />](/images/stories/frontend/progress_reports/q2-2020/klonoa-2-after.png)
 
 -   Removes GameDB patches for Klonoa 2, and revert workaround for
     Klonoa 2 crashes which are no longer needed.

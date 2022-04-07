@@ -13,3 +13,6 @@ tasks:
   cleanup-unused-images:
     cmds:
       - python ./scripts/cleanup-unused-assets.py
+  convert-pngs:
+    cmds:
+      - python ./scripts/convert-pngs.py

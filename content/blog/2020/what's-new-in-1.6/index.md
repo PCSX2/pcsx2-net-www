@@ -28,7 +28,7 @@ though do note that the PSX backward compatibility is still in its
 infant state and needs lots of work to be done before it reaches a
 perfect state.
 
-{{< img cols="4" src="./img/teaser_s.png">}}
+{{< img cols="4" src="./img/teaser_s.webp">}}
 
 - **Dropship United Peace Force** went from not being able to get into main
 menu to being playable!
@@ -41,7 +41,7 @@ game would crash. Never underestimate PS2 developers. If you think they
 won't do something that's forbidden in the manual, you're dead
 wrong.
 
-{{< img cols="4" src="./img/dropship-united-peace-force-s.png">}}
+{{< img cols="4" src="./img/dropship-united-peace-force-s.webp">}}
 
 - All of the **World Rally championship**
 (with the exception of WRC 4 which needs a patch - [get it
@@ -115,9 +115,9 @@ resolutions. This was fixed by using the height of the output circuit as
 a base for the framebuffer height. This fixed upscaling issues with lots
 of games which didn't have adequate buffer size in 1.4 version.
 
-{{< img-cmp-slider before="./img/CNK-before_s.png" after="./img/CNK-after_s.png">}}
+{{< img-cmp-slider before="./img/CNK-before_s.webp" after="./img/CNK-after_s.webp">}}
 
-{{< img-cmp-slider before="./img/RBR-before_s.png" after="./img/RBR-after_s.png">}}
+{{< img-cmp-slider before="./img/RBR-before_s.webp" after="./img/RBR-after_s.webp">}}
 
 - Addition of Feedback write support
 
@@ -142,7 +142,7 @@ displayed. The display rectangles' horizontal position is now taken
 into account, which fixes the image overlap issues and makes split
 screen mode in Time Crisis 2 and 3 playable.
 
-{{< img-cmp-slider before="./img/timecrisis-before.png" after="./img/timecrisis-after.png">}}
+{{< img-cmp-slider before="./img/timecrisis-before.webp" after="./img/timecrisis-after.webp">}}
 
 - Support double scan mode
 
@@ -151,9 +151,9 @@ display mode registers, however there was a bug which led the halving to
 be done twice unintentionally, this behavior was fixed to get proper
 output back on games like Gitaroo man.
 
-{{< img-cmp before="./img/gitarooman-broken-s.png" after="./img/gitarooman-fixed-s.png">}}
+{{< img-cmp before="./img/gitarooman-broken-s.webp" after="./img/gitarooman-fixed-s.webp">}}
 
-{{< img-cmp before="./img/height-broken-s.png" after="./img/height-fixed-s.png">}}
+{{< img-cmp before="./img/height-broken-s.webp" after="./img/height-fixed-s.webp">}}
 
 - GSdx: Hardware mipmapping support
 
@@ -183,7 +183,7 @@ Improve texture search/invalidation in render target by correctly
 matching vertex offset draws with buffer offset reads in the texture
 cache, the eyes are now properly rendered in hardware mode.
 
-{{< img-cmp-slider before="./img/gsdx-3018-before-s.png" after="./img/gsdx-3018-after.png">}}
+{{< img-cmp-slider before="./img/gsdx-3018-before-s.webp" after="./img/gsdx-3018-after.webp">}}
 
 ## Core bug fixes
 
@@ -198,7 +198,7 @@ modes were modified to adapt to each and every different video mode,
 this change led to fixing texture corruption and irregular timings in
 some PSX and PS2 games.
 
-{{< img cols="6" src="./img/hblank-fix-s.png">}}
+{{< img cols="6" src="./img/hblank-fix-s.webp">}}
 
 
 - IPU: Improved emulation of the PACK command
@@ -207,7 +207,7 @@ The pack command was modified to convert from RGB32 to RGB16/INDX4
 instead of RAW8 to RGB16/INDX4. This change fixed FMV issues in
 "Hisshou Pachinko PachiSlot Kouryaku" series of games.
 
-{{< img-cmp-slider before="./img/core-3119-before.png" after="./img/core-3119-after.png">}}
+{{< img-cmp-slider before="./img/core-3119-before.webp" after="./img/core-3119-after.webp">}}
 
 - VIF: Timing fix for MSCALF, MSCNT instructions
 
@@ -222,7 +222,7 @@ resolving the issue.
 
 {{< img-cmp-slider before="./img/Downhil-Before_s.jpg" after="./img/Downhil-after_s.jpg">}}
 
-{{< img-cmp-slider before="./img/twisted-metal-before_s.png" after="./img/twisted-metal-after_s.png">}}
+{{< img-cmp-slider before="./img/twisted-metal-before_s.webp" after="./img/twisted-metal-after_s.webp">}}
 
 - VU0: Fix CFC2 transfers from TPC register
 
@@ -231,4 +231,4 @@ when compared to the PS2 hardware on our tests, this behavior was
 rectified to bring you no longer levitating skirts in Street Fighter EX
 3.
 
-{{< img-cmp-slider before="./img/sfex-before-s.png" after="./img/sfex-after-s.png">}}
+{{< img-cmp-slider before="./img/sfex-before-s.webp" after="./img/sfex-after-s.webp">}}
