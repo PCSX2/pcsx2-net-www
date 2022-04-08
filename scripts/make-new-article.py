@@ -13,13 +13,16 @@ draft = "false"
 summary = input("Article Summary: ")
 authors = input("Authors (comma sep. // or leave blank): ")
 aliasLinks = input("Alias Links (comma sep.): ")
+dateInput = input("Date (ISO timestamp, or leave blank): ")
+if dateInput != "":
+  date = dateInput
 
 path = "./content/blog/{}".format(slug)
 pathFile = "{}/index.md".format(path)
 os.makedirs(path, exist_ok=True)
 with open(pathFile, 'a') as f:
   f.write('---\n')
-  f.write("title: \"{}\"\n".format(title.title()))
+  f.write("title: \"{}\"\n".format(title.title().replace("Pcsx2", "PCSX2")))
   f.write("date: {}\n".format(date))
   f.write("summary: \"{}\"\n".format(summary))
   f.write("draft: {}\n".format(draft))
