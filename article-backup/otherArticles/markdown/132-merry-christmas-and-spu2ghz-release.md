@@ -1,28 +1,28 @@
 ::: {.single-article}
 ::: {.item-page .clearfix}
-## [Merry Christmas and SPU2ghz release\...](/132-merry-christmas-and-spu2ghz-release.html) {#merry-christmas-and-spu2ghz-release... .contentheading}
+## [Merry Christmas and SPU2ghz release...](/132-merry-christmas-and-spu2ghz-release.html) {#merry-christmas-and-spu2ghz-release... .contentheading}
 
 ::: {style="text-align:center;"}
 :::
 
-This is gigaherz here, writing my first ever news post.\
-\
+This is gigaherz here, writing my first ever news post.
+
 After more than 4 years working on it in my spare time, and while it
-still doesn\'t work as well as peops spu2 or zerospu2, the plugin has
-finally come to be acceptable enough for public testing.\
-\
+still doesn't work as well as peops spu2 or zerospu2, the plugin has
+finally come to be acceptable enough for public testing.
+
 I have to note the plugin has many known issues in specific games, like
 looping, robotized or jumpy audio, but in others it does its job more
 than fine and in a few it even manages to get better results than its
-competitors.\
-\
+competitors.
+
 For now, you can get binary builds for win32 in
-[here](http://forums.pcsx2.net/thread-2352.html) .\
-\
-On a side note, it\'s Christmas day already, so to everyone who chooses
+[here](http://forums.pcsx2.net/thread-2352.html) .
+
+On a side note, it's Christmas day already, so to everyone who chooses
 to celebrate it, me and the rest of the PCSX2 team wish you all a Merry
 Christmas and I hope you all have been given all what you asked for (or
-what you deserve, whichever is better), and for those who don\'t, I
+what you deserve, whichever is better), and for those who don't, I
 still wish you a good day!
 :::
 :::

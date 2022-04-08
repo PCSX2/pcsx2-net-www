@@ -6,19 +6,17 @@
 :::
 
 After popular demand, I decided to create a video for everyone who
-prefers following a configuration step by step instead of reading one.\
-Also, since there are tons of \'best\' configuration videos for PCSX2
+prefers following a configuration step by step instead of reading one.
+Also, since there are tons of 'best' configuration videos for PCSX2
 floating around the web, it should be better to have an official one
 which we will support
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}\
-\
+😊
+
 If there is enough demand, I might create additional videos for speed
 configurations or high end/quality configurations. **Set quality to
 1080p** and enjoy!
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}\
-\
+😊
+
 
 [
 [![](https://pcsx2.net//plugins/system/videobox/cache/ea9e3235e31d4d7fbe86f9039a16c54b.jpg){width="356"

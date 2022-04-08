@@ -8,24 +8,24 @@
 After many long years of development, debugging and testing effort, we
 have reached a point where PCSX2 runs a great majority of the games, and
 there are no important issues that could possibly be fixed without
-requiring major modifications to the emulator.\
-\
+requiring major modifications to the emulator.
+
 Because of that (and because we already felt it was overdue), we decided
 to stop thinking of new things to do for a bit, polish the stability,
 compatibility and existing features and release the result as the first
-major version of PCSX2!\
-\
+major version of PCSX2!
+
 There have been tons of changes since the last release, including
-improvements to Jake Stine\'s wxWidgets GUI overhaul, cottonvibes\' new
+improvements to Jake Stine's wxWidgets GUI overhaul, cottonvibes' new
 multithreaded VU core and improvements on the primary plugins.
 
 This release is a big milestone that marks the way to new features and
-improvements!\
-\
-Here is an excerpt of the latest changes:\
-\
-**Windows**\
-\
+improvements!
+
+Here is an excerpt of the latest changes:
+
+**Windows**
+
 **Core:**
 
 -   Video timing adjustments
@@ -44,7 +44,7 @@ Here is an excerpt of the latest changes:\
 -   Added Finnish, Malaysian, Korean, French, Indonesian, Italian,
     Japanese and Polish translations
 
-\
+
 **SPU2-X:**
 
 -   Configurable output volume
@@ -53,7 +53,7 @@ Here is an excerpt of the latest changes:\
 -   Improved time stretcher
 -   Reverse phase audio quality improved
 
-\
+
 **GSdx:**
 
 -   Fixed RGB mode movie recording
@@ -62,25 +62,25 @@ Here is an excerpt of the latest changes:\
 -   Better multithreading
 -   Arc the Lad bad fog fix
 -   Fixed shadows in software renderer
--   Implementation of GSdx \"Shadeboost\" project (saturation,
+-   Implementation of GSdx "Shadeboost" project (saturation,
     brightness, contrast settings)
 -   User configurable hacks in the GUI
 -   Fixed flickering in many FMVs
--   Implementation of GSdx \"Cutie\" project (various extra CRC hacks)
+-   Implementation of GSdx "Cutie" project (various extra CRC hacks)
 
-\
+
 **Lilypad:**
 
 -   Pad state getting stuck with savestates bug fixed
 
-\
+
 **USBqemu:**
 
 -   Revamped it a bit
 
-\
-**Linux:**\
-\
+
+**Linux:**
+
 **OnePad changes:**
 
 -   New dialog configuration panel
@@ -88,12 +88,12 @@ Here is an excerpt of the latest changes:\
 -   Added support for more controllers
 -   Added support for pressure-sensitive buttons
 
-\
+
 **GSdx:**
 
 -   GSdx ported for Linux! Based on OpenGL 3.3 with some 4.x hardware
     independent extensions. Requires OpenGL 4.2 drivers and is still in
-    experimental stages. Don\'t expect the hardware renderer to run
+    experimental stages. Don't expect the hardware renderer to run
     properly, but the Software renderer should be fine.
 
 ```{=html}
@@ -101,31 +101,30 @@ Here is an excerpt of the latest changes:\
 ```
 -   Added support for configuration and keyboard shortcuts from PCSX2
 
-\
+
 **ZZogl:**
 
 -   Added support for configuration and keyboard shortcuts from PCSX2
 -   Added a GLSL backend to replace CG. Like GSdx, it requires OpenGL
     4.2 drivers. Only available with PCSX2 self-compilation.
 
-\
+
 **PCSX2 GUI:**
 
 -   Added thread timing information to see the CPU usage in the status
     bar
 -   Fix multiple frame/box letters sizing.
 
-\
-\
+
+
 In addition to these changes we found a fixed several bugs that could
-lead to crashes in various situations.\
+lead to crashes in various situations.
 The PCSX2 executable has been built and tested with PGO optimizations
-enabled so it will be an extra 10% faster over regular SVN builds.\
-\
+enabled so it will be an extra 10% faster over regular SVN builds.
+
 We hope you enjoy this first major version release and have fun playing
 your games on it!
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+😊
 
 [ [](/download.html "Head to the download section!") [Share on reddit
 here!](http://www.reddit.com/r/gaming/comments/xmvhm/ps2_emulator_pcsx2_version_10_out/)

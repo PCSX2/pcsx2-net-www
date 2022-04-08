@@ -5,11 +5,11 @@
 ::: {style="text-align:center;"}
 :::
 
-I\'m proud to announce our first 60 FPS youtube video (and possibly the
+I'm proud to announce our first 60 FPS youtube video (and possibly the
 first 60 FPS Kingdom Hearts 2 video on the internet), after 60 FPS
 videos got enabled a couple of days ago. The gameplay has been recorded
 with the 60 FPS patch from our forum members and at 6x native
-resolution. It\'s not as smooth as the original file, but still you can
+resolution. It's not as smooth as the original file, but still you can
 finally see how lovely it looks on PCSX2 without frame dropping! **All
 our youtube videos from now on will be 50/60 FPS!**
 
@@ -19,30 +19,28 @@ our youtube videos from now on will be 50/60 FPS!**
 [![](https://pcsx2.net//plugins/system/videobox/cache/7bd382ff50a7ea8a97e2e5469518ce31.jpg){width="360"
 height="270"} [
 ]{.vb_video_title}](https://www.youtube.com/embed/DdDnRSp4UIc?wmode=transparent&rel=0&fs=1&autoplay=1){#_vbVideo_3032070658}
-]{.vb_video_cont .vb_box style=""}\
+]{.vb_video_cont .vb_box style=""}
 **
 
-**\
-** The past weeks I\'ve been working on upgrading our website to the
+**
+** The past weeks I've been working on upgrading our website to the
 latest version of Joomla and on the way decided to also redesign it as I
-didn\'t like how it ended up last time. I\'ve already used many of the
-ideas posted in the last redesign thread on our forum, I\'ve fixed a few
+didn't like how it ended up last time. I've already used many of the
+ideas posted in the last redesign thread on our forum, I've fixed a few
 stuff that were buggy, reduced both CSS and javascript and finally got
 themes working
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"} It\'s still pretty bad code wise but I\'ve done
+😊 It's still pretty bad code wise but I've done
 my best to improve it and will keep at it.
 
-I\'m not sure when it will be done, but it might be synchronized with a
+I'm not sure when it will be done, but it might be synchronized with a
 server wide upgrade of our linux OS as well, to reduce downtime.
 
 After the main page is done, I will move on to updating mybb to the
-latest 1.8 version, although I\'m still waiting for the software to be
+latest 1.8 version, although I'm still waiting for the software to be
 mature. 1.8 was extremely buggy, 1.8.1 is better but still not good
 enough so I hope with the next 1.8.2 release I will be able to start
 working on it (and a new custom theme it seems
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"} )
+😛 )
 
 Edit: Uploaded new video, this should be with the 60 FPS patch on, sorry
 guys

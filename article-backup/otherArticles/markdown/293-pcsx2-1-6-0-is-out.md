@@ -40,7 +40,7 @@ GSdx-HW:Sprite Hack has been completely removed as it is no longer
 needed and is replaced by far better alternatives.
 
 GSdx-FX:The TFX shader on Direct3D10/11 has been rewritten to match
-OpenGL code and its\' accuracy for certain effects.
+OpenGL code and its' accuracy for certain effects.
 
 GSdx-D3D:Blend no Barrier support has been ported from OpenGL to
 Direct3D 10/11.
@@ -154,7 +154,7 @@ GSdx-GUI: GUI update to improve usability.
 
 PCSX2-TAS: Input Recording/Playback Functionality (speedrunning tools).
 
-Vector Units: Fix bug in \"Branch in Delay Slot\" Optimization.
+Vector Units: Fix bug in "Branch in Delay Slot" Optimization.
 
 Recompiler: Fix stall in branch delay slot.
 
@@ -167,7 +167,7 @@ PATH3 (Fixes Eragon).
 
 **PCSX2 GUI changelog:**
 
-PCSX2: \"FMV Aspect Ratio Switch/Override\" feature.
+PCSX2: "FMV Aspect Ratio Switch/Override" feature.
 
 PCSX2: Save/Load slot improvements, allow to display slot dates.
 
@@ -218,7 +218,7 @@ Gamedb: Game database has been updated with many new gamefixes included.
 
 **GSdx changelog:**
 
-GSdx-d3d11: Extend \"Preload Frame Data\" support to Direct3D.
+GSdx-d3d11: Extend "Preload Frame Data" support to Direct3D.
 
 GSdx: Add Frame Buffer Conversion option.
 
@@ -232,7 +232,7 @@ PCSX2: Always ask when booting option.
 
 PCSX2: Adaptive Sync support.
 
-PCSX2: Restore \"Defaults\" option to GS Panel.
+PCSX2: Restore "Defaults" option to GS Panel.
 
 PCSX2: Clear ISO list option.
 
@@ -398,7 +398,7 @@ CDVD: Improved ISO layer break detection algorithm.
 
 **Lilypad and Onepad changelog:**
 
-LilyPad: Add Pop\'n Music controller support.
+LilyPad: Add Pop'n Music controller support.
 
 Onepad: GUI redesign.
 

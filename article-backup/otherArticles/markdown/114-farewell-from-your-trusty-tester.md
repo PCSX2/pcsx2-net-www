@@ -3,7 +3,7 @@
 ## [Farewell from your trusty tester.](/114-farewell-from-your-trusty-tester.html) {#farewell-from-your-trusty-tester. .contentheading}
 
 All things must come to an end. And despite my sincerest hopes, my
-participation in this project is no different. It\'s with a heavy heart,
+participation in this project is no different. It's with a heavy heart,
 and with a feeling that some may consider a lack of love (which I assure
 all of you it is not), that I make the decision today to leave PCSX2
 entirely and officially. There is no point in dragging out what must be
@@ -22,10 +22,10 @@ Being involved in a project so high profile is something I will always
 remember. Thanks to all those that have given me support throughout
 these years and to those that still believe in the same things I did
 over half a decade ago. Never give up on the dream to keep the reality
-alive: the PCSX2 team is accomplishing what Sony couldn\'t. Always
+alive: the PCSX2 team is accomplishing what Sony couldn't. Always
 remember the hard work that goes into such a project as this. As always,
-I will keep General Emulation going. Take care to all those I\'ve met
-and those I haven\'t. I love all of you.
+I will keep General Emulation going. Take care to all those I've met
+and those I haven't. I love all of you.
 
 Thanks for the memories. - General Plot
 :::
