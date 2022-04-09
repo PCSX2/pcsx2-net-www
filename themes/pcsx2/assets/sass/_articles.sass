@@ -76,3 +76,25 @@
     border: none
     &:hover
       color: var(--main-bg-color)
+
+.markdown-content
+  h1, h2, h3, h4, h5, h6
+    scroll-margin-top: 10rem
+
+.pagination
+  .page-item
+    margin-right: 0.5em
+    .page-link
+      background-color: var(--primary-color)
+      color: var(--heading-color)
+      &:hover
+        color: var(--main-bg-color)
+    &.active
+      .page-link
+        background-color: var(--tertiary-color)
+        &:hover
+          color: var(--main-bg-color)
+    &.disabled
+      cursor: not-allowed
+      .page-link
+        background-color: var(--secondary-bg-color)

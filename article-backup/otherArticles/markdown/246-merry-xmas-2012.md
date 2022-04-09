@@ -1,29 +1,28 @@
 ::: {.single-article}
 ::: {.item-page .clearfix}
-## [Merry Christmas from the PCSX2 team - What\'s new](/246-merry-xmas-2012.html) {#merry-christmas-from-the-pcsx2-team---whats-new .contentheading}
+## [Merry Christmas from the PCSX2 team - What's new](/246-merry-xmas-2012.html) {#merry-christmas-from-the-pcsx2-team---whats-new .contentheading}
 
 ::: {style="text-align:center;"}
 :::
 
-It\'s that time of the year again and since everyone else is off
-drink\...celebrating, I\'m the only one left around to wish all our
+It's that time of the year again and since everyone else is off
+drink...celebrating, I'm the only one left around to wish all our
 visitors and users a Merry Christmas for 2012
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}\
-\
+😊
+
 As you all can see development has been sluggish after the huge 1.0.0
 release (as it always happens after releases) but there are still new
 stuff to look out for. So since the release of 1.0.0 here is a breakdown
 of most of the changes on PCSX2 itself and its plugins:
 
 -   Various SPU2-X fixes for crashes/hanging in some games
--   Snowblind engine fix (Baldur\'s Gate etc) which also fixed Mortal
-    Kombat Shaolin Monks. Keep in mind Baldur\'s Gate games only work in
+-   Snowblind engine fix (Baldur's Gate etc) which also fixed Mortal
+    Kombat Shaolin Monks. Keep in mind Baldur's Gate games only work in
     software mode for now and with various bugs still (we are getting
-    there\...)
+    there...)
 -   Adapter selector in GSdx so you can select your dedicated graphics
     card instead of that pesky on board graphics chip
--   Videos finally working for Katamari Damacy, Baldur\'s Gate, Tales of
+-   Videos finally working for Katamari Damacy, Baldur's Gate, Tales of
     Destiny 2, Suikoden Tactics, Midnight Club,Guilty Gear XX Accent
     Core Plus, Ace Combat games and probably many more
 -   Various fixes here and there
@@ -31,10 +30,9 @@ of most of the changes on PCSX2 itself and its plugins:
 The website also got its share of fixes, with various layout fixes, a
 much nicer looking video gallery under Demo, random screenshot on index
 page really random (
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"} ) and more functionality on the compatibility
+😛 ) and more functionality on the compatibility
 list. I am planning on adding some very handy features to it soon, which
-are still under development but I\'m sure most will appreciate them!
+are still under development but I'm sure most will appreciate them!
 
 Our community has also been very active, with many members coding tools
 and patches for PCSX2 which are worth a mention:
@@ -67,14 +65,12 @@ and patches for PCSX2 which are worth a mention:
 Finally, our [Youtube channel](http://www.youtube.com/user/PCSX2team)
 has already exceeded the 1,000,000 views mark! Visit to watch various
 games running on PCSX2 in 1080p quality
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+😊
 
-\
-That\'s it for now, keep in touch for more news (I promise we\'ll post
+
+That's it for now, keep in touch for more news (I promise we'll post
 updates more regularly from now on
-![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-width="20" height="20"} ) and have a great time with family and friends
+😛 ) and have a great time with family and friends
 (and your PC!)
 :::
 :::

@@ -7,18 +7,18 @@
 
 A lot is going on at the moment, behind the scenes - quietly in dark
 dank corners of the world, zerofrog barely ever blinking is re-writing
-the eeREC and vuREC\...\
-\
+the eeREC and vuREC...
+
 Whilst this incredibly laborious process continues, we have something
-for you to all enjoy!:\
-\
-**Hot Shots Contest!**\
+for you to all enjoy!:
+
+**Hot Shots Contest!**
 Submit the very finest screenshot you can produce via the **current**
 0.9 release of **PCSX2** , whether it be some spectacular vista of a 3D
 landscape, you defeating the end boss of a game, pulling off a perfect
-combo, or simply the funniest glitch you\'ve found, we want it and we
-want to be amazed!\
-\
+combo, or simply the funniest glitch you've found, we want it and we
+want to be amazed!
+
 The 1st, **to** 5th place entries will get their shot and name
 immortalized on the PCSX2 website, but not only that, the overall winner
 will get a **Universal PS2 Controller Adapter** Provided by the
@@ -31,7 +31,7 @@ fantastic guys over at **SpelKontroll**
 -   Is compatible with PS/PS2 dance mat which can be converted to use on
     XBOX or GC consoles.
 
-**How to Enter**\
+**How to Enter**
 You must be a member of either [EmuTalk](http://www.emutalk.net) or
 [Emuforums](http://forums.ngemu.com/) (Both are free to register at),
 and post your entries in the official threads for this contest:
@@ -60,10 +60,10 @@ images will be chosen, and posted on the forums, for everyone to vote
 for. The **5** most voted for will get their image and name on the site,
 and the **1st** place entry will be awarded the adapter! Please be
 around during this time as a judge will contact you to arrange delivery
-of the adapter!\
-\
-Good luck to everyone!\
-\
+of the adapter!
+
+Good luck to everyone!
+
 Visit **SpelKontroll** for great deals on adapters, PSPs and other games
 related material!
 :::

@@ -8,13 +8,12 @@
 After almost 3 months of under cover preparation, I present you the new
 PCSX2 homepage! The last PCSX2.net redesign was done 7 years ago by
 CKemu and Falcon4ever and now it is my turn to update it
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"}
+😊
 
 The new website is based on the latest Joomla! platform with a custom
 modified theme for PCSX2, and is no longer bound to our forum. It uses
 PHP, a new database for the compatibility list and jQuery for various
-new features. Here\'s a short overview:
+new features. Here's a short overview:
 
 # **Design:**
 
@@ -49,13 +48,13 @@ new features. Here\'s a short overview:
 ```
 -   **Latest forum threads, youtube videos and SVN revisions,
     automatically updated via RSS every 3 minutes** , for the most up to
-    date overview of what\'s new with PCSX2.
+    date overview of what's new with PCSX2.
 
 ```{=html}
 <!-- -->
 ```
 -   **Compatibility list redesigned from scratch** . New list look to
-    easily find what you\'re looking for, more info like last updated
+    easily find what you're looking for, more info like last updated
     and tester who updated and screenshots (not complete yet).
     Pagination is done via jQuery for faster and easier navigation.
     Added counters for each status and a user configured games per page,
@@ -71,8 +70,8 @@ new features. Here\'s a short overview:
     clearer navigation. They all have detailed descriptions, file size,
     date published and more info. Almost every plugin released for PCSX2
     can be found in the windows plugin section, including Dev9gigarazi,
-    Nuvee and more.\
-    \
+    Nuvee and more.
+    
     After endless digging on the internet since 2002 when PCSX2 had its
     first public release, the archive section was completed. **There you
     will find ALL PCSX2 versions ever released, from** **v0.026 up to
@@ -91,8 +90,7 @@ new features. Here\'s a short overview:
 -   Share box, so you can like on facebook, +1 on google and share on
     twitter and make PCSX2 known to even more people. You can also share
     news posts after you click on the title
-    ![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-    width="20" height="20"}
+    😊
 
 ```{=html}
 <!-- -->
@@ -126,8 +124,7 @@ new features. Here\'s a short overview:
 <!-- -->
 ```
 -   More stuff I probably forgot
-    ![Razz](https://pcsx2.net/images/stories/frontend/smilies/tongue.gif){.yvSmiley
-    width="20" height="20"}
+    😛
 
 # Code and speed
 
@@ -160,9 +157,8 @@ new features. Here\'s a short overview:
 
 I hope everyone enjoys the website and finds it as exciting as I do,
 even after working on it for so long
-![Smile](https://pcsx2.net/images/stories/frontend/smilies/smile.gif){.yvSmiley
-width="20" height="20"} You can post your feedback or any bugs you find
-in this forum thread (if you flame it you\'re banned! ![Evil or Very
+😊 You can post your feedback or any bugs you find
+in this forum thread (if you flame it you're banned! ![Evil or Very
 Mad](https://pcsx2.net/images/stories/frontend/smilies/evil.gif){.yvSmiley
 width="20" height="20"} ):
 <http://forums.pcsx2.net/Thread-PCSX2-net-revamped>

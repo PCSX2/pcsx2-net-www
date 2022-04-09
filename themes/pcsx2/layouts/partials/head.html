@@ -1,6 +1,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="{{ if .Params.summary }}{{ .Params.summary }}{{ else if .Site.Params.Description }}{{ .Site.Params.Description }}{{ end }}"/>
+  <meta name="author" content="PCSX2">
+  <meta name="copyright" content="PCSX2">
   <!-- OpenGraph Tags -->
   {{ template "_internal/opengraph.html" . }}
   <link rel="shortcut icon" href="/img/favicon.webp" />
@@ -12,10 +15,7 @@
   {{ $sass := resources.Get "sass/main.sass" }}
   {{ $style := $sass | resources.ToCSS }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-  {{ $title := print .Site.Title " | " .Title }}
-  {{ if .IsHome }}
-  {{ $title = print .Site.Title " | A PS2 Emulator" }}
-  {{ end }}
+  {{ $title := print .Site.Title " - " .Title }}
   <title>{{ $title }}</title>
   <link href="/css/vendor/cookieconsent@3.1.1/cookieconsent.min.css" rel="stylesheet" />
 </head>
