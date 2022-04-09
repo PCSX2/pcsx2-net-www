@@ -15,7 +15,7 @@
     "serial": "SLUS-5678",
     "crc": "TEST1234",
     "region": "us",
-    "status": "Playable",
+    "status": "Perfect",
     "last_tested_version": "1.1.0",
     "last_tested_date": "2015-01-03T00:00:00",
     "wiki_link": "https://wiki.pcsx2.net/index.php/Gungriffon_Blaze",
@@ -26,7 +26,7 @@
     "serial": "SLUS-1234",
     "crc": "VERYUNIQUE",
     "region": "us",
-    "status": "Playable",
+    "status": "Nothing",
     "last_tested_version": "1.1.0",
     "last_tested_date": "2015-01-03T00:00:00",
     "wiki_link": "https://wiki.pcsx2.net/index.php/Gungriffon_Blaze",
@@ -37,27 +37,27 @@
     "serial": "SLUS-1234",
     "crc": "TEST1234",
     "region": "us",
-    "status": "Playable",
+    "status": "Intro",
     "last_tested_version": "1.1.0",
     "last_tested_date": "2015-01-03T00:00:00",
-    "wiki_link": "https://wiki.pcsx2.net/index.php/Gungriffon_Blaze"
+    "wiki_link": "https://wiki.pcsx2.net/test"
   },
   {
     "title": "Only Forum Link",
     "serial": "SLUS-1234",
     "crc": "TEST1234",
     "region": "us",
-    "status": "Playable",
+    "status": "Ingame",
     "last_tested_version": "1.1.0",
     "last_tested_date": "2015-01-03T00:00:00",
-    "forum_link": "https://forums.pcsx2.net/showthread.php?tid=28303&amp;action=lastpost"
+    "forum_link": "https://forums.pcsx2.net/test"
   },
   {
     "title": "No Links",
     "serial": "SLUS-1234",
     "crc": "TEST1234",
     "region": "us",
-    "status": "Playable",
+    "status": "Menus",
     "last_tested_version": "1.1.0",
     "last_tested_date": "2015-01-03T00:00:00"
   }
