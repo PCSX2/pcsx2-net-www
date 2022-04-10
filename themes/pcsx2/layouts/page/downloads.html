@@ -3,7 +3,7 @@
   <div class="row mt-5">
     <div class="row mb-3" id="outage-alert" style="display: none;">
       <div class="col">
-        <div class="card">
+        <div class="card" data-test-id="downtime-notification">
           <div class="row">
             <div class="col card-title">
               <h3><i class="fas fa-exclamation-triangle error-icon"></i>Unable to fetch release information. This can be
@@ -34,7 +34,7 @@
       looking for in order to get the most consistent experience.
     </p>
     <p>
-      For information on how to get started with using PCSX2 (Dumping your BIOS and games), <a href="/guides/basic-setup">see the following guide</a>.
+      For information on how to get started with using PCSX2 (Dumping your BIOS and games), <a href="/guides/basic-setup" data-test-id="setup-guide">see the following guide</a>.
     </p>
     <p>
       For information on how to setup the latest stable release, see the included documentation in the download.
@@ -43,19 +43,10 @@
       If you encounter issues on the latest stable release, you can reach out for assistance on the <a
         href="https://discord.com/invite/TCz3t9k">Discord</a>.
     </p>
-    <div class="skeleton-container">
-      <div class="skeleton">
-        <div class="skeleton-content">
-          <div class="skeleton-text">
-            <div class="skeleton-line" style="width: 25%"></div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div id="latest-release-notes"></div>
   </div>
   <div class="row mt-5" id="latest-release-artifacts"></div>
-  <div class="row skeleton-wrapper">
+  <div class="row skeleton-wrapper" data-test-id="latest-release-artifacts-loading">
     <div class="col d-flex justify-content-center">
       <div class="dropdown">
         <button class="btn btn-primary artifact-dropdown btn-lg dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -113,25 +104,16 @@
       release.
     </p>
     <p>
-      For information on how to get started with using PCSX2 (Dumping your BIOS and games), <a href="/guides/basic-setup">see the following guide</a>.
+      For information on how to get started with using PCSX2 (Dumping your BIOS and games), <a href="/guides/basic-setup" data-test-id="setup-guide">see the following guide</a>.
     </p>
     <p>
       For information on how to use the nightly releases <a
         href="https://github.com/PCSX2/pcsx2/wiki/Nightly-Build-Usage-Guide" target="blank">see here</a>.
     </p>
-    <div class="skeleton-container">
-      <div class="skeleton">
-        <div class="skeleton-content">
-          <div class="skeleton-text">
-            <div class="skeleton-line" style="width: 25%"></div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div id="latest-nightly-notes"></div>
   </div>
   <div class="row mt-5" id="latest-nightly-artifacts"></div>
-  <div class="row skeleton-wrapper">
+  <div class="row skeleton-wrapper" data-test-id="latest-nightly-artifacts-loading">
     <div class="col d-flex justify-content-center">
       <div class="dropdown">
         <button class="btn btn-primary artifact-dropdown btn-lg dropdown-toggle" type="button" id="dropdownMenuButton"

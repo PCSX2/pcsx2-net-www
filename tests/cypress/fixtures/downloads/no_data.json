@@ -1,0 +1,14 @@
+{
+  "stableReleases": {
+    "data": [],
+    "pageInfo": { "total": 0 }
+  },
+  "nightlyReleases": {
+    "data": [],
+    "pageInfo": { "total": 0 }
+  },
+  "pullRequestBuilds": {
+    "data": [],
+    "pageInfo": { "total": 0 }
+  }
+}

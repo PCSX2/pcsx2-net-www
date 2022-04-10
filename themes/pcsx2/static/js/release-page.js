@@ -156,7 +156,7 @@ $('document').ready(async function () {
       renderLatestRelease(latestRelease, "#latest-release-artifacts");
     }
 
-    if ('stableReleases' in releasesAndBuilds && releasesAndBuilds.stableReleases.data.length > 1) {
+    if ('stableReleases' in releasesAndBuilds) {
       prevStableReleases = releasesAndBuilds.stableReleases.data;
       totalPrevStable = releasesAndBuilds.stableReleases.pageInfo.total;
       renderPreviousReleases("stable", true);
@@ -168,13 +168,13 @@ $('document').ready(async function () {
       renderLatestRelease(latestNightly, "#latest-nightly-artifacts");
     }
 
-    if ('nightlyReleases' in releasesAndBuilds && releasesAndBuilds.nightlyReleases.data.length > 1) {
+    if ('nightlyReleases' in releasesAndBuilds) {
       prevNightlies = releasesAndBuilds.nightlyReleases.data;
       totalPrevNightly = releasesAndBuilds.nightlyReleases.pageInfo.total;
       renderPreviousReleases("nightly", true);
     }
 
-    if ('pullRequestBuilds' in releasesAndBuilds && releasesAndBuilds.pullRequestBuilds.data.length > 0) {
+    if ('pullRequestBuilds' in releasesAndBuilds) {
       passingPRs = releasesAndBuilds.pullRequestBuilds.data;
       totalPullRequests = releasesAndBuilds.pullRequestBuilds.pageInfo.total;
       renderPullRequests(true);
@@ -222,7 +222,7 @@ function renderPreviousReleases(category, noScroll) {
   if (previousReleases.length == 0) {
     $(selector).html(tableMessage({
       colspan: 4,
-      message: "No Previous Releases to Display!"
+      message: "No Releases to Display!"
     }));
     return;
   }
@@ -286,7 +286,7 @@ function renderPullRequests(noScroll) {
   if (passingPRs.length == 0) {
     $("#pull-request-table-body").html(tableMessage({
       colspan: 5,
-      message: "No Previous Releases to Display!"
+      message: "No Pull Requests to Display!"
     }));
     return;
   }

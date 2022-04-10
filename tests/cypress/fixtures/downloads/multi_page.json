@@ -1,0 +1,721 @@
+{
+  "stableReleases": {
+    "data": [
+      {
+        "version": "v1.6.0",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.6.0",
+        "semverMajor": 1,
+        "semverMinor": 6,
+        "semverPatch": 0,
+        "description": "Release of Stable Version - v1.6.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-installer.exe",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["installer"],
+              "downloadCount": 78364
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-portable.7z",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["portable"],
+              "downloadCount": 30311
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2020-05-07T05:37:51.000Z",
+        "publishedAt": "2020-05-07T06:31:55.000Z"
+      },
+      {
+        "version": "v1.6.1",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.6.0",
+        "semverMajor": 1,
+        "semverMinor": 6,
+        "semverPatch": 0,
+        "description": "Release of Stable Version - v1.6.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-installer.exe",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["installer"],
+              "downloadCount": 78364
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-portable.7z",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["portable"],
+              "downloadCount": 30311
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2020-05-07T05:37:51.000Z",
+        "publishedAt": "2020-05-07T06:31:55.000Z"
+      },
+      {
+        "version": "v1.6.2",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.6.0",
+        "semverMajor": 1,
+        "semverMinor": 6,
+        "semverPatch": 0,
+        "description": "Release of Stable Version - v1.6.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-installer.exe",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["installer"],
+              "downloadCount": 78364
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-portable.7z",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["portable"],
+              "downloadCount": 30311
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2020-05-07T05:37:51.000Z",
+        "publishedAt": "2020-05-07T06:31:55.000Z"
+      },
+      {
+        "version": "v1.6.3",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.6.0",
+        "semverMajor": 1,
+        "semverMinor": 6,
+        "semverPatch": 0,
+        "description": "Release of Stable Version - v1.6.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-installer.exe",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["installer"],
+              "downloadCount": 78364
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-portable.7z",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["portable"],
+              "downloadCount": 30311
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2020-05-07T05:37:51.000Z",
+        "publishedAt": "2020-05-07T06:31:55.000Z"
+      },
+      {
+        "version": "v1.6.4",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.6.0",
+        "semverMajor": 1,
+        "semverMinor": 6,
+        "semverPatch": 0,
+        "description": "Release of Stable Version - v1.6.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-installer.exe",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["installer"],
+              "downloadCount": 78364
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-portable.7z",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["portable"],
+              "downloadCount": 30311
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2020-05-07T05:37:51.000Z",
+        "publishedAt": "2020-05-07T06:31:55.000Z"
+      },
+      {
+        "version": "v1.6.5",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.6.0",
+        "semverMajor": 1,
+        "semverMinor": 6,
+        "semverPatch": 0,
+        "description": "Release of Stable Version - v1.6.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-installer.exe",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["installer"],
+              "downloadCount": 78364
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-portable.7z",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["portable"],
+              "downloadCount": 30311
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2020-05-07T05:37:51.000Z",
+        "publishedAt": "2020-05-07T06:31:55.000Z"
+      },
+      {
+        "version": "v1.6.6",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.6.0",
+        "semverMajor": 1,
+        "semverMinor": 6,
+        "semverPatch": 0,
+        "description": "Release of Stable Version - v1.6.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-installer.exe",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["installer"],
+              "downloadCount": 78364
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-portable.7z",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["portable"],
+              "downloadCount": 30311
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2020-05-07T05:37:51.000Z",
+        "publishedAt": "2020-05-07T06:31:55.000Z"
+      },
+      {
+        "version": "v1.6.7",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.6.0",
+        "semverMajor": 1,
+        "semverMinor": 6,
+        "semverPatch": 0,
+        "description": "Release of Stable Version - v1.6.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-installer.exe",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["installer"],
+              "downloadCount": 78364
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-portable.7z",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["portable"],
+              "downloadCount": 30311
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2020-05-07T05:37:51.000Z",
+        "publishedAt": "2020-05-07T06:31:55.000Z"
+      },
+      {
+        "version": "v1.6.8",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.6.0",
+        "semverMajor": 1,
+        "semverMinor": 6,
+        "semverPatch": 0,
+        "description": "Release of Stable Version - v1.6.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-installer.exe",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["installer"],
+              "downloadCount": 78364
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-portable.7z",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["portable"],
+              "downloadCount": 30311
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2020-05-07T05:37:51.000Z",
+        "publishedAt": "2020-05-07T06:31:55.000Z"
+      },
+      {
+        "version": "v1.6.9",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.6.0",
+        "semverMajor": 1,
+        "semverMinor": 6,
+        "semverPatch": 0,
+        "description": "Release of Stable Version - v1.6.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-installer.exe",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["installer"],
+              "downloadCount": 78364
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-portable.7z",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["portable"],
+              "downloadCount": 30311
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2020-05-07T05:37:51.000Z",
+        "publishedAt": "2020-05-07T06:31:55.000Z"
+      },
+      {
+        "version": "v1.6.10",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.6.0",
+        "semverMajor": 1,
+        "semverMinor": 6,
+        "semverPatch": 0,
+        "description": "Release of Stable Version - v1.6.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-installer.exe",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["installer"],
+              "downloadCount": 78364
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-portable.7z",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["portable"],
+              "downloadCount": 30311
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2020-05-07T05:37:51.000Z",
+        "publishedAt": "2020-05-07T06:31:55.000Z"
+      }
+    ],
+    "pageInfo": { "total": 11 }
+  },
+  "nightlyReleases": {
+    "data": [
+      {
+        "version": "v1.7.0",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.7.2581",
+        "semverMajor": 1,
+        "semverMinor": 7,
+        "semverPatch": 2581,
+        "description": "- GS: Flush PRIM on write if pending PRIM draw had TME\n",
+        "assets": {
+          "Windows": [],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.7.2581/pcsx2-v1.7.2581-linux-AppImage-64bit.AppImage",
+              "displayName": "Linux AppImage",
+              "additionalTags": ["64bit"],
+              "downloadCount": 0
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2022-04-08T10:47:02.000Z",
+        "publishedAt": "2022-04-08T11:00:48.000Z"
+      },
+      {
+        "version": "v1.7.1",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.7.2581",
+        "semverMajor": 1,
+        "semverMinor": 7,
+        "semverPatch": 2581,
+        "description": "- GS: Flush PRIM on write if pending PRIM draw had TME\n",
+        "assets": {
+          "Windows": [],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.7.2581/pcsx2-v1.7.2581-linux-AppImage-64bit.AppImage",
+              "displayName": "Linux AppImage",
+              "additionalTags": ["64bit"],
+              "downloadCount": 0
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2022-04-08T10:47:02.000Z",
+        "publishedAt": "2022-04-08T11:00:48.000Z"
+      },
+      {
+        "version": "v1.7.2",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.7.2581",
+        "semverMajor": 1,
+        "semverMinor": 7,
+        "semverPatch": 2581,
+        "description": "- GS: Flush PRIM on write if pending PRIM draw had TME\n",
+        "assets": {
+          "Windows": [],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.7.2581/pcsx2-v1.7.2581-linux-AppImage-64bit.AppImage",
+              "displayName": "Linux AppImage",
+              "additionalTags": ["64bit"],
+              "downloadCount": 0
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2022-04-08T10:47:02.000Z",
+        "publishedAt": "2022-04-08T11:00:48.000Z"
+      },
+      {
+        "version": "v1.7.3",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.7.2581",
+        "semverMajor": 1,
+        "semverMinor": 7,
+        "semverPatch": 2581,
+        "description": "- GS: Flush PRIM on write if pending PRIM draw had TME\n",
+        "assets": {
+          "Windows": [],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.7.2581/pcsx2-v1.7.2581-linux-AppImage-64bit.AppImage",
+              "displayName": "Linux AppImage",
+              "additionalTags": ["64bit"],
+              "downloadCount": 0
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2022-04-08T10:47:02.000Z",
+        "publishedAt": "2022-04-08T11:00:48.000Z"
+      },
+      {
+        "version": "v1.7.4",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.7.2581",
+        "semverMajor": 1,
+        "semverMinor": 7,
+        "semverPatch": 2581,
+        "description": "- GS: Flush PRIM on write if pending PRIM draw had TME\n",
+        "assets": {
+          "Windows": [],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.7.2581/pcsx2-v1.7.2581-linux-AppImage-64bit.AppImage",
+              "displayName": "Linux AppImage",
+              "additionalTags": ["64bit"],
+              "downloadCount": 0
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2022-04-08T10:47:02.000Z",
+        "publishedAt": "2022-04-08T11:00:48.000Z"
+      },
+      {
+        "version": "v1.7.5",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.7.2581",
+        "semverMajor": 1,
+        "semverMinor": 7,
+        "semverPatch": 2581,
+        "description": "- GS: Flush PRIM on write if pending PRIM draw had TME\n",
+        "assets": {
+          "Windows": [],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.7.2581/pcsx2-v1.7.2581-linux-AppImage-64bit.AppImage",
+              "displayName": "Linux AppImage",
+              "additionalTags": ["64bit"],
+              "downloadCount": 0
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2022-04-08T10:47:02.000Z",
+        "publishedAt": "2022-04-08T11:00:48.000Z"
+      },
+      {
+        "version": "v1.7.6",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.7.2581",
+        "semverMajor": 1,
+        "semverMinor": 7,
+        "semverPatch": 2581,
+        "description": "- GS: Flush PRIM on write if pending PRIM draw had TME\n",
+        "assets": {
+          "Windows": [],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.7.2581/pcsx2-v1.7.2581-linux-AppImage-64bit.AppImage",
+              "displayName": "Linux AppImage",
+              "additionalTags": ["64bit"],
+              "downloadCount": 0
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2022-04-08T10:47:02.000Z",
+        "publishedAt": "2022-04-08T11:00:48.000Z"
+      },
+      {
+        "version": "v1.7.7",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.7.2581",
+        "semverMajor": 1,
+        "semverMinor": 7,
+        "semverPatch": 2581,
+        "description": "- GS: Flush PRIM on write if pending PRIM draw had TME\n",
+        "assets": {
+          "Windows": [],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.7.2581/pcsx2-v1.7.2581-linux-AppImage-64bit.AppImage",
+              "displayName": "Linux AppImage",
+              "additionalTags": ["64bit"],
+              "downloadCount": 0
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2022-04-08T10:47:02.000Z",
+        "publishedAt": "2022-04-08T11:00:48.000Z"
+      },
+      {
+        "version": "v1.7.8",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.7.2581",
+        "semverMajor": 1,
+        "semverMinor": 7,
+        "semverPatch": 2581,
+        "description": "- GS: Flush PRIM on write if pending PRIM draw had TME\n",
+        "assets": {
+          "Windows": [],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.7.2581/pcsx2-v1.7.2581-linux-AppImage-64bit.AppImage",
+              "displayName": "Linux AppImage",
+              "additionalTags": ["64bit"],
+              "downloadCount": 0
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2022-04-08T10:47:02.000Z",
+        "publishedAt": "2022-04-08T11:00:48.000Z"
+      },
+      {
+        "version": "v1.7.9",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.7.2581",
+        "semverMajor": 1,
+        "semverMinor": 7,
+        "semverPatch": 2581,
+        "description": "- GS: Flush PRIM on write if pending PRIM draw had TME\n",
+        "assets": {
+          "Windows": [],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.7.2581/pcsx2-v1.7.2581-linux-AppImage-64bit.AppImage",
+              "displayName": "Linux AppImage",
+              "additionalTags": ["64bit"],
+              "downloadCount": 0
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2022-04-08T10:47:02.000Z",
+        "publishedAt": "2022-04-08T11:00:48.000Z"
+      },
+      {
+        "version": "v1.7.10",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.7.2581",
+        "semverMajor": 1,
+        "semverMinor": 7,
+        "semverPatch": 2581,
+        "description": "- GS: Flush PRIM on write if pending PRIM draw had TME\n",
+        "assets": {
+          "Windows": [],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.7.2581/pcsx2-v1.7.2581-linux-AppImage-64bit.AppImage",
+              "displayName": "Linux AppImage",
+              "additionalTags": ["64bit"],
+              "downloadCount": 0
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2022-04-08T10:47:02.000Z",
+        "publishedAt": "2022-04-08T11:00:48.000Z"
+      }
+    ],
+    "pageInfo": { "total": 11 }
+  },
+  "pullRequestBuilds": {
+    "data": [
+      {
+        "number": 5839,
+        "link": "https://github.com/PCSX2/pcsx2/pull/5839",
+        "githubUser": "Someone",
+        "updatedAt": "2022-04-08T22:06:11.000Z",
+        "body": "Stuff",
+        "title": "Things",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "number": 5839,
+        "link": "https://github.com/PCSX2/pcsx2/pull/5839",
+        "githubUser": "Someone",
+        "updatedAt": "2022-04-08T22:06:11.000Z",
+        "body": "Stuff",
+        "title": "Things",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "number": 5839,
+        "link": "https://github.com/PCSX2/pcsx2/pull/5839",
+        "githubUser": "Someone",
+        "updatedAt": "2022-04-08T22:06:11.000Z",
+        "body": "Stuff",
+        "title": "Things",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "number": 5839,
+        "link": "https://github.com/PCSX2/pcsx2/pull/5839",
+        "githubUser": "Someone",
+        "updatedAt": "2022-04-08T22:06:11.000Z",
+        "body": "Stuff",
+        "title": "Things",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "number": 5839,
+        "link": "https://github.com/PCSX2/pcsx2/pull/5839",
+        "githubUser": "Someone",
+        "updatedAt": "2022-04-08T22:06:11.000Z",
+        "body": "Stuff",
+        "title": "Things",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "number": 5839,
+        "link": "https://github.com/PCSX2/pcsx2/pull/5839",
+        "githubUser": "Someone",
+        "updatedAt": "2022-04-08T22:06:11.000Z",
+        "body": "Stuff",
+        "title": "Things",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "number": 5839,
+        "link": "https://github.com/PCSX2/pcsx2/pull/5839",
+        "githubUser": "Someone",
+        "updatedAt": "2022-04-08T22:06:11.000Z",
+        "body": "Stuff",
+        "title": "Things",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "number": 5839,
+        "link": "https://github.com/PCSX2/pcsx2/pull/5839",
+        "githubUser": "Someone",
+        "updatedAt": "2022-04-08T22:06:11.000Z",
+        "body": "Stuff",
+        "title": "Things",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "number": 5839,
+        "link": "https://github.com/PCSX2/pcsx2/pull/5839",
+        "githubUser": "Someone",
+        "updatedAt": "2022-04-08T22:06:11.000Z",
+        "body": "Stuff",
+        "title": "Things",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "number": 5839,
+        "link": "https://github.com/PCSX2/pcsx2/pull/5839",
+        "githubUser": "Someone",
+        "updatedAt": "2022-04-08T22:06:11.000Z",
+        "body": "Stuff",
+        "title": "Things",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "number": 5839,
+        "link": "https://github.com/PCSX2/pcsx2/pull/5839",
+        "githubUser": "Someone",
+        "updatedAt": "2022-04-08T22:06:11.000Z",
+        "body": "Stuff",
+        "title": "Things",
+        "additions": 1,
+        "deletions": 1
+      }
+    ],
+    "pageInfo": { "total": 11 }
+  }
+}
