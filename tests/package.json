@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "hugo": "cd .. && hugo server -D --noHTTPCache",
     "cypress:open": "cypress open"
   },
   "author": "",

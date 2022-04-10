@@ -95,19 +95,19 @@ describe('Compatibility Page - Desktop', () => {
 
     it('only perfect', () => {
       // cy.get('#compat-filter-perfect').click();
-      cy.get('#compat-filter-playable').click();
-      cy.get('#compat-filter-ingame').click();
-      cy.get('#compat-filter-menus').click();
-      cy.get('#compat-filter-intro').click();
-      cy.get('#compat-filter-nothing').click();
+      cy.get('#compat-filter-playable').click({force: true});
+      cy.get('#compat-filter-ingame').click({force: true});
+      cy.get('#compat-filter-menus').click({force: true});
+      cy.get('#compat-filter-intro').click({force: true});
+      cy.get('#compat-filter-nothing').click({force: true});
       cy.get(".table-responsive").find(".game-title").its('length').should('eq', 1);
       cy.get(".table-responsive").first(".game-title").contains("Test Game 2");
       cy.get(".table-responsive").first(".game-title").get("i.Perfect");
     });
 
     it('only playble', () => {
-      cy.get('#compat-filter-perfect').click();
-      cy.get('#compat-filter-playable').click();
+      cy.get('#compat-filter-perfect').click({force: true});
+      cy.get('#compat-filter-playable').click({force: true});
       // cy.get('#compat-filter-ingame').click();
       // cy.get('#compat-filter-menus').click();
       // cy.get('#compat-filter-intro').click();
@@ -119,8 +119,8 @@ describe('Compatibility Page - Desktop', () => {
 
     it('only ingame', () => {
       // cy.get('#compat-filter-perfect').click();
-      cy.get('#compat-filter-playable').click();
-      cy.get('#compat-filter-ingame').click();
+      cy.get('#compat-filter-playable').click({force: true});
+      cy.get('#compat-filter-ingame').click({force: true});
       // cy.get('#compat-filter-menus').click();
       // cy.get('#compat-filter-intro').click();
       // cy.get('#compat-filter-nothing').click();
@@ -132,8 +132,8 @@ describe('Compatibility Page - Desktop', () => {
     it('only menus', () => {
       // cy.get('#compat-filter-perfect').click();
       // cy.get('#compat-filter-playable').click();
-      cy.get('#compat-filter-ingame').click();
-      cy.get('#compat-filter-menus').click();
+      cy.get('#compat-filter-ingame').click({force: true});
+      cy.get('#compat-filter-menus').click({force: true});
       // cy.get('#compat-filter-intro').click();
       // cy.get('#compat-filter-nothing').click();
       cy.get(".table-responsive").find(".game-title").its('length').should('eq', 1);
@@ -145,8 +145,8 @@ describe('Compatibility Page - Desktop', () => {
       // cy.get('#compat-filter-perfect').click();
       // cy.get('#compat-filter-playable').click();
       // cy.get('#compat-filter-ingame').click();
-      cy.get('#compat-filter-menus').click();
-      cy.get('#compat-filter-intro').click();
+      cy.get('#compat-filter-menus').click({force: true});
+      cy.get('#compat-filter-intro').click({force: true});
       // cy.get('#compat-filter-nothing').click();
       cy.get(".table-responsive").find(".game-title").its('length').should('eq', 1);
       cy.get(".table-responsive").first(".game-title").contains("Only Wiki Link");
@@ -158,8 +158,8 @@ describe('Compatibility Page - Desktop', () => {
       // cy.get('#compat-filter-playable').click();
       // cy.get('#compat-filter-ingame').click();
       // cy.get('#compat-filter-menus').click();
-      cy.get('#compat-filter-intro').click();
-      cy.get('#compat-filter-nothing').click();
+      cy.get('#compat-filter-intro').click({force: true});
+      cy.get('#compat-filter-nothing').click({force: true});
       cy.get(".table-responsive").find(".game-title").its('length').should('eq', 1);
       cy.get(".table-responsive").first(".game-title").contains("Test Game 3");
       cy.get(".table-responsive").first(".game-title").get("i.Nothing");

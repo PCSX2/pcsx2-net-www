@@ -7,19 +7,19 @@ describe('Home Page - Desktop', () => {
 
   it('about section', { scrollBehavior: 'center' }, () => {
     cy.get('[data-test-id="about-section"] > .col-md-4');
-    cy.get('[data-test-id="about-section"] > .col-md-8').find('a[href="/compat"]').click();
+    cy.get('[data-test-id="about-section"] > .col-md-8').find('a[href="/compat"]').click({force: true});
     cy.location('href').should('eq', Cypress.config("baseUrl") + '/compat/');
   });
 
   it('progress report section', { scrollBehavior: 'center' }, () => {
     cy.get('[data-test-id="progress-report-section"] > .col-md-8').find(".card").its('length').should('eq', 2);
-    cy.get('[data-test-id="progress-report-section"] > .col-md-4').find(".btn").click();
+    cy.get('[data-test-id="progress-report-section"] > .col-md-4').find(".btn").click({force: true});
     cy.location('href').should('eq', Cypress.config("baseUrl") + '/tags/progress-report/');
   });
 
   it('blog post section', { scrollBehavior: 'center' }, () => {
     cy.get('[data-test-id="blog-post-section"] > .col-md-8').find(".card").its('length').should('eq', 2);
-    cy.get('[data-test-id="blog-post-section"] > .col-md-4').find(".btn").click();
+    cy.get('[data-test-id="blog-post-section"] > .col-md-4').find(".btn").click({force: true});
     cy.location('href').should('eq', Cypress.config("baseUrl") + '/tags/devblog/');
   });
 });
@@ -33,19 +33,19 @@ describe('Home Page - Mobile', () => {
 
   it('about section', { scrollBehavior: 'center' }, () => {
     cy.get('[data-test-id="about-section"] > .col-md-4');
-    cy.get('[data-test-id="about-section"] > .col-md-8').find('a[href="/compat"]').click();
+    cy.get('[data-test-id="about-section"] > .col-md-8').find('a[href="/compat"]').click({force: true});
     cy.location('href').should('eq', Cypress.config("baseUrl") + '/compat/');
   });
 
   it('progress report section', { scrollBehavior: 'center' }, () => {
     cy.get('[data-test-id="progress-report-section"] > .col-md-8').find(".card").its('length').should('eq', 2);
-    cy.get('[data-test-id="progress-report-section"] > .col-md-4').find(".btn").click();
+    cy.get('[data-test-id="progress-report-section"] > .col-md-4').find(".btn").click({force: true});
     cy.location('href').should('eq', Cypress.config("baseUrl") + '/tags/progress-report/');
   });
 
   it('blog post section', { scrollBehavior: 'center' }, () => {
     cy.get('[data-test-id="blog-post-section"] > .col-md-8').find(".card").its('length').should('eq', 2);
-    cy.get('[data-test-id="blog-post-section"] > .col-md-4').find(".btn").click();
+    cy.get('[data-test-id="blog-post-section"] > .col-md-4').find(".btn").click({force: true});
     cy.location('href').should('eq', Cypress.config("baseUrl") + '/tags/devblog/');
   });
 });
