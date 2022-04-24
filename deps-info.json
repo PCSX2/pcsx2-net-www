@@ -8,6 +8,15 @@
       "deferredLoad": true
     }
   },
+  "chart.js": {
+    "pinnedVersion": "3.7.1",
+    "js": {
+      "directoryToSave": "./themes/pcsx2/static/js/vendor/chart.js",
+      "baseUrlToFetch": "https://unpkg.com/chart.js",
+      "filesToVendor": ["dist/chart.min.js"],
+      "deferredLoad": true
+    }
+  },
   "fuse.js": {
     "pinnedVersion": "6.5.3",
     "js": {
