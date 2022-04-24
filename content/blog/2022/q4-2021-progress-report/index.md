@@ -8,6 +8,12 @@ tags:
 mainAuthor: RedDevilus
 toc: true
 ---
+## Qt
+
+{{< progress/github-link prNums="5199" title="Merge the Qt branch: Part 1" authors="stenzek" >}}
+
+The new GUI is moving along very well, but is not at feature parity as the current WX is. Please be patient when it will be released to you guys.
+
 ## GS
 
 {{< progress/github-link prNums="5223" title="GS-hw: Mirror anisotropic filtering behavior on Direct3D11 like OpenGL, and allow it to run on Nearest texture filtering" authors="lightningterror" >}}
@@ -499,10 +505,6 @@ Instead of the absolute path C:/User/Documents/PCSX2/ELF/test.elf, you can do th
 {{< progress/github-link prNums="4843" title="PGIF: Remove force fifo clear on GP1 (00-01)" authors="null" >}}
 
 ## Ambiguous
-
-{{< progress/github-link prNums="5199" title="Merge the Qt branch: Part 1" authors="stenzek" >}}
-
-The new GUI is moving along very well, but is not at feature parity as the current WX is. Please be patient when it will be released to you guys.
 
 {{< progress/github-link prNums="5134" title="Rebase more de-wx-ifying from last month" authors="stenzek" >}}
 
