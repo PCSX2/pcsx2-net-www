@@ -104,7 +104,7 @@ toc: true
 
 {{< progress/github-link prNums="4385" title="GS: Simulate scan mask (fix transparency in MGS2 & MGS3)" authors="Sergeanur" >}}
 
-For about forever, transparency didn't work correctly for Metal Gear Solid pic1 and Gran Turismo Ghost Cars pic2
+For about forever, transparency didn't work correctly for Metal Gear Solid 3 {{< img-cmp-slider before="./img/Pic1-MGS3Before.png" after="./img/Pic2-MGS3After.png">}} and Gran Turismo Ghost Cars pic2.
 
 {{< progress/github-link prNums="4348" title="Replace cached GSOffset with live calculations" authors="tellowkrinkle" >}}
 
