@@ -1,6 +1,6 @@
 # Just a quick script to help make a new hugo article
 # and not miss any important configuration
-import datetime
+from datetime import datetime
 import os
 
 tag = input("Main Tag (devblog/progress-report/none): ")
@@ -8,19 +8,20 @@ if tag != "devblog" and tag != "progress-report" and tag != "none":
   exit(1)
 title = input("Article Title: ")
 slug = title.replace(" ", "-").lower()
-date = datetime.datetime.now().isoformat()
+date = input("Date (YYYY-MM-DD): ")
+date = datetime.fromisoformat(date)
 draft = "false"
 summary = input("Article Summary: ")
 authors = input("Authors (comma sep. // or leave blank): ")
 aliasLinks = input("Alias Links (comma sep.): ")
 
-path = "./content/blog/{}".format(slug)
+path = "./content/blog/{}/{}".format(date.year, slug)
 pathFile = "{}/index.md".format(path)
 os.makedirs(path, exist_ok=True)
 with open(pathFile, 'a') as f:
   f.write('---\n')
   f.write("title: \"{}\"\n".format(title.title()))
-  f.write("date: {}\n".format(date))
+  f.write("date: {}\n".format(date.isoformat()))
   f.write("summary: \"{}\"\n".format(summary))
   f.write("draft: {}\n".format(draft))
   if tag != "none":
