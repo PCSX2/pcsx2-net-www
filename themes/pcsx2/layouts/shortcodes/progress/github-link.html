@@ -32,7 +32,7 @@
   {{ end }}
   {{ title (.Get "title") | markdownify }}
   <em>
-    By&nbsp;-
+    By
     {{ range $index, $element := $authorLinks }}
     <a href="{{ $element }}">{{ index $authors $index }}</a>
     {{ end }}
