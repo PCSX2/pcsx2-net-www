@@ -12,7 +12,7 @@ toc: true
 
 {{< progress/github-link prNums="5199" title="Merge the Qt branch: Part 1" authors="stenzek" >}}
 
-The new GUI is moving along very well, but is not at feature parity as the current WX is. Please be patient when it will be released to you guys.
+The new GUI is moving along very well, but is not at feature parity as the current WX-Widgets GUI is. Please be patient when it will be released to you guys.
 
 ## GS
 
