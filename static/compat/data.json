@@ -26259,11 +26259,11 @@
   {
     "title": "Conan - The Dark Axe",
     "serial": "SLES-52451",
-    "crc": "BE34FFA2",
+    "crc": "9A206BA3",
     "region": "eu",
     "status": "Playable",
-    "last_tested_version": "1.1.0",
-    "last_tested_date": "2015-01-03T00:00:00",
+    "last_tested_version": "1.7.0",
+    "last_tested_date": "2022-04-23T00:00:00",
     "wiki_link": "https://wiki.pcsx2.net/index.php/Conan",
     "forum_link": null
   },
