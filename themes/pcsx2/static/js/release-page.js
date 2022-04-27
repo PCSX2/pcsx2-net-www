@@ -6,7 +6,7 @@ let latestArtifactDropdown = doT.template(`
       <i class="{{= it.icon }}"></i>&nbsp{{= it.name }}&nbsp-&nbsp{{= it.version }}
     </button>
     {{?? true}}
-    <span class="d-inline-block" tabindex="0" data-mdb-toggle="tooltip" title="No Releases Found">
+    <span class="d-inline-block" tabindex="0" data-mdb-toggle="tooltip" title="No release found for this version - See below">
       <button class="btn btn-primary artifact-dropdown btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false" style="pointer-events: none;" disabled>
         <i class="{{= it.icon }}"></i>&nbsp{{= it.name }}&nbsp-&nbsp{{= it.version }}
       </button>
@@ -52,7 +52,7 @@ let releaseRow = doT.template(`
     {{~}}
     </ul>
     {{?? true}}
-    <span class="d-inline-block" tabindex="0" data-mdb-toggle="tooltip" title="No Releases Found">
+    <span class="d-inline-block" tabindex="0" data-mdb-toggle="tooltip" title="No release found for this version">
       <a role="button" data-mdb-toggle="dropdown" data-mdb-ripple-duration="none" class="disabled">
         <i class="{{= platform.icon }} release-artifact-icon"></i>
       </a>
