@@ -1,7 +1,21 @@
 {{ define "main" }}
 <div class="container">
   <div class="row mt-5">
-    <div class="row mb-3" id="outage-alert" style="display: none;">
+    <h2>Table of Contents</h2>
+    <nav id="TableOfContents">
+      <ul>
+        <li>
+          <a href="#stable-anchor">Stable Releases</a>
+        </li>
+        <li>
+          <a href="#nightly-anchor">Nightly Releases</a>
+        </li>
+        <li>
+          <a href="#pr-anchor">Pull Request Builds</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="row mb-3 mt-3" id="outage-alert" style="display: none;">
       <div class="col">
         <div class="card">
           <div class="row">
@@ -29,29 +43,16 @@
     </div>
     <h2 class="release-type-title mt-3 scroll-fix" id="stable-anchor">Stable Releases</h2>
     <p>
-      Stable releases are infrequent but rigorously tested in comparison to the Nightly releases. Unless you
-      require bleeding-edge features or fixes for a particular game, this is likely the release type you are
-      looking for in order to get the most consistent experience.
-    </p>
-    <p>
-      For information on how to get started with using PCSX2 (Dumping your BIOS and games), <a href="/guides/basic-setup">see the following guide</a>.
-    </p>
-    <p>
-      For information on how to setup the latest stable release, see the included documentation in the download.
+      Stable releases are infrequent but very well tested compared to the developer (nightly) releases. Documentation
+      for setting
+      up the release is included in the download. For information on how to get started with using PCSX2 (Dumping your
+      BIOS and games),
+      <a href="/guides/basic-setup">see the following guide</a>.
     </p>
     <p>
       If you encounter issues on the latest stable release, you can reach out for assistance on the <a
         href="https://discord.com/invite/TCz3t9k">Discord</a>.
     </p>
-    <div class="skeleton-container">
-      <div class="skeleton">
-        <div class="skeleton-content">
-          <div class="skeleton-text">
-            <div class="skeleton-line" style="width: 25%"></div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div id="latest-release-notes"></div>
   </div>
   <div class="row mt-5" id="latest-release-artifacts"></div>
@@ -103,31 +104,15 @@
   <div class="row mt-5">
     <h2 class="release-type-title scroll-fix" id="nightly-anchor">Nightly Builds</h2>
     <p>
-      Nightly builds are less tested than their stable release counterpart, but do undergo some amount of focused
-      testing. The latest nightly build is equivalent to running the latest commit of the PCSX2 GitHub repository,
-      in other words, you are getting the latest and (hopefully greatest) improvements.
-    </p>
-    <p>
-      As a result, these releases are intended for those who want to, or require, being on the bleeding edge.
-      Additionally they are a way to get additional testing on changes before they become part of an stable
-      release.
-    </p>
-    <p>
-      For information on how to get started with using PCSX2 (Dumping your BIOS and games), <a href="/guides/basic-setup">see the following guide</a>.
+      Nightly builds are based on the latest in-developement version. As a result, these releases are intended
+      for those who want to, or require, being on the bleeding edge. They may contain unresolved bugs or issues,
+      use at your own discretion with this in mind. For information on how to get started with using PCSX2 (Dumping
+      your BIOS and games), <a href="/guides/basic-setup">see the following guide</a>.
     </p>
     <p>
       For information on how to use the nightly releases <a
         href="https://github.com/PCSX2/pcsx2/wiki/Nightly-Build-Usage-Guide" target="blank">see here</a>.
     </p>
-    <div class="skeleton-container">
-      <div class="skeleton">
-        <div class="skeleton-content">
-          <div class="skeleton-text">
-            <div class="skeleton-line" style="width: 25%"></div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div id="latest-nightly-notes"></div>
   </div>
   <div class="row mt-5" id="latest-nightly-artifacts"></div>
@@ -179,17 +164,14 @@
   <div class="row mt-5">
     <h2 class="release-type-title scroll-fix" id="pr-anchor">Pull Request Builds</h2>
     <p>
-      These are builds of in-progress work that has yet to merge into the projects codebase. Some pull requests
-      may be abandoned for a variety of reasons as well. These builds are for those that are interested in
-      assisting with the testing and code-review process. Otherwise, this provides an at-a-glance view of what
-      we are working on.
+      These are builds of in-progress work that has yet to merge into the projects codebase and are intended for those
+      interested in assisting with the testing and code-review process. Otherwise, this provides an at-a-glance view of what
+      we are actively working on.
     </p>
     <p>
-      Note that you will require a GitHub account to download these builds from the GitHub Actions CI. And if
-      you are interested in becoming a more official tester, you should consider reaching out in the <a
-        href="https://discord.com/invite/TCz3t9k">Discord</a>. If you do end up testing a pull request build and
-      find issues, it is preferrable to describe the issue with steps to reproduce the problem on the pull
-      request itself.
+      Note that you will require a GitHub account to download these builds from the GitHub Actions CI. If you do
+      end up testing a pull request build and find issues, it is preferrable to describe the issue with steps to
+      reproduce the problem on the pull request itself.
     </p>
   </div>
   <div class="row mt-2 scroll-fix" id="pull-requests-list">
