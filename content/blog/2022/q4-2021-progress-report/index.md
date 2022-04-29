@@ -350,12 +350,6 @@ This will improve the blending behavior on default settings. Blending affects ma
 
 ## Misc Improvements
 
-### Qt
-
-{{< progress/github-link prNums="5199" title="Merge the Qt branch: Part 1" authors="stenzek" >}}
-
-The new GUI is moving along very well, but is not at feature parity as the current WX-Widgets GUI is. Please be patient when it will be released to you guys.
-
 ### GUI
 
 {{< progress/github-link prNums="4451" title="Allow relative elf file paths on command line" authors="Ziemas" >}}
@@ -479,6 +473,10 @@ Doesn't need much explaining as it was gone by accident to show the keybinding f
 The game had wrongly colored eye textures (yellow/blue) but is now correctly white:
 
 {{< img-cmp before="./img/Pic25-UltimateBefore.png" after="./img/Pic26-UltimateAfter.png">}}
+
+{{< progress/github-link prNums="5199" title="Merge the Qt branch: Part 1" authors="stenzek" >}}
+
+The new GUI is moving along very well, but is not at feature parity as the current WX-Widgets GUI is. Please be patient when it will be released to you guys.
 
 {{< progress/github-link prNums="5234" title="GameDB: remove patches for  'Neo Contra' and add EE rounding and clamping" authors="Mrlinkwii" >}}
 
