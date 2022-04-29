@@ -97,10 +97,6 @@ Instead of forcefully 'pulling the cord' when you reset or press on a real conso
 
 Follows the documentation from developers to improve timing.
 
-{{< progress/github-link prNums="4945" title="input-rec: Use a constant RTC for power-on recordings" authors="xTVaser" >}}
-
-Gives a specific date for input recording (speedrunning).
-
 {{< progress/github-link prNums="4992" title="CDVD: set the correct RTC year when input recording" authors="xTVaser" >}}
 
 Changes how the date is handled for input recording as some games like Metal Gear Solid 3 is sensitive about the date for time-based events. The only comparison I can think of is like the internal battery failure message in Pokemon games if this wasn't done correctly.
@@ -139,6 +135,8 @@ Also means Mana Khemia and Metal Saga no longer need a gamefix, however I'm leav
 
 {{< progress/github-link prNums="4865" title="Debugger: Fix Goto in Disasm option for memory view" authors="F0bes" >}}
 
+{{< progress/github-link prNums="4885" title="Debugger: Separate symbol maps for EE and IOP" authors="Ziemas" >}}
+
 {{< progress/github-link prNums="4926" title="Debugger: Support multi-line assembling" authors="F0bes" >}}
 
 {{< progress/github-link prNums="4974" title="Debugger: Initial memory search implementation" authors="F0bes" >}}
@@ -148,6 +146,8 @@ Now you can finally go into a search for specific memory instead of scrolling ju
 {{< progress/github-link prNums="4983" title="Debugger: Make the register list DPI aware (Windows)" authors="F0bes" >}}
 
 Fixes the debugger view when having difference in DPI. Pic 3
+
+{{< progress/github-link prNums="4997" title="Debugger: Reset breakpoint skip on savestate load" authors="F0bes" >}}
 
 {{< progress/github-link prNums="5003" title="Debugger: Fix breakpoint edit window on linux" authors="F0bes" >}}
 
@@ -163,7 +163,9 @@ Make sure certain text doesn't hard-crash the search. (Print size_t with %zu ins
 
 ### Input Recording
 
-{{< progress/github-link prNums="5099" title="GameDB / Memcards - Replace `yaml-cpp` with `rapidyaml`" authors="xTVaser" >}}
+{{< progress/github-link prNums="4945" title="input-rec: Use a constant RTC for power-on recordings" authors="xTVaser" >}}
+
+Gives a specific date for input recording (speedrunning).
 
 ### Miscellanous Core
 
@@ -530,6 +532,8 @@ The new GUI is moving along very well, but is not at feature parity as the curre
 
 {{< progress/github-link prNums="5091" title="GHActions: Fix Mac build" authors="tellowkrinkle" >}}
 
+{{< progress/github-link prNums="5099" title="GameDB / Memcards - Replace `yaml-cpp` with `rapidyaml`" authors="xTVaser" >}}
+
 {{< progress/github-link prNums="5100" title="Linux and Windows CMake Builds: Change output executable to lowercase" authors="F0bes" >}}
 
 {{< progress/github-link prNums="5108" title="VS: Add some missing vcxproj filters" authors="tellowkrinkle" >}}
@@ -562,8 +566,6 @@ The new GUI is moving along very well, but is not at feature parity as the curre
 
 {{< progress/github-link prNums="4979" title="CI:Add build date to program log of nightly builds" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="4997" title="Debugger: Reset breakpoint skip on savestate load" authors="F0bes" >}}
-
 {{< progress/github-link prNums="5001" title="pad-linux: Update to latest controller database" authors="github-actions" >}}
 
 {{< progress/github-link prNums="5019" title="VSProps: Set MultiProcessorCompilation in CodeGen props" authors="stenzek" >}}
@@ -586,8 +588,6 @@ The new GUI is moving along very well, but is not at feature parity as the curre
 {{< progress/github-link prNums="4855" title="Fix some compile warnings spewed by MSVC x64" authors="stenzek" >}}
 
 {{< progress/github-link prNums="4872" title="FreeBSD fixup" authors="tadanokojin" >}}
-
-{{< progress/github-link prNums="4885" title="Debugger: Separate symbol maps for EE and IOP" authors="Ziemas" >}}
 
 {{< progress/github-link prNums="4905" title="Replace GSWnd with GL context wrappers, remove pDsp" authors="stenzek" >}}
 
