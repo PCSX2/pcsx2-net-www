@@ -482,7 +482,7 @@ The game had wrongly colored eye textures (yellow/blue) but is now correctly whi
 
 {{< progress/github-link prNums="5234" title="GameDB: remove patches for  'Neo Contra' and add EE rounding and clamping" authors="Mrlinkwii" >}}
 
-## Maintenance
+### Maintenance
 
 {{< progress/github-link prNums="4818" title="Add partial LTO to CMake" authors="tellowkrinkle" >}}
 
@@ -548,7 +548,7 @@ The game had wrongly colored eye textures (yellow/blue) but is now correctly whi
 
 {{< progress/github-link prNums="5219" title="GHActions: Fix game controller db updater" authors="tellowkrinkle" >}}
 
-## Other
+### Other
 
 {{< progress/github-link prNums="4843" title="PGIF: Remove force fifo clear on GP1 (00-01)" authors="null" >}}
 
@@ -576,7 +576,7 @@ The game had wrongly colored eye textures (yellow/blue) but is now correctly whi
 
 {{< progress/github-link prNums="5164" title="Common: Fix GetWorkingDirectory on unix" authors="tellowkrinkle" >}}
 
-## Ambiguous
+### Ambiguous
 
 {{< progress/github-link prNums="4140" title="Remove wxString ↔︎ std::string implicit conversions" authors="tellowkrinkle" >}}
 
