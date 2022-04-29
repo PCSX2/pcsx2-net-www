@@ -68,6 +68,7 @@ Most users won't see any usage with this and that is fine but the goal of emulat
 ### CDVD
 
 {{< progress/github-link prNums="4839" title="CDVD: Implement correct SpindleCtrl handling" authors="refractionpcsx2" >}}
+
 Fixes some more videos not playing like Digital Devil Saga and fixes texture issues on Shadowman.
 
 {{< progress/github-link prNums="4853" title="CDVD: Fix possible uncaught exception in CheckDiskTypeFS" authors="stenzek" >}}
@@ -93,6 +94,7 @@ Queues 1 sector from a future read as ready which fixes Star Ocean 3 stuttering 
 Instead of forcefully 'pulling the cord' when you reset or press on a real console once, it will send a signal to reset. So it acts more like how the console worked, though if you see any difference is something else.
 
 {{< progress/github-link prNums="4927" title="CDVD: Buffer up to 16 sectors" authors="refractionpcsx2" >}}
+
 Follows the documentation from developers to improve timing.
 
 {{< progress/github-link prNums="4945" title="input-rec: Use a constant RTC for power-on recordings" authors="xTVaser" >}}
@@ -152,6 +154,7 @@ Fixes the debugger view when having difference in DPI. Pic 3
 {{< progress/github-link prNums="5016" title="Debugger: Allow access to all of 0xBXXXXXXX" authors="F0bes" >}}
 
 Not sure why certain memory was blocked from being modified, this will alleviate all memory restrictions.
+
 {{< progress/github-link prNums="5031" title="Debugger: Make memory dialog transparent" authors="F0bes" >}}
 
 {{< progress/github-link prNums="5050" title="Debugger: Format search hits with proper specifier" authors="F0bes" >}}
@@ -251,6 +254,7 @@ A few examples but not limited to:
 {{< progress/github-link prNums="4969" title="GS: Don't propagate 24bit textures on download" authors="refractionpcsx2" >}}
 
 {{< img-cmp before="./img/Pic43-ManaKhemiaBefore.png" after="./img/Pic44-ManaKhemiaAfter.png">}}
+
 {{< progress/github-link prNums="4971" title="GS: Redo the Texture min/max opt" authors="refractionpcsx2" >}}
 
 {{< progress/github-link prNums="4980" title="Miscellaneous fixes for macOS" authors="tellowkrinkle" >}}
@@ -272,11 +276,13 @@ PCSX2 used to re-new the addresses for textures, but some games rely on re-using
 {{< progress/github-link prNums="5024" title="GS SW: Handle flat prims without float conversion" authors="refractionpcsx2" >}}
 
 {{< img-cmp-slider before="./img/Pic7-EvangelionBefore.png" after="./img/Pic8-EvangelionAfter.png">}}
+
 {{< progress/github-link prNums="5026" title="GS-gui: Change blending option from None to Minimum." authors="lightningterror" >}}
 
 {{< progress/github-link prNums="5029" title="GS/OpenGL: Use shader+draw for CopyRectConv" authors="stenzek" >}}
 
 {{< progress/chart data="./charts/Chart4-5029.json" >}}
+
 {{< progress/github-link prNums="5035" title="GS: Improve FixedTEX0 accuracy" authors="refractionpcsx2" >}}
 
 The calculation of how to handle texture sizes wasn't perfect and would cause graphical issues when upscaling such as Final Fantasy X.
@@ -393,6 +399,7 @@ If you moved or renamed your ISOs, you either had to nuke the recently played li
 {{< progress/github-link prNums="5030" title="GUI: Bring back F6 string (Aspect Ratio)" authors="RedDevilus" >}}
 
 Doesn't need much explaining as it was gone by accident to show the keybinding for aspect ratio.
+
 {{< progress/github-link prNums="5220" title="GSDumpDialog: Cache length instead of querying every packet" authors="stenzek" >}}
 
 ### GameDB
@@ -512,6 +519,7 @@ The game had wrongly colored eye textures (yellow/blue) but is now correctly whi
 {{< progress/github-link prNums="5051" title="3rdparty: Upgrade soundtouch lib to 2.3.1" authors="MrCK1" >}}
 
 {{< progress/github-link prNums="5052" title="3rdparty: Upgrade xbyak to 6.00" authors="MrCK1" >}}
+
 {{< progress/github-link prNums="5059" title="actions: Only announce `pre-release` releases" authors="xTVaser" >}}
 
 {{< progress/github-link prNums="5077" title="Fixes to CMake and version upgrade with CMake" authors="kenshen112" >}}
@@ -593,7 +601,7 @@ Makes savestates more robust by giving more information so as to lessen the chan
 
 {{< progress/github-link prNums="5134" title="Rebase more de-wx-ifying from last month" authors="stenzek" >}}
 
-### Metadata
+## Metadata
 
 Q4 2021:
 (dev1838 to dev2185) (2021-10-01 - 2021-12-31) 
