@@ -1,6 +1,4 @@
 @media (max-width: 575.98px)
-  div > .artifact-button:not(:first-child)
-    margin-top: 2em
   .pagination-container
     -webkit-box-pack: center !important
     -ms-flex-pack: center !important
@@ -9,6 +7,9 @@
 .artifact-dropdown
   text-transform: unset
   font-size: 1em
+
+.empty-artifact-dropdown
+  cursor: not-allowed
 
 .release-type-title
   font-weight: 700
@@ -58,7 +59,7 @@
   font-size: 1.5em
   color: var(--link-color)
   transition: color .15s ease-in-out
-  &:hover
+  &:hover:not(.disabled)
     color: var(--tertiary-color)
     transition: color .15s ease-in-out
 
@@ -71,8 +72,9 @@
 .pr-deletions
   color: #f85149
 
-a.disabled
-  cursor: pointer
+.release-artifact-link
+  &.disabled
+    cursor: not-allowed
 
 .scroll-fix
   scroll-margin-top: 10rem
