@@ -182,6 +182,16 @@ $('document').ready(async function () {
   } catch (e) {
     $('#outage-alert').show();
   }
+
+  // Scroll to anchor tag if relevant
+  if(window.location.hash) {
+    var elem = document.getElementById(window.location.hash.replace("#", ""));
+    if (elem != null) {
+      elem.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  }
 });
 
 function renderLatestRelease(latestRelease, selector) {
