@@ -8,7 +8,7 @@
           <a href="#stable-anchor">Stable Releases</a>
         </li>
         <li>
-          <a href="#nightly-anchor">Nightly Releases</a>
+          <a href="#nightly-anchor">Nightly Releases (aka Dev Builds)</a>
         </li>
         <li>
           <a href="#pr-anchor">Pull Request Builds</a>
@@ -55,9 +55,9 @@
     </p>
     <div id="latest-release-notes"></div>
   </div>
-  <div class="row mt-5" id="latest-release-artifacts"></div>
+  <div class="row mt-5 d-flex justify-content-center" id="latest-release-artifacts"></div>
   <div class="row skeleton-wrapper">
-    <div class="col d-flex justify-content-center">
+    <div class="col-12 col-sm mb-4 d-flex justify-content-center">
       <div class="dropdown">
         <button class="btn btn-primary artifact-dropdown btn-lg dropdown-toggle" type="button" id="dropdownMenuButton"
           data-mdb-toggle="dropdown" aria-expanded="false" disabled>
@@ -67,7 +67,17 @@
         </button>
       </div>
     </div>
-    <div class="col d-flex justify-content-center">
+    <div class="col-12 col-sm mb-4 d-flex justify-content-center">
+      <div class="dropdown">
+        <button class="btn btn-primary artifact-dropdown btn-lg dropdown-toggle" type="button" id="dropdownMenuButton"
+          data-mdb-toggle="dropdown" aria-expanded="false" disabled>
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div class="col-12 col-sm d-flex justify-content-center">
       <div class="dropdown">
         <button class="btn btn-primary artifact-dropdown btn-lg dropdown-toggle" type="button" id="dropdownMenuButton"
           data-mdb-toggle="dropdown" aria-expanded="false" disabled>
@@ -94,7 +104,7 @@
           </tr>
         </thead>
         <tbody id="stable-table-body">
-          {{- partial "downloads/skeleton-table.html" (dict "numRows" 3 "numCols" 4) -}}
+          {{- partial "downloads/skeleton-table.html" (dict "numRows" 10 "numCols" 4) -}}
         </tbody>
       </table>
     </div>
@@ -115,9 +125,9 @@
     </p>
     <div id="latest-nightly-notes"></div>
   </div>
-  <div class="row mt-5" id="latest-nightly-artifacts"></div>
+  <div class="row mt-5 d-flex justify-content-center" id="latest-nightly-artifacts"></div>
   <div class="row skeleton-wrapper">
-    <div class="col d-flex justify-content-center">
+    <div class="col-12 col-sm mb-4 d-flex justify-content-center">
       <div class="dropdown">
         <button class="btn btn-primary artifact-dropdown btn-lg dropdown-toggle" type="button" id="dropdownMenuButton"
           data-mdb-toggle="dropdown" aria-expanded="false" disabled>
@@ -127,7 +137,17 @@
         </button>
       </div>
     </div>
-    <div class="col d-flex justify-content-center">
+    <div class="col-12 col-sm mb-4 d-flex justify-content-center">
+      <div class="dropdown">
+        <button class="btn btn-primary artifact-dropdown btn-lg dropdown-toggle" type="button" id="dropdownMenuButton"
+          data-mdb-toggle="dropdown" aria-expanded="false" disabled>
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div class="col-12 col-sm d-flex justify-content-center">
       <div class="dropdown">
         <button class="btn btn-primary artifact-dropdown btn-lg dropdown-toggle" type="button" id="dropdownMenuButton"
           data-mdb-toggle="dropdown" aria-expanded="false" disabled>
@@ -155,7 +175,7 @@
         </thead>
         <tbody id="nightly-table-body">
           <!-- skeleton loading -->
-          {{- partial "downloads/skeleton-table.html" (dict "numRows" 3 "numCols" 4) -}}
+          {{- partial "downloads/skeleton-table.html" (dict "numRows" 10 "numCols" 4) -}}
         </tbody>
       </table>
     </div>
@@ -188,7 +208,7 @@
         </thead>
         <tbody id="pull-request-table-body">
           <!-- skeleton loading -->
-          {{- partial "downloads/skeleton-table.html" (dict "numRows" 3 "numCols" 5) -}}
+          {{- partial "downloads/skeleton-table.html" (dict "numRows" 10 "numCols" 5) -}}
         </tbody>
       </table>
     </div>
