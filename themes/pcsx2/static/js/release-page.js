@@ -1,5 +1,5 @@
 let latestArtifactDropdown = doT.template(`
-<div class="col-12 col-sm d-flex justify-content-center artifact-button">
+<div class="col-6 col-sm d-flex justify-content-center artifact-button">
   <div class="dropdown">
     {{? it.assets.length }}
     <button class="btn btn-primary artifact-dropdown btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
@@ -198,9 +198,14 @@ function renderLatestRelease(latestRelease, selector) {
         name: "Linux",
         icon: "fab fa-linux",
         version: latestRelease.version
+      }) +
+      latestArtifactDropdown({
+        assets: latestRelease.assets.MacOS.filter(asset => !asset.additionalTags.includes("symbols")),
+        name: "MacOS",
+        icon: "fab fa-apple",
+        version: latestRelease.version
       })
     );
-    // TODO - macOS
     $(function () {
       $('[data-mdb-toggle="tooltip"]').tooltip()
     });
