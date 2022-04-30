@@ -45,6 +45,7 @@ Comparing two images side-by-side.  Both images will take up half of the full 12
 
 - **`before`** : _string_ - Path to the "before" image (left)
 - **`after`** : _string_ - Path to the "after" image (right)
+- `label` : _boolean_ - Set to `true` to label images with "before/after" labels
 
 **Examples**
 
