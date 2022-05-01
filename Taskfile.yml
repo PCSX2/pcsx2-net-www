@@ -19,3 +19,9 @@ tasks:
   convert-pngs:
     cmds:
       - python ./scripts/convert-pngs.py
+  cleanup-legacy:
+    cmds:
+      - python ./scripts/cleanup-legacy-files.py
+  migrate-legacy:
+    cmds:
+      - python ./scripts/migrate-article.py
