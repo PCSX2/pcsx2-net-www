@@ -13,6 +13,7 @@ Arguments in bold are required
 - [img](#img)
 - [imgproc](#imgproc)
 - [github-link](#github-link)
+- [chart](#chart)
 
 ## img-cmp-slider
 
@@ -44,6 +45,7 @@ Comparing two images side-by-side.  Both images will take up half of the full 12
 
 - **`before`** : _string_ - Path to the "before" image (left)
 - **`after`** : _string_ - Path to the "after" image (right)
+- `label` : _boolean_ - Set to `true` to label images with "before/after" labels
 
 **Examples**
 
@@ -61,6 +63,7 @@ Used for displaying an image where you have control over the width, on mobile it
 
 - **`src`** : _string_ - Path to the image
 - **`cols`** : _number 1 to 12 inclusive_ - The column width on non-mobile layouts
+- **`center`** : _boolean_ - Set to `true` to center the image
 
 **Examples**
 
@@ -95,4 +98,60 @@ Providing atleast 1 PR or Commit, and 1 Author is the intended usage.
 {{< progress/github-link prNums="4057,4085" shas="f1e44bfd47e3761388ebb5cc8ca4db78bb24916c" title="SPU2: Improve DMA/IRQ timing" authors="refractionpcsx2" >}}
 
 {{< progress/github-link prNums="4314,4045" title="Add CHD compression format support" authors="rtissera,SleepyMan,siddhartha77" >}}
+```
+
+## chart
+
+**Usage**
+
+Shortcode for creating a Chart.JS...chart.  You can provide optional sizing and centering options like previous shortcodes.
+
+But most importantly, you can provide a link to a .json file which has the data and configuration for the chart
+
+**args**
+
+- `data` : _string_ - Path to the chart's data, relative to the article
+- **`cols`** : _number 1 to 12 inclusive_ - The column width on non-mobile layouts, defaults to 12.
+- **`center`** : _boolean_ - Set to `true` to center the chart
+
+**Examples**
+
+Refer to the Chart.JS documentation for more examples of the data - https://www.chartjs.org/docs/latest/
+
+Given the following chart data, defined in `./charts/test-data.json`
+
+```json
+{
+  "type": "bar",
+  "chartData": {
+    "labels": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June"
+    ],
+    "datasets": [{
+      "label": "TEST!",
+      "backgroundColor": "rgb(255, 99, 132)",
+      "borderColor": "rgb(255, 99, 132)",
+      "data": [0, 10, 5, 2, 20, 30, 45]
+    },
+    {
+      "label": "TEST2!",
+      "backgroundColor": "blue",
+      "borderColor": "red",
+      "data": [0, 5, 2, 5, 10, 33, 1]
+    }]
+  },
+  "chartOptions": {}
+}
+
+```
+
+The HTML would look something like so:
+
+```html
+{{< progress/chart data="./charts/test-data.json" >}}
 ```

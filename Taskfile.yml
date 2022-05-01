@@ -1,6 +1,9 @@
 version: '3'
 
 tasks:
+  serve:
+    cmds:
+      - hugo server -D
   new-article:
     cmds:
       - python ./scripts/make-new-article.py
