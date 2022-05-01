@@ -1,6 +1,9 @@
 version: '3'
 
 tasks:
+  serve:
+    cmds:
+      - hugo server -D
   new-article:
     cmds:
       - python ./scripts/make-new-article.py
@@ -16,3 +19,9 @@ tasks:
   convert-pngs:
     cmds:
       - python ./scripts/convert-pngs.py
+  cleanup-legacy:
+    cmds:
+      - python ./scripts/cleanup-legacy-files.py
+  migrate-legacy:
+    cmds:
+      - python ./scripts/migrate-article.py

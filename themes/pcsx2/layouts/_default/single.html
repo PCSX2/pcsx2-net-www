@@ -1,22 +1,30 @@
 {{ define "main" }}
 <div class="container">
-  <div class="row mt-5 mb-3">
+  <div class="row mt-3 mt-md-5">
+    {{ if .Params.toc }}
+    <div class="col-12 col-md-3">
+      <aside class="toc-wrapper">
+        {{ partial "toc" . }}
+      </aside>
+    </div>
+    {{ end }}
+    {{ if .Params.toc }}
+    <div class="col-12 col-md-9">
+    {{ else }}
     <div class="col-12">
-      <h1>{{ .Title }}</h1>
-      {{ partial "metadata.html" . }}
+    {{ end }}
+      <div class="row mb-3">
+        <h1>{{ .Title }}</h1>
+        {{ partial "metadata.html" . }}
+      </div>
+      <div class="row mb-3">
+        <div class="col-12 markdown-content">
+          {{ partial "link-hash.html" .Content }}
+        </div>
+      </div>
+      {{ partial "ads/horizontal-row.html" }}
     </div>
   </div>
-  <div class="row mb-3">
-    <aside>
-      {{ partial "toc" . }}
-    </aside>
-  </div>
-  <div class="row mb-3">
-    <div class="col-12 markdown-content">
-      {{ .Content }}
-    </div>
-  </div>
-  {{ partial "ads/horizontal-row.html" }}
 </div>
 {{ end }}
 {{ define "additionalScripts" }}

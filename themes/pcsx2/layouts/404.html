@@ -1,0 +1,63 @@
+{{ $sass := resources.Get "sass/main.sass" }}
+{{ $style := $sass | resources.ToCSS }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+<style>
+  body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+  }
+
+  .splash-contents {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    grid-area: 1/1/1/1;
+    color: #fff;
+    z-index: 999;
+    justify-content: center;
+  }
+
+  #splash-video {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    grid-area: 1/1/1/1;
+    filter: opacity(45%);
+  }
+
+  #splash-screen {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    height: 100vh;
+  }
+
+  .error-text {
+    font-size: 1.5em;
+    font-weight: normal;
+  }
+
+  .error-text .emphasis {
+    font-weight: 700;
+  }
+
+  .error-text a {
+    text-decoration: none;
+    color: #cd5c5c;
+  }
+
+  .error-text a:hover {
+    color: #eb8787;
+  }
+</style>
+<div class="container-fluid">
+  <div id="splash-screen">
+    <video id="splash-video" src="{{.Site.BaseURL}}vid/splash-error.webm"
+      poster="{{.Site.BaseURL}}img/splash-error-poster.webp" autoplay="" muted="" loop=""></video>
+    <div class="splash-contents col col-12" align="center">
+      <h1 class="error-text">Please navigate to a valid <span class="emphasis">PCSX2.net</span> URL</h1>
+      <h1 class="error-text">or go back to the <span class="emphasis">PCSX2.net</span> <a href="{{.Site.BaseURL}}">Homepage</a></h1>
+    </div>
+  </div>
+</div>

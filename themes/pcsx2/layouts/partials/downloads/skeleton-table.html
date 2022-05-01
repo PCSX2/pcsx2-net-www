@@ -1,10 +1,10 @@
-{{ $cellWidths := slice 25 50 75 }}
-{{ range (seq .numRows)}}
+{{ $cellWidths := slice 25 50 75 100 }}
+{{ range $rowIndex := (seq $.numRows)}}
 <tr>
   {{ range (seq $.numCols)}}
   <td>
     <div class="skeleton-text">
-      <div class="skeleton-line" style="width: {{ index (shuffle $cellWidths) 0 }}%"></div>
+      <div class="skeleton-line" style="width: {{ index (shuffle $cellWidths) (mod $rowIndex (len $cellWidths)) }}%"></div>
     </div>
   </td>
   {{ end }}
