@@ -37,10 +37,10 @@ with open(pathFile, 'a') as f:
       secondaryAuthors.pop()
       for author in secondaryAuthors:
         f.write("  - \"{}\"\n".format(author))
-    if len(aliasLinks.split(",")) > 0 and aliasLinks.split(",")[0] != "":
-      f.write("aliases:\n")
-      for alias in aliasLinks.split(","):
-        f.write("  - \"{}\"\n".format(alias))
-        f.write("  - \"{}.html\"\n".format(alias))
-        f.write("  - \"{}.htm\"\n".format(alias))
+  if len(aliasLinks.split(",")) > 0 and aliasLinks.split(",")[0] != "":
+    f.write("aliases:\n")
+    for alias in aliasLinks.split(","):
+      f.write("  - \"{}\"\n".format(alias))
+      f.write("  - \"{}.html\"\n".format(alias))
+      f.write("  - \"{}.htm\"\n".format(alias))
   f.write('---\n')
