@@ -68,7 +68,7 @@
     }
   },
   "vanilla-lazyload": {
-    "pinnedVersion": "17.5.1",
+    "pinnedVersion": "17.8.1",
     "js": {
       "directoryToSave": "./themes/pcsx2/static/js/vendor/vanilla-lazyload",
       "baseUrlToFetch": "https://cdn.jsdelivr.net/npm/vanilla-lazyload",
