@@ -59,7 +59,7 @@
     }
   },
   "underscore": {
-    "pinnedVersion": "1.13.2",
+    "pinnedVersion": "1.13.3",
     "js": {
       "directoryToSave": "./themes/pcsx2/static/js/vendor/underscore",
       "baseUrlToFetch": "https://unpkg.com/underscore",
