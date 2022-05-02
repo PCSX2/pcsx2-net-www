@@ -9,4 +9,4 @@ updates:
     directory: "/"
     schedule:
       # Reminder for manually vendored dependencies
-      interval: "weekly"
+      interval: "monthly"

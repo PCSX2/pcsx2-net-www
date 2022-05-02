@@ -15,7 +15,7 @@
     "jquery": "3.6.0",
     "marked": "4.0.12",
     "mdb-ui-kit": "3.10.2",
-    "underscore": "1.13.2",
+    "underscore": "1.13.3",
     "vanilla-lazyload": "17.5.1"
   }
 }
