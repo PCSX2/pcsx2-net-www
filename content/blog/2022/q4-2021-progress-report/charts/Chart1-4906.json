@@ -20,5 +20,14 @@
       "data": [77, 143, 107, 82]
     }]
   },
-  "chartOptions": {}
+  "chartOptions": {
+    "scales": {
+      "y": {
+        "title": {
+          "display": true,
+          "text": "VPS"
+        }
+      }
+    }
+  }
 }
