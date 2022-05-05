@@ -30,6 +30,10 @@ toc: true
 
 {{< progress/github-link prNums="4910" title="microVU: Use uncached reg when clamping for FMAC instructions" authors="stenzek" >}}
 
+{{< progress/github-link prNums="4917" title="Savestates: Add missing things from Savestates" authors="refractionpcsx2" >}}
+
+Makes savestates more robust by giving more information so as to lessen the chance of breaking the game.
+
 {{< progress/github-link prNums="5048" title="microVU: Preserve XGKIck cycles in delay slot" authors="refractionpcsx2" >}}
 
 ### SPU2
@@ -201,7 +205,7 @@ A normal enduser will probably be scratching his head what this PR brought. Esse
 
 {{< progress/github-link prNums="4385" title="GS: Simulate scan mask (fix transparency in MGS2 & MGS3)" authors="Sergeanur" >}}
 
-For about forever, transparency didn't work correctly for Metal Gear Solid 3 {{< img-cmp-slider before="./img/Pic1-MGS3Before.png" after="./img/Pic2-MGS3After.png">}} and Gran Turismo 4 Ghost Cars. {{< img-cmp before="./img/Pic3-GT4Before.png" after="./img/Pic4-GT4After.png">}}
+For about forever, transparency didn't work correctly for Metal Gear Solid 3 {{< img-cmp-slider before="./img/Pic1-MGS3Before.png" after="./img/Pic2-MGS3After.png">}} and Gran Turismo 4 Ghost Cars. {{< img-cmp-slider before="./img/Pic3-GT4Before.png" after="./img/Pic4-GT4After.png">}}
 {{< img-cmp-slider before="./img/Pic47-GTConcept2002TokyoGenevaBefore.png" after="./img/Pic48-GTConcept2002TokyoGenevaAfter.png">}}
 {{< img-cmp-slider before="./img/Pic49-TouristTrophyBefore.png" after="./img/Pic50-TouristTrophyAfter.png">}}
 
@@ -364,6 +368,9 @@ Instead of the absolute path C:/User/Documents/PCSX2/ELF/test.elf, you can do th
 
 IPC is a generic name for this function so PINE was chosen as it's replacement. Especially when it's already useful for RPCS3 and other potentially other emulators or programs.
 
+{{< progress/github-link prNums="4747" title="Savestates: Small refactoring" authors="MrCK1" >}}
+Talk1
+
 {{< progress/github-link prNums="4867" title="Wx: Fix GS hotkeys losing values after reboot" authors="stenzek" >}}
 
 Makes sure that the hotkeys still retain their function after rebooting.
@@ -384,6 +391,10 @@ The main window will now say what preset you are using. pic4
 
 {{< progress/github-link prNums="4896" title="GS Debugger: Show \"D3D11 HW\" only on windows." authors="lightningterror" >}}
 
+{{< progress/github-link prNums="4905" title="Replace GSWnd with GL context wrappers, remove pDsp" authors="stenzek" >}}
+
+This is preparation part 2 to bring in the new Qt GUI.
+
 {{< progress/github-link prNums="4931" title="Core: Few more warnings fixup." authors="lightningterror" >}}
 
 {{< progress/github-link prNums="4975" title="Add \"Clear missing files\" option to recent ISO list" authors="italodirenzo93" >}}
@@ -397,6 +408,8 @@ If you moved or renamed your ISOs, you either had to nuke the recently played li
 {{< progress/github-link prNums="5030" title="GUI: Bring back F6 string (Aspect Ratio)" authors="RedDevilus" >}}
 
 Doesn't need much explaining as it was gone by accident to show the keybinding for aspect ratio.
+
+{{< progress/github-link prNums="5134" title="Rebase more de-wx-ifying from last month" authors="stenzek" >}}
 
 {{< progress/github-link prNums="5220" title="GSDumpDialog: Cache length instead of querying every packet" authors="stenzek" >}}
 
@@ -486,9 +499,19 @@ The new GUI is moving along very well, but is not at feature parity as the curre
 
 ### Maintenance
 
+{{< progress/github-link prNums="4140" title="Remove wxString ↔︎ std::string implicit conversions" authors="tellowkrinkle" >}}
+
+{{< progress/github-link prNums="4709" title="GS Include Cleanup" authors="tellowkrinkle" >}}
+
+{{< progress/github-link prNums="4786" title="Remove configuration coupling to GUI" authors="stenzek" >}}
+
 {{< progress/github-link prNums="4818" title="Add partial LTO to CMake" authors="tellowkrinkle" >}}
 
 {{< progress/github-link prNums="4822" title="EE: Fix JIT exits on 64-bit Windows" authors="stenzek" >}}
+
+{{< progress/github-link prNums="4855" title="Fix some compile warnings spewed by MSVC x64" authors="stenzek" >}}
+
+{{< progress/github-link prNums="4872" title="FreeBSD fixup" authors="tadanokojin" >}}
 
 {{< progress/github-link prNums="4908" title="Remove 30-day artifact retention on windows builds" authors="tellowkrinkle" >}}
 
@@ -564,6 +587,8 @@ The new GUI is moving along very well, but is not at feature parity as the curre
 
 {{< progress/github-link prNums="4920" title="Config: Fix zoom/stretch options not updating on Apply" authors="stenzek" >}}
 
+{{< progress/github-link prNums="4943" title="Misc: Fix more warnings." authors="lightningterror" >}}
+
 {{< progress/github-link prNums="4972" title="EE JIT: Backup shift on LDR/L if rs==rt" authors="refractionpcsx2" >}}
 
 {{< progress/github-link prNums="4979" title="CI:Add build date to program log of nightly builds" authors="Mrlinkwii" >}}
@@ -577,29 +602,6 @@ The new GUI is moving along very well, but is not at feature parity as the curre
 {{< progress/github-link prNums="5141" title="EERec: Remove zero-distance jmp in full fpu mode" authors="stenzek" >}}
 
 {{< progress/github-link prNums="5164" title="Common: Fix GetWorkingDirectory on unix" authors="tellowkrinkle" >}}
-
-### Ambiguous
-
-{{< progress/github-link prNums="4140" title="Remove wxString ↔︎ std::string implicit conversions" authors="tellowkrinkle" >}}
-
-{{< progress/github-link prNums="4709" title="GS Include Cleanup" authors="tellowkrinkle" >}}
-
-{{< progress/github-link prNums="4747" title="Savestates: Small refactoring" authors="MrCK1" >}}
-
-{{< progress/github-link prNums="4786" title="Remove configuration coupling to GUI" authors="stenzek" >}}
-{{< progress/github-link prNums="4855" title="Fix some compile warnings spewed by MSVC x64" authors="stenzek" >}}
-
-{{< progress/github-link prNums="4872" title="FreeBSD fixup" authors="tadanokojin" >}}
-
-{{< progress/github-link prNums="4905" title="Replace GSWnd with GL context wrappers, remove pDsp" authors="stenzek" >}}
-
-{{< progress/github-link prNums="4917" title="Savestates: Add missing things from Savestates" authors="refractionpcsx2" >}}
-
-Makes savestates more robust by giving more information so as to lessen the chance of breaking the game.
-
-{{< progress/github-link prNums="4943" title="Misc: Fix more warnings." authors="lightningterror" >}}
-
-{{< progress/github-link prNums="5134" title="Rebase more de-wx-ifying from last month" authors="stenzek" >}}
 
 ## Metadata
 
