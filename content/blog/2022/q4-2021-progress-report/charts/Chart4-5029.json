@@ -19,5 +19,14 @@
       "data": [95, 37, 77]
     }]
   },
-  "chartOptions": {}
+  "chartOptions": {
+    "scales": {
+      "y": {
+        "title": {
+          "display": true,
+          "text": "Frames Per Seconds (VPS)"
+        }
+      }
+    }
+  }
 }
