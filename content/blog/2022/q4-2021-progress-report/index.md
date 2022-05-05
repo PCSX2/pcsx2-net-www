@@ -202,6 +202,8 @@ A normal enduser will probably be scratching his head what this PR brought. Esse
 {{< progress/github-link prNums="4385" title="GS: Simulate scan mask (fix transparency in MGS2 & MGS3)" authors="Sergeanur" >}}
 
 For about forever, transparency didn't work correctly for Metal Gear Solid 3 {{< img-cmp-slider before="./img/Pic1-MGS3Before.png" after="./img/Pic2-MGS3After.png">}} and Gran Turismo 4 Ghost Cars. {{< img-cmp before="./img/Pic3-GT4Before.png" after="./img/Pic4-GT4After.png">}}
+{{< img-cmp-slider before="./img/Pic47-GTConcept2002TokyoGenevaBefore.png" after="./img/Pic48-GTConcept2002TokyoGenevaAfter.png">}}
+{{< img-cmp-slider before="./img/Pic49-TouristTrophyBefore.png" after="./img/Pic50-TouristTrophyAfter.png">}}
 
 {{< progress/github-link prNums="4757" title="Improved stats printout from sw renderer" authors="tellowkrinkle" >}}
 
