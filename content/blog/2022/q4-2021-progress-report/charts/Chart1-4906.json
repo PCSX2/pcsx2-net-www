@@ -22,7 +22,7 @@
   },
   "chartOptions": {
     "scales": {
-      "x": {
+      "y": {
         "title": {
           "display": true,
           "text": "VPS"

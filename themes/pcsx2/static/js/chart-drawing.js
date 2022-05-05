@@ -4,8 +4,8 @@ $(".progress-chart").each(async function() {
   let data = await chartFile.json();
 
   let options = {};
-  if ("options" in data) {
-    options = data.options;
+  if ("chartOptions" in data) {
+    options = data.chartOptions;
   }
 
   const config = {
