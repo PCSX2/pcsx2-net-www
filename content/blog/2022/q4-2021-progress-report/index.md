@@ -103,7 +103,10 @@ Instead of forcefully 'pulling the cord' when you reset or press on a real conso
 
 {{< progress/github-link prNums="4927" title="CDVD: Buffer up to 16 sectors" authors="refractionpcsx2" >}}
 
-Follows the documentation from developers to improve timing.
+Buffers up to 16 sectors on a DVD from its current position.
+Rationale behind Changes
+
+Documentation from developers shows that the DVD drive will always read 16 sectors as a minimum, so this means if it reads in advance, it can buffer up a bunch of sectors to be read off quickly by the DMA.
 
 {{< progress/github-link prNums="4992" title="CDVD: set the correct RTC year when input recording" authors="xTVaser" >}}
 
@@ -199,7 +202,9 @@ This will precompile working versions of the nightlies/dev and future stable ver
 
 Burnout games weren't emulated correctly due to the texture cache being the biggest pain in the GS side, which you can avoid by switching to the Software renderer and then switching to HW. The game downloaded the texture and then modified it to finally draw it on the CPU side.
 
- Now no more shenanigans in having to switch or ignore the sky issue, there is another game that has a similar issue a shooter called 'Black' (A recurring theme that PS2 game title names fit with their badly emulated issues). Black hasn't been fixed yet, perhaps in the future. {{< img-cmp-slider before="./img/Pic5-BurnoutBefore.png" after="./img/Pic6-BurnoutAfter.png">}}
+Now no more shenanigans in having to switch or ignore the sky issue, there is another game that has a similar issue a shooter called 'Black' (A recurring theme that PS2 game title names fit with their badly emulated issues). Black hasn't been fixed yet, perhaps in the future. 
+
+{{< img-cmp-slider before="./img/Pic5-BurnoutBefore.png" after="./img/Pic6-BurnoutAfter.png">}}
 
 {{< progress/github-link prNums="4346" title="Spin before sleeping threads to reduce thread sleeps/wakes" authors="tellowkrinkle" >}}
 
@@ -225,7 +230,9 @@ The new GSOffset takes advantage of the fact that the table of offsets from a pi
 
 {{< progress/github-link prNums="4385" title="GS: Simulate scan mask (fix transparency in MGS2 & MGS3)" authors="Sergeanur" >}}
 
-For about forever, transparency didn't work correctly for Metal Gear Solid 3 {{< img-cmp-slider before="./img/Pic1-MGS3Before.png" after="./img/Pic2-MGS3After.png">}} and Gran Turismo 4 Ghost Cars. {{< img-cmp-slider before="./img/Pic3-GT4Before.png" after="./img/Pic4-GT4After.png">}}
+For what feels like forever, transparency didn't work correctly for Metal Gear Solid 3 and other games such as Gran Turismo 4. 
+{{< img-cmp-slider before="./img/Pic1-MGS3Before.png" after="./img/Pic2-MGS3After.png">}} 
+{{< img-cmp-slider before="./img/Pic3-GT4Before.png" after="./img/Pic4-GT4After.png">}}
 {{< img-cmp-slider before="./img/Pic47-GTConcept2002TokyoGenevaBefore.png" after="./img/Pic48-GTConcept2002TokyoGenevaAfter.png">}}
 {{< img-cmp-slider before="./img/Pic49-TouristTrophyBefore.png" after="./img/Pic50-TouristTrophyAfter.png">}}
 
@@ -247,6 +254,8 @@ Properly fixes the flashlight in the Silent Hill series:
 
 {{< progress/github-link prNums="4891" title="GS: Revert be7e1163b4f7e3fe19876462fb26cd082ffb3ab4" authors="lightningterror" >}}
 
+This PR reverts an older commit from 2013 (1.2 era) which had wrong assumptions on texture region repeating and how the clamping is handled along with it.
+
 {{< progress/github-link prNums="4906" title="GS: Use stream buffer for vertices/indices/uniforms" authors="stenzek" >}}
 
 This will certainly help AMD GPUs on Windows but it does help NVIDIA GPU users too as the default behavior was to stall (essentialy wait and stop for new instructions) which caused bad performance.
@@ -257,7 +266,7 @@ These charts below lists 3 different systems that will give you an easier way to
 {{< progress/chart data="./charts/Chart2-4906.json" >}}
 {{< progress/chart data="./charts/Chart3-4906.json" >}}
 
-{{< progress/github-link prNums="4919" title="gs: gsstate (the old gsdx one) cleanup" authors="tadanokojin" >}}
+{{< progress/github-link prNums="4919" title="GS: gsstate (the old gsdx one) cleanup" authors="tadanokojin" >}}
 
 {{< progress/github-link prNums="4941" title="GS: Use custom allocator for SW renderer" authors="tellowkrinkle" >}}
 
@@ -303,6 +312,8 @@ PCSX2 used to re-new the addresses for textures, but some games rely on re-using
 
 {{< progress/github-link prNums="5024" title="GS SW: Handle flat prims without float conversion" authors="refractionpcsx2" >}}
 
+Large floats are not handled very well in the software renderer due to the range being limited by signed integers but also some precision is lost by being single floats which only have a precision of 24bits. This PR makes it so flat triangles are treated like sprites and the Z values are passed as integer so no precision is lost, which fixes games which use flat triangles to draw UI/2D screens.
+
 {{< img-cmp-slider before="./img/Pic7-EvangelionBefore.png" after="./img/Pic8-EvangelionAfter.png">}}
 
 {{< progress/github-link prNums="5026" title="GS-gui: Change blending option from None to Minimum." authors="lightningterror" >}}
@@ -317,11 +328,13 @@ The calculation of how to handle texture sizes wasn't perfect and would cause gr
 
 {{< img-cmp before="./img/Pic37-FFXBefore.png" after="./img/Pic38-FFXAfter.png">}}
 
-{{< progress/github-link prNums="5054" title="Gs-hw: Adjust/minor optimization on sw blend shader a bit" authors="lightningterror" >}}
+{{< progress/github-link prNums="5054" title="GS-hw: Adjust/minor optimization on sw blend shader a bit" authors="lightningterror" >}}
 
 {{< progress/github-link prNums="5061" title="GS-hw: Improve how we handle AA1 draws" authors="lightningterror" >}}
 
-In the last progress report (Q3 2021) there have been improvements to how Edge Anti-Aliasing works for the software renderer (lines and triangles type), this time the hardware renderer has also been improved for several games such as Doko Demo Issho series, FIFA 2002 and other unknown games. However it has only been fixed on the lines type but not the triangles type which is used a ton for Final Fantasy X. Hopefully in the future we can get feature parity with the software renderer and the issue on hardware renderer is the same but just in higher severity.
+In the last progress report (Q3 2021) there have been improvements to how Edge Anti-Aliasing works for the software renderer (lines and triangles type), this time the hardware renderer has also been improved for several games such as Doko Demo Issho series, FIFA 2002 and other unknown games. 
+
+However it has only been fixed on the lines type but not the triangles type which is used a ton for a game like Final Fantasy X. Hopefully in the future we can get feature parity with the software renderer which handles both types correctly and while the issue on hardware renderer is about the same it will be look worse in the severity factor.
 
 {{< img-cmp-slider before="./img/Pic33-DokoHWBefore.png" after="./img/Pic34-DokoHWAfter.png">}}
 {{< img-cmp-slider before="./img/Pic35-FIFA2002HWBefore.jpg" after="./img/Pic36-FIFA2002HWAfter.jpg">}}
@@ -356,6 +369,10 @@ This will improve the blending behavior on default settings. Blending affects ma
 
 {{< progress/github-link prNums="5138" title="GS: Replace separate HW renderers with single shared renderer" authors="tellowkrinkle" >}}
 
+In the past all the hardware renderers like OpenGL, Direct3D11 all had their own code locations which causes a lot of duplicated code and if someone made an improvement to one they shouldn't forget improving the other hardware renderers which causes code debt if they do.
+
+Now they all will share more code with each other.
+
 {{< progress/github-link prNums="5139" title="Fix broken resources" authors="tellowkrinkle" >}}
 
 {{< progress/github-link prNums="5154" title="GS: Check CLUT dirty write on vertex kick" authors="refractionpcsx2" >}}
@@ -384,14 +401,14 @@ This will improve the blending behavior on default settings. Blending affects ma
 
 Instead of the absolute path C:/User/Documents/PCSX2/ELF/test.elf, you can do things like ELF/test.elf instead.
 
-{{< progress/github-link prNums="4468" title="ipc: rename to pine" authors="GovanifY" >}}
+{{< progress/github-link prNums="4468" title="IPC: rename to pine" authors="GovanifY" >}}
 
 IPC is a generic name for this function so PINE was chosen as it's replacement. Especially when it's already useful for RPCS3 and other potentially other emulators or programs.
 
 {{< progress/github-link prNums="4747" title="Savestates: Small refactoring" authors="MrCK1" >}}
 Talk1
 
-{{< progress/github-link prNums="4867" title="Wx: Fix GS hotkeys losing values after reboot" authors="stenzek" >}}
+{{< progress/github-link prNums="4867" title="WX: Fix GS hotkeys losing values after reboot" authors="stenzek" >}}
 
 Makes sure that the hotkeys still retain their function after rebooting.
 
@@ -399,15 +416,27 @@ Makes sure that the hotkeys still retain their function after rebooting.
 
 {{< progress/github-link prNums="4882" title="GUI: remove presets 4,5,6" authors="Mrlinkwii" >}}
 
-Preset 4,5,6 (preset 1 is bad too to be fair) were removed as they only brought specific improvements for specific hardware and it wasn't good in most cases anyway as it just did some random EE cyclerate and cycleskip.
+Preset 4,5,6 (Preset 1 is bad too to be fair) were removed as they only brought specific improvements for specific hardware and it wasn't good in most cases anyway as it just did some random EE cyclerate and cycleskip. 
+
+PCSX2 shouldn't obfuscate with mostly useless settings that will only appeal a minority.
+
+Personally there should be only 3 modes for people:
+- Preset 2 which are the default settings
+- Preset 3 which is just Preset 2 + MTVU
+- Custom global and custom per-game settings
 
 {{< progress/github-link prNums="4883" title="GUI : remove EE Cycle Skipping 3" authors="Mrlinkwii" >}}
 
 Since all these major timing changes, this isn't really useful and broke more often than not.
+More often than not downclocking the EE Cyclerate will give better results for the more lower-end hardware.
+
+Though even in it's current state Cycleskip 1 and 2 will have decent results for Shadow of The Collosus which didn't ran full speed on the real hardware aka the PlayStation 2.
 
 {{< progress/github-link prNums="4888" title="Add the current profile to the status bar." authors="arcum42" >}}
 
-The main window will now say what preset you are using. pic4
+The main window will now say what preset you are using.
+
+{{< img cols="colWidth" src="./img/Pic51-PCSX2Preset.png">}}
 
 {{< progress/github-link prNums="4896" title="GS Debugger: Show \"D3D11 HW\" only on windows." authors="lightningterror" >}}
 
@@ -421,13 +450,26 @@ This is preparation part 2 to bring in the new Qt GUI.
 
 If you moved or renamed your ISOs, you either had to nuke the recently played list, ignore it or set it back how it was before. More granular control on how you want to handle latest games played.
 
+{{< img cols="colWidth" src="./img/Pic52-RemoveMissingFiles.png">}}
+
 {{< progress/github-link prNums="4986" title="PCSX2-GUI: Fix GUI inconsistencies" authors="RedDevilus" >}}
 
-{{< progress/github-link prNums="4989" title="wx: Fix `pxExplore` on macOS" authors="tellowkrinkle" >}}
+While not as exciting as a new fix for a game, increased performance on better compatibility this will make the text more aligned with the rest of the windows. Though it did have a meaningful change that the maximum audio latency is now 200 instead of 750. 
+
+The default is still is still 100 ms (0.1 seconds of audio latency) and if you really need 750 ms (0.75 seconds of audio latency) then it's likely Pentium 4 or older and work badly or even at all on current PCSX2 versions.
+
+Can you spot the differences?
+
+{{< img cols="colWidth" src="./img/Pic53-DEV9GUI.png">}}
+{{< img cols="colWidth" src="./img/Pic54-PADGUI.png">}}
+{{< img cols="colWidth" src="./img/Pic55-SPU2GUI.png">}}
+
+
+{{< progress/github-link prNums="4989" title="WX: Fix `pxExplore` on macOS" authors="tellowkrinkle" >}}
 
 {{< progress/github-link prNums="5030" title="GUI: Bring back F6 string (Aspect Ratio)" authors="RedDevilus" >}}
 
-Doesn't need much explaining as it was gone by accident to show the keybinding for aspect ratio.
+Doesn't need much explaining as it was gone by accident to show the keybinding for aspect ratio. Emulation development can have it fair share of regressions.
 
 {{< progress/github-link prNums="5134" title="Rebase more de-wx-ifying from last month" authors="stenzek" >}}
 
@@ -439,73 +481,73 @@ Doesn't need much explaining as it was gone by accident to show the keybinding f
 
 {{< progress/github-link prNums="4868" title="GameDB :add 'SingStar ABBA' entry" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="4869" title="GameDB :add VU clamping to Monster Rancher 3" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="4869" title="GameDB: Add VU clamping to Monster Rancher 3" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="4877" title="GameDB :add missing entry" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="4877" title="GameDB: Add missing entry" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="4935" title="GameDB:add 'VUKickstart' to 'Maken Shao' games " authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="4935" title="GameDB: Add 'VUKickstart' to 'Maken Shao' games " authors="Mrlinkwii" >}}
 
 {{< progress/github-link prNums="4981" title="GameDB: Add and fix SingStar Entries" authors="RedDevilus" >}}
 
 {{< progress/github-link prNums="4984" title="GameDB: Add and fix Power Pros series" authors="Tokman5" >}}
 
-{{< progress/github-link prNums="4991" title="GameDB: add EE clamping to 'Shadow of Zorro' and 'Evil Twin - Cyprien's Chronicles'" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="4991" title="GameDB: Add EE clamping to 'Shadow of Zorro' and 'Evil Twin - Cyprien's Chronicles'" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5004" title="GameDB: add nearest rounding to 'Hitman - Contracts' and various fixes " authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5004" title="GameDB: Add nearest rounding to 'Hitman - Contracts' and various fixes " authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5007" title="GameDB:add 'GIFFIFOHack' to 'Gunfighter 2 - Legend of Jesse James'" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5007" title="GameDB: Add 'GIFFIFOHack' to 'Gunfighter 2 - Legend of Jesse James'" authors="Mrlinkwii" >}}
 
 {{< img-cmp-slider before="./img/Pic31-GunfighterBefore.png" after="./img/Pic32-GunfighterAfter.png">}}
 
-{{< progress/github-link prNums="5020" title="GameDB: add  ee-rounding and vu-rounding to various entries" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5020" title="GameDB: Add EE-Rounding and VU-Rounding to various entries" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5023" title="GameDB : add various fixes for various games and remove not needed patches " authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5023" title="GameDB : Add various fixes for various games and remove not needed patches " authors="Mrlinkwii" >}}
 
 {{< img-cmp-slider before="./img/Pic29-OnimushaBefore.png" after="./img/Pic30-OnimushaAfter.png">}}
 
-{{< progress/github-link prNums="5049" title="GameDB : ADD fixes for various games " authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5049" title="GameDB : Add fixes for various games " authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5057" title="Gamedb: remove the patch for Virtua Fighter 4" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5057" title="Gamedb: Remove the patch for Virtua Fighter 4" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5058" title="GameDB: purge patches for 'Knockout Kings 2002'" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5058" title="GameDB: Purge patches for 'Knockout Kings 2002'" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5060" title="GameDB : fix Fuuraiki 2 patch" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5060" title="GameDB: Fix Fuuraiki 2 patch" authors="Mrlinkwii" >}}
 
 {{< progress/github-link prNums="5073" title="GameDB: Add fixes for 'Shadow Man - 2econd Coming' and 'Ghosthunter' games." authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5093" title="GameDB: add 'VIFFIFOHack' to 'Men in Black II: Alien Escape'" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5093" title="GameDB: Add 'VIFFIFOHack' to 'Men in Black II: Alien Escape'" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5097" title="GameDB: add 'VUKickstartHack' to 'Crash Twinsanity'" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5097" title="GameDB: Add 'VUKickstartHack' to 'Crash Twinsanity'" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5106" title="GameDB: add patches to the 'K-1 World' series games add EE clamping full to 'D1 Professional Drift Grand Prix Series'" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5106" title="GameDB: Add patches to the 'K-1 World' series games add EE clamping full to 'D1 Professional Drift Grand Prix Series'" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5114" title="GameDB:add EEclamping full to 'Shinobido Takumi'" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5114" title="GameDB: Add EEclamping full to 'Shinobido Takumi'" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5116" title="GameDB: add VU clamping to 'MVP Baseball 2003'" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5116" title="GameDB: Add VU clamping to 'MVP Baseball 2003'" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5118" title="GameDB: add EEtiminghack to 'MGS2' and change VU and EE rounding for 'Primal' and add missing entries " authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5118" title="GameDB: Add EEtiminghack to 'MGS2' and change VU- and EE-rounding for 'Primal' and add missing entries " authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5145" title="GameDB: add patches to the 'Netsu Chu!' series and  'Samurai 7' series" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5145" title="GameDB: Add patches to the 'Netsu Chu!' series and  'Samurai 7' series" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5148" title="GameDB:add EE clamping to 'Chou Saisoku! Zokusha King B.U.'" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5148" title="GameDB: Add EE-clamping to 'Chou Saisoku! Zokusha King B.U.'" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5150" title="GameDB: add EEclamping to 'Dark cloud 2'" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5150" title="GameDB: Add EE-clamping to 'Dark cloud 2'" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5153" title="GameDB: add patches to 2k games" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5153" title="GameDB: Add patches to 2k games" authors="Mrlinkwii" >}}
 
 {{< progress/github-link prNums="5158" title="Add \"Jikkyou Powerful Pro Yakyuu 2009\" to GameDB" authors="Tokman5" >}}
 
-{{< progress/github-link prNums="5166" title="GameDB: add more 2k games patches" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5166" title="GameDB: Add more 2k games patches" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5172" title="GameDB add gamefixes to 'Titeuf Mega-compet' and patch 'Yamiyo ni Sasayaku - Tantei Sagara Kyouichirou' series" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5172" title="GameDB: Add gamefixes to 'Titeuf Mega-compet' and patch 'Yamiyo ni Sasayaku - Tantei Sagara Kyouichirou' series" authors="Mrlinkwii" >}}
 
 {{< img-cmp-slider before="./img/Pic27-TiteufBefore.png" after="./img/Pic28-TiteufAfter.png">}}
 
 {{< progress/github-link prNums="5178" title="GameDB: Add EE Clamping to 'Digimon Battle Chronicle' and fixes to other games" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5185" title="GameDB: change VUclamping on \"Sled Storm\"" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5185" title="GameDB: Change VU-clamping on \"Sled Storm\"" authors="Mrlinkwii" >}}
 
-{{< progress/github-link prNums="5187" title=" GameDB: add VU clamping to \"Ultimate Spider-Man\" and fixes to other games" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5187" title=" GameDB: add VU-clamping to \"Ultimate Spider-Man\" and fixes to other games" authors="Mrlinkwii" >}}
 
 The game had wrongly colored eye textures (yellow/blue) but is now correctly white:
 
@@ -515,7 +557,7 @@ The game had wrongly colored eye textures (yellow/blue) but is now correctly whi
 
 The new GUI is moving along very well, but is not at feature parity as the current WX-Widgets GUI is. Please be patient when it will be released to you guys.
 
-{{< progress/github-link prNums="5234" title="GameDB: remove patches for  'Neo Contra' and add EE rounding and clamping" authors="Mrlinkwii" >}}
+{{< progress/github-link prNums="5234" title="GameDB: Remove patches for  'Neo Contra' and add EE rounding and clamping" authors="Mrlinkwii" >}}
 
 ### Maintenance
 
