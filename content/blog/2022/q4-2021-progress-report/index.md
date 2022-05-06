@@ -1,11 +1,13 @@
 ---
 title: "Q4 2021 Progress Report"
-date: 2022-04-24T00:00:00
+date: 2022-05-06T00:00:00
 summary: "On track with the marriage of speed and accuracy."
 draft: false
 tags:
   - "progress-report"
 mainAuthor: RedDevilus
+secondaryAuthors:
+  - "TellowKrinkle"
 toc: true
 ---
 ## Core Improvements
