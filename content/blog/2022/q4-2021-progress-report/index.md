@@ -44,13 +44,15 @@ Makes savestates more robust by giving more information so as to lessen the chan
 
 {{< progress/github-link prNums="5183" title="SPU2: Add Cubeb backend, remove Portaudio and SDL2 backends" authors="stenzek" >}}
 
-The current stable (1.6 as of writing) had multiple back-ends namely Xaudio2, DirectSound, PortAudio, WaveOut. DirectSound was being a buggy mess to maintain, WaveOut wasn't much better, PortAudio was fine and Xaudio2 was de facto standard on the Windows side. Now Cubeb replaces PortAudio as it's replacer and keep Xaudio2 as a back-up. Keep in mind in Cubeb the latency slider is ignored as it automatically uses a very low latency automatically based on your system:
+The current stable (1.6 as of writing) had multiple back-ends namely Xaudio2, DirectSound, PortAudio, WaveOut. DirectSound was being a buggy mess to maintain, WaveOut wasn't much better, PortAudio was fine and Xaudio2 was de facto standard on the Windows side. Now Cubeb replaces PortAudio as its successor and keep Xaudio2 as a back-up. Keep in mind in Cubeb the latency slider states 100ms in the GUI but isn't exactly true as it automatically uses a very low latency automatically based on your system:
 Best Case:
 (Cubeb) Minimum latency: 10.00 ms (480 audio frames)
 Worst Case:
 (Cubeb) Minimum latency: 25.00 ms (1200 audio frames)
 
-Xaudio2 can't handle that low latency without bad skipping and warping even on better systems. I hope you guys like the sound. How timeskipping actually works is that you see the first video frame and the sound comes after the targeted sound latency, which for years meant 0.1 seconds delays.
+If it's above 25.00 ms you either have a computer issue like corrupt drivers or your computer is far too weak.
+
+Xaudio2 can't handle the same low latency that Cubeb has without bad skipping and warping even on better systems. I hope you guys like the sound. How timeskipping actually works is that you see the first video frame and the sound comes after the targeted sound latency, which for years essentialy means 0.1 seconds delays.
 
 {{< progress/github-link prNums="5238" title="Rename ConfigSoundtouch.cpp to ConfigSoundTouch.cpp" authors="xantares" >}}
 
@@ -127,13 +129,13 @@ Making sure that the CD/DVD emulation works correctly, there were additions to h
 
 Changes how DMA Transfers are handled for example some games like them to be in a specific order.
 
-Fixes https://github.com/PCSX2/pcsx2/issues/5168 (Top Trumps)
-Fixes https://github.com/PCSX2/pcsx2/issues/4063 (Phase Paradox)
-Improves the moving billboard quality in Test Drive (Master has corruption)
-Fixes video hang in Eggo Mania/Egg Mania - Eggstreme Madess (patch no longer required)
+Fixes https://github.com/PCSX2/pcsx2/issues/5168 (Top Trumps).
+Fixes https://github.com/PCSX2/pcsx2/issues/4063 (Phase Paradox).
+Improves the moving billboard quality in Test Drive (Master has corruption).
+Fixes video hang in Eggo Mania/Egg Mania - Eggstreme Madess (patch no longer required).
 Fixes Smackdown Shut Your Mouth Titantrons.
-Fixes Gladiator - Sword of Vengeance videos (patch no longer required) Partial https://github.com/PCSX2/pcsx2/issues/3489
-Fixes https://github.com/PCSX2/pcsx2/issues/4360 (Flipnic UFO mission hang)
+Fixes Gladiator - Sword of Vengeance videos (patch no longer required) Partial https://github.com/PCSX2/pcsx2/issues/3489.
+Fixes https://github.com/PCSX2/pcsx2/issues/4360 (Flipnic UFO mission hang).
 
 Also means Mana Khemia and Metal Saga no longer need a gamefix, however I'm leaving it on to be safe, it does no harm.
 
@@ -195,7 +197,9 @@ This will precompile working versions of the nightlies/dev and future stable ver
 
 {{< progress/github-link prNums="4094" title="GS-hw: fix Burnout games black sky." authors="iMineLink" >}}
 
-Burnout games weren't emulated correctly due to the texture cache being the biggest pain in the GS side, which you can avoid by switching to the Software renderer and then switching to HW. The game downloaded the texture and then modified it to finally draw it on the CPU side. Now no more shenanigans in having to switch or ignore the sky issue, there is another game that has a similar issue a shooter called 'Black' (A recurring theme that PS2 game title names fit with their badly emulated issues). Black hasn't been fixed yet, perhaps in the future. {{< img-cmp-slider before="./img/Pic5-BurnoutBefore.png" after="./img/Pic6-BurnoutAfter.png">}}
+Burnout games weren't emulated correctly due to the texture cache being the biggest pain in the GS side, which you can avoid by switching to the Software renderer and then switching to HW. The game downloaded the texture and then modified it to finally draw it on the CPU side.
+
+ Now no more shenanigans in having to switch or ignore the sky issue, there is another game that has a similar issue a shooter called 'Black' (A recurring theme that PS2 game title names fit with their badly emulated issues). Black hasn't been fixed yet, perhaps in the future. {{< img-cmp-slider before="./img/Pic5-BurnoutBefore.png" after="./img/Pic6-BurnoutAfter.png">}}
 
 {{< progress/github-link prNums="4346" title="Spin before sleeping threads to reduce thread sleeps/wakes" authors="tellowkrinkle" >}}
 
