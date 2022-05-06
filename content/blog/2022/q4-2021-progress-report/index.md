@@ -140,8 +140,6 @@ Fixes Smackdown Shut Your Mouth Titantrons.
 Fixes Gladiator - Sword of Vengeance videos (patch no longer required) Partial https://github.com/PCSX2/pcsx2/issues/3489.                                                                        
 Fixes https://github.com/PCSX2/pcsx2/issues/4360 (Flipnic UFO mission hang).
 
-Also means Mana Khemia and Metal Saga no longer need a gamefix, however I'm leaving it on to be safe, it does no harm.
-
 ### Debugger
 
 {{< progress/github-link prNums="4865" title="Debugger: Fix Goto in Disasm option for memory view" authors="F0bes" >}}
