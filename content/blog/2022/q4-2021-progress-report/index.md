@@ -394,7 +394,7 @@ The calculation of how to handle texture sizes wasn't perfect and would cause gr
 
 {{< img-cmp before="./img/Pic37-FFXBefore.png" after="./img/Pic38-FFXAfter.png">}}
 
-{{< progress/github-link prNums="5054" title="GS-hw: Adjust/minor optimization on sw blend shader a bit" authors="lightningterror" >}}
+{{< progress/github-link prNums="5054" title="GS-hw: Adjust/minor optimization on SW blend shader a bit" authors="lightningterror" >}}
 
 {{< progress/github-link prNums="5061" title="GS-hw: Improve how we handle AA1 draws" authors="lightningterror" >}}
 
@@ -422,7 +422,7 @@ However it has only been fixed on the lines type but not the triangles type whic
 {{< img-cmp-slider before="./img/Pic21-HitmanBefore.png" after="./img/Pic22-HitmanAfter.png">}}
 {{< img-cmp-slider before="./img/Pic23-ImpossibleBefore.png" after="./img/Pic24-ImpossibleAfter.png">}}
 
-{{< progress/github-link prNums="5110" title="GS-hw: Try to use a mix of hw/sw blending in more situations." authors="lightningterror" >}}
+{{< progress/github-link prNums="5110" title="GS-hw: Try to use a mix of HW/SW blending in more situations." authors="lightningterror" >}}
 
 This will improve the blending behavior on default settings. Blending affects many things such as the lighting, shadows and more.
 
