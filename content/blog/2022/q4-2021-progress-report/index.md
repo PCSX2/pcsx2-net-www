@@ -40,7 +40,7 @@ Happy Reading!
 
 {{< progress/github-link prNums="4960" title="DEV9: Don't shadow return value of GetAdaptersAddresses (Pcap)" authors="TheLastRar" >}}
 
-Shadowing dwStatus for the return value of GetAdaptersAddresses will prevent the return value of second call from being inspected in the following if statement
+Shadowing dwStatus for the return value of GetAdaptersAddresses will prevent the return value of second call from being inspected in the following if statement.
 
 If the user had a large amount of network adapters, this would prevent the code from getting the adapter information of a the selected pcap adaptor.
 
@@ -56,11 +56,17 @@ The equivalent TAP adapter code is already correct.
 
 {{< progress/github-link prNums="4910" title="microVU: Use uncached reg when clamping for FMAC instructions" authors="stenzek" >}}
 
+This was causing broken lighting in 64-bit mode, due to the larger number of registers available. Ft gets loaded and cached, but then the FMAC instructions clamp it in all modes except none, which disturbs the cached value (mismatched with the VU state). Jak happens to rely on this value not being clamped, so it was "okay" in 8-register mode because it had to be reloaded.
+
 {{< progress/github-link prNums="4917" title="Savestates: Add missing things from Savestates" authors="refractionpcsx2" >}}
 
 Makes savestates more robust by giving more information so as to lessen the chance of breaking the game.
 
-{{< progress/github-link prNums="5048" title="microVU: Preserve XGKIck cycles in delay slot" authors="refractionpcsx2" >}}
+{{< progress/github-link prNums="5048" title="microVU: Preserve XGKick cycles in delay slot" authors="refractionpcsx2" >}}
+
+Preserve XGKick cycles calculated when there is a memory write in a delay slot, also added handling for xgkick sync on single instructions.
+
+Previously there was no handling on single instructions (evil blocks) so that's sorted. The other problem was if there was a mem write in a branch delay slot, it would add the xgkick cycles it needed to run, then erase them! causing the sync to go out, this resolves it.
 
 ### SPU2
 
@@ -68,11 +74,11 @@ Makes savestates more robust by giving more information so as to lessen the chan
 
 {{< progress/github-link prNums="5183" title="SPU2: Add Cubeb backend, remove Portaudio and SDL2 backends" authors="stenzek" >}}
 
-The current stable (1.6 as of writing) had multiple back-ends namely Xaudio2, DirectSound, PortAudio, WaveOut. DirectSound was being a buggy mess to maintain, WaveOut wasn't much better, PortAudio was fine and Xaudio2 was de facto standard on the Windows side. Now Cubeb replaces PortAudio as its successor and keep Xaudio2 as a back-up. Keep in mind in Cubeb the latency slider states 100ms in the GUI but isn't exactly true as it automatically uses a very low latency automatically based on your system:
-Best Case:
-(Cubeb) Minimum latency: 10.00 ms (480 audio frames)
-Worst Case:
-(Cubeb) Minimum latency: 25.00 ms (1200 audio frames)
+The current stable (1.6 as of writing) had multiple back-ends namely Xaudio2, DirectSound, PortAudio, WaveOut. DirectSound was being a buggy mess to maintain, WaveOut wasn't much better, PortAudio was fine and Xaudio2 was de facto standard on the Windows side. Now Cubeb replaces PortAudio as its successor and keep Xaudio2 as a back-up. Keep in mind in Cubeb the latency slider states 100ms in the GUI but isn't exactly true as it automatically uses a very low latency automatically based on your system:                                                              
+Best Case:                                                                                        
+(Cubeb) Minimum latency: 10.00 ms (480 audio frames)                                              
+Worst Case:                                                                                     
+(Cubeb) Minimum latency: 25.00 ms (1200 audio frames)                                           
 
 If it's above 25.00 ms you either have a computer issue like corrupt drivers or your computer is far too weak.
 
@@ -128,7 +134,6 @@ Instead of forcefully 'pulling the cord' when you reset or press on a real conso
 {{< progress/github-link prNums="4927" title="CDVD: Buffer up to 16 sectors" authors="refractionpcsx2" >}}
 
 Buffers up to 16 sectors on a DVD from its current position.
-Rationale behind Changes
 
 Documentation from developers shows that the DVD drive will always read 16 sectors as a minimum, so this means if it reads in advance, it can buffer up a bunch of sectors to be read off quickly by the DMA.
 
@@ -170,15 +175,26 @@ Fixes https://github.com/PCSX2/pcsx2/issues/4360 (Flipnic UFO mission hang).
 
 {{< progress/github-link prNums="4885" title="Debugger: Separate symbol maps for EE and IOP" authors="Ziemas" >}}
 
+Adds a new member function to the DebugInterface for retrieving the symbol map for the CPU and uses this where relevant instead of accessing the map directly.
+
+Previously there was only one symbol map, which doesn't make a whole lot of sense. This prepares for future work on IOP symbol detection.
+
 {{< progress/github-link prNums="4926" title="Debugger: Support multi-line assembling" authors="F0bes" >}}
+
+When multiple lines of opcodes are selected, the 'Assemble Opcode(s)' context menu and M-key shortcut will turn reassemble all of those opcodes.
 
 {{< progress/github-link prNums="4974" title="Debugger: Initial memory search implementation" authors="F0bes" >}}
 
-Now you can finally go into a search for specific memory instead of scrolling just like in cheat engine.
+Now you can finally go into a search for specific memory address or string instead of scrolling just like in cheat engine.
+
+{{< img cols="colWidth" src="./img/Pic59-DebuggerView.png">}}
+- I think Fobes needs a hug for this secretive message.
 
 {{< progress/github-link prNums="4983" title="Debugger: Make the register list DPI aware (Windows)" authors="F0bes" >}}
 
-Fixes the debugger view when having difference in DPI. Pic 3
+Fixes the debugger view for registers when having difference in DPI (anything different from 100%).
+
+{{< img-cmp before="./img/Pic57-DebuggerRegisterBefore.png" after="./img/Pic58-DebuggerRegisterAfter.png">}}
 
 {{< progress/github-link prNums="4997" title="Debugger: Reset breakpoint skip on savestate load" authors="F0bes" >}}
 
@@ -208,7 +224,16 @@ Folder memory cards weren't recognised as a memory card being plugged-in unless 
 
 {{< progress/github-link prNums="4914" title="CI: Retain Workflow Artifacts permanently via Github Releases" authors="xTVaser" >}}
 
-This will precompile working versions of the nightlies/dev and future stable versions on GitHub forever instead of only temporary on GitHub.
+This pull request will bring permanent downloadable (pre)releases on GitHub itself instead of just using Orphis which will not make everything more central but makes it easier to tag commits that are made outside of a pull request and just force-pushed the changes to the project. *stares at certain people that have been naughty*.
+
+If you want to see more details, Vaser has written an essay-like detail on it
+
+{{< img cols="colWidth" src="./img/Pic60-ArtifactsGitHub.png">}}
+
+
+So it will precompile working versions of the nightlies/dev and future stable versions on GitHub forever instead of only temporary on GitHub or what was used in the past being AppVeyor (nickname: Slowveyor). 
+
+The nice thing about actions is that it can do multiple builds in parallel for free and can also publish these now permanent builds which are again linked on pcsx2.net as GitHub requires you to have an account in addition to being logged in so you have enough options.
 
 ## GS Improvements
 
@@ -219,6 +244,15 @@ This will precompile working versions of the nightlies/dev and future stable ver
 {{< progress/github-link prNums="3642" title="Convert GS Settings dialog to use wxwidgets" authors="arcum42" >}}
 
 {{< progress/github-link prNums="3940" title="GSVertexTrace::FindMinMax improvements" authors="tellowkrinkle" >}}
+
+This PR contains the following changes:
+- Prevents clang from optimizing out our denormal-removal shuffles (10x faster than before for people who compile with clang!)
+- Run divides on four elements at a time instead of two elements and two useless numbers
+- Remove inaccurate stq
+  - With the above division improvements, on processors with partially-pipelined division (Ivy    Bridge and later, Bulldozer and later), accurate stq is actually faster (according to both IACA of inaccurate vs accurate and LLVM MCA). On older CPUs expect performance to be about 2/3 of the old algorithm before taking into account improvements from not double-checking vertices.
+  - There seems to be a check of accurate_stq when the OGL backend is deciding whether to use  geometry shaders to process sprites.
+
+In the end, ignoring clang issues, GSVertexTrace::FindMinMax goes from taking about 3% of MTGS thread runtime to 1.5% on my computer. (Most of the time was spent doing OpenGL things so if you have a more efficient OpenGL driver it might make more of a difference for you)
 
 {{< progress/github-link prNums="4094" title="GS-hw: fix Burnout games black sky." authors="iMineLink" >}}
 
@@ -259,6 +293,10 @@ For what feels like forever, transparency didn't work correctly for Metal Gear S
 {{< img-cmp-slider before="./img/Pic49-TouristTrophyBefore.png" after="./img/Pic50-TouristTrophyAfter.png">}}
 
 {{< progress/github-link prNums="4757" title="Improved stats printout from sw renderer" authors="tellowkrinkle" >}}
+
+If you want to printout your stats from the SW renderer, it doesn't look as readable as it is badly aligned and has no header.
+
+{{< img-cmp before="./img/Pic61-SWPrintoutBefore.png" after="./img/Pic62-SWPrintoutAfter.png">}}
 
 {{< progress/github-link prNums="4850" title="GS-hw: Don't write clamped depth test value to depth buffer when ZMSK is enabled." authors="lightningterror" >}}
 
@@ -321,6 +359,12 @@ A few examples but not limited to:
 {{< progress/github-link prNums="4993" title="GS-ogl: Remove device, driver checks in GLLoader." authors="lightningterror" >}}
 
 {{< progress/github-link prNums="5000" title="GS:SW: Fix fog on x64 avx2" authors="tellowkrinkle" >}}
+
+Fixes a bug where 'f' would be incorrect for the blue channel when fogging was enabled on the rendering of a sprite on avx2 x64.
+
+Like you see this purple grass on Hitman which everybody should agree isn't realistic and is a bug:
+
+{{< img cols="colWidth" src="./img/Pic63-HitmanPurpleGrass.png">}}
 
 {{< progress/github-link prNums="5006" title="GS: Only reload Auto MIPs on TEX base change" authors="refractionpcsx2" >}}
 
