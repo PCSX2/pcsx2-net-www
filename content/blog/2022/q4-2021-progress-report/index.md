@@ -226,7 +226,7 @@ Folder memory cards weren't recognised as a memory card being plugged-in unless 
 
 This pull request will bring permanent downloadable (pre)releases on GitHub itself instead of just using Orphis which will not make everything more central but makes it easier to tag commits that are made outside of a pull request and just force-pushed the changes to the project. *stares at certain people that have been naughty*.
 
-If you want to see more details, Vaser has written an essay-like detail on it
+If you want to see more details, Vaser has written an essay-like detail on it:
 
 {{< img cols="colWidth" src="./img/Pic60-ArtifactsGitHub.png">}}
 
@@ -294,7 +294,7 @@ For what feels like forever, transparency didn't work correctly for Metal Gear S
 
 {{< progress/github-link prNums="4757" title="Improved stats printout from sw renderer" authors="tellowkrinkle" >}}
 
-If you want to printout your stats from the SW renderer, it doesn't look as readable as it is badly aligned and has no header.
+If you want to printout your stats from the SW renderer, it doesn't look as readable as it was badly aligned and has no header.
 
 {{< img-cmp before="./img/Pic61-SWPrintoutBefore.png" after="./img/Pic62-SWPrintoutAfter.png">}}
 
