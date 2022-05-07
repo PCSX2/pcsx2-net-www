@@ -1,6 +1,6 @@
 ---
 title: "Q4 2021 Progress Report"
-date: 2022-05-06T00:00:00
+date: 2022-05-08T00:00:00
 summary: "On track with the marriage of speed and accuracy."
 draft: false
 tags:
@@ -10,6 +10,24 @@ secondaryAuthors:
   - "TellowKrinkle"
 toc: true
 ---
+## Introduction
+
+*Watches the date and notices something*. Yes, my dear readers (or glancers) Q1 2022 should've been published 2 months ago and this is the predecessor to that. Sorry for the delay but there have been several reasons to this almost half year delay. Ranging from the way progress reports are handled:
+- Publish on private forum thread who has access
+- Needing it to be HTML without a working preview
+- Having multiple middlemen to check, update and publish on preview site
+- Finally go mad at how inefficient the process was that 80% of the time was spent on making sure that all the Pull Requests are listed and pointed correctly instead of actual writing
+
+Ok, moving on to better news is the the fantastic work from everybody involved in making sure that PCSX2 doesn't cave into a lesser program. In case you didn't notice we have a new site that bring PCSX2 from 2002 to 2022 and seeing that amazing animation on the homepage.
+
+So all around we will improve all aspects of the emulator and have better progress reports that cater to the technical-, light-hearted- or the changelog- oriented people. There are also a ton of pictures in this edition of the progress report and I'm sure that quite a few of you readers are waiting on the new look of the Qt GUI but that will still take awhile to see in fruition to the public.
+
+Here is a glimpse of what to expect:
+
+{{< img cols="colWidth" src="./img/Pic56-QtGlimpse.png">}}
+
+Happy Reading!
+
 ## Core Improvements
 
 ### DEV9
@@ -21,6 +39,12 @@ toc: true
 {{< progress/github-link prNums="4940" title="DEV9: DNS Logger Crash fix" authors="TheLastRar" >}}
 
 {{< progress/github-link prNums="4960" title="DEV9: Don't shadow return value of GetAdaptersAddresses (Pcap)" authors="TheLastRar" >}}
+
+Shadowing dwStatus for the return value of GetAdaptersAddresses will prevent the return value of second call from being inspected in the following if statement
+
+If the user had a large amount of network adapters, this would prevent the code from getting the adapter information of a the selected pcap adaptor.
+
+The equivalent TAP adapter code is already correct.
 
 {{< progress/github-link prNums="5074" title="DEV9: Enable pcap non-blocking" authors="TheLastRar" >}}
 
@@ -419,9 +443,9 @@ Preset 4,5,6 (Preset 1 is bad too to be fair) were removed as they only brought 
 PCSX2 shouldn't obfuscate with mostly useless settings that will only appeal a minority.
 
 Personally there should be only 3 modes for people:
-- Preset 2 which are the default settings
-- Preset 3 which is just Preset 2 + MTVU
-- Custom global and custom per-game settings
+- Preset 2 which are the default settings (good for weaker computers that don't have enough cores)
+- Preset 3 which is just Preset 2 + MTVU  (it is free performance for the taking for good hardware)
+- Custom global and custom per-game settings (any other situation that does not benefit the other two above ones)
 
 {{< progress/github-link prNums="4883" title="GUI : remove EE Cycle Skipping 3" authors="Mrlinkwii" >}}
 
@@ -664,6 +688,8 @@ The new GUI is moving along very well, but is not at feature parity as the curre
 {{< progress/github-link prNums="5164" title="Common: Fix GetWorkingDirectory on unix" authors="tellowkrinkle" >}}
 
 ## Metadata
+
+See you in our next progress report that is the first quarterly of 2022.
 
 Q4 2021:
 (dev1838 to dev2185) (2021-10-01 - 2021-12-31) 
