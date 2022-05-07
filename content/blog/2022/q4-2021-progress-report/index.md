@@ -1,6 +1,6 @@
 ---
 title: "Q4 2021 Progress Report"
-date: 2022-05-08T00:00:00
+date: 2022-05-07T00:00:00
 summary: "On track with the marriage of speed and accuracy."
 draft: false
 tags:
