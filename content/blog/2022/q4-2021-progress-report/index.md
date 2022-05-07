@@ -692,4 +692,4 @@ The new GUI is moving along very well, but is not at feature parity as the curre
 See you in our next progress report that is the first quarterly of 2022.
 
 Q4 2021:
-(dev1838 to dev2185) (2021-10-01 - 2021-12-31) 
+(dev1838 to dev2185) (2021-10-01 - 2021-12-31)
