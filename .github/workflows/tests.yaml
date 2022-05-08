@@ -14,6 +14,7 @@ on:
 
 jobs:
   ui-chrome-tests:
+    if: ${{ github.event.pull_request.head.repo.full_name == 'PCSX2/pcsx2-net-www' && github.actor != 'dependabot[bot]' }}
     name: "Chrome"
     timeout-minutes: 15
     runs-on: ubuntu-latest
@@ -33,13 +34,38 @@ jobs:
           browser: chrome
           record: true
         env:
-          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           # Recommended: pass the GitHub token lets this action correctly
           # determine the unique run id necessary to re-run the checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  ui-chrome-tests-fork:
+    if: ${{ github.event.pull_request.head.repo.full_name != 'PCSX2/pcsx2-net-www' || github.actor == 'dependabot[bot]'}}
+    name: "Chrome | No Recording"
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    container:
+      image: xtvaser/cypress-with-hugo:node14.17.0-chrome91-ff89
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: "UI Tests - Chrome"
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm run hugo
+          working-directory: tests
+          wait-on: "http://localhost:1313"
+          wait-on-timeout: 120
+          browser: chrome
+          record: false
+        env:
+          # Recommended: pass the GitHub token lets this action correctly
+          # determine the unique run id necessary to re-run the checks
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   ui-firefox-tests:
+    if: ${{ github.event.pull_request.head.repo.full_name == 'PCSX2/pcsx2-net-www' && github.actor != 'dependabot[bot]' }}
     name: "Firefox"
     timeout-minutes: 15
     runs-on: ubuntu-latest
@@ -60,7 +86,33 @@ jobs:
           browser: firefox
           record: true
         env:
-          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # Recommended: pass the GitHub token lets this action correctly
+          # determine the unique run id necessary to re-run the checks
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  ui-firefox-tests-fork:
+    if: ${{ github.event.pull_request.head.repo.full_name != 'PCSX2/pcsx2-net-www' || github.actor == 'dependabot[bot]' }}
+    name: "Firefox | No Recording"
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    container:
+      image: xtvaser/cypress-with-hugo:node14.17.0-chrome91-ff89
+      options: --user 1001
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: "UI Tests - Firefox"
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm run hugo
+          working-directory: tests
+          wait-on: "http://localhost:1313"
+          wait-on-timeout: 120
+          browser: firefox
+          record: false
+        env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           # Recommended: pass the GitHub token lets this action correctly
           # determine the unique run id necessary to re-run the checks
