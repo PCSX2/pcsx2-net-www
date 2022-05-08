@@ -15,9 +15,9 @@ describe('Download Page - Desktop', () => {
 
     it('handles downtime gracefully', { scrollBehavior: 'center' }, () => {
       cy.get('[data-test-id="downtime-notification"]');
-      cy.get('[data-test-id="latest-release-artifacts-loading"]').find('button').its('length').should('eq', 2);
+      cy.get('[data-test-id="latest-release-artifacts-loading"]').find('button').its('length').should('eq', 3);
       cy.get('#stable-table-body').find('.skeleton-line').its('length').should('gt', 0);
-      cy.get('[data-test-id="latest-nightly-artifacts-loading"]').find('button').its('length').should('eq', 2);
+      cy.get('[data-test-id="latest-nightly-artifacts-loading"]').find('button').its('length').should('eq', 3);
       cy.get('#nightly-table-body').find('.skeleton-line').its('length').should('gt', 0);
     });
   });
@@ -147,9 +147,9 @@ describe('Download Page - Mobile', () => {
 
     it('handles downtime gracefully', { scrollBehavior: 'center' }, () => {
       cy.get('[data-test-id="downtime-notification"]');
-      cy.get('[data-test-id="latest-release-artifacts-loading"]').find('button').its('length').should('eq', 2);
+      cy.get('[data-test-id="latest-release-artifacts-loading"]').find('button').its('length').should('eq', 3);
       cy.get('#stable-table-body').find('.skeleton-line').its('length').should('gt', 0);
-      cy.get('[data-test-id="latest-nightly-artifacts-loading"]').find('button').its('length').should('eq', 2);
+      cy.get('[data-test-id="latest-nightly-artifacts-loading"]').find('button').its('length').should('eq', 3);
       cy.get('#nightly-table-body').find('.skeleton-line').its('length').should('gt', 0);
     });
   });
