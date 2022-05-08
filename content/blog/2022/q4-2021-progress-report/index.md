@@ -30,79 +30,6 @@ Happy Reading!
 
 ## Core Improvements
 
-### DEV9
-
-{{< progress/github-link prNums="4421" title="Convert DEV9 config dialog to wxWidgets" authors="tellowkrinkle" >}}
-
-{{< progress/github-link prNums="4933" title="DEV9: Fix Windows config saving/loading" authors="TheLastRar" >}}
-
-{{< progress/github-link prNums="4940" title="DEV9: DNS Logger Crash fix" authors="TheLastRar" >}}
-
-{{< progress/github-link prNums="4960" title="DEV9: Don't shadow return value of GetAdaptersAddresses (Pcap)" authors="TheLastRar" >}}
-
-Shadowing dwStatus for the return value of GetAdaptersAddresses will prevent the return value of second call from being inspected in the following if statement.
-
-If the user had a large amount of network adapters, this would prevent the code from getting the adapter information of a the selected pcap adaptor.
-
-The equivalent TAP adapter code is already correct.
-
-{{< progress/github-link prNums="5074" title="DEV9: Enable pcap non-blocking" authors="TheLastRar" >}}
-
-### VU
-
-{{< progress/github-link prNums="4901" title="COP2: Simplify reg allocation" authors="refractionpcsx2" >}}
-
-{{< progress/github-link prNums="4907" title="Fix unparenthesized macro input" authors="tellowkrinkle" >}}
-
-{{< progress/github-link prNums="4910" title="microVU: Use uncached reg when clamping for FMAC instructions" authors="stenzek" >}}
-
-This was causing broken lighting in 64-bit mode, due to the larger number of registers available. Ft gets loaded and cached, but then the FMAC instructions clamp it in all modes except none, which disturbs the cached value (mismatched with the VU state). Jak happens to rely on this value not being clamped, so it was "okay" in 8-register mode because it had to be reloaded.
-
-{{< progress/github-link prNums="4917" title="Savestates: Add missing things from Savestates" authors="refractionpcsx2" >}}
-
-Makes savestates more robust by giving more information so as to lessen the chance of breaking the game.
-
-{{< progress/github-link prNums="5048" title="microVU: Preserve XGKick cycles in delay slot" authors="refractionpcsx2" >}}
-
-Preserve XGKick cycles calculated when there is a memory write in a delay slot, also added handling for xgkick sync on single instructions.
-
-Previously there was no handling on single instructions (evil blocks) so that's sorted. The other problem was if there was a mem write in a branch delay slot, it would add the xgkick cycles it needed to run, then erase them! causing the sync to go out, this resolves it.
-
-### SPU2
-
-{{< progress/github-link prNums="5027" title="SPU: Fix videos in Stolen" authors="Ziemas" >}}
-
-{{< progress/github-link prNums="5183" title="SPU2: Add Cubeb backend, remove Portaudio and SDL2 backends" authors="stenzek" >}}
-
-The current stable (1.6 as of writing) had multiple back-ends namely Xaudio2, DirectSound, PortAudio, WaveOut. DirectSound was being a buggy mess to maintain, WaveOut wasn't much better, PortAudio was fine and Xaudio2 was de facto standard on the Windows side. Now Cubeb replaces PortAudio as its successor and keep Xaudio2 as a back-up. Keep in mind in Cubeb the latency slider states 100ms in the GUI but isn't exactly true as it automatically uses a very low latency automatically based on your system:                                                              
-Best Case:                                                                                        
-(Cubeb) Minimum latency: 10.00 ms (480 audio frames)                                              
-Worst Case:                                                                                     
-(Cubeb) Minimum latency: 25.00 ms (1200 audio frames)                                           
-
-If it's above 25.00 ms you either have a computer issue like corrupt drivers or your computer is far too weak.
-
-Xaudio2 can't handle the same low latency that Cubeb has without bad skipping and warping even on better systems. I hope you guys like the sound. How timeskipping actually works is that you see the first video frame and the sound comes after the targeted sound latency, which for years essentialy means 0.1 seconds delays.
-
-{{< progress/github-link prNums="5238" title="Rename ConfigSoundtouch.cpp to ConfigSoundTouch.cpp" authors="xantares" >}}
-
-### PAD
-
-{{< progress/github-link prNums="4809" title="GUI(linux): Abort 'set all buttons' & fixed window size" authors="JosephLees" >}}
-
-{{< progress/github-link prNums="4985" title="Create a shared pad header, get rid of the originals, and do some cleanup." authors="arcum42" >}}
-
-### USB
-
-{{< progress/github-link prNums="5032" title="USB: Gametrak/RealPlay" authors="Florin9doi" >}}
-
-This Pull Request made the last non-working game work (don't count games like Final Fantasy 11 which were online-only) and looks more like a current Linus Tech Videos about VR with all those wires than a PS2 accessory. I'll stick to my Black Nintendo Wii instead of this seemingly weird copy-cat.
-
-{{< progress/github-link prNums="5184" title="USB: Sony DPP-MP1 printer emulation" authors="Florin9doi" >}}
-
-Most users won't see any usage with this and that is fine but the goal of emulating the endless USB and PAD devices do scare me, here is a small subset of still needing to be emulated: https://github.com/PCSX2/pcsx2/issues/4763
-
-
 ### CDVD
 
 {{< progress/github-link prNums="4839" title="CDVD: Implement correct SpindleCtrl handling" authors="refractionpcsx2" >}}
@@ -155,18 +82,99 @@ Making sure that the CD/DVD emulation works correctly, there were additions to h
 
 {{< progress/github-link prNums="5182" title="CDVD: Check file actually opened before proceeding" authors="stenzek" >}}
 
+### VU
+
+{{< progress/github-link prNums="4901" title="COP2: Simplify reg allocation" authors="refractionpcsx2" >}}
+
+{{< progress/github-link prNums="4907" title="Fix unparenthesized macro input" authors="tellowkrinkle" >}}
+
+{{< progress/github-link prNums="4910" title="microVU: Use uncached reg when clamping for FMAC instructions" authors="stenzek" >}}
+
+This was causing broken lighting in 64-bit mode, due to the larger number of registers available. Ft gets loaded and cached, but then the FMAC instructions clamp it in all modes except none, which disturbs the cached value (mismatched with the VU state). Jak happens to rely on this value not being clamped, so it was "okay" in 8-register mode because it had to be reloaded.
+
+{{< progress/github-link prNums="4917" title="Savestates: Add missing things from Savestates" authors="refractionpcsx2" >}}
+
+Makes savestates more robust by giving more information so as to lessen the chance of breaking the game.
+
+{{< progress/github-link prNums="5048" title="microVU: Preserve XGKick cycles in delay slot" authors="refractionpcsx2" >}}
+
+Preserve XGKick cycles calculated when there is a memory write in a delay slot, also added handling for xgkick sync on single instructions.
+
+Previously there was no handling on single instructions (evil blocks) so that's sorted. The other problem was if there was a mem write in a branch delay slot, it would add the xgkick cycles it needed to run, then erase them! causing the sync to go out, this resolves it.
+
+### SPU2
+
+{{< progress/github-link prNums="5027" title="SPU: Fix videos in Stolen" authors="Ziemas" >}}
+
+{{< progress/github-link prNums="5183" title="SPU2: Add Cubeb backend, remove Portaudio and SDL2 backends" authors="stenzek" >}}
+
+The current stable (1.6 as of writing) had multiple back-ends namely Xaudio2, DirectSound, PortAudio, WaveOut. DirectSound was being a buggy mess to maintain, WaveOut wasn't much better, PortAudio was fine and Xaudio2 was de facto standard on the Windows side. Now Cubeb replaces PortAudio as its successor and keep Xaudio2 as a back-up. Keep in mind in Cubeb the latency slider states 100ms in the GUI but isn't exactly true as it automatically uses a very low latency automatically based on your system:
+
+Best Case:
+
+(Cubeb) Minimum latency: 10.00 ms (480 audio frames)
+
+Worst Case:
+
+(Cubeb) Minimum latency: 25.00 ms (1200 audio frames)
+
+If it's above 25.00 ms you either have a computer issue like corrupt drivers or your computer is far too weak.
+
+Xaudio2 can't handle the same low latency that Cubeb has without bad skipping and warping even on better systems. I hope you guys like the sound. How timeskipping actually works is that you see the first video frame and the sound comes after the targeted sound latency, which for years essentialy means 0.1 seconds delays.
+
+{{< progress/github-link prNums="5238" title="Rename ConfigSoundtouch.cpp to ConfigSoundTouch.cpp" authors="xantares" >}}
+
+### PAD
+
+{{< progress/github-link prNums="4809" title="GUI(linux): Abort 'set all buttons' & fixed window size" authors="JosephLees" >}}
+
+{{< progress/github-link prNums="4985" title="Create a shared pad header, get rid of the originals, and do some cleanup." authors="arcum42" >}}
+
+### USB
+
+{{< progress/github-link prNums="5032" title="USB: Gametrak/RealPlay" authors="Florin9doi" >}}
+
+This Pull Request made the last non-working game work (don't count games like Final Fantasy 11 which were online-only) and looks more like a current Linus Tech Videos about VR with all those wires than a PS2 accessory. I'll stick to my Black Nintendo Wii instead of this seemingly weird copy-cat.
+
+{{< progress/github-link prNums="5184" title="USB: Sony DPP-MP1 printer emulation" authors="Florin9doi" >}}
+
+Most users won't see any usage with this and that is fine but the goal of emulating the endless USB and PAD devices do scare me, here is a small subset of still needing to be emulated: https://github.com/PCSX2/pcsx2/issues/4763
+
+### DEV9
+
+{{< progress/github-link prNums="4421" title="Convert DEV9 config dialog to wxWidgets" authors="tellowkrinkle" >}}
+
+{{< progress/github-link prNums="4933" title="DEV9: Fix Windows config saving/loading" authors="TheLastRar" >}}
+
+{{< progress/github-link prNums="4940" title="DEV9: DNS Logger Crash fix" authors="TheLastRar" >}}
+
+{{< progress/github-link prNums="4960" title="DEV9: Don't shadow return value of GetAdaptersAddresses (Pcap)" authors="TheLastRar" >}}
+
+Shadowing dwStatus for the return value of GetAdaptersAddresses will prevent the return value of second call from being inspected in the following if statement.
+
+If the user had a large amount of network adapters, this would prevent the code from getting the adapter information of a the selected pcap adaptor.
+
+The equivalent TAP adapter code is already correct.
+
+{{< progress/github-link prNums="5074" title="DEV9: Enable pcap non-blocking" authors="TheLastRar" >}}
+
 ### IPU
 
 {{< progress/github-link prNums="5173" title="IPU: Overhaul DMA transfers" authors="refractionpcsx2" >}}
 
 Changes how DMA Transfers are handled for example some games like them to be in a specific order.
 
-Fixes https://github.com/PCSX2/pcsx2/issues/5168 (Top Trumps).                               
-Fixes https://github.com/PCSX2/pcsx2/issues/4063 (Phase Paradox).                                
-Improves the moving billboard quality in Test Drive (Master has corruption).                    
-Fixes video hang in Eggo Mania/Egg Mania - Eggstreme Madess (patch no longer required).         
-Fixes Smackdown Shut Your Mouth Titantrons.                                                      
-Fixes Gladiator - Sword of Vengeance videos (patch no longer required) Partial https://github.com/PCSX2/pcsx2/issues/3489.                                                                        
+Fixes https://github.com/PCSX2/pcsx2/issues/5168 (Top Trumps).
+
+Fixes https://github.com/PCSX2/pcsx2/issues/4063 (Phase Paradox).
+Improves the moving billboard quality in Test Drive (Master has corruption).
+
+Fixes video hang in Eggo Mania/Egg Mania - Eggstreme Madess (patch no longer required).
+
+Fixes Smackdown Shut Your Mouth Titantrons.
+
+Fixes Gladiator - Sword of Vengeance videos (patch no longer required) Partial https://github.com/PCSX2/pcsx2/issues/3489.
+
 Fixes https://github.com/PCSX2/pcsx2/issues/4360 (Flipnic UFO mission hang).
 
 ### Debugger
