@@ -1,8 +1,14 @@
 <div class="row">
-  <div class="col-6">
+  <div class="col-6 img-cmp-wrapper">
     <img data-src="{{ .Get "before" }}" class="lazy" alt="">
+    {{ if eq (.Get "label") "true" }}
+    <div class="img-cmp-label before">Before</div>
+    {{ end }}
   </div>
-  <div class="col-6">
+  <div class="col-6 img-cmp-wrapper">
     <img data-src="{{ .Get "after" }}" class="lazy" alt="">
+    {{ if eq (.Get "label") "true" }}
+    <div class="img-cmp-label after">After</div>
+    {{ end }}
   </div>
 </div>

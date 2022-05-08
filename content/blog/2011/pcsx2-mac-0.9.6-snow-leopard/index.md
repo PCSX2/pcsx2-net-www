@@ -1,5 +1,5 @@
 ---
-title: "Pcsx2-Mac - 0.9.6 Snow Leopard"
+title: "PCSX2-Mac - 0.9.6 Snow Leopard"
 date: 2011-01-28T00:00:00
 summary: "Work on 0.9.7 is in progress and with very promising results some of the changes are making it into the 0.9.6 build which is probably going to be the last for this version."
 draft: false

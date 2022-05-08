@@ -11,6 +11,7 @@
 
 # Compare versions
 print("Checking for Dependency Mismatches...")
+import glob
 import json
 
 with open('./package.json', 'r') as f:
@@ -35,16 +36,6 @@ import requests
 import os
 import shutil
 
-# Clean vendor directories
-if os.path.exists("./themes/pcsx2/static/js/vendor/"):
-  # clean directory
-  shutil.rmtree("./themes/pcsx2/static/js/vendor/")
-os.makedirs("./themes/pcsx2/static/js/vendor/")
-if os.path.exists("./themes/pcsx2/static/css/vendor/"):
-  # clean directory
-  shutil.rmtree("./themes/pcsx2/static/css/vendor/")
-os.makedirs("./themes/pcsx2/static/css/vendor/")
-
 def construct_url(base_url, version, file_name):
   # Handle intricates between CDNs
   if 'unpkg' in base_url or 'jsdelivr' in base_url:
@@ -60,6 +51,8 @@ for dep, meta in vendored_info.items():
     for f in meta['js']['filesToVendor']:
       r = requests.get(construct_url(meta['js']['baseUrlToFetch'], meta['pinnedVersion'], f))
       save_path = "{}@{}/{}".format(meta['js']['directoryToSave'], meta['pinnedVersion'], os.path.basename(f))
+      for path in glob.glob("{}*".format(meta['js']['directoryToSave'])):
+        shutil.rmtree(path)
       os.makedirs(os.path.dirname(save_path))
       with open(save_path, 'wb') as f:
         f.write(r.content)
@@ -69,6 +62,8 @@ for dep, meta in vendored_info.items():
     for f in meta['css']['filesToVendor']:
       r = requests.get(construct_url(meta['css']['baseUrlToFetch'], meta['pinnedVersion'], f))
       save_path = "{}@{}/{}".format(meta['css']['directoryToSave'], meta['pinnedVersion'], os.path.basename(f))
+      for path in glob.glob("{}*".format(meta['css']['directoryToSave'])):
+        shutil.rmtree(path)
       os.makedirs(os.path.dirname(save_path))
       with open(save_path, 'wb') as f:
         f.write(r.content)
