@@ -1,0 +1,64 @@
+[
+  {
+    "title": "Test Game 1",
+    "serial": "SLUS-1234",
+    "crc": "TEST1234",
+    "region": "us",
+    "status": "Playable",
+    "last_tested_version": "1.1.0",
+    "last_tested_date": "2015-01-03T00:00:00",
+    "wiki_link": "https://wiki.pcsx2.net/index.php/Gungriffon_Blaze",
+    "forum_link": "https://forums.pcsx2.net/showthread.php?tid=28303&amp;action=lastpost"
+  },
+  {
+    "title": "Test Game 2",
+    "serial": "SLUS-5678",
+    "crc": "TEST1234",
+    "region": "us",
+    "status": "Perfect",
+    "last_tested_version": "1.1.0",
+    "last_tested_date": "2015-01-03T00:00:00",
+    "wiki_link": "https://wiki.pcsx2.net/index.php/Gungriffon_Blaze",
+    "forum_link": "https://forums.pcsx2.net/showthread.php?tid=28303&amp;action=lastpost"
+  },
+  {
+    "title": "Test Game 3",
+    "serial": "SLUS-1234",
+    "crc": "VERYUNIQUE",
+    "region": "us",
+    "status": "Nothing",
+    "last_tested_version": "1.1.0",
+    "last_tested_date": "2015-01-03T00:00:00",
+    "wiki_link": "https://wiki.pcsx2.net/index.php/Gungriffon_Blaze",
+    "forum_link": "https://forums.pcsx2.net/showthread.php?tid=28303&amp;action=lastpost"
+  },
+  {
+    "title": "Only Wiki Link",
+    "serial": "SLUS-1234",
+    "crc": "TEST1234",
+    "region": "us",
+    "status": "Intro",
+    "last_tested_version": "1.1.0",
+    "last_tested_date": "2015-01-03T00:00:00",
+    "wiki_link": "https://wiki.pcsx2.net/test"
+  },
+  {
+    "title": "Only Forum Link",
+    "serial": "SLUS-1234",
+    "crc": "TEST1234",
+    "region": "us",
+    "status": "Ingame",
+    "last_tested_version": "1.1.0",
+    "last_tested_date": "2015-01-03T00:00:00",
+    "forum_link": "https://forums.pcsx2.net/test"
+  },
+  {
+    "title": "No Links",
+    "serial": "SLUS-1234",
+    "crc": "TEST1234",
+    "region": "us",
+    "status": "Menus",
+    "last_tested_version": "1.1.0",
+    "last_tested_date": "2015-01-03T00:00:00"
+  }
+]
