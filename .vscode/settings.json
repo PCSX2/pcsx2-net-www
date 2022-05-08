@@ -8,4 +8,7 @@
     "editor.wordBasedSuggestions": false,
     "editor.snippetSuggestions": "top"
   },
+  "cSpell.files": [
+    "**/*.md"
+  ],
 }
