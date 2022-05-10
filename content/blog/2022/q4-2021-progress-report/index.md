@@ -44,7 +44,7 @@ Disc-Swapping has always been a highly requested feature as you have games that 
 
 Others that use it as more as an addendum to unlocking more items or a game like Alter Echo which requests to put the original disc back in and correctly reads it. Surprisingly the SingStar series might handle this the best as it can swap songs via disc-swapping and sure there is a button to do disc-swapping but it correctly handles without it.
 
-Though there are quite some games that do not like being ejected while you are playing and okay for some games you can play a bit further because it's stored in memory but when it seeks for new data you are killing the game.
+As you see, there are multiple behaviours possible when you are using the disc-swapping functionality (e.g. ejecting games) ranging from quite a few games being fine and nothing happening until it requires new data and thus likely crash to giving you error messages or simply freezing.
 
 {{< progress/github-link prNums="4871" title="CDVD: Time reads by sectors per second instead of bytes + Some rotational latency" authors="refractionpcsx2" >}}
 
@@ -111,8 +111,11 @@ Previously there was no handling on single instructions (evil blocks) so that's 
 The current stable (1.6 as of writing) had multiple back-ends namely Xaudio2, DirectSound, PortAudio, WaveOut. DirectSound was being a buggy mess to maintain, WaveOut wasn't much better, PortAudio was fine and Xaudio2 was de facto standard on the Windows side. Now Cubeb replaces PortAudio as its successor and keep Xaudio2 as a back-up. Keep in mind in Cubeb the latency slider states 100ms in the GUI but isn't exactly true as it automatically uses a very low latency automatically based on your system:
 
 Best Case:
+
 (Cubeb) Minimum latency: 10.00 ms (480 audio frames)
+
 Worst Case:
+
 (Cubeb) Minimum latency: 25.00 ms (1200 audio frames)
 
 If it's above 25.00 ms you either have a computer issue like corrupt drivers or your computer is far too weak.
