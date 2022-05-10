@@ -40,7 +40,7 @@ Fixes some more videos not playing like Digital Devil Saga and fixes texture iss
 
 {{< progress/github-link prNums="4860" title="CDVD: Implement Disc Swapping" authors="refractionpcsx2" >}}
 
-Disc-Swapping has always been a highly requested feature as you have games that have 2 discs to make 1 game where it request please insert disc 2. 
+Disc-Swapping has always been a highly requested feature as you have games that have 2 discs to make 1 game where it request please insert disc 2.
 
 Others that use it as more as an addendum to unlocking more items or a game like Alter Echo which requests to put the original disc back in and correctly reads it. Surprisingly the SingStar series might handle this the best as it can swap songs via disc-swapping and sure there is a button to do disc-swapping but it correctly handles without it.
 
@@ -111,16 +111,13 @@ Previously there was no handling on single instructions (evil blocks) so that's 
 The current stable (1.6 as of writing) had multiple back-ends namely Xaudio2, DirectSound, PortAudio, WaveOut. DirectSound was being a buggy mess to maintain, WaveOut wasn't much better, PortAudio was fine and Xaudio2 was de facto standard on the Windows side. Now Cubeb replaces PortAudio as its successor and keep Xaudio2 as a back-up. Keep in mind in Cubeb the latency slider states 100ms in the GUI but isn't exactly true as it automatically uses a very low latency automatically based on your system:
 
 Best Case:
-
 (Cubeb) Minimum latency: 10.00 ms (480 audio frames)
-
 Worst Case:
-
 (Cubeb) Minimum latency: 25.00 ms (1200 audio frames)
 
 If it's above 25.00 ms you either have a computer issue like corrupt drivers or your computer is far too weak.
 
-Xaudio2 can't handle the same low latency that Cubeb has without bad skipping and warping even on better systems. I hope you guys like the sound. How timeskipping actually works is that you see the first video frame and the sound comes after the targeted sound latency, which for years essentialy means 0.1 seconds delays.
+Xaudio2 can't handle the same low latency that Cubeb has without bad skipping and warping even on better systems. I hope you guys like the sound. How timeskipping actually works is that you see the first video frame and the sound comes after the targeted sound latency, which for years essentially means 0.1 seconds delays.
 
 {{< progress/github-link prNums="5238" title="Rename ConfigSoundtouch.cpp to ConfigSoundTouch.cpp" authors="xantares" >}}
 
@@ -189,7 +186,7 @@ Previously there was only one symbol map, which doesn't make a whole lot of sens
 
 {{< progress/github-link prNums="4926" title="Debugger: Support multi-line assembling" authors="F0bes" >}}
 
-When multiple lines of opcodes are selected, the 'Assemble Opcode(s)' context menu and M-key shortcut will turn reassemble all of those opcodes.
+When multiple lines of opcodes are selected, the 'Assemble Opcode(s)' context menu and M-key shortcut will in turn reassemble all of those opcodes.
 
 {{< progress/github-link prNums="4974" title="Debugger: Initial memory search implementation" authors="F0bes" >}}
 
@@ -200,7 +197,7 @@ Now you can finally go into a search for specific memory address or string inste
 
 {{< progress/github-link prNums="4983" title="Debugger: Make the register list DPI aware (Windows)" authors="F0bes" >}}
 
-Fixes the debugger view for registers when having difference in DPI (anything different from 100%).
+Fixes the debugger view for registers when the system DPI is not the default 100%.
 
 {{< img-cmp before="./img/Pic57-DebuggerRegisterBefore.png" after="./img/Pic58-DebuggerRegisterAfter.png">}}
 
@@ -228,7 +225,7 @@ Gives a specific date for input recording (speedrunning).
 
 {{< progress/github-link prNums="4861" title="Config: Fix folder memory cards initial load" authors="stenzek" >}}
 
-Folder memory cards weren't recognised as a memory card being plugged-in unless you opened the config dialog.
+Folder memory cards weren't recognized as a memory card being plugged-in unless you opened the config dialog.
 
 {{< progress/github-link prNums="4914" title="CI: Retain Workflow Artifacts permanently via Github Releases" authors="xTVaser" >}}
 
@@ -239,7 +236,7 @@ If you want to see more details, Vaser has written an essay-like detail on it:
 {{< img cols="colWidth" src="./img/Pic60-ArtifactsGitHub.png">}}
 
 
-So it will precompile working versions of the nightlies/dev and future stable versions on GitHub forever instead of only temporary on GitHub or what was used in the past being AppVeyor (nickname: Slowveyor). 
+So it will precompile working versions of the nightlies/dev and future stable versions on GitHub forever instead of only temporary on GitHub or what was used in the past being AppVeyor (nickname: Slowveyor).
 
 The nice thing about actions is that it can do multiple builds in parallel for free and can also publish these now permanent builds which are again linked on pcsx2.net as GitHub requires you to have an account in addition to being logged in so you have enough options.
 
@@ -266,7 +263,7 @@ In the end, ignoring clang issues, GSVertexTrace::FindMinMax goes from taking ab
 
 Burnout games weren't emulated correctly due to the texture cache being the biggest pain in the GS side, which you can avoid by switching to the Software renderer and then switching to HW. The game downloaded the texture and then modified it to finally draw it on the CPU side.
 
-Now no more shenanigans in having to switch or ignore the sky issue, there is another game that has a similar issue a shooter called 'Black' (A recurring theme that PS2 game title names fit with their badly emulated issues). Black hasn't been fixed yet, perhaps in the future. 
+Now no more shenanigans in having to switch or ignore the sky issue, there is another game that has a similar issue a shooter called 'Black' (A recurring theme that PS2 game title names fit with their badly emulated issues). Black hasn't been fixed yet, perhaps in the future.
 
 {{< img-cmp-slider before="./img/Pic5-BurnoutBefore.png" after="./img/Pic6-BurnoutAfter.png">}}
 
@@ -294,8 +291,8 @@ The new GSOffset takes advantage of the fact that the table of offsets from a pi
 
 {{< progress/github-link prNums="4385" title="GS: Simulate scan mask (fix transparency in MGS2 & MGS3)" authors="Sergeanur" >}}
 
-For what feels like forever, transparency didn't work correctly for Metal Gear Solid 3 and other games such as Gran Turismo 4. 
-{{< img-cmp-slider before="./img/Pic1-MGS3Before.png" after="./img/Pic2-MGS3After.png">}} 
+For what feels like forever, transparency didn't work correctly for Metal Gear Solid 3 and other games such as Gran Turismo 4.
+{{< img-cmp-slider before="./img/Pic1-MGS3Before.png" after="./img/Pic2-MGS3After.png">}}
 {{< img-cmp-slider before="./img/Pic3-GT4Before.png" after="./img/Pic4-GT4After.png">}}
 {{< img-cmp-slider before="./img/Pic47-GTConcept2002TokyoGenevaBefore.png" after="./img/Pic48-GTConcept2002TokyoGenevaAfter.png">}}
 {{< img-cmp-slider before="./img/Pic49-TouristTrophyBefore.png" after="./img/Pic50-TouristTrophyAfter.png">}}
@@ -328,7 +325,7 @@ This PR reverts an older commit from 2013 (1.2 era) which had wrong assumptions 
 
 This will certainly help AMD GPUs on Windows but it does help NVIDIA GPU users too as the default behavior was to stall (essentialy wait and stop for new instructions) which caused bad performance.
 
-These charts below lists 3 different systems that will give you an easier way to tell how much it could help: 
+These charts below lists 3 different systems that will give you an easier way to tell how much it could help:
 
 {{< progress/chart data="./charts/Chart1-4906.json" >}}
 {{< progress/chart data="./charts/Chart2-4906.json" >}}
@@ -406,7 +403,7 @@ The calculation of how to handle texture sizes wasn't perfect and would cause gr
 
 {{< progress/github-link prNums="5061" title="GS-hw: Improve how we handle AA1 draws" authors="lightningterror" >}}
 
-In the last progress report (Q3 2021) there have been improvements to how Edge Anti-Aliasing works for the software renderer (lines and triangles type), this time the hardware renderer has also been improved for several games such as Doko Demo Issho series, FIFA 2002 and other unknown games. 
+In the last progress report (Q3 2021) there have been improvements to how Edge Anti-Aliasing works for the software renderer (lines and triangles type), this time the hardware renderer has also been improved for several games such as Doko Demo Issho series, FIFA 2002 and other unknown games.
 
 However it has only been fixed on the lines type but not the triangles type which is used a ton for a game like Final Fantasy X. Hopefully in the future we can get feature parity with the software renderer which handles both types correctly and while the issue on hardware renderer is about the same it will be look worse in the severity factor.
 
@@ -480,7 +477,10 @@ Instead of the absolute path C:/User/Documents/PCSX2/ELF/test.elf, you can do th
 IPC is a generic name for this function so PINE was chosen as it's replacement. Especially when it's already useful for RPCS3 and other potentially other emulators or programs.
 
 {{< progress/github-link prNums="4747" title="Savestates: Small refactoring" authors="MrCK1" >}}
-Talk1
+
+In the times always knoweth, there lies an evil power known as entropy but one angry kot has arisen to the challenge to bring order to chaos. Okay, maybe not as epic as the first sentence makes you believe but CK1 made sure to automatically bring a subfolder per-game instead of one blob (root) of savestates inside the 'sstates' folder.
+
+What does it solve you wonder? Well, my dear reader if you do have several games and you make a lot of savestates in multiple slots (Don't look at me) you will gain the ability to have an easier overview which ironically kinda mimics how a real memcard structure works. If you want to compare it, just save normally on your memcard save and make sure it's a folder memcard to see the differences and similarities.
 
 {{< progress/github-link prNums="4867" title="WX: Fix GS hotkeys losing values after reboot" authors="stenzek" >}}
 
@@ -490,7 +490,7 @@ Makes sure that the hotkeys still retain their function after rebooting.
 
 {{< progress/github-link prNums="4882" title="GUI: remove presets 4,5,6" authors="Mrlinkwii" >}}
 
-Preset 4,5,6 (Preset 1 is bad too to be fair) were removed as they only brought specific improvements for specific hardware and it wasn't good in most cases anyway as it just did some random EE cyclerate and cycleskip. 
+Preset 4,5,6 (Preset 1 is bad too to be fair) were removed as they only brought specific improvements for specific hardware and it wasn't good in most cases anyway as it just did some random EE cyclerate and cycleskip.
 
 PCSX2 shouldn't obfuscate with mostly useless settings that will only appeal a minority.
 
@@ -528,7 +528,7 @@ If you moved or renamed your ISOs, you either had to nuke the recently played li
 
 {{< progress/github-link prNums="4986" title="PCSX2-GUI: Fix GUI inconsistencies" authors="RedDevilus" >}}
 
-While not as exciting as a new fix for a game, increased performance on better compatibility this will make the text more aligned with the rest of the windows. Though it did have a meaningful change that the maximum audio latency is now 200 instead of 750. 
+While not as exciting as a new fix for a game, increased performance on better compatibility this will make the text more aligned with the rest of the windows. Though it did have a meaningful change that the maximum audio latency is now 200 instead of 750.
 
 The default is still is still 100 ms (0.1 seconds of audio latency) and if you really need 750 ms (0.75 seconds of audio latency) then it's likely Pentium 4 or older and work badly or even at all on current PCSX2 versions.
 
