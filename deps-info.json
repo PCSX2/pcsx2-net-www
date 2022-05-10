@@ -36,7 +36,7 @@
     }
   },
   "marked": {
-    "pinnedVersion": "4.0.15",
+    "pinnedVersion": "4.0.12",
     "js": {
       "directoryToSave": "./themes/pcsx2/static/js/vendor/marked",
       "baseUrlToFetch": "https://unpkg.com/marked",

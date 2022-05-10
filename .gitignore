@@ -4,5 +4,3 @@ public/
 node_modules/
 data*.json
 !static/compat/*.json
-tests/cypress/screenshots
-tests/cypress/videos

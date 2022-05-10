@@ -25,6 +25,3 @@ tasks:
   migrate-legacy:
     cmds:
       - python ./scripts/migrate-article.py
-  spell:
-    cmds:
-      - npx cspell content/**/*.md

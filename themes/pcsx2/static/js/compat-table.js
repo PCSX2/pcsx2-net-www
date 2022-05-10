@@ -242,7 +242,7 @@ let rowTemplate = doT.template(`
   </td>
   <td class="table-no-wrap">
     <span>
-      {{? it.links }}
+      {{? it.links && it.links.wikiLink && it.links.forumLink }}
         {{? it.links.wikiLink }}
           <a href="{{=it.links.wikiLink}}"><i class="fa-solid fa-circle-info"></i></a>
         {{?}}
@@ -265,7 +265,7 @@ function renderTable() {
 
   // Handle no results uniquely
   if (currentData.length <= 0) {
-    tableBody.innerHTML = `<tr style="align-content: center;text-align: center;"><td colspan="6">No Results Found</object></td></tr>`;
+    tableBody.innerHTML = `<tr style="align-content: center;text-align: center;"><td colspan="5">No Results Found</object></td></tr>`;
   }
   else {
     let offset = currentPage * pageSize;

@@ -17,7 +17,7 @@
     </nav>
     <div class="row mb-3 mt-3" id="outage-alert" style="display: none;">
       <div class="col">
-        <div class="card" data-test-id="downtime-notification">
+        <div class="card">
           <div class="row">
             <div class="col card-title">
               <h3><i class="fas fa-exclamation-triangle error-icon"></i>Unable to fetch release information. This can be
@@ -47,7 +47,7 @@
       for setting
       up the release is included in the download. For information on how to get started with using PCSX2 (Dumping your
       BIOS and games),
-      <a href="/guides/basic-setup" data-test-id="setup-guide">see the following guide</a>.
+      <a href="/guides/basic-setup">see the following guide</a>.
     </p>
     <p>
       If you encounter issues on the latest stable release, you can reach out for assistance on the <a
@@ -56,7 +56,7 @@
     <div id="latest-release-notes"></div>
   </div>
   <div class="row mt-5 d-flex justify-content-center" id="latest-release-artifacts"></div>
-  <div class="row skeleton-wrapper" data-test-id="latest-release-artifacts-loading">
+  <div class="row skeleton-wrapper">
     <div class="col-12 col-sm mb-4 d-flex justify-content-center">
       <div class="dropdown">
         <button class="btn btn-primary artifact-dropdown btn-lg dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -117,7 +117,7 @@
       Nightly builds are based on the latest in-developement version. As a result, these releases are intended
       for those who want to, or require, being on the bleeding edge. They may contain unresolved bugs or issues,
       use at your own discretion with this in mind. For information on how to get started with using PCSX2 (Dumping
-      your BIOS and games), <a href="/guides/basic-setup" data-test-id="setup-guide">see the following guide</a>.
+      your BIOS and games), <a href="/guides/basic-setup">see the following guide</a>.
     </p>
     <p>
       For information on how to use the nightly releases <a
@@ -126,7 +126,7 @@
     <div id="latest-nightly-notes"></div>
   </div>
   <div class="row mt-5 d-flex justify-content-center" id="latest-nightly-artifacts"></div>
-  <div class="row skeleton-wrapper" data-test-id="latest-nightly-artifacts-loading">
+  <div class="row skeleton-wrapper">
     <div class="col-12 col-sm mb-4 d-flex justify-content-center">
       <div class="dropdown">
         <button class="btn btn-primary artifact-dropdown btn-lg dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -219,6 +219,6 @@
 {{ end }}
 {{ define "additionalScripts" }}
 <script src="/js/vendor/dot@1.1.3/doT.min.js"></script>
-<script src="/js/vendor/marked@4.0.15/marked.min.js"></script>
+<script src="/js/vendor/marked@4.0.12/marked.min.js"></script>
 <script src="/js/release-page.js"></script>
 {{ end }}

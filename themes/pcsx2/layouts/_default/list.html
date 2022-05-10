@@ -1,16 +1,16 @@
 {{ define "main" }}
 <div class="container">
-  <div class="row mt-5" data-test-id="tag-button-row">
+  <div class="row mt-5">
     {{ $currURL := .RelPermalink }}
     <div class="col-6 col-md-auto mb-2 mt-2">
-      <a role="button" data-test-id="tag-button-all" class="btn btn-tags{{ if strings.HasSuffix $currURL "/blog/" }} active{{ end }}" href="/blog">
+      <a role="button" class="btn btn-tags{{ if strings.HasSuffix $currURL "/blog/" }} active{{ end }}" href="/blog">
         All Categories
       </a>
     </div>
     {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
     {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
     <div class="col-6 col-md-auto mb-2 mt-2">
-      <a role="button" data-test-id="tag-button" class="btn btn-tags{{ if strings.HasSuffix $currURL (printf "/%s/" $name) }} active{{ end }}" href="{{ .RelPermalink }}">
+      <a role="button" class="btn btn-tags{{ if strings.HasSuffix $currURL (printf "/%s/" $name) }} active{{ end }}" href="{{ .RelPermalink }}">
         {{ .Title }}
       </a>
     </div>
