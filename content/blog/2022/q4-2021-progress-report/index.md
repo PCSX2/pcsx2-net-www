@@ -369,7 +369,7 @@ A few examples but not limited to:
 
 {{< img-cmp-slider before="./img/Pic9-HarleyBefore.jpg" after="./img/Pic10-HarleyAfter.jpg">}}
 {{< img-cmp-slider before="./img/Pic11-RomanceBefore.jpg" after="./img/Pic12-RomanceAfter.jpg">}}
-{{< img-cmp-slider before="./img/Pic13-SanAndreasBefore.jpg" after="./img/Pic14-SanAndreasAfter.jpg">}}}
+{{< img-cmp-slider before="./img/Pic13-SanAndreasBefore.jpg" after="./img/Pic14-SanAndreasAfter.jpg">}}
 
 {{< progress/github-link prNums="4980" title="Miscellaneous fixes for macOS" authors="tellowkrinkle" >}}
 
