@@ -13,6 +13,7 @@ toc: true
 ## Introduction
 
 *Watches the date and notices something*. Yes, my dear readers (or glancers) Q1 2022 should've been published 2 months ago and this is the predecessor to that. Sorry for the delay but there have been several reasons to this almost half year delay. Ranging from the way progress reports are handled:
+
 - Publish on private forum thread who has access
 - Needing it to be HTML without a working preview
 - Having multiple middlemen to check, update and publish on preview site
@@ -120,7 +121,7 @@ Worst Case:
 
 If it's above 25.00 ms you either have a computer issue like corrupt drivers or your computer is far too weak.
 
-Xaudio2 can't handle the same low latency that Cubeb has without bad skipping and warping even on better systems. I hope you guys like the sound. How timeskipping actually works is that you see the first video frame and the sound comes after the targeted sound latency, which for years essentially means 0.1 seconds delays.
+Xaudio2 can't handle the same low latency that Cubeb has without bad skipping and warping even on better systems. I hope you guys like the sound. How time-skipping actually works is that you see the first video frame and the sound comes after the targeted sound latency, which for years essentially means 0.1 seconds delays.
 
 {{< progress/github-link prNums="5238" title="Rename ConfigSoundtouch.cpp to ConfigSoundTouch.cpp" authors="xantares" >}}
 
@@ -138,7 +139,7 @@ This Pull Request made the last non-working game work (don't count games like Fi
 
 {{< progress/github-link prNums="5184" title="USB: Sony DPP-MP1 printer emulation" authors="Florin9doi" >}}
 
-Most users won't see any usage with this and that is fine but the goal of emulating the endless USB and PAD devices do scare me, here is a small subset of still needing to be emulated: https://github.com/PCSX2/pcsx2/issues/4763
+Most users won't see any usage with this and that is fine but the goal of emulating the endless USB and PAD devices do scare me, here is a small subset of still needing to be emulated: <https://github.com/PCSX2/pcsx2/issues/4763>
 
 ### DEV9
 
@@ -164,18 +165,18 @@ The equivalent TAP adapter code is already correct.
 
 Changes how DMA Transfers are handled for example some games like them to be in a specific order.
 
-Fixes https://github.com/PCSX2/pcsx2/issues/5168 (Top Trumps).
+Fixes <https://github.com/PCSX2/pcsx2/issues/5168> (Top Trumps).
 
-Fixes https://github.com/PCSX2/pcsx2/issues/4063 (Phase Paradox).
+Fixes <https://github.com/PCSX2/pcsx2/issues/4063> (Phase Paradox).
 Improves the moving billboard quality in Test Drive (Master has corruption).
 
 Fixes video hang in Eggo Mania/Egg Mania - Eggstreme Madess (patch no longer required).
 
 Fixes Smackdown Shut Your Mouth Titantrons.
 
-Fixes Gladiator - Sword of Vengeance videos (patch no longer required) Partial https://github.com/PCSX2/pcsx2/issues/3489.
+Fixes Gladiator - Sword of Vengeance videos (patch no longer required) Partial <https://github.com/PCSX2/pcsx2/issues/3489>.
 
-Fixes https://github.com/PCSX2/pcsx2/issues/4360 (Flipnic UFO mission hang).
+Fixes <https://github.com/PCSX2/pcsx2/issues/4360> (Flipnic UFO mission hang).
 
 ### Debugger
 
@@ -196,6 +197,7 @@ When multiple lines of opcodes are selected, the 'Assemble Opcode(s)' context me
 Now you can finally go into a search for specific memory address or string instead of scrolling just like in cheat engine.
 
 {{< img cols="colWidth" src="./img/Pic59-DebuggerView.png">}}
+
 - I think Fobes needs a hug for this secretive message.
 
 {{< progress/github-link prNums="4983" title="Debugger: Make the register list DPI aware (Windows)" authors="F0bes" >}}
@@ -234,9 +236,9 @@ Folder memory cards weren't recognized as a memory card being plugged-in unless 
 
 This pull request will bring permanent downloadable (pre)releases on GitHub itself instead of just using Orphis which will not make everything more central but makes it easier to tag commits that are made outside of a pull request and just force-pushed the changes to the project. *stares at certain people that have been naughty*.
 
-If you want to see more details, Vaser has written an essay-like detail on it - https://github.com/PCSX2/pcsx2/pull/4914
+If you want to see more details, Vaser has written an essay-like detail on it - <https://github.com/PCSX2/pcsx2/pull/4914>
 
-So it will precompile working versions of the nightlies/dev and future stable versions on GitHub forever instead of only temporary on GitHub or what was used in the past being AppVeyor (nickname: Slowveyor).
+So it will pre-compile working versions of the nightlies/dev and future stable versions on GitHub forever instead of only temporary on GitHub or what was used in the past being AppVeyor (nickname: Slowveyor) which took easily 10-20 minutes per build.
 
 The nice thing about actions is that it can do multiple builds in parallel for free and can also publish these now permanent builds which are again linked on pcsx2.net as GitHub requires you to have an account in addition to being logged in so you have enough options.
 
@@ -251,6 +253,7 @@ The nice thing about actions is that it can do multiple builds in parallel for f
 {{< progress/github-link prNums="3940" title="GSVertexTrace::FindMinMax improvements" authors="tellowkrinkle" >}}
 
 This PR contains the following changes:
+
 - Prevents clang from optimizing out our denormal-removal shuffles (10x faster than before for people who compile with clang!)
 - Run divides on four elements at a time instead of two elements and two useless numbers
 - Remove inaccurate stq
@@ -323,7 +326,7 @@ This PR reverts an older commit from 2013 (1.2 era) which had wrong assumptions 
 
 {{< progress/github-link prNums="4906" title="GS: Use stream buffer for vertices/indices/uniforms" authors="stenzek" >}}
 
-This will certainly help AMD GPUs on Windows but it does help NVIDIA GPU users too as the default behavior was to stall (essentialy wait and stop for new instructions) which caused bad performance.
+This will certainly help AMD GPUs on Windows but it does help NVIDIA GPU users too as the default behavior was to stall (essentially wait and stop for new instructions) which caused bad performance.
 
 These charts below lists 3 different systems that will give you an easier way to tell how much it could help:
 
@@ -335,7 +338,7 @@ These charts below lists 3 different systems that will give you an easier way to
 
 {{< progress/github-link prNums="4941" title="GS: Use custom allocator for SW renderer" authors="tellowkrinkle" >}}
 
-This new behavior improves the software renderer quite drastically in a good way and handles it more specifically in certain situations. I would even state that the sofware renderer has never been this fast even compared to the older stable versions as I always tried to play True Crime NYC and never got full speed in the software renderer and now it's handling it with ease.
+This new behavior improves the software renderer quite drastically in a good way and handles it more specifically in certain situations. I would even state that the software renderer has never been this fast even compared to the older stable versions as I always tried to play True Crime NYC and never got full speed in the software renderer and now it's handling it with ease.
 
 {{< progress/github-link prNums="4952" title="GS: Further state cleanup + fixes for older dump compatibility" authors="refractionpcsx2" >}}
 
@@ -374,7 +377,7 @@ Like you see this purple grass on Hitman which everybody should agree isn't real
 {{< progress/github-link prNums="5006" title="GS: Only reload Auto MIPs on TEX base change" authors="refractionpcsx2" >}}
 
 PCSX2 used to re-new the addresses for textures, but some games rely on re-using the old addresses for textures causing graphical issues due to using the wrong textures with mipmapping enabled.
-* It has since been revisited that the draw wasn't being flushed if MTBA updated the MIPS and MTBA on it's own was doing things incorrectly at times.
+- It has since been revisited that the draw wasn't being flushed if MTBA updated the MIPS and MTBA on it's own was doing things incorrectly at times.
 
 {{< img-cmp-slider before="./img/Pic39-ParappaBefore.png" after="./img/Pic40-ParappaAfter.png">}}
 {{< img-cmp-slider before="./img/Pic41-ApeEscapeBefore.png" after="./img/Pic42-ApeEscapeAfter.png">}}
@@ -495,6 +498,7 @@ Preset 4,5,6 (Preset 1 is bad too to be fair) were removed as they only brought 
 PCSX2 shouldn't obfuscate with mostly useless settings that will only appeal a minority.
 
 Personally there should be only 3 modes for people:
+
 - Preset 2 which are the default settings (good for weaker computers that don't have enough cores)
 - Preset 3 which is just Preset 2 + MTVU  (it is free performance for the taking for good hardware)
 - Custom global and custom per-game settings (any other situation that does not benefit the other two above ones)
@@ -537,7 +541,6 @@ Can you spot the differences?
 {{< img cols="colWidth" src="./img/Pic53-DEV9GUI.png">}}
 {{< img cols="colWidth" src="./img/Pic54-PADGUI.png">}}
 {{< img cols="colWidth" src="./img/Pic55-SPU2GUI.png">}}
-
 
 {{< progress/github-link prNums="4989" title="WX: Fix `pxExplore` on macOS" authors="tellowkrinkle" >}}
 
