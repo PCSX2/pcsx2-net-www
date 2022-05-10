@@ -349,13 +349,9 @@ This pull request fixes several games with the wrong colors, which depended on t
 
 A few examples but not limited to:
 
-{{< img cols="6" src="./img/Pic9-HarleyBefore.jpg">}}
-
-|          |          |
-|----------|----------|
-| ![](img/Pic9-HarleyBefore.jpg)   | ![](img/Pic10-HarleyAfter.jpg)   |
-| ![](img/Pic11-RomanceBefore.jpg)  | ![](img/Pic12-RomanceAfter.jpg)  |
-| ![](img/Pic13-SanAndreasBefore.jpg) | ![](img/Pic14-SanAndreasAfter) |
+{{< img-cmp-slider before="./img/Pic9-HarleyBefore.jpg" after="./img/Pic10-HarleyAfter.jpg">}}
+{{< img-cmp-slider before="./img/Pic11-RomanceBefore.jpg" after="./img/Pic12-RomanceAfter.jpg">}}
+{{< img-cmp-slider before="./img/Pic13-SanAndreasBefore.jpg" after="./img/Pic14-SanAndreasAfter.jpg">}}}
 
 {{< progress/github-link prNums="4969" title="GS: Don't propagate 24bit textures on download" authors="refractionpcsx2" >}}
 
