@@ -1,0 +1,27 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "CCPA",
+    "devblog",
+    "Ninite",
+    "PCSX",
+    "PCSX2",
+    "unencrypted",
+    "webp"
+  ],
+  "patterns": [
+    {
+      "name": "authorName",
+      "pattern": "/mainAuthor:.*/g"
+    },
+    {
+      "name": "shortcodes",
+      "pattern": "/{{<.*>}}/g"
+    }
+  ],
+  "ignoreRegExpList": [
+    "authorName",
+    "shortcodes"
+  ]
+}

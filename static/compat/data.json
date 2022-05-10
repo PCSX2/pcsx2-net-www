@@ -5761,7 +5761,7 @@
     "last_tested_version": "0.9.8",
     "last_tested_date": "2015-01-03T00:00:00",
     "wiki_link": "https://wiki.pcsx2.net/index.php/NBA_Street",
-    "forum_link": null
+    "forum_link": "https://forums.pcsx2.net/showthread.php?tid=28828&amp;action=lastpost"
   },
   {
     "title": "Primal",
@@ -13997,8 +13997,8 @@
     "crc": "1510E1D1",
     "region": "eu",
     "status": "Playable",
-    "last_tested_version": "1.4.0",
-    "last_tested_date": "2016-01-23T00:00:00",
+    "last_tested_version": "1.7.0",
+    "last_tested_date": "2022-04-30T00:00:00",
     "wiki_link": "https://wiki.pcsx2.net/index.php/Crash_Twinsanity",
     "forum_link": "https://forums.pcsx2.net/showthread.php?tid=29579&amp;action=lastpost"
   },
