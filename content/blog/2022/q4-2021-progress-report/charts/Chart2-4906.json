@@ -1,0 +1,32 @@
+{
+  "type": "bar",
+  "chartData": {
+    "labels": [
+      "Sly 2",
+      "DBZ Tenkaichi 3",
+      "Half Life"
+    ],
+    "datasets": [{
+      "label": "Before (R7 360)",
+      "backgroundColor": "rgb(106, 156, 255)",
+      "borderColor": "blue",
+      "data": [25, 55, 92]
+    },
+    {
+      "label": "After (R7 360)",
+      "backgroundColor": "rgb(200, 45, 69)",
+      "borderColor": "red",
+      "data": [33, 81, 200]
+    }]
+  },
+  "chartOptions": {
+    "scales": {
+      "y": {
+        "title": {
+          "display": true,
+          "text": "Frames Per Seconds (VPS)"
+        }
+      }
+    }
+  }
+}

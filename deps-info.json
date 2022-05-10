@@ -58,12 +58,12 @@
       "deferredLoad": true
     }
   },
-  "underscore": {
-    "pinnedVersion": "1.13.3",
+  "lodash": {
+    "pinnedVersion": "4.17.21",
     "js": {
-      "directoryToSave": "./themes/pcsx2/static/js/vendor/underscore",
-      "baseUrlToFetch": "https://unpkg.com/underscore",
-      "filesToVendor": ["underscore-min.js"],
+      "directoryToSave": "./themes/pcsx2/static/js/vendor/lodash",
+      "baseUrlToFetch": "https://unpkg.com/lodash",
+      "filesToVendor": ["lodash.min.js"],
       "deferredLoad": true
     }
   },
