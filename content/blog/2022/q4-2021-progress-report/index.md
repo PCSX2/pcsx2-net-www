@@ -8,20 +8,21 @@ tags:
 mainAuthor: RedDevilus
 secondaryAuthors:
   - "TellowKrinkle"
+  - "refractionpcsx2"
 toc: true
 ---
 ## Introduction
 
-*Watches the date and notices something*. Yes, my dear readers (or glancers) Q1 2022 should've been published 2 months ago and this is the predecessor to that. Sorry for the delay but there have been several reasons to this almost half year delay. Ranging from the way progress reports are handled:
+*Looks at the date and notices something.*. Yes, my dear readers (or glancers) Q1 2022 should've been published 2 months ago and this is the predecessor to that. Sorry for the delay but there have been several reasons to this almost half year delay. Some of those reasons being the process of making the progress reports:
 
 - Publish on private forum thread who has access
 - Needing it to be HTML without a working preview
 - Having multiple middlemen to check, update and publish on preview site
 - Finally go mad at how inefficient the process was that 80% of the time was spent on making sure that all the Pull Requests are listed and pointed correctly instead of actual writing
 
-Ok, moving on to better news is the the fantastic work from everybody involved in making sure that PCSX2 doesn't cave into a lesser program. In case you didn't notice we have a new site that bring PCSX2 from 2002 to 2022 and seeing that amazing animation on the homepage.
+Ok, moving on to better news is the the fantastic work from everybody involved in making sure that PCSX2 doesn't cave into a lesser program. In case you didn't notice we have a new site that brings PCSX2 from 2002 to 2022 as PCSX2 is reborn, and besides, seeing that amazing animation on the homepage is something that you have to decide for yourself on how you feel about it.
 
-So all around we will improve all aspects of the emulator and have better progress reports that cater to the technical-, light-hearted- or the changelog- oriented people. There are also a ton of pictures in this edition of the progress report and I'm sure that quite a few of you readers are waiting on the new look of the Qt GUI but that will still take awhile to see in fruition to the public.
+So all around we will improve all aspects of the emulator and have better progress reports that cater to the technical, light-hearted or the changelog oriented people. There are also a ton of pictures in this edition of the progress report and I'm sure that quite a few of you readers are waiting on the new look of the Qt GUI, but that will still take a while to see in fruition to the public.
 
 Here is a glimpse of what to expect:
 
@@ -41,11 +42,11 @@ Fixes some more videos not playing like Digital Devil Saga and fixes texture iss
 
 {{< progress/github-link prNums="4860" title="CDVD: Implement Disc Swapping" authors="refractionpcsx2" >}}
 
-Disc-Swapping has always been a highly requested feature as you have games that have 2 discs to make 1 game where it request please insert disc 2.
+Disc-Swapping has always been a highly requested feature for multi-disc games which may ask you to swap to the second disc half-way through the game.
 
-Others that use it as more as an addendum to unlocking more items or a game like Alter Echo which requests to put the original disc back in and correctly reads it. Surprisingly the SingStar series might handle this the best as it can swap songs via disc-swapping and sure there is a button to do disc-swapping but it correctly handles without it.
+Others that use it as more as an addendum to unlocking more items in games such as Dynasty Warriors 5. Another game like Alter Echo which requests to put the original disc back when you eject the game even though it has only 1 disc. Surprisingly the SingStar series might handle this the best as it can swap songs via disc-swapping and sure there is a button to do disc-swapping but it correctly handles swapping without it.
 
-As you see, there are multiple behaviours possible when you are using the disc-swapping functionality (e.g. ejecting games) ranging from quite a few games being fine and nothing happening until it requires new data and thus likely crash to giving you error messages or simply freezing.
+As you see, there are multiple behaviors possible when you are using the disc-swapping functionality (e.g. ejecting games) ranging from quite a few games being fine and nothing happening until it requires new data and thus likely crash to giving you error messages or simply freezing.
 
 {{< progress/github-link prNums="4871" title="CDVD: Time reads by sectors per second instead of bytes + Some rotational latency" authors="refractionpcsx2" >}}
 
@@ -57,7 +58,7 @@ Queues 1 sector from a future read as ready which fixes Star Ocean 3 stuttering 
 
 {{< progress/github-link prNums="4913" title="CDVD: Reset VM on sceCdPowerOff writes" authors="F0bes" >}}
 
-Instead of forcefully 'pulling the cord' when you reset or press on a real console once, it will send a signal to reset. So it acts more like how the console worked, though if you see any difference is something else.
+Instead of forcefully ‘pulling the cord’ when you reset or press the power button on a real console once, it will send a signal to reset. So it acts more like how the console worked.
 
 {{< progress/github-link prNums="4927" title="CDVD: Buffer up to 16 sectors" authors="refractionpcsx2" >}}
 
@@ -67,19 +68,19 @@ Documentation from developers shows that the DVD drive will always read 16 secto
 
 {{< progress/github-link prNums="4992" title="CDVD: set the correct RTC year when input recording" authors="xTVaser" >}}
 
-Changes how the date is handled for input recording as some games like Metal Gear Solid 3 is sensitive about the date for time-based events. The only comparison I can think of is like the internal battery failure message in Pokemon games if this wasn't done correctly.
+Changes how the date is handled for input recording as some games like Metal Gear Solid 3 are sensitive about the date for time-based events.
 
 {{< progress/github-link prNums="5056" title="CDVD: Adjust DMA timing based on PS1 timings." authors="refractionpcsx2" >}}
 
-The DMA controller that directly accesses the memory with less needing to ask the CPU (EE) wasn't entirely correct but surprisingly didn't break a lot of games but did fix Spongebob Lights, Camera, Pants.
+The DMA timing calculations were changed to be based on the PS1 DMA timings, but with the difference in bus widths considered, leading to closer DMA timings for CDVD which in turn fixed SpongeBob Lights, Camera, Pants.
 
 {{< progress/github-link prNums="5142" title="CDVD: Fix some read timing logic" authors="refractionpcsx2" >}}
 
-This will refine the technique for receiving instruction and sending them so that the timing of certain events are handled correctly on time. For example a game like Pro Yakyuu Spirits 5 which does CD Standby and expects it to not be reading.
+Improves the timing of read times when buffering sectors but also corrects the status of the CDVD when running certain commands.
 
 {{< progress/github-link prNums="5174" title="CDVD: Some Error handling, Status+Ready Flag changes and fix CdStop" authors="refractionpcsx2" >}}
 
-Making sure that the CD/DVD emulation works correctly, there were additions to how the disc sectors were interpreted and handled by expanding the amount of details that it got sent and receive. It fixes certain games spinning eternally in a black screen or seem to just freeze on the spot ranging from Spyro to Aberenbou Princes to Evergrace and more.
+Corrects some of the statuses and IRQ reasons available to the CDVD, correcting the status of the CDVD controller in certain games. In turn it fixes certain games that were spinning eternally in a black screen or seem to just freeze on the spot like Spyro, Aberenbou Princes, Evergrace and more.
 
 {{< progress/github-link prNums="5182" title="CDVD: Check file actually opened before proceeding" authors="stenzek" >}}
 
@@ -101,7 +102,7 @@ Makes savestates more robust by giving more information so as to lessen the chan
 
 Preserve XGKick cycles calculated when there is a memory write in a delay slot, also added handling for xgkick sync on single instructions.
 
-Previously there was no handling on single instructions (evil blocks) so that's sorted. The other problem was if there was a mem write in a branch delay slot, it would add the xgkick cycles it needed to run, then erase them! causing the sync to go out, this resolves it.
+Previously there was no handling on single instructions (evil blocks) so that's sorted. The other problem was if there was a mem write in a branch delay slot, it would add the XGkick cycles it needed to run, then erase them! causing the sync to go out, this resolves it.
 
 ### SPU2
 
@@ -121,7 +122,7 @@ Worst Case:
 
 If it's above 25.00 ms you either have a computer issue like corrupt drivers or your computer is far too weak.
 
-Xaudio2 can't handle the same low latency that Cubeb has without bad skipping and warping even on better systems. I hope you guys like the sound. How time-skipping actually works is that you see the first video frame and the sound comes after the targeted sound latency, which for years essentially means 0.1 seconds delays.
+Xaudio2 can't handle the same low latency that Cubeb has without bad skipping and warping even on better systems. I hope you guys like the sound. How time-stretching actually works is that you see the first video frame and the sound comes after the targeted sound latency, which for years was defaulted to 0.1 seconds of latency.
 
 {{< progress/github-link prNums="5238" title="Rename ConfigSoundtouch.cpp to ConfigSoundTouch.cpp" authors="xantares" >}}
 
@@ -135,7 +136,7 @@ Xaudio2 can't handle the same low latency that Cubeb has without bad skipping an
 
 {{< progress/github-link prNums="5032" title="USB: Gametrak/RealPlay" authors="Florin9doi" >}}
 
-This Pull Request made the last non-working game work (don't count games like Final Fantasy 11 which were online-only) and looks more like a current Linus Tech Videos about VR with all those wires than a PS2 accessory. I'll stick to my Black Nintendo Wii instead of this seemingly weird copy-cat.
+This Pull Request made the last non-working game work and looks more like a current Linus Tech Videos about VR with all those wires than a PS2 accessory. I'll stick to my Black Nintendo Wii instead of this seemingly weird copy-cat.
 
 {{< progress/github-link prNums="5184" title="USB: Sony DPP-MP1 printer emulation" authors="Florin9doi" >}}
 
@@ -170,7 +171,7 @@ Fixes <https://github.com/PCSX2/pcsx2/issues/5168> (Top Trumps).
 Fixes <https://github.com/PCSX2/pcsx2/issues/4063> (Phase Paradox).
 Improves the moving billboard quality in Test Drive (Master has corruption).
 
-Fixes video hang in Eggo Mania/Egg Mania - Eggstreme Madess (patch no longer required).
+Fixes video hang in Eggo Mania/Egg Mania - Eggstreme Madness (patch no longer required).
 
 Fixes Smackdown Shut Your Mouth Titantrons.
 
@@ -234,7 +235,7 @@ Folder memory cards weren't recognized as a memory card being plugged-in unless 
 
 {{< progress/github-link prNums="4914" title="CI: Retain Workflow Artifacts permanently via Github Releases" authors="xTVaser" >}}
 
-This pull request will bring permanent downloadable (pre)releases on GitHub itself instead of just using Orphis which will not make everything more central but makes it easier to tag commits that are made outside of a pull request and just force-pushed the changes to the project. *stares at certain people that have been naughty*.
+This pull request has brought permanent downloadable (pre)releases on GitHub itself instead of just using Orphis which will not make everything more central but makes it easier to tag commits that are made outside of a pull request and just force-pushed the changes to the project. *stares at certain people that have been naughty*.
 
 If you want to see more details, Vaser has written an essay-like detail on it - <https://github.com/PCSX2/pcsx2/pull/4914>
 
@@ -316,17 +317,29 @@ Fixes broken shadows from Kingdom Hearts Re-Chain which produced lines.
 
 {{< progress/github-link prNums="4887" title="gs-tc: propagate texture shuffle format on readback" authors="tadanokojin" >}}
 
-Properly fixes the flashlight in the Silent Hill series:
+Due to the way some effects work on the GS and how our Texture Cache handles it, sometimes the wrong texture format can be remembered, which will cause it to get stored in an incorrect memory format when it is saved back to the real GS memory for downloading to the EE core. This PR corrected this behaviour and properly fixes the flashlight in the Silent Hill series:
 
 {{< img-cmp before="./img/Pic19-SilentHillBefore.jpg" after="./img/Pic20-SilentHillAfter.png">}}
 
 {{< progress/github-link prNums="4891" title="GS: Revert be7e1163b4f7e3fe19876462fb26cd082ffb3ab4" authors="lightningterror" >}}
 
-This PR reverts an older commit from 2013 (1.2 era) which had wrong assumptions on texture region repeating and how the clamping is handled along with it.
+This PR reverts an older commit from 2013 (1.2 era) which had wrong assumptions on texture region repeating and how the clamping is handled along with it. Multiple games were affected on the visual side or even performance-side.
+
+Test Drive Limited (Blue roads):
+
+{{< img cols="colWidth" src="./img/Pic43-TestDriveUnlimited.png">}}
+
+Kaan Barbarian Blade (Black Character Model):
+
+{{< img cols="colWidth" src="./img/Pic44-Kaan.png">}}
+
+The Chronicles of Narnia - The Lion, The Witch and The Wardrobe (Heat Haze Effect of the fire):
+
+{{< img-cmp-slider before="./img/Pic63-Narnia1Before.png" after="./img/Pic64-Narnia1After.png">}}
 
 {{< progress/github-link prNums="4906" title="GS: Use stream buffer for vertices/indices/uniforms" authors="stenzek" >}}
 
-This will certainly help AMD GPUs on Windows but it does help NVIDIA GPU users too as the default behavior was to stall (essentially wait and stop for new instructions) which caused bad performance.
+This will certainly help AMD GPUs on Windows but it does help NVIDIA GPU users too as the default behaviour was to stall (essentially wait and stop for new instructions) which caused bad performance.
 
 These charts below lists 3 different systems that will give you an easier way to tell how much it could help:
 
@@ -344,23 +357,19 @@ This new behavior improves the software renderer quite drastically in a good way
 
 {{< progress/github-link prNums="4965" title="GS: Let draw happen even if invalid, log invalid draws" authors="refractionpcsx2" >}}
 
+In some scenarios, the ZBUF or FRAME values may get set to invalid data, but on draws where they are not getting used. Before this would completely ignore the draw which caused problems, however this lets it continue since the data it needs is valid.
+
 {{< img-cmp-slider before="./img/Pic45-StarOceanBefore.png" after="./img/Pic46-StarOceanAfter.png">}}
 
 {{< progress/github-link prNums="4966" title="GS: Fix up CLUT offset handling in 32bit I8 mode" authors="refractionpcsx2" >}}
 
-This pull request fixes several games with the wrong colors, which depended on the CLUT (Color Look-up table) which basically is a value corresponding to a color palette an example being the RGB values (255, 0, 0) which means full red color but if the game sees a different value it is going to produce another color.
+This pull request fixes several games with the wrong colors, which depended on the CLUT (Color Look-up table) which basically is a value corresponding to a color palette an example being the RGB values (255, 0, 0) which means full red color, for example. The issue arose around the fact that the 256 colour palette is split in to 16 chunks of 16 colours and it can update it at any one of these chunks, unfortunately memory writes only really worked if it was updated on either chunks 0, 3, 7, 11 or 15, others would break down. Further to this the behaviour when it was asked to update the end of the buffer only was incorrect (The dirt in GTA: San Andreas relied on this!), which has now been corrected.
 
 A few examples but not limited to:
 
 {{< img-cmp-slider before="./img/Pic9-HarleyBefore.jpg" after="./img/Pic10-HarleyAfter.jpg">}}
 {{< img-cmp-slider before="./img/Pic11-RomanceBefore.jpg" after="./img/Pic12-RomanceAfter.jpg">}}
 {{< img-cmp-slider before="./img/Pic13-SanAndreasBefore.jpg" after="./img/Pic14-SanAndreasAfter.jpg">}}}
-
-{{< progress/github-link prNums="4969" title="GS: Don't propagate 24bit textures on download" authors="refractionpcsx2" >}}
-
-{{< img-cmp before="./img/Pic43-ManaKhemiaBefore.png" after="./img/Pic44-ManaKhemiaAfter.png">}}
-
-{{< progress/github-link prNums="4971" title="GS: Redo the Texture min/max opt" authors="refractionpcsx2" >}}
 
 {{< progress/github-link prNums="4980" title="Miscellaneous fixes for macOS" authors="tellowkrinkle" >}}
 
@@ -376,8 +385,9 @@ Like you see this purple grass on Hitman which everybody should agree isn't real
 
 {{< progress/github-link prNums="5006" title="GS: Only reload Auto MIPs on TEX base change" authors="refractionpcsx2" >}}
 
-PCSX2 used to re-new the addresses for textures, but some games rely on re-using the old addresses for textures causing graphical issues due to using the wrong textures with mipmapping enabled.
-- It has since been revisited that the draw wasn't being flushed if MTBA updated the MIPS and MTBA on it's own was doing things incorrectly at times.
+The handling of MTBA was previously not handled very well and was somewhat of a mystery, we have since discovered the correct behaviour for when it can be triggered through restrictions in texture sizes and formats, which this PR attempted to correct, enough to fix Parappa The Rapper 2 and Ape Escape 3.
+
+What his PR missed but we discovered later is that the formula for updating the MIP addresses was incorrect, but also the pending draws needed to be flushed if these new MIPMAP values were different.  It does remain that hardware mode has difficulty handling mip-maps.
 
 {{< img-cmp-slider before="./img/Pic39-ParappaBefore.png" after="./img/Pic40-ParappaAfter.png">}}
 {{< img-cmp-slider before="./img/Pic41-ApeEscapeBefore.png" after="./img/Pic42-ApeEscapeAfter.png">}}
@@ -508,7 +518,7 @@ Personally there should be only 3 modes for people:
 Since all these major timing changes, this isn't really useful and broke more often than not.
 More often than not downclocking the EE Cyclerate will give better results for the more lower-end hardware.
 
-Though even in it's current state Cycleskip 1 and 2 will have decent results for Shadow of The Collosus which didn't ran full speed on the real hardware aka the PlayStation 2.
+Though even in it's current state Cycleskip 1 and 2 will have decent results for Shadow of The Collosus which didn't run full speed on the 'PlayStation 2'.
 
 {{< progress/github-link prNums="4888" title="Add the current profile to the status bar." authors="arcum42" >}}
 
@@ -534,7 +544,7 @@ If you moved or renamed your ISOs, you either had to nuke the recently played li
 
 While not as exciting as a new fix for a game, increased performance on better compatibility this will make the text more aligned with the rest of the windows. Though it did have a meaningful change that the maximum audio latency is now 200 instead of 750.
 
-The default is still is still 100 ms (0.1 seconds of audio latency) and if you really need 750 ms (0.75 seconds of audio latency) then it's likely Pentium 4 or older and work badly or even at all on current PCSX2 versions.
+The default is still 100 ms (0.1 seconds of audio latency) on Xaudio2 but technically lower with Cubeb if you read that section and if you really need 750 ms (0.75 seconds of audio latency) then it's unlikely you will have a good experience on PCSX2. You may want to consider upgrading your computer in that case.
 
 Can you spot the differences?
 
@@ -626,7 +636,7 @@ Doesn't need much explaining as it was gone by accident to show the keybinding f
 
 {{< progress/github-link prNums="5187" title=" GameDB: add VU-clamping to \"Ultimate Spider-Man\" and fixes to other games" authors="Mrlinkwii" >}}
 
-The game had wrongly colored eye textures (yellow/blue) but is now correctly white:
+The game had wrongly colored eye textures (yellow/blue) but are now correctly white:
 
 {{< img-cmp before="./img/Pic25-UltimateBefore.png" after="./img/Pic26-UltimateAfter.png">}}
 
