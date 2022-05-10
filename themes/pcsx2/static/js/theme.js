@@ -5,6 +5,11 @@ function setTheme(themeName) {
   $('#theme-toggle').prop('checked', themeName === "theme-light");
 }
 
+function isDarkMode() {
+  let savedTheme = localStorage.getItem('pcsx2-theme');
+  return savedTheme === 'theme-dark';
+}
+
 $("#theme-toggle").on("change", function (evt) {
   if (evt.target.checked) {
     setTheme('theme-light');

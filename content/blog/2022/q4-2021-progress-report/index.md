@@ -234,10 +234,7 @@ Folder memory cards weren't recognized as a memory card being plugged-in unless 
 
 This pull request will bring permanent downloadable (pre)releases on GitHub itself instead of just using Orphis which will not make everything more central but makes it easier to tag commits that are made outside of a pull request and just force-pushed the changes to the project. *stares at certain people that have been naughty*.
 
-If you want to see more details, Vaser has written an essay-like detail on it:
-
-{{< img cols="colWidth" src="./img/Pic60-ArtifactsGitHub.png">}}
-
+If you want to see more details, Vaser has written an essay-like detail on it - https://github.com/PCSX2/pcsx2/pull/4914
 
 So it will precompile working versions of the nightlies/dev and future stable versions on GitHub forever instead of only temporary on GitHub or what was used in the past being AppVeyor (nickname: Slowveyor).
 
