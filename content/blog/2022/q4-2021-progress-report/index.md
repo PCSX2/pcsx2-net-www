@@ -301,7 +301,7 @@ For what feels like forever, transparency didn't work correctly for Metal Gear S
 
 If you want to printout your stats from the SW renderer, it doesn't look as readable as it was badly aligned and has no header.
 
-{{< img-cmp before="./img/Pic61-SWPrintoutBefore.png" after="./img/Pic62-SWPrintoutAfter.png">}}
+{{< img-cmp before="./img/Pic60-SWPrintoutBefore.png" after="./img/Pic61-SWPrintoutAfter.png">}}
 
 {{< progress/github-link prNums="4850" title="GS-hw: Don't write clamped depth test value to depth buffer when ZMSK is enabled." authors="lightningterror" >}}
 
@@ -369,7 +369,7 @@ Fixes a bug where 'f' would be incorrect for the blue channel when fogging was e
 
 Like you see this purple grass on Hitman which everybody should agree isn't realistic and is a bug:
 
-{{< img cols="colWidth" src="./img/Pic63-HitmanPurpleGrass.png">}}
+{{< img cols="colWidth" src="./img/Pic62-HitmanPurpleGrass.png">}}
 
 {{< progress/github-link prNums="5006" title="GS: Only reload Auto MIPs on TEX base change" authors="refractionpcsx2" >}}
 
