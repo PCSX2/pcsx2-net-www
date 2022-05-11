@@ -8,7 +8,7 @@ tags:
 mainAuthor: lightningterror
 ---
 
-// ## [Q3 2020 Progress Report](/296-q3-2020-progress-report.html)
+## [Q3 2020 Progress Report](/296-q3-2020-progress-report.html)
 
 On the previous report the highlight was GSdx improvements mostly. This
 one on the other hand is Core changes, and A LOT of core changes. Enjoy!
