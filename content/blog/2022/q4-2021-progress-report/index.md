@@ -726,7 +726,7 @@ The new GUI is moving along very well, but is not at feature parity as the curre
 
 ### Other
 
-{{< progress/github-link prNums="4843" title="PGIF: Remove force fifo clear on GP1 (00-01)" authors="null" >}}
+{{< progress/github-link prNums="4843" title="PGIF: Remove force fifo clear on GP1 (00-01)" >}}
 
 {{< progress/github-link prNums="4856" title="Common/StringHelpers: Fix printing of 64-bit pointers" authors="stenzek" >}}
 

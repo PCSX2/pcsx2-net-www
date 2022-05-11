@@ -17,10 +17,12 @@
 {{ $commitLinks = $commitLinks | append (printf "https://github.com/PCSX2/pcsx2/commit/%s" $element) }}
 {{ end }}
 
+{{ $authorLinks := slice }}
 {{ $authors := (split (.Get "authors") ",") }}
-{{ $authorLinks := slice}}
-{{ range $index, $element := $authors }}
-{{ $authorLinks = $authorLinks | append (printf "https://github.com/%s" $element) }}
+{{ if isset .Params `authors` }}
+  {{ range $index, $element := $authors }}
+  {{ $authorLinks = $authorLinks | append (printf "https://github.com/%s" $element) }}
+  {{ end }}
 {{ end }}
 
 <p class="progress-report-heading">
@@ -31,10 +33,12 @@
   <a href="{{ $element }}">#{{ substr (index $shas $index) 0 6 }}</a>
   {{ end }}
   {{ title (.Get "title") | markdownify }}
+  {{ if gt (len $authorLinks) 0 }}
   <em>
     By
     {{ range $index, $element := $authorLinks }}
     <a href="{{ $element }}">{{ index $authors $index }}</a>
     {{ end }}
   </em>
+  {{ end }}
 </p>
