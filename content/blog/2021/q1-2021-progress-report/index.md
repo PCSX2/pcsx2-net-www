@@ -15,7 +15,6 @@ toc: true
 
 ## Core Improvements
 
-
 {{< progress/github-link prNums="4115" title="PAD/Counters: MakeVSync Queue adjustable in the UI. Extra Pad update." authors="refractionpcsx2" >}}
 
 New UI option (ini option has been there a while) so users can choose between a little bit extra performance or reduced input lag.
@@ -27,6 +26,7 @@ Also added the PAD Update to the VSync call in Counters as it seemed to reduce i
 This is based on the work by [@PS1-Rockin](https://github.com/PSI-Rockin) on Dobiestation but modified based on the theory that it always returns the first 32bits of the FIFO unless an FDEC/VDEC command is executed, however FDEC is basically doing this anyway, but VDEC returns decoded information.
 
 Fixed videos for probably all broken EA games, but namely:
+
 - F1 2001
 - F1 2002
 - Neo Contra
@@ -64,7 +64,7 @@ This improves [#3192](https://github.com/PCSX2/pcsx2/issues/3192), the online be
 
 An unique MAC is needed for full compatibility with XLink Kai.
 
-Uses a method similar to what was done for pcap.
+Uses a method similar to what was done for PCAP.
 
 {{< progress/github-link prNums="3932" title="Add HDDemulation" authors="TheLastRar" >}}
 
@@ -74,7 +74,7 @@ Previously, the ethEnable config value was not checked before starting network R
 
 {{< progress/github-link prNums="4219" title="Fix crash on Linux when we fail to open the adapter" authors="TheLastRar" >}}
 
-{{< progress/github-link prNums="4149" title="Re-add pcap(both bridged and switched) on windows" authors="TheLastRar" >}}
+{{< progress/github-link prNums="4149" title="Re-add PCAP(both bridged and switched) on windows" authors="TheLastRar" >}}
 
 ### CDVD
 
@@ -193,7 +193,7 @@ This implements the actual SPU interpolation as documented by nocash.
 
 The reverb runs at half the sample rate of the rest of the SPU so a
 change of sample rate is required. The way this is currently done is by
-decimating when downsampling and duplicating samples when upsampling
+decimating when down-sampling and duplicating samples when up-sampling
 without doing any filtering.
 
 This adds proper filtering to this process, the filter coefficients are
@@ -270,7 +270,7 @@ gets created which advances the test every half a second.
 
 {{< progress/github-link prNums="4232" title="Eyetoy mirroring" authors="Florin9doi" >}}
 
-Fixes Bakufuu Slash! Kizna Arashi.
+- Fixes Bakufuu Slash! Kizna Arashi.
 
 {{< progress/github-link prNums="4250" title="Core: Preserve read only bits in the COP0 config register." authors="F0bes" >}}
 
@@ -408,7 +408,7 @@ This adds GHC filesystem to pcsx2 common utilities.
 
 {{< progress/github-link prNums="3991" title="Keyboard Shortcuts Strings" authors="RedDevilus" >}}
 
-Based on https://wiki.pcsx2.net/Hotkeys.
+Based on <https://wiki.pcsx2.net/Hotkeys>.
 
 {{< progress/github-link prNums="4216" title="Fix compilation in path with spaces" authors="laenion" >}}
 

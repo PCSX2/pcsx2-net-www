@@ -111,31 +111,31 @@ If a game does a double SIGNAL, that still won't work.
 
 Fixed Games when using MTVU:
 
-Backyard Basketball  
-Baroque  
-Batman: Vengeance  
-Crash Nitro Kart  
-Gradius V  
-Heatseeker  
-King's Field IV  
-Marvel Ultimate Alliance  
-Medal of Honor: Rising Sun  
-MTVs Celebrity Deathmatch  
-Summon Night Gran-These: Horobi no Ken to Yakusoku no Kishi  
-Tony Hawk games  
-X-Men Legends 2  
-Yu-Gi-Oh! Capsule Monster Coliseum
+- Backyard Basketball  
+- Baroque  
+- Batman: Vengeance  
+- Crash Nitro Kart  
+- Gradius V  
+- Heatseeker  
+- King's Field IV  
+- Marvel Ultimate Alliance  
+- Medal of Honor: Rising Sun  
+- MTVs Celebrity Deathmatch  
+- Summon Night Gran-These: Horobi no Ken to Yakusoku no Kishi  
+- Tony Hawk games  
+- X-Men Legends 2  
+- Yu-Gi-Oh! Capsule Monster Coliseum
 
 Slowdown in games using MTVU Fixed:
 
-007 Agent Under Fire  
-007 Everything or Nothing  
-TimeSplitters 2  
-TimeSplitters Future Perfect
+- 007 Agent Under Fire  
+- 007 Everything or Nothing  
+- TimeSplitters 2  
+- TimeSplitters Future Perfect
 
 Homebrew Fixes:
 
-Aura for Laura
+- Aura for Laura
 
 [\#4043](https://github.com/PCSX2/pcsx2/pull/4043) VIF: Always update
 MTVU thread with Row/Col Changes. By
@@ -185,7 +185,7 @@ Duck Quack Attack, but doesn't seem to be needed anymore (game uses
 T-Bit on VU which has been fixed since this hack was placed in and could
 likely have been the problem).
 
-Fixes Scarface when switching to progressive mode.
+Fixes ScarFace when switching to progressive mode.
 
 **<span style="color: #00ccff;"> \[Enhancement\] </span> microVU
 improvements:**
@@ -388,11 +388,11 @@ improvements:**
 speed depending on if in inner/outer edge. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-Fixes Shadowman 2 Second Coming textures.  
-Fixes Arctic Thunder loading problems.  
-Fixes looping music on ONI title screen and skipping dialogues.  
-Fixes Klonoa 2 missing audio.  
-Fixes SPS at the beginning of matches in Next Generation Tennis 2003
+- Fixes Shadowman 2 Second Coming textures.  
+- Fixes Arctic Thunder loading problems.  
+- Fixes looping music on ONI title screen and skipping dialogues.  
+- Fixes Klonoa 2 missing audio.  
+- Fixes SPS at the beginning of matches in Next Generation Tennis 2003
 (Ronald Garros).
 
 [\#3899](https://github.com/PCSX2/pcsx2/pull/3899) CDVD: Check register
