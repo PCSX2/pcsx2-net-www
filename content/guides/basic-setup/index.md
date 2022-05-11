@@ -14,6 +14,7 @@ If you require further help, please visit our forums or ask in our Discord's hel
 ## How to dump your PS2 BIOS
 
 Dumping your PS2 BIOS is conceptually a two-step process:
+
 1. Modify the operation of your PS2 so that it can run any program.
 2. Then you can run a "BIOS dumper" utility program on your PS2 that reads its BIOS and writes it to a USB drive.
 
@@ -34,9 +35,10 @@ There is a generally useful program, uLaunchELF, that lets you browse memory car
 ### Downloading the BIOS dumper utility
 
 Hosted by the PCSX2 Project:
+
 - [Binary Version](https://github.com/PCSX2/tools/releases/download/bios-dumper%2Fv2/PS2dumperV2_bin.7z) (Recommended)
   - After downloading, extract the files to a USB flash drive.
-    - Your mileage may vary here. All PS2 models can read and write to USB flash drives formatted with a FAT32 file system. Some people report USB 3.0 drives being usable while others claim they are not.  For this reason it appears to be more dependent on the drive rather than the USB version so we cannot provide an exhaustive list for success.
+    - Your mileage may vary here. All PS2 models can read and write to USB flash drives formatted with a FAT32 file system. Some people report USB 3.0 drives being usable while others claim they are not.  For this reason it appears to be more dependent on the drive rather than the USB version so we cannot provide an exhaustive list for success. If you really want to increase the odds of recognising it does seems that it doesn't have a limit on the size of the USB flash drive but you have the most luck with SanDisk or PNY models though other brand models can also actually work.
 - [ISO Version](https://github.com/PCSX2/tools/releases/download/bios-dumper%2Fv2/PS2dumperV2_iso.7z) (You will have to burn a DVD with the image)
 
 ### Option 1: Starting a PS2 with FreeMcBoot
@@ -47,7 +49,7 @@ Hosted by the PCSX2 Project:
 
 ### Option 2: Starting a PS2 with FreeDVDBoot
 
-- Download the ISO which matches your console from https://github.com/CTurt/FreeDVDBoot/tree/master/PREBUILT%20ISOs
+- Download the ISO which matches your console from <https://github.com/CTurt/FreeDVDBoot/tree/master/PREBUILT%20ISOs>
 - Burn the ISO to a DVD.
   - The most generally reliable media is a **DVD-R** disc, burned at a slow speed (4X speed should be fine).
 - Insert the burned FreeDVDBoot disc, then reset/turn on your PS2. uLaunchELF should open.
@@ -66,15 +68,16 @@ You can remove your USB flash drive from your PS2 after the last `Dumping` messa
 PS2 game discs are unencrypted DVDs and CDs. So, they can be dumped quickly using a standard DVD drive and the ImgBurn software. Dumping does not harm PS2 game discs.
 
 ### Where to get ImgBurn
+
 - Via Ninite (Recommended, safe and fast):
-  - https://ninite.com/imgburn
+  - <https://ninite.com/imgburn>
 - Via ImgBurn themselves (Not recommended, comes with adware in the installer that must be manually unchecked during the install):
-  - http://www.imgburn.com/index.php?act=download
+  - <http://www.imgburn.com/index.php?act=download>
 
 ### How it works
+
 - Install ImgBurn
 - Put your PS2 game disc into a DVD drive
 - Create an image file from a disc inside ImgBurn (highlighted in screenshot below)
 
 {{< img src="./img/imgburn.webp" cols=6 >}}
-

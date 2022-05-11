@@ -111,43 +111,43 @@ If a game does a double SIGNAL, that still won't work.
 
 Fixed Games when using MTVU:
 
-Backyard Basketball  
-Baroque  
-Batman: Vengeance  
-Crash Nitro Kart  
-Gradius V  
-Heatseeker  
-King's Field IV  
-Marvel Ultimate Alliance  
-Medal of Honor: Rising Sun  
-MTVs Celebrity Deathmatch  
-Summon Night Gran-These: Horobi no Ken to Yakusoku no Kishi  
-Tony Hawk games  
-X-Men Legends 2  
-Yu-Gi-Oh! Capsule Monster Coliseum
+- Backyard Basketball  
+- Baroque  
+- Batman: Vengeance  
+- Crash Nitro Kart  
+- Gradius V  
+- Heatseeker  
+- King's Field IV  
+- Marvel Ultimate Alliance  
+- Medal of Honor: Rising Sun  
+- MTVs Celebrity Deathmatch  
+- Summon Night Gran-These: Horobi no Ken to Yakusoku no Kishi  
+- Tony Hawk games  
+- X-Men Legends 2  
+- Yu-Gi-Oh! Capsule Monster Coliseum
 
 Slowdown in games using MTVU Fixed:
 
-007 Agent Under Fire  
-007 Everything or Nothing  
-TimeSplitters 2  
-TimeSplitters Future Perfect
+- 007 Agent Under Fire  
+- 007 Everything or Nothing  
+- TimeSplitters 2  
+- TimeSplitters Future Perfect
 
 Homebrew Fixes:
 
-Aura for Laura
+- Aura for Laura
 
 [\#4043](https://github.com/PCSX2/pcsx2/pull/4043) VIF: Always update
 MTVU thread with Row/Col Changes. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-Fixes graphical issues in Fatal Frame 2 when swapping to MTVU.
+- Fixes graphical issues in Fatal Frame 2 when swapping to MTVU.
 
 [\#4053](https://github.com/PCSX2/pcsx2/pull/4053) MTVU: Clean up GS
 SIGNAL/LABEL/FINISH communication. By
 [tellowkrinkle](https://github.com/tellowkrinkle) .
 
-Fixes atomic usage and ensures all communication goes in one direction.
+- Fixes atomic usage and ensures all communication goes in one direction.
 
 Also removed some forced 4-byte alignment, for 4-byte types it's
 unnecessary and for 8-byte types it's either unnecessary or harmful.
@@ -185,7 +185,7 @@ Duck Quack Attack, but doesn't seem to be needed anymore (game uses
 T-Bit on VU which has been fixed since this hack was placed in and could
 likely have been the problem).
 
-Fixes Scarface when switching to progressive mode.
+Fixes ScarFace when switching to progressive mode.
 
 **<span style="color: #00ccff;"> \[Enhancement\] </span> microVU
 improvements:**
@@ -262,9 +262,9 @@ any negative impacts.
 settings on Fastboot. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .**
 
-Fixes bad fonts when booting a game in fast boot.
+- Fixes bad fonts when booting a game in fast boot.
 
-Selects correct language for games depending on your BIOS setting when
+- Selects correct language for games depending on your BIOS setting when
 using fast boot.
 
 It also makes normal boot works for your language even if you have a
@@ -272,16 +272,16 @@ difference between BIOS region and game region but you will need to go
 into BIOS and apply that or let the default settings handle it based on
 your BIOS. [\#4018](https://github.com/PCSX2/pcsx2/pull/4018) .
 
-Stops games such as Guitar Hero 2 from crashing on fast boot.
+- Stops games such as Guitar Hero 2 from crashing on fast boot.
 
-Displays corrects timezones in games.
+- Displays corrects timezones in games.
 
 **<span style="color: #00ccff;"> \[Enhancement\] </span>
 [\#3969](https://github.com/PCSX2/pcsx2/pull/3969) IPU: Stop IPU0
 looping when there's no data for it to read. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .**
 
-Fixes bad slowdowns in Ratchet games when using EE Timing fix caused by
+- Fixes bad slowdowns in Ratchet games when using EE Timing fix caused by
 bad IPU streams.
 
 **<span style="color: #00ccff;"> \[Enhancement\] </span> VIF
@@ -291,15 +291,15 @@ improvements:**
 VIF: Don't rush finish VU programs. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-Fixes remaining SPS in Shadowman.
+- Fixes remaining SPS in Shadowman.
 
 [\#4003](https://github.com/PCSX2/pcsx2/pull/4003) VIF: Don't start
 transfer if VIF1/0 is stalled. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-Also Fix missing VIF status check on MFIFO.
+- Also Fix missing VIF status check on MFIFO.
 
-Fixes hang in Batman Vengeance, game stalls the VIF during an MFIFO
+- Fixes hang in Batman Vengeance, game stalls the VIF during an MFIFO
 transfer then stops and starts VIF while it's stalled, in the old code
 this causes it to ignore the stall and continue as normal, this PR fixes
 that behaviour.
@@ -333,10 +333,10 @@ default unless you're using the Safest preset. Games which require the
 new behaviour have an entry in the GameDB to disable it.
 
 Fixed Games:  
-Fixes SPS in Shadowman 2encond Coming.  
-Fixes "Noodles" in Parappa the Rapper 2 (box in the top left).  
-Fixes floor corrupt textures and console error spam in Dropship.  
-Slightly improves World series baseball 2k3 but it's still broken, just
+- Fixes SPS in Shadowman 2encond Coming.  
+- Fixes "Noodles" in Parappa the Rapper 2 (box in the top left).  
+- Fixes floor corrupt textures and console error spam in Dropship.  
+- Slightly improves World series baseball 2k3 but it's still broken, just
 doesn't run at sub 1fps anymore.
 
 **<span style="color: #00ccff;"> \[Enhancement\] </span> SPU2
@@ -350,10 +350,10 @@ to prevent overrun. By
 need for delay cycles. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-Fixes the entire list of games that required alternative delay cycle
+- Fixes the entire list of games that required alternative delay cycle
 handling in [\#2371](https://github.com/PCSX2/pcsx2/issues/2371) .
 
-Fixes sound issues in Megaman X7.
+- Fixes sound issues in Megaman X7.
 
 *Note: This has been re implemented in Q1 with a better solution where
 it doesn't cause issues.*
@@ -369,7 +369,7 @@ and all the arrows keys on 1.
 SPU2: Fix Address masks for voices + Effect area. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-Fixes reverb in The Suffering.
+- Fixes reverb in The Suffering.
 
 **<span style="color: #00ccff;"> \[Enhancement\] </span> USB
 improvements:**
@@ -388,11 +388,11 @@ improvements:**
 speed depending on if in inner/outer edge. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-Fixes Shadowman 2 Second Coming textures.  
-Fixes Arctic Thunder loading problems.  
-Fixes looping music on ONI title screen and skipping dialogues.  
-Fixes Klonoa 2 missing audio.  
-Fixes SPS at the beginning of matches in Next Generation Tennis 2003
+- Fixes Shadowman 2 Second Coming textures.  
+- Fixes Arctic Thunder loading problems.  
+- Fixes looping music on ONI title screen and skipping dialogues.  
+- Fixes Klonoa 2 missing audio.  
+- Fixes SPS at the beginning of matches in Next Generation Tennis 2003
 (Ronald Garros).
 
 [\#3899](https://github.com/PCSX2/pcsx2/pull/3899) CDVD: Check register
@@ -449,7 +449,7 @@ and 3. By [kozarovv](https://github.com/kozarovv) .
 DMA: Handle undefined Chain mode tags. By
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-Fixes DT Racer speed issues.
+- Fixes DT Racer speed issues.
 
 [\#3874](https://github.com/PCSX2/pcsx2/pull/3874) JIT: Fix FPU IEEE
 float conversion on x64. By [GovanifY](https://github.com/GovanifY) .
@@ -460,7 +460,7 @@ interrupts for SIF0/SIF1. By
 [PSI-Rockin](https://github.com/psi-rockin) , backport from
 Dobiestation.
 
-Fixes Knockout Kings 2001 hang on boot. For more technical information
+- Fixes Knockout Kings 2001 hang on boot. For more technical information
 please see
 [this](https://www.patreon.com/posts/sins-of-ps2-2001-42262496) post.
 
@@ -484,19 +484,19 @@ class improvements. By [tellowkrinkle](https://github.com/tellowkrinkle)
 GS reads to CSR. By [tadanokojin](https://github.com/tadanokojin) and
 [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-Puts in the correct behaviour for GS reads.
+- Puts in the correct behaviour for GS reads.
 
-Fixes Supadoopa's Funslower demo.
+- Fixes Supadoopa's Funslower demo.
 
 [c998a51](https://github.com/PCSX2/pcsx2/commit/c998a51f71f6a81a2f4f0c9d27c85714d74ccd57)
 IOP DMA: Only acknowledge SPU2 DMA interrupt if DMA hasn't been
 cancelled. By [refractionpcsx2](https://github.com/refractionpcsx2) .
 
-Fixes Gregory Horror Show bad audio.
+- Fixes Gregory Horror Show bad audio.
 
 ------------------------------------------------------------------------
 
-# TAS (Tool Assisted Speedrun) Utility Improvements
+## TAS (Tool Assisted Speedrun) Utility Improvements
 
 [\#3627](https://github.com/PCSX2/pcsx2/pull/3627) Recording: Add menu
 items for recording controls with keyboard shortcuts. By [xTVaser(Tyler
@@ -526,7 +526,7 @@ NewRecordingFrame has improved functionality.
 
 ------------------------------------------------------------------------
 
-# GSdx Improvements
+## GSdx Improvements
 
 [\#3858](https://github.com/PCSX2/pcsx2/pull/3858) GSdx: Properly init
 gsclut function ptrs. By [tadanokojin](https://github.com/tadanokojin) .
@@ -629,7 +629,7 @@ can be resolved with upscaling hacks. By
 
 ------------------------------------------------------------------------
 
-# Misc Improvements
+## Misc Improvements
 
 [\#3531](https://github.com/PCSX2/pcsx2/pull/3531) GUI: Add "Screenshot
 As..." feature to Capture options. By [xTVaser (Tyler
@@ -649,3 +649,8 @@ obsolete code related to the output window. By
 ------------------------------------------------------------------------
 
 And that's all from us, see you next time in our 2021 Q1 Report!
+
+## Metadata
+
+2020 Q4:  
+(dev818 to dev1163) (2020-01-01 - 2020-03-31)

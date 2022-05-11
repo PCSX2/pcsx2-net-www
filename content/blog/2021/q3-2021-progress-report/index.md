@@ -21,7 +21,7 @@ toc: true
 
 As we finally merge the last plugin namely the one responsible for the graphics settings (upscaling, blending, shaders) we can look back towards the past releases. Plugins were once a great source to decouple the core team and separate contributors so neither one wasn't blocked for doing improvements, however, these plugin creators diminished over the years until 2016 had not many advancements:
 
-There was pretty much only ongoing work for USBqemu-wheel by jackun and CLR-DEV9 by TheLastRar, not only that the core team had better replacements over time and the last plugin creators also became de facto more a core contributor and residing in the discord group. While we do lose some other notable plugins that are highly requested like Nuvee for Lightguns, OnePad legacy which handled controller remapping but these are only temporary drawbacks as the pros outweigh the cons as you don't need to scour our website or GitHub for plugins and fewer clicks in the GUI.
+There was pretty much only ongoing work for USBqemu-wheel by jackun and CLR-DEV9 by TheLastRar, not only that the core team had better replacements over time and the last plugin creators also became de facto more a core contributor and residing in the discord group. While we do lose some other notable plugins that are highly requested like Nuvee for LightGuns, OnePad legacy which handled controller remapping but these are only temporary drawbacks as the pros outweigh the cons as you don't need to scour our website or GitHub for plugins and fewer clicks in the GUI.
 
 It's also one of the reasons why Q2 2021 was on the meager side, it blocked a lot of contributors potential work or even would invalidate other PRs.
 
@@ -43,19 +43,18 @@ In this quarter TheLastRar has added a fix for the gateway which is the route ou
 
 - Gets rid of the spooky apparition in Grand Theft Auto 3 if you watch the intro.
 - This is kind of just enabling the old code which was kind of correct, but the old code didn't ignore the time passed, so this also updates the last cycles.
+
 > RedDevilus: "I've recently bought GTA 3 second-hand and did my regular testing phase when I heard talks about a cloned character, it was not triggered on my screen because I skipped the intro FMV. So if anyone says we only fix certain games or big bugs, you can look again. It was a minor bug that was actually a regression. Meanwhile, before the fix, I had my own methods of solving the issue but refraction wasn't happy with this brute-force approach"
 
 {{< img cols="6" src="./img/github_red_gta3.webp">}}
 
 {{< progress/github-link shas="9892624242fc548d836f0f664b440a31436c76bd" title=" Fix scanline count for double strike modes" authors="refractionpcsx2" >}}
 
-
 ### MTVU
 
 {{< progress/github-link prNums="4503" title="Enable T-Bit to work with MTVU" authors="refractionpcsx2" >}}
 
 {{< progress/github-link shas="98b19656c9f79c11c22a8ecc07521c42f9e256d1" title="VU: Fix address masking in MTVU" authors="refractionpcsx2" >}}
-
 
 ### VU
 
@@ -73,6 +72,7 @@ Another side note is that for normal PC games the internal resolution = viewport
 
 Here is an example of 3 tested games:
 {{< img cols="6" src="./img/3chart_VU_JITs.webp">}}
+
 - Ratchet: +12.36%
 - Tekken: +19.8%
 - My Street: +1.91%
@@ -84,7 +84,6 @@ Here is an example of 3 tested games:
 {{< progress/github-link shas="b919de9dd181f5b2b9984b01768c6d5720404e2e" title="Adjust sync timing for VU Kickstart - Fixes Crash Twinsanity" authors="refractionpcsx2" >}}
 
 {{< progress/github-link shas="154ed57633503ff7ab8f99254a874bae0d2392bf" title="Remove the need to pass VU struct to XGKick function" authors="refractionpcsx2" >}}
-
 
 ### microVU
 
@@ -100,11 +99,9 @@ Here is an example of 3 tested games:
 
 {{< progress/github-link prNums="4668" title="Don't emit add reg, 0 in a few instructions #4668" authors="stenzek" >}}
 
-
 ### GIF
 
 {{< progress/github-link prNums="4619" title="Reimplement GIF FIFO to enable only when it is needed" authors="refractionpcsx2" >}}
-
 
 ### VIF
 
@@ -113,7 +110,6 @@ Here is an example of 3 tested games:
 Our interpreters were frankly inaccurate and slow, this Pull Request has improved the accuracy in turn fixing a lot of visuals on uncountable games. Most people won't notice this change but it can help in comparing between the speedy recompilers if there is a bug hiding in plain sight.
 
 {{< progress/github-link shas="97bfe08c04a6bc45f4f77c95078095c62f4a370b" title="Only enable reverse FIFO hack if VIF1 is still active" authors="refractionpcsx2" >}}
-
 
 ### SPU2
 
@@ -141,11 +137,9 @@ Perhaps an oversight as we removed DirectSound module but it was still listed as
 
 {{< progress/github-link shas="06d6001b0cc869c955ab18b110a0d3d963849ad1" title=" Add rogue BIOS loop point which Megaman X7 relies on" authors="refractionpcsx2,Ziemas" >}}
 
-
 ### USB
 
 {{< progress/github-link prNums="4571" title="Freeze mode enum for keyboardmania" authors="Ziemas" >}}
-
 
 ### CDVD
 
@@ -182,7 +176,6 @@ Hype Time Quest: Before &gt; After
 
 {{< progress/github-link prNums="4613" title="IPU: Store thresholds for color conversions in u16, bump savestate version" authors="kozarovv" >}}
 
-
 ### Debuggers
 
 {{< progress/github-link prNums="4638" title="Debugger: Add option to display VU0F registers as floats" authors="F0bes" >}}
@@ -193,7 +186,6 @@ Hype Time Quest: Before &gt; After
 
 Remove the option to view &gt; 32 bit registers as 32 bit or 64 bit and instead display the entire register value.
 {{< progress/github-link prNums="4741" title="Debugger: CtrlRegisterList: Fix warning and screw up" authors="F0bes" >}}
-
 
 ### Misc core
 
@@ -246,7 +238,6 @@ Definition of WIL: The Windows Implementation Libraries (WIL) is a header-only C
 > Silent: 'I used their CoInitializeEx that explodes loudly on failure, so regressions = quietly ignored errors in the code started showing up spectacularlyATL-&gt;WIL refactor itself isn't that interesting, if anything those regressions wereas they were issues that were always around but quietly ignored instead of manifesting themselves in an obvious way.'
 
 So as you can refer from Silent's statement, it led to a domino effect in that lots of things seemed to break from audio to wherever, as seems consistent with PCSX2 how did this even work in the first place to then see old bugs float to the surface hiding in wait. Every day PCSX2 becomes less hacky and has a more sane codebase. You can imagine the chaos and the confusion it brought to many when trying to comprehend it all not only in terms of the PS2 but how PCSX2 has implemented it.
-
 
 ## GS Improvements
 
@@ -308,6 +299,7 @@ These are just a few examples, of course there are more.
 {{< img-cmp before="./img/VampireNightBrokenBulletss.webp" after="./img/vampire_fixeds.webp">}}
 
 ## Misc Improvements
+
 ### GUI
 
 {{< progress/github-link prNums="4512" title="Re-order config settings" authors="RedDevilus" >}}
@@ -346,7 +338,6 @@ The setting below has been quite the staple in releases and it has actually no b
 
 {{< progress/github-link prNums="4844" title="Move Vu overflow flag checks to a Gamefix + reorganise panel" authors="refractionpcsx2" >}}
 
-
 ### GitHub/CI
 
 {{< progress/github-link prNums="4509" title="Update PR labelers to match GS merge" authors="lightningterror" >}}
@@ -358,11 +349,13 @@ At the start of this report was the last GS merge, it has produced one minor ann
 What is PCSX2-AVX2?
 
 PCSX2 uses SIMD instructions to process graphics. The following are the SIMD instruction sets PCSX2 supports:
+
 - AVX2: Newest and fastest. Recommended for CPUs released in the last 8-10 years.
 - SSE4: Older, still fast. Recommended for older CPUs which do not support AVX2.
 - SSE2: Oldest, and slowest. Recommended only if your CPU is too old for SSE4.
 
 Which one do I pick?
+
 - 1.6.0: PCSX2 will choose the appropriate plugin for you automatically.
 - 1.7.0: Try pcsx2-avx2.exe. If the program fails to start, then use pcsx2.exe.
 
@@ -373,7 +366,6 @@ So in essence, if you have a 4th gen intel or higher with exception the Pentiums
 {{< progress/github-link prNums="4840" title="Bump macos version to 11" authors="lightningterror" >}}
 
 {{< progress/github-link prNums="4657" title="GitHub: Switch to new issue forms" authors="xTVaser" >}}
-
 
 ### Other misc
 
@@ -395,7 +387,6 @@ So in essence, if you have a 4th gen intel or higher with exception the Pentiums
 
 {{< progress/github-link prNums="4701" title="App: Add Windows exe version information" authors="refractionpcsx2" >}}
 
-
 ### GameDB Improvements
 
 As always there are many GameDB changes per quarter, since there are too many to even list we will just link the date range for merged pull requests, not counting directly pushed commits to master. List can be found at [GameDB Q3 2021](https://github.com/PCSX2/pcsx2/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-07-01..2021-09-30+base%3Amaster+sort%3Aupdated-desc+label%3AGameDB).
@@ -403,3 +394,8 @@ As always there are many GameDB changes per quarter, since there are too many to
 [#4556](https://github.com/PCSX2/pcsx2/pull/4556) Noteworthy changes include patches for unplayable games which makes the games playable from [this](https://forums.pcsx2.net/Thread-Fixing-unplayable-games) thread. [RedDevilus](https://github.com/RedDevilus) took the patches and opened a pull request adding the patches to the GameDB.
 
 Thank you all, see you in our next coverage, cheers.
+
+## Metadata
+
+Q3 2021:  
+(dev1300 to dev1837) (2021-07-01 - 2021-09-30)

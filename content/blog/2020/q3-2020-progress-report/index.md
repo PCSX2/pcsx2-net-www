@@ -16,7 +16,7 @@ one on the other hand is Core changes, and A LOT of core changes. Enjoy!
 Written by
 [lightningterror](https://forums.pcsx2.net/User-lightningterror)
 
-# GSdx Improvements
+## GSdx Improvements
 
 <span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3507](https://github.com/PCSX2/pcsx2/pull/3507) (Direct3D10/11 HW)
@@ -24,10 +24,8 @@ SetupIA, allow sprite conversion to be done on the CPU when
 applicable.Port from OpenGL. By
 [lightningterror](https://github.com/lightningterror) .**
 
--   Helps sprite rendering inLets Make a J-League Pro Soccer Club (see
+- Helps sprite rendering inLets Make a J-League Pro Soccer Club (see
     image comparison below).
-
-
 
 Before
 
@@ -37,36 +35,35 @@ After
 
 ![](img/Lets-Make-a-J-League-Pro-Soccer-Club-after-resize.webp)
 
-
 <span style="color: #00ccff;"> \[Misc Enhancements\] </span> **Other
 GSdx changes:**
 
--   [\#3508](https://github.com/PCSX2/pcsx2/pull/3508) (Direct3D10/11)
+- [\#3508](https://github.com/PCSX2/pcsx2/pull/3508) (Direct3D10/11)
     Modernize swapchain and device creation. By
     [kojin](https://github.com/tadanokojin) .
 
 <!-- -->
 
--   [\#3516](https://github.com/PCSX2/pcsx2/pull/3516) (Direct3D10/11)
+- [\#3516](https://github.com/PCSX2/pcsx2/pull/3516) (Direct3D10/11)
     Remove legacy d3dcompiler code. By
     [kojin](https://github.com/tadanokojin) .
 
 <!-- -->
 
--   [\#3534](https://github.com/PCSX2/pcsx2/pull/3534) (HW) Improve
+- [\#3534](https://github.com/PCSX2/pcsx2/pull/3534) (HW) Improve
     dithering.Gets rid of line artifacts down the screen due to 16bit
     colour limitations. By
     [refractionpcsx2](https://github.com/refractionpcsx2) .
 
 <!-- -->
 
--   [\#3575](https://github.com/PCSX2/pcsx2/pull/3575) (OpenGL HW)
+- [\#3575](https://github.com/PCSX2/pcsx2/pull/3575) (OpenGL HW)
     Fix/improve line scaling. Port from Direct3D 10/11. By
     [KrossX](https://github.com/KrossX) .
 
 <!-- -->
 
--   [\#3739](https://github.com/PCSX2/pcsx2/pull/3739) (OpenGL HW) Swap
+- [\#3739](https://github.com/PCSX2/pcsx2/pull/3739) (OpenGL HW) Swap
     DATE\_GL42 with DATE\_GL45 on sw blending draw.It will allow to run
     sw blending with DATE draw (DATE Accuracy Full) which was previously
     DATE\_GL42 by default. By
@@ -74,13 +71,13 @@ GSdx changes:**
 
 <!-- -->
 
--   [\#3562](https://github.com/PCSX2/pcsx2/pull/3562) (OpenGL) Remove
+- [\#3562](https://github.com/PCSX2/pcsx2/pull/3562) (OpenGL) Remove
     GLX in favor of EGL. By
     [JibbityJobbity](https://github.com/JibbityJobbity) .
 
 <!-- -->
 
--   [\#3705](https://github.com/PCSX2/pcsx2/pull/3705) (OpenCL) OpenCL
+- [\#3705](https://github.com/PCSX2/pcsx2/pull/3705) (OpenCL) OpenCL
     renderer which was barely maintained and rarely used for debug
     purposes only has been completely removed in our quest for cleaning
     up the codebase. By
@@ -88,19 +85,19 @@ GSdx changes:**
 
 <!-- -->
 
--   [\#3706](https://github.com/PCSX2/pcsx2/pull/3706) ,
+- [\#3706](https://github.com/PCSX2/pcsx2/pull/3706) ,
     [0c67dc9](https://github.com/PCSX2/pcsx2/commit/0c67dc99f7adf1f4bac88c67ac895fe84ac9c750)
     (HW) Add dithering option to HW renderers. By
     [RedDevilus](https://github.com/RedDevilus) and
     [lightningterror](https://github.com/lightningterror) .
-    -   Dropdown menu for 3 options: Off (No Effect/ Been always like
+  - Dropdown menu for 3 options: Off (No Effect/ Been always like
         this), Scaled (Strongest effect/obvious), Unscaled (Weakest
         effect/less obvious)
-    -   Change Default dithering mode from Scaled to Unscaled
+  - Change Default dithering mode from Scaled to Unscaled
 
 <!-- -->
 
--   [\#3723](https://github.com/PCSX2/pcsx2/pull/3723) Purge Direct3D11
+- [\#3723](https://github.com/PCSX2/pcsx2/pull/3723) Purge Direct3D11
     Software renderer option. By [kojin](https://github.com/tadanokojin)
     .
 
@@ -125,25 +122,25 @@ After
 In a nutshell it merges the software renderers. There's no need to have
 multiple ones, and it makes it easier for the end users.
 
--   (HW) Hacks & unused code cleanup. By
+- (HW) Hacks & unused code cleanup. By
     [lightningterror](https://github.com/lightningterror) .
-    -   [\#3702](https://github.com/PCSX2/pcsx2/pull/3702) Remove
+  - [\#3702](https://github.com/PCSX2/pcsx2/pull/3702) Remove
         DynamicCRCHack feature.
-    -   [\#3564](https://github.com/PCSX2/pcsx2/pull/3564) Remove unused
+  - [\#3564](https://github.com/PCSX2/pcsx2/pull/3564) Remove unused
         Uber\_ATST shader code.
-    -   List of removed crc hacks:
-        -   [b00c603](https://github.com/PCSX2/pcsx2/commit/b00c603e0bcbe3dc60b8a72ece2e3ddc3a0288c7)
+  - List of removed crc hacks:
+    - [b00c603](https://github.com/PCSX2/pcsx2/commit/b00c603e0bcbe3dc60b8a72ece2e3ddc3a0288c7)
             SMT: Digital Devil Saga 1 & 2, SMT: Nocturne.
-        -   [13ff9ab](https://github.com/PCSX2/pcsx2/commit/13ff9ab7dbc22cf41e0edf3f8cedbdf19047efc3)
+    - [13ff9ab](https://github.com/PCSX2/pcsx2/commit/13ff9ab7dbc22cf41e0edf3f8cedbdf19047efc3)
             Time Splitters 2.
-        -   [366e7b9](https://github.com/PCSX2/pcsx2/commit/366e7b9dbd447aee61fba1f9441e0d1256ee8aa2)
+    - [366e7b9](https://github.com/PCSX2/pcsx2/commit/366e7b9dbd447aee61fba1f9441e0d1256ee8aa2)
             Grandia3.
-        -   [baabbc3](https://github.com/PCSX2/pcsx2/commit/baabbc3c9fe57eadc8bc3f6539965dc169277999)
+    - [baabbc3](https://github.com/PCSX2/pcsx2/commit/baabbc3c9fe57eadc8bc3f6539965dc169277999)
             Genji.
 
 ------------------------------------------------------------------------
 
-# Lilypad Improvements
+## Lilypad Improvements
 
 <span style="color: #00ccff;"> \[Enhancement\] </span>
 **[\#3323](https://github.com/PCSX2/pcsx2/pull/3323) Remove PSX/PS1
@@ -156,7 +153,7 @@ without any issue when using PCSX2.
 
 ------------------------------------------------------------------------
 
-# SPU2-X Improvements
+## SPU2-X Improvements
 
 <span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3532](https://github.com/PCSX2/pcsx2/pull/3532) Correction of
@@ -165,7 +162,7 @@ timings reset and audio sample rate for ps1 mode. By
 
 ------------------------------------------------------------------------
 
-# Core Improvements
+## Core Improvements
 
 <span style="color: #00ccff;"> \[Enhancement\] </span> **64bit
 Recompiler support. By [tellowkrinkle](https://github.com/tellowkrinkle)
@@ -180,25 +177,25 @@ they can fetch appveyor artifacts or build the source code themselves
 and give it a go Performance should be -/+ 5% for anyone expecting huge performance
 gains. For the technical details see the following PRs below.
 
--   [\#3524](https://github.com/PCSX2/pcsx2/pull/3524) Moves all VTLB
+- [\#3524](https://github.com/PCSX2/pcsx2/pull/3524) Moves all VTLB
     pointer manipulation into dedicated classes for the purpose, which
     should allow the algorithm to be changed much more easily in the
     future.
 
 <!-- -->
 
--   [\#3523](https://github.com/PCSX2/pcsx2/pull/3523) Allocate memory
+- [\#3523](https://github.com/PCSX2/pcsx2/pull/3523) Allocate memory
     in an x86-64-compatible way.
 
 <!-- -->
 
--   [\#3512](https://github.com/PCSX2/pcsx2/pull/3512) Fix codegen on
+- [\#3512](https://github.com/PCSX2/pcsx2/pull/3512) Fix codegen on
     x86-64.Makes x86emitter emit the x86-64 machine code you would
     expect it to.
 
 <!-- -->
 
--   [\#3608](https://github.com/PCSX2/pcsx2/pull/3608) 64-bit
+- [\#3608](https://github.com/PCSX2/pcsx2/pull/3608) 64-bit
     recompilers.Makes recompilers compatible with x86-64.
 
 <span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
@@ -208,8 +205,8 @@ Interrupt Handling. By
 [PSI-Rockin](https://github.com/psi-rockin) , backport from
 Dobiestation.**
 
--   Don't interrupt if compare/overflow flag is already set.
--   Removed GameDB patches for Harry Potter Prisoner of Azkaban and
+- Don't interrupt if compare/overflow flag is already set.
+- Removed GameDB patches for Harry Potter Prisoner of Azkaban and
     Chamber of Secrets as they are no longer required.
 
 PSI-Rockin made an excellent post explaining the functionality/technical
@@ -224,14 +221,14 @@ instructions wait on VU T-Bit stop. By
 Fixes the following games from crashing, and removes gamedb patches for
 them since they now work properly:
 
--   The Sims
--   Spiderman 3
--   Sharks Tale
--   Maybe some bits of Over the Hedge
--   Pitfall (both demo and full game)
--   Gumball 3000
--   Enter the Matrix
--   Evolution Snowboarding
+- The Sims
+- Spiderman 3
+- Sharks Tale
+- Maybe some bits of Over the Hedge
+- Pitfall (both demo and full game)
+- Gumball 3000
+- Enter the Matrix
+- Evolution Snowboarding
 
 <span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3555](https://github.com/PCSX2/pcsx2/pull/3555) IPU: Perform an
@@ -274,37 +271,37 @@ rely on a new gamefix that we implemented calledVU0KickstartHack.
 
 Fixed games list:
 
--   (VIF) Hitman games - Resolve potential crashes with TLB misses or
+- (VIF) Hitman games - Resolve potential crashes with TLB misses or
     FIFO errors
--   24: The Game, Primal, Ghosthunter - No longer need patches to run at
+- 24: The Game, Primal, Ghosthunter - No longer need patches to run at
     full speed
--   Air Rescue Ranger - Ground no longer has SPS
--   Amplitude - FreQ avatars no longer have SPS
--   Gift, Woody Woodpecker, Kaan - Now runs at the proper speed
--   Lotus Challenge - Cars are no longer bouncy
--   My Street - Missing characters are now visible. (Note: they still
+- Air Rescue Ranger - Ground no longer has SPS
+- Amplitude - FreQ avatars no longer have SPS
+- Gift, Woody Woodpecker, Kaan - Now runs at the proper speed
+- Lotus Challenge - Cars are no longer bouncy
+- My Street - Missing characters are now visible. (Note: they still
     exhibit a small amount of SPS in microVU0, the VU0 Interpreter does
     not have this issue.)
--   Mike Tysons Heavyweight Box - Characters are no longer asserting
+- Mike Tysons Heavyweight Box - Characters are no longer asserting
     their dominance by t-posing. See-through characters are also fixed.
--   Next Generation Tennis 2003 - No longer needs a patch to fix SPS
--   Nichibeikan Pro Yakyuu: Final League / World Fantasista - Random
+- Next Generation Tennis 2003 - No longer needs a patch to fix SPS
+- Nichibeikan Pro Yakyuu: Final League / World Fantasista - Random
     glitches are gone
--   Phase Paradox - Lighting and camera in cutscenes are fixed
--   Rayman 2 Revolution - Resolved character collision issues with the
+- Phase Paradox - Lighting and camera in cutscenes are fixed
+- Rayman 2 Revolution - Resolved character collision issues with the
     ground
--   Sega Superstars Tennis - SPS on hands/feet is now gone
--   Tiger Woods PGA Tour 2002 - Fixed player stance
--   Wakeboarding Unleashed demo no longer crashes at the loading screen
+- Sega Superstars Tennis - SPS on hands/feet is now gone
+- Tiger Woods PGA Tour 2002 - Fixed player stance
+- Wakeboarding Unleashed demo no longer crashes at the loading screen
     (also requires XGKick hack)
--   Totally Spies Totally Party! - SPS reduced - (Note: requires EE
+- Totally Spies Totally Party! - SPS reduced - (Note: requires EE
     Cyclerate + 3 to completely fix.)
--   Twisted Metal Head-On - Black doors have now proper colors
--   Wakeboarding Unleashed - No longer hangs getting to the menu on
+- Twisted Metal Head-On - Black doors have now proper colors
+- Wakeboarding Unleashed - No longer hangs getting to the menu on
     release builds
--   World Series Baseball 2k3 - No longer hangs on the loading screen
+- World Series Baseball 2k3 - No longer hangs on the loading screen
     (game still hasother issues)
-	
+
 Here you can see the before (left) and after (right) images.
 
 |          |          |
@@ -322,8 +319,8 @@ state and range merging. By
 Fix state saving when m-bit is reached.  
 Fix range merging to encompass whole ranges of programs.
 
--   Fixes shadows in The Shadow of Zorro
--   Fixed slight SPS in Totally Spies Totally Party! Still needs
+- Fixes shadows in The Shadow of Zorro
+- Fixed slight SPS in Totally Spies Totally Party! Still needs
     Cyclerate +3 however
 
 <span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
@@ -332,14 +329,14 @@ CSR Swap and VBlank Interrupt timing. By
 [refractionpcsx2](https://github.com/refractionpcsx2) , backport from
 Dobiestation.**
 
--   Fixes the Titantron's on the WWE games (Except Shut Your Mouth).
--   Fixes the frame order for the following games, so they look less
+- Fixes the Titantron's on the WWE games (Except Shut Your Mouth).
+- Fixes the frame order for the following games, so they look less
     blurry and don't need the interlacing mode swapped:
-    -   Soul Calibur 2
-    -   World Rally Championship
-    -   Mike Tysons Heavyweight Boxing
-    -   Urban Reign
-    -   Mortal Kombat Shaolin Monks
+  - Soul Calibur 2
+  - World Rally Championship
+  - Mike Tysons Heavyweight Boxing
+  - Urban Reign
+  - Mortal Kombat Shaolin Monks
 
 Based on data gathered from PS2 console tests.
 
@@ -367,9 +364,9 @@ region games with the added feature.
 
 So far we have 3 games confirmed working:
 
--   Ape Escape 2 (SCCS 40001)
--   XIGO: Zuihou de Touzi XIGO (SCCS 40004)
--   Gran Turismo 4 (SCCS 60002)
+- Ape Escape 2 (SCCS 40001)
+- XIGO: Zuihou de Touzi XIGO (SCCS 40004)
+- Gran Turismo 4 (SCCS 60002)
 
 Other games on could be fixed as well, someone just needs to test/verify
 them. The full list can be seen on the pull request itself.
@@ -398,60 +395,60 @@ Plugins have been merged in to the core:**
 You heard it right folks, PCSX2 will require 2 less plugins now to
 fiddle with.
 
--   [\#3518](https://github.com/PCSX2/pcsx2/pull/3518) CDVD. By
+- [\#3518](https://github.com/PCSX2/pcsx2/pull/3518) CDVD. By
     [MonJamp](https://github.com/MonJamp) and
     [GovanifY](https://github.com/GovanifY) .
--   [\#3716](https://github.com/PCSX2/pcsx2/pull/3716) FW (FireWire). By
+- [\#3716](https://github.com/PCSX2/pcsx2/pull/3716) FW (FireWire). By
     [GovanifY](https://github.com/GovanifY) .
 
 ------------------------------------------------------------------------
 
-# GameDB Improvements
+## GameDB Improvements
 
--   [\#3418](https://github.com/PCSX2/pcsx2/pull/3418) Add Xenosaga save
+- [\#3418](https://github.com/PCSX2/pcsx2/pull/3418) Add Xenosaga save
     point crash patch. By
     [RedPanda4552](https://github.com/RedPanda4552) .
 
 <!-- -->
 
--   Other GameDB additions or deletions have been done throughout the Q3
+- Other GameDB additions or deletions have been done throughout the Q3
     cycle as well.
 
 ------------------------------------------------------------------------
 
-# Misc Improvements
+## Misc Improvements
 
--   [\#3424](https://github.com/PCSX2/pcsx2/pull/3424) More preliminary
+- [\#3424](https://github.com/PCSX2/pcsx2/pull/3424) More preliminary
     work on MACOS support. By
     [tellowkrinkle](https://github.com/tellowkrinkle) .
 
 <!-- -->
 
--   [\#3667](https://github.com/PCSX2/pcsx2/pull/3667) Change the
+- [\#3667](https://github.com/PCSX2/pcsx2/pull/3667) Change the
     console logger's theme on the fly. By [xTVaser(Tyler
     Wilding)](https://github.com/xTVaser) .
 
 <!-- -->
 
--   [\#3446](https://github.com/PCSX2/pcsx2/pull/3446) ,
+- [\#3446](https://github.com/PCSX2/pcsx2/pull/3446) ,
     [\#3540](https://github.com/PCSX2/pcsx2/pull/3540) Update old Dark
     Theme for the PCSX2 Console to Modern Dark theme. By
     [RedDevilus](https://github.com/RedDevilus) .
 
 <!-- -->
 
--   [\#3597](https://github.com/PCSX2/pcsx2/pull/3597) PCSX2 GUI Menu
+- [\#3597](https://github.com/PCSX2/pcsx2/pull/3597) PCSX2 GUI Menu
     changes. By [arcum42](https://github.com/arcum42) .
 
 <!-- -->
 
--   [\#3457](https://github.com/PCSX2/pcsx2/pull/3457) Revision of
-    tooltips/descriptions and other fixes for PCSX2 (Lilypad +
+- [\#3457](https://github.com/PCSX2/pcsx2/pull/3457) Revision of
+    tooltips/descriptions and other fixes for PCSX2 (LilyPad +
     others).By [RedDevilus](https://github.com/RedDevilus) .
 
 <!-- -->
 
--   [\#3687](https://github.com/PCSX2/pcsx2/pull/3687) ,
+- [\#3687](https://github.com/PCSX2/pcsx2/pull/3687) ,
     [\#3709](https://github.com/PCSX2/pcsx2/pull/3709) ,
     [\#3719](https://github.com/PCSX2/pcsx2/pull/3719) (CI) Move/migrate
     the project to use Github Actions instead of Appveyor and Travis. By
@@ -460,20 +457,20 @@ fiddle with.
 
 <!-- -->
 
--   Cleanup:
-    -   [\#3652](https://github.com/PCSX2/pcsx2/pull/3652) Remove unused
+- Cleanup:
+  - [\#3652](https://github.com/PCSX2/pcsx2/pull/3652) Remove unused
         cheats and browser source files.By
         [lightningterror](https://github.com/lightningterror) .
-    -   [\#3525](https://github.com/PCSX2/pcsx2/pull/3525) More gtk
-        removals and Onepad dialog tweaks. By
+  - [\#3525](https://github.com/PCSX2/pcsx2/pull/3525) More gtk
+        removals and OnePad dialog tweaks. By
         [arcum42](https://github.com/arcum42) .
-    -   [\#3611](https://github.com/PCSX2/pcsx2/pull/3611) ,
+  - [\#3611](https://github.com/PCSX2/pcsx2/pull/3611) ,
         [\#3614](https://github.com/PCSX2/pcsx2/pull/3614) ,
         [\#3623](https://github.com/PCSX2/pcsx2/pull/3623) Remove zzogl,
         gsdx legacy, zerogs and zerospu2 legacy plugins from master
         branch. By [lightningterror](https://github.com/lightningterror)
         .
-    -   [\#3688](https://github.com/PCSX2/pcsx2/pull/3688) (Tools) Moved
+  - [\#3688](https://github.com/PCSX2/pcsx2/pull/3688) (Tools) Moved
         GSDumpGUI in it's own repository
         [here](https://github.com/PCSX2/GSDumpGUI) .Initial release has
         been published as well so developers can download and use it
@@ -482,29 +479,34 @@ fiddle with.
 
 ------------------------------------------------------------------------
 
-# TAS (Tool Assisted Speedrun) Utility Improvements
+## TAS (Tool Assisted Speedrun) Utility Improvements
 
--   [\#3669](https://github.com/PCSX2/pcsx2/pull/3669) Resolve issues
+- [\#3669](https://github.com/PCSX2/pcsx2/pull/3669) Resolve issues
     around playing and creating input recordings under certain
     scenarios. By [xTVaser(Tyler Wilding)](https://github.com/xTVaser)
     and [sonicfind](https://github.com/sonicfind) .
--   [\#3293](https://github.com/PCSX2/pcsx2/pull/3293) Resolve TAS
+- [\#3293](https://github.com/PCSX2/pcsx2/pull/3293) Resolve TAS
     Recording Issues for Linux / OnePad users. By [xTVaser(Tyler
     Wilding)](https://github.com/xTVaser) .
--   [\#3690](https://github.com/PCSX2/pcsx2/pull/3690) Resolve TAS
+- [\#3690](https://github.com/PCSX2/pcsx2/pull/3690) Resolve TAS
     Recording issues which lead to recordings prematurely stopping.By
     [xTVaser(Tyler Wilding)](https://github.com/xTVaser) and
     [sonicfind](https://github.com/sonicfind) .
--   [\#3299](https://github.com/PCSX2/pcsx2/pull/3299) Resolve TAS
+- [\#3299](https://github.com/PCSX2/pcsx2/pull/3299) Resolve TAS
     Recording related hang when PAD plugin is open/closed while a game
     is paused.By [xTVaser(Tyler Wilding)](https://github.com/xTVaser) .
--   [\#3480](https://github.com/PCSX2/pcsx2/pull/3480) Corrections to
+- [\#3480](https://github.com/PCSX2/pcsx2/pull/3480) Corrections to
     TAS recording file's header data.By [xTVaser(Tyler
     Wilding)](https://github.com/xTVaser) .
 
 ------------------------------------------------------------------------
 
 And that's all from us, see you next time in our Q4 Report!
+
+## Metadata
+
+2020 Q3:  
+(dev110 to dev350) (2020-07-01 - 2020-09-30)
 
 </div>
 

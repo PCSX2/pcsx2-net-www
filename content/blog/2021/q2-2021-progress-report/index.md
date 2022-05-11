@@ -19,9 +19,9 @@ toc: true
 
 ### DEV9
 
-{{< progress/github-link prNums="4381" title="Do not applteswapping to TX/RX FIFO writes/reads" authors="TheLastRar" >}}
+{{< progress/github-link prNums="4381" title="DEV9: Do not apply byteswapping to TX/RX FIFO writes/reads" authors="TheLastRar" >}}
 
-- Remove thte swapping done to TX/RX FIFO writes/reads performed via registers.
+- Remove the byte swapping done to TX/RX FIFO writes/reads performed via registers.
 - Fixes Twisted Metal: Black Online Public Beta v. 1.0 unable to initialize network adapter.
 
 {{< progress/github-link prNums="4364" title="Add ATA Idle Immediate (E1) stub" authors="macmenot" >}}
@@ -34,7 +34,7 @@ toc: true
 
 {{< progress/github-link prNums="4496" title="PCAP, check size of read packet" authors="TheLastRar" >}}
 
-- In pcap, check size of read packet. If the size exceeds the buffer we are using, drop the packet.
+- In PCAP, check size of read packet. If the size exceeds the buffer we are using, drop the packet.
 
 {{< progress/github-link prNums="4448" title="Always use binary mode for HDD file" authors="TheLastRar" >}}
 
@@ -42,7 +42,7 @@ toc: true
 
 {{< progress/github-link prNums="4449" title="Fix potential out of bounds access when manual DNS1 & automatic DNS2 are used together" authors="TheLastRar" >}}
 
-- If DNS1 was manually specified, but DNS2 set to be automatically assigned, an offone error could result in an out of bounds access to an array of adapter DNS addresses.
+- If DNS1 was manually specified, but DNS2 set to be automatically assigned, an off by one error could result in an out of bounds access to an array of adapter DNS addresses.
 
 {{< progress/github-link prNums="4442" title="Increase min HDD size to 40GiB" authors="TheLastRar" >}}
 
@@ -50,7 +50,7 @@ toc: true
 
 {{< progress/github-link prNums="4304" title="Internal DHCP support" authors="TheLastRar" >}}
 
-- Adds an internal DHCP similer to what CLR\DEV9 offers for pcap & tap.
+- Adds an internal DHCP similar to what CLR\DEV9 offers for PCAP & TAP.
 
 {{< progress/github-link prNums="4433" title="Correctly populate DNS2 field with DNS2 IP" authors="TheLastRar" >}}
 
@@ -72,7 +72,7 @@ which rely on the order of files on the memory card. Previously, folder
 memcards would not care about the order and populate the partition in
 whatever order the host filesystem provided the files (so, in the case
 of NTFS partitions, alphabetically). In reality, FAT partitions don't
-specify the order of files, which means in practice they are sorte
+specify the order of files, which means in practice they are sorted to
 the order of creation.
 
 - Fixes saving in GTA games with folder memory cards.
@@ -114,11 +114,11 @@ functionality for this instead.
 
 {{< progress/github-link prNums="4331" title="Just enablepressure on CMD 0x4F" authors="KrossX" >}}
 
-Fixes Warriors of Might and Magic gamepad not functioning properly.
+Fixes Warriors of Might and Magic GamePad not functioning properly.
 
-{{< progress/github-link prNums="4466" title="Fix gamepadchoice not affecting rumble test on Linux" authors="Lahvuun" >}}
+{{< progress/github-link prNums="4466" title="Fix gamepad choice not affecting rumble test on Linux" authors="Lahvuun" >}}
 
-This change causes the currently selected gamepad to rumble instead of
+This change causes the currently selected GamePad to rumble instead of
 the first one.
 
 ### Eyetoy
@@ -149,7 +149,7 @@ hardware tests show that it emulates the V0 GPU.
 
 {{< progress/github-link prNums="4460" title="Make DMA's instant during the BIOS" authors="refractionpcsx2,tadanokojin,PSI-Rockin" >}}
 
-> This hackfixes the BIOS to avoid a Data Cache bug causeda DMA buffer
+> This hackfixes the BIOS to avoid a Data Cache bug caused a DMA buffer
 being overwritten during a transfer without waiting, which messes up the
 fonts in the BIOS. Fixing this correctly would require implementing the
 Data Cache, which is something which would make the emulator basically
@@ -249,4 +249,7 @@ validate the file in a very similar manner at build time.
 
 And that's all from us, see you next time in our 2021 Q3 Report!
 
-> dev 1165 and up (last add 1296)
+## Metadata
+
+Q2 2021:  
+(dev1164 to dev1299) (2020-04-01 - 2020-06-30)

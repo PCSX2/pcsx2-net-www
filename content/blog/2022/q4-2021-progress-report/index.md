@@ -13,7 +13,7 @@ toc: true
 ---
 ## Introduction
 
-*Looks at the date and notices something.*. Yes, my dear readers (or glancers) Q1 2022 should've been published 2 months ago and this is the predecessor to that. Sorry for the delay but there have been several reasons to this almost half year delay. Some of those reasons being the process of making the progress reports:
+*Looks at the date and notices something.* Yes, my dear readers (or glancers) Q1 2022 should've been published 2 months ago and this is the predecessor to that. Sorry for the delay but there have been several reasons to this almost half year delay. Some of those reasons being the process of making the progress reports:
 
 - Publish on private forum thread who has access
 - Needing it to be HTML without a working preview
@@ -387,7 +387,7 @@ Like you see this purple grass on Hitman which everybody should agree isn't real
 
 The handling of MTBA was previously not handled very well and was somewhat of a mystery, we have since discovered the correct behaviour for when it can be triggered through restrictions in texture sizes and formats, which this PR attempted to correct, enough to fix Parappa The Rapper 2 and Ape Escape 3.
 
-What his PR missed but we discovered later is that the formula for updating the MIP addresses was incorrect, but also the pending draws needed to be flushed if these new MIPMAP values were different.  It does remain that hardware mode has difficulty handling mip-maps.
+Actually this pull request is fine, but we discovered later is that the formula for updating the MIP addresses was incorrect, but also the pending draws needed to be flushed if these new MIPMAP values were different.  It does remain that hardware mode has difficulty handling mip-maps.
 
 {{< img-cmp-slider before="./img/Pic39-ParappaBefore.png" after="./img/Pic40-ParappaAfter.png">}}
 {{< img-cmp-slider before="./img/Pic41-ApeEscapeBefore.png" after="./img/Pic42-ApeEscapeAfter.png">}}
@@ -756,5 +756,5 @@ The new GUI is moving along very well, but is not at feature parity as the curre
 
 See you in our next progress report that is the first quarterly of 2022.
 
-Q4 2021:
+Q4 2021:  
 (dev1838 to dev2185) (2021-10-01 - 2021-12-31)
