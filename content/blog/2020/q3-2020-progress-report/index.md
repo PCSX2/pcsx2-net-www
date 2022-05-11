@@ -16,7 +16,7 @@ one on the other hand is Core changes, and A LOT of core changes. Enjoy!
 Written by
 [lightningterror](https://forums.pcsx2.net/User-lightningterror)
 
-# GSdx Improvements
+## GSdx Improvements
 
 <span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3507](https://github.com/PCSX2/pcsx2/pull/3507) (Direct3D10/11 HW)
@@ -140,7 +140,7 @@ multiple ones, and it makes it easier for the end users.
 
 ------------------------------------------------------------------------
 
-# Lilypad Improvements
+## Lilypad Improvements
 
 <span style="color: #00ccff;"> \[Enhancement\] </span>
 **[\#3323](https://github.com/PCSX2/pcsx2/pull/3323) Remove PSX/PS1
@@ -153,7 +153,7 @@ without any issue when using PCSX2.
 
 ------------------------------------------------------------------------
 
-# SPU2-X Improvements
+## SPU2-X Improvements
 
 <span style="color: #00ccff;"> \[Accuracy Enhancement\] </span>
 **[\#3532](https://github.com/PCSX2/pcsx2/pull/3532) Correction of
@@ -162,7 +162,7 @@ timings reset and audio sample rate for ps1 mode. By
 
 ------------------------------------------------------------------------
 
-# Core Improvements
+## Core Improvements
 
 <span style="color: #00ccff;"> \[Enhancement\] </span> **64bit
 Recompiler support. By [tellowkrinkle](https://github.com/tellowkrinkle)
@@ -403,7 +403,7 @@ fiddle with.
 
 ------------------------------------------------------------------------
 
-# GameDB Improvements
+## GameDB Improvements
 
 - [\#3418](https://github.com/PCSX2/pcsx2/pull/3418) Add Xenosaga save
     point crash patch. By
@@ -416,7 +416,7 @@ fiddle with.
 
 ------------------------------------------------------------------------
 
-# Misc Improvements
+## Misc Improvements
 
 - [\#3424](https://github.com/PCSX2/pcsx2/pull/3424) More preliminary
     work on MACOS support. By
@@ -479,7 +479,7 @@ fiddle with.
 
 ------------------------------------------------------------------------
 
-# TAS (Tool Assisted Speedrun) Utility Improvements
+## TAS (Tool Assisted Speedrun) Utility Improvements
 
 - [\#3669](https://github.com/PCSX2/pcsx2/pull/3669) Resolve issues
     around playing and creating input recordings under certain
