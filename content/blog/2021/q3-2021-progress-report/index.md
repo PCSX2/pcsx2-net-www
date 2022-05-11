@@ -403,3 +403,8 @@ As always there are many GameDB changes per quarter, since there are too many to
 [#4556](https://github.com/PCSX2/pcsx2/pull/4556) Noteworthy changes include patches for unplayable games which makes the games playable from [this](https://forums.pcsx2.net/Thread-Fixing-unplayable-games) thread. [RedDevilus](https://github.com/RedDevilus) took the patches and opened a pull request adding the patches to the GameDB.
 
 Thank you all, see you in our next coverage, cheers.
+
+## Metadata
+
+Q3 2021:  
+(dev1300 to dev1837) (2021-07-01 - 2021-09-30)

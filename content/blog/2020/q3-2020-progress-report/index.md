@@ -506,6 +506,11 @@ fiddle with.
 
 And that's all from us, see you next time in our Q4 Report!
 
+## Metadata
+
+2020 Q3:  
+(dev110 to dev350) (2020-07-01 - 2020-09-30)
+
 </div>
 
 </div>

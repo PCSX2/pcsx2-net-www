@@ -249,4 +249,7 @@ validate the file in a very similar manner at build time.
 
 And that's all from us, see you next time in our 2021 Q3 Report!
 
-> dev 1165 and up (last add 1296)
+## Metadata
+
+Q2 2021:  
+(dev1164 to dev1299) (2020-04-01 - 2020-06-30)
