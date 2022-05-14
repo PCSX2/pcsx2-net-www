@@ -76,8 +76,8 @@ languages:
           title: Downloads
           weight: 1
           url: /downloads
-        - name: Getting Started
-          title: Getting Started
+        - name: Usage Guide
+          title: Usage Guide
           weight: 1
           url: /guides/basic-setup
         - name: Compatibility
