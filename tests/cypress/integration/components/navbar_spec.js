@@ -15,8 +15,17 @@ describe('navbar - desktop', () => {
       });
   });
 
-  it('compatibility page', () => {
+  it('getting started page', () => {
     cy.get('.nav-middle > :nth-child(2) > .nav-link')
+      .should('have.attr', 'href')
+      .and('equal', '/guides/basic-setup')
+      .then((href) => {
+        cy.visit(href)
+      });
+  });
+
+  it('compatibility page', () => {
+    cy.get('.nav-middle > :nth-child(3) > .nav-link')
       .should('have.attr', 'href')
       .and('equal', '/compat')
       .then((href) => {
@@ -25,7 +34,7 @@ describe('navbar - desktop', () => {
   });
 
   it('blog page', () => {
-    cy.get('.nav-middle > :nth-child(3) > .nav-link')
+    cy.get('.nav-middle > :nth-child(4) > .nav-link')
       .should('have.attr', 'href')
       .and('equal', '/blog')
       .then((href) => {
@@ -121,8 +130,17 @@ describe('navbar - mobile', () => {
         });
     });
 
-    it('compatibility page', () => {
+    it('getting started page', () => {
       cy.get('.nav-middle > :nth-child(2) > .nav-link')
+        .should('have.attr', 'href')
+        .and('equal', '/guides/basic-setup')
+        .then((href) => {
+          cy.visit(href)
+        });
+    });
+
+    it('compatibility page', () => {
+      cy.get('.nav-middle > :nth-child(3) > .nav-link')
         .should('have.attr', 'href')
         .and('equal', '/compat')
         .then((href) => {
@@ -131,7 +149,7 @@ describe('navbar - mobile', () => {
     });
 
     it('blog page', () => {
-      cy.get('.nav-middle > :nth-child(3) > .nav-link')
+      cy.get('.nav-middle > :nth-child(4) > .nav-link')
         .should('have.attr', 'href')
         .and('equal', '/blog')
         .then((href) => {

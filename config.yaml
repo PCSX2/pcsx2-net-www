@@ -76,6 +76,10 @@ languages:
           title: Downloads
           weight: 1
           url: /downloads
+        - name: Usage Guide
+          title: Usage Guide
+          weight: 1
+          url: /guides/basic-setup
         - name: Compatibility
           title: Compatibility List
           weight: 2
