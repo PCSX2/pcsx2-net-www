@@ -46,7 +46,7 @@ describe('navbar - desktop', () => {
     cy.get(':nth-child(4) > :nth-child(1) > .nav-link')
       .should('contain.text', "Donate")
       .should('have.attr', 'href')
-      .should('match', "https://github.com/sponsors/PCSX2");
+      .should('equal', "https://github.com/sponsors/PCSX2");
   });
 
   it('discord link', () => {
@@ -168,44 +168,44 @@ describe('navbar - mobile', () => {
       cy.get(':nth-child(4) > :nth-child(1) > .nav-link')
         .should('contain.text', "Donate")
         .should('have.attr', 'href')
-        .should('match', "https://github.com/sponsors/PCSX2");
+        .should('equal', "https://github.com/sponsors/PCSX2");
     });
-  
+
     it('discord link', () => {
       cy.get(':nth-child(4) > :nth-child(2) > .nav-link')
         .should('contain.text', "Discord")
         .should('have.attr', 'href')
         .should('match', /^https:\/\/discord.com\/invite\/.*/);
     });
-  
+
     it('github link', () => {
       cy.get(':nth-child(4) > :nth-child(3) > .nav-link')
         .should('contain.text', "Github")
         .should('have.attr', 'href')
         .should('equal', "https://github.com/PCSX2");
     });
-  
+
     it('forum link', () => {
       cy.get(':nth-child(4) > :nth-child(4) > .nav-link')
         .should('contain.text', "Forums")
         .should('have.attr', 'href')
         .should('equal', "https://forums.pcsx2.net/");
     });
-  
+
     it('wiki link', () => {
       cy.get(':nth-child(4) > :nth-child(5) > .nav-link')
         .should('contain.text', "Wiki")
         .should('have.attr', 'href')
         .should('equal', "https://wiki.pcsx2.net");
     });
-  
+
     it('twitter link', () => {
       cy.get(':nth-child(4) > :nth-child(6) > .nav-link')
         .should('contain.text', "Twitter")
         .should('have.attr', 'href')
         .should('equal', 'https://twitter.com/PCSX2');
     });
-  
+
     it('youtube link', () => {
       cy.get(':nth-child(4) > :nth-child(7) > .nav-link')
         .should('contain.text', "YouTube")
