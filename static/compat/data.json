@@ -8288,8 +8288,8 @@
     "crc": "790A4ACB",
     "region": "eu",
     "status": "Ingame",
-    "last_tested_version": "1.3.1",
-    "last_tested_date": "2020-01-11T00:00:00",
+    "last_tested_version": "1.7.0",
+    "last_tested_date": "2022-05-23T00:00:00",
     "wiki_link": "https://wiki.pcsx2.net/index.php/Stuntman",
     "forum_link": "https://forums.pcsx2.net/showthread.php?tid=29059&amp;action=lastpost"
   },
@@ -25194,9 +25194,9 @@
     "serial": "SLES-53158",
     "crc": "E38A0AB6",
     "region": "eu",
-    "status": "Playable",
-    "last_tested_version": "1.3.0",
-    "last_tested_date": "2015-02-25T00:00:00",
+    "status": "Perfect",
+    "last_tested_version": "1.7.0",
+    "last_tested_date": "2022-05-29T00:00:00",
     "wiki_link": "https://wiki.pcsx2.net/index.php/Cold_Fear",
     "forum_link": "https://forums.pcsx2.net/showthread.php?tid=30601&amp;action=lastpost"
   },
@@ -28942,12 +28942,12 @@
   },
   {
     "title": "K-1 World Grand Prix 2003",
-    "serial": "SLPS-65433",
+    "serial": "SLPM-65433",
     "crc": "032B4616",
     "region": "ja",
     "status": "Playable",
     "last_tested_version": "0.9.8",
-    "last_tested_date": "2018-12-21T00:00:00",
+    "last_tested_date": "2022-05-28T00:00:00",
     "wiki_link": "https://wiki.pcsx2.net/K-1_World_Grand_Prix_2003",
     "forum_link": null
   },
