@@ -14,7 +14,7 @@
     "fuse.js": "6.5.3",
     "jquery": "3.6.0",
     "lodash": "4.17.21",
-    "marked": "4.0.12",
+    "marked": "4.0.16",
     "mdb-ui-kit": "3.10.2",
     "vanilla-lazyload": "17.8.1"
   }
