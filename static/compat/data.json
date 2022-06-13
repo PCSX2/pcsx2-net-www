@@ -6230,9 +6230,9 @@
     "serial": "SLUS-20484",
     "crc": "08995DEE",
     "region": "us",
-    "status": "Playable",
+    "status": "Perfect",
     "last_tested_version": "1.7.0",
-    "last_tested_date": "2021-11-09T00:00:00",
+    "last_tested_date": "2022-06-11T00:00:00",
     "wiki_link": "https://wiki.pcsx2.net/index.php/Devil_May_Cry_2",
     "forum_link": "https://forums.pcsx2.net/showthread.php?tid=28871&amp;action=lastpost"
   },
