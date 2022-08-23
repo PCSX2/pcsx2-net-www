@@ -257,13 +257,15 @@ PlayStation 2 game discs are unencrypted DVDs and CDs. This means they can be du
 
 ![ImgBurn](./img/imgburn.webp)
 
-## Dumping PlayStation 2 discs with Media Preservation Frontend (more advanced)
+## Alternative: Dumping PlayStation 2 discs with Media Preservation Frontend (more advanced)
 
 This is a GUI for several applications aimed at preserving optical media. It can be a bit more involved for non-PlayStation disc dumping, but for PS1 and PS2 its fairly simple.
 
 ### Where to get MPF
 
 On GitHub: <https://github.com/SabreTools/MPF>
+
+This tool is currently only available on Windows, but Linux support may be added in the future. It should be noted the command-line tools that are used for the backend of this tool are all free, open-source and available on all major operating systems.
 
 ### How to use it
 
@@ -272,9 +274,9 @@ On GitHub: <https://github.com/SabreTools/MPF>
 - Select PS2 for system/media type
 - Select whether it is a CD-ROM PS2 game or DVD-ROM PS2 game
 - Select output file name and directory
-- Select the apporopiate drive letter for the drive with the optical media in it
+- Select the appropriate drive letter for the drive with the optical media in it
 - Select "Start dumping"
 
-One quick note, the lower the drive speed of the optical drive the more likely you are to get a good dump of the disc. The fastest drive speed will take much less time, but may be incomplete, corrupted, or inaccruate. It could also be perfectly fine, so depending on your drive and your media, try different things and see what works best for you.
+One quick note, the lower the drive speed of the optical drive the more likely you are to get a good dump of the disc. The fastest drive speed will take much less time, but may be incomplete, corrupted, or inaccurate. It could also be perfectly fine, so depending on your drive and your media, try different things and see what works best for you.
 
 ![MPF](./img/MPF.webp)
