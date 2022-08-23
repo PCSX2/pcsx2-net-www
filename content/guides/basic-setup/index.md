@@ -211,7 +211,7 @@ There is a generally useful program, uLaunchELF, that lets you browse memory car
 
 Our recommended BIOS dumper utility is [biosdrain](https://github.com/F0bes/biosdrain). Therefore the instructions below will be for this tool.
 
-- The download for the latest stable biosdrain is  [here](https://github.com/f0bes/biosdrain/releases/latest/download/biosdrain.elf).
+- The recommanded version of biosdrain is [here](https://github.com/F0bes/biosdrain/releases/download/v1.0.0/biosdrain.elf).
 
 ### Option 1: Starting a PS2 with FreeMcBoot
 
