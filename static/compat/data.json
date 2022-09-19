@@ -7645,17 +7645,6 @@
     "forum_link": null
   },
   {
-    "title": "Fatal Frame 2: Crimson Butterfly",
-    "serial": "SLUS-20766",
-    "crc": "9A51B627",
-    "region": "us",
-    "status": "Playable",
-    "last_tested_version": "1.0.0",
-    "last_tested_date": "2015-01-03T00:00:00",
-    "wiki_link": "https://wiki.pcsx2.net/index.php/Fatal_Frame_II:_Crimson_Butterfly",
-    "forum_link": "https://forums.pcsx2.net/showthread.php?tid=29001&amp;action=lastpost"
-  },
-  {
     "title": "Fallout - Brotherhood of Steel",
     "serial": "SLUS-20539",
     "crc": "6E9D2844",
