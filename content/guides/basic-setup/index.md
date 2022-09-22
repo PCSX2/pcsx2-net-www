@@ -209,12 +209,9 @@ There is a generally useful program, uLaunchELF, that lets you browse memory car
 
 ### Downloading the BIOS dumper utility
 
-Hosted by the PCSX2 Project:
+Our recommended BIOS dumper utility is [biosdrain](https://github.com/F0bes/biosdrain). Therefore the instructions below will be for this tool.
 
-- [Binary Version](https://github.com/PCSX2/tools/releases/download/bios-dumper%2Fv2/PS2dumperV2_bin.7z) (Recommended)
-  - After downloading, extract the files to a USB flash drive.
-    - Your mileage may vary here. All PS2 models can read and write to USB flash drives formatted with a FAT32 file system. Some people report USB 3.0 drives being usable while others claim they are not.  For this reason it appears to be more dependent on the drive rather than the USB version so we cannot provide an exhaustive list for success. If you really want to increase the odds of recognizing it does seems that it doesn't have a limit on the size of the USB flash drive but you have the most luck with SanDisk or PNY models though other brand models can also actually work.
-- [ISO Version](https://github.com/PCSX2/tools/releases/download/bios-dumper%2Fv2/PS2dumperV2_iso.7z) (You will have to burn a DVD with the image)
+- The download for the latest stable biosdrain is  [here](https://github.com/f0bes/biosdrain/releases/latest/download/biosdrain.elf).
 
 ### Option 1: Starting a PS2 with FreeMcBoot
 
@@ -231,12 +228,23 @@ Hosted by the PCSX2 Project:
 
 ### Dumping the BIOS
 
-- Insert your USB flash drive with the BIOS dumper (binary version) on it into your PS2.
-- In uLaunchELF, navigate to the device named `mass:` and open it.
-- Locate and run `DUMPBIOS-MASS.ELF`.
-  - This will print some useful information about the BIOS, then print `Dumping BIOS Completed OK`... ending with `Dumping NVM Completed OK`
+There are two options available when dumping the BIOS.
+biosdrain supports USB and HOST through PS2link. If your console does not have networking support, please refer to the USB method, otherwise you can use the ps2client method.
 
-You can remove your USB flash drive from your PS2 after the last `Dumping` message and inspect its contents on your PC; if it has files ending in `.BIN`, `.NVM`, `ROM1`, and more all named after your PS2's serial number, then your PS2's BIOS was dumped successfully!
+- USB
+  - Take the biosdrain.elf file that was downloaded above, and transfer it to a FAT32 formatted USB flash drive.
+    - Please note that some incompatibilities between certain USB drives and PS2 USB drivers have been reported throughout the years. If your USB drive is not detected by uLaunchELF (`mass:` is empty) please try another one, preferably USB 2.0.
+
+  - Insert your USB flash drive into your PS2.
+  - In uLaunchELF, navigate to the device named `mass:` and open it.
+  - Locate and run `biosdrain.elf`.
+  - You will know that it is finished when biosdrain says `Finished Everything`. Please be patient, as USB on the PS2 is SLOW!
+  - Once the final message appears, you can now plug the USB drive back into your computer. You will know that the dump was successful if you see files ending in `.rom0`,`.rom1`,`.nvm`, etc, prefixed by your console model ID in your USB drive.
+- PS2client / XLINK & PS2link
+  - When using XLINK, simply execute the `biosdrain.elf` with the user interface.
+  - When using PS2client, cd into the directory where you have `biosdrain.elf`, and simply run `ps2client execee host:biosdrain.elf`
+  - biosdrain will automatically detect that the `host` device is present and will dump your BIOS contents to the root directory of `host` **(Usually where you have the biosdrain.elf file)**.
+  - You will know that it is finished when biosdrain says `Finished Everything`, either on screen or in your console log.
 
 ## Dumping PS2 Discs via ImgBurn
 
@@ -255,7 +263,7 @@ PlayStation 2 game discs are unencrypted DVDs and CDs. This means they can be du
 - Put your game disc into an optical drive
 - Create an image file from a disc inside ImgBurn (highlighted in screenshot below)
 
-![ImgBurn](./img/imgburn.webp)
+{{< img cols="6" src="./img/imgburn.webp">}}
 
 ## Alternative: Dumping PlayStation 2 discs with Media Preservation Frontend (more advanced)
 
@@ -279,4 +287,4 @@ This tool is currently only available on Windows, but Linux support may be added
 
 One quick note, the lower the drive speed of the optical drive the more likely you are to get a good dump of the disc. The fastest drive speed will take much less time, but may be incomplete, corrupted, or inaccurate. It could also be perfectly fine, so depending on your drive and your media, try different things and see what works best for you.
 
-![MPF](./img/MPF.webp)
+{{< img cols="6" src="./img/MPF.webp">}}
