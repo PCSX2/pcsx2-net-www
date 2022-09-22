@@ -1,7 +1,7 @@
 ---
 title: "PCSX2 Basic Setup Guide"
 date: 2022-03-26
-summary: "Everything you need to know to setup the emulator, dump your own legitimate BIOS and games and get help if something isn't working"
+summary: "Everything you need to know to setup the emulator, dump your own legitimate BIOS and games, and get help if something isn't working."
 draft: false
 mainAuthor: Vaser
 toc: true
@@ -27,13 +27,13 @@ If this article does not help solve your problem, reach out in the Discord or th
 
 #### Minimum
 
-- Operating System
-  - Windows 8.1 or newer (64 bit)
-  - Ubuntu 18.04/Debian or newer, Arch Linux, or other distro (64 bit)
+- Operating system
+  - Windows 8.1 or newer (64-bit)
+  - Ubuntu 18.04/Debian or newer, Arch Linux, or other distro (64-bit)
 - CPU
   - Supports SSE4.1
-  - [PassMark Single Thread Performance](https://www.cpubenchmark.net/singleThread.html) rating near or greater than 1600
-    - Note: Recommended Single Thread Performance is based on moderately complex games. Games that pushed the PS2 hardware to its limits will struggle on CPUs at this level. Some release titles and 2D games which underutilized the PS2 hardware may run on CPUs rated as low as 1200.
+  - [PassMark single thread performance](https://www.cpubenchmark.net/singleThread.html) rating near or greater than 1600
+    - Note: Recommended single thread performance is based on moderately complex games. Games that pushed the PS2 hardware to its limits will struggle on CPUs at this level. Some release titles and 2D games which underutilized the PS2 hardware may run on CPUs rated as low as 1200.
       - A quick reference for CPU **intensive games**: [Wiki](https://wiki.pcsx2.net/Category:CPU_intensive_games), [Forum](https://forums.pcsx2.net/Thread-LIST-The-Most-CPU-Intensive-Games)
       - And CPU **light** games: [Forum](https://forums.pcsx2.net/Thread-LIST-Games-that-don-t-need-a-strong-CPU-to-emulate)
   - Two physical cores, with hyperthreading
@@ -41,52 +41,52 @@ If this article does not help solve your problem, reach out in the Discord or th
   - Direct3D10 support
   - OpenGL 3.x support
   - [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating around 3000 (GeForce GTX 750)
-    - Note: Recommended GPU is based on 3x Internal, ~1080p resolution requirements. Higher resolutions will require stronger cards; 6x Internal, ~4K resolution will require a [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating around 12000 (GeForce GTX 1070 Ti).
+    - Note: Recommended GPU is based on 3x internal, ~1080p resolution requirements. Higher resolutions will require stronger cards; 6x internal, ~4K resolution will require a [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating around 12000 (GeForce GTX 1070 Ti).
       - Just like CPU requirements, this is also highly game dependent. A quick reference for GPU **intensive games**: [Wiki](https://wiki.pcsx2.net/Category:GPU_intensive_games)
-  - 2 GB Video Memory
+  - 2 GB video memory
 - RAM
   - 4 GB
 
 #### Recommended
 
-- Operating System
-  - Windows 10 (64 bit)
-  - Ubuntu 19.04/Debian or newer, Arch Linux, or other distro (64 bit)
+- Operating system
+  - Windows 10 (64-bit)
+  - Ubuntu 19.04/Debian or newer, Arch Linux, or other distro (64-bit)
 - CPU
   - Supports AVX2
-  - [PassMark Single Thread Performance](https://www.cpubenchmark.net/singleThread.html) rating near or greater than 2100
+  - [PassMark single thread performance](https://www.cpubenchmark.net/singleThread.html) rating near or greater than 2100
   - Four physical cores, with or without hyperthreading
 - GPU
   - Direct3D11 support
   - OpenGL 4.6 support
   - [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating around 6000 (GeForce GTX 1050 Ti)
-  - 4 GB Video Memory
+  - 4 GB video memory
 - RAM
   - 8 GB
 
-### Required Software
+### Required software
 
 - You need the [Visual C++ 2019 x86 Redistributables](https://support.microsoft.com/en-us/help/2977003/) to run PCSX2.
 
-### Version Deprecation Notes
+### Version deprecation notes
 
 - Windows XP and Direct3D9 support was dropped after stable release 1.4.0.
 - Windows 7 and Windows 8.0 support was dropped after stable release 1.6.0.
-- 32 bit support was dropped after stable release 1.6.0.
+- 32-bit support was dropped after stable release 1.6.0.
 
-## Downloading and Configuring PCSX2
+## Downloading and configuring PCSX2
 
 1. Download the version suited for you from our [Downloads](/downloads) Section (for beginners, the full installer of the latest stable release is recommended)
-2. Get the BIOS file from your Playstation 2 console. This is not included with PCSX2 since it is a Sony copyright so you have to get it from your console. [See below for how to do this](#how-to-dump-your-ps2-bios).
+2. Get the BIOS file from your PlayStation 2 console. This is not included with PCSX2 since it breaks copyright law, so you have to obtain it from your console. [See below for how to do this](#how-to-dump-your-ps2-bios).
 3. Configure the emulator using the provided instructions in the stable release download.  Alternatively these can be found [here in the GitHub repository](https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/Configuration_Guide/Configuration_Guide.md)
    1. Translated versions of this guide are available, but your milage may vary as many are not for the latest stable version.  [See below for links to these](#translated-configuration-guides)
 4. Launch your game using the ISO file that you have dumped yourself.  [See below for how to do this](#dumping-ps2-discs-via-imgburn)
 
-### Translated Configuration Guides
+### Translated configuration guides
 
 Below are links to translated versions of the guide to configure PCSX2 at various stable release versions.
 
-If you wish to apply for a new translation or to update an existing one, visit the [Guide translation Applications](https://forums.pcsx2.net/Thread-Program-and-Guide-translation-applications)
+If you wish to apply for a new translation or to update an existing one, visit the [guide translation applications](https://forums.pcsx2.net/Thread-Program-and-Guide-translation-applications)
 
 - Arabic - 0.9.6
   - By [Squall](https://forums.pcsx2.net/User-Squall)
@@ -180,13 +180,13 @@ This is the most common problem users experience. PCSX2 is a very hardware inten
 
 It is highly recommended you read the first post of this thread: [Will PCSX2 run fast on my computer?](https://forums.pcsx2.net/Thread-Sticky-Will-PCSX2-run-fast-on-my-computer) and if you still have questions reply to the thread or in the Discord, there are many helpful members who will answer.
 
-#### Reach out for Help
+#### Reach out for help
 
 If none of the above suggestions help you solve your problem, consider reaching out in either the Discord or the forum.
 
 ## How to dump your PS2 BIOS
 
-In order for PCSX2 to function properly, both a legitimate BIOS and copies of games must be obtained from **your own** Playstation 2 console and original Playstation 2 discs respectively.  The following explains the recommended ways to accomplish both of these tasks.
+In order for PCSX2 to function properly, both a legitimate BIOS and copies of games must be obtained from **your own** PlayStation 2 console and original PlayStation 2 discs respectively.  The following explains the recommended ways to accomplish both of these tasks.
 
 Dumping your PS2 BIOS is conceptually a two-step process:
 
@@ -209,9 +209,12 @@ There is a generally useful program, uLaunchELF, that lets you browse memory car
 
 ### Downloading the BIOS dumper utility
 
-Our recommended BIOS dumper utility is [biosdrain](https://github.com/F0bes/biosdrain). Therefore the instructions below will be for this tool.
+Hosted by the PCSX2 Project:
 
-- The download for the latest stable biosdrain is  [here](https://github.com/f0bes/biosdrain/releases/latest/download/biosdrain.elf).
+- [Binary Version](https://github.com/PCSX2/tools/releases/download/bios-dumper%2Fv2/PS2dumperV2_bin.7z) (Recommended)
+  - After downloading, extract the files to a USB flash drive.
+    - Your mileage may vary here. All PS2 models can read and write to USB flash drives formatted with a FAT32 file system. Some people report USB 3.0 drives being usable while others claim they are not.  For this reason it appears to be more dependent on the drive rather than the USB version so we cannot provide an exhaustive list for success. If you really want to increase the odds of recognizing it does seems that it doesn't have a limit on the size of the USB flash drive but you have the most luck with SanDisk or PNY models though other brand models can also actually work.
+- [ISO Version](https://github.com/PCSX2/tools/releases/download/bios-dumper%2Fv2/PS2dumperV2_iso.7z) (You will have to burn a DVD with the image)
 
 ### Option 1: Starting a PS2 with FreeMcBoot
 
@@ -228,27 +231,16 @@ Our recommended BIOS dumper utility is [biosdrain](https://github.com/F0bes/bios
 
 ### Dumping the BIOS
 
-There are two options available when dumping the BIOS.
-biosdrain supports USB and HOST through PS2link. If your console does not have networking support, please refer to the USB method, otherwise you can use the ps2client method.
+- Insert your USB flash drive with the BIOS dumper (binary version) on it into your PS2.
+- In uLaunchELF, navigate to the device named `mass:` and open it.
+- Locate and run `DUMPBIOS-MASS.ELF`.
+  - This will print some useful information about the BIOS, then print `Dumping BIOS Completed OK`... ending with `Dumping NVM Completed OK`
 
-- USB
-  - Take the biosdrain.elf file that was downloaded above, and transfer it to a FAT32 formatted USB flash drive.
-    - Please note that some incompatibilities between certain USB drives and PS2 USB drivers have been reported throughout the years. If your USB drive is not detected by uLaunchELF (`mass:` is empty) please try another one, preferably USB 2.0.
-
-  - Insert your USB flash drive into your PS2.
-  - In uLaunchELF, navigate to the device named `mass:` and open it.
-  - Locate and run `biosdrain.elf`.
-  - You will know that it is finished when biosdrain says `Finished Everything`. Please be patient, as USB on the PS2 is SLOW!
-  - Once the final message appears, you can now plug the USB drive back into your computer. You will know that the dump was successful if you see files ending in `.rom0`,`.rom1`,`.nvm`, etc, prefixed by your console model ID in your USB drive.
-- PS2client / XLINK & PS2link
-  - When using XLINK, simply execute the `biosdrain.elf` with the user interface.
-  - When using PS2client, cd into the directory where you have `biosdrain.elf`, and simply run `ps2client execee host:biosdrain.elf`
-  - biosdrain will automatically detect that the `host` device is present and will dump your BIOS contents to the root directory of `host` **(Usually where you have the biosdrain.elf file)**.
-  - You will know that it is finished when biosdrain says `Finished Everything`, either on screen or in your console log.
+You can remove your USB flash drive from your PS2 after the last `Dumping` message and inspect its contents on your PC; if it has files ending in `.BIN`, `.NVM`, `ROM1`, and more all named after your PS2's serial number, then your PS2's BIOS was dumped successfully!
 
 ## Dumping PS2 Discs via ImgBurn
 
-PS2 game discs are unencrypted DVDs and CDs. So, they can be dumped quickly using a standard DVD drive and the ImgBurn software. Dumping does not harm PS2 game discs.
+PlayStation 2 game discs are unencrypted DVDs and CDs. This means they can be dumped quickly using a standard optical drive that supports DVD and CD optical media and the ImgBurn software. Dumping discs does not harm optical media directly.
 
 ### Where to get ImgBurn
 
@@ -259,8 +251,32 @@ PS2 game discs are unencrypted DVDs and CDs. So, they can be dumped quickly usin
 
 ### How it works
 
-- Install ImgBurn
-- Put your PS2 game disc into a DVD drive
+- Install and run ImgBurn
+- Put your game disc into an optical drive
 - Create an image file from a disc inside ImgBurn (highlighted in screenshot below)
 
-{{< img src="./img/imgburn.webp" cols=6 >}}
+![ImgBurn](./img/imgburn.webp)
+
+## Alternative: Dumping PlayStation 2 discs with Media Preservation Frontend (more advanced)
+
+This is a GUI for several applications aimed at preserving optical media. It can be a bit more involved for non-PlayStation disc dumping, but for PS1 and PS2 its fairly simple.
+
+### Where to get MPF
+
+On GitHub: <https://github.com/SabreTools/MPF>
+
+This tool is currently only available on Windows, but Linux support may be added in the future. It should be noted the command-line tools that are used for the backend of this tool are all free, open-source and available on all major operating systems.
+
+### How to use it
+
+- Extract and run MPF
+- Put your game disc into an optical drive
+- Select PS2 for system/media type
+- Select whether it is a CD-ROM PS2 game or DVD-ROM PS2 game
+- Select output file name and directory
+- Select the appropriate drive letter for the drive with the optical media in it
+- Select "Start dumping"
+
+One quick note, the lower the drive speed of the optical drive the more likely you are to get a good dump of the disc. The fastest drive speed will take much less time, but may be incomplete, corrupted, or inaccurate. It could also be perfectly fine, so depending on your drive and your media, try different things and see what works best for you.
+
+![MPF](./img/MPF.webp)
