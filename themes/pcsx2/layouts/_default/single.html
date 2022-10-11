@@ -22,6 +22,16 @@
           {{ partial "link-hash.html" .Content }}
         </div>
       </div>
+      {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+      {{ if and (ne .Lastmod .PublishDate) (gt .Lastmod .PublishDate) }}
+      <div class="row">
+        <div class="col-md-auto">
+          <strong class="tertiary-color">Last Update:&nbsp;</strong>
+          <time datetime="{{ .Lastmod }}">{{ .Lastmod.Format $dateFormat }}</time>
+          <div style="font-size: small; color: grey;">{{ .GitInfo.Subject}}</div>
+        </div>
+      </div>
+      {{ end }}
       {{ partial "ads/horizontal-row.html" }}
     </div>
   </div>
