@@ -1,9 +1,18 @@
-::: {.single-article}
-::: {.item-page .clearfix}
-## [PCSX2 1.6.0 is out!](/293-pcsx2-1-6-0-is-out.html) {#pcsx2-1.6.0-is-out .contentheading}
+---
+title: "PCSX2 1.6.0 Is Out!"
+date: 2020-05-07T00:00:00
+summary: "TODO"
+draft: false
+tags:
+  - "progress-report"
+mainAuthor: bositman
+aliases:
+  - "/293-pcsx2-1-6-0-is-out"
+  - "/293-pcsx2-1-6-0-is-out.html"
+  - "/293-pcsx2-1-6-0-is-out.htm"
+---
 
-::: {style="text-align:center;"}
-:::
+<!-- TODO - fix cross links links -->
 
 Huge thanks to everyone that helped get this release ready, over 4 years
 in the making.
@@ -407,5 +416,3 @@ Onepad: GUI redesign.
 PCSX2: GUI Improvements.
 
 PCSX2: PCSX2-Auto test suite.
-:::
-:::

@@ -1,9 +1,17 @@
-::: {.single-article}
-::: {.item-page .clearfix}
-## [The PCSX2 team's statement regarding the "DamonPS2" emulator](/286-the-pcsx2-team-s-statement-regarding-the-damonps2-emulator.html) {#the-pcsx2-teams-statement-regarding-the-damonps2-emulator .contentheading}
+---
+title: "The PCSX2 Team's Statement Regarding The \"DamonPS2\" Emulator"
+date: 2018-01-11T00:00:00
+summary: "Hello all! We hope you had a Happy New Year. The PCSX2 team hopes to continue making further progress throughout 2018 and into 2019! However, today we are writing to both you and the emulation/open-source community on a more serious matter."
+draft: true # TODO - draft until missing images are found
+tags:
+  - devblog
+mainAuthor: bositman
+aliases:
+  - "/286-the-pcsx2-team-s-statement-regarding-the-damonps2-emulator"
+  - "/286-the-pcsx2-team-s-statement-regarding-the-damonps2-emulator.html"
+  - "/286-the-pcsx2-team-s-statement-regarding-the-damonps2-emulator.htm"
+---
 
-::: {style="text-align:center;"}
-:::
 
 Hello all! We hope you had a Happy New Year. The PCSX2 team hopes to
 continue making further progress throughout 2018 and into 2019! However,
@@ -18,6 +26,8 @@ to begin work on a new PS2 emulator for a mobile platform; a daunting
 task in itself that we applaud them for. After further investigation
 however, we learned that there were rather striking resemblances to
 PCSX2 contained in the new emulator.
+
+<!-- TODO LEGACY - images missing: `gameindex.dbf and patches.jpg` -->
 
 The first piece of evidence that we learned was that the [GameIndex.dbf
 file distributed with the
@@ -70,5 +80,3 @@ take this moment to send our sincerest thanks to the community for their
 wonderful support over the past 15 years!
 
 **-The PCSX2 team**
-:::
-:::

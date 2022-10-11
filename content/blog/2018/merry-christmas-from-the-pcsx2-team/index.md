@@ -1,9 +1,17 @@
-::: {.single-article}
-::: {.item-page .clearfix}
-## [Merry Christmas from the PCSX2 team](/289-merry-xmas-2018.html) {#merry-christmas-from-the-pcsx2-team .contentheading}
+---
+title: "Merry Christmas From The PCSX2 Team"
+date: 2018-12-25T00:00:00
+summary: "Merry Christmas everyone! We know you haven't heard from us for a while (ok for a long time) but it was for good reason!"
+draft: false
+tags:
+  - devblog
+mainAuthor: bositman
+aliases:
+  - "/289-merry-xmas-2018"
+  - "/289-merry-xmas-2018.html"
+  - "/289-merry-xmas-2018.htm"
+---
 
-::: {style="text-align:center;"}
-:::
 
 Merry Christmas everyone! We know you haven't heard from us for a while
 (ok for a long time
@@ -25,5 +33,3 @@ making this an exciting time for PCSX2!
 Thanks to the new (and old) guys giving their time and skills to breathe
 some life to PCSX2 and to everyone who still believe in us and
 appreciate this project! Have a nice one and keep playing!
-:::
-:::
