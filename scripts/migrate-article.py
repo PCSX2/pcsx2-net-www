@@ -3,6 +3,7 @@ import glob
 import json
 import os
 import re
+from pathlib import Path
 
 id = input("ID Prefix (ie. 219): ")
 ## [2 New Plugins for Download](/143-2-new-plugins-for-download.html) {#new-plugins-for-download .contentheading}
@@ -11,20 +12,30 @@ md_file = glob.glob('./article-backup/**/{}*.md'.format(id), recursive=True)[0]
 title = ""
 alias = ""
 content = []
+# `devblogs` have a different format unfortunately, gotta get the alias and title from the file name
+# /developer-blog/282-q-a-picking-our-noes.html
+file_name = Path(md_file).stem
+title = " ".join(file_name.split("-")[1:]).title()
+alias = "/developer-blog/{}".format(file_name)
 with open(md_file) as file:
   lines = file.readlines()
-  found_title = False
   for line in lines:
-    matches = re.findall(title_and_alias_regex, line)
-    if len(matches) > 0:
-      found_title = True
-      title = matches[0][0]
-      alias = matches[0][1]
+    if '<div class="single-article">' in line or '<div class="item-page clearfix">' in line or '[Post a Comment!]' in line:
       continue
-    if found_title:
-      if ":::" in line:
-        continue
-      content.append(line)
+    content.append(line)
+  content.insert(0, "\n")
+  # found_title = False
+  # for line in lines:
+  #   matches = re.findall(title_and_alias_regex, line)
+  #   if len(matches) > 0:
+  #     found_title = True
+  #     title = matches[0][0]
+  #     alias = matches[0][1]
+  #     continue
+  #   if found_title:
+  #     if ":::" in line:
+  #       continue
+  #     content.append(line)
 
 slug = title.replace(" ", "-").lower()
 draft = "false"
@@ -59,7 +70,7 @@ with open(pathFile, 'a') as f:
   f.write("summary: \"{}\"\n".format(summary))
   f.write("draft: {}\n".format(draft))
   f.write("tags:\n")
-  f.write("  - TODO\n")
+  f.write("  - devblog\n")
   f.write("mainAuthor: {}\n".format(author))
   f.write("aliases:\n")
   f.write("  - \"{}\"\n".format(alias))
