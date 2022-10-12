@@ -20,18 +20,35 @@
       <div class="row mb-3">
         <div class="col-12 markdown-content">
           {{ partial "link-hash.html" .Content }}
+          {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+          {{ if and (ne .Lastmod .PublishDate) (gt .Lastmod .PublishDate) }}
+          <div class="row">
+            <div class="col-md-auto">
+              <strong class="tertiary-color">Last Update:&nbsp;</strong>
+              <time datetime="{{ .Lastmod }}">
+                {{ .Lastmod.Format $dateFormat }}
+              </time>
+              <div style="font-size: small; color: grey;">
+                {{ .GitInfo.Subject}}
+              </div>
+            </div>
+          </div>
+          {{ end }}
+          {{ $related := .Site.RegularPages.Related . | first 5 }}
+          {{ with $related }}
+          <div class="row">
+            <div class="col-md-auto">
+              <h2 id="related">Related posts</h2>
+              <ul>
+                {{ range . }}
+                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                {{ end }}
+              </ul>
+              {{ end }}
+            </div>
+          </div>
         </div>
       </div>
-      {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
-      {{ if and (ne .Lastmod .PublishDate) (gt .Lastmod .PublishDate) }}
-      <div class="row">
-        <div class="col-md-auto">
-          <strong class="tertiary-color">Last Update:&nbsp;</strong>
-          <time datetime="{{ .Lastmod }}">{{ .Lastmod.Format $dateFormat }}</time>
-          <div style="font-size: small; color: grey;">{{ .GitInfo.Subject}}</div>
-        </div>
-      </div>
-      {{ end }}
       {{ partial "ads/horizontal-row.html" }}
     </div>
   </div>
