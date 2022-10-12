@@ -18,7 +18,7 @@
   {{ $title := print .Site.Title " - " .Title }}
   <title>{{ $title }}</title>
   <link href="/css/vendor/cookieconsent@3.1.1/cookieconsent.min.css" rel="stylesheet" />
-<!-- RSS -->
+  <!-- RSS -->
   {{ with .OutputFormats.Get "rss" -}}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end -}}
