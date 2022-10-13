@@ -40,42 +40,16 @@ greater than 15, the value is ANDed with 0xf. So effectively there is
 only a 4 bit range.
 Example
 
-<!-- TODO - legacy -->
-
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      IAND:            1000000 | 0000 | it x 5 | is x 5 | id x 5 | 110100     `
-
-</div>
-
-</div>
+```cpp
+IAND: 1000000 | 0000 | it x 5 | is x 5 | id x 5 | 110100
+```
 
 
 If for 'id' we have '18', then the destination would be
 
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      18 &= 0xf;     `
-
-</div>
-
-</div>
+```cpp
+18 &= 0xf;
+```
 
 Resulting in the destination reg being vi02.
 
@@ -87,62 +61,30 @@ This only applies to conditional branches, and not to jumps (JR/JALR).
 
 Example:
 
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      IADDIU vi05, vi00, 100            IBNE vi05, vi00 &lt;---- vi05's value is before the 100 was added     `
-
-</div>
-
-</div>
+```cpp
+IADDIU vi05, vi00, 100
+IBNE vi05, vi00 &lt; // ---- vi05's value is before the 100 was added
+```
 
 
 The only exception to this are Flag reading lower instructions
 (FSxxx/FMxxx/FCxxx). In those cases the current value is read.
 
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      FSAND vi05, 0xfff            IBNE vi05, vi00 &lt;---- vi05's value is the Status Reg     `
-
-</div>
-
-</div>
-
+```cpp
+FSAND vi05, 0xfff
+IBNE vi05, vi00 &lt; // ---- vi05's value is the Status Reg
+```
 
 The situation becomes complex however when a VI reg is read AND written
 to in a sequence of instructions.
 
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      IADDIU vi05, vi00, 100            IADDIU vi05, vi05, 100            IADDIU vi05, vi05, 100            IADDIU vi05, vi05, 100            IBNE vi05, vi00 &lt;---- vi05's value is before any 100 value was added. (the value before the first IADDIU)     `
-
-</div>
-
-</div>
-
+```cpp
+IADDIU vi05, vi00, 100
+IADDIU vi05, vi05, 100
+IADDIU vi05, vi05, 100
+IADDIU vi05, vi05, 100
+IBNE vi05, vi00 &lt; // ---- vi05's value is before any 100 value was added. (the value before the first IADDIU)
+```
 
 When a VI reg is first written to, a 'chain' starts, and then if the
 next instruction reads AND writes to the same VI reg, the chain
@@ -159,21 +101,20 @@ emulate correctly (mVU does however emulate it correctly).
 
 It does:
 
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      [08b0] (000002ff) NOP            [08b0] (100310fb) IADDIU vi03, vi02, 251            [08b8] (000002ff) NOP            [08b8] (81e2a37d) SQI.xyzw vf20, vi02++            [08c0] (000002ff) NOP            [08c0] (81e2ab7d) SQI.xyzw vf21, vi02++            [08c8] (000002ff) NOP            [08c8] (81e2b37d) SQI.xyzw vf22, vi02++            [08d0] (000002ff) NOP            [08d0] (520317fc) IBNE vi03, vi02 [08b8]            [08d8] (000002ff) NOP            [08d8] (81e2bb7d) SQI.xyzw vf23, vi02++     `
-
-</div>
-
-</div>
+```cpp
+[08b0] (000002ff) NOP
+[08b0] (100310fb) IADDIU vi03, vi02, 251
+[08b8] (000002ff) NOP
+[08b8] (81e2a37d) SQI.xyzw vf20, vi02++
+[08c0] (000002ff) NOP
+[08c0] (81e2ab7d) SQI.xyzw vf21, vi02++
+[08c8] (000002ff) NOP
+[08c8] (81e2b37d) SQI.xyzw vf22, vi02++
+[08d0] (000002ff) NOP
+[08d0] (520317fc) IBNE vi03, vi02 [08b8]
+[08d8] (000002ff) NOP
+[08d8] (81e2bb7d) SQI.xyzw vf23, vi02++
+```
 
 
 The first time the above block of code is run, the IBNE value for vi02
@@ -215,21 +156,9 @@ result, as opposed to SSE with DaZ On which will treat any Denormal as
 Zero and just transfer Zero as the result.
 Example:
 
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      MAX vf02.x, vf00.x, vf01.x     `
-
-</div>
-
-</div>
+```cpp
+MAX vf02.x, vf00.x, vf01.x
+```
 
 
 Assuming vf01.x holds a positive denormal, the result in vf02.x will be

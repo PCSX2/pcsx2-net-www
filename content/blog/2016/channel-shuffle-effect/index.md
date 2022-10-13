@@ -93,23 +93,12 @@ Here's the palette that will do the brightness correction:
 
 Here is an HLE (High Level Emulation) shader implementation.
 
-<!-- TODO - legacy -->
-
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      vec4 rt    = sample_input_texture();            output_color.r = sample_palette(rt.r).r;            output_color.g = sample_palette(rt.g).g;            output_color.b = sample_palette(rt.b).b;     `
-
-</div>
-
-</div>
+```cpp
+vec4 rt        = sample_input_texture();
+output_color.r = sample_palette(rt.r).r;
+output_color.g = sample_palette(rt.g).g;
+output_color.b = sample_palette(rt.b).b;
+```
 
 
 It is only a few lines of shader code. First line will read the current
@@ -147,21 +136,9 @@ faster.
 
 Now let's decompose the effect. The equivalent of
 
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      c.r = sample_palette(rt.r).r;     `
-
-</div>
-
-</div>
+```cpp
+c.r = sample_palette(rt.r).r;
+```
 
 
 It is executed 3 times, one for each channel (Red/Green/Blue). The above

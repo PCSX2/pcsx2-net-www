@@ -1,7 +1,7 @@
 ---
 title: "Thread Synchronization"
 date: 2009-10-07T00:00:00
-summary: "TODO"
+summary: "It's the year 2009, and it's almost over at that; and as anyone reading this blog well knows, multithreaded applications are the here-and-now and future of desktop computing"
 draft: false
 tags:
   - devblog

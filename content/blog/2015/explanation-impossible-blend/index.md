@@ -1,7 +1,7 @@
 ---
 title: "Explanation Impossible Blend"
 date: 2015-06-08T00:00:00
-summary: "TODO"
+summary: "The goal of blending is to combine two colors"
 draft: false
 tags:
   - devblog
@@ -15,15 +15,9 @@ aliases:
 The goal of blending is to combine two colors. The general equation on a
 modern GPU is:
 
-<!-- TODO - legacy -->
-
-<div class="title">
-
-Code:
-
-</div>
-
-`     coefficient1 * color1 +/- coefficient2 * color2    `
+```cpp
+coefficient1 * color1 +/- coefficient2 * color2
+```
 
 
 Color1/Color 2 are either the source color or the destination color.
@@ -33,13 +27,9 @@ the coefficients to \[0;1\]
 
 The general equation on the PS2 however is:
 
-<div class="title">
-
-Code:
-
-</div>
-
-`     (Color1 - Color2) * Coefficient + Color3    `
+```cpp
+(Color1 - Color2) * Coefficient + Color3
+```
 
 Color1/Color2/Color3 are either the source or destination color or zero.
 
@@ -52,14 +42,9 @@ The issues we have with this are as follows:
 2. If Color3 and Color1 are the same source, the equation will be:
 
 
-
-<div class="title">
-
-Code:
-
-</div>
-
-`     Color1 * (1+Coefficient) - Color2 *Coefficient    `
+```cpp
+Color1 * (1+Coefficient) - Color2 *Coefficient
+```
 
 
 which will result in the first half of this equation always being larger

@@ -1,5 +1,5 @@
 ---
-title: "So Maybe It S About Time We Explained Vtlb"
+title: "So Maybe It's About Time We Explained Vtlb"
 date: 2009-02-13T00:00:00
 summary: "Zerofrog documented the concepts of Virtual Memory a few years back. So now I figure it's VTLB's turn"
 draft: false
@@ -52,24 +52,15 @@ memory pages.
 
 The pseudo-code looks like this, as performed for a write memOp:
 
-<!-- TODO - legacy -->
-
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      uint page = ps2_addr/4096;            uptr pc_addr = vtlb_lookup[page];                  if( pc_addr & 0x80000000 )// sign bit check            *pc_addr = data;            else            {            handler[page]( ps2_addr, data );            }     `
-
-</div>
-
-</div>
-
+```cpp
+uint page = ps2_addr/4096;
+uptr pc_addr = vtlb_lookup[page];
+if( pc_addr & 0x80000000 ) // sign bit check
+  *pc_addr = data;
+else {
+  handler[page]( ps2_addr, data );
+}
+```
 
 By default, Pcsx2 utilizes the VTLB's handlers for several areas of Ps2
 memory that hold hardware registers. Hardware registers are memory

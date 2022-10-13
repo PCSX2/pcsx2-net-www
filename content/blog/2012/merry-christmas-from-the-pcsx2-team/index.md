@@ -4,7 +4,7 @@ date: 2012-12-25T00:00:00
 summary: "It's that time of the year again and since everyone else is off drink...celebrating"
 draft: false
 tags:
-  - TODO
+  - devblog
 mainAuthor: bositman
 aliases:
   - "/246-merry-xmas-2012"

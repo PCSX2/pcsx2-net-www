@@ -4,7 +4,7 @@ date: 2014-02-12T00:00:00
 summary: "Dear Linux users, Here is a new release of the greatest PS2 emulator. At version 1.2.2 it is ahead of Windows this time"
 draft: false
 tags:
-  - TODO
+  - devblog
 mainAuthor: bositman
 aliases:
   - "/255-linux-pcsx2-1-2-2"

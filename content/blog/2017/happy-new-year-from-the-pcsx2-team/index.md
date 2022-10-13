@@ -4,7 +4,7 @@ date: 2017-01-02T00:00:00
 summary: "The PCSX2 development and tester team wishes you a happy new emulation year"
 draft: false
 tags:
-  - TODO
+  - devblog
 mainAuthor: bositman
 aliases:
   - "/280-happy-new-year-2017"

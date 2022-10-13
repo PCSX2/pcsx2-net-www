@@ -1,7 +1,7 @@
 ---
 title: "PCSX2 1.6.0 Is Out!"
 date: 2020-05-07T00:00:00
-summary: "TODO"
+summary: "Huge thanks to everyone that helped get this release ready, over 4 years in the making"
 draft: false
 tags:
   - "progress-report"
@@ -11,8 +11,6 @@ aliases:
   - "/293-pcsx2-1-6-0-is-out.html"
   - "/293-pcsx2-1-6-0-is-out.htm"
 ---
-
-<!-- TODO - fi x cross links links -->
 
 Huge thanks to everyone that helped get this release ready, over 4 years
 in the making.
@@ -28,8 +26,8 @@ guide](https://github.com/PCSX2/pcsx2/wiki/Installing-on-Linux) .
 
 ## Q3,Q4 2019 - Q1 2020 Changes
 
-**Q3-Q4 2019, Q1 2010 progress report highlights, read the full report
-[here](/292-progress-report-q3-2019-to-q1-2020.html) .**
+Q3-Q4 2019, Q1 2010 progress report highlights, read the full report
+[here](/content/blog/2020/q3-2019-to-q1-2020/index.md)
 
 **GSdx changelog:**
 
@@ -109,8 +107,8 @@ which are no longer needed.
 
 ## Q2 2018-Q2 2019 Changes
 
-**Q2 2018 - Q2 2019 progress Report highlights, read the full report
-[here](/290-2018-2019-progress-report.html) .**
+Q2 2018 - Q2 2019 progress Report highlights, read the full report
+[here](/content/blog/2019/from-q2-2018-to-q2-2019/index.md)
 
 **GSdx changelog:**
 
@@ -186,8 +184,8 @@ SPU2-X-GUI: The gui has been updated to improve usability.
 
 ## Q1 2018 Changes
 
-**Q1 2018 progress report hightlights, read the full report
-[here](/288-q1-2018-progress-report.html) .**
+Q1 2018 progress report hightlights, read the full report
+[here](/content/blog/2018/q1-2018-progress-report/index.md)
 
 **GSdx changelog:**
 
@@ -222,8 +220,8 @@ Gamedb: Game database has been updated with many new gamefixes included.
 
 ## Q3-Q4 2017 Changes
 
-**Q3 & Q4 2017 progress report hightlights, read the full report
-[here](/285-q3-q4-2017-progress-report.html) .**
+Q3 & Q4 2017 progress report hightlights, read the full report
+[here](/content/blog/2018/q3-q4-2017-progress-report/index.md)
 
 **GSdx changelog:**
 
@@ -251,11 +249,11 @@ PCSX2: Many translations have been updated.
 
 ## Q1-Q2 2017 Changes
 
-**Q1 2017 progress report highlights, read the full report
-[here](/283-q1-2017-progress-report.html) .**
+Q1 2017 progress report highlights, read the full report
+[here](/content/blog/2017/q1-2017-progress-report/index.md)
 
-**Q2 2017 progress report highlights, read the full report
-[here](/284-q2-2017-progress-report.html) .**
+Q2 2017 progress report highlights, read the full report
+[here](/content/blog/2017/q2-2017-progress-report/index.md)
 
 GSdx changelog:
 
@@ -307,11 +305,11 @@ CMake: Blacklist GCC 7.0/7.1 versions.
 
 ## Q3-Q4 2016 Changes
 
-**Q3 2016 progress report hightlights, read the full report
-[here](/278-q3-2016-progress-report.html) .**
+Q3 2016 progress report hightlights, read the full report
+[here](/content/blog/2016/q3-2016-progress-report/index.md)
 
-**Q4 2016 progress report hightlights, read the full report
-[here](/281-q4-2016-progress-report.html) .**
+Q4 2016 progress report hightlights, read the full report
+[here](/content/blog/2017/q4-2016-progress-report/index.md)
 
 **GSdx changelog:**
 
@@ -367,11 +365,11 @@ Windows: Remove DirectX redistributable dependency on Windows 8.1/10.
 
 ## Q1-Q2 2016 Changes
 
-**January - February 2016 progress report hightlights, read the full
-report [here](/274-jan-feb-2016-progress-report.html) .**
+January - February 2016 progress report hightlights, read the full
+report [here](/content/blog/2016/january-february-2016-progress-report/index.md)
 
-**Q2 2016 progress report hightlights, read the full report
-[here](/276-q2-2016-progress-report.html) .**
+Q2 2016 progress report hightlights, read the full report
+[here](/content/blog/2016/q2-2016-progress-report/index.md)
 
 **GSdx changelog:**
 

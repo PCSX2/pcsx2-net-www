@@ -4,7 +4,7 @@ date: 2013-06-29T00:00:00
 summary: "After my earlier news post about some incredible tools our community members have developed for PCSX2, it's time people learn more about them"
 draft: false
 tags:
-  - TODO
+  - devblog
 mainAuthor: bositman
 aliases:
   - "/249-frontends-cheating-game-editors"

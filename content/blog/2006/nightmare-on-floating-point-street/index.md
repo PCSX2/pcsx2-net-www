@@ -71,34 +71,8 @@ best/fastest settings.
 **Moral of the blog** When comparing two floating point numbers *a* and
 *b* , never use *a* == *b* . Instead use something along the lines of
 
-<!-- TODO - legacy -->
+```
+fabs(a-b) < epsilon
+```
 
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      fabs(a-b) < epsilon     `
-
-</div>
-
-</div>
-
-
-where *epsilon* is some very small number.
-
-
-<div
-style="font-style: italic; font-size: 10pt; font-weight: bold; text-align: right;">
-
-
-</div>
-
-</div>
-
-</div>
+> where *epsilon* is some very small number.

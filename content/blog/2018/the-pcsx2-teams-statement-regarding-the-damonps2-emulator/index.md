@@ -2,7 +2,7 @@
 title: "The PCSX2 Team's Statement Regarding The \"DamonPS2\" Emulator"
 date: 2018-01-11T00:00:00
 summary: "Hello all! We hope you had a Happy New Year. The PCSX2 team hopes to continue making further progress throughout 2018 and into 2019! However, today we are writing to both you and the emulation/open-source community on a more serious matter."
-draft: true # TODO - draft until missing images are found
+draft: false
 tags:
   - devblog
 mainAuthor: bositman
@@ -27,22 +27,15 @@ task in itself that we applaud them for. After further investigation
 however, we learned that there were rather striking resemblances to
 PCSX2 contained in the new emulator.
 
-<!-- TODO LEGACY - images missing: `gameindex.dbf and patches.jpg` -->
-
-The first piece of evidence that we learned was that the [GameIndex.dbf
-file distributed with the
-emulator](/images/stories/frontend/damonps2/gameindex.dbf.jpg)
+The first piece of evidence that we learned was that the [GameIndex.dbf file distributed with the emulator](./img/gameindex.dbf.jpg)
 (screenshot) contained
-[patches](/images/stories/frontend/damonps2/patches.jpg) that were
+[patches](./img/patches.jpg) that were
 specific to PCSX2, and furthermore would not work elsewhere. We were
 also able to find matching CDVD strings using a text editor, such as the
-[message
-returned](/images/stories/frontend/damonps2/message-returned2.jpg) by
+[message returned](./img/message-returned2.jpg) by
 the PCSX2 console when an PSX/PSone disc is inserted. Further evidence
-included a [matching file
-structure](/images/stories/frontend/damonps2/file-structure.png) and
-graphical output that [mirrors
-GSdx](/images/stories/frontend/damonps2/gsdx.jpg) .
+included a [matching file structure](./img/file-structure.png) and
+graphical output that [mirrors GSdx](./img/gsdx.jpg).
 
 In response to this evidence, we contacted the developer to notify them
 about their violation of the GNU General Public License which PCSX2 is

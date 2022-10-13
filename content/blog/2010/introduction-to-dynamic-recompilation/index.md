@@ -47,23 +47,11 @@ bits of data).
 
 Now to program for this processor, we can have the following code:
 
-<!-- TODO - legacy -->
-
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      MOV reg1, reg0            ADD reg4, reg2, reg3            BR 5     `
-
-</div>
-
-</div>
+```cpp
+MOV reg1, reg0
+ADD reg4, reg2, reg3
+BR 5
+```
 
 
 What this code does is:
@@ -111,21 +99,11 @@ read again.
 
 So for instance remember our above SL3 program:
 
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      MOV reg1, reg0            ADD reg4, reg2, reg3            BR 5     `
-
-</div>
-
-</div>
+```cpp
+MOV reg1, reg0
+ADD reg4, reg2, reg3
+BR 5
+```
 
 
 Lets assume this code is part of some function and gets called 100's of
@@ -164,21 +142,93 @@ jump to other blocks).
 The code for actually recompiling these blocks looks something like
 this:
 
-<div class="codeblock">
+```cpp
+// This is our emulated MOV instruction
+void MOV() {
+    u8 dest = fetch(); // Get destination register number
+    u8 reg1 = fetch(); // Get source 1 register number
 
-<div class="title">
+    xMOV(eax, ptr[&amp;cpuRegs[reg1]]); // Move reg1's data to eax
+    xMOV(ptr[&amp;cpuRegs[dest]], eax); // Move eax to dest register
 
-Code:
+    fetch(); // This fetch is needed because every instruction in our SL3 processor is 4 bytes
+}
 
-</div>
+// This is our emulated ADD instruction
+void ADD() {
+    u8 dest = fetch(); // Get destination register number
+    u8 reg1 = fetch(); // Get source 1 register number
+    u8 reg2 = fetch(); // Get source 2 register number
 
-<div class="body" dir="ltr">
+    xMOV(eax, ptr[&amp;cpuRegs[reg1]]); // Move reg1's data to eax
+    xADD(eax, ptr[&amp;cpuRegs[reg2]]); // Add eax with reg2's data
+    xMOV(ptr[&amp;cpuRegs[dest]], eax); // Move eax to dest register
+}
 
-`      // This is our emulated MOV instruction            void MOV() {            u8 dest = fetch(); // Get destination register number            u8 reg1 = fetch(); // Get source 1 register number                  xMOV(eax, ptr[&amp;cpuRegs[reg1]]); // Move reg1's data to eax            xMOV(ptr[&amp;cpuRegs[dest]], eax); // Move eax to dest register                  fetch(); // This fetch is needed because every instruction in our SL3 processor is 4 bytes            }                  // This is our emulated ADD instruction            void ADD() {            u8 dest = fetch(); // Get destination register number            u8 reg1 = fetch(); // Get source 1 register number            u8 reg2 = fetch(); // Get source 2 register number                  xMOV(eax, ptr[&amp;cpuRegs[reg1]]); // Move reg1's data to eax            xADD(eax, ptr[&amp;cpuRegs[reg2]]); // Add eax with reg2's data            xMOV(ptr[&amp;cpuRegs[dest]], eax); // Move eax to dest register            }                  // This is our emulated BR (jump) instruction            void BR() {            s8 addr = fetch(); // Gets a number by which we will increment (or decrement if negative) PC by            PC = (PC - 2) + (addr * 4);                  // Get a pointer to a block of x86-32 compiled code            // that was recompiled by the recompileSL3() function            u8* block_pointer = getBlock(PC);                  xJMP(block_pointer); // Jump to the pointer returned by getBlock()            }                  // This goes through instructions and recompiles them            // It recompiles instructions until it reaches a BR() instruction.            u8* recompileSL3(u32 startPC) {            u8* startPtr = xGetPtr(); // Gets pointer to where the emitter is currently pointing to (the start pointer of the block)            PC = startPC; // Set PC to the start PC of this block            bool do_recompile = true;            while (do_recompile) {            u8 opcode = fetch();            switch (opcode) {            case 0: MOV(); break;            case 1: ADD(); break;            case 2: // We stop recompiling on branches            BR();            do_recompile = false;            break;            }            }            return startPtr; // Returns the pointer to where our block of x86 generated code starts at            }                  // This holds all the pointers to our blocks that were recompiled based on            // starting PC address. We will assume that the instruction memory for            // this processor is 16kb, which means that it can hold at-most 1024*16 bytes            // worth of instructions. And therefor we we have at-most 1024*16 block pointers.            static u8* blockArray[1024*16];                  // This returns a pointer to our recompiled block            // If it hasn't been compiled, it'll recompile the block and then return that pointer.            // We use __fastcall because it lets us pass the startPC parameter in the ecx register            // instead of having to use the x86 stack...            u8* __fastcall getBlock(u32 startPC) {            if (blockArray[startPC] == null) {            blockArray[startPC] = recompileSL3(startPC);            }            return blockArray[startPC];            }                  // Basic cpu emulator using dynamic recompilation            void runCPU() {            // This sets our emitter to start emitting instructions to rec_cache            // which is a large block of memory where we can write lots of            // x86 asm instructions to...            x86setPtr(rec_cache);                  __asm {            pushad; // Save all our registers            mov ecx, PC; // Move PC parameter into ecx register (for __fastcall)            call getBlock; // Call the getBlock function            jmp eax; // The block to jump to is returned in eax            }            }     `
+// This is our emulated BR (jump) instruction
+void BR() {
+    s8 addr = fetch(); // Gets a number by which we will increment (or decrement if negative) PC by
+    PC = (PC - 2) + (addr * 4);
 
-</div>
+    // Get a pointer to a block of x86-32 compiled code
+    // that was recompiled by the recompileSL3() function
+    u8* block_pointer = getBlock(PC);
 
-</div>
+    xJMP(block_pointer); // Jump to the pointer returned by getBlock()
+}
+
+// This goes through instructions and recompiles them
+// It recompiles instructions until it reaches a BR() instruction.
+u8* recompileSL3(u32 startPC) {
+    u8* startPtr = xGetPtr(); // Gets pointer to where the emitter is currently pointing to (the start pointer of the block)
+    PC = startPC; // Set PC to the start PC of this block
+    bool do_recompile = true;
+    while (do_recompile) {
+        u8 opcode = fetch();
+        switch (opcode) {
+            case 0: MOV(); break;
+            case 1: ADD(); break;
+            case 2: // We stop recompiling on branches
+                BR();
+                do_recompile = false;
+                break;
+        }
+    }
+    return startPtr; // Returns the pointer to where our block of x86 generated code starts at
+}
+
+// This holds all the pointers to our blocks that were recompiled based on
+// starting PC address. We will assume that the instruction memory for
+// this processor is 16kb, which means that it can hold at-most 1024*16 bytes
+// worth of instructions. And therefor we we have at-most 1024*16 block pointers.
+static u8* blockArray[1024*16];
+
+// This returns a pointer to our recompiled block
+// If it hasn't been compiled, it'll recompile the block and then return that pointer.
+// We use __fastcall because it lets us pass the startPC parameter in the ecx register
+// instead of having to use the x86 stack...
+u8* __fastcall getBlock(u32 startPC) {
+    if (blockArray[startPC] == null) {
+        blockArray[startPC] = recompileSL3(startPC);
+    }
+    return blockArray[startPC];
+}
+
+// Basic cpu emulator using dynamic recompilation
+void runCPU() {
+    // This sets our emitter to start emitting instructions to rec_cache
+    // which is a large block of memory where we can write lots of
+    // x86 asm instructions to...
+    x86setPtr(rec_cache);
+
+    __asm {
+        pushad; // Save all our registers
+        mov ecx, PC; // Move PC parameter into ecx register (for __fastcall)
+        call getBlock; // Call the getBlock function
+        jmp eax; // The block to jump to is returned in eax
+    }
+}
+```
 
 
 Note the above code doesn't have any logic to successfully exit once it

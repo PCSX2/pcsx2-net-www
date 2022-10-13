@@ -17,7 +17,7 @@ alpha/beta versions of PCSX2? I do! Here's a map representing the visits
 to our SVN repository at Googlecode,
 for the past 2 weeks.
 
-<!-- TODO - legacy -->
+<!-- TODO - legacy low res pic? -->
 
 ![](./img/googlecode_stats_256_thumb.png)
 

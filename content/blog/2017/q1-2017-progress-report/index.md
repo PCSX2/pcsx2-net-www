@@ -61,24 +61,11 @@ at.
 
 The following code sequence is present in some games,
 
-<!-- TODO - legacy -->
-
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      cfc2 t4, TPC            ctc2 t4, CMSAR0            callmsr     `
-
-</div>
-
-</div>
-
+```cpp
+cfc2 t4, TPC
+ctc2 t4, CMSAR0
+callmsr
+```
 
 On this following sequence of code,
 

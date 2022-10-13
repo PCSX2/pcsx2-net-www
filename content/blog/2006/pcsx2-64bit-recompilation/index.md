@@ -40,23 +40,17 @@ They are extremely important for testing and debugging purposes. For
 example, interpreting a simple 32bit EE MIPS instruction (code) might
 look like:
 
-<!-- TODO - legacy -->
-
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      switch(code>>26) {            case 0x02: // J - jump to            pc = (code & 0x03ffffff)*4; // change the program counter            break;            case 0x23: // LW - load word, sign extend            gpr[Rt] = (long long)*(long*)(memory+gpr[Rs]+(short)code);            break;            ...            }     `
-
-</div>
-
-</div>
+```cpp
+switch(code>>26) {
+  case 0x02: // J - jump to
+    pc = (code & 0x03ffffff)*4; // change the program counter
+    break;
+  case 0x23: // LW - load word, sign extend
+    gpr[Rt] = (long long)*(long*)(memory+gpr[Rs]+(short)code);
+    break;
+  ...
+  }
+```
 
 Recompilers, on the other hand, try to cut as many corners as possible.
 For example, we know the instruction at address 0x1000 will never

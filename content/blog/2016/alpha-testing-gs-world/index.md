@@ -38,24 +38,10 @@ deal.
 
 Here is an example of GLSL code:
 
-<!-- TODO - legacy -->
-
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      if (fragment.alpha > alpha_reference)            discard;     `
-
-</div>
-
-</div>
-
+```cpp
+if (fragment.alpha > alpha_reference)
+  discard;
+```
 
 Everything is fine but there is a subtlety; On the GS you can only
 discard either the color OR the depth. Whereas modern GPUs will discard

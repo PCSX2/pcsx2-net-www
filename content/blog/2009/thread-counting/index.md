@@ -26,23 +26,12 @@ One of the major changes in 0.9.7 will be the removal of what I call an
 unit. A spinwait is a simple loop that waits on a variable to change,
 like so:
 
-<!-- TODO - legacy -->
-
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      volatile bool IsRunning = true;            StartThreadedAction();            while( IsRunning );            // When the above while() exits, the ThreadedAction is done.     `
-
-</div>
-
-</div>
+```cpp
+volatile bool IsRunning = true;
+StartThreadedAction();
+while( IsRunning );
+  // When the above while() exits, the ThreadedAction is done.
+```
 
 
 This is a very simple threading design, but it's mostly drawbacks and

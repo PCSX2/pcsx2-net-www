@@ -33,45 +33,32 @@ How is that possible? I'll explain!
 Typically in traditional error handling models, you check the return
 code of a function for errors, like so:
 
-<!-- TODO - legacy -->
-
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      if( DoSomethingSpecial() == SPECIAL_FAIL )            {            // Handle error.            }     `
-
-</div>
-
-</div>
+```cpp
+if( DoSomethingSpecial() == SPECIAL_FAIL ) {
+  // Handle error.
+}
+```
 
 
 This is simple, short, and quite fast compared to the overhead of
 entering a C++ **try/catch** block. But let's consider a more practical
 everyday example:
 
-<div class="codeblock">
+```cpp
+int DoSomethingSpecial() {
+  if( DoSomethingElse() == SPECIAL_FAIL )
+    return SPECIAL_FAIL;
 
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      int DoSomethingSpecial()            {            if( DoSomethingElse() == SPECIAL_FAIL ) return SPECIAL_FAIL;                  // Do stuff based on DoSomethingElse's success            Console::WriteLn( "Success!" );                  return SPECIAL_WIN;            }                  void LoopOfCode()            {            do            {            // code [...]            } while( DoSomethingSpecial() != SPECIAL_FAIL )            }     `
-
-</div>
-
-</div>
-
+  // Do stuff based on DoSomethingElse's success
+  Console::WriteLn( "Success!" );
+  return SPECIAL_WIN;
+}
+void LoopOfCode() {
+  do {
+    // code [...]
+  } while( DoSomethingSpecial() != SPECIAL_FAIL )
+}
+```
 
 The above code snippet must perform no less than *two conditional checks
 per loop* just to propagate the error code up the chain of function
@@ -79,21 +66,23 @@ calls, and this isn't even handling the possibility of a function
 returning more than one error code yet! This is a situation where C++
 Exception Handling can come to our rescue:
 
-<div class="codeblock">
+```cpp
+void DoSomethingSpecial() {
+  DoSomethingElse();
+  // Do stuff based on DoSomethingElse's success
+  Console::WriteLn( "Success!" );
+}
 
-<div class="title">
+void LoopOfCode() {
+  try {
+    while( true ) {
+      DoSomethingSpecial();
+    };
+  } catch( Exception:: SpecialFail&& ) {
 
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      void DoSomethingSpecial()            {            DoSomethingElse();                  // Do stuff based on DoSomethingElse's success            Console::WriteLn( "Success!" );            }                  void LoopOfCode()            {            try            {            while( true )            {            DoSomethingSpecial();            };            } catch( Exception:: SpecialFail&& )            {            }            }     `
-
-</div>
-
-</div>
+  }
+}
+```
 
 
 The above C++ snippet performs the exact same operation, except now *no

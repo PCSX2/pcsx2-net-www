@@ -1,7 +1,7 @@
 ---
 title: "Major Gsdx Progress And Monthly Progress Reports!"
 date: 2015-06-11T00:00:00
-summary: "TODO"
+summary: "Hello everyone! I know our news updates have been few and far between as of late, but that's going to change starting now!"
 draft: false
 tags:
   - progress-report
@@ -81,10 +81,9 @@ Without/Without Round Sprite:
 
 {{< img-cmp before="./img/ATon-no-round-sprite.jpg" after="./img/ATon-round-sprite.jpg">}}
 
-<!-- TODO - update -->
 For an in depth explanation of both of these new hacks, please read the
 developer blog post
-[here](/developer-blog/267-explanation-hacks-needed-for-upscaling-glitches.html).
+[here](/content/blog/2015/explanation-hacks-needed-for-upscaling-glitches/index.md).
 
 Now we come to something that is not a hack. Many of you who played
 certain games have encountered an error in the log such as Impossible
@@ -115,10 +114,9 @@ Incorrect/Correct Blending:
 
 {{< img-cmp before="./img/MGS-bad-blend.png" after="./img/MGS-good-blend.png">}}
 
-<!-- TODO - update -->
 For an in depth explanation of why we have "impossible" blends and how
 Gregory fixed that, please read the developer blog post located
-[here](/developer-blog/268-explanation-impossible-blend.html).
+[here](/content/blog/2015/explanation-impossible-blend/index.md).
 
 Next we will take a look at some of the changes happening in the OpenGL
 realm lately. Gregory has been working very hard on this oft neglected

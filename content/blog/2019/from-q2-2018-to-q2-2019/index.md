@@ -45,8 +45,7 @@ with proper fixes and in a very cooperative spirit
 
 # Core Improvements
 
-{{< progress/github-link shas="9b8244954215072068f4f83079d1c714a4b0e09a" title="Vector Units:
-Fix bug in "Branch in Delay Slot" authors="Refraction,MrCK1" >}}
+{{< progress/github-link shas="9b8244954215072068f4f83079d1c714a4b0e09a" title="Vector Units: Fix bug in Branch in Delay Slot" authors="Refraction,MrCK1" >}}
 
 While the Vector Units were well-suited for performing fast calculations
 in the hands of experienced programmers, that didn't stop them from

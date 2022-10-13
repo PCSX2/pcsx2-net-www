@@ -18,24 +18,18 @@ behavior on Linux. Much searching of the internet did not reveal a
 satisfactory answer; only hints that when combined with some applied
 tests of my own yielded the following result:
 
-<!-- TODO legacy -->
+```cpp
+// to RESERVE memory in Linux, use mmap with a private, anonymous, non-accessible mapping.
+// The following line reserves 1gb of ram starting at 0x10000000.
 
-<div class="codeblock">
+void* result = mmap((void*)0x10000000, 0x40000000, PROT_NONE, MAP_PRIVATE | MAP_ANON, -1, 0);
 
-<div class="title">
+// to COMMIT memory in Linux, use mprotect on the range of memory you'd like to commit, and
+// grant the memory READ and/or WRITE access.
+// The following line commits 1mb of the buffer.  It will return -1 on out of memory errors.
 
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      // to RESERVE memory in Linux, use mmap with a private, anonymous, non-accessible mapping.            // The following line reserves 1gb of ram starting at 0x10000000.                  void* result = mmap((void*)0x10000000, 0x40000000, PROT_NONE, MAP_PRIVATE | MAP_ANON, -1, 0);                  // to COMMIT memory in Linux, use mprotect on the range of memory you'd like to commit, and            // grant the memory READ and/or WRITE access.            // The following line commits 1mb of the buffer.It will return -1 on out of memory errors.                  int result3 = mprotect((void*)0x10000000, 0x100000, PROT_READ | PROT_WRITE);     `
-
-</div>
-
-</div>
-
+int result3 = mprotect((void*)0x10000000, 0x100000, PROT_READ | PROT_WRITE);
+```
 
 When using **mmap** , you can create a simple uncommitted reservation of
 memory simply by specifying PROT\_NONE on any anonymous mapping (in the

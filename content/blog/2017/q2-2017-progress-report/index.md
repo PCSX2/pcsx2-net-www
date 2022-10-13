@@ -142,24 +142,18 @@ memory.
 In a nutshell, this is how the new algorithm works compared to the
 previous one.
 
-<!-- TODO - legacy -->
+```cpp
+# Previous code
+if ( Large Framebuffer )
+   IncreaseFramebufferSize();
 
-<div class="codeblock">
-
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      # Previous code            if ( Large Framebuffer )            IncreaseFramebufferSize();                  # New code            if ( Large Framebuffer )            {            if ( IsExtraBufferSizeNecessary() )            IncreaseFramebufferSize();            }     `
-
-</div>
-
-</div>
-
+# New code
+if ( Large Framebuffer )
+{
+   if ( IsExtraBufferSizeNecessary() )
+        IncreaseFramebufferSize();
+}
+```
 
 This new algorithm improved performance significantly on GS intensive
 testcases and provided around 2-5% performance boost on normal test

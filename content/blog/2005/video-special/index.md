@@ -1,10 +1,10 @@
 ---
 title: "Video Special!"
 date: 2005-09-05T00:00:00
-summary: "TODO"
+summary: "Having broken the 100,000!! unique visitor count, and nearing the 500,000 page clicks mark we decided to thank all the people who have visited this site"
 draft: false
 tags:
-  - TODO
+  - devblog
 mainAuthor: CKemu
 aliases:
   - "/189-video-special"

@@ -63,23 +63,25 @@ legal for a game to set an IRQ address within these buffers, and then
 expect it to trigger when the SPU2 does its write-back to that address.
 The write-back areas are mapped as follows:
 
-<!-- TODO legacy -->
+```cpp
+0x0400 - 0x05FF  :  Core 0, Voice 1
+0x0600 - 0x07FF  :  Core 0, Voice 3
+0x0800 - 0x09FF  :  Core 0 Output (Left) [includes Wet/Dry/ADMA sources]
+0x0A00 - 0x0BFF  :  Core 0 Output (Right) [includes Wet/Dry/ADMA sources]
+0x0C00 - 0x0DFF  :  Core 1, Voice 1
+0x0E00 - 0x0FFF  :  Core 1, Voice 3
 
-<div class="codeblock">
+// Following are results of mixing all 24 voices for the given Core.
 
-<div class="title">
-
-Code:
-
-</div>
-
-<div class="body" dir="ltr">
-
-`      0x0400 - 0x05FF:Core 0, Voice 1            0x0600 - 0x07FF:Core 0, Voice 3            0x0800 - 0x09FF:Core 0 Output (Left) [includes Wet/Dry/ADMA sources]            0x0A00 - 0x0BFF:Core 0 Output (Right) [includes Wet/Dry/ADMA sources]            0x0C00 - 0x0DFF:Core 1, Voice 1            0x0E00 - 0x0FFF:Core 1, Voice 3                  // Following are results of mixing all 24 voices for the given Core.                  0x1000 - 0x11FF:Core 0, Dry Mix (Left)            0x1200 - 0x13FF:Core 0, Dry Mix (Right)            0x1400 - 0x15FF:Core 0, Wet Mix (Left)            0x1600 - 0x17FF:Core 0, Wet Mix (Right)            0x1800 - 0x19FF:Core 1, Dry Mix (Left)            0x1A00 - 0x1BFF:Core 1, Dry Mix (Right)            0x1C00 - 0x1DFF:Core 1, Wet Mix (Left)            0x1E00 - 0x1FFF:Core 1, Wet Mix (Right)     `
-
-</div>
-
-</div>
+0x1000 - 0x11FF  :  Core 0, Dry Mix (Left)
+0x1200 - 0x13FF  :  Core 0, Dry Mix (Right)
+0x1400 - 0x15FF  :  Core 0, Wet Mix (Left)
+0x1600 - 0x17FF  :  Core 0, Wet Mix (Right)
+0x1800 - 0x19FF  :  Core 1, Dry Mix (Left)
+0x1A00 - 0x1BFF  :  Core 1, Dry Mix (Right)
+0x1C00 - 0x1DFF  :  Core 1, Wet Mix (Left)
+0x1E00 - 0x1FFF  :  Core 1, Wet Mix (Right)
+```
 
 
 In specific, some games set an IRQA for Core0's write-back area. The IRQ

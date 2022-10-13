@@ -132,11 +132,61 @@ think we will wait until the interesting bits are included in the C++
 library. A lot of warnings remain to be fixed but we are now far from
 the 49K number.
 
-<!-- TODO - legacy -->
-
 For the record, here is the current summary report on the latest master.
 You can google the rule name to find what the exact issue is.
-`      cert (665)            cert-dcl50-cpp => 85            cert-err52-cpp => 3            cert-err58-cpp => 360            cert-err60-cpp => 148            cert-err61-cpp => 69                  clang (496)            clang-diagnostic-deprecated-declarations => 475            clang-diagnostic-missing-braces => 2            clang-diagnostic-shift-negative-value => 3            clang-diagnostic-sign-compare => 4            clang-diagnostic-unused-const-variable => 10            clang-diagnostic-unused-variable => 2                  cppcoreguidelines (33701)            cppcoreguidelines-pro-bounds-array-to-pointer-decay => 2883            cppcoreguidelines-pro-bounds-constant-array-index => 7697            cppcoreguidelines-pro-bounds-pointer-arithmetic => 3763            cppcoreguidelines-pro-type-const-cast => 66            cppcoreguidelines-pro-type-cstyle-cast => 3478            cppcoreguidelines-pro-type-reinterpret-cast => 42            cppcoreguidelines-pro-type-static-cast-downcast => 83            cppcoreguidelines-pro-type-union-access => 12405            cppcoreguidelines-pro-type-vararg => 3284                  misc (905)            misc-macro-parentheses => 157            misc-throw-by-value-catch-by-reference => 18            misc-unused-alias-decls => 1            misc-unused-parameters => 729                  modernize (2527)            modernize-loop-convert => 146            modernize-make-unique => 20            modernize-pass-by-value => 6            modernize-redundant-void-arg => 35            modernize-use-auto => 127            modernize-use-default => 107            modernize-use-nullptr => 1824            modernize-use-override => 262                  readability (10996)            readability-braces-around-statements => 6739            readability-else-after-return => 124            readability-function-size => 1            readability-implicit-bool-cast => 3760            readability-inconsistent-declaration-parameter-name => 326            readability-named-parameter => 36            readability-simplify-boolean-expr => 10           `
+
+```cpp
+cert (665)
+cert-dcl50-cpp => 85
+cert-err52-cpp => 3
+cert-err58-cpp => 360
+cert-err60-cpp => 148
+cert-err61-cpp => 69
+
+clang (496)
+clang-diagnostic-deprecated-declarations => 475
+clang-diagnostic-missing-braces => 2
+clang-diagnostic-shift-negative-value => 3
+clang-diagnostic-sign-compare => 4
+clang-diagnostic-unused-const-variable => 10
+clang-diagnostic-unused-variable => 2
+
+cppcoreguidelines (33701)
+cppcoreguidelines-pro-bounds-array-to-pointer-decay => 2883
+cppcoreguidelines-pro-bounds-constant-array-index => 7697
+cppcoreguidelines-pro-bounds-pointer-arithmetic => 3763
+cppcoreguidelines-pro-type-const-cast => 66
+cppcoreguidelines-pro-type-cstyle-cast => 3478
+cppcoreguidelines-pro-type-reinterpret-cast => 42
+cppcoreguidelines-pro-type-static-cast-downcast => 83
+cppcoreguidelines-pro-type-union-access => 12405
+cppcoreguidelines-pro-type-vararg => 3284
+
+misc (905)
+misc-macro-parentheses => 157
+misc-throw-by-value-catch-by-reference => 18
+misc-unused-alias-decls => 1
+misc-unused-parameters => 729
+
+modernize (2527)
+modernize-loop-convert => 146
+modernize-make-unique => 20
+modernize-pass-by-value => 6
+modernize-redundant-void-arg => 35
+modernize-use-auto => 127
+modernize-use-default => 107
+modernize-use-nullptr => 1824
+modernize-use-override => 262
+
+readability (10996)
+readability-braces-around-statements => 6739
+readability-else-after-return => 124
+readability-function-size => 1
+readability-implicit-bool-cast => 3760
+readability-inconsistent-declaration-parameter-name => 326
+readability-named-parameter => 36
+readability-simplify-boolean-expr => 10
+```
 
 To conclude this section, lint tools are quite powerful. They can find
 bugs that will take days of tests. But they're also dull as they reports

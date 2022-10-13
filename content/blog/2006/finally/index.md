@@ -4,7 +4,7 @@ date: 2006-09-06T00:00:00
 summary: "Current WIP on the PCSX2 0.9.2 beta has led to the PAL (SCES 5049x) version of Final Fantasy X being Playable"
 draft: false
 tags:
-  - TODO
+  - devblog
 mainAuthor: CKemu
 aliases:
   - "/161-finally"
