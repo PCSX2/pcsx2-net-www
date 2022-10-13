@@ -26,7 +26,7 @@ So all around we will improve all aspects of the emulator and have better progre
 
 Here is a glimpse of what to expect:
 
-{{< img cols="colWidth" src="./img/Pic56-QtGlimpse.png">}}
+{{< img cols="colWidth" src="./img/Pic56-QtGlimpse.webp">}}
 
 Happy Reading!
 
@@ -197,7 +197,7 @@ When multiple lines of opcodes are selected, the 'Assemble Opcode(s)' context me
 
 Now you can finally go into a search for specific memory address or string instead of scrolling just like in cheat engine.
 
-{{< img cols="colWidth" src="./img/Pic59-DebuggerView.png">}}
+{{< img cols="colWidth" src="./img/Pic59-DebuggerView.webp">}}
 
 - I think Fobes needs a hug for this secretive message.
 
@@ -205,7 +205,7 @@ Now you can finally go into a search for specific memory address or string inste
 
 Fixes the debugger view for registers when the system DPI is not the default 100%.
 
-{{< img-cmp before="./img/Pic57-DebuggerRegisterBefore.png" after="./img/Pic58-DebuggerRegisterAfter.png">}}
+{{< img-cmp before="./img/Pic57-DebuggerRegisterBefore.webp" after="./img/Pic58-DebuggerRegisterAfter.webp">}}
 
 {{< progress/github-link prNums="4997" title="Debugger: Reset breakpoint skip on savestate load" authors="F0bes" >}}
 
@@ -269,7 +269,7 @@ Burnout games weren't emulated correctly due to the texture cache being the bigg
 
 Now no more shenanigans in having to switch or ignore the sky issue, there is another game that has a similar issue a shooter called 'Black' (A recurring theme that PS2 game title names fit with their badly emulated issues). Black hasn't been fixed yet, perhaps in the future.
 
-{{< img-cmp-slider before="./img/Pic5-BurnoutBefore.png" after="./img/Pic6-BurnoutAfter.png">}}
+{{< img-cmp-slider before="./img/Pic5-BurnoutBefore.webp" after="./img/Pic6-BurnoutAfter.webp">}}
 
 {{< progress/github-link prNums="4346" title="Spin before sleeping threads to reduce thread sleeps/wakes" authors="tellowkrinkle" >}}
 
@@ -296,16 +296,16 @@ The new GSOffset takes advantage of the fact that the table of offsets from a pi
 {{< progress/github-link prNums="4385" title="GS: Simulate scan mask (fix transparency in MGS2 & MGS3)" authors="Sergeanur" >}}
 
 For what feels like forever, transparency didn't work correctly for Metal Gear Solid 3 and other games such as Gran Turismo 4.
-{{< img-cmp-slider before="./img/Pic1-MGS3Before.png" after="./img/Pic2-MGS3After.png">}}
-{{< img-cmp-slider before="./img/Pic3-GT4Before.png" after="./img/Pic4-GT4After.png">}}
-{{< img-cmp-slider before="./img/Pic47-GTConcept2002TokyoGenevaBefore.png" after="./img/Pic48-GTConcept2002TokyoGenevaAfter.png">}}
-{{< img-cmp-slider before="./img/Pic49-TouristTrophyBefore.png" after="./img/Pic50-TouristTrophyAfter.png">}}
+{{< img-cmp-slider before="./img/Pic1-MGS3Before.webp" after="./img/Pic2-MGS3After.webp">}}
+{{< img-cmp-slider before="./img/Pic3-GT4Before.webp" after="./img/Pic4-GT4After.webp">}}
+{{< img-cmp-slider before="./img/Pic47-GTConcept2002TokyoGenevaBefore.webp" after="./img/Pic48-GTConcept2002TokyoGenevaAfter.webp">}}
+{{< img-cmp-slider before="./img/Pic49-TouristTrophyBefore.webp" after="./img/Pic50-TouristTrophyAfter.webp">}}
 
 {{< progress/github-link prNums="4757" title="Improved stats printout from sw renderer" authors="tellowkrinkle" >}}
 
 If you want to printout your stats from the SW renderer, it doesn't look as readable as it was badly aligned and has no header.
 
-{{< img-cmp before="./img/Pic60-SWPrintoutBefore.png" after="./img/Pic61-SWPrintoutAfter.png">}}
+{{< img-cmp before="./img/Pic60-SWPrintoutBefore.webp" after="./img/Pic61-SWPrintoutAfter.webp">}}
 
 {{< progress/github-link prNums="4850" title="GS-hw: Don't write clamped depth test value to depth buffer when ZMSK is enabled." authors="lightningterror" >}}
 
@@ -319,7 +319,7 @@ Fixes broken shadows from Kingdom Hearts Re-Chain which produced lines.
 
 Due to the way some effects work on the GS and how our Texture Cache handles it, sometimes the wrong texture format can be remembered, which will cause it to get stored in an incorrect memory format when it is saved back to the real GS memory for downloading to the EE core. This PR corrected this behaviour and properly fixes the flashlight in the Silent Hill series:
 
-{{< img-cmp before="./img/Pic19-SilentHillBefore.jpg" after="./img/Pic20-SilentHillAfter.png">}}
+{{< img-cmp before="./img/Pic19-SilentHillBefore.jpg" after="./img/Pic20-SilentHillAfter.webp">}}
 
 {{< progress/github-link prNums="4891" title="GS: Revert be7e1163b4f7e3fe19876462fb26cd082ffb3ab4" authors="lightningterror" >}}
 
@@ -327,15 +327,15 @@ This PR reverts an older commit from 2013 (1.2 era) which had wrong assumptions 
 
 Test Drive Limited (Blue roads):
 
-{{< img cols="colWidth" src="./img/Pic43-TestDriveUnlimited.png">}}
+{{< img cols="colWidth" src="./img/Pic43-TestDriveUnlimited.webp">}}
 
 Kaan Barbarian Blade (Black Character Model):
 
-{{< img cols="colWidth" src="./img/Pic44-Kaan.png">}}
+{{< img cols="colWidth" src="./img/Pic44-Kaan.webp">}}
 
 The Chronicles of Narnia - The Lion, The Witch and The Wardrobe (Heat Haze Effect of the fire):
 
-{{< img-cmp-slider before="./img/Pic63-Narnia1Before.png" after="./img/Pic64-Narnia1After.png">}}
+{{< img-cmp-slider before="./img/Pic63-Narnia1Before.webp" after="./img/Pic64-Narnia1After.webp">}}
 
 {{< progress/github-link prNums="4906" title="GS: Use stream buffer for vertices/indices/uniforms" authors="stenzek" >}}
 
@@ -359,7 +359,7 @@ This new behavior improves the software renderer quite drastically in a good way
 
 In some scenarios, the ZBUF or FRAME values may get set to invalid data, but on draws where they are not getting used. Before this would completely ignore the draw which caused problems, however this lets it continue since the data it needs is valid.
 
-{{< img-cmp-slider before="./img/Pic45-StarOceanBefore.png" after="./img/Pic46-StarOceanAfter.png">}}
+{{< img-cmp-slider before="./img/Pic45-StarOceanBefore.webp" after="./img/Pic46-StarOceanAfter.webp">}}
 
 {{< progress/github-link prNums="4966" title="GS: Fix up CLUT offset handling in 32bit I8 mode" authors="refractionpcsx2" >}}
 
@@ -381,7 +381,7 @@ Fixes a bug where 'f' would be incorrect for the blue channel when fogging was e
 
 Like you see this purple grass on Hitman which everybody should agree isn't realistic and is a bug:
 
-{{< img cols="colWidth" src="./img/Pic62-HitmanPurpleGrass.png">}}
+{{< img cols="colWidth" src="./img/Pic62-HitmanPurpleGrass.webp">}}
 
 {{< progress/github-link prNums="5006" title="GS: Only reload Auto MIPs on TEX base change" authors="refractionpcsx2" >}}
 
@@ -389,8 +389,8 @@ The handling of MTBA was previously not handled very well and was somewhat of a 
 
 Actually this pull request is fine, but we discovered later is that the formula for updating the MIP addresses was incorrect, but also the pending draws needed to be flushed if these new MIPMAP values were different.  It does remain that hardware mode has difficulty handling mip-maps.
 
-{{< img-cmp-slider before="./img/Pic39-ParappaBefore.png" after="./img/Pic40-ParappaAfter.png">}}
-{{< img-cmp-slider before="./img/Pic41-ApeEscapeBefore.png" after="./img/Pic42-ApeEscapeAfter.png">}}
+{{< img-cmp-slider before="./img/Pic39-ParappaBefore.webp" after="./img/Pic40-ParappaAfter.webp">}}
+{{< img-cmp-slider before="./img/Pic41-ApeEscapeBefore.webp" after="./img/Pic42-ApeEscapeAfter.webp">}}
 
 {{< progress/github-link prNums="5013" title="GS: Fix Half Pixel Offset and Half Screen Fix config swap" authors="tellowkrinkle" >}}
 
@@ -398,7 +398,7 @@ Actually this pull request is fine, but we discovered later is that the formula 
 
 Large floats are not handled very well in the software renderer due to the range being limited by signed integers but also some precision is lost by being single floats which only have a precision of 24bits. This PR makes it so flat triangles are treated like sprites and the Z values are passed as integer so no precision is lost, which fixes games which use flat triangles to draw UI/2D screens.
 
-{{< img-cmp-slider before="./img/Pic7-EvangelionBefore.png" after="./img/Pic8-EvangelionAfter.png">}}
+{{< img-cmp-slider before="./img/Pic7-EvangelionBefore.webp" after="./img/Pic8-EvangelionAfter.webp">}}
 
 {{< progress/github-link prNums="5026" title="GS-gui: Change blending option from None to Minimum." authors="lightningterror" >}}
 
@@ -410,7 +410,7 @@ Large floats are not handled very well in the software renderer due to the range
 
 The calculation of how to handle texture sizes wasn't perfect and would cause graphical issues when upscaling such as Final Fantasy X.
 
-{{< img-cmp before="./img/Pic37-FFXBefore.png" after="./img/Pic38-FFXAfter.png">}}
+{{< img-cmp before="./img/Pic37-FFXBefore.webp" after="./img/Pic38-FFXAfter.webp">}}
 
 {{< progress/github-link prNums="5054" title="GS-hw: Adjust/minor optimization on SW blend shader a bit" authors="lightningterror" >}}
 
@@ -420,7 +420,7 @@ In the last progress report (Q3 2021) there have been improvements to how Edge A
 
 However it has only been fixed on the lines type but not the triangles type which is used a ton for a game like Final Fantasy X. Hopefully in the future we can get feature parity with the software renderer which handles both types correctly and while the issue on hardware renderer is about the same it will be look worse in the severity factor.
 
-{{< img-cmp-slider before="./img/Pic33-DokoHWBefore.png" after="./img/Pic34-DokoHWAfter.png">}}
+{{< img-cmp-slider before="./img/Pic33-DokoHWBefore.webp" after="./img/Pic34-DokoHWAfter.webp">}}
 {{< img-cmp-slider before="./img/Pic35-FIFA2002HWBefore.jpg" after="./img/Pic36-FIFA2002HWAfter.jpg">}}
 
 {{< progress/github-link prNums="5064" title="GS-d3d11: Properly set afix in EmulateBlending." authors="lightningterror" >}}
@@ -437,15 +437,15 @@ However it has only been fixed on the lines type but not the triangles type whic
 
 {{< progress/github-link prNums="5103" title="GS-hw: Sample depth on green channel" authors="lightningterror" >}}
 
-{{< img-cmp-slider before="./img/Pic21-HitmanBefore.png" after="./img/Pic22-HitmanAfter.png">}}
-{{< img-cmp-slider before="./img/Pic23-ImpossibleBefore.png" after="./img/Pic24-ImpossibleAfter.png">}}
+{{< img-cmp-slider before="./img/Pic21-HitmanBefore.webp" after="./img/Pic22-HitmanAfter.webp">}}
+{{< img-cmp-slider before="./img/Pic23-ImpossibleBefore.webp" after="./img/Pic24-ImpossibleAfter.webp">}}
 
 {{< progress/github-link prNums="5110" title="GS-hw: Try to use a mix of HW/SW blending in more situations." authors="lightningterror" >}}
 
 This will improve the blending behavior on default settings. Blending affects many things such as the lighting, shadows and more.
 
-{{< img-cmp-slider before="./img/Pic15-ColossusBefore.png" after="./img/Pic16-ColossusAfter.png">}}
-{{< img-cmp-slider before="./img/Pic17-MGS2Before.png" after="./img/Pic18-MGS2After.png">}}
+{{< img-cmp-slider before="./img/Pic15-ColossusBefore.webp" after="./img/Pic16-ColossusAfter.webp">}}
+{{< img-cmp-slider before="./img/Pic17-MGS2Before.webp" after="./img/Pic18-MGS2After.webp">}}
 
 {{< progress/github-link prNums="5128" title="GS-ogl: Optimize fragment shader uniform buffer." authors="lightningterror" >}}
 
@@ -524,7 +524,7 @@ Though even in it's current state Cycleskip 1 and 2 will have decent results for
 
 The main window will now say what preset you are using.
 
-{{< img cols="colWidth" src="./img/Pic51-PCSX2Preset.png">}}
+{{< img cols="colWidth" src="./img/Pic51-PCSX2Preset.webp">}}
 
 {{< progress/github-link prNums="4896" title="GS Debugger: Show \"D3D11 HW\" only on windows." authors="lightningterror" >}}
 
@@ -538,7 +538,7 @@ This is preparation part 2 to bring in the new Qt GUI.
 
 If you moved or renamed your ISOs, you either had to nuke the recently played list, ignore it or set it back how it was before. More granular control on how you want to handle latest games played.
 
-{{< img cols="colWidth" src="./img/Pic52-RemoveMissingFiles.png">}}
+{{< img cols="colWidth" src="./img/Pic52-RemoveMissingFiles.webp">}}
 
 {{< progress/github-link prNums="4986" title="PCSX2-GUI: Fix GUI inconsistencies" authors="RedDevilus" >}}
 
@@ -548,9 +548,9 @@ The default is still 100 ms (0.1 seconds of audio latency) on Xaudio2 but techni
 
 Can you spot the differences?
 
-{{< img cols="colWidth" src="./img/Pic53-DEV9GUI.png">}}
-{{< img cols="colWidth" src="./img/Pic54-PADGUI.png">}}
-{{< img cols="colWidth" src="./img/Pic55-SPU2GUI.png">}}
+{{< img cols="colWidth" src="./img/Pic53-DEV9GUI.webp">}}
+{{< img cols="colWidth" src="./img/Pic54-PADGUI.webp">}}
+{{< img cols="colWidth" src="./img/Pic55-SPU2GUI.webp">}}
 
 {{< progress/github-link prNums="4989" title="WX: Fix `pxExplore` on macOS" authors="tellowkrinkle" >}}
 
@@ -584,13 +584,13 @@ Doesn't need much explaining as it was gone by accident to show the keybinding f
 
 {{< progress/github-link prNums="5007" title="GameDB: Add 'GIFFIFOHack' to 'Gunfighter 2 - Legend of Jesse James'" authors="Mrlinkwii" >}}
 
-{{< img-cmp-slider before="./img/Pic31-GunfighterBefore.png" after="./img/Pic32-GunfighterAfter.png">}}
+{{< img-cmp-slider before="./img/Pic31-GunfighterBefore.webp" after="./img/Pic32-GunfighterAfter.webp">}}
 
 {{< progress/github-link prNums="5020" title="GameDB: Add EE-Rounding and VU-Rounding to various entries" authors="Mrlinkwii" >}}
 
 {{< progress/github-link prNums="5023" title="GameDB : Add various fixes for various games and remove not needed patches " authors="Mrlinkwii" >}}
 
-{{< img-cmp-slider before="./img/Pic29-OnimushaBefore.png" after="./img/Pic30-OnimushaAfter.png">}}
+{{< img-cmp-slider before="./img/Pic29-OnimushaBefore.webp" after="./img/Pic30-OnimushaAfter.webp">}}
 
 {{< progress/github-link prNums="5049" title="GameDB : Add fixes for various games " authors="Mrlinkwii" >}}
 
@@ -628,7 +628,7 @@ Doesn't need much explaining as it was gone by accident to show the keybinding f
 
 {{< progress/github-link prNums="5172" title="GameDB: Add gamefixes to 'Titeuf Mega-compet' and patch 'Yamiyo ni Sasayaku - Tantei Sagara Kyouichirou' series" authors="Mrlinkwii" >}}
 
-{{< img-cmp-slider before="./img/Pic27-TiteufBefore.png" after="./img/Pic28-TiteufAfter.png">}}
+{{< img-cmp-slider before="./img/Pic27-TiteufBefore.webp" after="./img/Pic28-TiteufAfter.webp">}}
 
 {{< progress/github-link prNums="5178" title="GameDB: Add EE Clamping to 'Digimon Battle Chronicle' and fixes to other games" authors="Mrlinkwii" >}}
 
@@ -638,7 +638,7 @@ Doesn't need much explaining as it was gone by accident to show the keybinding f
 
 The game had wrongly colored eye textures (yellow/blue) but are now correctly white:
 
-{{< img-cmp before="./img/Pic25-UltimateBefore.png" after="./img/Pic26-UltimateAfter.png">}}
+{{< img-cmp before="./img/Pic25-UltimateBefore.webp" after="./img/Pic26-UltimateAfter.webp">}}
 
 {{< progress/github-link prNums="5199" title="Merge the Qt branch: Part 1" authors="stenzek" >}}
 

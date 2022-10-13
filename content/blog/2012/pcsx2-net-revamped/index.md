@@ -1,0 +1,122 @@
+---
+title: "PCSX2.Net Revamped"
+date: 2012-05-27T00:00:00
+summary: "After almost 3 months of under cover preparation, I present you the new PCSX2 homepage"
+draft: false
+tags:
+  - devblog
+mainAuthor: bositman
+aliases:
+  - "/241-pcsx2-net-revamped"
+  - "/241-pcsx2-net-revamped.html"
+  - "/241-pcsx2-net-revamped.htm"
+---
+
+
+After almost 3 months of under cover preparation, I present you the new
+PCSX2 homepage! The last PCSX2.net redesign was done 7 years ago by
+CKemu and Falcon4ever and now it is my turn to update it
+😊
+
+The new website is based on the latest Joomla! platform with a custom
+modified theme for PCSX2, and is no longer bound to our forum. It uses
+PHP, a new database for the compatibility list and jQuery for various
+new features. Here's a short overview:
+
+# **Design:**
+
+-   Totally fresh design, taking into consideration higher resolutions
+    and a self-adapting template, so the website will take up all your
+    screen no matter what resolution you use.
+
+-   Detection for iOS and Android, in which case the website uses a more
+    mobile theme.
+
+-   Tested and working in Firefox, Chrome, IE9, IE8 and Opera.
+
+-   Article-based, so you can link and like/share each news post or dev
+    blog separately.
+
+# **Content-Features:**
+
+-   New main navigation menu, **more user friendly with much more
+    content** and easy to follow
+
+-   **Latest forum threads, youtube videos and SVN revisions,
+    automatically updated via RSS every 3 minutes** , for the most up to
+    date overview of what's new with PCSX2.
+
+-   **Compatibility list redesigned from scratch** . New list look to
+    easily find what you're looking for, more info like last updated
+    and tester who updated and screenshots (not complete yet).
+    Pagination is done via jQuery for faster and easier navigation.
+    Added counters for each status and a user configured games per page,
+    so you can limit the results for smaller screens or vice versa for
+    larger ones.
+
+-   **New, detailed Downloads section. This is the largest change of the
+    new website along the compatibility list** , which was enormous
+    work. All downloads are now categorized in sections for easier and
+    clearer navigation. They all have detailed descriptions, file size,
+    date published and more info. Almost every plugin released for PCSX2
+    can be found in the windows plugin section, including Dev9gigarazi,
+    Nuvee and more.
+    
+    After endless digging on the internet since 2002 when PCSX2 had its
+    first public release, the archive section was completed. **There you
+    will find ALL PCSX2 versions ever released, from** **v0.026 up to
+    the current v0.9.8 with source code and Linux releases when
+    possible.** You will also find old GSdx versions and betas.
+
+-   One button google translate of the website, for our non english
+    speaking visitors.
+
+-   Share box, so you can like on facebook, +1 on google and share on
+    twitter and make PCSX2 known to even more people. You can also share
+    news posts after you click on the title
+    😊
+
+-   Compatibility overview, showing you the compatibility status of
+    PCSX2 of our total game pool, updated daily.
+
+-   Search function, so you can find old news or blog posts easily.
+
+-   Read more button for news - blog posts which are too long and made
+    the site look bad.
+
+-   Screenshots and videos section, with sexy lightbox pop ups for
+    images.
+
+-   Article archive for a nice overview of our posts over the years.
+
+-   More stuff I probably forgot
+    😛
+
+# Code and speed
+
+-   In general the new website should be a bit slower than the old due
+    to the additional features, but should be barely noticeable.
+
+-   Vastly optimized compatibility list with the development of a new
+    database for it, server side and client side caching for reduced
+    server load.
+
+-   Search engine optimized, we should rank much higher in google now
+    thanks to meta tags in each article and SEO URLs.
+
+-   Server side and client side caching for the whole website, reducing
+    server load and decreasing load times.
+
+-   Script and CSS minifying functions.
+
+I hope everyone enjoys the website and finds it as exciting as I do,
+even after working on it for so long
+😊 You can post your feedback or any bugs you find
+in this forum thread (if you flame it you're banned!):
+<http://forums.pcsx2.net/Thread-PCSX2-net-revamped>
+
+Finally, I want to thank Falcon4ever for helping with the server side of
+stuff and all team members for their valuable input on how things should
+look and feel. Dedicated to all our loyal user base!
+
+-bositman
