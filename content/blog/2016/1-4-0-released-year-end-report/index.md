@@ -12,8 +12,6 @@ aliases:
   - "/273-1-4-0-release-end-2015-report.htm"
 ---
 
-<!-- TODO - cleanup -->
-
 {{< img cols="6" src="./img/progrepend.jpg">}}
 
 Hello PCSX2 followers and a belated Happy New Year!
@@ -43,15 +41,12 @@ small patches and additions.
 
 So without further ado, here is the report!
 
-[ Core
-]{style="text-decoration: underline; font-weight: bold; font-size: x-large;"}
+# Core
 
-[ [New Feature] ]{style="color: #1bc449;"} [ [ Debugger
-]{style="font-weight: bold;"} ]{style="text-decoration: underline;"} by
-[Kingcom](https://github.com/Kingcom)
+## New Feature - Debugger
+- by [Kingcom](https://github.com/Kingcom)
 
-[![Debugger](/images/stories/frontend/1-4-0-rel/debugger_s.png "Debugger"){width="550"
-height="476"}](/images/stories/frontend/1-4-0-rel/debugger.png)
+{{< img cols="6" src="./img/debugger_s.png">}}
 
 The new debugger features a live disassembly view and allows developers
 to debug games way easier than before while being very useful feature in
@@ -61,13 +56,10 @@ example.
 list of Keyboard shortcuts for the debugger functions can be found at
 **docs/debugger.txt** .
 
-[ [New Feature] ]{style="color: #1bc449;"} [ [ Folder memory cards
-]{style="text-decoration: underline;"} ]{style="font-weight: bold;"} by
-[AdmiralCurtiss](https://github.com/AdmiralCurtiss)
+## New Feature - Folder memory cards
+- by [AdmiralCurtiss](https://github.com/AdmiralCurtiss)
 
-[![Folder memory
-cards](/images/stories/frontend/progress_reports/7-8-2015/folder-memcards-s.jpg "Folder memory cards"){width="550"
-height="300"}](/images/stories/frontend/progress_reports/7-8-2015/folder-memcards.jpg)
+{{< img cols="6" src="./img/folder-memcards-s.jpg">}}
 
 The new Folder memory card feature allows users to easily share single
 game saves instead of the whole memory cards by simply sending the
@@ -86,22 +78,16 @@ realize you don't have enough free space on the memory card to save,
 and without the incompatibility issues of emulating bigger third party
 memory cards.
 
-
-[ Note: ]{style="font-weight: bold;"} This feature is purely optional
-and can be disabled in the Memory Card Manager.
+> Note: This feature is purely optional and can be disabled in the Memory Card Manager.
 
 
-[ [New Feature] ]{style="color: #1bc449;"} [ [ EE Overclock
-]{style="font-weight: bold;"} ]{style="text-decoration: underline;"} by
-[ssakash](https://github.com/ssakash) and [Blyss
-Sarania](https://github.com/Sarania)
+## New Feature - EE Overclock
+- by [ssakash](https://github.com/ssakash) and [Blyss Sarania](https://github.com/Sarania)
 
-[![EE
-overclock](/images/stories/frontend/1-4-0-rel/EEoc_s.png "EE overclock"){width="550"
-height="476"}](/images/stories/frontend/1-4-0-rel/EEoc.png)
+{{< img cols="6" src="./img/EEoc_s.png">}}
 
 You can now manipulate the EE Cyclerate to overclock and underclock the
-[ Emotion Engine's ]{style="font-style: italic;"} R5900 Core CPU clock
+_Emotion Engine's_ R5900 Core CPU clock
 speed, The negative values on the slider allow you to reduce the clock
 speed and conversely the positive values effectively increase the
 clockspeed.
@@ -112,32 +98,21 @@ of the EE overclock feature.
 
 
 
-[ [Bug-Fix] ]{style="color: #ff3333;"} [ [ Recompiler Improvements and
-Core Refactors ]{style="font-weight: bold;"}
-]{style="text-decoration: underline;"} by
-[Refraction](https://github.com/refractionpcsx2) ,
-[ssakash](https://github.com/ssakash) and
-[Gregory](https://github.com/gregory38)
+## Recompiler Improvements and Core Refactors
+- by [Refraction](https://github.com/refractionpcsx2), [ssakash](https://github.com/ssakash) and [Gregory](https://github.com/gregory38)
 
 
-[ GIF: Better Handling for Finish Interrupt request signal
-]{style="text-decoration: underline;"} by
-[Refraction](https://github.com/refractionpcsx2)
+## GIF: Better Handling for Finish Interrupt request signal
+- by [Refraction](https://github.com/refractionpcsx2)
 
 Fixes issues on games like Indiecar Series 2005 where the previously
 fired finish signals weren't cleared and it eventually lead to multiple
 fires of Interrupt requests.
 
-[ MicroVU: General Improvements ]{style="text-decoration: underline;"}
-by [ssakash](https://github.com/ssakash) and
-[Refraction](https://github.com/refractionpcsx2)
+## MicroVU: General Improvements
+- by [ssakash](https://github.com/ssakash) and [Refraction](https://github.com/refractionpcsx2)
 
-[![.dot
-Hack](/images/stories/frontend/1-4-0-rel/dothackbroken-s.png ".dot Hack bugs"){width="353"
-height="309"}](/images/stories/frontend/1-4-0-rel/dothackbroken.png)
-[![.dot
-Hack](/images/stories/frontend/1-4-0-rel/dothackfixed-s.png ".dot Hack"){width="353"
-height="309"}](/images/stories/frontend/1-4-0-rel/dothackfixed.png)
+{{< img-cmp-slider before="./img/dothackbroken.png" after="./img/dothackfixed.png">}}
 
 There were some rare flickering issues on games like Naruto ultimate
 ninja series and dot hack games at cases when some of the MAC Flag
@@ -150,28 +125,25 @@ the VU upper OP codes to fix hangs on Superman - Shadow Of Apokolips and
 proper jump targets were used to fix lots of texture corruptions and
 spiky shadows on True Crime - New York City , DT Racer and DT Carnage.
 
-[ Dev note: ]{style="font-weight: bold;"} The XG Kick Instruction
-trigger has been reworked to delay cycles regardless of the status of
-MemVI parameter which later got removed since it was pretty much useless
-as there should always be a delay for XG Kick instructions.
+> Dev note: The XG Kick Instruction trigger has been reworked to delay cycles regardless of the status of MemVI parameter which later got removed since it was pretty much useless as there should always be a delay for XG Kick instructions.
 
 
-[ SIF: Limit/Mask transfer size to 1mb-16bytes
-]{style="text-decoration: underline;"} by
-[Refraction](https://github.com/refractionpcsx2)
+## SIF: Limit/Mask transfer size to 1mb-16bytes
+- by [Refraction](https://github.com/refractionpcsx2)
 
 Gregory Horror Show enters playable state ! The issue was due to the
 game using a weird transfer from IOP to EE through SIF that has a size
+
 > 0x80000000 which was due to incorrect masking, causing a flag on the
+
 top of the passed size to be mistaken as part of the size itself. Thanks
 to jpd002 (Author of Play!) the suggestion to Limit / Mask the transfer
 size finally made the game to enter playable state.
 
 
 
-[ VIF: Better handling of IRQ and MFIFO Timing improvements
-]{style="text-decoration: underline;"} by
-[Refraction](https://github.com/refractionpcsx2)
+## VIF: Better handling of IRQ and MFIFO Timing improvements
+- by [Refraction](https://github.com/refractionpcsx2)
 
 Stuart Little 3 enters playable state. The issue was actually caused by
 a VIF interrupt firing on a "Wait for GS Paths" instruction before the
@@ -190,9 +162,8 @@ interrupt bit could be set on an invalid operation, causing Tarzan and
 Looney Tunes Back In Action to hang unexpectedly, the condition has now
 been updated to make sure this is less likely to happen.
 
-[ EE Interpreter: Improved TLB miss exception handling
-]{style="text-decoration: underline;"} by
-[Gregory](https://github.com/gregory38)
+## EE Interpreter: Improved TLB miss exception handling
+- by [Gregory](https://github.com/gregory38)
 
 The Program Counter value would be saved into the EPC register
 (Exception-Program Counter) whenever a TLB miss occurs and previously
@@ -204,10 +175,8 @@ This was eventually fixed by fetching the program counter value before
 the increment and executing them in case of CPU exception.
 
 
-[ [New Feature] ]{style="color: #1bc449;"} [ [ Support for loading
-Gzip and CSO compressed ISO's ]{style="text-decoration: underline;"}
-]{style="font-weight: bold;"} by [Avih](https://github.com/avih) and
-[Unknown W.Brackets](https://github.com/unknownbrackets)
+## New Feature - Support for loading Gzip and CSO compressed ISO's
+- by [Avih](https://github.com/avih) and [Unknown W.Brackets](https://github.com/unknownbrackets)
 
 PCSX2 can now directly load compresed ISO images, so you can save your
 precious HDD space! Here is a breakdown by Unknown Brackets himself:
@@ -236,8 +205,6 @@ As far as tools, I of course recommend the tool I wrote. There are
 others, but I know maxcso supports >= 4GB ISO files, which some of the
 others don't.
 
-<https://github.com/unknownbrackets/maxcso/releases>
-
 Additionally, this will use all of your CPU cores to compress as
 optimally and quickly as possible. For gzipped ISOs, there's pigz which
 will also do this, but many other tools will only use one CPU core.
@@ -245,15 +212,10 @@ will also do this, but many other tools will only use one CPU core.
 That's about it. Play! (another PS2 emulator) also supports CSO files.
 I don't think it supports gzipped ISOs.
 
--[Unknown]
+# GSDX
 
-[ [ [ GSDX ]{style="font-size: x-large;"} ]{style="font-weight: bold;"}
-]{style="text-decoration: underline;"}
-
-[ [Bug-Fix] ]{style="color: #ff3333;"} [ [ Programmable blending to
-reproduce GS blending unit output ]{style="font-weight: bold;"}
-]{style="text-decoration: underline;"} by
-[Gregory](https://github.com/gregory38)
+## Programmable blending to reproduce GS blending unit output
+- by [Gregory](https://github.com/gregory38)
 
 The source of the issues on GPU blending unit is due to the fact that
 the raster operations pipeline (ROP) differ from the GS and the GPU
@@ -274,28 +236,14 @@ accuracy and performance.
 
 Here are some screenshots showing the improvements :
 
-[![Blending
-bugs](/images/stories/frontend/1-4-0-rel/noblend-s.jpg "Blending bugs"){width="353"
-height="150"}](/images/stories/frontend/1-4-0-rel/noblend.jpg)
-[![Blending
-bugs](/images/stories/frontend/1-4-0-rel/blend-s.jpg "Blending bugs"){width="353"
-height="150"}](/images/stories/frontend/1-4-0-rel/blend.jpg) [![Rule of
-Rose](/images/stories/frontend/1-4-0-rel/RuleofRose-no-blend-s.jpg "Rule of Rose"){width="353"
-height="199"}](/images/stories/frontend/1-4-0-rel/RuleofRose-no-blend.jpg)
-[![Rule of
-Rose](/images/stories/frontend/1-4-0-rel/RuleofRose-blending-s.jpg "Rule of Rose"){width="353"
-height="199"}](/images/stories/frontend/1-4-0-rel/RuleofRose-blending.jpg)
-[![Valkyrie Profile
-2](/images/stories/frontend/1-4-0-rel/VP2-no-blend-s.jpg "Valkyrie Profile 2"){width="353"
-height="199"}](/images/stories/frontend/1-4-0-rel/VP2-no-blend.jpg)
-[![Valkyrie Profile
-2](/images/stories/frontend/1-4-0-rel/VP2-blending-s.jpg "Valkyrie Profile 2"){width="353"
-height="199"}](/images/stories/frontend/1-4-0-rel/VP2-blending.jpg)
+{{< img-cmp-slider before="./img/noblend.jpg" after="./img/blend.jpg">}}
 
-[ [Bug-Fix] ]{style="color: #ff3333;"} [ [ Improved CRTC output size
-handling ]{style="font-weight: bold;"}
-]{style="text-decoration: underline;"} by
-[ssakash](https://github.com/ssakash) and [.r5](https://github.com/rz5)
+{{< img-cmp-slider before="./img/RuleofRose-no-blend.jpg" after="./img/RuleofRose-blending.jpg">}}
+
+{{< img-cmp-slider before="./img/VP2-no-blend.jpg" after="./img/VP2-blending.jpg">}}
+
+## Improved CRTC output size handling
+- by [ssakash](https://github.com/ssakash) and [.r5](https://github.com/rz5)
 
 There were few rare cases on games running at NTSC video mode where the
 detected frame buffer height was too large and eventually caused the
@@ -306,52 +254,31 @@ proper saturation limit for height in case of NTSC video mode.
 
 Here are some comparison screenshots showing before and after the fix :
 
-[![Tribes](/images/stories/frontend/1-4-0-rel/Tribes_before_s.png "Tribes"){width="353"
-height="198"}](/images/stories/frontend/1-4-0-rel/Tribes_before.png)
-[![Tribes](/images/stories/frontend/1-4-0-rel/Tribes_after_s.png "Tribes"){width="353"
-height="198"}](/images/stories/frontend/1-4-0-rel/Tribes_after.png)
-[![Devil May Cry
-3](/images/stories/frontend/1-4-0-rel/DMC3_before_s.png "Devil May Cry 3"){width="353"
-height="198"}](/images/stories/frontend/1-4-0-rel/DMC3_before.png)
-[![Devil May Cry
-3](/images/stories/frontend/1-4-0-rel/DMC3_after_s.png "Devil May Cry 3"){width="353"
-height="198"}](/images/stories/frontend/1-4-0-rel/DMC3_after.png)
+{{< img-cmp-slider before="./img/Tribes_before.png" after="./img/Tribes_after.png">}}
 
-[ [Bug-Fix] ]{style="color: #ff3333;"} [ [ Software renderer
-improvements ]{style="font-weight: bold;"}
-]{style="text-decoration: underline;"} by
-[Gabest](https://github.com/gabest11) and
-[Gregory](https://github.com/gregory38)
+{{< img-cmp-slider before="./img/DMC3_before.png" after="./img/DMC3_after.png">}}
 
--   Silent Hill outputs a nan in Q to emulate the flashlight - an
-    unsupported NaN (not a number) on the projection value (Q). Gregory
-    used an isnan test to find such instances and emulate the flash
-    light effect. Gabest later decreased the speed impact by using
-    inlined ASM. Fixes Flash light effects on Silent Hill 3.
+## Software renderer improvements
+- by [Gabest](https://github.com/gabest11) and [Gregory](https://github.com/gregory38)
 
+Silent Hill outputs a nan in Q to emulate the flashlight - an
+unsupported NaN (not a number) on the projection value (Q). Gregory
+used an isnan test to find such instances and emulate the flash
+light effect. Gabest later decreased the speed impact by using
+inlined ASM. Fixes Flash light effects on Silent Hill 3.
 
-[![Silent Hill
-3](/images/stories/frontend/progress_reports/7-8-2015/silent-hill3-broken-s.jpg "Silent Hill 3"){width="353"
-height="199"}](/images/stories/frontend/progress_reports/7-8-2015/silent-hill3-broken.jpg)
-[![Silent Hill
-3](/images/stories/frontend/progress_reports/7-8-2015/silent-hill3-fixed-s.jpg "Silent Hill 3"){width="353"
-height="199"}](/images/stories/frontend/progress_reports/7-8-2015/silent-hill3-fixed.jpg)
+{{< img-cmp-slider before="./img/silent-hill3-broken.jpg" after="./img/silent-hill3-fixed.jpg">}}
 
--   Better texture size management in software mode, fixes Horsez and
-    Stolen memory issue and also lowers memory usage in general.
+Better texture size management in software mode, fixes Horsez and
+Stolen memory issue and also lowers memory usage in general.
 
-```{=html}
-<!-- -->
-```
--   Better handling of textures addressing outside the limits by
-    extending the cached texture size to the upper limits of the region
-    clamp values: Fixes Lupin the 3rd
+Better handling of textures addressing outside the limits by
+extending the cached texture size to the upper limits of the region
+clamp values: Fixes Lupin the 3rd
 
 
-[ [Bug-Fix] ]{style="color: #ff3333;"} [ [ Accurate destination alpha
-testing ]{style="font-weight: bold;"}
-]{style="text-decoration: underline;"} by
-[Gregory](https://github.com/gregory38)
+## Accurate destination alpha testing
+- by [Gregory](https://github.com/gregory38)
 
 Better behavior to replicate one of the GS functions where the Graphics
 Synthesizer can discard a pixel based on the destination output. In
@@ -362,15 +289,10 @@ date implements a two pass algorithm to implement the effect. The 1st
 pass searches the valid primitive ID and the 2nd pass will do the draw
 based on the previous pass.
 
-[![Persona](/images/stories/frontend/1-4-0-rel/persona3DATEwrong_s.png "Persona"){width="353"
-height="247"}](/images/stories/frontend/1-4-0-rel/persona3DATEwrong.png)
-[![Persona](/images/stories/frontend/1-4-0-rel/persona3DATEcorrect_s.png "Persona"){width="353"
-height="247"}](/images/stories/frontend/1-4-0-rel/persona3DATEcorrect.png)
+{{< img-cmp-slider before="./img/persona3DATEwrong.png" after="./img/persona3DATEcorrect.png">}}
 
-[ [Bug-Fix] ]{style="color: #ff3333;"} [ [ Improved read of depth /
-color ]{style="font-weight: bold;"}
-]{style="text-decoration: underline;"} by
-[Gregory](https://github.com/gregory38)
+## Improved read of depth / color
+- by [Gregory](https://github.com/gregory38)
 
 A standard GPU has separate textures for the color and the depth
 information. The GS doesn't enforce such separation between color/depth
@@ -383,21 +305,11 @@ reproduction of such effects. However these conversions require
 additional resources from your GPU which might gradually decrease
 performance in cost of accuracy.
 
-[![Suikoden
-Tactics](/images/stories/frontend/1-4-0-rel/suikodentacticshardwaredepthoff_s.png "Suikoden Tactics"){width="353"
-height="247"}](/images/stories/frontend/1-4-0-rel/suikodentacticshardwaredepthoff.png)
-[![Suikoden
-Tactics](/images/stories/frontend/1-4-0-rel/suikodentacticshardwaredepthon_s.png "Suikoden Tactics"){width="353"
-height="247"}](/images/stories/frontend/1-4-0-rel/suikodentacticshardwaredepthon.png)
+{{< img-cmp-slider before="./img/suikodentacticshardwaredepthoff.png" after="./img/suikodentacticshardwaredepthon.png">}}
 
-[ [ [ SPU2-X ]{style="font-size: x-large;"}
-]{style="font-weight: bold;"} ]{style="text-decoration: underline;"}
-
-
-[ [New Feature] ]{style="color: #1bc449;"} [ [ Per channel volume
-adjustment ]{style="font-weight: bold;"}
-]{style="text-decoration: underline;"} by
-[gigaherz](https://github.com/gigaherz)
+# SPU2-X
+## New Feature - Per channel volume adjustment
+- by [gigaherz](https://github.com/gigaherz)
 
 A.K.A Room Correction. This feature is present in the control panel of
 some audio chips, but often enough, the settings that work well for the
@@ -419,9 +331,8 @@ original. Smaller values in the range of -1 to 1 are recommended for
 testing, as it's easy to cause unwanted clipping in the output.
 
 
-[ [Bug-Fix] ]{style="color: #ff3333;"} [ [ Time Stretcher:
-Improvements to tempo adjustments ]{style="text-decoration: underline;"}
-]{style="font-weight: bold;"} by [Avih](https://github.com/avih)
+## Time Stretcher: Improvements to tempo adjustments
+- by [Avih](https://github.com/avih)
 
 Previously latency values higher than 200ms will make the stretcher
 adjustments overshoot the target
@@ -433,12 +344,10 @@ The latency slider will now allow a minimum value of 15ms. Providing
 choices of choosing from values between 15 to 29ms on the slider.
 
 
-[ [ [ GUI ]{style="font-size: x-large;"} ]{style="font-weight: bold;"}
-]{style="text-decoration: underline;"}
+# GUI
 
-[ [Enhancement] ]{style="color: #018ddd;"} [ [ Configurable template
-on GSFrame titlebar ]{style="text-decoration: underline;"}
-]{style="font-weight: bold;"} by [Avih](https://github.com/avih)
+## Configurable template on GSFrame titlebar
+- by [Avih](https://github.com/avih)
 
 There was some
 [discussion](https://github.com/PCSX2/pcsx2/commit/abdb8266b66db9d8bb2be7284cc216d6fa004714)
@@ -457,11 +366,8 @@ template is located in the [ inis_1.4.0/PCSX2_ui.ini
 easier customization.
 
 
-[ [Enhancement] ]{style="color: #018ddd;"} [ [ Revamped Core and GSDX
-plugin dialogs ]{style="text-decoration: underline;"}
-]{style="font-weight: bold;"} by [Turtleli](https://github.com/turtleli)
-, [Gregory](https://github.com/gregory38) and
-[ssakash](https://github.com/ssakash)
+## Revamped Core and GSDX plugin dialogs
+- by [Turtleli](https://github.com/turtleli), [Gregory](https://github.com/gregory38) and [ssakash](https://github.com/ssakash)
 
 The Core and GSDX dialogs have undergone quite a deal of changes like
 converting the three-state checkboxes to a combobox, inclusion of
@@ -479,12 +385,7 @@ with the Linux GUI.
 
 Here is a preview of the old GSdx GUI and the new one:
 
-
-![GSdx old
-GUI](/images/stories/frontend/1-4-0-rel/gsdx-old.png "GSdx old GUI"){width="294"
-height="594"} ![GSdx new
-GUI](/images/stories/frontend/1-4-0-rel/gsdx-new.png "GSdx new GUI"){width="353"
-height="597"}
+{{< img-cmp before="./img/gsdx-old.png" after="./img/gsdx-new.png">}}
 
 In conclusion, the team would like to thank everyone who has contributed
 with their time, knowledge, opinion, code or otherwise for this release
