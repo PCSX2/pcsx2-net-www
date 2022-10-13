@@ -34,6 +34,7 @@ markup:
     endLevel: 3
     startLevel: 2
 enableEmoji: true
+enableGitInfo: true
 # Website Parameters
 params:
   description: "PCSX2 is a free, multi-platform and open-source Playstation 2 emulator which supports over 98% of the original PS2 library.  Download the latest version or read up on our most recent development progress."
