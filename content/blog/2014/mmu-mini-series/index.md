@@ -44,7 +44,7 @@ after a start command.
 
 Let's see a basic example: starting some hardware counters
 
-![](./img/mmu-schematic-1s.png)
+![](./img/mmu-schematic-1s.webp)
 
 As you can see, without any OS you could easily kill your system. The OS
 allows the separation of privileged and standard resources.
@@ -57,7 +57,7 @@ Let's reuse our hardware counter example
 
 ------------------------------------------------------------------------
 
-![](./img/mmu-schematic-2s.png)
+![](./img/mmu-schematic-2s.webp)
 
 This time we want to start the same counter from two different threads.
 Unfortunately process 1 will be corrupted by process 2. It's pretty bad,
@@ -84,7 +84,7 @@ can have 10 virtual counters for only 2 physical counters.
 
 Let's redo the previous example with a virtualization layer in the OS.
 
-![](./img/mmu-schematic-3s.png)
+![](./img/mmu-schematic-3s.webp)
 
 As a side note, virtualization is a common solution for resource
 management. On the internet you have a logical IP address instead of
@@ -131,7 +131,7 @@ next time.
 
 See below a typical use model of the MMU:
 
-![](./img/mmu-schematic-4s.png)
+![](./img/mmu-schematic-4s.webp)
 
 
 The MMU is a nice and complex solution to handle memory access. But

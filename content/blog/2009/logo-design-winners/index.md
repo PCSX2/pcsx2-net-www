@@ -16,17 +16,17 @@ The pcsx2 logo design competition ended a while ago, and we had a lot of great s
 After weeks of voting, we were finally able to narrow down the winners:
 
 **New Logo by Nanxo:**
-![](./img/pcsx2logo_Nanxo.png)
+![](./img/pcsx2logo_Nanxo.webp)
 
 **New About Box Pic submitted by Tayfun and created by
 [ongakujunkie](http://edwinhuang.com/) :**
-![](./img/aboutlogo_Tayfun.png)
+![](./img/aboutlogo_Tayfun.webp)
 
 **New Icon by Jeonkz (modded for transparency by Air):**
-![](./img/icon_Jeonkz.png)
+![](./img/icon_Jeonkz.webp)
 
 **New favicon for Portal and Forums by NeoCloudstrife:**
-![](./img/Icon3-64.png)
+![](./img/Icon3-64.webp)
 
 We decided the 2nd place in the icon competition would be used as the
 small favicon sites have when you bookmark them,on the portal and

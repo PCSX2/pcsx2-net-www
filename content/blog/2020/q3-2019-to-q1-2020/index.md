@@ -31,7 +31,7 @@ This
 behavior is enabled by default in Jak games to fix the Black Eye
 rendering.
 
-{{< img-cmp-slider before="./img/gsdx-3018-before.png" after="./img/gsdx-3018-after">}}
+{{< img-cmp-slider before="./img/gsdx-3018-before.webp" after="./img/gsdx-3018-after">}}
 
 {{< progress/github-link prNums="3001" title="Implemented Software Sprite Renderer feature which allows to CPU emulate (SSE accelerated) certain sprite draws directly from the HW renderer" authors="AlessandroVetere" >}}
 
@@ -43,7 +43,7 @@ caused it to be much slower due to the required framebuffer readback to
 get the drawn palette from GPU to CPU. There are plans to implement the
 feature in other games such as DBZ BT2.
 
-{{< img-cmp-slider before="./img/gsdx-3001-before.png" after="./img/gsdx-3001-after.png">}}
+{{< img-cmp-slider before="./img/gsdx-3001-before.webp" after="./img/gsdx-3001-after.webp">}}
 
 {{< progress/github-link prNums="3036" title="Added a dedicated fix for Big Mutha Truckers which allows to render the shadows properly" authors="lightningterror" >}}
 
@@ -53,7 +53,7 @@ This also allowed us to reduce the crc hack level so there are less effects skip
 
 This allows it to render shadows properly. This also allowed us to remove crc hacks which previously skipped the incorrectly rendered effects.
 
-{{< img-cmp-slider before="./img/gsdx-2998-before.png" after="./img/gsdx-2998-after.png">}}
+{{< img-cmp-slider before="./img/gsdx-2998-before.webp" after="./img/gsdx-2998-after.webp">}}
 
 {{< progress/github-link prNums="2993" title="Sprite Hack has been completely removed" authors="KrossX,lightningterror" >}}
 
@@ -73,7 +73,7 @@ shadows rendered properly, DBZ BT2 having more accurate bloom/blur
 rendering, and Resident Evil 4's inaccurate fog rendering. Other games
 may be affected as well
 
-{{< img-cmp-slider before="./img/gsdx-3091-after.png" after="./img/gsdx-3091-after1.png">}}
+{{< img-cmp-slider before="./img/gsdx-3091-after.webp" after="./img/gsdx-3091-after1.webp">}}
 
 {{< progress/github-link prNums="3003" title="Blend no Barrier has been ported from OpenGL to Direct3D 10/11" authors="lightningterror" >}}
 
@@ -86,7 +86,7 @@ God of War, it bypasses slower, HDR colclip algorithm which is a bit
 slower, thus gaining some fps. Feature needs at least Basic Blending
 enabled for it to be properly rendered.
 
-{{< img-cmp-slider before="./img/gsdx-3003-before.png" after="./img/gsdx-3003-after.png">}}
+{{< img-cmp-slider before="./img/gsdx-3003-before.webp" after="./img/gsdx-3003-after.webp">}}
 
 # Core Improvements
 
@@ -131,7 +131,7 @@ So, thanks to some unusual test cases, the IPU pack command has now been
 partially fixed (the conversion to 4-bit indexed RGB data is still
 unimplemented due to a lack of test cases).
 
-{{< img-cmp-slider before="./img/core-3119-before.png" after="./img/core-3119-after.png">}}
+{{< img-cmp-slider before="./img/core-3119-before.webp" after="./img/core-3119-after.webp">}}
 
 ## Other
 

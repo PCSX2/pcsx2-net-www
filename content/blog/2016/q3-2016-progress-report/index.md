@@ -243,4 +243,4 @@ That's all of the notable changes for Q3!
 Please look forward to our next progress report. We might have something
 special for you...
 
-![](./img/teaser_s.png)
+![](./img/teaser_s.webp)

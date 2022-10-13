@@ -54,7 +54,7 @@ emulate (or else theres no point in threading it). Luckily the GS fit
 that bill very well (which gave us MTGS), and to a lesser extent VU1
 does (giving us MTVU).
 
-![](./img/PS2_Flow_Diagram.png)
+![](./img/PS2_Flow_Diagram.webp)
 (Some key components in the ps2; these arent drawn to any relative
 scale)
 

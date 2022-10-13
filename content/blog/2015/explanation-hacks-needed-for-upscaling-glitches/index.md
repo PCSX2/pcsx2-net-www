@@ -22,7 +22,7 @@ can be white while the other is black.
 
 Typical example of some continuous/discrete signals:
 
-![](./img/signals_s.png)
+![](./img/signals_s.webp)
 
 It is very easy and accurate to transform a continuous signal into a non
 continuous signal. You just need to sample it, i.e. take a subset of
@@ -84,9 +84,9 @@ a texture on to the primitive. You just need to provide the texture
 coordinates. Instead of a lengthy explanation, let's just use an
 example.
 
-![](./img/native_res_s.png)
+![](./img/native_res_s.webp)
 
-![](./img/native_x2_s.png)
+![](./img/native_x2_s.webp)
 
 As you can see in the picture, you will sample an invalid value at 2x
 resolution. Generally games use a texture atlas so you inadvertently
@@ -96,7 +96,7 @@ fit the intended behavior of the game. There are various corner cases so
 it is difficult to have something both fast and accurate. Many games are
 better but they're not perfect.
 
-![](./img/infinite_res_s.png)
+![](./img/infinite_res_s.webp)
 
 The hack also disables extra linear filtering. Globally the upscaling
 issue is caused by a texture that is too small. This was likely done on

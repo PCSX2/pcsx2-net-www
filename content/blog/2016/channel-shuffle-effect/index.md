@@ -89,7 +89,7 @@ function in the palette. So color 10 will be transformed to 15.
 
 Here's the palette that will do the brightness correction:
 
-![](./img/gt4_palette.png)
+![](./img/gt4_palette.webp)
 
 Here is an HLE (High Level Emulation) shader implementation.
 
@@ -156,8 +156,8 @@ it. And guess what? it is quite expensive.
 Here's the picture of the initial format (aka human format) and then the
 GS format:
 
-![](./img/gt4_before_effect_s.png)
-![](./img/gt4_before_effect_8bit_s.png)
+![](./img/gt4_before_effect_s.webp)
+![](./img/gt4_before_effect_8bit_s.webp)
 
 
 Yes it is nice but it is even more complex than you think. Granted, it
@@ -168,7 +168,7 @@ of the initial color.
 Will anybody find the original image part (full image can be seen
 below)?
 
-![](./img/gt4_sw_8bit_example2.png)
+![](./img/gt4_sw_8bit_example2.webp)
 
 You could imagine the complexity to debug the effect.
 
@@ -205,12 +205,12 @@ sprites. And that's it.
 
 Here's the special texture to unscramble data:
 
-![](./img/gt4_special_texture.png)
+![](./img/gt4_special_texture.webp)
 
 Plus some screenshots of the effect (before/after)
 
-![](./img/gt4_before_full_s.png)
-![](./img/gt4_after_s.png)
+![](./img/gt4_before_full_s.webp)
+![](./img/gt4_after_s.webp)
 
 # V) Second example: Urban Chaos rendering
 
@@ -237,7 +237,7 @@ the same but on the depth texture.
 
 Here's a small drawing to explain the now easy process:
 
-![](./img/urban_chaos_s.png)
+![](./img/urban_chaos_s.webp)
 
 At the top of the drawing, you have the 16 bits depth. The GS will read
 it as a color texture (aka RGB5A1) so I set some nice colors for the
@@ -255,11 +255,11 @@ based on depth information.
 
 Here's the float depth buffer of the GPU:
 
-![](./img/urban_chos_depth_in_s.png)
+![](./img/urban_chos_depth_in_s.webp)
 
 And now, the greenish texture generated to modulate the depth effect
 
-![](./img/urban_chaos_depth_out_s.png)
+![](./img/urban_chaos_depth_out_s.webp)
 
 # VI) Conclusion
 

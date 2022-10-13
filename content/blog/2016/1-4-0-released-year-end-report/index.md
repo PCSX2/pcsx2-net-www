@@ -46,7 +46,7 @@ So without further ado, here is the report!
 ## New Feature - Debugger
 - by [Kingcom](https://github.com/Kingcom)
 
-{{< img cols="6" src="./img/debugger_s.png">}}
+{{< img cols="6" src="./img/debugger_s.webp">}}
 
 The new debugger features a live disassembly view and allows developers
 to debug games way easier than before while being very useful feature in
@@ -84,7 +84,7 @@ memory cards.
 ## New Feature - EE Overclock
 - by [ssakash](https://github.com/ssakash) and [Blyss Sarania](https://github.com/Sarania)
 
-{{< img cols="6" src="./img/EEoc_s.png">}}
+{{< img cols="6" src="./img/EEoc_s.webp">}}
 
 You can now manipulate the EE Cyclerate to overclock and underclock the
 _Emotion Engine's_ R5900 Core CPU clock
@@ -385,7 +385,7 @@ with the Linux GUI.
 
 Here is a preview of the old GSdx GUI and the new one:
 
-{{< img-cmp before="./img/gsdx-old.png" after="./img/gsdx-new.png">}}
+{{< img-cmp before="./img/gsdx-old.webp" after="./img/gsdx-new.webp">}}
 
 In conclusion, the team would like to thank everyone who has contributed
 with their time, knowledge, opinion, code or otherwise for this release

@@ -146,9 +146,9 @@ modes with respect to it's accuracy and impact on performance.
 ## Log message and Title bar for showcasing Renderer change
 - by [Turtleli](https://github.com/turtleli) & [ssakash](https://github.com/ssakash)
 
-{{< img cols="6" src="./img/gsdx_renderer_displ.png">}}
+{{< img cols="6" src="./img/gsdx_renderer_displ.webp">}}
 
-{{< img cols="6" src="./img/gsdx_console_displ.png">}}
+{{< img cols="6" src="./img/gsdx_console_displ.webp">}}
 
 
 The following feature had been requested a few times but was very low

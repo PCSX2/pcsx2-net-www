@@ -159,18 +159,18 @@ Burnout, Stuntman, HSG4 and hopefully more.
 Here is an example of the rendering of letters.
 
 \* The alpha channel rendering of the old code after the 1st pass
-![](./img/this_first_pass_alpha.png)
+![](./img/this_first_pass_alpha.webp)
 
 \* The alpha channel rendering of the old code after the 2nd pass (yeah
 awful)
-![](./img/this_2nd_pass_alpha.png)
+![](./img/this_2nd_pass_alpha.webp)
 
 \* Now the color channel after the 2nd pass (notice the various holes
 due to wrong alpha blending)
-![](./img/this_color.png)
+![](./img/this_color.webp)
 
 \* Finally the alpha & color channel of the new code (alpha is much
 nicer and the letters as well)
-![](./img/this_good.png)
-![](./img/this_color_good.png)
+![](./img/this_good.webp)
+![](./img/this_color_good.webp)
 

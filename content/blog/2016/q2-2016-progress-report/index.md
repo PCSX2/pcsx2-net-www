@@ -55,7 +55,7 @@ controllers with a nice Dual Shock 2 graphic.
 ## Core: Automatic aspect ratio switch during FMV playback
 - by [FlatOut](https://github.com/FlatOutPS2)
 
-{{< img cols="6" src="./img/auto-aspect-ratio-switch.png">}}
+{{< img cols="6" src="./img/auto-aspect-ratio-switch.webp">}}
 
 Most games with a widescreen option (through either in-game setting or
 widescreen patch) have FMVs that are fixed to the original 4:3 aspect
@@ -225,14 +225,14 @@ style="font-weight: bold;"> (before) </span> <span
 style="font-weight: bold;"> ( <span style="color: #66cc33;"> 320 X 224
 </span> ) </span>
 
-{{< img cols="6" src="./img/timecrisis-before.png">}}
+{{< img cols="6" src="./img/timecrisis-before.webp">}}
 
 <span style="text-decoration: underline;"> Time Crisis 2 </span> <span
 style="font-weight: bold;"> (now) </span> <span
 style="font-weight: bold;"> ( <span style="color: #66cc33;"> 640 X 224
 </span> ) </span>
 
-{{< img cols="6" src="./img/timecrisis-after.png">}}
+{{< img cols="6" src="./img/timecrisis-after.webp">}}
 
 
 ## VIF: Timing fix for MSCALF, MSCNT instructions

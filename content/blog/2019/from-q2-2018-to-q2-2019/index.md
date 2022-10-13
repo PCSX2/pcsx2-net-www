@@ -97,7 +97,7 @@ each slot for each game. Also empty save/load slots will show an Empty
 name tag instead. empty load slots will also be greyed out from the GUI
 interface.
 
-{{< img cols="6" src="./img/saveslots.png">}}
+{{< img cols="6" src="./img/saveslots.webp">}}
 > Comparison of the old and new saveslot interface
 
 # GSdx: Enhancements for all renderers

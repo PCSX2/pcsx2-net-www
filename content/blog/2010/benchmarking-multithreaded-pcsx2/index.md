@@ -35,7 +35,7 @@ systems have built-in APIs for reading the busy/idle time of any thread
 on the system -- this is the same API used by your tried and true
 task/process manager, for example:
 
-![](./img/sysinternal.png)
+![](./img/sysinternal.webp)
 
 *(Air shows off his personal favorite,
 [ProcessExplorer](http://technet.microsoft.com/en-us/sysinternals/bb896653.aspx)

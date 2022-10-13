@@ -197,7 +197,7 @@ terribly huge per ISO but if you have many games then it can add up
 quite quickly. This chart shows the file size of a few games for
 uncompressed, gzip and CSO file types.
 
-{{< img cols="6" src="./img/chart1.png">}}
+{{< img cols="6" src="./img/chart1.webp">}}
 
 As you can see, gzip results in slightly smaller files when using ultra
 compression level. However it takes a lot longer to compress than CSO so

@@ -118,11 +118,11 @@ behavior.](https://github.com/PCSX2/pcsx2/pull/754)
 
 <span style="color: #2737d7; text-decoration: underline;"> Old FPS
 Counter </span>
-{{< img cols="6" src="./img/fpsold.png">}}
+{{< img cols="6" src="./img/fpsold.webp">}}
 
 <span style="color: #b5473a; text-decoration: underline;"> New FPS
 Counter </span>
-{{< img cols="6" src="./img/fpsnew.png">}}
+{{< img cols="6" src="./img/fpsnew.webp">}}
 
 The new format is specifically aimed to create less confusion for the
 users who assumed the previous FPS value as the original In-game FPS.

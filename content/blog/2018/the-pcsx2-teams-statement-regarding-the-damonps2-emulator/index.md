@@ -34,7 +34,7 @@ specific to PCSX2, and furthermore would not work elsewhere. We were
 also able to find matching CDVD strings using a text editor, such as the
 [message returned](./img/message-returned2.jpg) by
 the PCSX2 console when an PSX/PSone disc is inserted. Further evidence
-included a [matching file structure](./img/file-structure.png) and
+included a [matching file structure](./img/file-structure.webp) and
 graphical output that [mirrors GSdx](./img/gsdx.jpg).
 
 In response to this evidence, we contacted the developer to notify them

@@ -19,7 +19,7 @@ for the past 2 weeks.
 
 <!-- TODO - legacy low res pic? -->
 
-![](./img/googlecode_stats_256_thumb.png)
+![](./img/googlecode_stats_256_thumb.webp)
 
 On average, our SVN totals per day:
 

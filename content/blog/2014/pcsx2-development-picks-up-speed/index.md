@@ -98,4 +98,4 @@ Misc:
 
 Check out the new debugger below:
 
-{{< img cols="6" src="./img/debugger_s.png">}}
+{{< img cols="6" src="./img/debugger_s.webp">}}

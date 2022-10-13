@@ -104,7 +104,7 @@ efficient than a standard PC.
 
 Here is an overview of the TLB configuration.
 
-![](./img/mmu_memory_map_s.png)
+![](./img/mmu_memory_map_s.webp)
 
 As you can see, there are 2 modes, a USER mode for the game and a KERNEL
 mode for the PS2 OS. The mode selection is done by a CPU configuration

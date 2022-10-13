@@ -13,18 +13,9 @@ tasks:
   convert-compat:
     cmds:
       - python ./scripts/coerce-compat-data.py
-  cleanup-unused-images:
-    cmds:
-      - python ./scripts/cleanup-unused-assets.py
   convert-pngs:
     cmds:
       - python ./scripts/convert-pngs.py
-  cleanup-legacy:
-    cmds:
-      - python ./scripts/cleanup-legacy-files.py
-  migrate-legacy:
-    cmds:
-      - python ./scripts/migrate-article.py
   spell:
     cmds:
       - npx cspell content/**/*.md

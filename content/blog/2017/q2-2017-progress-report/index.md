@@ -107,7 +107,7 @@ certain scenarios.
 Here are some benchmarks of the change taken from Nouveau/Mesa
 drivers.
 
-{{< img cols="6" src="./img/shader-opt.png">}}
+{{< img cols="6" src="./img/shader-opt.webp">}}
 
 However, the performance gain on games should be very small. You might
 gain 1-2 fps at most cases and potentially higher if the bottleneck is
