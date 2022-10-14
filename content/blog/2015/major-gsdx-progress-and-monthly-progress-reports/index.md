@@ -83,7 +83,7 @@ Without/Without Round Sprite:
 
 For an in depth explanation of both of these new hacks, please read the
 developer blog post
-[here](/content/blog/2015/explanation-hacks-needed-for-upscaling-glitches/index.md).
+[here](/blog/2015/explanation-hacks-needed-for-upscaling-glitches/).
 
 Now we come to something that is not a hack. Many of you who played
 certain games have encountered an error in the log such as Impossible
@@ -116,7 +116,7 @@ Incorrect/Correct Blending:
 
 For an in depth explanation of why we have "impossible" blends and how
 Gregory fixed that, please read the developer blog post located
-[here](/content/blog/2015/explanation-impossible-blend/index.md).
+[here](/blog/2015/explanation-impossible-blend/).
 
 Next we will take a look at some of the changes happening in the OpenGL
 realm lately. Gregory has been working very hard on this oft neglected

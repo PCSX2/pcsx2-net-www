@@ -20,8 +20,8 @@ resume this old tradition.
 I will present you a mini series on the MMU (memory management unit) and
 virtual memory. Jake and ZeroFrog already wrote some posts relating to
 this topic:
-- [So Maybe It S About Time We Explained Vtlb](/content/blog/2009/so-maybe-it-s-about-time-we-explained-vtlb/index.md)
-- [Virtual Memory](/content/blog/2006/virtual-memory/index.md)
+- [So Maybe It's About Time We Explained Vtlb](/blog/2009/so-maybe-it-s-about-time-we-explained-vtlb/)
+- [Virtual Memory](/blog/2006/virtual-memory/)
 
 This time, I will explain the goal of MMU and why it is mandatory for
 modern systems. The MMU is a cornerstone for stability and security. I
