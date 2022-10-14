@@ -27,7 +27,7 @@ guide](https://github.com/PCSX2/pcsx2/wiki/Installing-on-Linux) .
 ## Q3,Q4 2019 - Q1 2020 Changes
 
 Q3-Q4 2019, Q1 2010 progress report highlights, read the full report
-[here](/content/blog/2020/q3-2019-to-q1-2020/index.md)
+[here](/blog/2020/q3-2019-to-q1-2020/)
 
 **GSdx changelog:**
 
@@ -108,7 +108,7 @@ which are no longer needed.
 ## Q2 2018-Q2 2019 Changes
 
 Q2 2018 - Q2 2019 progress Report highlights, read the full report
-[here](/content/blog/2019/from-q2-2018-to-q2-2019/index.md)
+[here](/blog/2019/from-q2-2018-to-q2-2019/)
 
 **GSdx changelog:**
 
@@ -185,7 +185,7 @@ SPU2-X-GUI: The gui has been updated to improve usability.
 ## Q1 2018 Changes
 
 Q1 2018 progress report hightlights, read the full report
-[here](/content/blog/2018/q1-2018-progress-report/index.md)
+[here](/blog/2018/q1-2018-progress-report/)
 
 **GSdx changelog:**
 
@@ -221,7 +221,7 @@ Gamedb: Game database has been updated with many new gamefixes included.
 ## Q3-Q4 2017 Changes
 
 Q3 & Q4 2017 progress report hightlights, read the full report
-[here](/content/blog/2018/q3-q4-2017-progress-report/index.md)
+[here](/blog/2018/q3-q4-2017-progress-report/)
 
 **GSdx changelog:**
 
@@ -250,10 +250,10 @@ PCSX2: Many translations have been updated.
 ## Q1-Q2 2017 Changes
 
 Q1 2017 progress report highlights, read the full report
-[here](/content/blog/2017/q1-2017-progress-report/index.md)
+[here](/blog/2017/q1-2017-progress-report/)
 
 Q2 2017 progress report highlights, read the full report
-[here](/content/blog/2017/q2-2017-progress-report/index.md)
+[here](/blog/2017/q2-2017-progress-report/)
 
 GSdx changelog:
 
@@ -306,10 +306,10 @@ CMake: Blacklist GCC 7.0/7.1 versions.
 ## Q3-Q4 2016 Changes
 
 Q3 2016 progress report hightlights, read the full report
-[here](/content/blog/2016/q3-2016-progress-report/index.md)
+[here](/blog/2016/q3-2016-progress-report/)
 
 Q4 2016 progress report hightlights, read the full report
-[here](/content/blog/2017/q4-2016-progress-report/index.md)
+[here](/blog/2017/q4-2016-progress-report/)
 
 **GSdx changelog:**
 
@@ -366,10 +366,10 @@ Windows: Remove DirectX redistributable dependency on Windows 8.1/10.
 ## Q1-Q2 2016 Changes
 
 January - February 2016 progress report hightlights, read the full
-report [here](/content/blog/2016/january-february-2016-progress-report/index.md)
+report [here](/blog/2016/january-february-2016-progress-report/)
 
 Q2 2016 progress report hightlights, read the full report
-[here](/content/blog/2016/q2-2016-progress-report/index.md)
+[here](/blog/2016/q2-2016-progress-report/)
 
 **GSdx changelog:**
 

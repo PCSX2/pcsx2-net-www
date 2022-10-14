@@ -4,7 +4,7 @@ date: 2005-09-21T00:00:00
 summary: "Linuzappz the lead coder for the PCSX2 project has 'officially' quit"
 draft: false
 tags:
-  - devbllog
+  - devblog
 mainAuthor: CKemu
 aliases:
   - "/187-sad-news"
