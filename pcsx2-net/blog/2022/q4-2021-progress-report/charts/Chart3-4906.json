@@ -1,0 +1,34 @@
+{
+  "type": "bar",
+  "chartData": {
+    "labels": [
+      "MDK2",
+      "Syphon Filter DM",
+      "Drakan Ancient Gates",
+      "Tomb Raider AoD", 
+      "Hitman 2"
+    ],
+    "datasets": [{
+      "label": "Before (1070)",
+      "backgroundColor": "rgb(106, 156, 255)",
+      "borderColor": "blue",
+      "data": [145, 90, 110, 155, 230]
+    },
+    {
+      "label": "After (1070)",
+      "backgroundColor": "rgb(200, 45, 69)",
+      "borderColor": "red",
+      "data": [180, 104, 118, 177, 235]
+    }]
+  },
+  "chartOptions": {
+    "scales": {
+      "y": {
+        "title": {
+          "display": true,
+          "text": "Frames Per Seconds (VPS)"
+        }
+      }
+    }
+  }
+}
