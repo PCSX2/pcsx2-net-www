@@ -11,9 +11,10 @@ function generatePRLinks(prNums) {
     return (null);
   }
   let icons = [];
+  let i = 0;
   for (const num of nums) {
     icons.push(
-      <a href={`https://github.com/PCSX2/pcsx2/pull/${num}`}>
+      <a key={i++} href={`https://github.com/PCSX2/pcsx2/pull/${num}`}>
         <GitPullRequestIcon size={24} verticalAlign="middle"></GitPullRequestIcon>
         {num}
       </a>
@@ -31,9 +32,10 @@ function generateCommitLinks(commitShas) {
     return (null);
   }
   let icons = [];
+  let i = 0;
   for (const sha of shas) {
     icons.push(
-      <a href={`https://github.com/PCSX2/pcsx2/commit/${sha}`}>
+      <a key={i++} href={`https://github.com/PCSX2/pcsx2/commit/${sha}`}>
         <CommitIcon size={24} ></CommitIcon>
         {sha}
       </a>
@@ -56,9 +58,8 @@ function generateAuthorAvatars(authors) {
   let i = 0;
   for (const author of authorNames) {
     avatars.push(
-      <Tooltip content={author}>
+      <Tooltip key={i++} content={author}>
         <Avatar
-          key={i++}
           size="md"
           src={authorsWithoutAvatars.includes(author.toLowerCase()) ? undefined : `https://github.com/${author}.png?size=40`}
           text={author}

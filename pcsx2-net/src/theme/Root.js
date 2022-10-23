@@ -23,19 +23,26 @@ export default function Root({ children }) {
   useEffect(() => {
     // you can use any storage
     let theme = window.localStorage.getItem('theme');
-    console.log(`theme - ${theme}`);
     setIsDark(theme === 'dark');
 
     const observer = new MutationObserver((mutation) => {
+      // console.log(mutation);
       let newTheme = getDocumentTheme(document?.documentElement);
-      console.log(`what - ${newTheme}`);
-      setIsDark(newTheme === 'dark');
+      if (newTheme === 'dark') {
+        if (!document?.documentElement.classList.contains("dark-theme")) {
+          console.log("changing class list!")
+          document?.documentElement.classList.add('dark-theme');
+        }
+        setIsDark(true);
+      } else {
+        setIsDark(false);
+      }
     });
 
     // Observe the document theme changes
     observer.observe(document?.documentElement, {
       attributes: true,
-      attributeFilter: ['data-theme', 'style']
+      attributeFilter: ['data-theme', 'style', "class"]
     });
 
     return () => observer.disconnect();

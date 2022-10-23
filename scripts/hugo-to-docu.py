@@ -1,8 +1,8 @@
 
 from distutils.dir_util import copy_tree
 import glob
-from io import BytesIO
 import os
+import re
 import frontmatter
 
 def conv_frontmatter(new_key, old_key, new_meta, old_meta, invert_bool = False):
@@ -15,7 +15,9 @@ def conv_frontmatter(new_key, old_key, new_meta, old_meta, invert_bool = False):
 def convert_content(content):
   new_content = []
   for line in content.splitlines():
-    if "progress/github-link" in line:
+    if "{{<" in line and ">}}" not in line:
+      print("multi-line shortcode - {}".format(line))
+    elif "progress/github-link" in line:
       # get props
       title = None
       prNums = []
@@ -40,6 +42,42 @@ def convert_content(content):
         markup = markup + ' shas="{}"'.format(",".join(shas))
       markup = markup + '>{}</PCSX2PRLink>'.format(title)
       new_content.append(markup)
+    elif "img-cmp-slider" in line:
+      # get props
+      before = ""
+      after = ""
+      if "before" in line:
+        before = line.split("before=\"")[1].split("\"")[0]
+      if "after" in line:
+        after = line.split("after=\"")[1].split("\"")[0]
+      new_content.append('<SliderCompare before={{require("{}").default}} after={{require("{}").default}} />'.format(before, after))
+    elif "img-cmp " in line:
+      # get props
+      before = ""
+      after = ""
+      if "before" in line:
+        before = line.split("before=\"")[1].split("\"")[0]
+      if "after" in line:
+        after = line.split("after=\"")[1].split("\"")[0]
+      new_content.append('<ImageCompare left={{require("{}").default}} right={{require("{}").default}} />'.format(before, after))
+    elif "{{< img " in line:
+      # get props
+      cols = ""
+      src = ""
+      if "cols" in line:
+        cols = line.split("cols=\"")[1].split("\"")[0]
+        if not cols.isnumeric():
+          cols = None
+      if "src" in line:
+        src = line.split("src=\"")[1].split("\"")[0]
+      if cols is None:
+        new_content.append('<Image src={{require("{}").default}} />'.format(src))
+      else:
+        new_content.append('<Image cols={{{}}}src={{require("{}").default}} />'.format(cols, src))
+    elif "{{<" in line:
+      print("unhandled shortcode - {}".format(line))
+    elif re.match("<\w+\s", line):
+      print("unhandled html tag - {}".format(line))
     else:
       new_content.append(line)
   return "\n".join(new_content)
@@ -82,6 +120,8 @@ def convert_article(orig_path):
   # write out new post
   with open("{}/index.md".format(new_dir), "wb+") as f:
     frontmatter.dump(new_post, f)
+  if (os.path.isfile("{}/index.mdx".format(new_dir))):
+    os.remove("{}/index.mdx".format(new_dir))
   os.rename("{}/index.md".format(new_dir), "{}/index.mdx".format(new_dir))
 
 convert_article("content/blog/2022/q4-2021-progress-report/index.md")

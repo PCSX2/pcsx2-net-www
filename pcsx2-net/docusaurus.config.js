@@ -26,15 +26,8 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  scripts: [
-    {
-      src: 'https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.83/dist/shoelace.js',
-      type: "module"
-    }
-  ],
   stylesheets: [
-    'https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.83/dist/themes/light.css',
-    'https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&family=Roboto+Mono:wght@400;700&display=swap',
+    'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;700&display=swap',
     "https://fonts.googleapis.com/icon?family=Material+Icons"
   ],
   presets: [

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Grid } from "@nextui-org/react";
 
-export default function SliderCompare({ children, before, after }) {
+export default function SliderCompare({ children, cols, before, after }) {
   let isDragging = false;
 
   const imgClipper = useRef(null);
@@ -38,6 +38,9 @@ export default function SliderCompare({ children, before, after }) {
     }
   }
 
+  // We don't know the sizes of the images until they are loaded
+  // its technically best practice to put the size in the DOM but this would be
+  // incredibly painful to do from a writing perspective
   function imageLoaded(event) {
     let aspectRatio = event.target.naturalWidth / event.target.naturalHeight;
     container.current.style["aspect-ratio"] = aspectRatio;
@@ -45,7 +48,7 @@ export default function SliderCompare({ children, before, after }) {
 
   return (
     <Grid.Container>
-      <Grid xs={12}>
+      <Grid xs={12} md={Math.min(12, cols ?? 12)}>
         <div ref={container} className="img-compare-container"
           onMouseUp={handleMouseUp}
           onMouseDown={handleMouseDownOrTouchStart}
