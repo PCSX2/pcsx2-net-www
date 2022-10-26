@@ -2,7 +2,7 @@
 title: "Q1 2022 Progress Report"
 date: 2022-10-17T00:00:00
 summary: "Train of Qt."
-draft: true
+draft: false
 tags:
   - "progress-report"
 mainAuthor: RedDevilus
