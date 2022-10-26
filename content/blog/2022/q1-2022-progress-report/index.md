@@ -20,15 +20,9 @@ toc: true
 
 {{< progress/github-link shas="c5ae4a69579aabe6e17283df6bcb4962d9209cbb" title="CDVD: If you abort, actually abort." authors="refractionpcsx2" >}}
 
-
-
 {{< progress/github-link shas="fb5e5cc13fde626368a4180ca4e76c80da76ad1b" title="CDVD: Don't delay abort commands on DVDs, at least for now..Fixes #5301" authors="refractionpcsx2" >}}
 
-
-
 {{< progress/github-link shas="4194553450846e549d7be9a4e7a9f4f5b6e52d2f" title="CDVD: Centralise cdvd.Ready updates + add MECHA_INIT bit" authors="refractionpcsx2" >}}
-
-
 
 ### VU
 
@@ -313,8 +307,6 @@ toc: true
 {{< progress/github-link prNums="5766" title="GS/Vulkan: Implement FXAA and Shadeboost" authors="stenzek" >}}
 
 {{< progress/github-link shas="35d516e140d9b1e6a2a604f1afefc2f416553714" title="GS: Fix GetRecommendedCRCHackLevel for Vulkan.Issue #5312" authors="lightningterror" >}}
-
-
 
 ## Misc Improvements
 
