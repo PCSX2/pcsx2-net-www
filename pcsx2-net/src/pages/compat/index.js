@@ -2,7 +2,7 @@ import React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import compatData from "/data/compat/data.min.json";
-import { Table, Grid, Tooltip, Badge, Link } from '@nextui-org/react';
+import { Table, Grid, Tooltip, Badge, Link,Input } from '@nextui-org/react';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import ForumIcon from '@mui/icons-material/Forum';
 
@@ -108,7 +108,6 @@ export default function Compatiblity() {
       case "region":
         return getEmojiFlag(cellValue);
       case "latest_testing":
-        // TODO - different color if it's an older version of the emulator
         if (cellValue) {
           let color = "neutral";
           if (cellValue.version.startsWith("1.6") || cellValue.version.startsWith("1.7")) {
@@ -155,6 +154,9 @@ export default function Compatiblity() {
       description="Find out how well your PlayStation 2 games will run on PCSX2 and if there are any associated issues">
       <main>
         <Grid.Container>
+          <Grid xs={12}>
+            <Input label="Search by Name, Serial or CRC"></Input>
+          </Grid>
           <Grid xs={12}>
             <Table
               compact

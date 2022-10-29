@@ -77,8 +77,8 @@ const config = {
         },
         items: [
           {to: '/downloads', label: 'Download', position: 'left'},
-          {type: 'doc',docId: 'intro',label: 'Documentation', position: 'left'},
           {to: '/compat', label: 'Compatibility', position: 'left'},
+          {type: 'doc',docId: 'intro',label: 'Documentation', position: 'left'},
           {to: '/blog', label: 'Blog', position: 'left'},
           {to: 'https://github.com/sponsors/PCSX2', label: 'Donate', position: 'right'},
           {to: 'https://discord.com/invite/TCz3t9k', label: 'Discord', position: 'right'},
