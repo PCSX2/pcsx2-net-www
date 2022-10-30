@@ -1,10 +1,7 @@
 import React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import compatData from "/data/compat/data.min.json";
 import { Table, Grid, Tooltip, Badge, Link,Input } from '@nextui-org/react';
-import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
-import ForumIcon from '@mui/icons-material/Forum';
 
 import styles from './index.module.css';
 

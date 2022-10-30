@@ -30,7 +30,6 @@ export default function Root({ children }) {
       let newTheme = getDocumentTheme(document?.documentElement);
       if (newTheme === 'dark') {
         if (!document?.documentElement.classList.contains("dark-theme")) {
-          console.log("changing class list!")
           document?.documentElement.classList.add('dark-theme');
         }
         setIsDark(true);

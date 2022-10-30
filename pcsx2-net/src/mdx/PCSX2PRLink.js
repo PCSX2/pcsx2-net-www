@@ -1,5 +1,5 @@
 import React from 'react';
-import { CommitIcon, GitPullRequestIcon } from '@primer/octicons-react'
+import { GoGitCommit, GoGitPullRequest } from "react-icons/go";
 import { Avatar, Grid, Tooltip, Text, Spacer } from "@nextui-org/react";
 
 function generatePRLinks(prNums) {
@@ -15,7 +15,7 @@ function generatePRLinks(prNums) {
   for (const num of nums) {
     icons.push(
       <a key={i++} href={`https://github.com/PCSX2/pcsx2/pull/${num}`}>
-        <GitPullRequestIcon size={24} verticalAlign="middle"></GitPullRequestIcon>
+        <GoGitPullRequest size={24} verticalAlign="middle"></GoGitPullRequest>
         {num}
       </a>
     )
@@ -36,7 +36,7 @@ function generateCommitLinks(commitShas) {
   for (const sha of shas) {
     icons.push(
       <a key={i++} href={`https://github.com/PCSX2/pcsx2/commit/${sha}`}>
-        <CommitIcon size={24} ></CommitIcon>
+        <GoGitCommit size={24} ></GoGitCommit>
         {sha}
       </a>
     )

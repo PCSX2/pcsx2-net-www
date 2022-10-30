@@ -72,7 +72,6 @@ export default function Home() {
         <Container
           alignItems="center"
           as="section"
-          className="hero__container"
           css={{
             position: "relative",
             height: "calc(84vh - 76px)",
@@ -88,7 +87,6 @@ export default function Home() {
         >
           <Row
             align="center"
-            className="hero__content"
             css={{
               zIndex: "$2",
               "@mdMax": {
@@ -102,7 +100,6 @@ export default function Home() {
             wrap="wrap"
           >
             <Col
-              className="hero__left-container"
               css={{
                 position: "relative",
                 zIndex: "$2",
@@ -119,8 +116,7 @@ export default function Home() {
                   <StyledGradientTitle css={{ mb: 0 }}>PCSX2&nbsp;</StyledGradientTitle>
                   <StyledTitle css={{ mb: 0 }}>is an open source&nbsp;</StyledTitle>
                   <StyledGradientTitle css={{ mb: 0 }}>PS2 Emulator&nbsp;</StyledGradientTitle>
-
-                  <StyledSubtitle className="hero__text-subtitle">
+                  <StyledSubtitle>
                     {/* TODO - make this a ticker of the current number of games considered playable */}
                     Supporting Over 98% Of The Original PS2 Library
                   </StyledSubtitle>
