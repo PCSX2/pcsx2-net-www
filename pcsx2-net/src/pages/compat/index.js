@@ -109,10 +109,6 @@ const columns = [
     label: "STATUS",
   },
   {
-    key: "region",
-    label: "REGION",
-  },
-  {
     key: "latest_testing",
     label: "LATEST TESTING",
   },
@@ -140,8 +136,6 @@ const renderCell = (user, columnKey) => {
         default:
           return <Badge borderWeight="light" color="error">{cellValue}</Badge>;
       }
-    case "region":
-      return getEmojiFlag(cellValue);
     case "latest_testing":
       if (cellValue) {
         let color = "neutral";
@@ -163,10 +157,12 @@ const renderCell = (user, columnKey) => {
     case "links":
       const icons = [];
       if (cellValue?.wiki) {
-        icons.push(<Grid><Link href={cellValue.wiki} target="_blank" rel="noopener noreferrer"><MdLibraryBooks size={22}></MdLibraryBooks></Link></Grid>);
+        icons.push(<Grid>
+          <Tooltip content={"Wiki Page"} placement={"left"}>
+          <Link href={cellValue.wiki} target="_blank" rel="noopener noreferrer"><MdLibraryBooks size={22}></MdLibraryBooks></Link></Tooltip></Grid>);
       }
       if (cellValue?.forum) {
-        icons.push(<Grid><Link href={cellValue.forum} target="_blank" rel="noopener noreferrer"><MdForum size={22}></MdForum></Link></Grid>);
+        icons.push(<Grid><Tooltip content={"Forum Post"} placement={"left"}><Link href={cellValue.forum} target="_blank" rel="noopener noreferrer"><MdForum size={22}></MdForum></Link></Tooltip></Grid>);
       }
       if (icons.length > 0) {
         return <Grid.Container>
@@ -176,6 +172,7 @@ const renderCell = (user, columnKey) => {
         return (null);
       }
     case "serial":
+      return <span className="monospaced">{getEmojiFlag(user["region"])}&nbsp;{cellValue}</span>
     case "crc":
       return <span className="monospaced">{cellValue}</span>
     default:
@@ -206,15 +203,16 @@ export default function Compatiblity() {
     nothing: false
   });
   const [filterStats, setFilterStats] = useState({
-    perfect: -1,
-    playable: -1,
-    ingame: -1,
-    menus: -1,
-    intro: -1,
-    nothing: -1
+    perfect: undefined,
+    playable: undefined,
+    ingame: undefined,
+    menus: undefined,
+    intro: undefined,
+    nothing: undefined
   })
   const [loadingState, setLoadingState] = useState("loading");
   const [page, setPage] = useState(1);
+  const [searchString, setSearchString] = useState("");
 
   useEffect(async () => {
     const resp = await fetch(
@@ -229,14 +227,13 @@ export default function Compatiblity() {
     setLoadingState("idle");
   }, []);
 
-  const searchOrFilter = ((evt) => {
+  const filterData = async () => {
     // Start with the raw data, filter it by status first
     let newFilteredData = tableData.filter(entry => {
-      return !filterOptions[entry.status];
+      return !filterOptions[entry.status.toLowerCase()];
     });
 
     // Then filter by the search if applicable
-    const searchString = evt.target.value;
     if (searchString !== "") {
       const fuse = new Fuse(newFilteredData, searchOptions);
       const results = fuse.search(searchString);
@@ -248,13 +245,28 @@ export default function Compatiblity() {
       newFilteredData = searchItems;
     }
     setFilteredData(newFilteredData);
-  });
+  };
 
   const toggleFilter = ((filter) => {
     let newOptions = { ...filterOptions };
     newOptions[filter] = !newOptions[filter];
     setFilterOptions(newOptions);
-  })
+  });
+
+  const changeSearchString = ((evt) => {
+    setSearchString(evt.target.value);
+  });
+
+  useEffect(() => {
+    filterData();
+  }, [searchString, filterOptions])
+
+  const perfectFilterText = filterStats.perfect === undefined ? "" : `Perfect - ${round(filterStats.perfect / tableData.length * 100, 2)}%`;
+  const playableFilterText = filterStats.playable === undefined ? "" : `Playable - ${round(filterStats.playable / tableData.length * 100, 2)}%`;
+  const ingameFilterText = filterStats.ingame === undefined ? "" : `In-Game - ${round(filterStats.ingame / tableData.length * 100, 2)}%`;
+  const menusFilterText = filterStats.menus === undefined ? "" : `Menus - ${round(filterStats.menus / tableData.length * 100, 2)}%`;
+  const introFilterText = filterStats.intro === undefined ? "" : `Intros - ${round(filterStats.intro / tableData.length * 100, 2)}%`;
+  const nothingFilterText = filterStats.nothing === undefined ? "" : `Nothing - ${round(filterStats.nothing / tableData.length * 100, 2)}%`;
 
   return (
     <Layout
@@ -274,26 +286,32 @@ export default function Compatiblity() {
           </Grid>
           <Grid.Container gap={2} alignItems={"end"}>
             <Grid xs={4}>
-              <Input label="Search by Name, Serial or CRC" width='100%' onChange={searchOrFilter} disabled={loadingState === "loading"}></Input>
+              <Input label="Search by Name, Serial or CRC" width='100%' onChange={changeSearchString} disabled={loadingState === "loading"}></Input>
             </Grid>
             <Grid xs={8}>
-              <Button bordered={filterOptions.perfect} color="success" auto css={{ mr: "1em" }} onPress={() => toggleFilter("perfect")}>
-                Perfect&nbsp;-&nbsp;{`${round(filterStats.perfect / tableData.length * 100, 2)}%`}
+              <Button bordered={filterOptions.perfect} disabled={filterStats.perfect === undefined} color="success" auto css={{ mr: "1em" }} onPress={() => toggleFilter("perfect")}>
+                {filterStats.perfect === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
+                {perfectFilterText}
               </Button>
-              <Button bordered={filterOptions.playable} color="primary" auto css={{ mr: "1em" }}>
-                Playable&nbsp;-&nbsp;{`${round(filterStats.playable / tableData.length * 100, 2)}%`}
+              <Button bordered={filterOptions.playable} disabled={filterStats.playable === undefined} color="primary" auto css={{ mr: "1em" }} onPress={() => toggleFilter("playable")}>
+              {filterStats.playable === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
+              {playableFilterText}
               </Button>
-              <Button bordered={filterOptions.ingame} color="secondary" auto css={{ mr: "1em" }}>
-                In-Game&nbsp;-&nbsp;{`${round(filterStats.ingame / tableData.length * 100, 2)}%`}
+              <Button bordered={filterOptions.ingame} disabled={filterStats.ingame === undefined} color="secondary" auto css={{ mr: "1em" }} onPress={() => toggleFilter("ingame")}>
+              {filterStats.ingame === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
+                {ingameFilterText}
               </Button>
-              <Button bordered={filterOptions.menus} color="warning" auto css={{ mr: "1em" }}>
-                Menus&nbsp;-&nbsp;{`${round(filterStats.menus / tableData.length * 100, 2)}%`}
+              <Button bordered={filterOptions.menus} disabled={filterStats.menus === undefined} color="warning" auto css={{ mr: "1em" }} onPress={() => toggleFilter("menus")}>
+              {filterStats.menus === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
+                {menusFilterText}
               </Button>
-              <Button bordered={filterOptions.intro} color="warning" auto css={{ mr: "1em" }}>
-                Intros&nbsp;-&nbsp;{`${round(filterStats.intro / tableData.length * 100, 2)}%`}
+              <Button bordered={filterOptions.intro} disabled={filterStats.intro === undefined} color="warning" auto css={{ mr: "1em" }} onPress={() => toggleFilter("intro")}>
+              {filterStats.intro === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
+                {introFilterText}
               </Button>
-              <Button bordered={filterOptions.nothing} color="error" auto>
-                Nothing&nbsp;-&nbsp;{`${round(filterStats.nothing / tableData.length * 100, 2)}%`}
+              <Button bordered={filterOptions.nothing} disabled={filterStats.nothing === undefined} color="error" auto onPress={() => toggleFilter("nothing")}>
+              {filterStats.nothing === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
+                {nothingFilterText}
               </Button>
             </Grid>
           </Grid.Container>

@@ -79,19 +79,44 @@ const config = {
           {to: '/downloads', label: 'Download', position: 'left'},
           {to: '/compat', label: 'Compatibility', position: 'left'},
           {type: 'doc',docId: 'intro',label: 'Documentation', position: 'left'},
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/blog', label: 'Blog', position: 'left', items: [
+            {
+              label: "Progress Reports",
+              to: "/blog/tags/progress-report"
+            },
+            {
+              label: "Developer Blogs",
+              to: "/blog/tags/dev-blog"
+            }
+          ]},
           {to: 'https://github.com/sponsors/PCSX2', label: 'Donate', position: 'right'},
-          {to: 'https://discord.com/invite/TCz3t9k', label: 'Discord', position: 'right'},
+          // {
+          //   type: 'search',
+          //   position: 'right',
+          // },
           {to: 'https://forums.pcsx2.net/', label: 'Forums', position: 'right'},
           {to: 'https://wiki.pcsx2.net/', label: 'Wiki', position: 'right'},
-          {to: 'https://twitter.com/PCSX2', label: 'Twitter', position: 'right'},
-          {to: 'https://www.youtube.com/user/PCSX2team', label: 'YouTube', position: 'right'},
           {
             href: 'https://github.com/PCSX2/pcsx2',
             position: 'right',
             className: 'header-github-link',
-            'aria-label': 'GitHub repository',
+            'aria-label': 'PCSX2 GitHub repository',
+            target: "_blank"
           },
+          {
+            href: 'https://twitter.com/PCSX2',
+            position: 'right',
+            className: 'header-twitter-link',
+            'aria-label': 'PCSX2 Twitter',
+            target: "_blank"
+          },
+          {
+            href: 'https://www.youtube.com/user/PCSX2team',
+            position: 'right',
+            className: 'header-youtube-link',
+            'aria-label': 'PCSX2 YouTube channel',
+            target: "_blank"
+          }
         ],
       },
       footer: {
