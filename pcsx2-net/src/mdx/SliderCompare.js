@@ -47,7 +47,7 @@ export default function SliderCompare({ children, cols, before, after }) {
   }
 
   return (
-    <Grid.Container>
+    <Grid.Container style={{marginBottom: "1em"}}>
       <Grid xs={12} md={Math.min(12, cols ?? 12)}>
         <div ref={container} className="img-compare-container"
           onMouseUp={handleMouseUp}

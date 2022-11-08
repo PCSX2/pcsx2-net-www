@@ -97,6 +97,13 @@ const config = {
           {to: 'https://forums.pcsx2.net/', label: 'Forums', position: 'right'},
           {to: 'https://wiki.pcsx2.net/', label: 'Wiki', position: 'right'},
           {
+            href: 'https://discord.com/invite/TCz3t9k',
+            position: 'right',
+            className: 'header-discord-link',
+            'aria-label': 'PCSX2 Discord Server',
+            target: "_blank"
+          },
+          {
             href: 'https://github.com/PCSX2/pcsx2',
             position: 'right',
             className: 'header-github-link',
@@ -120,12 +127,75 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
         links: [
           {
-            label: 'Privacy Policy',
-            href: 'TODO',
+            title: 'Links',
+            items: [
+              {
+                label: 'Downloads',
+                to: "/downloads"
+              },
+              {
+                label: 'Compatibility',
+                to: "/compat"
+              },
+              {
+                label: 'Documentation',
+                to: "/docs"
+              },
+              {
+                label: 'Blog',
+                to: "/blog"
+              },
+              {
+                label: "Wiki",
+                href: "https://forums.pcsx2.net/"
+              }
+            ],
           },
+          {
+            title: 'Contribute',
+            items: [
+              {
+                label: 'Donate',
+                href: "https://github.com/sponsors/PCSX2"
+              },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/PCSX2/pcsx2',
+              }
+            ],
+          },
+          {
+            title: 'Community',
+            items: [
+              {
+                label: 'Discord',
+                href: 'https://discord.com/invite/TCz3t9k',
+              },
+              {
+                label: 'Forums',
+                href: 'https://forums.pcsx2.net/',
+              },
+              {
+                label: 'Twitter',
+                href: 'https://twitter.com/PCSX2',
+              },
+              {
+                label: 'YouTube',
+                href: 'https://www.youtube.com/user/PCSX2team',
+              }
+            ],
+          },
+          {
+            title: 'Legal',
+            items: [
+              {
+                label: 'Privacy',
+                to: '/privacy',
+              }
+            ],
+          }
         ],
         copyright: `Copyright © ${new Date().getFullYear()} PCSX2. All Rights Reserved.`,
       },

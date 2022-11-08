@@ -2,16 +2,15 @@ vaser:
   name: Vaser
   url: https://github.com/xTVaser
   image_url: https://github.com/xTVaser.png
-# TODO
 reddevilus:
-  name: Vaser
-  url: https://github.com/xTVaser
-  image_url: https://github.com/xTVaser.png
+  name: RedDevilus
+  url: https://github.com/RedDevilus
+  image_url: https://github.com/RedDevilus.png
 tellowkrinkle:
-  name: Vaser
-  url: https://github.com/xTVaser
-  image_url: https://github.com/xTVaser.png
+  name: Tellowkrinkle
+  url: https://github.com/Tellowkrinkle
+  image_url: https://github.com/Tellowkrinkle.png
 refractionpcsx2:
-  name: Vaser
-  url: https://github.com/xTVaser
-  image_url: https://github.com/xTVaser.png
+  name: Refraction
+  url: https://github.com/refractionpcsx2
+  image_url: https://github.com/refractionpcsx2.png

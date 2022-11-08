@@ -5,6 +5,7 @@ import PCSX2PRLink from '@site/src/mdx/PCSX2PRLink';
 import SliderCompare from '@site/src/mdx/SliderCompare';
 import Image from '@site/src/mdx/Image';
 import ImageCompare from '@site/src/mdx/ImageCompare';
+import TextGradient from '@site/src/mdx/TextGradient';
 
 export default {
   // Re-use the default mapping
@@ -12,5 +13,6 @@ export default {
   "PCSX2PRLink": PCSX2PRLink,
   "SliderCompare": SliderCompare,
   "Image": Image,
-  "ImageCompare": ImageCompare
+  "ImageCompare": ImageCompare,
+  "TextGradient": TextGradient,
 };

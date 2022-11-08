@@ -32,81 +32,45 @@ function openAssetLink(href) {
   }).click();
 }
 
-function ReleaseDropdown(release, isNightly) {
-  const windowsItems = [];
-  const linuxItems = [];
-  const macosItems = [];
+function ReleaseDropdownItems(version, assets, textRemovals, isNightly) {
+  if (!assets) {
+    return [];
+  }
 
   let fillColor = "var(--nextui-colors-primary)";
   if (isNightly) {
     fillColor = "var(--nextui-colors-warning)";
   }
 
-  if (release?.windows) {
-    for (const asset of release.windows.assets.Windows.filter(asset => !asset.additionalTags.includes("symbols"))) {
-      let displayName = toProperCase(asset.displayName.replace("Windows", "").trim());
-      if (asset.additionalTags.length > 0) {
+  let items = [];
+  for (const asset of assets.filter(asset => !asset.additionalTags.includes("symbols"))) {
+    let displayName = asset.displayName;
+    for (const removal of textRemovals) {
+      displayName = displayName.replace(removal, "");
+    }
+    displayName = toProperCase(displayName.trim());
+    if (asset.additionalTags.length > 0) {
+      if (displayName === "") {
+        displayName = asset.additionalTags.join(" ");
+      } else {
         displayName += ` - ${asset.additionalTags.join(" ")}`;
       }
-
-      windowsItems.push(
-        <Dropdown.Item
-          key={asset.url}
-          description={release.windows.version}
-          icon={<BsWindows size={22} fill={fillColor}></BsWindows>}
-        >
-          {displayName}
-        </Dropdown.Item>
-      )
     }
-  }
-  if (release?.linux) {
-    for (const asset of release.linux.assets.Linux.filter(asset => !asset.additionalTags.includes("symbols"))) {
-      let displayName = toProperCase(asset.displayName.replace("Linux", "").replace("AppImage", "").trim());
-      if (asset.additionalTags.length > 0) {
-        if (displayName === "") {
-          displayName = asset.additionalTags.join(" ");
-        } else {
-          displayName += ` - ${asset.additionalTags.join(" ")}`;
-        }
-      }
-      displayName = displayName.replace("64bit ", "64bit - ");
 
-      linuxItems.push(
-        <Dropdown.Item
-          key={asset.url}
-          description={release.linux.version}
-          icon={<FaLinux size={22} fill={fillColor}></FaLinux>}
-        >
-          {displayName}
-        </Dropdown.Item>
-      )
-    }
+    items.push(
+      <Dropdown.Item
+        key={asset.url}
+        description={version}
+        icon={<BsWindows size={22} fill={fillColor}></BsWindows>}
+      >
+        {displayName}
+      </Dropdown.Item>
+    )
   }
-  if (release?.macos) {
-    for (const asset of release.macos.assets.MacOS.filter(asset => !asset.additionalTags.includes("symbols"))) {
-      let displayName = toProperCase(asset.displayName.replace("MacOS", "").trim());
-      if (asset.additionalTags.length > 0) {
-        if (displayName === "") {
-          displayName = asset.additionalTags.join(" ");
-        } else {
-          displayName += ` - ${asset.additionalTags.join(" ")}`;
-        }
-      }
-      displayName = displayName.replace(".tar", "");
+  return items;
+}
 
-      macosItems.push(
-        <Dropdown.Item
-          key={asset.url}
-          description={release.macos.version}
-          icon={<BsApple size={22} fill={fillColor}></BsApple>}
-        >
-          {displayName}
-        </Dropdown.Item>
-      )
-    }
-  }
-
+function ReleaseDropdown(windowsItems, linuxItems, macosItems, isNightly) {
   const buttonStyling = {
     minWidth: "200px"
   };
@@ -163,8 +127,10 @@ function ReleaseCard(release, isNightly) {
             </Text>
           </Card.Body>
           <Card.Footer>
-            {/* FIX! */}
-            {ReleaseDropdown(release, isNightly)}
+          {ReleaseDropdown(
+            ReleaseDropdownItems(release.version, release.assets?.Windows, ["Windows"], false),
+            ReleaseDropdownItems(release.version, release.assets?.Linux, ["Linux", "AppImage"], false),
+            ReleaseDropdownItems(release.version, release.assets?.MacOS, ["MacOS"], false), false)}
           </Card.Footer>
         </Card>
       </Col>
@@ -206,6 +172,7 @@ export default function Downloads() {
   const [nightlyReleasesLoadingState, setNightlyReleasesLoadingState] = useState("idle"); // TODO
   const [nightlyReleasesPage, setNightlyReleasesPage] = useState(1);
   const [latestNightlyRelease, setLatestNightlyRelease] = useState({});
+  const [selectedNightlyRelease, setSelectedNightlyRelease] = useState(undefined);
 
   useEffect(async () => {
     const resp = await fetch(
@@ -262,7 +229,10 @@ export default function Downloads() {
               </Row>
               <Row css={{ mb: "2em" }}>
                 <Col>
-                  {ReleaseDropdown(latestStableRelease, false)}
+                  {ReleaseDropdown(
+                    ReleaseDropdownItems(latestStableRelease?.windows?.version, latestStableRelease?.windows?.assets?.Windows, ["Windows"], false),
+                    ReleaseDropdownItems(latestStableRelease?.linux?.version, latestStableRelease?.linux?.assets?.Linux, ["Linux", "AppImage"], false),
+                    ReleaseDropdownItems(latestStableRelease?.macos?.version, latestStableRelease?.macos?.assets?.MacOS, ["MacOS"], false), false)}
                 </Col>
               </Row>
               <Row>
@@ -316,7 +286,7 @@ export default function Downloads() {
                   </Table>
                 </Col>
               </Row>
-              { selectedStableRelease === undefined ? ReleaseCard(undefined, false) : ReleaseCard(stableReleases.data[selectedStableRelease], false)}
+              {selectedStableRelease === undefined ? ReleaseCard(undefined, false) : ReleaseCard(stableReleases.data[selectedStableRelease], false)}
             </Col>
             <Col span={6}>
               <Text
@@ -340,7 +310,10 @@ export default function Downloads() {
               </Row>
               <Row css={{ mb: "2em" }}>
                 <Col>
-                  {ReleaseDropdown(latestNightlyRelease, true)}
+                {ReleaseDropdown(
+                    ReleaseDropdownItems(latestNightlyRelease?.windows?.version, latestNightlyRelease?.windows?.assets?.Windows, ["Windows"], true),
+                    ReleaseDropdownItems(latestNightlyRelease?.linux?.version, latestNightlyRelease?.linux?.assets?.Linux, ["Linux", "AppImage"], true),
+                    ReleaseDropdownItems(latestNightlyRelease?.macos?.version, latestNightlyRelease?.macos?.assets?.MacOS, ["MacOS"], true), true)}
                 </Col>
               </Row>
               <Row>
@@ -353,7 +326,15 @@ export default function Downloads() {
                     compact
                     sticked
                     selectionMode={"single"}
+                    color={"warning"}
                     aria-label="Stable Release Table"
+                    onSelectionChange={(selection) => {
+                      if (selection.size <= 0) {
+                        setSelectedNightlyRelease(undefined);
+                      } else {
+                        setSelectedNightlyRelease([...selection][0]);
+                      }
+                    }}
                     css={{
                       height: "auto",
                       minWidth: "100%",
@@ -387,6 +368,7 @@ export default function Downloads() {
                   </Table>
                 </Col>
               </Row>
+              {selectedNightlyRelease === undefined ? ReleaseCard(undefined, false) : ReleaseCard(nightlyReleases.data[selectedNightlyRelease], false)}
               <Row>
                 <Col><h2>Active Pull Requests</h2></Col>
               </Row>

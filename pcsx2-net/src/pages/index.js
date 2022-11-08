@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import { Tooltip, Button, Grid, Container, Text, Row, Col, Dropdown, Card } from "@nextui-org/react";
 import styles from './index.module.css';
+import { NumberTicker } from "../components/NumberTicker";
+import { Animation } from '../components/SphereAnimation';
+
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -62,6 +66,199 @@ import { FaLinux, FaHistory } from "react-icons/fa";
 import { IoIosCloudyNight } from "react-icons/io";
 import { GiBrickWall } from "react-icons/gi";
 
+function resizeCanvas(context, canvas) {
+  const { width, height } = canvas.getBoundingClientRect()
+  if (canvas.width !== width || canvas.height !== height) {
+    canvas.width = width
+    canvas.height = height
+  }
+}
+
+const Canvas = props => {
+
+  const canvasRef = useRef(null);
+
+  let initialSpheres = 25;
+  let maxVelocity = 0.25;
+  let minVelocity = -0.25;
+  let maxTtl = 10000;
+  let maxRadius = 6;
+  let minRadius = 2;
+  let spheres = [];
+  let mouseX = undefined;
+  let mouseY = undefined;
+
+  let colors = [
+    "#00d4ca", "#ff5653", "#8dbbf2", "#f887d6"
+  ]
+
+  const predraw = (context, canvas) => {
+    context.save()
+    resizeCanvas(context, canvas)
+    const { width, height } = context.canvas
+    context.clearRect(0, 0, width, height)
+  }
+
+  const draw = (ctx, frameCount) => {
+    // Create spheres if it hasnt been done before
+    if (spheres.length === 0) {
+      // TODO - issue if they resize probably?
+      // TODO - temp larger size when spawning in?
+      for (let i = 0; i < initialSpheres; i++) {
+        spheres.push({
+          x: Math.random() * ctx.canvas.width,
+          y: Math.random() * ctx.canvas.height,
+          r: Math.random() * maxRadius + minRadius,
+          color: colors[Math.floor(Math.random() * 4)],
+          xvel: Math.random() * (maxVelocity - minVelocity) + minVelocity,
+          yvel: Math.random() * (maxVelocity - minVelocity) + minVelocity,
+          ttl: frameCount + (Math.random() * maxTtl + 50),
+          flipVel: false
+        });
+      }
+    }
+
+    // Update the position of all spheres
+    for (let i = 0; i < spheres.length; i++) {
+      // See if we should adjust the velocity to avoid the mouse (flip it)
+      if (mouseX && mouseY) {
+        const dist = Math.sqrt(Math.pow((spheres[i].x - mouseX), 2) + Math.pow((spheres[i].y - mouseY), 2));
+        spheres[i].flipVel = dist < 50.0;
+      } else {
+        spheres[i].flipVel = false;
+      }
+
+      if (spheres[i].flipVel) {
+        spheres[i].x += spheres[i].xvel * -1.0;
+        spheres[i].y += spheres[i].yvel * -1.0;
+      } else {
+        spheres[i].x += spheres[i].xvel;
+        spheres[i].y += spheres[i].yvel;
+      }
+
+      if (
+        spheres[i].ttl < frameCount
+        || (spheres[i].x - spheres[i].r) <= 0
+        || (spheres[i].y - spheres[i].r) <= 0
+        || (spheres[i].x + spheres[i].r) >= ctx.canvas.width
+        || (spheres[i].y + spheres[i].r) >= ctx.canvas.height
+      ) {
+        // re-init the sphere
+        spheres[i] = {
+          x: Math.random() * ctx.canvas.width,
+          y: Math.random() * ctx.canvas.height,
+          r: Math.random() * maxRadius + minRadius,
+          color: colors[Math.floor(Math.random() * 4)],
+          xvel: Math.random() * (maxVelocity - minVelocity) + minVelocity,
+          yvel: Math.random() * (maxVelocity - minVelocity) + minVelocity,
+          ttl: frameCount + (Math.random() * maxTtl + 50)
+        }
+      }
+    }
+
+    // Draw lines between spheres if they are close enough
+    for (let i = 0; i < spheres.length; i++) {
+      for (let j = 0; j < spheres.length; j++) {
+        const dist = Math.sqrt(Math.pow((spheres[i].x - spheres[j].x), 2) + Math.pow((spheres[i].y - spheres[j].y), 2));
+        if (dist <= 200.0) {
+          const alpha = 1.0 - (dist / 200.0);
+          if (alpha > 1.0) {
+            alpha = 1.0;
+          } else if (alpha < 0.0) {
+            alpha = 0.0;
+          }
+
+          let color = spheres[i].color;
+          if (spheres[j].r > spheres[i].r) {
+            color = spheres[j].color;
+          }
+          let alphaValue = Math.round(alpha * 255).toString(16).padStart(2, '0');
+          ctx.beginPath()
+          ctx.strokeStyle = `${color}${alphaValue}`;
+          ctx.moveTo(spheres[i].x, spheres[i].y);
+          ctx.lineTo(spheres[j].x, spheres[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    for (let i = 0; i < spheres.length; i++) {
+      ctx.beginPath()
+      ctx.arc(spheres[i].x, spheres[i].y, spheres[i].r, 0, 2 * Math.PI)
+      ctx.fillStyle = spheres[i].color
+      ctx.fill()
+    }
+  }
+
+  const postdraw = (ctx) => {
+    ctx.restore()
+  }
+
+  const click = (evt) => {
+    const x = evt.pageX - evt.target.offsetLeft + evt.target.clientLeft;
+    const y = evt.pageY - evt.target.offsetTop + evt.target.clientTop;
+    console.log(`${x} - ${y} - ${spheres.length}`);
+    spheres.push({
+      x: x,
+      y: y,
+      r: Math.random() * maxRadius + minRadius,
+      color: colors[Math.floor(Math.random() * 4)],
+      xvel: Math.random() * (maxVelocity - minVelocity) + minVelocity,
+      yvel: Math.random() * (maxVelocity - minVelocity) + minVelocity,
+      ttl: Math.random() * maxTtl + 50
+    });
+  }
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    const context = canvas.getContext('2d', { alpha: true })
+
+    let frameCount = 0
+    let animationFrameId
+
+    const render = () => {
+      frameCount++
+      predraw(context, canvas);
+      draw(context, frameCount)
+      postdraw(context);
+      animationFrameId = window.requestAnimationFrame(render)
+    }
+    render()
+
+    return () => {
+      window.cancelAnimationFrame(animationFrameId)
+    }
+  }, [draw])
+
+  return <canvas ref={canvasRef} onClick={click} style={{
+    position: "absolute",
+    height: "calc(84vh - 76px)",
+    "@xsMax": {
+      height: "calc(100vh - 64px)",
+    },
+    width: "100%"
+  }} {...props} />
+}
+
+async function getPlayableGameCount() {
+  try {
+    const resp = await fetch(
+      `/data/compat/data.min.json`
+    );
+    const data = await resp.json();
+    let count = 0;
+    for (const entry of data) {
+      if (entry.status.toLowerCase() === "perfect" || entry.status.toLowerCase() === "playable") {
+        count++;
+      }
+    }
+    return count;
+  } catch (e) {
+    console.log(`Error retrieving playable game count - ${e}`);
+    return 2667;
+  }
+}
+
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -69,6 +266,11 @@ export default function Home() {
       title={`Home`}
       description="Description will go into a meta tag in <head />">
       <main>
+        <BrowserOnly>
+          {() => (
+            <Animation />
+          )}
+        </BrowserOnly>
         <Container
           alignItems="center"
           as="section"
@@ -117,15 +319,16 @@ export default function Home() {
                   <StyledTitle css={{ mb: 0 }}>is an open source&nbsp;</StyledTitle>
                   <StyledGradientTitle css={{ mb: 0 }}>PS2 Emulator&nbsp;</StyledGradientTitle>
                   <StyledSubtitle>
-                    {/* TODO - make this a ticker of the current number of games considered playable */}
-                    Supporting Over 98% Of The Original PS2 Library
+                    <span>Supporting&nbsp;</span>
+                    <NumberTicker numberFunc={getPlayableGameCount} />
+                    <span>&nbsp;Games from the PS2 Library</span>
                   </StyledSubtitle>
                 </Col>
               </Row>
               <Row css={{ mb: "1em" }}>
                 <Col>
                   <Dropdown placement="right-top">
-                    <Dropdown.Button solid color="primary" css={{ minWidth: "200px" }}>
+                    <Dropdown.Button color="primary" css={{ minWidth: "200px" }}>
                       <GiBrickWall size={16}></GiBrickWall>&nbsp;Latest Stable
                     </Dropdown.Button>
                     <Dropdown.Menu
@@ -181,7 +384,7 @@ export default function Home() {
               <Row css={{ mb: "1em" }}>
                 <Col>
                   <Dropdown placement="right-top">
-                    <Dropdown.Button auto solid color="primary" css={{ minWidth: "200px", color: '$warning', bgColor: '$accents0' }}>
+                    <Dropdown.Button auto color="primary" css={{ minWidth: "200px", color: '$warning', bgColor: '$accents0' }}>
                       <IoIosCloudyNight size={22}></IoIosCloudyNight>&nbsp;Latest Nightly
                     </Dropdown.Button>
                     <Dropdown.Menu
@@ -236,9 +439,10 @@ export default function Home() {
               </Row>
               <Row>
                 <Col>
-                  <Button light color="secondary" auto>
+                  <a href="/downloads" style={{textDecoration: "none"}}><Button light color="secondary" auto>
                     Previous Versions
-                  </Button>
+                  </Button></a>
+                  
                 </Col>
               </Row>
             </Col>
@@ -316,7 +520,7 @@ export default function Home() {
               mt: "0px",
             },
           }}>
-            <Col span={6}>
+            <Col span={6} css={{ mt: "3em", mb: "2em"}}>
               <StyledTitle css={{ mb: 0 }}>About the Project</StyledTitle>
               <StyledSubtitle>
                 Being almost as old as the console it is emulating, PCSX2 not only has a lot of history behind it, but a continually evolving future.

@@ -1,6 +1,7 @@
 import React from 'react';
 import { GoGitCommit, GoGitPullRequest } from "react-icons/go";
 import { Avatar, Grid, Tooltip, Text, Spacer } from "@nextui-org/react";
+import { IconContext } from 'react-icons';
 
 function generatePRLinks(prNums) {
   if (!prNums) {
@@ -15,7 +16,9 @@ function generatePRLinks(prNums) {
   for (const num of nums) {
     icons.push(
       <a key={i++} href={`https://github.com/PCSX2/pcsx2/pull/${num}`}>
-        <GoGitPullRequest size={24} verticalAlign="middle"></GoGitPullRequest>
+        <IconContext.Provider value={{ style: { verticalAlign: 'middle'} }}>
+          <GoGitPullRequest size={24}></GoGitPullRequest>
+        </IconContext.Provider>
         {num}
       </a>
     )
@@ -84,6 +87,7 @@ export default function PCSX2PRLink({ children, prNums, shas, authors }) {
       <Grid>
         <span>{children}</span>
       </Grid>
+      <span></span>
       <Spacer x={1} />
       {generateAuthorAvatars(authors)}
       <Spacer x={0.5} />
