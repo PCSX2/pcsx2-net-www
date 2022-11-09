@@ -14,9 +14,19 @@ def conv_frontmatter(new_key, old_key, new_meta, old_meta, invert_bool = False):
 
 def convert_content(content):
   new_content = []
+  found_text = False
   for line in content.splitlines():
+    if found_text is False and line.strip() != "":
+      found_text = True
+    if found_text is True and line.strip() == "":
+      # insert summary truncation marker
+      new_content.append(line)
+      new_content.append("<!-- truncate -->\n")
+      continue
+
     if "{{<" in line and ">}}" not in line:
       print("multi-line shortcode - {}".format(line))
+      return False
     elif "progress/github-link" in line:
       # get props
       title = None
@@ -76,14 +86,17 @@ def convert_content(content):
         new_content.append('<Image cols={{{}}}src={{require("{}").default}} />'.format(cols, src))
     elif "{{<" in line:
       print("unhandled shortcode - {}".format(line))
+      return False
     elif re.match("<\w+\s", line):
       print("unhandled html tag - {}".format(line))
+      return False
     else:
-      new_content.append(line)
+      new_content.append(line.strip())
   return "\n".join(new_content)
 
 # Read the file, recreate the folder structure
 def convert_article(orig_path):
+  print("Converting - {}\n".format(orig_path))
   article = frontmatter.load(orig_path)
   # TODO - auto convert short-codes
   # TODO - lint over HTML tags that i skipped in the original migration, catch them now
@@ -115,7 +128,10 @@ def convert_article(orig_path):
   if len(feature_image) > 0:
     new_post["image"] = "./{}".format(os.path.basename(feature_image[0]))
 
-  new_post.content = convert_content(content)
+  maybe_new_content = convert_content(content)
+  if maybe_new_content is False:
+    return False
+  new_post.content = maybe_new_content
 
   # write out new post
   with open("{}/index.md".format(new_dir), "wb+") as f:
@@ -123,5 +139,26 @@ def convert_article(orig_path):
   if (os.path.isfile("{}/index.mdx".format(new_dir))):
     os.remove("{}/index.mdx".format(new_dir))
   os.rename("{}/index.md".format(new_dir), "{}/index.mdx".format(new_dir))
+  return True
 
-convert_article("content/blog/2022/q4-2021-progress-report/index.md")
+import json
+
+with open("scripts/track.json") as f:
+  track_data = json.load(f)
+
+subfolders = [ f.path for f in os.scandir("content/blog/2022") if f.is_dir() ]
+
+for article in subfolders:
+  article = article.replace("\\", "/")
+  if article in track_data and track_data[article] == "done":
+    print("'{}' is already marked as migrated, skipping".format(article))
+    continue
+  ok = convert_article("{}/index.md".format(article))
+  if ok:
+    track_data[article] = True
+  else:
+    print("Unable to convert '{}'".format(article))
+    break
+
+with open("scripts/track.json", "w") as f:
+  f.write(json.dumps(track_data))

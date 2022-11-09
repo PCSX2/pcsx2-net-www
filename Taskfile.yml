@@ -19,3 +19,6 @@ tasks:
   spell:
     cmds:
       - npx cspell content/**/*.md
+  docu:
+    cmds:
+      - python ./scripts/hugo-to-docu.py
