@@ -15,13 +15,15 @@ def conv_frontmatter(new_key, old_key, new_meta, old_meta, invert_bool = False):
 def convert_content(content):
   new_content = []
   found_text = False
+  truncation_added = False
   for line in content.splitlines():
     if found_text is False and line.strip() != "":
       found_text = True
-    if found_text is True and line.strip() == "":
+    if truncation_added is False and found_text is True and line.strip() == "":
       # insert summary truncation marker
       new_content.append(line)
       new_content.append("<!-- truncate -->\n")
+      truncation_added = True
       continue
 
     if "{{<" in line and ">}}" not in line:
@@ -96,7 +98,7 @@ def convert_content(content):
 
 # Read the file, recreate the folder structure
 def convert_article(orig_path):
-  print("Converting - {}\n".format(orig_path))
+  print("[Converting] {}".format(orig_path))
   article = frontmatter.load(orig_path)
   # TODO - auto convert short-codes
   # TODO - lint over HTML tags that i skipped in the original migration, catch them now
@@ -114,6 +116,12 @@ def convert_article(orig_path):
   conv_frontmatter("description", "summary", new_post, article)
   conv_frontmatter("draft", "draft", new_post, article)
   conv_frontmatter("tags", "tags", new_post, article)
+  if "aliases" in article:
+    with open("scripts/aliases.json", "r") as f:
+      alias_data = json.load(f)
+      alias_data[orig_path] = article["aliases"]
+    with open("scripts/aliases.json", "w") as f:
+      f.write(json.dumps(alias_data, indent=2))
   # authors are a bit different
   new_authors = []
   if "mainAuthor" in article:
@@ -146,7 +154,7 @@ import json
 with open("scripts/track.json") as f:
   track_data = json.load(f)
 
-subfolders = [ f.path for f in os.scandir("content/blog/2022") if f.is_dir() ]
+subfolders = [ f.path for f in os.scandir("content/blog/2021") if f.is_dir() ]
 
 for article in subfolders:
   article = article.replace("\\", "/")
@@ -161,4 +169,4 @@ for article in subfolders:
     break
 
 with open("scripts/track.json", "w") as f:
-  f.write(json.dumps(track_data))
+  f.write(json.dumps(track_data, indent=2))

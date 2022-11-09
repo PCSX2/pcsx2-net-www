@@ -1,0 +1,402 @@
+---
+authors:
+- reddevilus
+- lightningterror
+date: 2021-11-13 23:33:07.017636
+description: The last plugin has been merged, and much more!
+draft: false
+hide_table_of_contents: false
+image: ./feature-progrepq32021.webp
+tags:
+- progress-report
+title: Q3 2021 Progress Report
+---
+
+The last plugin has been merged, and much more!
+
+<!-- truncate -->
+
+## Core Improvements
+
+<PCSX2PRLink authors="GovanifY" prNums="4436">Core/GS: Merge last plugin GSdx into the Core</PCSX2PRLink>
+
+As we finally merge the last plugin namely the one responsible for the graphics settings (upscaling, blending, shaders) we can look back towards the past releases. Plugins were once a great source to decouple the core team and separate contributors so neither one wasn't blocked for doing improvements, however, these plugin creators diminished over the years until 2016 had not many advancements:
+
+There was pretty much only ongoing work for USBqemu-wheel by jackun and CLR-DEV9 by TheLastRar, not only that the core team had better replacements over time and the last plugin creators also became de facto more a core contributor and residing in the discord group. While we do lose some other notable plugins that are highly requested like Nuvee for LightGuns, OnePad legacy which handled controller remapping but these are only temporary drawbacks as the pros outweigh the cons as you don't need to scour our website or GitHub for plugins and fewer clicks in the GUI.
+
+It's also one of the reasons why Q2 2021 was on the meager side, it blocked a lot of contributors potential work or even would invalidate other PRs.
+
+### DEV9
+
+<PCSX2PRLink authors="TheLastRar" prNums="4220">Add Internal DNS server</PCSX2PRLink>
+
+<PCSX2PRLink authors="TheLastRar" prNums="4834">Auto Gateway Fix for winPcap backend</PCSX2PRLink>
+
+In this quarter TheLastRar has added a fix for the gateway which is the route outside your local network as it will now work manually or automatically. There is also the new internal DNS server if you know what the hosts file on your computer is, it's that. If you don't know you can compare it to a telephone book where it has your contacts with their names (URL/Websites) and their telephone number (IP addresses / Location) this is available in your ini folder.
+
+### Counters
+
+<PCSX2PRLink authors="F0bes" prNums="4621">Reset Timer Count Regardless of Interrupt Enable</PCSX2PRLink>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4647">Correct H-Blank for 1080i mode</PCSX2PRLink>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4690">COP0 PCCR: Don't update counters if counting is disabled</PCSX2PRLink>
+
+- Gets rid of the spooky apparition in Grand Theft Auto 3 if you watch the intro.
+- This is kind of just enabling the old code which was kind of correct, but the old code didn't ignore the time passed, so this also updates the last cycles.
+
+> RedDevilus: "I've recently bought GTA 3 second-hand and did my regular testing phase when I heard talks about a cloned character, it was not triggered on my screen because I skipped the intro FMV. So if anyone says we only fix certain games or big bugs, you can look again. It was a minor bug that was actually a regression. Meanwhile, before the fix, I had my own methods of solving the issue but refraction wasn't happy with this brute-force approach"
+
+<Image cols={6}src={require("./img/github_red_gta3.webp").default} />
+
+<PCSX2PRLink authors="refractionpcsx2" shas="9892624242fc548d836f0f664b440a31436c76bd"> Fix scanline count for double strike modes</PCSX2PRLink>
+
+### MTVU
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4503">Enable T-Bit to work with MTVU</PCSX2PRLink>
+
+<PCSX2PRLink authors="refractionpcsx2" shas="98b19656c9f79c11c22a8ecc07521c42f9e256d1">VU: Fix address masking in MTVU</PCSX2PRLink>
+
+### VU
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4539">Improve sync with VU Kickstart, loosen without kickstart</PCSX2PRLink>
+
+This tightens the VU Sync with the EE when Kickstart is enabled to fix some SPS in PAL Ratchet games, also loosened it slightly when Kickstart is disabled to improve the speed of games that don't require it.
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4694">Optimise entering VU JITs</PCSX2PRLink>
+
+This is a pretty huge performance uplift on multiple games, it's one of the hugest gains (with the exception being the frametimes tolerance PR) of the dev build cycle.
+
+Keep in mind the Speed percentage for the title bar on top of the viewport (also referred to as the emulation window) are the emulator frames called VPS, or in full Vsync per second in essence, how much the emulator refreshes but not the game itself which would be the Internal Frames or real FPS. It could be 60 VPS and 60 FPS (like Final Fantasy X pause screen) or 60 VPS with 20 FPS or other combinations like SOCOM II menus are 33-34 FPS even though it reports 60 VPS so you can feel the differences.
+
+Another side note is that for normal PC games the internal resolution = viewport but in PCSX2 case, it's separated in Graphics Settings for upscaling and in General Settings where GS Window is, is the location of how big your viewport (window size) would be.
+
+Here is an example of 3 tested games:
+<Image cols={6}src={require("./img/3chart_VU_JITs.webp").default} />
+
+- Ratchet: +12.36%
+- Tekken: +19.8%
+- My Street: +1.91%
+
+<PCSX2PRLink authors="refractionpcsx2" shas="93e5f86e243161cceaefdfd02216d509632414ac">Mask start addresses</PCSX2PRLink>
+
+<PCSX2PRLink authors="refractionpcsx2" shas="ddb300027cad1fab71286665614ddcc461cbb93f">Improve sync during interlock and Scratchpad VU mem writes</PCSX2PRLink>
+
+<PCSX2PRLink authors="refractionpcsx2" shas="b919de9dd181f5b2b9984b01768c6d5720404e2e">Adjust sync timing for VU Kickstart - Fixes Crash Twinsanity</PCSX2PRLink>
+
+<PCSX2PRLink authors="refractionpcsx2" shas="154ed57633503ff7ab8f99254a874bae0d2392bf">Remove the need to pass VU struct to XGKick function</PCSX2PRLink>
+
+### microVU
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4487">Consolidate I-bit hacks into one generic one</PCSX2PRLink>
+
+<PCSX2PRLink authors="F0bes" prNums="4703">Skip VU1 instructions on VU0</PCSX2PRLink>
+
+<PCSX2PRLink authors="lightningterror" prNums="4719">Combine mVU0cacheReserve and mVU1cacheReserve</PCSX2PRLink>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4767">Replace XGKick hack with synced XGKick option</PCSX2PRLink>
+
+<PCSX2PRLink authors="refractionpcsx2" shas="8f82cd11b9e8e8d9ccc30be91a7b99be47e13e1b">Avoid half-completed program loading null block</PCSX2PRLink>
+
+<PCSX2PRLink authors="stenzek" prNums="4668">Don't emit add reg, 0 in a few instructions #4668</PCSX2PRLink>
+
+### GIF
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4619">Reimplement GIF FIFO to enable only when it is needed</PCSX2PRLink>
+
+### VIF
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4726">VU int improve</PCSX2PRLink>
+
+Our interpreters were frankly inaccurate and slow, this Pull Request has improved the accuracy in turn fixing a lot of visuals on uncountable games. Most people won't notice this change but it can help in comparing between the speedy recompilers if there is a bug hiding in plain sight.
+
+<PCSX2PRLink authors="refractionpcsx2" shas="97bfe08c04a6bc45f4f77c95078095c62f4a370b">Only enable reverse FIFO hack if VIF1 is still active</PCSX2PRLink>
+
+### SPU2
+
+<PCSX2PRLink authors="Ziemas" prNums="4530">Delete broken/unused alsa backend</PCSX2PRLink>
+
+<PCSX2PRLink authors="MrCK1" prNums="4574">Minor cleanup</PCSX2PRLink>
+
+<PCSX2PRLink authors="Ziemas" prNums="4581">Remove NEVER_SKIP_VOICES</PCSX2PRLink>
+
+<PCSX2PRLink authors="Mrlinkwii" prNums="4582">remove unused variable</PCSX2PRLink>
+
+<PCSX2PRLink authors="MrCK1" prNums="4591">Remove user options for disabling reverb and de-alias filter</PCSX2PRLink>
+
+<PCSX2PRLink authors="Mrlinkwii" prNums="4648">Remove Waveout backend from Windows</PCSX2PRLink>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4699">Adjust DMA timings for IRQ's and small packets</PCSX2PRLink>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4700">Don't initialise sound buffer if it's not open</PCSX2PRLink>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4774">Disallow KeyOn within 2T of last KeyOn</PCSX2PRLink>
+
+<PCSX2PRLink authors="CookiePLMonster" prNums="4803">PortAudio: Remove DirectSound backend</PCSX2PRLink>
+
+Perhaps an oversight as we removed DirectSound module but it was still listed as a Host API for PortAudio, reason for removal is it tends to break audio samples to even refuse to work at all. In the future, it would be nice to have Cubeb as an audio module.
+
+<PCSX2PRLink authors="refractionpcsx2,Ziemas" shas="06d6001b0cc869c955ab18b110a0d3d963849ad1"> Add rogue BIOS loop point which Megaman X7 relies on</PCSX2PRLink>
+
+### USB
+
+<PCSX2PRLink authors="Ziemas" prNums="4571">Freeze mode enum for keyboardmania</PCSX2PRLink>
+
+### CDVD
+
+<PCSX2PRLink authors="Ziemas" prNums="4578">CHD: Fix parent search on windows</PCSX2PRLink>
+
+<PCSX2PRLink authors="kozarovv" prNums="4645">Fix CdlReadS for PS1 games with CDDA</PCSX2PRLink>
+
+<PCSX2PRLink authors="kozarovv" prNums="4646">Implement SCMD 0x27</PCSX2PRLink>
+
+- Implement SCMD 0x27 to allow PS1 games to boot on SCPH-50009 and DTL-H50009 bios.
+- According to krat0s, this command should return PS1 Disc Serial.
+- Disc Serial is later used by ps1drv itself to find matching game config.
+
+Note: While DTL consoles are known to use region-free PS1 bios, SCPH-50009 uses Asia/Japan PS1 bios, and region lock applies here.
+
+For the observant people if you have looked at our compatibility rating you may have noticed that we had 0 games for several months until we detected that the Chinese entries and BIOS were different in code and very few exist in our proximity. Now we are up to 2 entries (actually 1 but the forum compatibility needs an update).
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4702">Fix up Pause and some Status behavior</PCSX2PRLink>
+
+Correctly sets the CDVD Status after a Pause command and corrects how the CDVD Status is handled during N-Commands. Also adjusted game fixes as necessary for known fixed games. Some games refused to boot as PCSX2 ignored the correct way to handle them.
+
+### IPU
+
+<PCSX2PRLink authors="kozarovv" prNums="4526">IPU: Fix SETTH threshold masks</PCSX2PRLink>
+
+- According to available sources, it's 8:0 for transparency, and 24:16 for translucency.
+- Currently, PCSX2 is masking bits 8 and 24 making them always 0.
+
+In essence, IPU handles FMV/cutscenes and this PR improves some issues with them.
+
+Hype Time Quest: Before &gt; After
+
+<ImageCompare left={require("./img/Hype-Time-Quest-befores.webp").default} right={require("./img/Hype-Time-Quest-afters.webp").default} />
+
+<PCSX2PRLink authors="kozarovv" prNums="4613">IPU: Store thresholds for color conversions in u16, bump savestate version</PCSX2PRLink>
+
+### Debuggers
+
+<PCSX2PRLink authors="F0bes" prNums="4638">Debugger: Add option to display VU0F registers as floats</PCSX2PRLink>
+
+<PCSX2PRLink authors="JayFoxRox" prNums="4644">Debugger: Fix vmulai and vmaddai disassembly</PCSX2PRLink>
+
+<PCSX2PRLink authors="F0bes" prNums="4671">Debugger: Purge 64 / 32 bit register view options</PCSX2PRLink>
+
+Remove the option to view &gt; 32 bit registers as 32 bit or 64 bit and instead display the entire register value.
+<PCSX2PRLink authors="F0bes" prNums="4741">Debugger: CtrlRegisterList: Fix warning and screw up</PCSX2PRLink>
+
+### Misc core
+
+<PCSX2PRLink authors="TellowKrinkle" prNums="4742">Emitter: Use 64-bit operations on x64</PCSX2PRLink>
+
+<PCSX2PRLink authors="fjtrujy" prNums="4636">HostFS: Add remove file functionality</PCSX2PRLink>
+
+<PCSX2PRLink authors="kozarovv" prNums="4642">PGIF: Code refactoring/cleanup</PCSX2PRLink>
+
+Playing PS1 games has been a passion for some but we don't recommend it in its current state. However, we made some big improvements but it's better to use a dedicated PS1 emulator like DuckStation.
+
+Here are some example comparisons of the improvements we witnessed:
+
+Resident Evil: Before &gt; After
+<SliderCompare before={require("./img/RE-befores.webp").default} after={require("./img/RE-afters.webp").default} />
+
+Street Fighter EX Plus Alpha: Before &gt; After
+<SliderCompare before={require("./img/SF-EX-befores.webp").default} after={require("./img/SF-EX-afters.webp").default} />
+
+<PCSX2PRLink authors="F0bes" prNums="4676">IOPBios: Fix OOB read when IRQ line is invalid</PCSX2PRLink>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4739">EE JIT: Implement SDR/SDL, LDR/LDL instructions</PCSX2PRLink>
+
+This has a very huge performance lift, though this is the best-case scenario if it uses these instructions.So don't expect games to reflect such large performance increases like these charts would initially suggest.
+
+<Image cols={6}src={require("./img/Ref_SDL_SDRs.webp").default} />
+
+Above were refraction's results from the homebrew ELF, located here: SDL/SDR LDL/LDR Homebrew ELF
+
+Below are the results of RedDevilus on the same homebrew which taxed the registers.
+
+<Image cols={6}src={require("./img/red_SDL_SDR.webp").default} />
+
+<PCSX2PRLink authors="refractionpcsx2" shas="627f216bf770c4ff1b7f2f9c4f2c3b3f293680ce"> Core: Reset game CRC when rebooting. Avoids previous games patches being loaded</PCSX2PRLink>
+
+An oddity was discovered where patches meant for one game were accidentally injected into another which effectively broke games. Oops!
+
+<PCSX2PRLink authors="stenzek" prNums="4667">iR5900: Use a signed multiply for MULT1 const prop</PCSX2PRLink>
+
+<PCSX2PRLink authors="stenzek" prNums="4748">R5900: Fix LWL did not sign extending in interpreter</PCSX2PRLink>
+
+<PCSX2PRLink authors="F0bes" prNums="4548">IOP Interpreter: Warn on branches to zero</PCSX2PRLink>
+
+<PCSX2PRLink authors="CookiePLMonster" prNums="4523">Misc: Replace ATL with WIL</PCSX2PRLink>
+
+While this may seem an innocent library API change (how it interprets everything from instructions to clicks)
+
+Definition of WIL: The Windows Implementation Libraries (WIL) is a header-only C++ library created to make life easier for developers on Windows through readable type-safe C++ interfaces for common Windows coding patterns.
+
+> Silent: 'I used their CoInitializeEx that explodes loudly on failure, so regressions = quietly ignored errors in the code started showing up spectacularlyATL-&gt;WIL refactor itself isn't that interesting, if anything those regressions wereas they were issues that were always around but quietly ignored instead of manifesting themselves in an obvious way.'
+
+So as you can refer from Silent's statement, it led to a domino effect in that lots of things seemed to break from audio to wherever, as seems consistent with PCSX2 how did this even work in the first place to then see old bugs float to the surface hiding in wait. Every day PCSX2 becomes less hacky and has a more sane codebase. You can imagine the chaos and the confusion it brought to many when trying to comprehend it all not only in terms of the PS2 but how PCSX2 has implemented it.
+
+## GS Improvements
+
+### Misc GS
+
+<PCSX2PRLink authors="lightningterror" prNums="4508">GS-hw: Enable pabe bit only when sw blending is enabled</PCSX2PRLink>
+
+<PCSX2PRLink authors="stenzek" prNums="4615">GS: Manage draw rectangle in GS instead of wx</PCSX2PRLink>
+
+<PCSX2PRLink authors="lightningterror" prNums="4632">GS-d3d11: Cleanup fxaa and external shader</PCSX2PRLink>
+
+<PCSX2PRLink authors="lightningterror" prNums="4633">GS-d3d11: Minor Blend changes</PCSX2PRLink>
+
+<PCSX2PRLink authors="RedDevilus" prNums="4664">GS-GUI: Add 7x Multiplier</PCSX2PRLink>
+
+<PCSX2PRLink authors="RedDevilus" prNums="4682">GS-GUI: Enable Software Edge Anti-Aliasing by default</PCSX2PRLink>
+
+This option helps several games on Software renderer but it won't help on a Hardware Renderer as it's not implemented at this time.
+Some examples where AA is useful to fix issues:
+
+Final Fantasy X: Before &gt; After - [#983](https://github.com/PCSX2/pcsx2/issues/983)
+
+Look at the weird line on the tree (bottom left) and the black triangle that is right of Tidus.
+
+<SliderCompare before={require("./img/FFX_blue_wrong_SWs.webp").default} after={require("./img/FFX_blue_correct_SWs.webp").default} />
+
+Final Fantasy X: Before &gt; After - [#3341](https://github.com/PCSX2/pcsx2/issues/3341)
+
+Look at the blue triangle below Tidus.
+
+<SliderCompare before={require("./img/ffx_wrong_sws.webp").default} after={require("./img/FFX_correct_sws.webp").default} />
+
+Doko Demo Issho - Toro to Ippai, Toro to Kyuujitsu: Before &gt; After - [#4674](https://github.com/PCSX2/pcsx2/issues/4674)
+
+Look at the eyes of these weird cat characters.
+
+<SliderCompare before={require("./img/toro_wrong_SWs.webp").default} after={require("./img/toro_correct_SWs.webp").default} />
+
+Football 2002: Before &gt; After
+
+Look at the number 4 on the orange shirt.
+
+<SliderCompare before={require("./img/Football_2002_wrong_sws.webp").default} after={require("./img/Football_2002_correct_SWs.webp").default} />
+
+Syphon Filter - Dark Mirror: Before &gt; After
+
+Look at the shadows of the character, a harder one to see than the other comparisons.
+
+<SliderCompare before={require("./img/Syphon_dark_mirror_wrong_sws.webp").default} after={require("./img/Syphon_dark_mirror_correct_SWs.webp").default} />
+
+These are just a few examples, of course there are more.
+
+<PCSX2PRLink authors="Mrlinkwii" prNums="4706">GS: Update tooltip to remove reference to DirectX</PCSX2PRLink>
+
+<PCSX2PRLink authors="RedDevilus" prNums="4789">GS-GUI: Add tooltip for Dithering</PCSX2PRLink>
+
+<PCSX2PRLink authors="tadanokojin" prNums="4811">GS: Test for th for tex0 flush</PCSX2PRLink>
+
+<ImageCompare left={require("./img/VampireNightBrokenBulletss.webp").default} right={require("./img/vampire_fixeds.webp").default} />
+
+## Misc Improvements
+
+### GUI
+
+<PCSX2PRLink authors="RedDevilus" prNums="4512">Re-order config settings</PCSX2PRLink>
+
+It will look closer to the layout of 1.6 stable release, help with muscle memory and visual cues.
+<PCSX2PRLink authors="Florin9doi" prNums="4532">Set missing icons and update titles</PCSX2PRLink>
+
+<PCSX2PRLink authors="RedDevilus" prNums="4620">Rehaul BIOS / Folder Selector</PCSX2PRLink>
+
+BIOS and folder tabs are now together in General Settings (Used to be called Emulation Settings)
+This will make it easier to find settings with fewer clicks, although there is a height issue that forces you to scroll for the time being.
+
+<Image cols={6}src={require("./img/rehaul_BIOSs.webp").default} />
+
+<PCSX2PRLink authors="F0bes" prNums="4640">AppMain: Fix no$ symbol loading for elfs</PCSX2PRLink>
+
+<PCSX2PRLink authors="F0bes" prNums="4663">Misc: Fix lastpath updating when using the --elf cmdline arg</PCSX2PRLink>
+
+<PCSX2PRLink authors="tadanokojin" prNums="4675">WX: Make position validation multi-monitor aware</PCSX2PRLink>
+
+<PCSX2PRLink authors="tadanokojin" prNums="4750">Config: Normalize limiter values before saving</PCSX2PRLink>
+
+<PCSX2PRLink authors="tellowkrinkle" prNums="4756">Stdio console on mac</PCSX2PRLink>
+
+<PCSX2PRLink authors="F0bes" prNums="4791">Select a bios by default</PCSX2PRLink>
+
+This will automatically click on the first BIOS in the list if you haven't selected one, affecting First-time Wizard and in General Settings. It's nice for the User Experience and it hopefully grows on you when using dev builds.
+
+<Image cols={6}src={require("./img/BIOSs.webp").default} />
+
+<PCSX2PRLink authors="tellowkrinkle" prNums="4798">Fix crash on assertion in newer wx</PCSX2PRLink>
+
+<PCSX2PRLink authors="Mrlinkwii" prNums="4838">Make 'Synchronized MTGS' UI settings exclusive to debug/devel</PCSX2PRLink>
+
+The setting below has been quite the staple in releases and it has actually no business in here as its only purpose is debug and not the greatest at that.
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4844">Move Vu overflow flag checks to a Gamefix + reorganise panel</PCSX2PRLink>
+
+### GitHub/CI
+
+<PCSX2PRLink authors="lightningterror" prNums="4509">Update PR labelers to match GS merge</PCSX2PRLink>
+
+<PCSX2PRLink authors="xTVaser" prNums="4522">Split AVX2 and non-AVX2 windows builds</PCSX2PRLink>
+
+At the start of this report was the last GS merge, it has produced one minor annoyance. We couldn't keep all 3 GS plugins, we removed SSE2 plugin (which frankly was bad anyway) then there was SSE4 and AVX2.
+
+What is PCSX2-AVX2?
+
+PCSX2 uses SIMD instructions to process graphics. The following are the SIMD instruction sets PCSX2 supports:
+
+- AVX2: Newest and fastest. Recommended for CPUs released in the last 8-10 years.
+- SSE4: Older, still fast. Recommended for older CPUs which do not support AVX2.
+- SSE2: Oldest, and slowest. Recommended only if your CPU is too old for SSE4.
+
+Which one do I pick?
+
+- 1.6.0: PCSX2 will choose the appropriate plugin for you automatically.
+- 1.7.0: Try pcsx2-avx2.exe. If the program fails to start, then use pcsx2.exe.
+
+So in essence, if you have a 4th gen intel or higher with exception the Pentiums you are probably fine or AMD Ryzen series. In the future this will turn back into a single exe where it's default SSE4 with a checker to enable AVX2 if you support it.
+
+<PCSX2PRLink authors="tellowkrinkle" prNums="4529">Remove dashes from build names</PCSX2PRLink>
+
+<PCSX2PRLink authors="lightningterror" prNums="4840">Bump macos version to 11</PCSX2PRLink>
+
+<PCSX2PRLink authors="xTVaser" prNums="4657">GitHub: Switch to new issue forms</PCSX2PRLink>
+
+### Other misc
+
+<PCSX2PRLink authors="tellowkrinkle" prNums="4501">macOS: Fix async file reader error handling</PCSX2PRLink>
+
+<PCSX2PRLink authors="CookiePLMonster" prNums="4527">KeyboardQueue: Remove a Windows-specific critsec</PCSX2PRLink>
+
+<PCSX2PRLink authors="tadanokojin" prNums="4554">3rdparty: add webpd project</PCSX2PRLink>
+
+<PCSX2PRLink authors="tellowkrinkle" prNums="4566">Misc: Don't update homebrew when not necessary</PCSX2PRLink>
+
+<PCSX2PRLink authors="RedDevilus" prNums="4570">Dependencies: Update GHC 1.5.4 to 1.5.8</PCSX2PRLink>
+
+<PCSX2PRLink authors="RedDevilus" prNums="4592">Dependencies: Update OpenGL dependencies</PCSX2PRLink>
+
+<PCSX2PRLink authors="GiantEnemyCrab" prNums="4651">Misc: Add StartupWMClass to desktop file</PCSX2PRLink>
+
+<PCSX2PRLink authors="Mrlinkwii" prNums="4670">Add Linux distro information to program log</PCSX2PRLink>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4701">App: Add Windows exe version information</PCSX2PRLink>
+
+### GameDB Improvements
+
+As always there are many GameDB changes per quarter, since there are too many to even list we will just link the date range for merged pull requests, not counting directly pushed commits to master. List can be found at [GameDB Q3 2021](https://github.com/PCSX2/pcsx2/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-07-01..2021-09-30+base%3Amaster+sort%3Aupdated-desc+label%3AGameDB).
+
+[#4556](https://github.com/PCSX2/pcsx2/pull/4556) Noteworthy changes include patches for unplayable games which makes the games playable from [this](https://forums.pcsx2.net/Thread-Fixing-unplayable-games) thread. [RedDevilus](https://github.com/RedDevilus) took the patches and opened a pull request adding the patches to the GameDB.
+
+Thank you all, see you in our next coverage, cheers.
+
+## Metadata
+
+Q3 2021:
+(dev1300 to dev1837) (2021-07-01 - 2021-09-30)
