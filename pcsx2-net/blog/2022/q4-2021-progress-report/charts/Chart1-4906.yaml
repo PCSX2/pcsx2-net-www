@@ -1,0 +1,23 @@
+data:
+  - name: Sly 3
+    "Before (2080 Ti)": 63
+    "After (2080 Ti)": 77
+  - name: NFS Most Wanted
+    "Before (2080 Ti)": 126
+    "After (2080 Ti)": 143
+  - name: Metal Gear Solid 3
+    "Before (2080 Ti)": 93
+    "After (2080 Ti)": 107
+  - name: World Rally Championship
+    "Before (2080 Ti)": 75
+    "After (2080 Ti)": 82
+barOptions:
+  "Before (2080 Ti)":
+    fillColor: "rgb(106, 156, 255)"
+  "After (2080 Ti)":
+    fillColor: "rgb(200, 45, 69)"
+axis:
+  x:
+    dataKey: name
+  y:
+    label: "Frames Per Seconds (VPS)"

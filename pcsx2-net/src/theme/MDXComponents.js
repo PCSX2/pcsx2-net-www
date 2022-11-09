@@ -6,6 +6,7 @@ import SliderCompare from '@site/src/mdx/SliderCompare';
 import Image from '@site/src/mdx/Image';
 import ImageCompare from '@site/src/mdx/ImageCompare';
 import TextGradient from '@site/src/mdx/TextGradient';
+import BarChart from '@site/src/mdx/BarChart';
 
 export default {
   // Re-use the default mapping
@@ -15,4 +16,5 @@ export default {
   "Image": Image,
   "ImageCompare": ImageCompare,
   "TextGradient": TextGradient,
+  "BarChart": BarChart
 };

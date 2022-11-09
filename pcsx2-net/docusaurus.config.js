@@ -203,7 +203,35 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
-    })
+    }),
+    plugins: [
+	    [
+	      "@docusaurus/plugin-client-redirects",
+	      {
+	        redirects: [],
+	      },
+	    ],
+	    () => ({
+	      name: "custom-webpack-config",
+	      configureWebpack: () => {
+	        return {
+	          module: {
+	            rules: [
+	              {
+                  test: /\.yaml$/,
+	                use: [
+	                  {
+	                    loader: "file-loader",
+	                    options: { name: "assets/files/[name]-[hash].[ext]" },
+	                  },
+	                ],
+	              },
+	            ],
+	          }
+	        };
+	      },
+	    }),
+	  ],
 };
 
 module.exports = config;
