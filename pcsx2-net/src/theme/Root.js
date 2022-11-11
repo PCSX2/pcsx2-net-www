@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createTheme, NextUIProvider, getDocumentTheme } from '@nextui-org/react'
+import CookieConsent from "react-cookie-consent";
 
 const lightTheme = createTheme({
   type: 'light',
@@ -47,5 +48,17 @@ export default function Root({ children }) {
     return () => observer.disconnect();
   }, []);
 
-  return <NextUIProvider theme={isDark ? darkTheme : lightTheme} disableBaseline={true}>{children}</NextUIProvider>;
+  return <NextUIProvider theme={isDark ? darkTheme : lightTheme} disableBaseline={true}>
+    <CookieConsent
+      location="bottom"
+      buttonText="Agree"
+      declineButtonText="Decline"
+      cookieName="pcsx2CookieConsent"
+      enableDeclineButton={true}
+      style={{ background: "#2B373B" }}
+      expires={150}
+    >
+      This website uses cookies to enhance the user experience.
+    </CookieConsent>
+    {children}</NextUIProvider>;
 }

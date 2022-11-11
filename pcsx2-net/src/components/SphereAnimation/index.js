@@ -33,13 +33,11 @@ class Canvas extends React.Component {
     this.initialSpheres = 25;
     this.maxVelocity = 0.25;
     this.minVelocity = -0.25;
-    this.maxTtl = 10000;
     this.maxRadius = 6;
     this.minRadius = 2;
     this.spheres = [];
     this.mouseX = undefined;
     this.mouseY = undefined;
-    this.frameCount = 0;
 
     this.colors = [
       "#00d4ca", "#ff5653", "#8dbbf2", "#f887d6"
@@ -52,33 +50,31 @@ class Canvas extends React.Component {
 
   resizeCanvas = () => {
     const dpr = window.devicePixelRatio;
-    const rect = this.ctx.canvas.getBoundingClientRect();
 
     // Set the "actual" size of the canvas
-    this.ctx.canvas.width = rect.width * dpr;
-    this.ctx.canvas.height = rect.height * dpr;
+    this.ctx.canvas.width = window.innerWidth * dpr;
+    this.ctx.canvas.height = Math.round(window.innerHeight * 0.80) * dpr;
 
     // Scale the context to ensure correct drawing operations
     this.ctx.scale(dpr, dpr);
 
     // Set the "drawn" size of the canvas
-    this.ctx.canvas.style.width = `${rect.width}px`;
-    this.ctx.canvas.style.height = `${rect.height}px`;
+    this.ctx.canvas.style.width = `${window.innerWidth}px`;
+    this.ctx.canvas.style.height = `${Math.round(window.innerHeight * 0.80)}px`;
   }
+
   componentDidMount() {
     this.resizeCanvas();
+    window.addEventListener('resize', this.resizeCanvas);
   }
 
   componentDidUpdate() {
-    const { angle } = this.props;
     const width = this.ctx.canvas.width;
     const height = this.ctx.canvas.height;
     this.ctx.save();
     this.ctx.clearRect(0, 0, width, height)
     // Create spheres if it hasnt been done before
     if (this.spheres.length === 0) {
-      // TODO - issue if they resize probably?
-      // TODO - temp larger size when spawning in?
       for (let i = 0; i < this.initialSpheres; i++) {
         this.spheres.push({
           x: Math.random() * this.ctx.canvas.width,
@@ -87,7 +83,6 @@ class Canvas extends React.Component {
           color: this.colors[Math.floor(Math.random() * 4)],
           xvel: Math.random() * (this.maxVelocity - this.minVelocity) + this.minVelocity,
           yvel: Math.random() * (this.maxVelocity - this.minVelocity) + this.minVelocity,
-          ttl: this.frameCount + (Math.random() * this.maxTtl + 50),
           flipVel: false
         });
       }
@@ -111,9 +106,7 @@ class Canvas extends React.Component {
         this.spheres[i].y += this.spheres[i].yvel;
       }
 
-      if (
-        this.spheres[i].ttl < this.frameCount
-        || (this.spheres[i].x - this.spheres[i].r) <= 0
+      if ((this.spheres[i].x - this.spheres[i].r) <= 0
         || (this.spheres[i].y - this.spheres[i].r) <= 0
         || (this.spheres[i].x + this.spheres[i].r) >= this.ctx.canvas.width
         || (this.spheres[i].y + this.spheres[i].r) >= this.ctx.canvas.height
@@ -126,16 +119,22 @@ class Canvas extends React.Component {
           color: this.colors[Math.floor(Math.random() * 4)],
           xvel: Math.random() * (this.maxVelocity - this.minVelocity) + this.minVelocity,
           yvel: Math.random() * (this.maxVelocity - this.minVelocity) + this.minVelocity,
-          ttl: this.frameCount + (Math.random() * this.maxTtl + 50)
         }
       }
     }
+
+    const drawnLines = new Set();
 
     // Draw lines between spheres if they are close enough
     for (let i = 0; i < this.spheres.length; i++) {
       for (let j = 0; j < this.spheres.length; j++) {
         const dist = Math.sqrt(Math.pow((this.spheres[i].x - this.spheres[j].x), 2) + Math.pow((this.spheres[i].y - this.spheres[j].y), 2));
         if (dist <= 200.0) {
+          if (drawnLines.has(`${i}${j}`) || drawnLines.has(`${j}${i}`)) {
+            continue;
+          } else {
+            drawnLines.add(`${i}${j}`);
+          }
           const alpha = 1.0 - (dist / 200.0);
           if (alpha > 1.0) {
             alpha = 1.0;
@@ -148,8 +147,25 @@ class Canvas extends React.Component {
             color = this.spheres[j].color;
           }
           let alphaValue = Math.round(alpha * 255).toString(16).padStart(2, '0');
+
+          // If the sphere is getting near the edge, override the alpha value to fade it away
+          const xPos = this.spheres[i].x;
+          const leftRightMargin = this.ctx.canvas.width * 0.05;
+          const yPos = this.spheres[i].y;
+          const topBottomMargin = this.ctx.canvas.height * 0.05;
+          if (xPos < leftRightMargin) {
+            alphaValue = Math.round((xPos / leftRightMargin) * 255).toString(16).padStart(2, '0');
+          } else if (xPos > this.ctx.canvas.width - leftRightMargin) {
+            alphaValue = Math.round(((this.ctx.canvas.width - xPos) / leftRightMargin) * 255).toString(16).padStart(2, '0');
+          } else if (yPos < topBottomMargin) {
+            alphaValue = Math.round((yPos / topBottomMargin) * 255).toString(16).padStart(2, '0');
+          } else if (yPos > this.ctx.canvas.height - topBottomMargin) {
+            alphaValue = Math.round(((this.ctx.canvas.height - yPos) / topBottomMargin) * 255).toString(16).padStart(2, '0');
+          }
+
           this.ctx.beginPath()
           this.ctx.strokeStyle = `${color}${alphaValue}`;
+          // TODO - there is double drawing here
           this.ctx.moveTo(this.spheres[i].x, this.spheres[i].y);
           this.ctx.lineTo(this.spheres[j].x, this.spheres[j].y);
           this.ctx.stroke();
@@ -160,7 +176,23 @@ class Canvas extends React.Component {
     for (let i = 0; i < this.spheres.length; i++) {
       this.ctx.beginPath()
       this.ctx.arc(this.spheres[i].x, this.spheres[i].y, this.spheres[i].r, 0, 2 * Math.PI)
-      this.ctx.fillStyle = this.spheres[i].color
+
+      // If the sphere is getting near the edge, fade it away
+      let alphaValue = "ff";
+      const xPos = this.spheres[i].x;
+      const leftRightMargin = this.ctx.canvas.width * 0.05;
+      const yPos = this.spheres[i].y;
+      const topBottomMargin = this.ctx.canvas.height * 0.05;
+      if (xPos < leftRightMargin) {
+        alphaValue = Math.round((xPos / leftRightMargin) * 255).toString(16).padStart(2, '0');
+      } else if (xPos > this.ctx.canvas.width - leftRightMargin) {
+        alphaValue = Math.round(((this.ctx.canvas.width - xPos) / leftRightMargin) * 255).toString(16).padStart(2, '0');
+      } else if (yPos < topBottomMargin) {
+        alphaValue = Math.round((yPos / topBottomMargin) * 255).toString(16).padStart(2, '0');
+      } else if (yPos > this.ctx.canvas.height - topBottomMargin) {
+        alphaValue = Math.round(((this.ctx.canvas.height - yPos) / topBottomMargin) * 255).toString(16).padStart(2, '0');
+      }
+      this.ctx.fillStyle = `${this.spheres[i].color}${alphaValue}`;
       this.ctx.fill()
     }
     this.ctx.restore();
@@ -178,10 +210,7 @@ class PureCanvas extends React.Component {
     return (
       <canvas ref={node => node ? this.props.contextRef(node.getContext('2d')) : null} style={{
         position: "absolute",
-        height: "calc(84vh - 76px)",
-        "@xsMax": {
-          height: "calc(100vh - 64px)",
-        },
+        height: "80vh",
         width: "100%"
       }} />
     )

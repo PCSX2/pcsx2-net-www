@@ -22,7 +22,6 @@ export function NumberTicker({ number, numberFunc }) {
       // TODO - handle error
       setMaxVal(num);
       const startingVal = Math.max(0, Math.round(num - (num * 0.025)));
-      console.log(startingVal);
       setCurrVal(startingVal);
     } else {
       setMaxVal(number);
