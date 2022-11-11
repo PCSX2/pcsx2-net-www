@@ -58,10 +58,18 @@ gigaherz:
   name: gigaherz
   url: https://github.com/gigaherz
   image_url: https://github.com/gigaherz.png
+falcon4ever:
+  name: falcon4ever
+  url: https://github.com/falcon4ever
+  image_url: https://github.com/falcon4ever.png
 cottonvibes:
   name: cottonvibes
 zedr0n:
   name: zedr0n
+zerofrog:
+  name: zerofrog
+ckemu:
+  name: ckemu
 "blyss sarania":
   name: Blyss Sarania
 "jake stine":
