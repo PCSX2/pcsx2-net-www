@@ -1,26 +1,24 @@
 ---
-title: "Q1 2018 Progress Report"
-date: 2018-04-10T00:00:00
-summary: "What sorcery is this, we are on time with the progress report"
+authors:
+- lightningterror
+- ck1
+date: 2018-04-10 00:00:00
+description: What sorcery is this, we are on time with the progress report
 draft: false
 tags:
-  - "progress-report"
-mainAuthor: lightningterror
-secondaryAuthors:
-  - CK1
-aliases:
-  - "/288-q1-2018-progress-report"
-  - "/288-q1-2018-progress-report.html"
-  - "/288-q1-2018-progress-report.htm"
+- progress-report
+title: Q1 2018 Progress Report
 ---
-
-![](./img/progrepq12018.jpg)
 
 What sorcery is this, we are on time with the progress report
 
 We bring to you another progress report like usual. Enjoy!
 
-{{< progress/github-link prNums="1944" title="GSdx-TC: Performance improvement by using custom container" authors="AlessandroVetere" >}}
+<!-- truncate -->
+
+![](./img/progrepq12018.jpg)
+
+<PCSX2PRLink authors="AlessandroVetere" prNums="1944">GSdx-TC: Performance improvement by using custom container</PCSX2PRLink>
 
 A massive improvement on GSdx was done in Q2 2017 that we forgot to
 mention which improves the performance on both hardware and software
@@ -29,7 +27,7 @@ It's a bit technical so all we can say is that it improves performance
 but if anyone wishes to read the more technical stuff then it's best to
 checkout the Pull Request on GitHub.
 
-{{< progress/github-link prNums="2122" title="GSdx-TC: Load size calculation in target update" authors="ssakash" >}}
+<PCSX2PRLink authors="ssakash" prNums="2122">GSdx-TC: Load size calculation in target update</PCSX2PRLink>
 
 Akash also updated the texture cache that fixed/improved a few issues as
 well as solved a couple of regressions. These changes should help with
@@ -37,14 +35,14 @@ improving emulation accuracy on native and upscaled resolutions.
 
 -   Fix the load size calculation in target update.
 -   Add an optional macro (ENABLE\_ACCURATE\_BUFFER\_EMULATION) for
-    enabling more accurate emulation of the buffer size.
+enabling more accurate emulation of the buffer size.
 -   Fixed a regression that caused many games to crash with custom
-    resolutions (Gran Turismo series, Silent Hill series, Persona
-    series, Metal Gear Solid series and others as well).
+resolutions (Gran Turismo series, Silent Hill series, Persona
+series, Metal Gear Solid series and others as well).
 -   Fixed a regression on Beyond Good And Evil that exhibited FMV
-    flickering.
+flickering.
 
-{{< progress/github-link prNums="2347" title="GSdx: Texture Shuffle port to Direct3D" authors="lightningterror" >}}
+<PCSX2PRLink authors="lightningterror" prNums="2347">GSdx: Texture Shuffle port to Direct3D</PCSX2PRLink>
 
 
 Previously texture shuffle only worked if CRC hack level was below full
@@ -70,9 +68,9 @@ Here are some example comparisons on Direct3D11.
 
 3\. The Suffering Ties that Bind.
 
-{{< img cols="6" src="./img/d3d-fixes-before-after.jpg">}}
+<Image cols={6} src={require("./img/d3d-fixes-before-after.jpg").default} />
 
-{{< progress/github-link prNums="2347" title="GSdx: Channel Shuffle improvements on Direct3D" authors="lightningterror" >}}
+<PCSX2PRLink authors="lightningterror" prNums="2347">GSdx: Channel Shuffle improvements on Direct3D</PCSX2PRLink>
 
 A small adjustment has been made in the channel shuffle detection on
 Direct3D, a lot of games should see an improvement where the top left
@@ -95,25 +93,25 @@ People usually say that PCSX2 uses a lot of hacks so we are gonna
 highlight some changes to CRC hacks
 
 - List of purged CRC hacks:
-  - Gran Turismo Concept - All hacks removed. [\#2335](https://github.com/PCSX2/pcsx2/pull/2335)
-  - Gran Turismo 3 A spec - All hacks removed. [\#2335](https://github.com/PCSX2/pcsx2/pull/2335)
-  - Gran Turismo 4 - All hacks removed. [\#2304](https://github.com/PCSX2/pcsx2/pull/2304)
-  - Tourist Trophy - All hacks removed. [\#2304](https://github.com/PCSX2/pcsx2/pull/2304)
-  - God Of War 1 - One hack removed. [\#2350](https://github.com/PCSX2/pcsx2/pull/2350)
-  - God Of War 2 - One hack removed. [\#2350](https://github.com/PCSX2/pcsx2/pull/2350)
-  - SSX 3 - All hacks removed. [\#2259](https://github.com/PCSX2/pcsx2/pull/2259)
-  - Tekken 5 - One hack removed. [\#2205](https://github.com/PCSX2/pcsx2/pull/2205)
-  - Final Fight Streetwise - One hack removed. [\#2343](https://github.com/PCSX2/pcsx2/pull/2343)
-  - The Simpsons Game - One hack removed. [\#2149](https://github.com/PCSX2/pcsx2/pull/2149)
-  - Sengoku Basara - All hacks removed. [\#2357](https://github.com/PCSX2/pcsx2/pull/2357)
-  - Naruto - Narutimate Hero 3 - One hack removed. [\#2361](https://github.com/PCSX2/pcsx2/pull/2361)
-  - Naruto Shippuuden: Narutimate Accel - One hack removed. [\#2361](https://github.com/PCSX2/pcsx2/pull/2361)
+- Gran Turismo Concept - All hacks removed. [\#2335](https://github.com/PCSX2/pcsx2/pull/2335)
+- Gran Turismo 3 A spec - All hacks removed. [\#2335](https://github.com/PCSX2/pcsx2/pull/2335)
+- Gran Turismo 4 - All hacks removed. [\#2304](https://github.com/PCSX2/pcsx2/pull/2304)
+- Tourist Trophy - All hacks removed. [\#2304](https://github.com/PCSX2/pcsx2/pull/2304)
+- God Of War 1 - One hack removed. [\#2350](https://github.com/PCSX2/pcsx2/pull/2350)
+- God Of War 2 - One hack removed. [\#2350](https://github.com/PCSX2/pcsx2/pull/2350)
+- SSX 3 - All hacks removed. [\#2259](https://github.com/PCSX2/pcsx2/pull/2259)
+- Tekken 5 - One hack removed. [\#2205](https://github.com/PCSX2/pcsx2/pull/2205)
+- Final Fight Streetwise - One hack removed. [\#2343](https://github.com/PCSX2/pcsx2/pull/2343)
+- The Simpsons Game - One hack removed. [\#2149](https://github.com/PCSX2/pcsx2/pull/2149)
+- Sengoku Basara - All hacks removed. [\#2357](https://github.com/PCSX2/pcsx2/pull/2357)
+- Naruto - Narutimate Hero 3 - One hack removed. [\#2361](https://github.com/PCSX2/pcsx2/pull/2361)
+- Naruto Shippuuden: Narutimate Accel - One hack removed. [\#2361](https://github.com/PCSX2/pcsx2/pull/2361)
 
 And since we are mentioning removed we will also mention added CRC
 hacks. Not much right ?
 
 - List of added CRC hacks:
-  - Final Fight Streetwise - One hack added. [\#2343](https://github.com/PCSX2/pcsx2/pull/2343)
+- Final Fight Streetwise - One hack added. [\#2343](https://github.com/PCSX2/pcsx2/pull/2343)
 
 There have been more changes such as moving some CRC hacks to Aggressive
 state that can be used as speedhacks, some moved to Direct3D only but
@@ -124,7 +122,7 @@ The CRC hack code was also cleaned up a bit, many games
 (prequels/sequels) shared code, which has now been merged making it more
 compact, readable and cleaner.
 
-{{< progress/github-link prNums="2239" title="PCSX2-Counters: Fix Hblank calculation for DVD video modes" authors="ssakash" >}}
+<PCSX2PRLink authors="ssakash" prNums="2239">PCSX2-Counters: Fix Hblank calculation for DVD video modes</PCSX2PRLink>
 
 Previously, the DVD variant NTSC/PAL modes used the horizontal blanking
 interval calculation algorithm used by digital video modes, which
@@ -138,17 +136,17 @@ graphic corruptions resolved.
 
 # GUI Changes and Enhancements
 
-{{< progress/github-link prNums="2272" title="Add configurable Cheats folder to Components Selectors" authors="lightningterror" >}}
+<PCSX2PRLink authors="lightningterror" prNums="2272">Add configurable Cheats folder to Components Selectors</PCSX2PRLink>
 
 - Add GUI option to Plugins Components Selectors to change the default "Cheats" folder location. Similar to savestates/logs/..etc..
 
-{{< progress/github-link prNums="2237" title="Display the video mode on titlebar" authors="ssakash" >}}
+<PCSX2PRLink authors="ssakash" prNums="2237">Display the video mode on titlebar</PCSX2PRLink>
 
 - Display current video mode at the title bar. (Useful for debugging purposes and for user feedback at cases when video mode is being changed)
 
 # Other Enhancements
 
-{{< progress/github-link prNums="2295" title="XPad andUSBqemu have been moved to Legacy solution/plugins" authors="FlatOutPS2" >}}
+<PCSX2PRLink authors="FlatOutPS2" prNums="2295">XPad andUSBqemu have been moved to Legacy solution/plugins</PCSX2PRLink>
 
 No need to keep old legacy and outdated plugins in the main
 branch anyway. They also won't be included in the 1.6 release.
@@ -170,7 +168,7 @@ issues such as the broken graphics in Spongebob: Creature from the
 Krusty Krab.
 Here is an example how the game looks right now:
 
-{{< img-cmp-slider before="./img/sbb-before.jpg" after="./img/sbb-after.jpg">}}
+<SliderCompare before={require("./img/sbb-before-s.jpg").default} after={require("./img/sbb-after-s.jpg").default} />
 
 There are other additions that haven't been mentioned as well but those
 can be viewed on GitHub and these are just the highlights we thought
