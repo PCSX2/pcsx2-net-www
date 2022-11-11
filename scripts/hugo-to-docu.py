@@ -154,7 +154,7 @@ import json
 with open("scripts/track.json") as f:
   track_data = json.load(f)
 
-subfolders = [ f.path for f in os.scandir("content/blog/2013") if f.is_dir() ]
+subfolders = [ f.path for f in os.scandir("content/blog/2012") if f.is_dir() ]
 
 for article in subfolders:
   article = article.replace("\\", "/")
