@@ -1,15 +1,20 @@
 ---
-title: "Q4 2020 Progress Report"
-date: 2021-03-08T00:00:00
-summary: "This quarter has been really amazing for us and for our users that enjoy using PCSX2."
+authors:
+- lightningterror
+date: 2021-03-08 00:00:00
+description: This quarter has been really amazing for us and for our users that enjoy
+  using PCSX2.
 draft: false
+image: ./feature-q4-2020-report.webp
 tags:
-  - "progress-report"
-mainAuthor: lightningterror
+- progress-report
+title: Q4 2020 Progress Report
 ---
 
 This quarter has been really amazing for us and for our users that enjoy
 using PCSX2.
+
+<!-- truncate -->
 
 We've made some outstanding progress, hope you guys enjoy the read.
 
@@ -26,24 +31,24 @@ those features as well, be patient.
 
 Currently the following plugins have been merged in to the core:
 
-{{< progress/github-link prNums="3782" title="Merge DEV9ghrz into core" authors="GovanifY" >}}
+<PCSX2PRLink authors="GovanifY" prNums="3782">Merge DEV9ghrz into core</PCSX2PRLink>
 
 DEV9: For the DEV9
 feature that handles PS2 hard disk drive and Ethernet emulation we
 merged the dev9ghzdrk plugin in to the core.
 
-{{< progress/github-link prNums="3756" title="Merging SPU2-X into core" authors="GovanifY" >}}
+<PCSX2PRLink authors="GovanifY" prNums="3756">Merging SPU2-X into core</PCSX2PRLink>
 
 SPU2: For the SPU2
 feature that handles PS2 audio we merged the SPU2-X plugin in to the
 core.
 
-{{< progress/github-link prNums="3889" title="Merge USB into core" authors="GovanifY" >}}
+<PCSX2PRLink authors="GovanifY" prNums="3889">Merge USB into core</PCSX2PRLink>
 
 USB: For the USB
 feature we merged the USBqemu-wheel plugin in to the core.
 
-{{< progress/github-link prNums="3994" title="Merging PAD into core" authors="GovanifY" >}}
+<PCSX2PRLink authors="GovanifY" prNums="3994">Merging PAD into core</PCSX2PRLink>
 
 PAD: For the PAD
 feature that handles PS2 controller input we merged LilyPad for Windows
@@ -52,7 +57,7 @@ combine both of them so all missing features get added.
 
 ## Counters improvements
 
-{{< progress/github-link prNums="3785" title="Counters: Tighten tolerances on framelimiter and smooth out frame pacing" authors="RedPanda4552,refractionpcsx2" >}}
+<PCSX2PRLink authors="RedPanda4552,refractionpcsx2" prNums="3785">Counters: Tighten tolerances on framelimiter and smooth out frame pacing</PCSX2PRLink>
 
 Comparing PCSX2's old framelimiter with RTSS showed there was room for
 improvement. Frametimes regularly would jump up and down in various
@@ -75,13 +80,13 @@ Metal Arms - Glitch in the System
 
 ![](img/metal-arms-frame-pacing.gif)
 
-{{< progress/github-link prNums="3862" title="Counters: account for vertical frequency differences in non-interlaced analog modes" authors="tadanokojin" >}}
+<PCSX2PRLink authors="tadanokojin" prNums="3862">Counters: account for vertical frequency differences in non-interlaced analog modes</PCSX2PRLink>
 
 Timing adjustments for double strike analog modes.
 
 Fixes Beatmania IIDX 3rd-8th Style.
 
-{{< progress/github-link shas="71176332042b004c2e05a517f481687d6fc39914" title="Counters/Vsync: Do correct number of HBlanks per VSync for PAL/NTSC" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" shas="71176332042b004c2e05a517f481687d6fc39914">Counters/Vsync: Do correct number of HBlanks per VSync for PAL/NTSC</PCSX2PRLink>
 
 ## MTVU Improvements
 
@@ -90,7 +95,7 @@ around in improving MTVU compatibility with a bunch of games. The MTVU
 list with remaining compatibility issues can be seen at
 [\#1669](https://github.com/PCSX2/pcsx2/issues/1669).
 
-{{< progress/github-link prNums="4035" title="MTVU: Improve compatibility with games that do GS SIGNAL/LABEL/FINISH" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" prNums="4035">MTVU: Improve compatibility with games that do GS SIGNAL/LABEL/FINISH</PCSX2PRLink>
 
 Improve compatibility with games that use FINISH/SIGNAL/LABEL on the GS
 through VU1 when using MTVU.
@@ -130,30 +135,30 @@ Homebrew Fixes:
 
 - Aura for Laura
 
-{{< progress/github-link prNums="4043" title="VIF: Always update MTVU thread with Row/Col Changes" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" prNums="4043">VIF: Always update MTVU thread with Row/Col Changes</PCSX2PRLink>
 
 - Fixes graphical issues in Fatal Frame 2 when swapping to MTVU.
 
-{{< progress/github-link prNums="4053" title="tiMTVU: Clean up GS SIGNAL/LABEL/FINISH communicationtle" authors="tellowkrinkle" >}}
+<PCSX2PRLink authors="tellowkrinkle" prNums="4053">tiMTVU: Clean up GS SIGNAL/LABEL/FINISH communicationtle</PCSX2PRLink>
 
 - Fixes atomic usage and ensures all communication goes in one direction.
 
 Also removed some forced 4-byte alignment, for 4-byte types it's
 unnecessary and for 8-byte types it's either unnecessary or harmful.
 
-{{< progress/github-link shas="c9a5443539e5f2ec2a9719a39743fe9f36da551f" title="VIF: Slightly optimise when Row/Col are written to MTVU" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" shas="c9a5443539e5f2ec2a9719a39743fe9f36da551f">VIF: Slightly optimise when Row/Col are written to MTVU</PCSX2PRLink>
 
-{{< progress/github-link shas="155cf385bda43668ab3ebd7abf07940ed6047eef" title="microVU: Flush running VU1 program when toggling MTVU on" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" shas="155cf385bda43668ab3ebd7abf07940ed6047eef">microVU: Flush running VU1 program when toggling MTVU on</PCSX2PRLink>
 
-{{< progress/github-link shas="7b7278bc85fa3becd39c47168fe6c912523b4d43" title="VIF: Fix MPG bug incrementing addresses properly when using MTVU" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" shas="7b7278bc85fa3becd39c47168fe6c912523b4d43">VIF: Fix MPG bug incrementing addresses properly when using MTVU</PCSX2PRLink>
 
-{{< progress/github-link prNums="3813" title="COP2: Make sure the status flag gets updated on DIV/SQRT/RSQRT" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" prNums="3813">COP2: Make sure the status flag gets updated on DIV/SQRT/RSQRT</PCSX2PRLink>
 
 Fixes Yanya Caballista running slow (patches removed).
 Fixes Disney's Treasure Planet's crazy camera (that flies off) and
 ground displacement.
 
-{{< progress/github-link prNums="3957" title="MFIFO: Maintain VIFDMA status and Empty condition on VIF reset" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" prNums="3957">MFIFO: Maintain VIFDMA status and Empty condition on VIF reset</PCSX2PRLink>
 
 Don't decrement/change VIF1 QWC on VIF1 FIFO write.
 
@@ -166,19 +171,19 @@ Fixes ScarFace when switching to progressive mode.
 
 ## microVU improvements
 
-{{< progress/github-link shas="0448b4902c5e158af5bb654422d05eb78ceafa83" title="microVU: Fixed bug in E-bit conditional branches" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" shas="0448b4902c5e158af5bb654422d05eb78ceafa83">microVU: Fixed bug in E-bit conditional branches</PCSX2PRLink>
 
 Fixes DT Racer
 
-{{< progress/github-link prNums="3865" title="microVU: Fix program range wrapping" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" prNums="3865">microVU: Fix program range wrapping</PCSX2PRLink>
 
 Fixes constant recompilation in IHRA Drag Racing and Dawn of Mana
 
-{{< progress/github-link prNums="3797" title="microVU: Make sure flags are exact on M-bit" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" prNums="3797">microVU: Make sure flags are exact on M-bit</PCSX2PRLink>
 
 Fixes Gungrave
 
-{{< progress/github-link prNums="3971" title="microVU: Keep start PC, modify prog search to avoid recompilation" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" prNums="3971">microVU: Keep start PC, modify prog search to avoid recompilation</PCSX2PRLink>
 
 Fix some M-Bit stuff to reduce programs created and fix them happening
 on branches.
@@ -194,7 +199,7 @@ This also sets up some future work of synchronising VU1.
 Also fixes a bug in VIF when using MTVU, fixes Def Jam Fight for NY when
 using MTVU, maybe others.
 
-{{< progress/github-link shas="03445d0b553fc5a8275e5df91fe004a5e10607a2" title="microVU: Add check when loading quick block from program" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" shas="03445d0b553fc5a8275e5df91fe004a5e10607a2">microVU: Add check when loading quick block from program</PCSX2PRLink>
 
 Sometimes (CoD Finest Hour) can somehow end up with blocks missing from
 a program, it still finds the current program, so we check if the block
@@ -202,15 +207,15 @@ exists, if not, recompile new ones.
 
 ## SIF improvements
 
-{{< progress/github-link prNums="3808" title="SIF: Fix attempting to write junk when FIFO full" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" prNums="3808">SIF: Fix attempting to write junk when FIFO full</PCSX2PRLink>
 
 Fixes Ghosthunter
 
-{{< progress/github-link prNums="3779" title="SIF: Transfer SIF0 junk for partial QW transfers from IOP" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" prNums="3779">SIF: Transfer SIF0 junk for partial QW transfers from IOP</PCSX2PRLink>
 
 Fixes True Crime: Streets of LA. Backport from Dobiestation
 
-{{< progress/github-link prNums="3955" title="DMA: Correctly emulate QWC 0 on NORMAL transfers" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" prNums="3955">DMA: Correctly emulate QWC 0 on NORMAL transfers</PCSX2PRLink>
 
 This removes 2 hacks on the IPU for Enter the Matrix and Mana Khemia
 
@@ -224,7 +229,7 @@ handle them instantly, so I had to place an artificial delay on starting
 the DMA to let it catch up and do what it needs to do. It shouldn't have
 any negative impacts.
 
-{{< progress/github-link prNums="3936" title="BIOS/HLE: Use BIOS settings on Fastboot" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" prNums="3936">BIOS/HLE: Use BIOS settings on Fastboot</PCSX2PRLink>
 
 - Fixes bad fonts when booting a game in fast boot.
 
@@ -240,18 +245,18 @@ your BIOS. [\#4018](https://github.com/PCSX2/pcsx2/pull/4018) .
 
 - Displays corrects timezones in games.
 
-{{< progress/github-link prNums="3969" title="IPU: Stop IPU0 looping when there's no data for it to read" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" prNums="3969">IPU: Stop IPU0 looping when there's no data for it to read</PCSX2PRLink>
 
 - Fixes bad slowdowns in Ratchet games when using EE Timing fix caused by
 bad IPU streams.
 
 ## VIF improvements
 
-{{< progress/github-link shas="678829a5b2b8ca7a3e42d8edc9ab201bf00b0fe9" title="VIF: Don't rush finish VU programs" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" shas="678829a5b2b8ca7a3e42d8edc9ab201bf00b0fe9">VIF: Don't rush finish VU programs</PCSX2PRLink>
 
 - Fixes remaining SPS in Shadowman.
 
-{{< progress/github-link prNums="4003" title="VIF: Don't start transfer if VIF1/0 is stalled" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" prNums="4003">VIF: Don't start transfer if VIF1/0 is stalled</PCSX2PRLink>
 
 - Also Fix missing VIF status check on MFIFO.
 
@@ -260,17 +265,17 @@ transfer then stops and starts VIF while it's stalled, in the old code
 this causes it to ignore the stall and continue as normal, this PR fixes
 that behaviour.
 
-{{< progress/github-link shas="a4553e821ffadf8a7c95e44a8ca7750d7f5df72f" title="VIF: Allow VIF1 to continue if stalled and the FIFO is reversed" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" shas="a4553e821ffadf8a7c95e44a8ca7750d7f5df72f">VIF: Allow VIF1 to continue if stalled and the FIFO is reversed</PCSX2PRLink>
 
-{{< progress/github-link shas="843650e79ecf02b2234728f5d9ab34767da4242b" title="VIF: Mask VU program address on MSCAL/MSCNT instructions" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" shas="843650e79ecf02b2234728f5d9ab34767da4242b">VIF: Mask VU program address on MSCAL/MSCNT instructions</PCSX2PRLink>
 
-{{< progress/github-link shas="97b74fa6ea81a1e213aa7bbdc8b5d7f5b2c27d83" title="VIF: MSCNT address is -1, so don't mask it" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" shas="97b74fa6ea81a1e213aa7bbdc8b5d7f5b2c27d83">VIF: MSCNT address is -1, so don't mask it</PCSX2PRLink>
 
-{{< progress/github-link shas="2409486c2dc51346d6c04c4ff9297b9fce66d8b5" title="VIF: Fixed undefined behaviour of Unpack V3-16 in final QW write" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" shas="2409486c2dc51346d6c04c4ff9297b9fce66d8b5">VIF: Fixed undefined behaviour of Unpack V3-16 in final QW write</PCSX2PRLink>
 
 Fixes bad geometry in Homerun.
 
-{{< progress/github-link prNums="3998" title="VU: Synchronise VU1, added speedhack for old behaviour" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" prNums="3998">VU: Synchronise VU1, added speedhack for old behaviour</PCSX2PRLink>
 
 This synchronises VU1 with the EE and VU0 (as close as we can). A new
 speedhack has been added to replicate the old behaviour, which is on by
@@ -286,9 +291,9 @@ doesn't run at sub 1fps anymore.
 
 # SPU2 improvements
 
-{{< progress/github-link prNums="3961" title="SPU2: Delay DMA Reads to prevent overrun" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" prNums="3961">SPU2: Delay DMA Reads to prevent overrun</PCSX2PRLink>
 
-{{< progress/github-link prNums="3959" title="SPU2: Get rid of the need for delay cycles" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" prNums="3959">SPU2: Get rid of the need for delay cycles</PCSX2PRLink>
 
 - Fixes the entire list of games that required alternative delay cycle
 handling in [\#2371](https://github.com/PCSX2/pcsx2/issues/2371) .
@@ -298,25 +303,25 @@ handling in [\#2371](https://github.com/PCSX2/pcsx2/issues/2371) .
 *Note: This has been re implemented in Q1 with a better solution where
 it doesn't cause issues.*
 
-{{< progress/github-link prNums="3968" title="SPU2: Change VolumeSteps from 42 to 5" authors="RedDevilus" >}}
+<PCSX2PRLink authors="RedDevilus" prNums="3968">SPU2: Change VolumeSteps from 42 to 5</PCSX2PRLink>
 
 This will change the jumps from 42 to 5, scroll wheel will still be 2
 and all the arrows keys on 1.
 
-{{< progress/github-link shas="3d3c0395965fc71ab57035d15b9a5430fae5dca7" title="SPU2: Fix Address masks for voices + Effect area" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" shas="3d3c0395965fc71ab57035d15b9a5430fae5dca7">SPU2: Fix Address masks for voices + Effect area</PCSX2PRLink>
 
 - Fixes reverb in The Suffering.
 
 # USB improvements
 
-{{< progress/github-link prNums="4042" title="USB: Force Feedback fixes" authors="CookiePLMonster" >}}
+<PCSX2PRLink authors="CookiePLMonster" prNums="4042">USB: Force Feedback fixes</PCSX2PRLink>
 
 This PR partially addresses [\#3926](https://github.com/PCSX2/pcsx2/issues/3926)
 and corrects a range of issues with wheel's Force Feedback emulation.
 
 # CDVD improvements
 
-{{< progress/github-link prNums="3877" title="CDVD: Adjust read speed depending on if in inner/outer edge" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" prNums="3877">CDVD: Adjust read speed depending on if in inner/outer edge</PCSX2PRLink>
 
 - Fixes Shadowman 2 Second Coming textures.
 - Fixes Arctic Thunder loading problems.
@@ -325,23 +330,23 @@ and corrects a range of issues with wheel's Force Feedback emulation.
 - Fixes SPS at the beginning of matches in Next Generation Tennis 2003
 (Ronald Garros).
 
-{{< progress/github-link prNums="3899" title="CDVD: Check register 14 (ps1 status register) for cd speed and CDDA" authors="kenshen112" >}}
+<PCSX2PRLink authors="kenshen112" prNums="3899">CDVD: Check register 14 (ps1 status register) for cd speed and CDDA</PCSX2PRLink>
 
 # DEV9 improvements
 
-{{< progress/github-link prNums="3740" title="DEV9: New TAP based networking interface" authors="GovanifY" >}}
+<PCSX2PRLink authors="GovanifY" prNums="3740">DEV9: New TAP based networking interface</PCSX2PRLink>
 
 A new TAP based networking interface was added to DEV9, which is usually
 a cleaner and simpler solution than the libpcap based one we used up
 until now. This essentially mirrors the inner workings of all modern
 VPNs.
 
-{{< progress/github-link prNums="4021" title="DEV9: Cancel read of TAP device on suspend/shutdown" authors="TheLastRar" >}}
+<PCSX2PRLink authors="TheLastRar" prNums="4021">DEV9: Cancel read of TAP device on suspend/shutdown</PCSX2PRLink>
 
 *Note: Wincap removal is not mentioned as it's re added in Q1 with some
 modifications.*
 
-{{< progress/github-link prNums="3928" title="GameDB: Replace GameDB with a YAML equivalent" authors="xTVaser" >}}
+<PCSX2PRLink authors="xTVaser" prNums="3928">GameDB: Replace GameDB with a YAML equivalent</PCSX2PRLink>
 
 Improve the format of the current GameDB slightly and simplify the code
 around the handling the file itself. Before it was an extended .ini file
@@ -352,22 +357,22 @@ coming soon with the larger configuration overhaul.
 
 # Misc core improvements
 
-{{< progress/github-link prNums="3791" title="PGIF/PS1: Correct PGIF Register bit masks" authors="Nobbs66" >}}
+<PCSX2PRLink authors="Nobbs66" prNums="3791">PGIF/PS1: Correct PGIF Register bit masks</PCSX2PRLink>
 
-{{< progress/github-link prNums="3806" title="Gamefix: Purge FMV in SW gamefix" authors="tadanokojin" >}}
+<PCSX2PRLink authors="tadanokojin" prNums="3806">Gamefix: Purge FMV in SW gamefix</PCSX2PRLink>
 
 The gamefix/hack was broken and kind of pointless, it will be better to
 properly fix the issues instead so we got rid of it.
 
-{{< progress/github-link prNums="3844" title="CDVD: Fix iLinkId issues, fixes timing issues with some BIOS revisions on Time Crisis 2 and 3" authors="kozarovv" >}}
+<PCSX2PRLink authors="kozarovv" prNums="3844">CDVD: Fix iLinkId issues, fixes timing issues with some BIOS revisions on Time Crisis 2 and 3</PCSX2PRLink>
 
-{{< progress/github-link shas="0d1a5831449c4f31993ca4838dd1c39707e96cce" title="DMA: Handle undefined Chain mode tags" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" shas="0d1a5831449c4f31993ca4838dd1c39707e96cce">DMA: Handle undefined Chain mode tags</PCSX2PRLink>
 
 - Fixes DT Racer speed issues.
 
-{{< progress/github-link prNums="3874" title="JIT: Fix FPU IEEE float conversion on x64" authors="GovanifY" >}}
+<PCSX2PRLink authors="GovanifY" prNums="3874">JIT: Fix FPU IEEE float conversion on x64</PCSX2PRLink>
 
-{{< progress/github-link prNums="3778" title="IOP DMA: Always fire interrupts for SIF0/SIF1" authors="refractionpcsx2,psi-rockin" >}}
+<PCSX2PRLink authors="refractionpcsx2,psi-rockin" prNums="3778">IOP DMA: Always fire interrupts for SIF0/SIF1</PCSX2PRLink>
 
 Backport from Dobiestation.
 
@@ -375,21 +380,21 @@ Backport from Dobiestation.
 
 For more technical information please see [this](https://www.patreon.com/posts/sins-of-ps2-2001-42262496) post.
 
-{{< progress/github-link prNums="3935" title="Core: Don't reopen everything when we just want to reopen the CDVD" authors="TheLastRar" >}}
+<PCSX2PRLink authors="TheLastRar" prNums="3935">Core: Don't reopen everything when we just want to reopen the CDVD</PCSX2PRLink>
 
-{{< progress/github-link prNums="3743" title="Core: send osd log event when snapshot is taken" authors="tadanokojin" >}}
+<PCSX2PRLink authors="tadanokojin" prNums="3743">Core: send osd log event when snapshot is taken</PCSX2PRLink>
 
-{{< progress/github-link prNums="3604" title="PNACH: New patch type: apply repeating codes also on load" authors="GovanifY" >}}
+<PCSX2PRLink authors="GovanifY" prNums="3604">PNACH: New patch type: apply repeating codes also on load</PCSX2PRLink>
 
-{{< progress/github-link prNums="3651" title="x86emitter: Register class improvements" authors="tellowkrinkle" >}}
+<PCSX2PRLink authors="tellowkrinkle" prNums="3651">x86emitter: Register class improvements</PCSX2PRLink>
 
-{{< progress/github-link prNums="4023" title="GS: Properly mirror GS reads to CSR" authors="tadanokojin,refractionpcsx2" >}}
+<PCSX2PRLink authors="tadanokojin,refractionpcsx2" prNums="4023">GS: Properly mirror GS reads to CSR</PCSX2PRLink>
 
 - Puts in the correct behaviour for GS reads.
 
 - Fixes Supadoopa's Funslower demo.
 
-{{< progress/github-link shas="c998a51f71f6a81a2f4f0c9d27c85714d74ccd57" title="IOP DMA: Only acknowledge SPU2 DMA interrupt if DMA hasn't been cancelled" authors="refractionpcsx2" >}}
+<PCSX2PRLink authors="refractionpcsx2" shas="c998a51f71f6a81a2f4f0c9d27c85714d74ccd57">IOP DMA: Only acknowledge SPU2 DMA interrupt if DMA hasn't been cancelled</PCSX2PRLink>
 
 - Fixes Gregory Horror Show bad audio.
 
@@ -397,15 +402,15 @@ For more technical information please see [this](https://www.patreon.com/posts/s
 
 # TAS (Tool Assisted Speedrun) Utility Improvements
 
-{{< progress/github-link prNums="3627" title="Recording: Add menu items for recording controls with keyboard shortcuts" authors="xTVaser,sonicfind" >}}
+<PCSX2PRLink authors="xTVaser,sonicfind" prNums="3627">Recording: Add menu items for recording controls with keyboard shortcuts</PCSX2PRLink>
 
-{{< progress/github-link prNums="3356" title="Recording: Overhaul of Recording Tool's VirtualPad" authors="xTVaser" >}}
+<PCSX2PRLink authors="xTVaser" prNums="3356">Recording: Overhaul of Recording Tool's VirtualPad</PCSX2PRLink>
 
-{{< progress/github-link prNums="4047" title="Recording: Properly cancel an input recording on a bad initial savestate" authors="sonicfind" >}}
+<PCSX2PRLink authors="sonicfind" prNums="4047">Recording: Properly cancel an input recording on a bad initial savestate</PCSX2PRLink>
 
-{{< progress/github-link prNums="3789" title="Recording: Resolve VirtualPads not drawing for some games" authors="sonicfind" >}}
+<PCSX2PRLink authors="sonicfind" prNums="3789">Recording: Resolve VirtualPads not drawing for some games</PCSX2PRLink>
 
-{{< progress/github-link prNums="3845" title="GUI: Internalize VirtualPad and Upgrade NewRecordingFrame" authors="sonicfind" >}}
+<PCSX2PRLink authors="sonicfind" prNums="3845">GUI: Internalize VirtualPad and Upgrade NewRecordingFrame</PCSX2PRLink>
 
 Simplifies virtualPad access. This will be useful later down the line
 when more virtualPads are added.
@@ -416,7 +421,7 @@ NewRecordingFrame has improved functionality.
 
 # GSdx Improvements
 
-{{< progress/github-link prNums="3858" title="GSdx: Properly init gsclut function ptrs" authors="tadanokojin" >}}
+<PCSX2PRLink authors="tadanokojin" prNums="3858">GSdx: Properly init gsclut function ptrs</PCSX2PRLink>
 
 GS reads lower 3 bits of PSM to determine if format is 8/4 bit and thus
 whether to write the clut into the clut buffer. Behavior is now
@@ -424,23 +429,23 @@ correctly emulated.
 
 Fixes international superstar soccer.
 
-{{< progress/github-link prNums="3873" title="GSdx-hw: Cleanup blending code a bit" authors="lightningterror" >}}
+<PCSX2PRLink authors="lightningterror" prNums="3873">GSdx-hw: Cleanup blending code a bit</PCSX2PRLink>
 
-{{< progress/github-link prNums="3765" title="Gsdx-hw: Move EmulateAtst in common hw renderer code" authors="lightningterror" >}}
+<PCSX2PRLink authors="lightningterror" prNums="3765">Gsdx-hw: Move EmulateAtst in common hw renderer code</PCSX2PRLink>
 
 Use shared code, instead of duplicates for each renderer.
 
-{{< progress/github-link prNums="3905" title="GSdx: Remove TV Shader hotkey toggle (F7)" authors="lightningterror" >}}
+<PCSX2PRLink authors="lightningterror" prNums="3905">GSdx: Remove TV Shader hotkey toggle (F7)</PCSX2PRLink>
 
 Plenty of users misclicked this setting and don't know how to switch
 back since it's a rarely used option. We got rid of the hotkey toggle
 for a quality of life change.
 
-{{< progress/github-link prNums="3891" title="GSdx-hw: Don't always set MaxDepth on ps/fs" authors="lightningterror" >}}
+<PCSX2PRLink authors="lightningterror" prNums="3891">GSdx-hw: Don't always set MaxDepth on ps/fs</PCSX2PRLink>
 
 Seems that it provides a very small fps increase.
 
-{{< progress/github-link prNums="3880" title="GSdx: Change DATE accuracy option from a list to a checkbox" authors="lightningterror" >}}
+<PCSX2PRLink authors="lightningterror" prNums="3880">GSdx: Change DATE accuracy option from a list to a checkbox</PCSX2PRLink>
 
 For OpenGL it will behave as previously if Full option was selected
 (more accurate).
@@ -448,7 +453,7 @@ For OpenGL it will behave as previously if Full option was selected
 For Direct3D10/11 it will behave as previously if Basic option was
 selected (less accurate).
 
-{{< progress/github-link prNums="3927" title="GSdx-ogl: Fix anisotropic filtering on OpenGL" authors="lightningterror" >}}
+<PCSX2PRLink authors="lightningterror" prNums="3927">GSdx-ogl: Fix anisotropic filtering on OpenGL</PCSX2PRLink>
 
 Anisotropic filtering was broken on OpenGL ever since Trilinear
 filtering was introduced (1.3.1 era), hopefully nobody noticed and we
@@ -457,11 +462,11 @@ fixed the issue!
 Note that it won't work properly on AMD due to broken driver, issue has
 been reported and they are working on a fix.
 
-{{< progress/github-link prNums="3714" title="GSdx-ogl: Check MinMax for PSConstantBuffer" authors="lightningterror" >}}
+<PCSX2PRLink authors="lightningterror" prNums="3714">GSdx-ogl: Check MinMax for PSConstantBuffer</PCSX2PRLink>
 
 Fixes Silent Hill 3 character textures.
 
-{{< progress/github-link prNums="3985" title="GSdx: Remove some broken buffer width correction code" authors="tadanokojin" >}}
+<PCSX2PRLink authors="tadanokojin" prNums="3985">GSdx: Remove some broken buffer width correction code</PCSX2PRLink>
 
 Removes some code that was meant to correct a condition on the GS where
 8-bit and 4-bit formats are assigned a buffer width that is not
@@ -475,27 +480,27 @@ Fixes graphical issues in Galaxy Angel.
 
 List of removed CRC hacks:
 
-{{< progress/github-link prNums="3908" title="Star Wars - Force Unleashed. Hack replaced by a gamedb patch since it's not a GSdx issue" authors="kozarovv" >}}
+<PCSX2PRLink authors="kozarovv" prNums="3908">Star Wars - Force Unleashed. Hack replaced by a gamedb patch since it's not a GSdx issue</PCSX2PRLink>
 
-{{< progress/github-link shas="56893a07312183a525b5c6f7e1576bb4e3c6a1e4" title="Removed/merged duplicate hacks for Radiata Stories, Star Ocean 3, and Valkyrie Profile 2" authors="lightningterror" >}}
+<PCSX2PRLink authors="lightningterror" shas="56893a07312183a525b5c6f7e1576bb4e3c6a1e4">Removed/merged duplicate hacks for Radiata Stories, Star Ocean 3, and Valkyrie Profile 2</PCSX2PRLink>
 
-{{< progress/github-link shas="d0dd60f295075a9f8ea98ef539430d0b6031e290" title="Bleach Blade Battlers. Hack no longer needed, effects rendered properly" authors="lightningterror" >}}
+<PCSX2PRLink authors="lightningterror" shas="d0dd60f295075a9f8ea98ef539430d0b6031e290">Bleach Blade Battlers. Hack no longer needed, effects rendered properly</PCSX2PRLink>
 
-{{< progress/github-link shas="d5adcdd1b217c4537e50f673a70b3eb5d38c991d" title="God of War 2. Hack partially removed because upscaling issues can not be resolved with upscaling hacks" authors="lightningterror" >}}
+<PCSX2PRLink authors="lightningterror" shas="d5adcdd1b217c4537e50f673a70b3eb5d38c991d">God of War 2. Hack partially removed because upscaling issues can not be resolved with upscaling hacks</PCSX2PRLink>
 
-{{< progress/github-link shas="85c3ee823fa9d111e2039d6664bc5d63dc21672f" title="Sly 2 and 3. Hacks removed, effects emulated properly, upscaling issues can be resolved with upscaling hacks" authors="lightningterror" >}}
+<PCSX2PRLink authors="lightningterror" shas="85c3ee823fa9d111e2039d6664bc5d63dc21672f">Sly 2 and 3. Hacks removed, effects emulated properly, upscaling issues can be resolved with upscaling hacks</PCSX2PRLink>
 
 ---
 
 # Misc Improvements
 
-{{< progress/github-link prNums="3531" title="GUI: Add 'Screenshot As...' feature to Capture options" authors="xTVaser" >}}
+<PCSX2PRLink authors="xTVaser" prNums="3531">GUI: Add 'Screenshot As...' feature to Capture options</PCSX2PRLink>
 
-{{< progress/github-link prNums="4007" title="GUI: Fixes speedhacks panel from shrinking when moving the slider, most noticeable when using DPI scaling" authors="tadanokojin" >}}
+<PCSX2PRLink authors="tadanokojin" prNums="4007">GUI: Fixes speedhacks panel from shrinking when moving the slider, most noticeable when using DPI scaling</PCSX2PRLink>
 
-{{< progress/github-link prNums="3633" title="Misc: More Mac build/fixes" authors="tellowkrinkle" >}}
+<PCSX2PRLink authors="tellowkrinkle" prNums="3633">Misc: More Mac build/fixes</PCSX2PRLink>
 
-{{< progress/github-link prNums="4044" title="PAD-Windows: Remove obsolete code related to the output window" authors="MrCK1" >}}
+<PCSX2PRLink authors="MrCK1" prNums="4044">PAD-Windows: Remove obsolete code related to the output window</PCSX2PRLink>
 
 ---
 

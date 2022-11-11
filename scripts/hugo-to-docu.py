@@ -85,7 +85,7 @@ def convert_content(content):
       if cols is None:
         new_content.append('<Image src={{require("{}").default}} />'.format(src))
       else:
-        new_content.append('<Image cols={{{}}}src={{require("{}").default}} />'.format(cols, src))
+        new_content.append('<Image cols={{{}}} src={{require("{}").default}} />'.format(cols, src))
     elif "{{<" in line:
       print("unhandled shortcode - {}".format(line))
       return False
@@ -154,11 +154,11 @@ import json
 with open("scripts/track.json") as f:
   track_data = json.load(f)
 
-subfolders = [ f.path for f in os.scandir("content/blog/2021") if f.is_dir() ]
+subfolders = [ f.path for f in os.scandir("content/blog/2020") if f.is_dir() ]
 
 for article in subfolders:
   article = article.replace("\\", "/")
-  if article in track_data and track_data[article] == "done":
+  if article in track_data and track_data[article] is True:
     print("'{}' is already marked as migrated, skipping".format(article))
     continue
   ok = convert_article("{}/index.md".format(article))
