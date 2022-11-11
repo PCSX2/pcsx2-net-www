@@ -1,22 +1,19 @@
 ---
-title: "January - February 2016 Progress Report"
-date: 2016-03-02T00:00:00
-summary: "Hello everyone and welcome to another glorious PCSX2 progress report!"
+authors:
+- bositman
+date: 2016-03-02 00:00:00
+description: Hello everyone and welcome to another glorious PCSX2 progress report!
 draft: false
 tags:
-  - "progress-report"
-mainAuthor: bositman
-aliases:
-  - "/274-jan-feb-2016-progress-report"
-  - "/274-jan-feb-2016-progress-report.html"
-  - "/274-jan-feb-2016-progress-report.htm"
+- progress-report
+title: January - February 2016 Progress Report
 ---
-
-![](./img/progress-rep-1-2-2016.jpg)
 
 Hello everyone and welcome to another glorious PCSX2 progress report!
 This time we've got a lot of GSdx improvements to share with you. We
 also have an announcement regarding the progress reports.
+
+<!-- truncate -->
 
 Those of you who have been following them probably know that we've been
 a little late with them pretty much every time. The reason for this is
@@ -34,6 +31,8 @@ out what's going on over at [Github](https://github.com/PCSX2/pcsx2) .
 
 Now with that out of the way, let's get down to it!
 
+![](./img/progress-rep-1-2-2016.jpg)
+
 ## GSDX-OpenGL: Fast accurate blending
 - by [Gregory](https://github.com/gregory38) and [Turtleli](https://github.com/turtleli)
 
@@ -50,9 +49,9 @@ Two reasons why poor performance was observed on some games while using
 accurate blending:
 
 -   Primitives being drawn one by one when any primitive overlap is
-    detected
+detected
 -   The GPU Texture Cache needs to be flushed at each instances of
-    reading a target.
+reading a target.
 
 
 **Turtleli** fixed the first issue
@@ -125,9 +124,9 @@ emulation shader.
 Here are some comparison screenshots showing the effect of the CRT
 emulation shader:
 
-{{< img-cmp-slider before="./img/gundam-noshader.png" after="./img/gundam-shader.png">}}
+<SliderCompare before={require("./img/gundam-noshader-s.webp").default} after={require("./img/gundam-shader-s.webp").default} />
 
-{{< img-cmp-slider before="./img/dmc3-noshader.png" after="./img/dmc3-shader.png">}}
+<SliderCompare before={require("./img/dmc3-noshader-s.webp").default} after={require("./img/dmc3-shader-s.webp").default} />
 
 
 ## GSDX: Proper handling of 576P/720P/1080I video modes
@@ -135,13 +134,13 @@ emulation shader:
 
 **1080P (before/after)**
 
-{{< img-cmp-slider before="./img/height-broken.png" after="./img/height-fixed.png">}}
+<SliderCompare before={require("./img/height-broken-s.webp").default} after={require("./img/height-fixed-s.webp").default} />
 
 > Note: This screenshot is of an ELF file called "Video mode test" which was designed to observe the Display/SMODE registers value changes at each video modes.
 
 **Gitaroo Man \[PAL\] (before/after)**
 
-{{< img-cmp-slider before="./img/gitarooman-broken.png" after="./img/gitarooman-fixed.png">}}
+<SliderCompare before={require("./img/gitarooman-broken-s.webp").default} after={require("./img/gitarooman-fixed-s.webp").default} />
 
 >  Note: The NTSC version of Gitaroo Man didn't suffer the following issue since it uses a height of 448 whereas the PAL version uses 576.
 
@@ -178,16 +177,16 @@ halving of height when the respective register values are set.
 - [ssakash](https://github.com/ssakash), [Turtleli](https://github.com/turtleli) and [NZJenkins](https://github.com/NZJenkins)
 
 -   Console Window: Improved size handling and better autodock behavior
-    when maximized.
+when maximized.
 -   Console Window: make enable/disable/restore defaults affect all menu
-    items.
+items.
 -   Debugger: proper deletion of breakpoint when multiple breakpoints
-    are present.
+are present.
 -   Debugger: prevent unexpected resuming when stepping into/over
-    disabled breakpoints.
+disabled breakpoints.
 -   Debugger: stepout works without any preceding step in / step over.
 -   GSFrame: Resolution is displayed at titlebar with respect to
-    upscaling value.
+upscaling value.
 -   VideoPanel: Better gray out of dialog elements.
 
 
@@ -215,15 +214,15 @@ have already helped our developers fix a couple of issues. (few of them
 are listed below for reference)
 
 -   [EE-Interpreter: Fix a subtle bug in a
-    QFSRV](https://github.com/PCSX2/pcsx2/commit/46a2f6ed24067dfdc2002ff9a1a365d941ff7779)
+QFSRV](https://github.com/PCSX2/pcsx2/commit/46a2f6ed24067dfdc2002ff9a1a365d941ff7779)
 -   [IOP: Fix MTLO
-    Instruction](https://github.com/PCSX2/pcsx2/commit/ba62ce9e933499f94a613f34a0a02361fd870fc6)
+Instruction](https://github.com/PCSX2/pcsx2/commit/ba62ce9e933499f94a613f34a0a02361fd870fc6)
 -   [DMAC: Most significant bits of MADR is fixed to 0 in 8/9
-    channels](https://github.com/PCSX2/pcsx2/commit/5efbf2a8023432d4ff6f9564e77eda7714c4f91d)
+channels](https://github.com/PCSX2/pcsx2/commit/5efbf2a8023432d4ff6f9564e77eda7714c4f91d)
 -   [Vif-Recompiler: Fix skip size
-    calculation.](https://github.com/PCSX2/pcsx2/commit/cf993c2a3632a6371fc807da1ee6b945ccca5b9d)
+calculation.](https://github.com/PCSX2/pcsx2/commit/cf993c2a3632a6371fc807da1ee6b945ccca5b9d)
 -   [Vif-Recompiler: Proper handling when domode is set
-    to 3.](https://github.com/PCSX2/pcsx2/commit/e5e0f85b50feb943e761944ca4a368402a1600f2)
+to 3.](https://github.com/PCSX2/pcsx2/commit/e5e0f85b50feb943e761944ca4a368402a1600f2)
 
 
 ## PCSX2-Vector Units: Scarface I bit hack
@@ -258,7 +257,7 @@ requested by quite a few users, so we obliged!
 ## LilyPad: Add Pop'n Music controller support
 - by [ekudritski](https://github.com/ekudritski)
 
-{{< img cols="6" src="./img/lilypad-pop-n-music.png">}}
+<Image cols={6} src={require("./img/lilypad-pop-n-music-s.webp").default} />
 
 Native support for the **Pop'n Music controller** has been added to LilyPad. Several users had
 requested this feature since a few games rely on said controller and

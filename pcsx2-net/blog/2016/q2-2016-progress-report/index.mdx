@@ -1,16 +1,15 @@
 ---
-title: "Q2 2016 Progress Report"
-date: 2016-06-17T00:00:00
-summary: "Hey everyone and welcome to another spectacular PCSX2 progress report!"
+authors:
+- bositman
+date: 2016-06-17 00:00:00
+description: Hey everyone and welcome to another spectacular PCSX2 progress report!
 draft: false
 tags:
-  - "progress-report"
-mainAuthor: bositman
-aliases:
-  - "/276-q2-2016-progress-report"
-  - "/276-q2-2016-progress-report.html"
-  - "/276-q2-2016-progress-report.htm"
+- progress-report
+title: Q2 2016 Progress Report
 ---
+
+<!-- truncate -->
 
 ![](./img/progress-rep-q2-2016.jpg)
 
@@ -43,7 +42,7 @@ report for Q2 2016! Strap yourself in for the ride because here we go!
 ## OnePAD: Updated GUI
 - by [kust2708](https://github.com/kust2708)
 
-{{< img-cmp before="./img/onepad_old.png" after="./img/onepad_new.png">}}
+<ImageCompare left={require("./img/onepad_old_s.webp").default} right={require("./img/onepad_new_s.webp").default} />
 
 OnePAD is the default pad plugin for PCSX2 on Linux. Recently kust2708
 updated OnePAD's UI to make it a bit nicer and more user friendly.
@@ -55,7 +54,7 @@ controllers with a nice Dual Shock 2 graphic.
 ## Core: Automatic aspect ratio switch during FMV playback
 - by [FlatOut](https://github.com/FlatOutPS2)
 
-{{< img cols="6" src="./img/auto-aspect-ratio-switch.webp">}}
+<Image cols={6} src={require("./img/auto-aspect-ratio-switch.webp").default} />
 
 Most games with a widescreen option (through either in-game setting or
 widescreen patch) have FMVs that are fixed to the original 4:3 aspect
@@ -72,11 +71,11 @@ Dual layer DVDs have never worked properly with CDVDgigaherz and it
 turns out that there were quite a few issues:
 
 -   DVD layer information sector addresses were not converted from big
-    endian to little endian.
+endian to little endian.
 -   Windows filesystem drivers prevented layer 1 sectors from being read
-    due to boundary checks.
+due to boundary checks.
 -   Dual layer DVDs were reported to PCSX2 as having multiple tracks,
-    when all single session DVDs only have one track.
+when all single session DVDs only have one track.
 -   Generation of the Table of Contents was skipped.
 -   The layer break address was off by one.
 -   PTP DVDs were wrongly recognized as OTP DVDs.
@@ -99,11 +98,11 @@ break was found.
 This approach wasn't optimal due to the following reasons:
 
 -   PCSX2 would appear to be unresponsive while it searches for the
-    layer break address the first time the ISO is booted.
+layer break address the first time the ISO is booted.
 -   The layer break address needs to be cached to speed up subsequent
-    loads.
+loads.
 -   If there is no layer break, the entire DVD would be searched each
-    time the ISO is booted - this could take a few minutes.
+time the ISO is booted - this could take a few minutes.
 
 Doing it this way was unnecessary. The DVD layer 0 Primary Volume
 Descriptor contains the total number of sectors on layer 0 of the DVD.
@@ -177,11 +176,11 @@ change:
 
 **Crash Nitro Kart**
 
-{{< img-cmp-slider before="./img/CNK-before.png" after="./img/CNK-after.png">}}
+<SliderCompare before={require("./img/CNK-before_s.webp").default} after={require("./img/CNK-after_s.webp").default} />
 
 **Richard Burns Rally**
 
-{{< img-cmp-slider before="./img/RBR-before.png" after="./img/RBR-after.png">}}
+<SliderCompare before={require("./img/RBR-before_s.webp").default} after={require("./img/RBR-after_s.webp").default} />
 
 ## GSDX: Enable reading of Depth Buffer
 - by [Gregory](https://github.com/gregory38)
@@ -198,9 +197,9 @@ it to the EE when it wants to read the depth buffer. This implementation
 has finally fixed the lens flare issue on Kingdom Hearts II and also
 some depth related issues on ICO and Nocturne.
 
-{{< img-cmp-slider before="./img/kingdom-hearts2-before.jpg" after="./img/kingdom-hearts2-after.jpg">}}
+<SliderCompare before={require("./img/kingdom-hearts2-before_s.jpg").default} after={require("./img/kingdom-hearts2-after_s.jpg").default} />
 
-{{< img-cmp-slider before="./img/ICO-before.png" after="./img/ICO-after.png">}}
+<SliderCompare before={require("./img/ICO-before_s.webp").default} after={require("./img/ICO-after_s.webp").default} />
 
 ## GSDX: Improved PCRTC merge circuit emulation
 - by [turtleli](https://github.com/turtleli) and [ssakash](https://github.com/ssakash)
@@ -218,11 +217,11 @@ playable.
 
 **Time Crisis 2 (before) (320 X 224)**
 
-{{< img cols="6" src="./img/timecrisis-before.webp">}}
+<Image cols={6} src={require("./img/timecrisis-before.webp").default} />
 
 **Time Crisis 2 (now) (640 X 224)**
 
-{{< img cols="6" src="./img/timecrisis-after.webp">}}
+<Image cols={6} src={require("./img/timecrisis-after.webp").default} />
 
 
 ## VIF: Timing fix for MSCALF, MSCNT instructions
@@ -241,9 +240,9 @@ potentially other games.
 Refraction fixed these issues by reworking the code to only allow delays
 for the **MSCAL** instruction.
 
-{{< img-cmp-slider before="./img/Downhil-Before.jpg" after="./img/Downhil-after.jpg">}}
+<SliderCompare before={require("./img/Downhil-Before_s.jpg").default} after={require("./img/Downhil-after_s.jpg").default} />
 
-{{< img-cmp-slider before="./img/twisted-metal-before.png" after="./img/twisted-metal-after.png">}}
+<SliderCompare before={require("./img/twisted-metal-before_s.webp").default} after={require("./img/twisted-metal-after_s.webp").default} />
 
 As usual, there were even more additions and developments while this
 report was being written but they will be included in our next quarterly

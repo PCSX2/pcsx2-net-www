@@ -1,16 +1,16 @@
 ---
-title: "Q3 2016 Progress Report"
-date: 2016-09-14T00:00:00
-summary: "Hello and welcome to the glorious, fabulous, amazing PCSX2 progress report for Q3 2016"
+authors:
+- bositman
+date: 2016-09-14 00:00:00
+description: Hello and welcome to the glorious, fabulous, amazing PCSX2 progress report
+  for Q3 2016
 draft: false
 tags:
-  - "progress-report"
-mainAuthor: bositman
-aliases:
-  - "/278-q3-2016-progress-report"
-  - "/278-q3-2016-progress-report.html"
-  - "/278-q3-2016-progress-report.htm"
+- progress-report
+title: Q3 2016 Progress Report
 ---
+
+<!-- truncate -->
 
 ![](./img/progress-rep-q3-2016.jpg)
 
@@ -73,7 +73,7 @@ layout of the controller buttons on the pad settings page has been
 improved to more closely resemble a modern analog controller/DualShock
 configuration.
 
-{{< img-cmp before="./img/lilypad-before.png" after="./img/lilypad-after.png">}}
+<ImageCompare left={require("./img/lilypad-before_s.webp").default} right={require("./img/lilypad-after_s.webp").default} />
 
 ## GSdx: Avoid illegal instruction crash on older CPUs
 - by [turtleli](https://github.com/turtleli)
@@ -164,7 +164,7 @@ work on the issue and managed to come up with a better solution that
 works for those picky games too. For the full explanation of that please
 look forward to a blog entry on the subject soon!
 
-{{< img-cmp-slider before="./img/burnout-before.png" after="./img/afterburnout-after.pngPath">}}
+<SliderCompare before={require("./img/burnout-before_s.webp").default} after={require("./img/burnout-after_s.webp").default} />
 
 ## GSdx: Improved offset detection
 - by [FlatOut](https://github.com/FlatOutPS2)
@@ -175,7 +175,7 @@ the display rectangles. While this might look fine on a CRT television
 it causes blurring issues on a monitor. The issue was fixed by applying
 these minor offsets only when the frame memory has an offset.
 
-{{< img-cmp-slider before="./img/worms-before.png" after="./img/worms-after.png">}}
+<SliderCompare before={require("./img/worms-before_s.webp").default} after={require("./img/worms-after_s.webp").default} />
 
 ## GSdx: Proper custom resolution scaling
 - by [ssakash](https://github.com/ssakash)
@@ -187,22 +187,22 @@ issues. Here's a list of recent improvements made on custom resolution
 scaling:
 
 -   Add proper rounding when unscaling texture size. (Fixes
-    crashes/glitches on ICO and Dragonball Z: Budokai Tenkaichi 3)
+crashes/glitches on ICO and Dragonball Z: Budokai Tenkaichi 3)
 -   Remove scaling hack which limited scaling size based on the scissor
-    value.
+value.
 -   Ignore frame memory offsets when calculating dimension values of
-    display rectangle.
+display rectangle.
 -   Improve scaling of framebuffer size on custom resolution.
 -   Port half-pixel offset hack to custom resolution. (Fixes blurring
-    issues on games when upscaled)
+issues on games when upscaled)
 
 **Dragon Ball Z : Budokai Tenkaichi 3**
 
-{{< img-cmp-slider before="./img/dbz-before.png" after="./img/dbz-after.png">}}
+<SliderCompare before={require("./img/dbz-before_s.webp").default} after={require("./img/dbz-after_s.webp").default} />
 
 **ICO**
 
-{{< img-cmp-slider before="./img/ico-before.jpg" after="./img/ico-after.jpg">}}
+<SliderCompare before={require("./img/ico-before_s.jpg").default} after={require("./img/ico-after_s.jpg").default} />
 
 Lastly is something that doesn't really fall under any specific
 category. There have always been rumors that PCSX2's code is completely
