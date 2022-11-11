@@ -1,18 +1,18 @@
 ---
-title: "July-August 2015 Progress Report"
-date: 2015-08-17T00:00:00
-summary: "Hello everyone! Welcome to PCSX2's July-August 2015 progress report!"
+authors:
+- bositman
+date: 2015-08-17 00:00:00
+description: Hello everyone! Welcome to PCSX2's July-August 2015 progress report!
 draft: false
 tags:
-  - "progress-report"
-mainAuthor: bositman
-aliases:
-  - "/271-july-august-2015-progress-report"
-  - "/271-july-august-2015-progress-report.html"
-  - "/271-july-august-2015-progress-report.htm"
+- progress-report
+title: July-August 2015 Progress Report
 ---
 
+<!-- truncate -->
+
 ![](./img/7-8-2015-logo.jpg)
+
 
 Hello everyone! Welcome to PCSX2's July-August 2015 progress report!
 Since we were late again we'll include the first half of August in this report as well. So sit
@@ -141,9 +141,9 @@ compared to the GS in comparison to the older algorithm.
 Check out the fog like effects in God of War 1 which are now emulated
 correctly in OpenGL with blending accuracy set to high:
 
-{{< img-cmp-slider before="./img/gow1-hdr-broken1.jpg" after="./img/gow1-hdr-fixed1.jpg">}}
+<SliderCompare before={require("./img/gow1-hdr-broken1-s.jpg").default} after={require("./img/gow1-hdr-fixed1-s.jpg").default} />
 
-{{< img-cmp-slider before="./img/gow1-hdr-broken2.jpg" after="./img/gow1-hdr-fixed2.jpg">}}
+<SliderCompare before={require("./img/gow1-hdr-broken2-s.jpg").default} after={require("./img/gow1-hdr-fixed2-s.jpg").default} />
 
 Relevant PR:
 [Hdr colclip](https://github.com/PCSX2/pcsx2/pull/688)
@@ -155,28 +155,28 @@ Relevant PR:
 - by [Gregory](https://github.com/gregory38) & [Gabest](https://github.com/gabest11)
 
 -   Silent Hill outputs a nan in Q to emulate the flashlight - an
-    unsupported NaN (not a number) on the projection value (Q). The
-    issue was fixed by Gregory using an isnan test to find out when this
-    is used. Gabest pitched in and decreased the speed impact by using
-    inlined ASM. Fixes the long standing Silent Hill 3 flashlight effect
-    issue.
+unsupported NaN (not a number) on the projection value (Q). The
+issue was fixed by Gregory using an isnan test to find out when this
+is used. Gabest pitched in and decreased the speed impact by using
+inlined ASM. Fixes the long standing Silent Hill 3 flashlight effect
+issue.
 -   Wrong data mask for DATE operation on pseudo 16 bits RT: Fixes
-    shadow colors on Haunting Ground
+shadow colors on Haunting Ground
 -   Fix texture addressing outside the limits (only for OCL and SW
-    mode), done by extending the cached texture size to the upper limits
-    of the region clamp values: Fixes Lupin the 3rd
+mode), done by extending the cached texture size to the upper limits
+of the region clamp values: Fixes Lupin the 3rd
 -   Texture size reduction: Fixes Horzes, Stolen and likely all games
-    that generate an out-of-memory error.
+that generate an out-of-memory error.
 
 Haunting Ground shadow coloring is now fixed under the OpenGL software
 renderer:
 
-{{< img-cmp-slider before="./img/haunting-ground-broken.jpg" after="./img/haunting-ground-fixed.jpg">}}
+<SliderCompare before={require("./img/haunting-ground-broken-s.jpg").default} after={require("./img/haunting-ground-fixed-s.jpg").default} />
 
 Silent Hill 3 flashlight working properly under the OpenGL software
 renderer:
 
-{{< img-cmp-slider before="./img/silent-hill3-broken.jpg" after="./img/silent-hill3-fixed.jpg">}}
+<SliderCompare before={require("./img/silent-hill3-broken-s.jpg").default} after={require("./img/silent-hill3-fixed-s.jpg").default} />
 
 Relevant commits:
 [Gsdx: simplified isnan test, it compiles to an inline sse instruction
@@ -221,13 +221,13 @@ creates its save files without the 8mb file limitation.
 This means that users can switch to this system and:
 
 -   Never worry again about their memcards getting filled and having to
-    use many different files
+use many different files
 -   Easily share single game saves instead of whole memory cards by
-    simply zipping the folder of the game
+simply zipping the folder of the game
 -   Easily backup and delete game saves without going into the PS2 bios
-    or running the game
+or running the game
 -   Convert your old memory cards to a folder using the built-in convert
-    feature
+feature
 
 AdmiralCurtiss quickly nailed out some bugs that emerged after the
 merge, making this feature pretty much stable and safe for everyday
@@ -240,7 +240,7 @@ and the hard work he put into this! You can use the new feature from the
 memory card configuration, create a new memory card and select Folder
 (experimental). The convert feature is also in the memory card menu
 
-{{< img cols="6" src="./img/folder-memcards.jpg">}}
+<Image cols={6} src={require("./img/folder-memcards-s.jpg").default} />
 
 Relevant PR: [Memory Card as folder instead of a big raw
 file](https://github.com/PCSX2/pcsx2/pull/359%2026%20Nov%202014)

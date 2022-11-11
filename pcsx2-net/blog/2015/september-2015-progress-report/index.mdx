@@ -1,16 +1,15 @@
 ---
-title: "September 2015 Progress Report"
-date: 2015-10-01T00:00:00
-summary: "Now its time to present this month's changes."
+authors:
+- bositman
+date: 2015-10-01 00:00:00
+description: Now its time to present this month's changes.
 draft: false
 tags:
-  - "progress-report"
-mainAuthor: bositman
-aliases:
-  - "/272-september-2015-progress-report"
-  - "/272-september-2015-progress-report.html"
-  - "/272-september-2015-progress-report.htm"
+- progress-report
+title: September 2015 Progress Report
 ---
+
+<!-- truncate -->
 
 ![](./img/progrepsept.jpg)
 
@@ -36,18 +35,18 @@ Windows build management had become very disorganized recently, however
 that has been improved a good deal thanks to the following changes:
 
 -   In a gigantic PR started by Micove, Visual Studio 2012 support was
-    dropped and Visual Studio 2015 support was added. As a bonus some
-    build targets that weren't working for quite a while were fixed as
-    well as the compilation issues with the newly released update 5 of
-    Visual Studio 2013. Maintaining the old versions was pretty tiresome
-    but now we've been relieved of that burden.
+dropped and Visual Studio 2015 support was added. As a bonus some
+build targets that weren't working for quite a while were fixed as
+well as the compilation issues with the newly released update 5 of
+Visual Studio 2013. Maintaining the old versions was pretty tiresome
+but now we've been relieved of that burden.
 -   The version-specific Visual Studio solution and project files were
-    replaced with a single set of multi-version files. This removed 30k
-    lines of code and it allows us to easily support new versions of
-    Visual Studio.
+replaced with a single set of multi-version files. This removed 30k
+lines of code and it allows us to easily support new versions of
+Visual Studio.
 -   Sometimes builds failed to compile due to a strange environment
-    setup. After hours of debugging the culprit was found - missing
-    dependencies and a header conflict.
+setup. After hours of debugging the culprit was found - missing
+dependencies and a header conflict.
 
 
 Relevant commits and PRs:
@@ -86,20 +85,20 @@ screenshots of the GUI.
 
 Before changes on the left, after changes on the right
 
-{{< img-cmp-slider before="./img/gsdx-before.png" after="./img/gsdx-after.png">}}
+<SliderCompare before={require("./img/gsdx-before-s.webp").default} after={require("./img/gsdx-after-s.webp").default} />
 
 -   As you can see, the Anisotropic Filtering Checkbox was removed as it
-    was redundant with the 1x state (called OFF now).
+was redundant with the 1x state (called OFF now).
 -   Most of the options now have a nice tooltip to describe them. It is
-    not as complete as a full guide but it's handy to see the impact of
-    an option without 10 minutes of googling. Hovering the cursor over
-    an option will display some quick info about it.
+not as complete as a full guide but it's handy to see the impact of
+an option without 10 minutes of googling. Hovering the cursor over
+an option will display some quick info about it.
 -   CRC hack selection was moved from the hack section to the main
-    panel. The main reason is that that option was independent of the
-    "Enable HW hacks" checkbox.
+panel. The main reason is that that option was independent of the
+"Enable HW hacks" checkbox.
 -   Confusing 3 state checkboxes were replaced by much nicer comboboxes.
 -   Various options are OpenGL or DirectX renderer specific. Those
-    options will be hidden based on the renderer selection.
+options will be hidden based on the renderer selection.
 
 
 Relevant PRs:
@@ -116,11 +115,11 @@ behavior.](https://github.com/PCSX2/pcsx2/pull/754)
 
 **Old FPS Counter**
 
-{{< img cols="6" src="./img/fpsold.webp">}}
+<Image cols={6} src={require("./img/fpsold.webp").default} />
 
 **New FPS Counter**
 
-{{< img cols="6" src="./img/fpsnew.webp">}}
+<Image cols={6} src={require("./img/fpsnew.webp").default} />
 
 The new format is specifically aimed to create less confusion for the
 users who assumed the previous FPS value as the original In-game FPS.
@@ -186,4 +185,3 @@ team is quite small as a lot of you know and we are currently working on
 releasing a new stable build! Because of that we decided it would be
 best to consolidate our efforts on that in order to get it done as soon
 as possible. So look forward to that, it's definitely exciting!
-
