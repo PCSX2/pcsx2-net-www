@@ -1,15 +1,13 @@
 ---
-title: "Virtualalloc On Linux"
-date: 2010-08-19T00:00:00
-summary: "Yes, there is a way to simulate Microsoft's VirtualAlloc behavior on Linux"
+authors:
+- jake stine
+date: 2010-08-19 00:00:00
+description: Yes, there is a way to simulate Microsoft's VirtualAlloc behavior on
+  Linux
 draft: false
 tags:
-  - devblog
-mainAuthor: Jake Stine
-aliases:
-  - "/developer-blog/195-virtualalloc-on-linux"
-  - "/developer-blog/195-virtualalloc-on-linux.html"
-  - "/developer-blog/195-virtualalloc-on-linux.htm"
+- devblog
+title: Virtualalloc On Linux
 ---
 
 Yes, there is a way to simulate Microsoft's
@@ -17,6 +15,8 @@ Yes, there is a way to simulate Microsoft's
 behavior on Linux. Much searching of the internet did not reveal a
 satisfactory answer; only hints that when combined with some applied
 tests of my own yielded the following result:
+
+<!-- truncate -->
 
 ```cpp
 // to RESERVE memory in Linux, use mmap with a private, anonymous, non-accessible mapping.
