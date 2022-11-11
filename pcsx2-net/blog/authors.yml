@@ -14,6 +14,10 @@ refractionpcsx2:
   name: Refraction
   url: https://github.com/refractionpcsx2
   image_url: https://github.com/refractionpcsx2.png
+refraction:
+  name: Refraction
+  url: https://github.com/refractionpcsx2
+  image_url: https://github.com/refractionpcsx2.png
 bositman:
   name: Bositman
   url: https://github.com/bositman
@@ -50,5 +54,11 @@ rama:
   name: rama
   url: https://github.com/ramapcsx2
   image_url: https://github.com/ramapcsx2.png
+cottonvibes:
+  name: cottonvibes
+zedr0n:
+  name: zedr0n
 "blyss sarania":
   name: Blyss Sarania
+"jake stine":
+  name: Jake Stine
