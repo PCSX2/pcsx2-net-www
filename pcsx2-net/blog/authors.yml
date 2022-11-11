@@ -34,3 +34,11 @@ ssakash:
   name: Akash
   url: https://github.com/ssakash
   image_url: https://github.com/ssakash.png
+ck1:
+  name: CK1
+  url: https://github.com/MrCK1
+  image_url: https://github.com/MrCK1.png
+kojin:
+  name: Kojin
+  url: https://github.com/tadanokojin
+  image_url: https://github.com/tadanokojin.png
