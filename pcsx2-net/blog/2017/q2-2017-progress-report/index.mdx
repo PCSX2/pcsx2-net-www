@@ -1,18 +1,13 @@
 ---
-title: "Q2 2017 Progress Report"
-date: 2017-09-11T00:00:00
-summary: "Hello followers and welcome to the Q2 2017 progress report"
+authors:
+- bositman
+date: 2017-09-11 00:00:00
+description: Hello followers and welcome to the Q2 2017 progress report
 draft: false
 tags:
-  - "progress-report"
-mainAuthor: bositman
-aliases:
-  - "/284-q2-2017-progress-report"
-  - "/284-q2-2017-progress-report.html"
-  - "/284-q2-2017-progress-report.htm"
+- progress-report
+title: Q2 2017 Progress Report
 ---
-
-![](./img/progrepq22017.jpg)
 
 Hello followers and welcome to the Q2 2017 progress report. You might
 notice it's not as exciting as the previous report, but that is because
@@ -21,7 +16,11 @@ fully expected
 
 That said, here are the most notable changes since the last report
 
-{{< progress/github-link prNums="1907" title="PCSX2: Fix command-line options" authors="turtleli" >}}
+<!-- truncate -->
+
+![](./img/progrepq22017.jpg)
+
+<PCSX2PRLink authors="turtleli" prNums="1907">PCSX2: Fix command-line options</PCSX2PRLink>
 
 Since the [re-addition of the command-line interface](http://forums.pcsx2.net/Thread-blog-The-return-of-the-Commandline?pid=118520&amp;highlight=commandline#pid118520)
 by former developer Air, the command-line code has remained untouched
@@ -29,16 +28,16 @@ for years with issues arising on it as the other areas of the emulator
 were improved. The known issues of the command line interface were:
 
 -   Booting the ISO from the commandline would fail when CDVD plugin is
-    selected on the PCSX2 GUI and vice versa.
+selected on the PCSX2 GUI and vice versa.
 -   The --nodisc command line option failed to work.
 -   The current ISO selection was cleared when any boot source other
-    than ISO was used in the command line.
+than ISO was used in the command line.
 
 **Turtleli** has
 fixed all of these issues and the command line options are now back to
 functioning properly as they should.
 
-{{< progress/github-link prNums="2014" title="PCSX2-Counters: Proper tracking of scalar limit" authors="turtleli" >}}
+<PCSX2PRLink authors="turtleli" prNums="2014">PCSX2-Counters: Proper tracking of scalar limit</PCSX2PRLink>
 
 PCSX2 allows modification of the base framerate limit in the Emulation
 settings dialog. The value of the base framerate limit is 100% by
@@ -51,7 +50,7 @@ the vertical synchronization timer logic whenever new settings were
 written to the emulator. The issue has now been fixed by forcing the
 reset of the timer logic whenever the emulation settings are updated.
 
-{{< progress/github-link prNums="1949" title="CMake: Blacklist GCC 7.0/7.1 versions" authors="gregory38" >}}
+<PCSX2PRLink authors="gregory38" prNums="1949">CMake: Blacklist GCC 7.0/7.1 versions</PCSX2PRLink>
 
 It recently came to our attention that hardware rendering has severe
 issues when PCSX2 is compiled using GCC versions 7.0 and 7.1 ([#1937](https://github.com/PCSX2/pcsx2/issues/1937)). After analyzing the issue, we found out that these versions have some
@@ -63,7 +62,7 @@ To prevent users from compiling PCSX2 on these affected versions, an
 error will now be displayed advising the user to back-port the fixed
 version or update GCC.
 
-{{< progress/github-link prNums="1922" title="GSdx: Support for dumping GS Dumps in xz format" authors="gregory38,turtleli" >}}
+<PCSX2PRLink authors="gregory38,turtleli" prNums="1922">GSdx: Support for dumping GS Dumps in xz format</PCSX2PRLink>
 
 A GS dump is a file which holds the data processed by the Graphics
 synthesizer during a specific amount of time. This file is generated
@@ -74,9 +73,9 @@ dump.
 There are two different ways available for capturing GS dumps:
 
 - **SHIFT + F8**
-  - Single frame dump. (Captures GS information of a singleframe)
+- Single frame dump. (Captures GS information of a singleframe)
 - **CONTROL + SHIFT + F8**
-  - Multiple frame dump (Captures GS information until you stop pressing your control key)
+- Multiple frame dump (Captures GS information until you stop pressing your control key)
 
 
 GS dumps are generally large in size and they could even exceed the size
@@ -86,7 +85,7 @@ for single frame dumps. Compression is only limited to single frame
 dumps for now as multiple frame dumps take longer time to compress
 leading to a freeze for several minutes.
 
-{{< progress/github-link prNums="1995" title="GSdx-OpenGL: Reduce Geometry shader overhead" authors="gregory38" >}}
+<PCSX2PRLink authors="gregory38" prNums="1995">GSdx-OpenGL: Reduce Geometry shader overhead</PCSX2PRLink>
 
 The GLSL shader operations were modified in order to reduce the overhead
 in the geometry shader. This reduction in overhead is achieved by
@@ -96,13 +95,13 @@ certain scenarios.
 Here are some benchmarks of the change taken from Nouveau/Mesa
 drivers.
 
-{{< img cols="6" src="./img/shader-opt.webp">}}
+<Image cols={6} src={require("./img/shader-opt.webp").default} />
 
 However, the performance gain on games should be very small. You might
 gain 1-2 fps at most cases and potentially higher if the bottleneck is
 the geometry shader execution.
 
-{{< progress/github-link prNums="1942" title="GSdx-HW: Revamped buffer size calculation for custom resolutions" authors="ssakash" >}}
+<PCSX2PRLink authors="ssakash" prNums="1942">GSdx-HW: Revamped buffer size calculation for custom resolutions</PCSX2PRLink>
 
 There is a certain configuration option of GSdx known as **"Large Framebuffer"**
 . When enabled, this option would increase the emulation accuracy in
@@ -110,7 +109,7 @@ upscaled resolutions at the cost of extra workload on the GPU.
 
 Here's an example showing the effect of **Large Framebuffer** on ICO,
 
-{{< img-cmp-slider before="./img/ico-before.png" after="./img/ico-after.png">}}
+<SliderCompare before={require("./img/ico-befores.webp").default} after={require("./img/ico-afters.webp").default} />
 
 Disabling the **Large Framebuffer** option could cause severe glitches in upscaled
 resolutions like the one shown above but only a limited amount of games
@@ -129,13 +128,13 @@ previous one.
 ```cpp
 # Previous code
 if ( Large Framebuffer )
-   IncreaseFramebufferSize();
+IncreaseFramebufferSize();
 
 # New code
 if ( Large Framebuffer )
 {
-   if ( IsExtraBufferSizeNecessary() )
-        IncreaseFramebufferSize();
+if ( IsExtraBufferSizeNecessary() )
+IncreaseFramebufferSize();
 }
 ```
 
@@ -146,12 +145,12 @@ Vligax Attacks (rendering at 3840x2160) took over 20 seconds to even
 pass the loading screen! After this new implementation, it barely takes
 3 seconds to pass the loading screen.
 
-{{< img-cmp before="./img/old-algo.gif" after="./img/new-algo.gif">}}
+<ImageCompare left={require("./img/old-algo.gif").default} right={require("./img/new-algo.gif").default} />
 
 Now you can safely enable **Large Framebuffer** on custom
 resolutions without worrying about any useless GPU overhead.
 
-{{< progress/github-link prNums="1895" title="Onepad: Update to use SDL2" authors="gregory38" >}}
+<PCSX2PRLink authors="gregory38" prNums="1895">Onepad: Update to use SDL2</PCSX2PRLink>
 
 The Onepad plugin uses the SDL library to query the controller and
 interpret the raw input into game actions. These inputs vary per
@@ -159,7 +158,7 @@ controller and are troublesome to deal with as you need to map the
 kernel information to the PS2 equivalent value.
 Here's how it worked with SDL 1.2:
 
-{{< img cols="6" src="./img/sdl1.2_process.png">}}
+<Image cols={6} src={require("./img/sdl1.2_process_s.webp").default} />
 
 Upgrading SDL to version 2.0, we present a generic virtual controller
 abstracting the kernel information to Onepad. The values in the virtual
@@ -173,7 +172,7 @@ latest version of Onepad.
 
 Here's a nice schema for the new implementation:
 
-{{< img cols="6" src="./img/sdl2_process.png">}}
+<Image cols={6} src={require("./img/sdl2_process_s.webp").default} />
 
 Thanks to everyone who collected the info and helped with this report
 once more, you know who you are

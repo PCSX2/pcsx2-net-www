@@ -1,25 +1,25 @@
 ---
-title: "Q1 2017 Progress Report"
-date: 2017-05-17T00:00:00
-summary: "The wait is over! (if there were people still waiting on us) The Q1 2017 progress report is here"
+authors:
+- bositman
+date: 2017-05-17 00:00:00
+description: The wait is over! (if there were people still waiting on us) The Q1 2017
+  progress report is here
 draft: false
 tags:
-  - "progress-report"
-mainAuthor: bositman
-aliases:
-  - "/283-q1-2017-progress-report"
-  - "/283-q1-2017-progress-report.html"
-  - "/283-q1-2017-progress-report.htm"
+- progress-report
+title: Q1 2017 Progress Report
 ---
 
 ![](./img/progress-rep-q1-2017.jpg)
+
+<!-- truncate -->
 
 The wait is over! (if there were people still waiting on us) The Q1 2017 progress report is here, albeit we are late once more.
 Don't blame us, blame all these wonderful fixes you will find below:
 
 # Core
 
-{{< progress/github-link prNums="1706" title="Core: VIF unpack speed optimization" authors="gregory38" >}}
+<PCSX2PRLink authors="gregory38" prNums="1706">Core: VIF unpack speed optimization</PCSX2PRLink>
 
 The PlayStation 2 Vector Interface Unit (VIF) is a pathway between the
 main memory and the Graphics synthesizer, one of its main functions is
@@ -47,7 +47,7 @@ store to load forwarding and to improve portability. This provides a
 2-3X improvement on the hash lookup speed and translates to a small FPS
 increase.
 
-{{< progress/github-link prNums="1835" title="VU0: Fix CFC2 transfers from TPC register" authors="volodymyrkutsenko" >}}
+<PCSX2PRLink authors="volodymyrkutsenko" prNums="1835">VU0: Fix CFC2 transfers from TPC register</PCSX2PRLink>
 
 
 The CFC2 instruction is used to transfer 32-bit integer data from the
@@ -69,10 +69,10 @@ On this following sequence of code,
 
 -   The CFC2 instruction transfers the TPC data to the t4 register.
 -   The CTC2 instruction subsequently transfers the data to the CMSAR0
-    register, which holds the starting address of the VU0 micro
-    subroutine divided by 8.
+register, which holds the starting address of the VU0 micro
+subroutine divided by 8.
 -   The VCALLMSR instruction then starts the micro subroutine at the
-    address specified by the CMSAR0 register.
+address specified by the CMSAR0 register.
 
 
 This sequence did not work on PCSX2 because the CMSAR0 register requires
@@ -88,14 +88,14 @@ for fixing this long standing bug plaguing Street Fighter EX3, which
 started with [missing
 skirts](http://forums.pcsx2.net/attachment.php?aid=51971) , developed to
 [skirts levitating showing
-panties](https://cloud.githubusercontent.com/assets/7338867/21550619/b0bd2abc-cdd1-11e6-9a36-ee852c0c8226.png)
+panties](https://cloud.githubusercontent.com/assets/7338867/21550619/b0bd2abc-cdd1-11e6-9a36-ee852c0c8226.webp)
 and concluded in correct emulation
 
-{{< img-cmp-slider before="./img/sfex-before.png" after="./img/sfex-after.png">}}
+<SliderCompare before={require("./img/sfex-before-s.webp").default} after={require("./img/sfex-after-s.webp").default} />
 
 # GSdx
 
-{{< progress/github-link prNums="1431" title="GSdx: OSD Manager" authors="JasonBrownDeveloper,FlatOutPS2" >}}
+<PCSX2PRLink authors="JasonBrownDeveloper,FlatOutPS2" prNums="1431">GSdx: OSD Manager</PCSX2PRLink>
 
 It may surprise many that for such a comprehensive PS2 emulator we did
 not display On-screen Display (OSD) messages relating to information
@@ -122,10 +122,10 @@ the GSdx plugin settings.
 Here are some screenshots of the new OSD log and OSD monitor feature in
 action:
 
-{{< img cols="6" src="./img/KH-OSD2.png">}}
-{{< img cols="6" src="./img/OSD_monitor.jpg">}}
+<Image cols={6} src={require("./img/KH-OSD2-s.webp").default} />
+<Image cols={6} src={require("./img/OSD_monitor-s.jpg").default} />
 
-{{< progress/github-link prNums="1766" title="GSdx: Texture cache speed optimization" authors="gregory38" >}}
+<PCSX2PRLink authors="gregory38" prNums="1766">GSdx: Texture cache speed optimization</PCSX2PRLink>
 
 Textures are stored in the GS memory, which is split into 512 pages. For
 each memory page, the GSdx texture cache manages a list of addresses of
@@ -144,7 +144,7 @@ Although this requires more memory, it also makes it unnecessary to
 search through all the lists to remove all references to the texture
 data, which speeds up texture deletion.
 
-{{< progress/github-link prNums="1741" title="Windows Skylake CPU slow software renderer fix" authors="turtleli" >}}
+<PCSX2PRLink authors="turtleli" prNums="1741">Windows Skylake CPU slow software renderer fix</PCSX2PRLink>
 
 After switching to using Visual Studio 2015 on the buildbot to compile
 PCSX2, some Windows Skylake users started reporting significant
@@ -165,7 +165,7 @@ unnecessary atomic operations. As a side effect, it eliminated one of
 the variables involved in the false sharing and fixed the Windows
 Skylake CPU issue.
 
-{{< progress/github-link prNums="1855" title="Software renderer thread synchronization fix" authors="gregory38" >}}
+<PCSX2PRLink authors="gregory38" prNums="1855">Software renderer thread synchronization fix</PCSX2PRLink>
 
 The software renderer workload can be divided between multiple threads.
 This workload division should not cause rendering issues. However, on
@@ -185,9 +185,9 @@ read by the previous draw call.
 The thread synchronization logic was updated to account for this
 scenario, which fixed the graphical glitches.
 
-{{< img-cmp-slider before="./img/blood_will_tell_before.png" after="./img/blood_will_tell_after.png">}}
+<SliderCompare before={require("./img/blood_will_tell_before-s.webp").default} after={require("./img/blood_will_tell_after-s.webp").default} />
 
-{{< progress/github-link prNums="1843" title="Improved software renderer float handling" authors="gregory38" >}}
+<PCSX2PRLink authors="gregory38" prNums="1843">Improved software renderer float handling</PCSX2PRLink>
 
 Two fixes have recently been made to the software renderer's float
 handling mechanism, improving its accuracy.
@@ -208,10 +208,10 @@ values are detected, the code calculates the texture coordinates as
 ((S/Q) width, (T/Q) height), which is slower but avoids the
 underflow/overflow issues. This fixed the major texture issues in **Galerians: Ash** and **Let's make a J-League Pro Soccer Club '04**.
 
-{{< img-cmp-slider before="./img/jak3-before.png" after="./img/jak3-after.png">}}
-{{< img-cmp-slider before="./img/gash_before.jpg" after="./img/gash_after.jpg">}}
+<SliderCompare before={require("./img/jak3-before-s.webp").default} after={require("./img/jak3-after-s.webp").default} />
+<SliderCompare before={require("./img/gash_before_s.jpg").default} after={require("./img/gash_after_s.jpg").default} />
 
-{{< progress/github-link prNums="1790" title="GSdx: Removal of SSSE3 and AVX configurations" authors="turtleli" >}}
+<PCSX2PRLink authors="turtleli" prNums="1790">GSdx: Removal of SSSE3 and AVX configurations</PCSX2PRLink>
 
 The use of instruction sets available on newer CPUs can significantly
 boost performance at the cost of compatibility with older CPUs. For this
@@ -232,11 +232,11 @@ This leaves us with 3 remaining GSdx builds:
 
 -   SSE2 - compatible with almost all CPUs.
 -   SSE4.1 - compatible with most CPUs (requires Intel Penryn / AMD
-    Bulldozer or newer). Faster hardware renderer performance.
+Bulldozer or newer). Faster hardware renderer performance.
 -   AVX2 - least compatible (requires Intel Haswell / AMD Ryzen or
-    newer). Fastest hardware and software renderer performance.
+newer). Fastest hardware and software renderer performance.
 
-{{< progress/github-link shas="26993380b16487649c2ae5f81741e7918ad1604c" title="Blacklist AMD driver" authors="gregory38" >}}
+<PCSX2PRLink authors="gregory38" shas="26993380b16487649c2ae5f81741e7918ad1604c">Blacklist AMD driver</PCSX2PRLink>
 
 The OpenGL renderer uses both separate shader objects and dual source
 blending. This combination, however, causes rendering issues with AMD
@@ -256,7 +256,7 @@ drivers will be better, but we've been waiting for quite a long time.
 
 # LilyPad
 
-{{< progress/github-link prNums="1751" title="LilyPad: neGcon controller support" authors="FlatOutPS2" >}}
+<PCSX2PRLink authors="FlatOutPS2" prNums="1751">LilyPad: neGcon controller support</PCSX2PRLink>
 
 LilyPad now supports the neGcon analog controller, which can be used for
 several PS1 and even PS2 titles like the Ridge Racer and Ace Combat
@@ -267,7 +267,7 @@ analog controls in PS1 games that were released before the introduction
 of the DualShock controller, and its analog throttle and brake buttons
 are ideal for use in combination with a steering wheel controller.
 
-{{< progress/github-link prNums="1831" title="LilyPad: UI Changes" authors="FlatOutPS2" >}}
+<PCSX2PRLink authors="FlatOutPS2" prNums="1831">LilyPad: UI Changes</PCSX2PRLink>
 
 Several new options have been added to the LilyPad user interface. The
 most notable is the addition of a **Quick Setup** button on the Pad tabs. This button allows for
@@ -296,7 +296,7 @@ setings and bindings to those of the default Lilypad settings file
 without having to go to the inis folder and manually removing the
 file.
 
-{{< progress/github-link prNums="1831" title="LilyPad: Core improvements" authors="FlatOutPS2" >}}
+<PCSX2PRLink authors="FlatOutPS2" prNums="1831">LilyPad: Core improvements</PCSX2PRLink>
 
 Detection of analog and pressure sensitive controls has been improved.
 Previously, some games like Driving Emotion Type-S didn't enable analog

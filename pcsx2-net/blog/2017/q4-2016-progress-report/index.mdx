@@ -1,21 +1,20 @@
 ---
-title: "Q4 2016 Progress Report"
-date: 2017-02-02T00:00:00
-summary: "Finally the Q4 2016 progress report!"
+authors:
+- bositman
+date: 2017-02-02 00:00:00
+description: Finally the Q4 2016 progress report!
 draft: false
 tags:
-  - "progress-report"
-mainAuthor: bositman
-aliases:
-  - "/281-q4-2016-progress-report"
-  - "/281-q4-2016-progress-report.html"
-  - "/281-q4-2016-progress-report.htm"
+- progress-report
+title: Q4 2016 Progress Report
 ---
-
-![](./img/progress-rep-q4-2016.jpg)
 
 Finally the Q4 2016 progress report! Yes we know it's a bit late but you
 will find it was worth the wait! On to the changes:
+
+<!-- truncate -->
+
+![](./img/progress-rep-q4-2016.jpg)
 
 ## cdvdgigaherz: Linux port
 - by [turtleli](https://github.com/turtleli)
@@ -50,23 +49,23 @@ pulse response, but the delay and feedback are spot on! It sounds much
 better than the older implementation and benefits PSX and PS2 games
 alike.
 
-{{< img cols="6" src="./img/spu2x-reverb.jpg">}}
+<Image cols={6} src={require("./img/spu2x-reverb-s.jpg").default} />
 
 Here are some screenshots of Tekken 3, Ridge Racer and Driver running
 under PCSX2's brand new PSX mode:
 
-{{< img cols="6" src="./img/tekken3-ps1.jpg">}}
-{{< img cols="6" src="./img/driver-ps1.jpg">}}
-{{< img cols="6" src="./img/ridgeracer-ps1.jpg">}}
+<Image cols={6} src={require("./img/tekken3-ps1-s.jpg").default} />
+<Image cols={6} src={require("./img/driver-ps1-s.jpg").default} />
+<Image cols={6} src={require("./img/ridgeracer-ps1-s.jpg").default} />
 
 **Note**:
 
 -   PSX backward compatibility is still in its nascent state, so bug
-    reports related to it will be dismissed, until the emulation has
-    matured enough.
+reports related to it will be dismissed, until the emulation has
+matured enough.
 -   Also quite interesting: None of the PSX emulators used for
-    comparison produces reverb waveforms that look anything like the
-    original hardware!
+comparison produces reverb waveforms that look anything like the
+original hardware!
 
 
 
@@ -135,7 +134,7 @@ The third new option is a "configure on bind" checkbox. With this
 enabled you'll be sent straight to the input configuration for each
 input you bind.
 
-{{< img-cmp before="./img/lilypad-before.jpg" after="./img/lilypad-after.jpg">}}
+<ImageCompare left={require("./img/lilypad-before-s.jpg").default} right={require("./img/lilypad-after-s.jpg").default} />
 
 ## GSdx: Hardware mipmapping support
 - by [Gregory](https://github.com/gregory38)
@@ -163,9 +162,9 @@ is impossible without a rewrite of texture cache. To shut them all up,
 **Gregory** took all the responsibility in his hands and finally added
 support for hardware mipmapping!
 
-{{< img-cmp-slider before="./img/ratchet-before1.jpg" after="./img/ratchet-after1.jpg">}}
-{{< img-cmp-slider before="./img/ratchet-before2.jpg" after="./img/ratchet-after2.jpg">}}
-{{< img-cmp-slider before="./img/ace-before.jpg" after="./img/ace-after.jpg">}}
+<SliderCompare before={require("./img/ratchet-before1-s.jpg").default} after={require("./img/ratchet-after1-s.jpg").default} />
+<SliderCompare before={require("./img/ratchet-before2-s.jpg").default} after={require("./img/ratchet-after2-s.jpg").default} />
+<SliderCompare before={require("./img/ace-before-s.jpg").default} after={require("./img/ace-after-s.jpg").default} />
 
 Note:** The current implementation of hardware mipmapping isn't totally
 accurate, the current implementation replaces the pointer of the base
@@ -194,7 +193,7 @@ scaling value, **ssakash** later
 generalized the scaling equation to also make it work on custom
 resolutions.
 
-{{< img-cmp-slider before="./img/dmc-before.jpg" after="./img/dmc-after.jpg">}}
+<SliderCompare before={require("./img/dmc-before-s.jpg").default} after={require("./img/dmc-after-s.jpg").default} />
 
 ## GSdx: Handling illegal 8 bits pixel storage format
 - by [Gregory](https://github.com/gregory38)
@@ -203,10 +202,10 @@ The Graphics Synthesizer supports 3 different color formats for the
 frame buffer,
 
 -   32 bits (RGBA8): 3 color channels of 8 bits + 1 alpha channel of 8
-    bits. **(PSMCT32)**
+bits. **(PSMCT32)**
 -   24 bits (RGB8): 3 color channels of 8 bits. **(PSMCT24)**
 -   16 bits (RGB5A1): 3 color channels of 5 bits + alpha channel of 1
-    bit. **(PSMCT16, PSMCT16S)**
+bit. **(PSMCT16, PSMCT16S)**
 
 
 However, some games seem to use an illegal format at the FRAME register,
@@ -221,7 +220,7 @@ issue](https://github.com/PCSX2/pcsx2/commit/9b93c073390de7c5f88e944bc9d26f9cf17
 by replacing the illegal format with a valid 32 bit format and channel
 masking in the FBMSK bitfield of FRAME register.
 
-{{< img-cmp-slider before="./img/berserk-before.jpg" after="./img/berserk-after.jpg">}}
+<SliderCompare before={require("./img/berserk-before-s.jpg").default} after={require("./img/berserk-after-s.jpg").default} />
 
 
 ## GSdx-PCRTC: Feedback write support
@@ -246,7 +245,7 @@ feedback write circuit, the DirectX port for the fix is yet to be done
 as there aren't really any active DX developers on our team at the
 moment.
 
-{{< img-cmp-slider before="./img/xenosaga-before.jpg" after="./img/xenosaga-after.jpg">}}
+<SliderCompare before={require("./img/xenosaga-before-s.jpg").default} after={require("./img/xenosaga-after-s.jpg").default} />
 
 **Xenosaga makes use of the feedback write mechanism to convert the color to a luminance greyscale.**
 
