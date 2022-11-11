@@ -1,23 +1,22 @@
 ---
-title: "Whats Clamping Why Do We Need It"
-date: 2009-08-31T00:00:00
-summary: "In pcsx2's advanced options dialog (if you've dared to look), you've might have noticed there's \"FPU Clamp Mode\" and \"VU Clamp Mode\" settings"
+authors:
+- cottonvibes
+date: 2009-08-31 00:00:00
+description: In pcsx2's advanced options dialog (if you've dared to look), you've
+  might have noticed there's "FPU Clamp Mode" and "VU Clamp Mode" settings
 draft: false
 tags:
-  - devblog
-mainAuthor: cottonvibes
-aliases:
-  - "/developer-blog/209-whats-clamping-why-do-we-need-it"
-  - "/developer-blog/209-whats-clamping-why-do-we-need-it.html"
-  - "/developer-blog/209-whats-clamping-why-do-we-need-it.htm"
+- devblog
+title: Whats Clamping Why Do We Need It
 ---
-
 
 In pcsx2's advanced options dialog (if you've dared to look), you've
 might have noticed there's "FPU Clamp Mode" and "VU Clamp Mode"
 settings. You may even have experimented with some of these modes and
 found out they fix or break games.
 But what are they doing? And why so many options?
+
+<!-- truncate -->
 
 Well first you have to know what a floating point number is. A float is
 simply a representation of a rational number from a string of bits,
@@ -113,14 +112,14 @@ Let me give you a quick example of something clamping can solve:
 
 ```cpp
 int main() {
-  float value = INF;
-  do {
-    value = value / 2;
-    if (value <= 1) {
-      print("Hello World");
-      break;
-    }
-  } while (true);
+float value = INF;
+do {
+value = value / 2;
+if (value <= 1) {
+print("Hello World");
+break;
+}
+} while (true);
 }
 ```
 
@@ -139,14 +138,14 @@ Clamping can solve this problem like this:
 
 ```cpp
 int main() {
-  float value = INF;
-  do {
-    value = clamp(value);  // If value is NaN/INF, make value into a big normal number value = value / 2;
-    if (value <= 1) {
-      print("Hello World");
-      break;
-    }
-  } while (true);
+float value = INF;
+do {
+value = clamp(value);  // If value is NaN/INF, make value into a big normal number value = value / 2;
+if (value <= 1) {
+print("Hello World");
+break;
+}
+} while (true);
 }
 ```
 
@@ -177,10 +176,10 @@ In this case, we simulate the ps2's sqrt instruction by doing this
 
 ```cpp
 float ps2_sqrt(float value) {
-  value = clamp(value);  // Clamp Value if NaN or Inf to an ordered/normal number
-  value = abs(value);    // Make Positive
-  value = sqrt(value);   // Get sqrt of now-positive value
-  return value;
+value = clamp(value);  // Clamp Value if NaN or Inf to an ordered/normal number
+value = abs(value);    // Make Positive
+value = sqrt(value);   // Get sqrt of now-positive value
+return value;
 }
 ```
 
