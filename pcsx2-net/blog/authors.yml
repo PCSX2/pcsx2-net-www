@@ -54,6 +54,10 @@ rama:
   name: rama
   url: https://github.com/ramapcsx2
   image_url: https://github.com/ramapcsx2.png
+gigaherz:
+  name: gigaherz
+  url: https://github.com/gigaherz
+  image_url: https://github.com/gigaherz.png
 cottonvibes:
   name: cottonvibes
 zedr0n:
