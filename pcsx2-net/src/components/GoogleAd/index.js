@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Row, Col } from "@nextui-org/react";
 import { getCookieConsentValue } from "react-cookie-consent";
 
-export function GoogleAd({margins = "5em", alignment = "center", doubleAd = false}) {
+export function GoogleAd({margins = "5em", alignment = "center"}) {
   const [displayAd, setDisplayAd] = useState(false);
 
   useEffect(() => {
@@ -17,15 +17,11 @@ export function GoogleAd({margins = "5em", alignment = "center", doubleAd = fals
 
   return (
     !displayAd ? (null) :
-    <Row justify={alignment} css={{mt: margins, mb: margins}} gap={2}>
-      <Col span={6}>
+    <Row justify={alignment} css={{mt: margins, mb: margins, width: "auto"}} gap={2}>
+      <Col span={12}>
       <ins className="adsbygoogle" style={{display: "block", backgroundColor: "grey"}} data-ad-client={"ca-pub-0996284081546238"} data-ad-slot={"3330447757"}
             data-ad-format="auto" data-full-width-responsive="true"></ins>
       </Col>
-      {!doubleAd ? (null) : <Col span={6}>
-      <ins className="adsbygoogle" style={{display: "block", backgroundColor: "grey"}} data-ad-client={"ca-pub-0996284081546238"} data-ad-slot={"3330447757"}
-            data-ad-format="auto" data-full-width-responsive="true"></ins>
-      </Col>}
     </Row>
   );
 }

@@ -282,7 +282,7 @@ export default function Home() {
               </ul>
             </Col>
           </Row>
-          <GoogleAd doubleAd></GoogleAd>
+          {/* <GoogleAd doubleAd></GoogleAd> */}
         </Container>
       </main>
     </Layout>

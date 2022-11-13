@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Card, Row, Col, Text } from '@nextui-org/react';
+import { Table, Card, Row, Col, Text, Grid } from '@nextui-org/react';
 import ReactMarkdown from 'react-markdown';
 import { ReleaseDownloadButton } from '../ReleaseDownloadButton';
 import { GoDiffAdded, GoDiffRemoved } from "react-icons/go";
 import { IconContext } from 'react-icons';
+import { DateTime } from "luxon";
 
 export function PullRequestTableCard({ pullRequest }) {
-  const date = new Date(pullRequest.updatedAt);
-  const dateString = date.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  const date = DateTime.fromISO(pullRequest.updatedAt);
+  const dateString = date.toLocaleString(DateTime.DATE_FULL);
   return (
-    <Row css={{ mt: "0.5em" }}>
-      <Col>
+    <Grid.Container css={{ mt: "0.5em" }}>
+      <Grid xs={12}>
         <Card css={{ p: "$6", mw: "100%" }}>
           <Card.Header>
             <h3>
@@ -38,16 +39,16 @@ export function PullRequestTableCard({ pullRequest }) {
             <ReactMarkdown>{pullRequest.body}</ReactMarkdown>
           </Card.Body>
         </Card>
-      </Col>
-    </Row>
+      </Grid>
+    </Grid.Container>
   );
 }
 
 export function DownloadTableReleaseCard({ release, downloadButtonText, isNightly }) {
   return (
     !release ? (null) :
-      <Row css={{ mt: "0.5em" }}>
-        <Col>
+      <Grid.Container css={{ mt: "0.5em" }}>
+        <Grid xs={12}>
           <Card css={{ p: "$6", mw: "100%" }}>
             <Card.Header>
               <Text h3 css={{ lineHeight: "$xs" }}>
@@ -68,8 +69,8 @@ export function DownloadTableReleaseCard({ release, downloadButtonText, isNightl
               />
             </Card.Footer>
           </Card>
-        </Col>
-      </Row>
+        </Grid>
+      </Grid.Container>
   );
 }
 
@@ -97,9 +98,9 @@ export function DownloadTable({ pageSize, tableLabel, color, initialTableData, t
   }, [initialTableData]);
 
   return (
-    <div>
-      <Row>
-        <Col>
+    <Grid xs={12}>
+      <Grid.Container>
+        <Grid xs={12}>
           <Table
             striped
             compact
@@ -182,9 +183,9 @@ export function DownloadTable({ pageSize, tableLabel, color, initialTableData, t
               total={Math.ceil(tableData?.pageInfo?.total / pageSize)}
             />
           </Table>
-        </Col>
-      </Row>
+        </Grid>
       {selectedTableRow === undefined ? renderSelectedCard(selectedTableRow, tableType) : renderSelectedCard(tableData.data[selectedTableRow], tableType)}
-    </div>
+      </Grid.Container>
+    </Grid>
   );
 }

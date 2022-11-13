@@ -97,129 +97,135 @@ export default function Downloads() {
       description="The official source for the latest stable and nightly builds (aka dev builds) for PCSX2 on all supported platforms">
       <Head>
         <meta property="og:description" content="" />
-        <meta name="keywords" content="pcsx2 downloads,pcsx2 dev builds,pcsx2 dev,pcsx2 nightlies,pcsx2 stable"/>
+        <meta name="keywords" content="pcsx2 downloads,pcsx2 dev builds,pcsx2 dev,pcsx2 nightlies,pcsx2 stable" />
       </Head>
       <main>
         <Container fluid css={{ mt: "2em" }}>
           <Grid.Container gap={2}>
-            <Grid md={6}>
-              <Text
-                h1
-                size={40}
-                css={{
-                  textGradient: "180deg, #5099ff 25%, #465eae 100%",
-                }}
-                weight="bold"
-              >
-                Stable Releases
-              </Text>
-              <Row css={{ mb: "1em" }}>
-                <Col><span>Stable releases are infrequent but well tested compared to the nightly releases.</span></Col>
-              </Row>
-              <Row css={{ mb: "1em" }}>
-                <Col><span>If you need help using the emulator, <a href="/docs/usage/setup/">see the following article.</a></span></Col>
-              </Row>
-              <Row css={{ mb: "1em" }}>
-                <Col>
+            <Grid xs={12} md={6}>
+              <Grid.Container css={{display: "inline-block"}}>
+                <Grid xs={12}>
+                  <Text
+                    h1
+                    size={40}
+                    css={{
+                      textGradient: "180deg, #5099ff 25%, #465eae 100%",
+                    }}
+                    weight="bold"
+                  >
+                    Stable Releases
+                  </Text>
+                </Grid>
+                <Grid xs={12}>
+                  <p>Stable releases are infrequent but well tested compared to the nightly releases</p>
+                </Grid>
+                <Grid xs={12}>
+                  <p>If you need help using the emulator, <a href="/docs/usage/setup/">see the following article.</a></p>
+                </Grid>
+                <Grid xs={12}>
                   <Admonition type="info">
                     <p>As we are now drawing closer to releasing a new stable version, we encourage you to use the latest nightly instead. If you encounter a problem, you will likely be told to try the latest nightly as a first step.</p>
                   </Admonition>
-                </Col>
-              </Row>
-              <Row css={{ mb: "2em" }}>
-                <Col>
+                </Grid>
+                <Grid xs={12} css={{mt: "2em"}}>
                   <ReleaseDownloadButton
                     release={latestStableRelease}
                     buttonText={"Latest Stable"}
                     isNightly={false}
                   />
-                </Col>
-              </Row>
-              <GoogleAd></GoogleAd>
-              <Row>
-                <Col><h2>Previous Stable Releases</h2></Col>
-              </Row>
-              <DownloadTable
-                pageSize={pageSize}
-                tableLabel={"Previous stable releases table"}
-                color={"primary"}
-                initialTableData={stableReleases}
-                tableColumns={releaseTableColumns}
-                renderRowFunc={renderReleaseCell}
-                fetchMoreFunc={async (offset) => {
-                  return await fetch(`${baseApiUrl}/stableReleases?offset=${offset}`);
-                }}
-                tableType={"stable"} />
+                </Grid>
+                <GoogleAd margins='2em'></GoogleAd>
+                <Grid xs={12}>
+                  <h2>Previous Stable Releases</h2>
+                </Grid>
+                <Grid xs={12}>
+                  <DownloadTable
+                    pageSize={pageSize}
+                    tableLabel={"Previous stable releases table"}
+                    color={"primary"}
+                    initialTableData={stableReleases}
+                    tableColumns={releaseTableColumns}
+                    renderRowFunc={renderReleaseCell}
+                    fetchMoreFunc={async (offset) => {
+                      return await fetch(`${baseApiUrl}/stableReleases?offset=${offset}`);
+                    }}
+                    tableType={"stable"} />
+                </Grid>
+              </Grid.Container>
             </Grid>
-            <Grid md={6}>
-              <Text
-                h1
-                size={40}
-                css={{
-                  textGradient: "180deg, $warning 25%, #777500 100%",
-                }}
-                weight="bold"
-              >
-                Nightly Releases
-              </Text>
-              <Row css={{ mb: "1em" }}>
-                <Col><span>There is a new nightly release anytime a change is made, so you are getting the latest and greatest (but sometimes buggy) experience</span></Col>
-              </Row>
-              <Row css={{ mb: "1em" }}>
-                <Col><span>For help using these releases, <a href="/docs/usage/nightly-setup/">see the following article.</a></span></Col>
-              </Row>
-              <Row css={{ mb: "1em" }}>
-                <Col>
+            <Grid xs={12} md={6}>
+              <Grid.Container css={{display: "inline-block"}}>
+                <Grid xs={12}>
+                  <Text
+                    h1
+                    size={40}
+                    css={{
+                      textGradient: "180deg, $warning 25%, #777500 100%",
+                    }}
+                    weight="bold"
+                  >
+                    Nightly Releases
+                  </Text>
+                </Grid>
+                <Grid xs={12}>
+                  <p>There is a new nightly release anytime a change is made, so you are getting the latest and greatest (but sometimes buggy) experience</p>
+                </Grid>
+                <Grid xs={12}>
+                  <p>For help using these releases, <a href="/docs/usage/nightly-setup/">see the following article.</a></p>
+                </Grid>
+                <Grid xs={12}>
                   <Admonition type="tip">
                     <p>If your CPU supports AVX2 you should use it over SSE4</p>
                   </Admonition>
-                </Col>
-              </Row>
-              <Row css={{ mb: "2em" }}>
-                <Col>
+                </Grid>
+                <Grid xs={12} css={{mt: "2em"}}>
                   <ReleaseDownloadButton
                     release={latestNightlyRelease}
                     buttonText={"Latest Nightly"}
                     isNightly={true}
                   />
-                </Col>
-              </Row>
-              <GoogleAd/>
-              <Row>
-                <Col><h2>Previous Nightly Releases</h2></Col>
-              </Row>
-              <DownloadTable
-                pageSize={pageSize}
-                tableLabel={"Previous nightly releases table"}
-                color={"warning"}
-                initialTableData={nightlyReleases}
-                tableColumns={releaseTableColumns}
-                renderRowFunc={renderReleaseCell}
-                fetchMoreFunc={async (offset) => {
-                  return await fetch(`${baseApiUrl}/nightlyReleases?offset=${offset}`);
-                }}
-                tableType={"nightly"} />
-              <GoogleAd></GoogleAd>
-              <Row css={{ mt: "1em" }}>
-                <Col><h2>Active Pull Requests</h2></Col>
-              </Row>
-              <Row css={{ mb: "1em" }}>
-                <Col>These are changes that are actively being worked on.</Col>
-              </Row>
-              <Row css={{ mb: "1em" }}>
-                <Col>Provided for visibility or for those interested in testing an upcoming change</Col>
-              </Row>
-              <DownloadTable
-                pageSize={pageSize}
-                tableLabel={"Active pull requests"}
-                color={"secondary"}
-                initialTableData={pullRequests}
-                tableColumns={pullRequestTableColumns}
-                renderRowFunc={renderPullRequestCell}
-                fetchMoreFunc={async (offset) => {
-                  return await fetch(`${baseApiUrl}/pullRequestBuilds?offset=${offset}`);
-                }}
-                tableType={"pullRequests"} />
+                </Grid>
+                <GoogleAd margins='2em'></GoogleAd>
+                <Grid xs={12}>
+                  <h2>Previous Nightly Releases</h2>
+                </Grid>
+                <Grid xs={12}>
+                  <DownloadTable
+                    pageSize={pageSize}
+                    tableLabel={"Previous nightly releases table"}
+                    color={"warning"}
+                    initialTableData={nightlyReleases}
+                    tableColumns={releaseTableColumns}
+                    renderRowFunc={renderReleaseCell}
+                    fetchMoreFunc={async (offset) => {
+                      return await fetch(`${baseApiUrl}/nightlyReleases?offset=${offset}`);
+                    }}
+                    tableType={"nightly"} />
+                </Grid>
+                <GoogleAd margins='2em'></GoogleAd>
+                <Grid xs={12}>
+                  <h2>Active Pull Requests</h2>
+                </Grid>
+                <Grid xs={12}>
+                  <p>These are changes that are actively being worked on.</p>
+                </Grid>
+                <Grid xs={12}>
+                  <p>Provided for visibility or for those interested in testing an upcoming change</p>
+                </Grid>
+                <Grid xs={12}>
+                  <DownloadTable
+                    pageSize={pageSize}
+                    tableLabel={"Active pull requests"}
+                    color={"secondary"}
+                    initialTableData={pullRequests}
+                    tableColumns={pullRequestTableColumns}
+                    renderRowFunc={renderPullRequestCell}
+                    fetchMoreFunc={async (offset) => {
+                      return await fetch(`${baseApiUrl}/pullRequestBuilds?offset=${offset}`);
+                    }}
+                    tableType={"pullRequests"} />
+                </Grid>
+              </Grid.Container>
             </Grid>
           </Grid.Container>
         </Container>

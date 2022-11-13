@@ -3,9 +3,10 @@ import Layout from '@theme/Layout';
 import { Table, Grid, Tooltip, Badge, Link, Loading, Input, Container, Row, Col, Progress, Button, useAsyncList } from '@nextui-org/react';
 import { MdLibraryBooks, MdForum } from "react-icons/md";
 import Fuse from 'fuse.js'
-
+import { DateTime } from "luxon";
 import styles from './index.module.css';
 import { GoogleAd } from '../../components/GoogleAd';
+import { useMediaQuery } from "../../utils/mediaQuery";
 
 function getTableData(compatData) {
   const compatRows = []
@@ -144,9 +145,8 @@ const renderCell = (user, columnKey) => {
           color = "success";
         }
         if (cellValue.date) {
-          const lastUpdatedDate = new Date(cellValue.date);
-          const dateOptions = { weekday: undefined, year: 'numeric', month: 'long', day: 'numeric' };
-          return <Tooltip content={`Tested on - ${lastUpdatedDate.toLocaleDateString(undefined, dateOptions)}`} placement="left">
+          const date = DateTime.fromISO(cellValue.date);
+          return <Tooltip content={`Tested on - ${date.toLocaleString(DateTime.DATE_FULL)}`} placement="left">
             <Badge variant="bordered" color={color}>{cellValue.version}</Badge></Tooltip>;
         } else {
           return <Badge variant="bordered" color={color}>{cellValue.version}</Badge>;
@@ -289,48 +289,59 @@ export default function Compatiblity() {
               </p>
             </Col>
           </Row>
-          <GoogleAd margins={"1em"} alignment={"start"} doubleAd></GoogleAd>
-          <Row align='end' css={{ mt: "2em", mb: "1em" }}>
-            <Col span={4} css={{ mr: "1em" }}>
-              <Input label="Search by Name, Serial or CRC" width='100%' onChange={changeSearchString} disabled={loadingState === "loading"}></Input>
+          <Row>
+            <Col span={useMediaQuery(960) ? 12 : 6}>
+              <GoogleAd margins={"1em"} alignment={"start"} doubleAd></GoogleAd>
             </Col>
-            <Col span={8}>
-              <Row>
-                <Col>
-                  <Button bordered={filterOptions.perfect} disabled={filterStats.perfect === undefined} color="success" auto css={{ mr: "1em" }} onPress={() => toggleFilter("perfect")}>
+            {useMediaQuery(960) ? (null) : <Col span={6}>
+              <GoogleAd margins={"1em"} alignment={"start"} doubleAd></GoogleAd>
+            </Col>}
+          </Row>
+          <Grid.Container alignItems='end' css={{ mt: "2em", mb: "1em" }}>
+            <Grid xs={12} md={4}>
+              <Grid.Container gap={1}>
+                <Grid xs={12}>
+                  <Input label="Search by Name, Serial or CRC" width='100%' onChange={changeSearchString} disabled={loadingState === "loading"}></Input>
+                </Grid>
+              </Grid.Container>
+            </Grid>
+            <Grid xs={12} md={8}>
+              <Grid.Container alignItems="end" gap={1}>
+                <Grid>
+                  <Button bordered={filterOptions.perfect} disabled={filterStats.perfect === undefined} color="success" auto onPress={() => toggleFilter("perfect")}>
                     {filterStats.perfect === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
                     {perfectFilterText}
                   </Button>
-                </Col>
-                <Col>
-                  <Button bordered={filterOptions.playable} disabled={filterStats.playable === undefined} color="primary" auto css={{ mr: "1em" }} onPress={() => toggleFilter("playable")}>
+                </Grid>
+                <Grid>
+                  <Button bordered={filterOptions.playable} disabled={filterStats.playable === undefined} color="primary" auto onPress={() => toggleFilter("playable")}>
                     {filterStats.playable === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
                     {playableFilterText}
                   </Button>
-                </Col>
-                <Col>
-                  <Button bordered={filterOptions.ingame} disabled={filterStats.ingame === undefined} color="secondary" auto css={{ mr: "1em" }} onPress={() => toggleFilter("ingame")}>
+                </Grid>
+                <Grid>
+                  <Button bordered={filterOptions.ingame} disabled={filterStats.ingame === undefined} color="secondary" auto onPress={() => toggleFilter("ingame")}>
                     {filterStats.ingame === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
                     {ingameFilterText}
-                  </Button></Col>
-                <Col>
-                  <Button bordered={filterOptions.menus} disabled={filterStats.menus === undefined} color="warning" auto css={{ mr: "1em" }} onPress={() => toggleFilter("menus")}>
+                  </Button></Grid>
+                <Grid>
+                  <Button bordered={filterOptions.menus} disabled={filterStats.menus === undefined} color="warning" auto onPress={() => toggleFilter("menus")}>
                     {filterStats.menus === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
                     {menusFilterText}
-                  </Button></Col>
-                <Col>
-                  <Button bordered={filterOptions.intro} disabled={filterStats.intro === undefined} color="warning" auto css={{ mr: "1em" }} onPress={() => toggleFilter("intro")}>
+                  </Button></Grid>
+                <Grid>
+                  <Button bordered={filterOptions.intro} disabled={filterStats.intro === undefined} color="warning" auto onPress={() => toggleFilter("intro")}>
                     {filterStats.intro === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
                     {introFilterText}
-                  </Button></Col>
-                <Col>
+                  </Button></Grid>
+                <Grid>
                   <Button bordered={filterOptions.nothing} disabled={filterStats.nothing === undefined} color="error" auto onPress={() => toggleFilter("nothing")}>
                     {filterStats.nothing === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
                     {nothingFilterText}
-                  </Button></Col>
-              </Row>
-            </Col>
-          </Row>
+                  </Button></Grid>
+              </Grid.Container>
+            </Grid>
+          </Grid.Container>
           <Row>
             <Col span={12}>
               <Table

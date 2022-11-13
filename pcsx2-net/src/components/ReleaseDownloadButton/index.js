@@ -108,7 +108,7 @@ export function ReleaseDownloadButton({release, buttonText, bordered, isNightly}
   }, [release]);
 
   return (
-    <Dropdown isBordered placement="right-top" >
+    <Dropdown isBordered placement="bottom-left" >
       <Dropdown.Button color={isNightly ? "warning" : "primary"} css={buttonStyling} bordered={bordered}>
         {isNightly ? <IoIosCloudyNight size={22}/> : <GiBrickWall size={16}/>}
         &nbsp;
