@@ -83,7 +83,7 @@ export function ReleaseDownloadButton({release, buttonText, bordered, isNightly}
   };
   if (isNightly) {
     buttonStyling.color = "$warning";
-    buttonStyling.bgColor = "$accents0";
+    buttonStyling.bgColor = "var(--nightly-button-background)";
   }
 
   const [windowsItems, setWindowsItems] = useState([]);
