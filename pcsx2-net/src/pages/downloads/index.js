@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
-import { Container, Row, Col, Text, Grid } from '@nextui-org/react';
+import { Container, Text, Grid } from '@nextui-org/react';
 import Admonition from '@theme/Admonition';
 import { ReleaseDownloadButton } from '../../components/ReleaseDownloadButton';
 import { DownloadTable } from '../../components/DownloadTable';
 import { getLatestRelease } from '../../components/ReleaseDownloadButton';
-const baseApiUrl = location.hostname === "localhost" ? "http://localhost:3000/v1" : "https://api.pcsx2.net/v1"
 import Head from '@docusaurus/Head';
 import { GoogleAd } from '../../components/GoogleAd';
-
-// TODO - handle API error
-
-
 
 const releaseTableColumns = [
   {
@@ -50,7 +45,7 @@ const renderPullRequestCell = (user, columnKey) => {
   return user[columnKey];
 };
 
-
+const baseApiUrl = "https://api.pcsx2.net/v1";
 
 export default function Downloads() {
   const pageSize = 10;

@@ -85,7 +85,7 @@ const redirects = [
     "from": "/developer-blog/282-q-a-picking-our-noes"
   },
   {
-    "to": "/blog/2016/1-4-0-released-year-end-report",
+    "to": "/blog/2016/year-end-report-released-1-4-0",
     "from": "/273-1-4-0-release-end-2015-report"
   },
   {
@@ -161,20 +161,12 @@ const redirects = [
     "from": "/261-first-60-fps-video-website-news"
   },
   {
-    "to": "/blog/2014/linux-pcsx2-1.2.2-release",
-    "from": "/255-linux-pcsx2-1-2-2"
-  },
-  {
     "to": "/blog/2014/merry-christmas-from-the-pcsx2-team",
     "from": "/264-merry-xmas-2014"
   },
   {
     "to": "/blog/2014/mmu-mini-series",
     "from": "/developer-blog/263-mmu-mini-series"
-  },
-  {
-    "to": "/blog/2014/pcsx2-1.2.0-released",
-    "from": "/253-pcsx2-1-2-0-released"
   },
   {
     "to": "/blog/2014/pcsx2-development-picks-up-speed",
@@ -195,10 +187,6 @@ const redirects = [
   {
     "to": "/blog/2013/merry-christmas-2013",
     "from": "/251-merry-christmas-2013"
-  },
-  {
-    "to": "/blog/2013/official-pcsx2-1.0.0-configuration-guide-video",
-    "from": "/247-official-pcsx2-configuration-guide-video"
   },
   {
     "to": "/blog/2013/pcsx2-partners-with-avg",
@@ -245,24 +233,8 @@ const redirects = [
     "from": "/88-path-masking-geometry-syncing"
   },
   {
-    "to": "/blog/2011/pcsx2-0.9.8",
-    "from": "/85-pcsx2-0-9-8"
-  },
-  {
-    "to": "/blog/2011/pcsx2-mac-0.9.6-snow-leopard",
-    "from": "/101-pcsx2-mac-0-9-6-snow-leopard"
-  },
-  {
     "to": "/blog/2011/pcsx2-on-youtube-and-vimeo",
     "from": "/79-pcsx2-on-youtube-and-vimeo"
-  },
-  {
-    "to": "/blog/2011/spu2-x-1.5",
-    "from": "/82-spu2-x-1-5"
-  },
-  {
-    "to": "/blog/2011/spu2-x-2.0",
-    "from": "/81-spu2-x-2-0"
   },
   {
     "to": "/blog/2011/svn-snapshots",
@@ -489,7 +461,7 @@ const redirects = [
     "from": "/developer-blog/219-the-amusement-continues"
   },
   {
-    "to": "/blog/2007/0-9-2-vm-fix-probably",
+    "to": "/blog/2007/vm-fix-probably-0-9-2",
     "from": "/141-0-9-2-vm-fix-probably"
   },
   {

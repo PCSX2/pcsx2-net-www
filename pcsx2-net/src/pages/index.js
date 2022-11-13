@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
-import { Container, Text, Button, Row, Col, Card, Grid } from "@nextui-org/react";
+import { Text, Button, Row, Col, Card, Grid } from "@nextui-org/react";
 import { NumberTicker } from "../components/NumberTicker";
 import { Animation } from '../components/SphereAnimation';
 import { getLatestRelease } from '../components/ReleaseDownloadButton';
@@ -60,8 +60,9 @@ async function getPlayableGameCount() {
   }
 }
 
-import { latestProgressReport, latestBlog } from './LatestBlogs';
-const baseApiUrl = location.hostname === "localhost" ? "http://localhost:3000/v1" : "https://api.pcsx2.net/v1"
+import { latestProgressReport, latestBlog } from '../data/latestBlogs';
+
+const baseApiUrl = "https://api.pcsx2.net/v1"
 
 export default function Home() {
   const [latestStableRelease, setLatestStableRelease] = useState({});

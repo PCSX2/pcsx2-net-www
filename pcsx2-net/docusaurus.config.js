@@ -79,7 +79,7 @@ const config = {
         items: [
           {to: '/downloads', label: 'Download', position: 'left'},
           {to: '/compat', label: 'Compatibility', position: 'left'},
-          {type: 'doc',docId: 'intro',label: 'Documentation', position: 'left'},
+          {type: 'doc',docId: 'index',label: 'Documentation', position: 'left'},
           {to: '/blog', label: 'Blog', position: 'left', items: [
             {
               label: "Progress Reports",
@@ -87,7 +87,7 @@ const config = {
             },
             {
               label: "Developer Blogs",
-              to: "/blog/tags/dev-blog"
+              to: "/blog/tags/devblog"
             }
           ]},
           {to: 'https://github.com/sponsors/PCSX2', label: 'Donate', position: 'right'},
