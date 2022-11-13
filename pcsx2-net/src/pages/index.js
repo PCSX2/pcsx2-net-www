@@ -66,24 +66,33 @@ const baseApiUrl = location.hostname === "localhost" ? "http://localhost:3000/v1
 export default function Home() {
   const [latestStableRelease, setLatestStableRelease] = useState({});
   const [latestNightlyRelease, setLatestNightlyRelease] = useState({});
+  const [apiErrorMsg, setApiErrorMsg] = useState(undefined);
 
   useEffect(async () => {
-    const resp = await fetch(
-      `${baseApiUrl}/latestReleasesAndPullRequests`
-    );
-    const data = await resp.json();
-
-    setLatestStableRelease({
-      windows: getLatestRelease(data.stableReleases.data, "Windows"),
-      linux: getLatestRelease(data.stableReleases.data, "Linux"),
-      macos: getLatestRelease(data.stableReleases.data, "MacOS"),
-    });
-
-    setLatestNightlyRelease({
-      windows: getLatestRelease(data.nightlyReleases.data, "Windows"),
-      linux: getLatestRelease(data.nightlyReleases.data, "Linux"),
-      macos: getLatestRelease(data.nightlyReleases.data, "MacOS"),
-    });
+    try {
+      const resp = await fetch(
+        `${baseApiUrl}/latestReleasesAndPullRequests`
+      );
+      if (resp.status === 429) {
+        setApiErrorMsg("You are Being Rate-Limited. Try Again Later!");
+      } else if (resp.status !== 200) {
+        setApiErrorMsg("Unexpected API Error Occurred. Try Again Later!");
+      } else {
+        const data = await resp.json();
+        setLatestStableRelease({
+          windows: getLatestRelease(data.stableReleases.data, "Windows"),
+          linux: getLatestRelease(data.stableReleases.data, "Linux"),
+          macos: getLatestRelease(data.stableReleases.data, "MacOS"),
+        });
+        setLatestNightlyRelease({
+          windows: getLatestRelease(data.nightlyReleases.data, "Windows"),
+          linux: getLatestRelease(data.nightlyReleases.data, "Linux"),
+          macos: getLatestRelease(data.nightlyReleases.data, "MacOS"),
+        });
+      }
+    } catch (err) {
+      setApiErrorMsg("Unexpected API Error Occurred. Try Again Later!");
+    }
   }, []);
 
   return (
@@ -127,6 +136,7 @@ export default function Home() {
                   release={latestStableRelease}
                   buttonText={"Latest Stable"}
                   isNightly={false}
+                  errorMsg={apiErrorMsg}
                 />
               </Grid>
               <Grid>
@@ -134,6 +144,7 @@ export default function Home() {
                   release={latestNightlyRelease}
                   buttonText={"Latest Nightly"}
                   isNightly={true}
+                  errorMsg={apiErrorMsg}
                 />
               </Grid>
               <Grid>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Card, Container, Row, Col, Text, Dropdown } from '@nextui-org/react';
-import ReactMarkdown from 'react-markdown';
+import { Dropdown } from '@nextui-org/react';
 import { BsWindows, BsApple } from "react-icons/bs";
 import { FaLinux } from "react-icons/fa";
 import { IoIosCloudyNight } from "react-icons/io";
@@ -77,7 +76,7 @@ function openAssetLink(href) {
   }).click();
 }
 
-export function ReleaseDownloadButton({release, buttonText, bordered, isNightly}) {
+export function ReleaseDownloadButton({release, buttonText, bordered, errorMsg, isNightly}) {
   const buttonStyling = {
     minWidth: "200px"
   };
@@ -121,14 +120,14 @@ export function ReleaseDownloadButton({release, buttonText, bordered, isNightly}
         css={{ $$dropdownMenuWidth: "100%" }}
         onAction={(assetUrl) => openAssetLink(assetUrl)}
       >
-        <Dropdown.Section title={windowsItems.length > 0 ? "Windows" : "Windows - None Available"}>
-          {windowsItems}
+        <Dropdown.Section title={errorMsg === undefined ? windowsItems.length > 0 ? "Windows" : "Windows - None Available" : errorMsg}>
+          {errorMsg === undefined ? windowsItems : (null)}
         </Dropdown.Section>
-        <Dropdown.Section title={linuxItems.length > 0 ? "Linux" : "Linux - None Available"}>
-          {linuxItems}
+        <Dropdown.Section title={errorMsg === undefined ? linuxItems.length > 0 ? "Linux" : "Linux - None Available" : errorMsg}>
+          {errorMsg === undefined ? linuxItems : (null)}
         </Dropdown.Section>
-        <Dropdown.Section title={macosItems.length > 0 ? "MacOS" : "MacOS - None Available"}>
-          {macosItems}
+        <Dropdown.Section title={errorMsg === undefined ? macosItems.length > 0 ? "MacOS" : "MacOS - None Available" : errorMsg}>
+          {errorMsg === undefined ? macosItems : (null)}
         </Dropdown.Section>
       </Dropdown.Menu>
     </Dropdown>

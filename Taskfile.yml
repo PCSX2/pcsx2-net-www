@@ -21,4 +21,7 @@ tasks:
       - npx cspell content/**/*.md
   docu:
     cmds:
+      - python ./scripts/docu-generate-redirects.py
+  docu-migrate:
+    cmds:
       - python ./scripts/hugo-to-docu.py

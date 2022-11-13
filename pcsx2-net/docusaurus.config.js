@@ -3,6 +3,7 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/okaidia');
+const redirects = require('./redirects');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -150,6 +151,10 @@ const config = {
               {
                 label: "Wiki",
                 href: "https://forums.pcsx2.net/"
+              },
+              {
+                label: "Status",
+                href: "https://stats.uptimerobot.com/GAg8AuBByx"
               }
             ],
           },
@@ -208,7 +213,7 @@ const config = {
 	    [
 	      "@docusaurus/plugin-client-redirects",
 	      {
-	        redirects: [],
+	        redirects: redirects,
 	      },
 	    ],
 	    () => ({
