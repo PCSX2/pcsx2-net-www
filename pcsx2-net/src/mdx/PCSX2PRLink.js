@@ -1,6 +1,6 @@
 import React from 'react';
 import { GoGitCommit, GoGitPullRequest } from "react-icons/go";
-import { Avatar, Grid, Tooltip, Text, Spacer } from "@nextui-org/react";
+import { Avatar, Row, Grid, Tooltip, Text, Spacer } from "@nextui-org/react";
 import { IconContext } from 'react-icons';
 
 function generatePRLinks(prNums) {
@@ -16,7 +16,7 @@ function generatePRLinks(prNums) {
   for (const num of nums) {
     icons.push(
       <a key={i++} href={`https://github.com/PCSX2/pcsx2/pull/${num}`}>
-        <IconContext.Provider value={{ style: { verticalAlign: 'middle'} }}>
+        <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
           <GoGitPullRequest size={24}></GoGitPullRequest>
         </IconContext.Provider>
         {num}
@@ -74,26 +74,22 @@ function generateAuthorAvatars(authors) {
       </Tooltip>
     )
   }
-  return <Grid>
-    <Avatar.Group animated={avatars.length > 1}>
-      {avatars}
-    </Avatar.Group>
-  </Grid>;
+  return <Avatar.Group animated={avatars.length > 1} style={{ marginRight: "0.5em" }}>
+    {avatars}
+  </Avatar.Group>;
 }
 
 export default function PCSX2PRLink({ children, prNums, shas, authors }) {
   return (
-    <Grid.Container className="pr-link" alignItems="center" alignContent="center">
-      <Grid>
-        <span>{children}</span>
+    <Grid.Container className="pr-link">
+      <Grid xs={12} alignItems="center">
+        <span style={{ marginRight: "1.5em" }}>{children}</span>
       </Grid>
-      <span></span>
-      <Spacer x={1} />
-      {generateAuthorAvatars(authors)}
-      <Spacer x={0.5} />
-      {generatePRLinks(prNums)}
-      <Spacer x={0.5} />
-      {generateCommitLinks(shas)}
+      <Grid xs={12} alignItems="center" css={{ml: "0.75em"}}>
+        {generateAuthorAvatars(authors)}
+        {generatePRLinks(prNums)}
+        {generateCommitLinks(shas)}
+      </Grid>
     </Grid.Container>
   );
 }

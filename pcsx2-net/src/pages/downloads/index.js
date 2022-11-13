@@ -1,144 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import { Table, Grid, Tooltip, Badge, Link, Input, Card, Container, Row, Col, Text, Dropdown } from '@nextui-org/react';
-import { BsWindows, BsBricks, BsApple } from "react-icons/bs";
-import { FaLinux, FaHistory } from "react-icons/fa";
-import { IoIosCloudyNight } from "react-icons/io";
-import { GiBrickWall } from "react-icons/gi";
-import styles from './index.module.css';
-
+import { Container, Row, Col, Text, Grid } from '@nextui-org/react';
+import Admonition from '@theme/Admonition';
+import { ReleaseDownloadButton } from '../../components/ReleaseDownloadButton';
+import { DownloadTable } from '../../components/DownloadTable';
+import { getLatestRelease } from '../../components/ReleaseDownloadButton';
 const baseApiUrl = location.hostname === "localhost" ? "http://localhost:3000/v1" : "https://api.pcsx2.net/v1"
+import Head from '@docusaurus/Head';
+import { GoogleAd } from '../../components/GoogleAd';
 
 // TODO - handle API error
 
-function getLatestRelease(releases, platform) {
-  for (const release of releases) {
-    if (platform in release.assets && release.assets[platform].length > 0) {
-      return release;
-    }
-  }
-  return undefined;
-}
 
-function toProperCase(str) {
-  return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
-};
 
-function openAssetLink(href) {
-  Object.assign(document.createElement('a'), {
-    rel: 'noopener noreferrer',
-    href: href,
-  }).click();
-}
-
-function ReleaseDropdownItems(version, assets, textRemovals, isNightly) {
-  if (!assets) {
-    return [];
-  }
-
-  let fillColor = "var(--nextui-colors-primary)";
-  if (isNightly) {
-    fillColor = "var(--nextui-colors-warning)";
-  }
-
-  let items = [];
-  for (const asset of assets.filter(asset => !asset.additionalTags.includes("symbols"))) {
-    let displayName = asset.displayName;
-    for (const removal of textRemovals) {
-      displayName = displayName.replace(removal, "");
-    }
-    displayName = toProperCase(displayName.trim());
-    if (asset.additionalTags.length > 0) {
-      if (displayName === "") {
-        displayName = asset.additionalTags.join(" ");
-      } else {
-        displayName += ` - ${asset.additionalTags.join(" ")}`;
-      }
-    }
-
-    items.push(
-      <Dropdown.Item
-        key={asset.url}
-        description={version}
-        icon={<BsWindows size={22} fill={fillColor}></BsWindows>}
-      >
-        {displayName}
-      </Dropdown.Item>
-    )
-  }
-  return items;
-}
-
-function ReleaseDropdown(windowsItems, linuxItems, macosItems, isNightly) {
-  const buttonStyling = {
-    minWidth: "200px"
-  };
-  if (isNightly) {
-    buttonStyling.color = "$warning";
-    buttonStyling.bgColor = "$accents0";
-  }
-
-  return (
-    <Dropdown isBordered placement="right-top" >
-      <Dropdown.Button color="primary" css={buttonStyling}>
-        Latest Stable
-      </Dropdown.Button>
-      <Dropdown.Menu
-        color={isNightly ? "warning" : "primary"}
-        aria-label="Actions"
-        css={{ $$dropdownMenuWidth: "100%" }}
-        onAction={(assetUrl) => openAssetLink(assetUrl)}
-      >
-        <Dropdown.Section title={windowsItems.length > 0 ? "Windows" : "Windows - None Available"}>
-          {windowsItems}
-        </Dropdown.Section>
-        <Dropdown.Section title={linuxItems.length > 0 ? "Linux" : "Linux - None Available"}>
-          {linuxItems}
-        </Dropdown.Section>
-        <Dropdown.Section title={macosItems.length > 0 ? "MacOS" : "MacOS - None Available"}>
-          {macosItems}
-        </Dropdown.Section>
-      </Dropdown.Menu>
-    </Dropdown>
-  );
-}
-
-function ReleaseCard(release, isNightly) {
-  if (!release) {
-    return (null);
-  }
-
-  // TODO - Link to Github Release Page
-
-  return (
-    <Row>
-      <Col>
-        <Card css={{ p: "$6", mw: "100%" }}>
-          <Card.Header>
-            <Text h3 css={{ lineHeight: "$xs" }}>
-              {release.version}
-            </Text>
-          </Card.Header>
-          <Card.Body css={{ py: "$2" }}>
-            <Text>
-              {/* TODO - markdown render */}
-              {release.description}
-            </Text>
-          </Card.Body>
-          <Card.Footer>
-          {ReleaseDropdown(
-            ReleaseDropdownItems(release.version, release.assets?.Windows, ["Windows"], false),
-            ReleaseDropdownItems(release.version, release.assets?.Linux, ["Linux", "AppImage"], false),
-            ReleaseDropdownItems(release.version, release.assets?.MacOS, ["MacOS"], false), false)}
-          </Card.Footer>
-        </Card>
-      </Col>
-    </Row>
-  );
-}
-
-const stableReleaseColumns = [
+const releaseTableColumns = [
   {
     key: "version",
     label: "VERSION",
@@ -149,8 +24,8 @@ const stableReleaseColumns = [
   }
 ];
 
-const renderCell = (user, columnKey) => {
-  const cellValue = user[columnKey];
+const renderReleaseCell = (release, columnKey) => {
+  const cellValue = release[columnKey];
   switch (columnKey) {
     case "version":
       return <span className="monospaced">{cellValue}</span>
@@ -160,19 +35,34 @@ const renderCell = (user, columnKey) => {
   }
 };
 
-export default function Downloads() {
-  // State
-  const [stableReleases, setStableReleases] = useState({ data: [] });
-  const [stableReleasesLoadingState, setStableReleasesLoadingState] = useState("idle"); // TODO
-  const [stableReleasesPage, setStableReleasesPage] = useState(1);
-  const [latestStableRelease, setLatestStableRelease] = useState({});
-  const [selectedStableRelease, setSelectedStableRelease] = useState(undefined);
+const pullRequestTableColumns = [
+  {
+    key: "githubUser",
+    label: "AUTHOR",
+  },
+  {
+    key: "title",
+    label: "CHANGE",
+  }
+];
 
+const renderPullRequestCell = (user, columnKey) => {
+  return user[columnKey];
+};
+
+
+
+export default function Downloads() {
+  const pageSize = 10;
+  // State
+  // - stables
+  const [stableReleases, setStableReleases] = useState({ data: [] });
+  const [latestStableRelease, setLatestStableRelease] = useState({});
+  // - nightlies
   const [nightlyReleases, setNightlyReleases] = useState({ data: [] });
-  const [nightlyReleasesLoadingState, setNightlyReleasesLoadingState] = useState("idle"); // TODO
-  const [nightlyReleasesPage, setNightlyReleasesPage] = useState(1);
   const [latestNightlyRelease, setLatestNightlyRelease] = useState({});
-  const [selectedNightlyRelease, setSelectedNightlyRelease] = useState(undefined);
+  // - pull requests
+  const [pullRequests, setPullRequests] = useState({ data: [] });
 
   useEffect(async () => {
     const resp = await fetch(
@@ -198,16 +88,21 @@ export default function Downloads() {
 
     setStableReleases(data.stableReleases);
     setNightlyReleases(data.nightlyReleases);
+    setPullRequests(data.pullRequestBuilds);
   }, []);
 
   return (
     <Layout
       title="Downloads"
-      description="TODO">
+      description="The official source for the latest stable and nightly builds (aka dev builds) for PCSX2 on all supported platforms">
+      <Head>
+        <meta property="og:description" content="" />
+        <meta name="keywords" content="pcsx2 downloads,pcsx2 dev builds,pcsx2 dev,pcsx2 nightlies,pcsx2 stable"/>
+      </Head>
       <main>
-        <Container css={{ mt: "2em" }}>
-          <Row gap={2}>
-            <Col span={6}>
+        <Container fluid css={{ mt: "2em" }}>
+          <Grid.Container gap={2}>
+            <Grid md={6}>
               <Text
                 h1
                 size={40}
@@ -225,70 +120,38 @@ export default function Downloads() {
                 <Col><span>If you need help using the emulator, <a href="/docs/usage/setup/">see the following article.</a></span></Col>
               </Row>
               <Row css={{ mb: "1em" }}>
-                <Col><span>Please note that as we are now drawing closer to releasing a new stable version, we encourage you to use the latest nightly instead. If you encounter a problem, you will likely be told to try the latest nightly as a first step.</span></Col>
+                <Col>
+                  <Admonition type="info">
+                    <p>As we are now drawing closer to releasing a new stable version, we encourage you to use the latest nightly instead. If you encounter a problem, you will likely be told to try the latest nightly as a first step.</p>
+                  </Admonition>
+                </Col>
               </Row>
               <Row css={{ mb: "2em" }}>
                 <Col>
-                  {ReleaseDropdown(
-                    ReleaseDropdownItems(latestStableRelease?.windows?.version, latestStableRelease?.windows?.assets?.Windows, ["Windows"], false),
-                    ReleaseDropdownItems(latestStableRelease?.linux?.version, latestStableRelease?.linux?.assets?.Linux, ["Linux", "AppImage"], false),
-                    ReleaseDropdownItems(latestStableRelease?.macos?.version, latestStableRelease?.macos?.assets?.MacOS, ["MacOS"], false), false)}
+                  <ReleaseDownloadButton
+                    release={latestStableRelease}
+                    buttonText={"Latest Stable"}
+                    isNightly={false}
+                  />
                 </Col>
               </Row>
+              <GoogleAd></GoogleAd>
               <Row>
-                <Col><h2>Previous Versions</h2></Col>
+                <Col><h2>Previous Stable Releases</h2></Col>
               </Row>
-              <Row>
-                <Col>
-                  <Table
-                    striped
-                    compact
-                    sticked
-                    selectionMode={"single"}
-                    onSelectionChange={(selection) => {
-                      if (selection.size <= 0) {
-                        setSelectedStableRelease(undefined);
-                      } else {
-                        setSelectedStableRelease([...selection][0]);
-                      }
-                    }}
-                    aria-label="Stable Release Table"
-                    css={{
-                      height: "auto",
-                      minWidth: "100%",
-                      display: "table",
-                      noMargin: true,
-                      padding: 0
-                    }}
-                  >
-                    <Table.Header columns={stableReleaseColumns}>
-                      {(column) => (
-                        <Table.Column key={column.key}>{column.label}</Table.Column>
-                      )}
-                    </Table.Header>
-                    <Table.Body items={stableReleases.data} loadingState={stableReleasesLoadingState}>
-                      {(item) => (
-                        <Table.Row key={stableReleases.data.indexOf(item)}>
-                          {(columnKey) => (
-                            <Table.Cell>{renderCell(item, columnKey)}</Table.Cell>
-                          )}
-                        </Table.Row>
-                      )}
-                    </Table.Body>
-                    <Table.Pagination
-                      noMargin
-                      align="center"
-                      rowsPerPage={stableReleasesLoadingState == "loading" ? 2 : Math.min(10, stableReleases?.pageInfo?.total)}
-                      page={stableReleasesPage}
-                      onPageChange={setStableReleasesPage}
-                      total={Math.ceil(stableReleases?.pageInfo?.total / 10)}
-                    />
-                  </Table>
-                </Col>
-              </Row>
-              {selectedStableRelease === undefined ? ReleaseCard(undefined, false) : ReleaseCard(stableReleases.data[selectedStableRelease], false)}
-            </Col>
-            <Col span={6}>
+              <DownloadTable
+                pageSize={pageSize}
+                tableLabel={"Previous stable releases table"}
+                color={"primary"}
+                initialTableData={stableReleases}
+                tableColumns={releaseTableColumns}
+                renderRowFunc={renderReleaseCell}
+                fetchMoreFunc={async (offset) => {
+                  return await fetch(`${baseApiUrl}/stableReleases?offset=${offset}`);
+                }}
+                tableType={"stable"} />
+            </Grid>
+            <Grid md={6}>
               <Text
                 h1
                 size={40}
@@ -306,121 +169,59 @@ export default function Downloads() {
                 <Col><span>For help using these releases, <a href="/docs/usage/nightly-setup/">see the following article.</a></span></Col>
               </Row>
               <Row css={{ mb: "1em" }}>
-                <Col><span>Please note that as we are drawing closer to releasing a new stable version, we encourage you to use the latest nightly instead. If you encounter a problem, you will likely be told to try the latest nightly as a first step.</span></Col>
+                <Col>
+                  <Admonition type="tip">
+                    <p>If your CPU supports AVX2 you should use it over SSE4</p>
+                  </Admonition>
+                </Col>
               </Row>
               <Row css={{ mb: "2em" }}>
                 <Col>
-                {ReleaseDropdown(
-                    ReleaseDropdownItems(latestNightlyRelease?.windows?.version, latestNightlyRelease?.windows?.assets?.Windows, ["Windows"], true),
-                    ReleaseDropdownItems(latestNightlyRelease?.linux?.version, latestNightlyRelease?.linux?.assets?.Linux, ["Linux", "AppImage"], true),
-                    ReleaseDropdownItems(latestNightlyRelease?.macos?.version, latestNightlyRelease?.macos?.assets?.MacOS, ["MacOS"], true), true)}
+                  <ReleaseDownloadButton
+                    release={latestNightlyRelease}
+                    buttonText={"Latest Nightly"}
+                    isNightly={true}
+                  />
                 </Col>
               </Row>
+              <GoogleAd/>
               <Row>
-                <Col><h2>Previous Versions</h2></Col>
+                <Col><h2>Previous Nightly Releases</h2></Col>
               </Row>
-              <Row>
-                <Col>
-                  <Table
-                    striped
-                    compact
-                    sticked
-                    selectionMode={"single"}
-                    color={"warning"}
-                    aria-label="Stable Release Table"
-                    onSelectionChange={(selection) => {
-                      if (selection.size <= 0) {
-                        setSelectedNightlyRelease(undefined);
-                      } else {
-                        setSelectedNightlyRelease([...selection][0]);
-                      }
-                    }}
-                    css={{
-                      height: "auto",
-                      minWidth: "100%",
-                      display: "table",
-                      noMargin: true,
-                      padding: 0
-                    }}
-                  >
-                    <Table.Header columns={stableReleaseColumns}>
-                      {(column) => (
-                        <Table.Column key={column.key}>{column.label}</Table.Column>
-                      )}
-                    </Table.Header>
-                    <Table.Body items={nightlyReleases.data} loadingState={nightlyReleasesLoadingState}>
-                      {(item) => (
-                        <Table.Row key={nightlyReleases.data.indexOf(item)}>
-                          {(columnKey) => (
-                            <Table.Cell>{renderCell(item, columnKey)}</Table.Cell>
-                          )}
-                        </Table.Row>
-                      )}
-                    </Table.Body>
-                    <Table.Pagination
-                      noMargin
-                      align="center"
-                      rowsPerPage={nightlyReleasesLoadingState == "loading" ? 2 : Math.min(10, nightlyReleases?.pageInfo?.total)}
-                      page={nightlyReleasesPage}
-                      onPageChange={setNightlyReleasesPage}
-                      total={Math.ceil(nightlyReleases?.pageInfo?.total / 10)}
-                    />
-                  </Table>
-                </Col>
-              </Row>
-              {selectedNightlyRelease === undefined ? ReleaseCard(undefined, false) : ReleaseCard(nightlyReleases.data[selectedNightlyRelease], false)}
-              <Row>
+              <DownloadTable
+                pageSize={pageSize}
+                tableLabel={"Previous nightly releases table"}
+                color={"warning"}
+                initialTableData={nightlyReleases}
+                tableColumns={releaseTableColumns}
+                renderRowFunc={renderReleaseCell}
+                fetchMoreFunc={async (offset) => {
+                  return await fetch(`${baseApiUrl}/nightlyReleases?offset=${offset}`);
+                }}
+                tableType={"nightly"} />
+              <GoogleAd></GoogleAd>
+              <Row css={{ mt: "1em" }}>
                 <Col><h2>Active Pull Requests</h2></Col>
               </Row>
-              <Row>
+              <Row css={{ mb: "1em" }}>
                 <Col>These are changes that are actively being worked on.</Col>
               </Row>
-              <Row>
+              <Row css={{ mb: "1em" }}>
                 <Col>Provided for visibility or for those interested in testing an upcoming change</Col>
               </Row>
-              <Row>
-                <Col>
-                  <Table
-                    compact
-                    striped
-                    sticked
-                    selectionMode={"single"}
-                    aria-label="Stable Release Table"
-                    css={{
-                      height: "auto",
-                      minWidth: "100%",
-                      display: "table",
-                      noMargin: true,
-                      padding: 0
-                    }}
-                  >
-                    <Table.Header>
-                      <Table.Column>AUTHOR</Table.Column>
-                      <Table.Column>CHANGE</Table.Column>
-                    </Table.Header>
-                    <Table.Body>
-                      <Table.Row key="1">
-                        <Table.Cell>Tony Reichert</Table.Cell>
-                        <Table.Cell>CEO</Table.Cell>
-                      </Table.Row>
-                      <Table.Row key="2">
-                        <Table.Cell>Zoey Lang</Table.Cell>
-                        <Table.Cell>Technical Lead</Table.Cell>
-                      </Table.Row>
-                      <Table.Row key="3">
-                        <Table.Cell>Jane Fisher</Table.Cell>
-                        <Table.Cell>Senior Developer</Table.Cell>
-                      </Table.Row>
-                      <Table.Row key="4">
-                        <Table.Cell>William Howard</Table.Cell>
-                        <Table.Cell>Community Manager</Table.Cell>
-                      </Table.Row>
-                    </Table.Body>
-                  </Table>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
+              <DownloadTable
+                pageSize={pageSize}
+                tableLabel={"Active pull requests"}
+                color={"secondary"}
+                initialTableData={pullRequests}
+                tableColumns={pullRequestTableColumns}
+                renderRowFunc={renderPullRequestCell}
+                fetchMoreFunc={async (offset) => {
+                  return await fetch(`${baseApiUrl}/pullRequestBuilds?offset=${offset}`);
+                }}
+                tableType={"pullRequests"} />
+            </Grid>
+          </Grid.Container>
         </Container>
       </main>
     </Layout>

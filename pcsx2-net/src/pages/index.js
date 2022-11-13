@@ -1,33 +1,13 @@
-import React, { } from 'react';
-import clsx from 'clsx';
+import React, { useState, useEffect } from 'react';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import { Button, Container, Text, Row, Col, Dropdown, Card } from "@nextui-org/react";
-import styles from './index.module.css';
+import { Container, Text, Row, Col, Card } from "@nextui-org/react";
 import { NumberTicker } from "../components/NumberTicker";
 import { Animation } from '../components/SphereAnimation';
-
+import { getLatestRelease } from '../components/ReleaseDownloadButton';
 import BrowserOnly from "@docusaurus/BrowserOnly";
-
-function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
+import { ReleaseDownloadButton } from '../components/ReleaseDownloadButton';
+import { GoogleAd } from '../components/GoogleAd';
 
 import { styled } from "@nextui-org/react";
 
@@ -61,11 +41,6 @@ const StyledSubtitle = styled("p", {
   color: "$accents7",
 });
 
-import { BsWindows, BsApple } from "react-icons/bs";
-import { FaLinux } from "react-icons/fa";
-import { IoIosCloudyNight } from "react-icons/io";
-import { GiBrickWall } from "react-icons/gi";
-
 async function getPlayableGameCount() {
   try {
     const resp = await fetch(
@@ -86,9 +61,31 @@ async function getPlayableGameCount() {
 }
 
 import { latestProgressReport, latestBlog } from './LatestBlogs';
+const baseApiUrl = location.hostname === "localhost" ? "http://localhost:3000/v1" : "https://api.pcsx2.net/v1"
 
 export default function Home() {
-  const { siteConfig } = useDocusaurusContext();
+  const [latestStableRelease, setLatestStableRelease] = useState({});
+  const [latestNightlyRelease, setLatestNightlyRelease] = useState({});
+
+  useEffect(async () => {
+    const resp = await fetch(
+      `${baseApiUrl}/latestReleasesAndPullRequests`
+    );
+    const data = await resp.json();
+
+    setLatestStableRelease({
+      windows: getLatestRelease(data.stableReleases.data, "Windows"),
+      linux: getLatestRelease(data.stableReleases.data, "Linux"),
+      macos: getLatestRelease(data.stableReleases.data, "MacOS"),
+    });
+
+    setLatestNightlyRelease({
+      windows: getLatestRelease(data.nightlyReleases.data, "Windows"),
+      linux: getLatestRelease(data.nightlyReleases.data, "Linux"),
+      macos: getLatestRelease(data.nightlyReleases.data, "MacOS"),
+    });
+  }, []);
+
   return (
     <Layout
       title={`Home`}
@@ -155,122 +152,27 @@ export default function Home() {
               </Row>
               <Row css={{ mb: "1em" }}>
                 <Col>
-                  <Dropdown placement="right-top">
-                    <Dropdown.Button color="primary" css={{ minWidth: "200px" }}>
-                      <GiBrickWall size={16}></GiBrickWall>&nbsp;Latest Stable
-                    </Dropdown.Button>
-                    <Dropdown.Menu
-                      color="primary"
-                      aria-label="Actions"
-                      css={{ $$dropdownMenuWidth: "280px" }}
-                    >
-                      <Dropdown.Section title="Windows">
-                        <Dropdown.Item
-                          key="win32"
-                          description="v1.2.3"
-                          icon={<BsWindows size={22} fill="var(--nextui-colors-primary)"></BsWindows>}
-                        >
-                          32-bit
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          key="win64"
-                          description="v1.2.3"
-                          icon={<BsWindows size={22} fill="var(--nextui-colors-primary)"></BsWindows>}
-                        >
-                          64-bit
-                        </Dropdown.Item>
-                      </Dropdown.Section>
-                      <Dropdown.Section title="Linux">
-                        <Dropdown.Item
-                          key="linux32"
-                          description="v1.2.3"
-                          icon={<FaLinux size={22} fill="var(--nextui-colors-primary)"></FaLinux>}
-                        >
-                          32-bit
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          key="linux64"
-                          description="v1.2.3"
-                          icon={<FaLinux size={22} fill="var(--nextui-colors-primary)"></FaLinux>}
-                        >
-                          64-bit
-                        </Dropdown.Item>
-                      </Dropdown.Section>
-                      <Dropdown.Section title="MacOS">
-                        <Dropdown.Item
-                          key="macOS"
-                          description="v1.2.3"
-                          icon={<BsApple size={22} fill="var(--nextui-colors-primary)"></BsApple>}
-                        >
-                          Not Available
-                        </Dropdown.Item>
-                      </Dropdown.Section>
-                    </Dropdown.Menu>
-                  </Dropdown>
+                  <ReleaseDownloadButton
+                    release={latestStableRelease}
+                    buttonText={"Latest Stable"}
+                    isNightly={false}
+                  />
                 </Col>
               </Row>
               <Row css={{ mb: "1em" }}>
                 <Col>
-                  <Dropdown placement="right-top">
-                    <Dropdown.Button auto color="primary" css={{ minWidth: "200px", color: '$warning', bgColor: '$accents0' }}>
-                      <IoIosCloudyNight size={22}></IoIosCloudyNight>&nbsp;Latest Nightly
-                    </Dropdown.Button>
-                    <Dropdown.Menu
-                      color="warning"
-                      aria-label="Actions"
-                      css={{ $$dropdownMenuWidth: "280px" }}
-                    >
-                      <Dropdown.Section title="Windows">
-                        <Dropdown.Item
-                          key="win32"
-                          description="v1.2.3"
-                          icon={<BsWindows size={22} fill="var(--nextui-colors-warning)"></BsWindows>}
-                        >
-                          32-bit
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          key="win64"
-                          description="v1.2.3"
-                          icon={<BsWindows size={22} fill="var(--nextui-colors-warning)"></BsWindows>}
-                        >
-                          64-bit
-                        </Dropdown.Item>
-                      </Dropdown.Section>
-                      <Dropdown.Section title="Linux">
-                        <Dropdown.Item
-                          key="linux32"
-                          description="v1.2.3"
-                          icon={<FaLinux size={22} fill="var(--nextui-colors-warning)"></FaLinux>}
-                        >
-                          32-bit
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          key="linux64"
-                          description="v1.2.3"
-                          icon={<FaLinux size={22} fill="var(--nextui-colors-warning)"></FaLinux>}
-                        >
-                          64-bit
-                        </Dropdown.Item>
-                      </Dropdown.Section>
-                      <Dropdown.Section title="MacOS">
-                        <Dropdown.Item
-                          key="macOS"
-                          description="v1.2.3"
-                          icon={<BsApple size={22} fill="var(--nextui-colors-warning)"></BsApple>}
-                        >
-                          Not Available
-                        </Dropdown.Item>
-                      </Dropdown.Section>
-                    </Dropdown.Menu>
-                  </Dropdown>
+                  <ReleaseDownloadButton
+                    release={latestNightlyRelease}
+                    buttonText={"Latest Nightly"}
+                    isNightly={true}
+                  />
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <a href="/downloads" style={{ textDecoration: "none" }}><Button light color="secondary" auto>
+                  <Link color="secondary" href="/downloads">
                     Previous Versions
-                  </Button></a>
-
+                  </Link>
                 </Col>
               </Row>
             </Col>
@@ -380,6 +282,7 @@ export default function Home() {
               </ul>
             </Col>
           </Row>
+          <GoogleAd doubleAd></GoogleAd>
         </Container>
       </main>
     </Layout>

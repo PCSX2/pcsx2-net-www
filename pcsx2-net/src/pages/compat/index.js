@@ -5,6 +5,7 @@ import { MdLibraryBooks, MdForum } from "react-icons/md";
 import Fuse from 'fuse.js'
 
 import styles from './index.module.css';
+import { GoogleAd } from '../../components/GoogleAd';
 
 function getTableData(compatData) {
   const compatRows = []
@@ -159,7 +160,7 @@ const renderCell = (user, columnKey) => {
       if (cellValue?.wiki) {
         icons.push(<Grid>
           <Tooltip content={"Wiki Page"} placement={"left"}>
-          <Link href={cellValue.wiki} target="_blank" rel="noopener noreferrer"><MdLibraryBooks size={22}></MdLibraryBooks></Link></Tooltip></Grid>);
+            <Link href={cellValue.wiki} target="_blank" rel="noopener noreferrer"><MdLibraryBooks size={22}></MdLibraryBooks></Link></Tooltip></Grid>);
       }
       if (cellValue?.forum) {
         icons.push(<Grid><Tooltip content={"Forum Post"} placement={"left"}><Link href={cellValue.forum} target="_blank" rel="noopener noreferrer"><MdForum size={22}></MdForum></Link></Tooltip></Grid>);
@@ -273,87 +274,104 @@ export default function Compatiblity() {
       title="Compatibility"
       description="Find out how well your PlayStation 2 games will run on PCSX2 and if there are any associated issues">
       <main>
-        <Grid.Container gap={2}>
-          <Grid xs={12} css={{ pb: 0 }}>
-            <h1>
-              Compatibility Data
-            </h1>
-          </Grid>
-          <Grid xs={12} css={{ pt: 0, color: "$accents7" }}>
-            <p>
-              Here is the latest data on the emulator's compatibility. Use the filtering and searching options below to find what you are interested in
-            </p>
-          </Grid>
-          <Grid.Container gap={2} alignItems={"end"}>
-            <Grid xs={4}>
+        <Container fluid css={{ mt: "2em" }}>
+          <Row>
+            <Col>
+              <h1>
+                Compatibility Data
+              </h1>
+            </Col>
+          </Row>
+          <Row>
+            <Col css={{ color: "$accents7" }}>
+              <p>
+                Here is the latest data on the emulator's compatibility. Use the filtering and searching options below to find what you are interested in
+              </p>
+            </Col>
+          </Row>
+          <GoogleAd margins={"1em"} alignment={"start"} doubleAd></GoogleAd>
+          <Row align='end' css={{ mt: "2em", mb: "1em" }}>
+            <Col span={4} css={{ mr: "1em" }}>
               <Input label="Search by Name, Serial or CRC" width='100%' onChange={changeSearchString} disabled={loadingState === "loading"}></Input>
-            </Grid>
-            <Grid xs={8}>
-              <Button bordered={filterOptions.perfect} disabled={filterStats.perfect === undefined} color="success" auto css={{ mr: "1em" }} onPress={() => toggleFilter("perfect")}>
-                {filterStats.perfect === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
-                {perfectFilterText}
-              </Button>
-              <Button bordered={filterOptions.playable} disabled={filterStats.playable === undefined} color="primary" auto css={{ mr: "1em" }} onPress={() => toggleFilter("playable")}>
-              {filterStats.playable === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
-              {playableFilterText}
-              </Button>
-              <Button bordered={filterOptions.ingame} disabled={filterStats.ingame === undefined} color="secondary" auto css={{ mr: "1em" }} onPress={() => toggleFilter("ingame")}>
-              {filterStats.ingame === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
-                {ingameFilterText}
-              </Button>
-              <Button bordered={filterOptions.menus} disabled={filterStats.menus === undefined} color="warning" auto css={{ mr: "1em" }} onPress={() => toggleFilter("menus")}>
-              {filterStats.menus === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
-                {menusFilterText}
-              </Button>
-              <Button bordered={filterOptions.intro} disabled={filterStats.intro === undefined} color="warning" auto css={{ mr: "1em" }} onPress={() => toggleFilter("intro")}>
-              {filterStats.intro === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
-                {introFilterText}
-              </Button>
-              <Button bordered={filterOptions.nothing} disabled={filterStats.nothing === undefined} color="error" auto onPress={() => toggleFilter("nothing")}>
-              {filterStats.nothing === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
-                {nothingFilterText}
-              </Button>
-            </Grid>
-          </Grid.Container>
-          <Grid xs={12}>
-            <Table
-              compact
-              striped
-              sticked
-              aria-label="Compatibility Table"
-              css={{
-                height: "auto",
-                minWidth: "100%",
-                display: "table",
-                noMargin: true,
-                padding: 0
-              }}
-            >
-              <Table.Header columns={columns}>
-                {(column) => (
-                  <Table.Column key={column.key}>{column.label}</Table.Column>
-                )}
-              </Table.Header>
-              <Table.Body items={filteredData} loadingState={loadingState}>
-                {(item) => (
-                  <Table.Row key={item.key}>
-                    {(columnKey) => (
-                      <Table.Cell>{renderCell(item, columnKey)}</Table.Cell>
-                    )}
-                  </Table.Row>
-                )}
-              </Table.Body>
-              <Table.Pagination
-                noMargin
-                align="center"
-                rowsPerPage={loadingState == "loading" ? 2 : Math.min(25, filteredData.length)}
-                page={page}
-                onPageChange={setPage}
-                total={Math.ceil(filteredData.length / 25)}
-              />
-            </Table>
-          </Grid>
-        </Grid.Container>
+            </Col>
+            <Col span={8}>
+              <Row>
+                <Col>
+                  <Button bordered={filterOptions.perfect} disabled={filterStats.perfect === undefined} color="success" auto css={{ mr: "1em" }} onPress={() => toggleFilter("perfect")}>
+                    {filterStats.perfect === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
+                    {perfectFilterText}
+                  </Button>
+                </Col>
+                <Col>
+                  <Button bordered={filterOptions.playable} disabled={filterStats.playable === undefined} color="primary" auto css={{ mr: "1em" }} onPress={() => toggleFilter("playable")}>
+                    {filterStats.playable === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
+                    {playableFilterText}
+                  </Button>
+                </Col>
+                <Col>
+                  <Button bordered={filterOptions.ingame} disabled={filterStats.ingame === undefined} color="secondary" auto css={{ mr: "1em" }} onPress={() => toggleFilter("ingame")}>
+                    {filterStats.ingame === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
+                    {ingameFilterText}
+                  </Button></Col>
+                <Col>
+                  <Button bordered={filterOptions.menus} disabled={filterStats.menus === undefined} color="warning" auto css={{ mr: "1em" }} onPress={() => toggleFilter("menus")}>
+                    {filterStats.menus === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
+                    {menusFilterText}
+                  </Button></Col>
+                <Col>
+                  <Button bordered={filterOptions.intro} disabled={filterStats.intro === undefined} color="warning" auto css={{ mr: "1em" }} onPress={() => toggleFilter("intro")}>
+                    {filterStats.intro === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
+                    {introFilterText}
+                  </Button></Col>
+                <Col>
+                  <Button bordered={filterOptions.nothing} disabled={filterStats.nothing === undefined} color="error" auto onPress={() => toggleFilter("nothing")}>
+                    {filterStats.nothing === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
+                    {nothingFilterText}
+                  </Button></Col>
+              </Row>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={12}>
+              <Table
+                compact
+                striped
+                sticked
+                aria-label="Compatibility Table"
+                css={{
+                  height: "auto",
+                  minWidth: "100%",
+                  display: "table",
+                  noMargin: true,
+                  padding: 0
+                }}
+              >
+                <Table.Header columns={columns}>
+                  {(column) => (
+                    <Table.Column key={column.key}>{column.label}</Table.Column>
+                  )}
+                </Table.Header>
+                <Table.Body items={filteredData} loadingState={loadingState}>
+                  {(item) => (
+                    <Table.Row key={item.key}>
+                      {(columnKey) => (
+                        <Table.Cell>{renderCell(item, columnKey)}</Table.Cell>
+                      )}
+                    </Table.Row>
+                  )}
+                </Table.Body>
+                <Table.Pagination
+                  noMargin
+                  align="center"
+                  rowsPerPage={loadingState == "loading" ? 2 : Math.min(25, filteredData.length)}
+                  page={page}
+                  onPageChange={setPage}
+                  total={Math.ceil(filteredData.length / 25)}
+                />
+              </Table>
+            </Col>
+          </Row>
+        </Container>
       </main>
     </Layout>
   );

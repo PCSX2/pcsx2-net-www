@@ -1,7 +1,5 @@
 {
   "recommendations": [
-    "streetsidesoftware.code-spell-checker",
-    "yzhang.markdown-all-in-one",
-    "budparr.language-hugo-vscode"
+    "yzhang.markdown-all-in-one"
   ]
 }
