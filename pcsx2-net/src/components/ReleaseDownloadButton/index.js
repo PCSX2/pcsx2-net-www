@@ -5,6 +5,7 @@ import { BsWindows, BsApple } from "react-icons/bs";
 import { FaLinux } from "react-icons/fa";
 import { IoIosCloudyNight } from "react-icons/io";
 import { GiBrickWall } from "react-icons/gi";
+import { useMediaQuery } from '../../utils/mediaQuery';
 
 export function getLatestRelease(releases, platform) {
   for (const release of releases) {
@@ -108,7 +109,7 @@ export function ReleaseDownloadButton({release, buttonText, bordered, isNightly}
   }, [release]);
 
   return (
-    <Dropdown isBordered placement="bottom-left" >
+    <Dropdown isBordered placement={useMediaQuery(960) ? "bottom-left" : "right-top"} >
       <Dropdown.Button color={isNightly ? "warning" : "primary"} css={buttonStyling} bordered={bordered}>
         {isNightly ? <IoIosCloudyNight size={22}/> : <GiBrickWall size={16}/>}
         &nbsp;

@@ -210,7 +210,7 @@ class PureCanvas extends React.Component {
     return (
       <canvas ref={node => node ? this.props.contextRef(node.getContext('2d')) : null} style={{
         position: "absolute",
-        height: "80vh",
+        minHeight: "calc(84vh - 76px)",
         width: "100%"
       }} />
     )
