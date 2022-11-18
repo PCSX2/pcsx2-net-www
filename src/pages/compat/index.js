@@ -389,24 +389,34 @@ export default function Compatiblity() {
                 </p>
               </Grid>
             </Grid.Container>
-            <Grid.Container>
-              <Grid xs={12} md={6}>
-                <GoogleAd
-                  margins={"1em"}
-                  alignment={"start"}
-                  doubleAd
-                ></GoogleAd>
-              </Grid>
+            <Row justify="center">
+              <Col
+                css={{
+                  "@md": {
+                    width: "50%",
+                  },
+                  "@mdMax": {
+                    width: "100%",
+                  },
+                }}
+              >
+                <GoogleAd></GoogleAd>
+              </Col>
               {useMediaQuery(960) ? null : (
-                <Grid md={6}>
-                  <GoogleAd
-                    margins={"1em"}
-                    alignment={"start"}
-                    doubleAd
-                  ></GoogleAd>
-                </Grid>
+                <Col
+                  css={{
+                    "@md": {
+                      width: "50%",
+                    },
+                    "@mdMax": {
+                      width: "100%",
+                    },
+                  }}
+                >
+                  <GoogleAd></GoogleAd>
+                </Col>
               )}
-            </Grid.Container>
+            </Row>
             <Grid.Container alignItems="end" css={{ mt: "2em", mb: "1em" }}>
               <Grid xs={12} md={4}>
                 <Grid.Container gap={1}>
@@ -581,6 +591,20 @@ export default function Compatiblity() {
                 </Table>
               </Grid>
             </Grid.Container>
+            <Row justify="center">
+              <Col
+                css={{
+                  "@md": {
+                    width: "50%",
+                  },
+                  "@mdMax": {
+                    width: "100%",
+                  },
+                }}
+              >
+                <GoogleAd></GoogleAd>
+              </Col>
+            </Row>
           </Grid.Container>
         </Container>
       </main>

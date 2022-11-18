@@ -24,7 +24,11 @@ export function GoogleAd({ margins = "5em", alignment = "center" }) {
       <Col span={12}>
         <ins
           className="adsbygoogle"
-          style={{ display: "block", backgroundColor: "grey" }}
+          style={{
+            display: "inline-block",
+            backgroundColor: "grey",
+            width: "100%",
+          }}
           data-ad-client={"ca-pub-0996284081546238"}
           data-ad-slot={"3330447757"}
           data-ad-format="auto"
