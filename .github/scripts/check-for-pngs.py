@@ -1,7 +1,8 @@
 import glob
 
-invalid_images = glob.glob('content/*.png', recursive=True)
-invalid_images += glob.glob('themes/*.png', recursive=True)
+invalid_images = glob.glob('blog/*.png', recursive=True)
+invalid_images += glob.glob('docs/*.png', recursive=True)
+invalid_images += glob.glob('static/*.png', recursive=True)
 
 if len(invalid_images) != 0:
   print("Found PNG files, please convert these to .webp:")

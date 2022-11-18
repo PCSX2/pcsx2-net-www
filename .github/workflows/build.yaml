@@ -17,11 +17,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Generate Website
+      - name: Check for PNGs
         run: python ./.github/scripts/check-for-pngs.py
 
-  hugo-build:
-    name: Hugo Build
+  docusaurus-build:
+    name: Docusaurus Build
     runs-on: ubuntu-latest
     needs: check-for-pngs
     timeout-minutes: 5
@@ -29,8 +29,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Get Package Dependencies
-        run: sudo snap install hugo --channel=extended
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'yarn'
 
-      - name: Generate Website
-        run: hugo
+      - name: Build Site
+        run: |
+          yarn install --frozen-lockfile
+          yarn build
