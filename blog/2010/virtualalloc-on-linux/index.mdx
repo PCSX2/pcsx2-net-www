@@ -33,12 +33,12 @@ int result3 = mprotect((void*)0x10000000, 0x100000, PROT_READ | PROT_WRITE);
 ```
 
 When using **mmap** , you can create a simple uncommitted reservation of
-memory simply by specifying PROT_NONE on any anonymous mapping (in the
+memory simply by specifying PROT*NONE on any anonymous mapping (in the
 world of mmap, anonymous means it has no associated file/pipe -- it's
 just a memory block). This is sufficient for reserving a large
 contiguous address range from being fragmented up by the likes of
 malloc. Granting the memory read and/or write privileges tells Linux to
-_commit_ the memory (equivalent to VirtualAlloc with MEM_COMMIT). If
+\_commit* the memory (equivalent to VirtualAlloc with MEM_COMMIT). If
 there is not enough system memory to complete the call, it returns -1.
 
 Oddly enough, though, Linux makes it so that it isn't even necessary to

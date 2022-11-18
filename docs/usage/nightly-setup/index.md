@@ -35,7 +35,7 @@ dlopen(): error loading libfuse.so.2
 ...
 ```
 
-Then you need to install `libfuse2` in order to the run the AppImage in your environment.  Recent versions of Ubuntu (22.04+) have switched to libfuse3, which is not backwards compatible.
+Then you need to install `libfuse2` in order to the run the AppImage in your environment. Recent versions of Ubuntu (22.04+) have switched to libfuse3, which is not backwards compatible.
 
 ```bash
 sudo apt install libfuse2

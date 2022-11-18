@@ -3,18 +3,6 @@ version: "3"
 # TODO - replace all this with npm scripts
 
 tasks:
-  serve:
-    cmds:
-      - yarn start
-  new-article:
-    cmds:
-      - python ./scripts/make-new-article.py
-  vendor-deps:
-    cmds:
-      - python ./scripts/vendor-deps.py
-  convert-compat:
-    cmds:
-      - python ./scripts/coerce-compat-data.py
   convert-pngs:
     cmds:
       - python ./scripts/convert-pngs.py
