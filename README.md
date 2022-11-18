@@ -68,4 +68,4 @@ image: ./img/my-cool-thumbnail.webp
 
 ### Builtin Component Documentation
 
-[See the following article](/docs/components.md)
+[See the following article](/usage_docs/components.md)

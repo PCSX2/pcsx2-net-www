@@ -1,54 +1,76 @@
 {
+  "TextGradient": {
+    "scope": "markdown,md",
+    "prefix": ["textgradient"],
+    "body": [
+      "<TextGradient startColor=\"${1:color}\" endColor=\"${2:color}\">${3:text}</TextGradient>"
+    ],
+    "description": "Plain text with a gradient background"
+  },
+  "PR Link": {
+    "scope": "markdown,md",
+    "prefix": ["pcsx2-link-pr"],
+    "body": [
+      "<PCSX2PRLink authors=\"${1:authors}\" prNums=\"${2:pullReqNumbers - CommaSep}\">",
+      "  ${3:title}",
+      "</PCSX2PRLink>"
+    ],
+    "description": "Github Link to PR(s)"
+  },
+  "Commit Link": {
+    "scope": "markdown,md",
+    "prefix": ["pcsx2-link-commit"],
+    "body": [
+      "<PCSX2PRLink authors=\"${1:authors}\" shas=\"${2:commitShas - CommaSep}\">",
+      "  ${3:title}",
+      "</PCSX2PRLink>"
+    ],
+    "description": "Github Link to Commits(s)"
+  },
+  "PR and Commit Link": {
+    "scope": "markdown,md",
+    "prefix": ["pcsx2-link-pr-commit"],
+    "body": [
+      "<PCSX2PRLink authors=\"${1:authors}\" prNums=\"${2:pullReqNumbers - CommaSep}\" shas=\"${3:commitShas - CommaSep}\">",
+      "  ${4:title}",
+      "</PCSX2PRLink>"
+    ],
+    "description": "Github Link to PR(s) and Commit(s)"
+  },
   "Image": {
     "scope": "markdown,md",
     "prefix": ["img"],
-    "body": ["{{< img cols=\"${1:colWidth}\" src=\"./img/${2:fileName}\">}}"],
-    "description": "Lazy loaded image which can have a specified size"
+    "body": ["<Image src={require(\"./img/${1:path}.webp\").default} />"],
+    "description": "Display an Image"
   },
   "Image Compare": {
     "scope": "markdown,md",
     "prefix": ["img-cmp"],
     "body": [
-      "{{< img-cmp before=\"./img/${1:beforePath}\" after=\"./img/${2:afterPath}\">}}"
+      "<ImageCompare",
+      "  left={require(\"./img/${1:leftPath}.webp\").default}",
+      "  right={require(\"./img/${2:rightPath}.webp\").default}",
+      "/>"
     ],
-    "description": "Compare two (and hopefully identical) images side-by-side"
+    "description": "Compare two images side-by-side"
   },
-  "Image Compare Slider": {
+  "Compare Slider": {
     "scope": "markdown,md",
-    "prefix": ["img-cmp-slider"],
+    "prefix": ["cmp-slider"],
     "body": [
-      "{{< img-cmp-slider before=\"./img/${1:beforePath}\" after=\"./img/${2:afterPath}\">}}"
+      "<SliderCompare",
+      "  before={require(\"./img/${1:beforePath}.webp\").default}",
+      "  after={require(\"./img/${2:afterPath}.webp\").default}",
+      "/>"
     ],
-    "description": "Compare two stacked (and hopefully identical) images with a slider"
+    "description": "Compare two images side-by-side"
   },
-  "PR Link": {
+  "BarChart": {
     "scope": "markdown,md",
-    "prefix": ["github-link-pr"],
+    "prefix": ["chart-bar"],
     "body": [
-      "{{< progress/github-link prNums=\"${1:pullReqNumbers - CommaSep}\" title=\"${2:title}\" authors=\"${3:authors - Comma Sep}\" >}}"
+      "<BarChart chartDataUrl={require(\"./charts/${1:dataFile}\").default} />"
     ],
-    "description": "Progress Report Github Link to PR(s)"
-  },
-  "Commit Link": {
-    "scope": "markdown,md",
-    "prefix": ["github-link-commit"],
-    "body": [
-      "{{< progress/github-link shas=\"${1:commitShas - CommaSep}\" title=\"${2:title}\" authors=\"${3:authors - Comma Sep}\" >}}"
-    ],
-    "description": "Progress Report Github Link to Commit(s)"
-  },
-  "PR and Commit Link": {
-    "scope": "markdown,md",
-    "prefix": ["github-link-pr-commit"],
-    "body": [
-      "{{< progress/github-link shas=\"${1:commitShas - CommaSep}\" prNums=\"${2:pullReqNumbers - CommaSep}\" title=\"${3:title}\" authors=\"${4:authors - Comma Sep}\" >}}"
-    ],
-    "description": "Progress Report Github Link to Commit(s) and PR(s)"
-  },
-  "Chart": {
-    "scope": "markdown,md",
-    "prefix": ["chart"],
-    "body": ["{{< progress/chart data=\"./charts/${1:dataFile}\" >}}"],
-    "description": "Create a Chart.JS...Chart!"
+    "description": "Create a BarChart!"
   }
 }
