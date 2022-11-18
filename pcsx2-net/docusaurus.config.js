@@ -69,7 +69,7 @@ const config = {
         disableSwitch: false,
         respectPrefersColorScheme: true,
       },
-      image: 'img/logo.png',
+      image: 'img/logo.webp',
       navbar: {
         title: 'PCSX2',
         logo: {
@@ -101,28 +101,28 @@ const config = {
             href: 'https://discord.com/invite/TCz3t9k',
             position: 'right',
             className: 'header-discord-link',
-            'aria-label': 'PCSX2 Discord Server',
+            'aria-label': 'Discord',
             target: "_blank"
           },
           {
             href: 'https://github.com/PCSX2/pcsx2',
             position: 'right',
             className: 'header-github-link',
-            'aria-label': 'PCSX2 GitHub repository',
+            'aria-label': 'GitHub',
             target: "_blank"
           },
           {
             href: 'https://twitter.com/PCSX2',
             position: 'right',
             className: 'header-twitter-link',
-            'aria-label': 'PCSX2 Twitter',
+            'aria-label': 'Twitter',
             target: "_blank"
           },
           {
             href: 'https://www.youtube.com/user/PCSX2team',
             position: 'right',
             className: 'header-youtube-link',
-            'aria-label': 'PCSX2 YouTube channel',
+            'aria-label': 'YouTube',
             target: "_blank"
           }
         ],

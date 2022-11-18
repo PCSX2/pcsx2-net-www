@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
-import { Text, Button, Row, Col, Card, Grid } from "@nextui-org/react";
+import { Text, Button, Row, Col, Card, Grid, getDocumentTheme } from "@nextui-org/react";
 import { NumberTicker } from "../components/NumberTicker";
 import { Animation } from '../components/SphereAnimation';
 import { getLatestRelease } from '../components/ReleaseDownloadButton';
@@ -10,6 +10,7 @@ import { ReleaseDownloadButton } from '../components/ReleaseDownloadButton';
 import { GoogleAd } from '../components/GoogleAd';
 import { useMediaQuery } from "../utils/mediaQuery";
 import { styled } from "@nextui-org/react";
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const StyledTitle = styled("h1", {
   display: "inline",
@@ -41,14 +42,12 @@ const StyledSubtitle = styled("p", {
   color: "$accents7",
 });
 
-async function getPlayableGameCount() {
+import CompatData from '@site/static/data/compat/data.min.json';
+
+function getPlayableGameCount() {
   try {
-    const resp = await fetch(
-      `/data/compat/data.min.json`
-    );
-    const data = await resp.json();
     let count = 0;
-    for (const entry of data) {
+    for (const entry of CompatData) {
       if (entry.status.toLowerCase() === "perfect" || entry.status.toLowerCase() === "playable") {
         count++;
       }
@@ -60,6 +59,7 @@ async function getPlayableGameCount() {
   }
 }
 
+
 import { latestProgressReport, latestBlog } from '../data/latestBlogs';
 
 const baseApiUrl = "https://api.pcsx2.net/v1"
@@ -68,6 +68,7 @@ export default function Home() {
   const [latestStableRelease, setLatestStableRelease] = useState({});
   const [latestNightlyRelease, setLatestNightlyRelease] = useState({});
   const [apiErrorMsg, setApiErrorMsg] = useState(undefined);
+  const [homePosterUrl, setHomePosterUrl] = useState("/img/home-poster.png")
 
   useEffect(async () => {
     try {
@@ -94,6 +95,18 @@ export default function Home() {
     } catch (err) {
       setApiErrorMsg("Unexpected API Error Occurred. Try Again Later!");
     }
+
+    setHomePosterUrl(getDocumentTheme(document?.documentElement) === "dark" ? "/img/home-poster.png" : "/img/home-poster-light.png");
+
+    const observer = new MutationObserver((mutation) => {
+      setHomePosterUrl(getDocumentTheme(document?.documentElement) === "dark" ? "/img/home-poster.png" : "/img/home-poster-light.png");
+    });
+
+    // Observe the document theme changes
+    observer.observe(document?.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme', 'style', "class"]
+    });
   }, []);
 
   return (
@@ -101,11 +114,15 @@ export default function Home() {
       title={`Home`}
       description="An Open-Source Playstation 2 Emulator">
       <main>
-        <BrowserOnly>
-          {() => (
-            <Animation/>
-          )}
-        </BrowserOnly>
+        {useMediaQuery(960) ? <img src={useBaseUrl(homePosterUrl)} style={{
+                position: "absolute",
+                minHeight: "calc(84vh - 76px)",
+                width: "100%",
+                objectFit: "cover"
+              }} /> : <BrowserOnly>
+              {() => (<Animation />
+              )}
+            </BrowserOnly>}
         <Grid.Container alignItems='center' gap={2} css={{
           position: "relative",
           minHeight: "calc(84vh - 76px)",
@@ -149,7 +166,7 @@ export default function Home() {
                 />
               </Grid>
               <Grid>
-                <a href="/downloads" style={{ textDecoration: "none" }}>
+                <a href={useBaseUrl("/downloads")} style={{ textDecoration: "none" }}>
                   <Button light color="secondary" css={{ minWidth: "200px" }}>
                     Previous Versions
                   </Button>
@@ -160,7 +177,7 @@ export default function Home() {
           <Grid xs={12} md={6} direction={"column"}>
             <Grid.Container gap={2}>
               <Grid md={6}>
-                <a href={latestProgressReport.url}>
+                <a href={useBaseUrl(latestProgressReport.url)}>
                   <Card>
                     <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
                       <Col>
@@ -185,7 +202,7 @@ export default function Home() {
             <Grid.Container gap={2}>
               <Grid xs={0} md={6}></Grid>
               <Grid md={6}>
-                <a href={latestBlog.url}>
+                <a href={useBaseUrl(latestBlog.url)}>
                   <Card>
                     <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
                       <Col>
@@ -216,7 +233,8 @@ export default function Home() {
             },
             "@mdMax": {
               width: "100%"
-            }}}>
+            }
+          }}>
             <GoogleAd></GoogleAd>
           </Col>
         </Row>
@@ -251,7 +269,7 @@ export default function Home() {
           </Grid.Container>
           <Grid.Container gap={2}><Grid xs={12}>
             <p>
-            PCSX2 allows you to play PS2 games on your PC, with many additional features and benefits. A few of those benefits include:
+              PCSX2 allows you to play PS2 games on your PC, with many additional features and benefits. A few of those benefits include:
               <ul>
                 <li>custom resolutions and upscaling</li>
                 <li>virtual and sharable memory cards</li>
@@ -270,7 +288,8 @@ export default function Home() {
             },
             "@mdMax": {
               width: "100%"
-            }}}>
+            }
+          }}>
             <GoogleAd></GoogleAd>
           </Col>
         </Row>

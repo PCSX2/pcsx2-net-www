@@ -2,10 +2,21 @@ import React from 'react';
 import NavbarNavLink from '@theme-original/NavbarItem/NavbarNavLink';
 import { Button } from "@nextui-org/react";
 import { GoHeart } from "react-icons/go";
+import Link from '@docusaurus/Link';
 
 export default function NavbarNavLinkWrapper(props) {
-
   if (props.label === "Donate") {
+    if (props.className === "menu__link") {
+      // return a simple link
+      return (
+        <>
+          <Link {...props}>
+            <GoHeart fill="var(--nextui-colors-red600)" size={20} />
+            Donate
+          </Link>
+        </>
+      );
+    }
     return (
       <>
         <Button

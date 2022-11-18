@@ -134,11 +134,18 @@ footer {
   background: transparent;
 }
 
-.navbar-sidebar {
+[data-theme='dark'] .navbar-sidebar {
   box-shadow: rgba(2, 1, 1, 0.1) 0px 5px 20px -5px;
   z-index: 999;
   background: transparent;
   backdrop-filter: saturate(180%) blur(10px);
+  --webkit-backdrop-filter: saturate(180%) blur(10px);
+}
+
+[data-theme='light'] .navbar-sidebar {
+  background: rgba(255, 255, 255, 1.0);
+  backdrop-filter: saturate(180%)blur(60px);
+  --webkit-backdrop-filter: saturate(180%) blur(34px);
 }
 
 nav:not(.navbar-sidebar--show) {

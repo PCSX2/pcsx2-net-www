@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
-import { Table, Grid, Tooltip, Badge, Link, Loading, Input, Container, Row, Col, Progress, Button, useAsyncList } from '@nextui-org/react';
+import { Table, Grid, Tooltip, Badge, Link, Loading, Input, Container, Row, Col, Button } from '@nextui-org/react';
 import { MdLibraryBooks, MdForum } from "react-icons/md";
 import Fuse from 'fuse.js'
 import { DateTime } from "luxon";
-import styles from './index.module.css';
 import { GoogleAd } from '../../components/GoogleAd';
 import { useMediaQuery } from "../../utils/mediaQuery";
 
@@ -120,8 +119,8 @@ const columns = [
   }
 ];
 
-const renderCell = (user, columnKey) => {
-  const cellValue = user[columnKey];
+const renderCell = (entry, columnKey) => {
+  const cellValue = entry[columnKey];
   switch (columnKey) {
     case "status":
       switch (cellValue.toLowerCase()) {
@@ -173,7 +172,7 @@ const renderCell = (user, columnKey) => {
         return (null);
       }
     case "serial":
-      return <span className="monospaced">{getEmojiFlag(user["region"])}&nbsp;{cellValue}</span>
+      return <span className="monospaced">{getEmojiFlag(entry["region"])}&nbsp;{cellValue}</span>
     case "crc":
       return <span className="monospaced">{cellValue}</span>
     default:
@@ -190,6 +189,8 @@ const searchOptions = {
     "crc"
   ]
 };
+
+import CompatData from '@site/static/data/compat/data.min.json';
 
 export default function Compatiblity() {
   // State
@@ -214,21 +215,21 @@ export default function Compatiblity() {
   const [loadingState, setLoadingState] = useState("loading");
   const [page, setPage] = useState(1);
   const [searchString, setSearchString] = useState("");
+  const [readyToFilter, setReadyToFilter] = useState(false);
 
-  useEffect(async () => {
-    const resp = await fetch(
-      `/data/compat/data.min.json`
-    );
-    // TODO - handle error cases
-    const data = await resp.json();
-    setTableData(getTableData(data));
+  useEffect(() => {
+    setTableData(getTableData(CompatData));
     // Determine distribution of statuses
-    setFilterStats(calcPercentages(data));
-    setFilteredData(getTableData(data));
+    setFilterStats(calcPercentages(CompatData));
+    setFilteredData(getTableData(CompatData));
     setLoadingState("idle");
+    setReadyToFilter(true);
   }, []);
 
-  const filterData = async () => {
+  const filterData = () => {
+    if (!readyToFilter) {
+      return;
+    }
     // Start with the raw data, filter it by status first
     let newFilteredData = tableData.filter(entry => {
       return !filterOptions[entry.status.toLowerCase()];
@@ -274,114 +275,117 @@ export default function Compatiblity() {
       title="Compatibility"
       description="Find out how well your PlayStation 2 games will run on PCSX2 and if there are any associated issues">
       <main>
-        <Container fluid css={{ mt: "2em" }}>
-          <Row>
-            <Col>
-              <h1>
-                Compatibility Data
-              </h1>
-            </Col>
-          </Row>
-          <Row>
-            <Col css={{ color: "$accents7" }}>
-              <p>
-                Here is the latest data on the emulator's compatibility. Use the filtering and searching options below to find what you are interested in
-              </p>
-            </Col>
-          </Row>
-          <Row>
-            <Col span={useMediaQuery(960) ? 12 : 6}>
-              <GoogleAd margins={"1em"} alignment={"start"} doubleAd></GoogleAd>
-            </Col>
-            {useMediaQuery(960) ? (null) : <Col span={6}>
-              <GoogleAd margins={"1em"} alignment={"start"} doubleAd></GoogleAd>
-            </Col>}
-          </Row>
-          <Grid.Container alignItems='end' css={{ mt: "2em", mb: "1em" }}>
-            <Grid xs={12} md={4}>
-              <Grid.Container gap={1}>
-                <Grid xs={12}>
-                  <Input label="Search by Name, Serial or CRC" width='100%' onChange={changeSearchString} disabled={loadingState === "loading"}></Input>
-                </Grid>
-              </Grid.Container>
-            </Grid>
-            <Grid xs={12} md={8}>
-              <Grid.Container alignItems="end" gap={1}>
-                <Grid>
-                  <Button bordered={filterOptions.perfect} disabled={filterStats.perfect === undefined} color="success" auto onPress={() => toggleFilter("perfect")}>
-                    {filterStats.perfect === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
-                    {perfectFilterText}
-                  </Button>
-                </Grid>
-                <Grid>
-                  <Button bordered={filterOptions.playable} disabled={filterStats.playable === undefined} color="primary" auto onPress={() => toggleFilter("playable")}>
-                    {filterStats.playable === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
-                    {playableFilterText}
-                  </Button>
-                </Grid>
-                <Grid>
-                  <Button bordered={filterOptions.ingame} disabled={filterStats.ingame === undefined} color="secondary" auto onPress={() => toggleFilter("ingame")}>
-                    {filterStats.ingame === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
-                    {ingameFilterText}
-                  </Button></Grid>
-                <Grid>
-                  <Button bordered={filterOptions.menus} disabled={filterStats.menus === undefined} color="warning" auto onPress={() => toggleFilter("menus")}>
-                    {filterStats.menus === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
-                    {menusFilterText}
-                  </Button></Grid>
-                <Grid>
-                  <Button bordered={filterOptions.intro} disabled={filterStats.intro === undefined} color="warning" auto onPress={() => toggleFilter("intro")}>
-                    {filterStats.intro === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
-                    {introFilterText}
-                  </Button></Grid>
-                <Grid>
-                  <Button bordered={filterOptions.nothing} disabled={filterStats.nothing === undefined} color="error" auto onPress={() => toggleFilter("nothing")}>
-                    {filterStats.nothing === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
-                    {nothingFilterText}
-                  </Button></Grid>
-              </Grid.Container>
-            </Grid>
+        <Container fluid css={{ mt: "2em", maxWidth: "100%" }}>
+          <Grid.Container>
+            <Grid.Container>
+              <Grid>
+                <h1>
+                  Compatibility Data
+                </h1>
+              </Grid>
+            </Grid.Container>
+            <Grid.Container>
+              <Grid xs={12} css={{ color: "$accents7" }}>
+                <p>
+                  Here is the latest data on the emulator's compatibility. Use the filtering and searching options below to find what you are interested in
+                </p>
+              </Grid>
+            </Grid.Container>
+            <Grid.Container>
+              <Grid xs={12} md={6}>
+                <GoogleAd margins={"1em"} alignment={"start"} doubleAd></GoogleAd>
+              </Grid>
+              {useMediaQuery(960) ? (null) : <Grid md={6}>
+                <GoogleAd margins={"1em"} alignment={"start"} doubleAd></GoogleAd>
+              </Grid>}
+            </Grid.Container>
+            <Grid.Container alignItems='end' css={{ mt: "2em", mb: "1em" }}>
+              <Grid xs={12} md={4}>
+                <Grid.Container gap={1}>
+                  <Grid xs={12}>
+                    <Input label="Search by Name, Serial or CRC" width='100%' onChange={changeSearchString} disabled={loadingState === "loading"}></Input>
+                  </Grid>
+                </Grid.Container>
+              </Grid>
+              <Grid xs={12} md={8}>
+                <Grid.Container alignItems="end" gap={1}>
+                  <Grid>
+                    <Button bordered={filterOptions.perfect} disabled={filterStats.perfect === undefined} color="success" auto onPress={() => toggleFilter("perfect")}>
+                      {filterStats.perfect === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
+                      {perfectFilterText}
+                    </Button>
+                  </Grid>
+                  <Grid>
+                    <Button bordered={filterOptions.playable} disabled={filterStats.playable === undefined} color="primary" auto onPress={() => toggleFilter("playable")}>
+                      {filterStats.playable === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
+                      {playableFilterText}
+                    </Button>
+                  </Grid>
+                  <Grid>
+                    <Button bordered={filterOptions.ingame} disabled={filterStats.ingame === undefined} color="secondary" auto onPress={() => toggleFilter("ingame")}>
+                      {filterStats.ingame === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
+                      {ingameFilterText}
+                    </Button></Grid>
+                  <Grid>
+                    <Button bordered={filterOptions.menus} disabled={filterStats.menus === undefined} color="warning" auto onPress={() => toggleFilter("menus")}>
+                      {filterStats.menus === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
+                      {menusFilterText}
+                    </Button></Grid>
+                  <Grid>
+                    <Button bordered={filterOptions.intro} disabled={filterStats.intro === undefined} color="warning" auto onPress={() => toggleFilter("intro")}>
+                      {filterStats.intro === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
+                      {introFilterText}
+                    </Button></Grid>
+                  <Grid>
+                    <Button bordered={filterOptions.nothing} disabled={filterStats.nothing === undefined} color="error" auto onPress={() => toggleFilter("nothing")}>
+                      {filterStats.nothing === undefined && <Loading type="points-opacity" color="currentColor" size="sm" />}
+                      {nothingFilterText}
+                    </Button></Grid>
+                </Grid.Container>
+              </Grid>
+            </Grid.Container>
+            <Grid.Container>
+              <Grid xs={12}>
+                <Table
+                  compact
+                  striped
+                  sticked
+                  aria-label="Compatibility Table"
+                  css={{
+                    height: "auto",
+                    minWidth: "100%",
+                    display: "table",
+                    noMargin: true,
+                    padding: 0
+                  }}
+                >
+                  <Table.Header columns={columns}>
+                    {(column) => (
+                      <Table.Column key={column.key}>{column.label}</Table.Column>
+                    )}
+                  </Table.Header>
+                  <Table.Body items={filteredData} loadingState={loadingState}>
+                    {(item) => (
+                      <Table.Row key={item.key}>
+                        {(columnKey) => (
+                          <Table.Cell key={`${item.key}-${columnKey}`}>{renderCell(item, columnKey)}</Table.Cell>
+                        )}
+                      </Table.Row>
+                    )}
+                  </Table.Body>
+                  <Table.Pagination
+                    noMargin
+                    align="center"
+                    rowsPerPage={loadingState == "loading" ? 2 : Math.min(25, filteredData.length)}
+                    page={page}
+                    onPageChange={setPage}
+                    total={Math.ceil(filteredData.length / 25)}
+                  />
+                </Table>
+              </Grid>
+            </Grid.Container>
           </Grid.Container>
-          <Row>
-            <Col span={12}>
-              <Table
-                compact
-                striped
-                sticked
-                aria-label="Compatibility Table"
-                css={{
-                  height: "auto",
-                  minWidth: "100%",
-                  display: "table",
-                  noMargin: true,
-                  padding: 0
-                }}
-              >
-                <Table.Header columns={columns}>
-                  {(column) => (
-                    <Table.Column key={column.key}>{column.label}</Table.Column>
-                  )}
-                </Table.Header>
-                <Table.Body items={filteredData} loadingState={loadingState}>
-                  {(item) => (
-                    <Table.Row key={item.key}>
-                      {(columnKey) => (
-                        <Table.Cell>{renderCell(item, columnKey)}</Table.Cell>
-                      )}
-                    </Table.Row>
-                  )}
-                </Table.Body>
-                <Table.Pagination
-                  noMargin
-                  align="center"
-                  rowsPerPage={loadingState == "loading" ? 2 : Math.min(25, filteredData.length)}
-                  page={page}
-                  onPageChange={setPage}
-                  total={Math.ceil(filteredData.length / 25)}
-                />
-              </Table>
-            </Col>
-          </Row>
+
         </Container>
       </main>
     </Layout>

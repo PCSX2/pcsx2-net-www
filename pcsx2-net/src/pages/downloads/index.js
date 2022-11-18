@@ -152,7 +152,7 @@ export default function Downloads() {
                   />
                 </Grid>
                 <GoogleAd margins='2em'></GoogleAd>
-                <Grid xs={12}>
+                <Grid xs={12} css={{ mt: "2em" }}>
                   <h2>Previous Stable Releases</h2>
                 </Grid>
                 <Grid xs={12}>
@@ -214,7 +214,7 @@ export default function Downloads() {
                   />
                 </Grid>
                 <GoogleAd margins='2em'></GoogleAd>
-                <Grid xs={12}>
+                <Grid xs={12} css={{ mt: "2em" }}>
                   <h2>Previous Nightly Releases</h2>
                 </Grid>
                 <Grid xs={12}>
