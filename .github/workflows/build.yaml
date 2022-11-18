@@ -3,7 +3,7 @@ name: Build Website
 on:
   push:
     branches:
-      - '*'
+      - "*"
   pull_request:
     branches:
       - main
@@ -33,9 +33,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
+          cache: "yarn"
+
+      - name: Install Depdencies
+        run: yarn install --frozen-lockfile
+
+      - name: Check Formatting
+        run: yarn prettier --check .
 
       - name: Build Site
-        run: |
-          yarn install --frozen-lockfile
-          yarn build
+        run: yarn build

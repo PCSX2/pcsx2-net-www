@@ -1,12 +1,13 @@
 ---
 authors:
-- jake stine
+  - jake stine
 date: 2010-08-19 00:00:00
-description: Yes, there is a way to simulate Microsoft's VirtualAlloc behavior on
+description:
+  Yes, there is a way to simulate Microsoft's VirtualAlloc behavior on
   Linux
 draft: false
 tags:
-- devblog
+  - devblog
 title: Virtualalloc On Linux
 ---
 
@@ -32,12 +33,12 @@ int result3 = mprotect((void*)0x10000000, 0x100000, PROT_READ | PROT_WRITE);
 ```
 
 When using **mmap** , you can create a simple uncommitted reservation of
-memory simply by specifying PROT\_NONE on any anonymous mapping (in the
+memory simply by specifying PROT_NONE on any anonymous mapping (in the
 world of mmap, anonymous means it has no associated file/pipe -- it's
 just a memory block). This is sufficient for reserving a large
 contiguous address range from being fragmented up by the likes of
 malloc. Granting the memory read and/or write privileges tells Linux to
-*commit* the memory (equivalent to VirtualAlloc with MEM\_COMMIT). If
+_commit_ the memory (equivalent to VirtualAlloc with MEM_COMMIT). If
 there is not enough system memory to complete the call, it returns -1.
 
 Oddly enough, though, Linux makes it so that it isn't even necessary to
@@ -48,7 +49,7 @@ called...
 
 This 'feature' is enabled by default in most modern Linux kernels
 (anything 2.6 or newer). Basically all this means is that Linux will let
-programs *commit* a lot more RAM than is actually available to the
+programs _commit_ a lot more RAM than is actually available to the
 operating system! Instead of performing a "strict contract" on commit
 that says "oh yes we absolutely have this much ram available", Linux
 looks at the ram and looks at the request, and makes some arbitrary
@@ -60,7 +61,7 @@ you're going to use that much.
 
 Instead, as a program references its allocated memory, Linux commits the
 memory on-demand. Most of the time, programs that malloc huge amounts of
-ram only use a wee bit of it, so that's fine. By using *overcommitted*
+ram only use a wee bit of it, so that's fine. By using _overcommitted_
 memory management, Linux avoids the dreaded "Low on virtual memory!"
 error that can sometimes plague Windows. This is actually highly ideal
 for apps like PCSX2 and the Java virtual machine, for example. Kudos!
@@ -79,7 +80,7 @@ out-of-memory errors instead of just causing itself (and possibly other
 processes on the system) to die suddenly and without warning or error.
 
 Another positive for the the above mmap / mprotect example is that it
-will also work *well* on Linux systems that have over-commit disabled,
+will also work _well_ on Linux systems that have over-commit disabled,
 since it basically does what over-commit does but without the hacky
 "programs die instantly without error" part if the system runs out of
 physical memory.

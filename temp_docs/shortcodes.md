@@ -19,7 +19,7 @@ Arguments in bold are required
 
 **Usage**
 
-Comparing two images with a mouse-activated slider.  Both images are labelled as either being the "before" or "after" image.  Images are setup to lazy-load for you.
+Comparing two images with a mouse-activated slider. Both images are labelled as either being the "before" or "after" image. Images are setup to lazy-load for you.
 
 **args**
 
@@ -30,16 +30,16 @@ Comparing two images with a mouse-activated slider.  Both images are labelled as
 **Examples**
 
 ```html
-{{< img-cmp-slider before="./img/cnr_before_s.webp" after="./img/cnr_after_s.webp">}}
-
-{{< img-cmp-slider before="./img/old.webp" after="./img/new.webp" full-width="true">}}
+{{< img-cmp-slider before="./img/cnr_before_s.webp"
+after="./img/cnr_after_s.webp">}} {{< img-cmp-slider before="./img/old.webp"
+after="./img/new.webp" full-width="true">}}
 ```
 
 ## img-cmp
 
 **Usage**
 
-Comparing two images side-by-side.  Both images will take up half of the full 12 column width (6 columns each).  Images are setup to lazy-load for you.
+Comparing two images side-by-side. Both images will take up half of the full 12 column width (6 columns each). Images are setup to lazy-load for you.
 
 **args**
 
@@ -79,7 +79,7 @@ TODO
 
 **Usage**
 
-All in one shortcode used heavily for progress reports.  This handles linking to PR(s) or Commit(s) or both, with a list of authors.
+All in one shortcode used heavily for progress reports. This handles linking to PR(s) or Commit(s) or both, with a list of authors.
 
 **args**
 
@@ -93,18 +93,19 @@ Providing atleast 1 PR or Commit, and 1 Author is the intended usage.
 **Examples**
 
 ```html
-{{< progress/github-link prNums="4059" title="Generate unique MAC for TAP" authors="TheLastRar" >}}
-
-{{< progress/github-link prNums="4057,4085" shas="f1e44bfd47e3761388ebb5cc8ca4db78bb24916c" title="SPU2: Improve DMA/IRQ timing" authors="refractionpcsx2" >}}
-
-{{< progress/github-link prNums="4314,4045" title="Add CHD compression format support" authors="rtissera,SleepyMan,siddhartha77" >}}
+{{< progress/github-link prNums="4059" title="Generate unique MAC for TAP"
+authors="TheLastRar" >}} {{< progress/github-link prNums="4057,4085"
+shas="f1e44bfd47e3761388ebb5cc8ca4db78bb24916c" title="SPU2: Improve DMA/IRQ
+timing" authors="refractionpcsx2" >}} {{< progress/github-link
+prNums="4314,4045" title="Add CHD compression format support"
+authors="rtissera,SleepyMan,siddhartha77" >}}
 ```
 
 ## chart
 
 **Usage**
 
-Shortcode for creating a Chart.JS...chart.  You can provide optional sizing and centering options like previous shortcodes.
+Shortcode for creating a Chart.JS...chart. You can provide optional sizing and centering options like previous shortcodes.
 
 But most importantly, you can provide a link to a .json file which has the data and configuration for the chart
 
@@ -124,30 +125,24 @@ Given the following chart data, defined in `./charts/test-data.json`
 {
   "type": "bar",
   "chartData": {
-    "labels": [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June"
-    ],
-    "datasets": [{
-      "label": "TEST!",
-      "backgroundColor": "rgb(255, 99, 132)",
-      "borderColor": "rgb(255, 99, 132)",
-      "data": [0, 10, 5, 2, 20, 30, 45]
-    },
-    {
-      "label": "TEST2!",
-      "backgroundColor": "blue",
-      "borderColor": "red",
-      "data": [0, 5, 2, 5, 10, 33, 1]
-    }]
+    "labels": ["January", "February", "March", "April", "May", "June"],
+    "datasets": [
+      {
+        "label": "TEST!",
+        "backgroundColor": "rgb(255, 99, 132)",
+        "borderColor": "rgb(255, 99, 132)",
+        "data": [0, 10, 5, 2, 20, 30, 45]
+      },
+      {
+        "label": "TEST2!",
+        "backgroundColor": "blue",
+        "borderColor": "red",
+        "data": [0, 5, 2, 5, 10, 33, 1]
+      }
+    ]
   },
   "chartOptions": {}
 }
-
 ```
 
 The HTML would look something like so:

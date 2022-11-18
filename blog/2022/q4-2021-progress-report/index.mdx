@@ -1,19 +1,19 @@
 ---
 authors:
-- reddevilus
-- tellowkrinkle
-- refractionpcsx2
+  - reddevilus
+  - tellowkrinkle
+  - refractionpcsx2
 date: 2022-05-10 00:00:00
 description: On track with the marriage of speed and accuracy.
 draft: false
 hide_table_of_contents: false
 image: ./feature-progrepq42021-bgonly.jpg
 tags:
-- progress-report
+  - progress-report
 title: Q4 2021 Progress Report
 ---
 
-*Looks at the date and notices something.* Yes, my dear readers (or glancers) Q1 2022 should've been published 2 months ago and this is the predecessor to that. Sorry for the delay but there have been several reasons to this almost half year delay. Some of those reasons being the process of making the progress reports:
+_Looks at the date and notices something._ Yes, my dear readers (or glancers) Q1 2022 should've been published 2 months ago and this is the predecessor to that. Sorry for the delay but there have been several reasons to this almost half year delay. Some of those reasons being the process of making the progress reports:
 
 <!-- truncate -->
 
@@ -36,13 +36,19 @@ Happy Reading!
 
 ### CDVD
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="4839">CDVD: Implement correct SpindleCtrl handling</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="4839">
+  CDVD: Implement correct SpindleCtrl handling
+</PCSX2PRLink>
 
 Fixes some more videos not playing like Digital Devil Saga and fixes texture issues on Shadowman.
 
-<PCSX2PRLink authors="stenzek" prNums="4853">CDVD: Fix possible uncaught exception in CheckDiskTypeFS</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="4853">
+  CDVD: Fix possible uncaught exception in CheckDiskTypeFS
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="4860">CDVD: Implement Disc Swapping</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="4860">
+  CDVD: Implement Disc Swapping
+</PCSX2PRLink>
 
 Disc-Swapping has always been a highly requested feature for multi-disc games which may ask you to swap to the second disc half-way through the game.
 
@@ -50,57 +56,86 @@ Others that use it as more as an addendum to unlocking more items in games such 
 
 As you see, there are multiple behaviors possible when you are using the disc-swapping functionality (e.g. ejecting games) ranging from quite a few games being fine and nothing happening until it requires new data and thus likely crash to giving you error messages or simply freezing.
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="4871">CDVD: Time reads by sectors per second instead of bytes + Some rotational latency</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="4871">
+  CDVD: Time reads by sectors per second instead of bytes + Some rotational
+  latency
+</PCSX2PRLink>
 
 Another refinement on how the disc emulation handles reading and latencies which again improves the timing which the PS2 so desires.
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="4881">CDVD: Simulate 1 sector read ahead</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="4881">
+  CDVD: Simulate 1 sector read ahead
+</PCSX2PRLink>
 
 Queues 1 sector from a future read as ready which fixes Star Ocean 3 stuttering and Winning Eleven 8 crashing.
 
-<PCSX2PRLink authors="F0bes" prNums="4913">CDVD: Reset VM on sceCdPowerOff writes</PCSX2PRLink>
+<PCSX2PRLink authors="F0bes" prNums="4913">
+  CDVD: Reset VM on sceCdPowerOff writes
+</PCSX2PRLink>
 
 Instead of forcefully ‘pulling the cord’ when you reset or press the power button on a real console once, it will send a signal to reset. So it acts more like how the console worked.
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="4927">CDVD: Buffer up to 16 sectors</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="4927">
+  CDVD: Buffer up to 16 sectors
+</PCSX2PRLink>
 
 Buffers up to 16 sectors on a DVD from its current position.
 
 Documentation from developers shows that the DVD drive will always read 16 sectors as a minimum, so this means if it reads in advance, it can buffer up a bunch of sectors to be read off quickly by the DMA.
 
-<PCSX2PRLink authors="xTVaser" prNums="4992">CDVD: set the correct RTC year when input recording</PCSX2PRLink>
+<PCSX2PRLink authors="xTVaser" prNums="4992">
+  CDVD: set the correct RTC year when input recording
+</PCSX2PRLink>
 
 Changes how the date is handled for input recording as some games like Metal Gear Solid 3 are sensitive about the date for time-based events.
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="5056">CDVD: Adjust DMA timing based on PS1 timings.</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="5056">
+  CDVD: Adjust DMA timing based on PS1 timings.
+</PCSX2PRLink>
 
 The DMA timing calculations were changed to be based on the PS1 DMA timings, but with the difference in bus widths considered, leading to closer DMA timings for CDVD which in turn fixed SpongeBob Lights, Camera, Pants.
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="5142">CDVD: Fix some read timing logic</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="5142">
+  CDVD: Fix some read timing logic
+</PCSX2PRLink>
 
 Improves the timing of read times when buffering sectors but also corrects the status of the CDVD when running certain commands.
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="5174">CDVD: Some Error handling, Status+Ready Flag changes and fix CdStop</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="5174">
+  CDVD: Some Error handling, Status+Ready Flag changes and fix CdStop
+</PCSX2PRLink>
 
 Corrects some of the statuses and IRQ reasons available to the CDVD, correcting the status of the CDVD controller in certain games. In turn it fixes certain games that were spinning eternally in a black screen or seem to just freeze on the spot like Spyro, Aberenbou Princes, Evergrace and more.
 
-<PCSX2PRLink authors="stenzek" prNums="5182">CDVD: Check file actually opened before proceeding</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="5182">
+  CDVD: Check file actually opened before proceeding
+</PCSX2PRLink>
 
 ### VU
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="4901">COP2: Simplify reg allocation</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="4901">
+  COP2: Simplify reg allocation
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="4907">Fix unparenthesized macro input</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="4907">
+  Fix unparenthesized macro input
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="stenzek" prNums="4910">microVU: Use uncached reg when clamping for FMAC instructions</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="4910">
+  microVU: Use uncached reg when clamping for FMAC instructions
+</PCSX2PRLink>
 
 This was causing broken lighting in 64-bit mode, due to the larger number of registers available. Ft gets loaded and cached, but then the FMAC instructions clamp it in all modes except none, which disturbs the cached value (mismatched with the VU state). Jak happens to rely on this value not being clamped, so it was "okay" in 8-register mode because it had to be reloaded.
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="4917">Savestates: Add missing things from Savestates</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="4917">
+  Savestates: Add missing things from Savestates
+</PCSX2PRLink>
 
 Makes savestates more robust by giving more information so as to lessen the chance of breaking the game.
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="5048">microVU: Preserve XGKick cycles in delay slot</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="5048">
+  microVU: Preserve XGKick cycles in delay slot
+</PCSX2PRLink>
 
 Preserve XGKick cycles calculated when there is a memory write in a delay slot, also added handling for xgkick sync on single instructions.
 
@@ -108,9 +143,13 @@ Previously there was no handling on single instructions (evil blocks) so that's 
 
 ### SPU2
 
-<PCSX2PRLink authors="Ziemas" prNums="5027">SPU: Fix videos in Stolen</PCSX2PRLink>
+<PCSX2PRLink authors="Ziemas" prNums="5027">
+  SPU: Fix videos in Stolen
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="stenzek" prNums="5183">SPU2: Add Cubeb backend, remove Portaudio and SDL2 backends</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="5183">
+  SPU2: Add Cubeb backend, remove Portaudio and SDL2 backends
+</PCSX2PRLink>
 
 The current stable (1.6 as of writing) had multiple back-ends namely Xaudio2, DirectSound, PortAudio, WaveOut. DirectSound was being a buggy mess to maintain, WaveOut wasn't much better, PortAudio was fine and Xaudio2 was de facto standard on the Windows side. Now Cubeb replaces PortAudio as its successor and keep Xaudio2 as a back-up. Keep in mind in Cubeb the latency slider states 100ms in the GUI but isn't exactly true as it automatically uses a very low latency automatically based on your system:
 
@@ -126,33 +165,51 @@ If it's above 25.00 ms you either have a computer issue like corrupt drivers or 
 
 Xaudio2 can't handle the same low latency that Cubeb has without bad skipping and warping even on better systems. I hope you guys like the sound. How time-stretching actually works is that you see the first video frame and the sound comes after the targeted sound latency, which for years was defaulted to 0.1 seconds of latency.
 
-<PCSX2PRLink authors="xantares" prNums="5238">Rename ConfigSoundtouch.cpp to ConfigSoundTouch.cpp</PCSX2PRLink>
+<PCSX2PRLink authors="xantares" prNums="5238">
+  Rename ConfigSoundtouch.cpp to ConfigSoundTouch.cpp
+</PCSX2PRLink>
 
 ### PAD
 
-<PCSX2PRLink authors="JosephLees" prNums="4809">GUI(linux): Abort 'set all buttons' & fixed window size</PCSX2PRLink>
+<PCSX2PRLink authors="JosephLees" prNums="4809">
+  GUI(linux): Abort 'set all buttons' & fixed window size
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="arcum42" prNums="4985">Create a shared pad header, get rid of the originals, and do some cleanup.</PCSX2PRLink>
+<PCSX2PRLink authors="arcum42" prNums="4985">
+  Create a shared pad header, get rid of the originals, and do some cleanup.
+</PCSX2PRLink>
 
 ### USB
 
-<PCSX2PRLink authors="Florin9doi" prNums="5032">USB: Gametrak/RealPlay</PCSX2PRLink>
+<PCSX2PRLink authors="Florin9doi" prNums="5032">
+  USB: Gametrak/RealPlay
+</PCSX2PRLink>
 
 This Pull Request made the last non-working game work and looks more like a current Linus Tech Videos about VR with all those wires than a PS2 accessory. I'll stick to my Black Nintendo Wii instead of this seemingly weird copy-cat.
 
-<PCSX2PRLink authors="Florin9doi" prNums="5184">USB: Sony DPP-MP1 printer emulation</PCSX2PRLink>
+<PCSX2PRLink authors="Florin9doi" prNums="5184">
+  USB: Sony DPP-MP1 printer emulation
+</PCSX2PRLink>
 
 Most users won't see any usage with this and that is fine but the goal of emulating the endless USB and PAD devices do scare me, here is a small subset of still needing to be emulated: <https://github.com/PCSX2/pcsx2/issues/4763>
 
 ### DEV9
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="4421">Convert DEV9 config dialog to wxWidgets</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="4421">
+  Convert DEV9 config dialog to wxWidgets
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="TheLastRar" prNums="4933">DEV9: Fix Windows config saving/loading</PCSX2PRLink>
+<PCSX2PRLink authors="TheLastRar" prNums="4933">
+  DEV9: Fix Windows config saving/loading
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="TheLastRar" prNums="4940">DEV9: DNS Logger Crash fix</PCSX2PRLink>
+<PCSX2PRLink authors="TheLastRar" prNums="4940">
+  DEV9: DNS Logger Crash fix
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="TheLastRar" prNums="4960">DEV9: Don't shadow return value of GetAdaptersAddresses (Pcap)</PCSX2PRLink>
+<PCSX2PRLink authors="TheLastRar" prNums="4960">
+  DEV9: Don't shadow return value of GetAdaptersAddresses (Pcap)
+</PCSX2PRLink>
 
 Shadowing dwStatus for the return value of GetAdaptersAddresses will prevent the return value of second call from being inspected in the following if statement.
 
@@ -160,11 +217,15 @@ If the user had a large amount of network adapters, this would prevent the code 
 
 The equivalent TAP adapter code is already correct.
 
-<PCSX2PRLink authors="TheLastRar" prNums="5074">DEV9: Enable pcap non-blocking</PCSX2PRLink>
+<PCSX2PRLink authors="TheLastRar" prNums="5074">
+  DEV9: Enable pcap non-blocking
+</PCSX2PRLink>
 
 ### IPU
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="5173">IPU: Overhaul DMA transfers</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="5173">
+  IPU: Overhaul DMA transfers
+</PCSX2PRLink>
 
 Changes how DMA Transfers are handled for example some games like them to be in a specific order.
 
@@ -183,19 +244,27 @@ Fixes <https://github.com/PCSX2/pcsx2/issues/4360> (Flipnic UFO mission hang).
 
 ### Debugger
 
-<PCSX2PRLink authors="F0bes" prNums="4865">Debugger: Fix Goto in Disasm option for memory view</PCSX2PRLink>
+<PCSX2PRLink authors="F0bes" prNums="4865">
+  Debugger: Fix Goto in Disasm option for memory view
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Ziemas" prNums="4885">Debugger: Separate symbol maps for EE and IOP</PCSX2PRLink>
+<PCSX2PRLink authors="Ziemas" prNums="4885">
+  Debugger: Separate symbol maps for EE and IOP
+</PCSX2PRLink>
 
 Adds a new member function to the DebugInterface for retrieving the symbol map for the CPU and uses this where relevant instead of accessing the map directly.
 
 Previously there was only one symbol map, which doesn't make a whole lot of sense. This prepares for future work on IOP symbol detection.
 
-<PCSX2PRLink authors="F0bes" prNums="4926">Debugger: Support multi-line assembling</PCSX2PRLink>
+<PCSX2PRLink authors="F0bes" prNums="4926">
+  Debugger: Support multi-line assembling
+</PCSX2PRLink>
 
 When multiple lines of opcodes are selected, the 'Assemble Opcode(s)' context menu and M-key shortcut will in turn reassemble all of those opcodes.
 
-<PCSX2PRLink authors="F0bes" prNums="4974">Debugger: Initial memory search implementation</PCSX2PRLink>
+<PCSX2PRLink authors="F0bes" prNums="4974">
+  Debugger: Initial memory search implementation
+</PCSX2PRLink>
 
 Now you can finally go into a search for specific memory address or string instead of scrolling just like in cheat engine.
 
@@ -203,41 +272,62 @@ Now you can finally go into a search for specific memory address or string inste
 
 - I think Fobes needs a hug for this secretive message.
 
-<PCSX2PRLink authors="F0bes" prNums="4983">Debugger: Make the register list DPI aware (Windows)</PCSX2PRLink>
+<PCSX2PRLink authors="F0bes" prNums="4983">
+  Debugger: Make the register list DPI aware (Windows)
+</PCSX2PRLink>
 
 Fixes the debugger view for registers when the system DPI is not the default 100%.
 
-<ImageCompare left={require("./img/Pic57-DebuggerRegisterBefore.webp").default} right={require("./img/Pic58-DebuggerRegisterAfter.webp").default} />
+<ImageCompare
+  left={require("./img/Pic57-DebuggerRegisterBefore.webp").default}
+  right={require("./img/Pic58-DebuggerRegisterAfter.webp").default}
+/>
 
-<PCSX2PRLink authors="F0bes" prNums="4997">Debugger: Reset breakpoint skip on savestate load</PCSX2PRLink>
+<PCSX2PRLink authors="F0bes" prNums="4997">
+  Debugger: Reset breakpoint skip on savestate load
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="F0bes" prNums="5003">Debugger: Fix breakpoint edit window on linux</PCSX2PRLink>
+<PCSX2PRLink authors="F0bes" prNums="5003">
+  Debugger: Fix breakpoint edit window on linux
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="F0bes" prNums="5016">Debugger: Allow access to all of 0xBXXXXXXX</PCSX2PRLink>
+<PCSX2PRLink authors="F0bes" prNums="5016">
+  Debugger: Allow access to all of 0xBXXXXXXX
+</PCSX2PRLink>
 
 Not sure why certain memory was blocked from being modified, this will alleviate all memory restrictions.
 
-<PCSX2PRLink authors="F0bes" prNums="5031">Debugger: Make memory dialog transparent</PCSX2PRLink>
+<PCSX2PRLink authors="F0bes" prNums="5031">
+  Debugger: Make memory dialog transparent
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="F0bes" prNums="5050">Debugger: Format search hits with proper specifier</PCSX2PRLink>
+<PCSX2PRLink authors="F0bes" prNums="5050">
+  Debugger: Format search hits with proper specifier
+</PCSX2PRLink>
 
 Make sure certain text doesn't hard-crash the search. (Print size_t with %zu instead of %d)
 
 ### Input Recording
 
-<PCSX2PRLink authors="xTVaser" prNums="4945">input-rec: Use a constant RTC for power-on recordings</PCSX2PRLink>
+<PCSX2PRLink authors="xTVaser" prNums="4945">
+  input-rec: Use a constant RTC for power-on recordings
+</PCSX2PRLink>
 
 Gives a specific date for input recording (speedrunning).
 
 ### Miscellanous Core
 
-<PCSX2PRLink authors="stenzek" prNums="4861">Config: Fix folder memory cards initial load</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="4861">
+  Config: Fix folder memory cards initial load
+</PCSX2PRLink>
 
 Folder memory cards weren't recognized as a memory card being plugged-in unless you opened the config dialog.
 
-<PCSX2PRLink authors="xTVaser" prNums="4914">CI: Retain Workflow Artifacts permanently via Github Releases</PCSX2PRLink>
+<PCSX2PRLink authors="xTVaser" prNums="4914">
+  CI: Retain Workflow Artifacts permanently via Github Releases
+</PCSX2PRLink>
 
-This pull request has brought permanent downloadable (pre)releases on GitHub itself instead of just using Orphis which will not make everything more central but makes it easier to tag commits that are made outside of a pull request and just force-pushed the changes to the project. *stares at certain people that have been naughty*.
+This pull request has brought permanent downloadable (pre)releases on GitHub itself instead of just using Orphis which will not make everything more central but makes it easier to tag commits that are made outside of a pull request and just force-pushed the changes to the project. _stares at certain people that have been naughty_.
 
 If you want to see more details, Vaser has written an essay-like detail on it - <https://github.com/PCSX2/pcsx2/pull/4914>
 
@@ -249,81 +339,130 @@ The nice thing about actions is that it can do multiple builds in parallel for f
 
 ### GS
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="3577">GS: Merge assembly files in GS</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="3577">
+  GS: Merge assembly files in GS
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="arcum42" prNums="3642">Convert GS Settings dialog to use wxwidgets</PCSX2PRLink>
+<PCSX2PRLink authors="arcum42" prNums="3642">
+  Convert GS Settings dialog to use wxwidgets
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="3940">GSVertexTrace::FindMinMax improvements</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="3940">
+  GSVertexTrace::FindMinMax improvements
+</PCSX2PRLink>
 
 This PR contains the following changes:
 
 - Prevents clang from optimizing out our denormal-removal shuffles (10x faster than before for people who compile with clang!)
 - Run divides on four elements at a time instead of two elements and two useless numbers
 - Remove inaccurate stq
-  - With the above division improvements, on processors with partially-pipelined division (Ivy    Bridge and later, Bulldozer and later), accurate stq is actually faster (according to both IACA of inaccurate vs accurate and LLVM MCA). On older CPUs expect performance to be about 2/3 of the old algorithm before taking into account improvements from not double-checking vertices.
-  - There seems to be a check of accurate_stq when the OGL backend is deciding whether to use  geometry shaders to process sprites.
+  - With the above division improvements, on processors with partially-pipelined division (Ivy Bridge and later, Bulldozer and later), accurate stq is actually faster (according to both IACA of inaccurate vs accurate and LLVM MCA). On older CPUs expect performance to be about 2/3 of the old algorithm before taking into account improvements from not double-checking vertices.
+  - There seems to be a check of accurate_stq when the OGL backend is deciding whether to use geometry shaders to process sprites.
 
 In the end, ignoring clang issues, GSVertexTrace::FindMinMax goes from taking about 3% of MTGS thread runtime to 1.5% on my computer. (Most of the time was spent doing OpenGL things so if you have a more efficient OpenGL driver it might make more of a difference for you)
 
-<PCSX2PRLink authors="iMineLink" prNums="4094">GS-hw: fix Burnout games black sky.</PCSX2PRLink>
+<PCSX2PRLink authors="iMineLink" prNums="4094">
+  GS-hw: fix Burnout games black sky.
+</PCSX2PRLink>
 
 Burnout games weren't emulated correctly due to the texture cache being the biggest pain in the GS side, which you can avoid by switching to the Software renderer and then switching to HW. The game downloaded the texture and then modified it to finally draw it on the CPU side.
 
 Now no more shenanigans in having to switch or ignore the sky issue, there is another game that has a similar issue a shooter called 'Black' (A recurring theme that PS2 game title names fit with their badly emulated issues). Black hasn't been fixed yet, perhaps in the future.
 
-<SliderCompare before={require("./img/Pic5-BurnoutBefore.webp").default} after={require("./img/Pic6-BurnoutAfter.webp").default} />
+<SliderCompare
+  before={require("./img/Pic5-BurnoutBefore.webp").default}
+  after={require("./img/Pic6-BurnoutAfter.webp").default}
+/>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="4346">Spin before sleeping threads to reduce thread sleeps/wakes</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="4346">
+  Spin before sleeping threads to reduce thread sleeps/wakes
+</PCSX2PRLink>
 
-"Drawing triangles is super easy to parallelize!  GPUs are super parallel, and it should be nice and easy to spread a software renderer across lots of CPU cores!" is probably what most people think.  And this is generally true, if you're trying to software render for a normal PC graphics API like OpenGL.  But we're emulating a GS.  That's okay though, it's still a just bunch of triangles, right?  PCSX2 has a software renderer, and it lets you set the number of cores it used, so we can see how well it scales.  And if you messed with that number, you'd generally find that going above 3 worker threads didn't help much.  In some games, like Hitman Blood Money, you'd get the best performance with 0 worker threads.  What?
+"Drawing triangles is super easy to parallelize! GPUs are super parallel, and it should be nice and easy to spread a software renderer across lots of CPU cores!" is probably what most people think. And this is generally true, if you're trying to software render for a normal PC graphics API like OpenGL. But we're emulating a GS. That's okay though, it's still a just bunch of triangles, right? PCSX2 has a software renderer, and it lets you set the number of cores it used, so we can see how well it scales. And if you messed with that number, you'd generally find that going above 3 worker threads didn't help much. In some games, like Hitman Blood Money, you'd get the best performance with 0 worker threads. What?
 
-The culprit is thread synchronization.  But why would you need to synchronize worker threads when drawing a bunch of triangles?  It turns out some PS2 games like to use the result of a previous draw as the texture for another draw.  Whenever a game does this, one thread could need pixels drawn on another thread, so we have to sync them all up.  PC games do this too, but they'll usually only do this a few times per frame, rendering an entire image before reading it.  When processing effects, PS2 games like to do this on small parts of images at a time, resulting in huge numbers of thread synchronizations.  Ratchet & Clank, which previously saw speed start to die off at around 3 worker threads, requires about 500 synchronizations to draw a single frame.  Hitman Blood Money, whose title screen's FPS previously ran in the single digits, sees a whopping 10,000 synchronizations in a single frame, or 600,000 per second!  Ouch!
+The culprit is thread synchronization. But why would you need to synchronize worker threads when drawing a bunch of triangles? It turns out some PS2 games like to use the result of a previous draw as the texture for another draw. Whenever a game does this, one thread could need pixels drawn on another thread, so we have to sync them all up. PC games do this too, but they'll usually only do this a few times per frame, rendering an entire image before reading it. When processing effects, PS2 games like to do this on small parts of images at a time, resulting in huge numbers of thread synchronizations. Ratchet & Clank, which previously saw speed start to die off at around 3 worker threads, requires about 500 synchronizations to draw a single frame. Hitman Blood Money, whose title screen's FPS previously ran in the single digits, sees a whopping 10,000 synchronizations in a single frame, or 600,000 per second! Ouch!
 
-So what went into one of these synchronizations?  Before this PR, the control thread would see the need for synchronization, go to the first worker thread, see that it was still running, and go to sleep.  When that worker thread finished its work, it would wake up the control thread, which would then go through the rest of the worker threads, checking that they were finished as well.  While this was happening, the worker threads would each see that they have no work to do, and go to sleep themselves.  Then, the control thread would decode the image they just rendered into the format worker threads can read, at which point it would submit the next piece of work for the worker threads to process, and go through and wake all the worker threads back up.
+So what went into one of these synchronizations? Before this PR, the control thread would see the need for synchronization, go to the first worker thread, see that it was still running, and go to sleep. When that worker thread finished its work, it would wake up the control thread, which would then go through the rest of the worker threads, checking that they were finished as well. While this was happening, the worker threads would each see that they have no work to do, and go to sleep themselves. Then, the control thread would decode the image they just rendered into the format worker threads can read, at which point it would submit the next piece of work for the worker threads to process, and go through and wake all the worker threads back up.
 
-Sleeping and waking threads is pretty fast, but it's not *that* fast.  One round trip seems to take around 5-10 microseconds on most computers.  Which seems pretty fast, until you compare that to the average time one of the threads spends rendering a pixel: 5-10 *nanoseconds*.  So in the time all these threads spent going to sleep and waking up, a single thread could have rendered 1000 pixels!  Another way to look at it is how much time Hitman Blood Money spends watching its threads sleep and wake rendering a frame: 50-100ms.  That's like 10-20 fps, and we haven't even rendered anything!
+Sleeping and waking threads is pretty fast, but it's not _that_ fast. One round trip seems to take around 5-10 microseconds on most computers. Which seems pretty fast, until you compare that to the average time one of the threads spends rendering a pixel: 5-10 _nanoseconds_. So in the time all these threads spent going to sleep and waking up, a single thread could have rendered 1000 pixels! Another way to look at it is how much time Hitman Blood Money spends watching its threads sleep and wake rendering a frame: 50-100ms. That's like 10-20 fps, and we haven't even rendered anything!
 
-So how do we solve this?  Well you could say "just sync less", and we are working on that (some of the more recent autoflush PRs have helped here), but that's not an especially easy solution.  The easy solution is "just don't go to sleep".  In the new implementation, threads keep spinning, staring at the status variable, for up to 50 microseconds before going to sleep.  Maybe not the best use of CPU time, but it brings the time for one round trip communication from 5-10 microseconds down to just 0.2 microseconds, or 200 nanoseconds, an over 10x improvement.  With this, using multiple threads manages to not be slower than 0 threads on even Hitman Blood Money, though it isn't much faster either.  For less sync-intensive games, the falloff point for increasing threads has increased and is now usually in the 4-5 thread area (assuming you have that many cores on your CPU), bringing PAL R&C3's FPS from having dips into the mid 30s to a smooth locked 50 on a Ryzen 5 5600X.
+So how do we solve this? Well you could say "just sync less", and we are working on that (some of the more recent autoflush PRs have helped here), but that's not an especially easy solution. The easy solution is "just don't go to sleep". In the new implementation, threads keep spinning, staring at the status variable, for up to 50 microseconds before going to sleep. Maybe not the best use of CPU time, but it brings the time for one round trip communication from 5-10 microseconds down to just 0.2 microseconds, or 200 nanoseconds, an over 10x improvement. With this, using multiple threads manages to not be slower than 0 threads on even Hitman Blood Money, though it isn't much faster either. For less sync-intensive games, the falloff point for increasing threads has increased and is now usually in the 4-5 thread area (assuming you have that many cores on your CPU), bringing PAL R&C3's FPS from having dips into the mid 30s to a smooth locked 50 on a Ryzen 5 5600X.
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="4348">Replace cached GSOffset with live calculations</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="4348">
+  Replace cached GSOffset with live calculations
+</PCSX2PRLink>
 
-The way the PS2's GS stores images in memory is a bit special.  If you took a piece of memory and just read it like normal, your image would look like a scrambled mess.  The GS actually has a different scrambling for each of its image formats, often referred to as swizzles, which allowed devs to do more effects on the shader-free GS.  As a result, PCSX2 has to deal with a lot of different possible swizzles.
+The way the PS2's GS stores images in memory is a bit special. If you took a piece of memory and just read it like normal, your image would look like a scrambled mess. The GS actually has a different scrambling for each of its image formats, often referred to as swizzles, which allowed devs to do more effects on the shader-free GS. As a result, PCSX2 has to deal with a lot of different possible swizzles.
 
-Calculating swizzled offsets for every pixel of an image every time you read it would be pretty slow, so GSOffset was created to work around this.  A GSOffset stored a list of memory offsets from the top left pixel in an image to each pixel on the left edge, and a list of offsets from a pixel on the left edge to each pixel not on the left edge.  This took up 16kb, but it allowed PCSX2 to go from some pixel coordinates to the memory address of that pixel with two table lookups and two additions.  Since a GSOffset was only valid for a specific combination of texture format, texture size, and texture starting address, a new GSOffset was generated for each unique combination of those a game used.
+Calculating swizzled offsets for every pixel of an image every time you read it would be pretty slow, so GSOffset was created to work around this. A GSOffset stored a list of memory offsets from the top left pixel in an image to each pixel on the left edge, and a list of offsets from a pixel on the left edge to each pixel not on the left edge. This took up 16kb, but it allowed PCSX2 to go from some pixel coordinates to the memory address of that pixel with two table lookups and two additions. Since a GSOffset was only valid for a specific combination of texture format, texture size, and texture starting address, a new GSOffset was generated for each unique combination of those a game used.
 
-For most games, this worked fine.  But a few games, including MLB Power Pros, Remote Control Dandy SF, and Ultimate Spider-man, liked to throw garbage data at the GS register that describes the information for the current texture.  For for each piece of garbage data, PCSX2 would create a new 16kb GSOffset, filling up a 32-bit application's 4GB address space and running out of memory in just 40 seconds.  (Sure, 64-bit has access to more memory, but if it filled up 4GB in 40 seconds, even a computer with 64GB of ram wouldn't last long...)  So why not just clean up unused GSOffsets and free them?  GSOffset was clearly not made with this in mind.  It didn't provide anything to help with actually using its data, so any code that wanted to use it had to do all the calculations manually.  Some code pulled pointers from the GSOffset and threw them all over the place.  Cleaning all that up for liveness tracking would have been a pain, and the lack of nice methods for using its data was also annoying, so we instead opted for replacing GSOffset entirely with a new class that didn't require any runtime allocations (and therefore had nothing to track).
+For most games, this worked fine. But a few games, including MLB Power Pros, Remote Control Dandy SF, and Ultimate Spider-man, liked to throw garbage data at the GS register that describes the information for the current texture. For for each piece of garbage data, PCSX2 would create a new 16kb GSOffset, filling up a 32-bit application's 4GB address space and running out of memory in just 40 seconds. (Sure, 64-bit has access to more memory, but if it filled up 4GB in 40 seconds, even a computer with 64GB of ram wouldn't last long...) So why not just clean up unused GSOffsets and free them? GSOffset was clearly not made with this in mind. It didn't provide anything to help with actually using its data, so any code that wanted to use it had to do all the calculations manually. Some code pulled pointers from the GSOffset and threw them all over the place. Cleaning all that up for liveness tracking would have been a pain, and the lack of nice methods for using its data was also annoying, so we instead opted for replacing GSOffset entirely with a new class that didn't require any runtime allocations (and therefore had nothing to track).
 
-The new GSOffset takes advantage of the fact that the table of offsets from a pixel on the left edge to any other pixel doesn't actually depend on the texture size or starting address, only on the texture format.  One of these tables is created for each of the PS2's supported texture formats by the compiler, which is possible because there's a fairly small number of them.  The rest of the calculations (e.g. the left edge calculation) are done whenever they're needed, taking advantage of the fact that images are usually read left to right, top to bottom, so while a 512x512 texture has about 260 thousand pixels, reading it using the GSOffset would only run the slightly slower left edge pixel calculation 512 times.  In the end, this slightly slower calculation was offset by the reduction in time it took to look up and create GSOffsets, resulting in no performance regression from this change.
+The new GSOffset takes advantage of the fact that the table of offsets from a pixel on the left edge to any other pixel doesn't actually depend on the texture size or starting address, only on the texture format. One of these tables is created for each of the PS2's supported texture formats by the compiler, which is possible because there's a fairly small number of them. The rest of the calculations (e.g. the left edge calculation) are done whenever they're needed, taking advantage of the fact that images are usually read left to right, top to bottom, so while a 512x512 texture has about 260 thousand pixels, reading it using the GSOffset would only run the slightly slower left edge pixel calculation 512 times. In the end, this slightly slower calculation was offset by the reduction in time it took to look up and create GSOffsets, resulting in no performance regression from this change.
 
-<PCSX2PRLink authors="Sergeanur" prNums="4385">GS: Simulate scan mask (fix transparency in MGS2 & MGS3)</PCSX2PRLink>
+<PCSX2PRLink authors="Sergeanur" prNums="4385">
+  GS: Simulate scan mask (fix transparency in MGS2 & MGS3)
+</PCSX2PRLink>
 
 For what feels like forever, transparency didn't work correctly for Metal Gear Solid 3 and other games such as Gran Turismo 4.
-<SliderCompare before={require("./img/Pic1-MGS3Before.webp").default} after={require("./img/Pic2-MGS3After.webp").default} />
-<SliderCompare before={require("./img/Pic3-GT4Before.webp").default} after={require("./img/Pic4-GT4After.webp").default} />
-<SliderCompare before={require("./img/Pic47-GTConcept2002TokyoGenevaBefore.webp").default} after={require("./img/Pic48-GTConcept2002TokyoGenevaAfter.webp").default} />
-<SliderCompare before={require("./img/Pic49-TouristTrophyBefore.webp").default} after={require("./img/Pic50-TouristTrophyAfter.webp").default} />
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="4757">Improved stats printout from sw renderer</PCSX2PRLink>
+<SliderCompare
+  before={require("./img/Pic1-MGS3Before.webp").default}
+  after={require("./img/Pic2-MGS3After.webp").default}
+/>
+<SliderCompare
+  before={require("./img/Pic3-GT4Before.webp").default}
+  after={require("./img/Pic4-GT4After.webp").default}
+/>
+<SliderCompare
+  before={require("./img/Pic47-GTConcept2002TokyoGenevaBefore.webp").default}
+  after={require("./img/Pic48-GTConcept2002TokyoGenevaAfter.webp").default}
+/>
+<SliderCompare
+  before={require("./img/Pic49-TouristTrophyBefore.webp").default}
+  after={require("./img/Pic50-TouristTrophyAfter.webp").default}
+/>
+
+<PCSX2PRLink authors="tellowkrinkle" prNums="4757">
+  Improved stats printout from sw renderer
+</PCSX2PRLink>
 
 If you want to printout your stats from the SW renderer, it doesn't look as readable as it was badly aligned and has no header.
 
-<ImageCompare left={require("./img/Pic60-SWPrintoutBefore.webp").default} right={require("./img/Pic61-SWPrintoutAfter.webp").default} />
+<ImageCompare
+  left={require("./img/Pic60-SWPrintoutBefore.webp").default}
+  right={require("./img/Pic61-SWPrintoutAfter.webp").default}
+/>
 
-<PCSX2PRLink authors="lightningterror" prNums="4850">GS-hw: Don't write clamped depth test value to depth buffer when ZMSK is enabled.</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="4850">
+  GS-hw: Don't write clamped depth test value to depth buffer when ZMSK is
+  enabled.
+</PCSX2PRLink>
 
 Fixes broken shadows from Kingdom Hearts Re-Chain which produced lines.
 
-<PCSX2PRLink authors="lightningterror" prNums="4859">GS: Cleanup ini ranges for some values.</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="4859">
+  GS: Cleanup ini ranges for some values.
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="lightningterror" prNums="4863">GS: Fix OSD, Shade Boost slider values not showing.</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="4863">
+  GS: Fix OSD, Shade Boost slider values not showing.
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tadanokojin" prNums="4887">gs-tc: propagate texture shuffle format on readback</PCSX2PRLink>
+<PCSX2PRLink authors="tadanokojin" prNums="4887">
+  gs-tc: propagate texture shuffle format on readback
+</PCSX2PRLink>
 
 Due to the way some effects work on the GS and how our Texture Cache handles it, sometimes the wrong texture format can be remembered, which will cause it to get stored in an incorrect memory format when it is saved back to the real GS memory for downloading to the EE core. This PR corrected this behaviour and properly fixes the flashlight in the Silent Hill series:
 
-<ImageCompare left={require("./img/Pic19-SilentHillBefore.jpg").default} right={require("./img/Pic20-SilentHillAfter.webp").default} />
+<ImageCompare
+  left={require("./img/Pic19-SilentHillBefore.jpg").default}
+  right={require("./img/Pic20-SilentHillAfter.webp").default}
+/>
 
-<PCSX2PRLink authors="lightningterror" prNums="4891">GS: Revert be7e1163b4f7e3fe19876462fb26cd082ffb3ab4</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="4891">
+  GS: Revert be7e1163b4f7e3fe19876462fb26cd082ffb3ab4
+</PCSX2PRLink>
 
 This PR reverts an older commit from 2013 (1.2 era) which had wrong assumptions on texture region repeating and how the clamping is handled along with it. Multiple games were affected on the visual side or even performance-side.
 
@@ -337,47 +476,80 @@ Kaan Barbarian Blade (Black Character Model):
 
 The Chronicles of Narnia - The Lion, The Witch and The Wardrobe (Heat Haze Effect of the fire):
 
-<SliderCompare before={require("./img/Pic63-Narnia1Before.webp").default} after={require("./img/Pic64-Narnia1After.webp").default} />
+<SliderCompare
+  before={require("./img/Pic63-Narnia1Before.webp").default}
+  after={require("./img/Pic64-Narnia1After.webp").default}
+/>
 
-<PCSX2PRLink authors="stenzek" prNums="4906">GS: Use stream buffer for vertices/indices/uniforms</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="4906">
+  GS: Use stream buffer for vertices/indices/uniforms
+</PCSX2PRLink>
 
 This will certainly help AMD GPUs on Windows but it does help NVIDIA GPU users too as the default behaviour was to stall (essentially wait and stop for new instructions) which caused bad performance.
 
 These charts below lists 3 different systems that will give you an easier way to tell how much it could help:
 
-<BarChart chartDataUrl={require("./charts/Chart1-4906.yaml").default}/>
-<BarChart chartDataUrl={require("./charts/Chart2-4906.yaml").default}/>
-<BarChart chartDataUrl={require("./charts/Chart3-4906.yaml").default}/>
+<BarChart chartDataUrl={require("./charts/Chart1-4906.yaml").default} />
+<BarChart chartDataUrl={require("./charts/Chart2-4906.yaml").default} />
+<BarChart chartDataUrl={require("./charts/Chart3-4906.yaml").default} />
 
-<PCSX2PRLink authors="tadanokojin" prNums="4919">GS: gsstate (the old gsdx one) cleanup</PCSX2PRLink>
+<PCSX2PRLink authors="tadanokojin" prNums="4919">
+  GS: gsstate (the old gsdx one) cleanup
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="4941">GS: Use custom allocator for SW renderer</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="4941">
+  GS: Use custom allocator for SW renderer
+</PCSX2PRLink>
 
 This new behavior improves the software renderer quite drastically in a good way and handles it more specifically in certain situations. I would even state that the software renderer has never been this fast even compared to the older stable versions as I always tried to play True Crime NYC and never got full speed in the software renderer and now it's handling it with ease.
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="4952">GS: Further state cleanup + fixes for older dump compatibility</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="4952">
+  GS: Further state cleanup + fixes for older dump compatibility
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="4965">GS: Let draw happen even if invalid, log invalid draws</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="4965">
+  GS: Let draw happen even if invalid, log invalid draws
+</PCSX2PRLink>
 
 In some scenarios, the ZBUF or FRAME values may get set to invalid data, but on draws where they are not getting used. Before this would completely ignore the draw which caused problems, however this lets it continue since the data it needs is valid.
 
-<SliderCompare before={require("./img/Pic45-StarOceanBefore.webp").default} after={require("./img/Pic46-StarOceanAfter.webp").default} />
+<SliderCompare
+  before={require("./img/Pic45-StarOceanBefore.webp").default}
+  after={require("./img/Pic46-StarOceanAfter.webp").default}
+/>
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="4966">GS: Fix up CLUT offset handling in 32bit I8 mode</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="4966">
+  GS: Fix up CLUT offset handling in 32bit I8 mode
+</PCSX2PRLink>
 
 This pull request fixes several games with the wrong colors, which depended on the CLUT (Color Look-up table) which basically is a value corresponding to a color palette an example being the RGB values (255, 0, 0) which means full red color, for example. The issue arose around the fact that the 256 colour palette is split in to 16 chunks of 16 colours and it can update it at any one of these chunks, unfortunately memory writes only really worked if it was updated on either chunks 0, 3, 7, 11 or 15, others would break down. Further to this the behaviour when it was asked to update the end of the buffer only was incorrect (The dirt in GTA: San Andreas relied on this!), which has now been corrected.
 
 A few examples but not limited to:
 
-<SliderCompare before={require("./img/Pic9-HarleyBefore.jpg").default} after={require("./img/Pic10-HarleyAfter.jpg").default} />
-<SliderCompare before={require("./img/Pic11-RomanceBefore.jpg").default} after={require("./img/Pic12-RomanceAfter.jpg").default} />
-<SliderCompare before={require("./img/Pic13-SanAndreasBefore.jpg").default} after={require("./img/Pic14-SanAndreasAfter.jpg").default} />
+<SliderCompare
+  before={require("./img/Pic9-HarleyBefore.jpg").default}
+  after={require("./img/Pic10-HarleyAfter.jpg").default}
+/>
+<SliderCompare
+  before={require("./img/Pic11-RomanceBefore.jpg").default}
+  after={require("./img/Pic12-RomanceAfter.jpg").default}
+/>
+<SliderCompare
+  before={require("./img/Pic13-SanAndreasBefore.jpg").default}
+  after={require("./img/Pic14-SanAndreasAfter.jpg").default}
+/>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="4980">Miscellaneous fixes for macOS</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="4980">
+  Miscellaneous fixes for macOS
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="lightningterror" prNums="4993">GS-ogl: Remove device, driver checks in GLLoader.</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="4993">
+  GS-ogl: Remove device, driver checks in GLLoader.
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="5000">GS:SW: Fix fog on x64 avx2</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="5000">
+  GS:SW: Fix fog on x64 avx2
+</PCSX2PRLink>
 
 Fixes a bug where 'f' would be incorrect for the blue channel when fogging was enabled on the rendering of a sprite on avx2 x64.
 
@@ -385,125 +557,226 @@ Like you see this purple grass on Hitman which everybody should agree isn't real
 
 <Image src={require("./img/Pic62-HitmanPurpleGrass.webp").default} />
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="5006">GS: Only reload Auto MIPs on TEX base change</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="5006">
+  GS: Only reload Auto MIPs on TEX base change
+</PCSX2PRLink>
 
 The handling of MTBA was previously not handled very well and was somewhat of a mystery, we have since discovered the correct behaviour for when it can be triggered through restrictions in texture sizes and formats, which this PR attempted to correct, enough to fix Parappa The Rapper 2 and Ape Escape 3.
 
-Actually this pull request is fine, but we discovered later is that the formula for updating the MIP addresses was incorrect, but also the pending draws needed to be flushed if these new MIPMAP values were different.  It does remain that hardware mode has difficulty handling mip-maps.
+Actually this pull request is fine, but we discovered later is that the formula for updating the MIP addresses was incorrect, but also the pending draws needed to be flushed if these new MIPMAP values were different. It does remain that hardware mode has difficulty handling mip-maps.
 
-<SliderCompare before={require("./img/Pic39-ParappaBefore.webp").default} after={require("./img/Pic40-ParappaAfter.webp").default} />
-<SliderCompare before={require("./img/Pic41-ApeEscapeBefore.webp").default} after={require("./img/Pic42-ApeEscapeAfter.webp").default} />
+<SliderCompare
+  before={require("./img/Pic39-ParappaBefore.webp").default}
+  after={require("./img/Pic40-ParappaAfter.webp").default}
+/>
+<SliderCompare
+  before={require("./img/Pic41-ApeEscapeBefore.webp").default}
+  after={require("./img/Pic42-ApeEscapeAfter.webp").default}
+/>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="5013">GS: Fix Half Pixel Offset and Half Screen Fix config swap</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="5013">
+  GS: Fix Half Pixel Offset and Half Screen Fix config swap
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="5024">GS SW: Handle flat prims without float conversion</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="5024">
+  GS SW: Handle flat prims without float conversion
+</PCSX2PRLink>
 
 Large floats are not handled very well in the software renderer due to the range being limited by signed integers but also some precision is lost by being single floats which only have a precision of 24bits. This PR makes it so flat triangles are treated like sprites and the Z values are passed as integer so no precision is lost, which fixes games which use flat triangles to draw UI/2D screens.
 
-<SliderCompare before={require("./img/Pic7-EvangelionBefore.webp").default} after={require("./img/Pic8-EvangelionAfter.webp").default} />
+<SliderCompare
+  before={require("./img/Pic7-EvangelionBefore.webp").default}
+  after={require("./img/Pic8-EvangelionAfter.webp").default}
+/>
 
-<PCSX2PRLink authors="lightningterror" prNums="5026">GS-gui: Change blending option from None to Minimum.</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="5026">
+  GS-gui: Change blending option from None to Minimum.
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="stenzek" prNums="5029">GS/OpenGL: Use shader+draw for CopyRectConv</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="5029">
+  GS/OpenGL: Use shader+draw for CopyRectConv
+</PCSX2PRLink>
 
-<BarChart chartDataUrl={require("./charts/Chart4-5029.yaml").default}/>
+<BarChart chartDataUrl={require("./charts/Chart4-5029.yaml").default} />
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="5035">GS: Improve FixedTEX0 accuracy</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="5035">
+  GS: Improve FixedTEX0 accuracy
+</PCSX2PRLink>
 
 The calculation of how to handle texture sizes wasn't perfect and would cause graphical issues when upscaling such as Final Fantasy X.
 
-<ImageCompare left={require("./img/Pic37-FFXBefore.webp").default} right={require("./img/Pic38-FFXAfter.webp").default} />
+<ImageCompare
+  left={require("./img/Pic37-FFXBefore.webp").default}
+  right={require("./img/Pic38-FFXAfter.webp").default}
+/>
 
-<PCSX2PRLink authors="lightningterror" prNums="5054">GS-hw: Adjust/minor optimization on SW blend shader a bit</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="5054">
+  GS-hw: Adjust/minor optimization on SW blend shader a bit
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="lightningterror" prNums="5061">GS-hw: Improve how we handle AA1 draws</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="5061">
+  GS-hw: Improve how we handle AA1 draws
+</PCSX2PRLink>
 
 In the last progress report (Q3 2021) there have been improvements to how Edge Anti-Aliasing works for the software renderer (lines and triangles type), this time the hardware renderer has also been improved for several games such as Doko Demo Issho series, FIFA 2002 and other unknown games.
 
 However it has only been fixed on the lines type but not the triangles type which is used a ton for a game like Final Fantasy X. Hopefully in the future we can get feature parity with the software renderer which handles both types correctly and while the issue on hardware renderer is about the same it will be look worse in the severity factor.
 
-<SliderCompare before={require("./img/Pic33-DokoHWBefore.webp").default} after={require("./img/Pic34-DokoHWAfter.webp").default} />
-<SliderCompare before={require("./img/Pic35-FIFA2002HWBefore.jpg").default} after={require("./img/Pic36-FIFA2002HWAfter.jpg").default} />
+<SliderCompare
+  before={require("./img/Pic33-DokoHWBefore.webp").default}
+  after={require("./img/Pic34-DokoHWAfter.webp").default}
+/>
+<SliderCompare
+  before={require("./img/Pic35-FIFA2002HWBefore.jpg").default}
+  after={require("./img/Pic36-FIFA2002HWAfter.jpg").default}
+/>
 
-<PCSX2PRLink authors="lightningterror" prNums="5064">GS-d3d11: Properly set afix in EmulateBlending.</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="5064">
+  GS-d3d11: Properly set afix in EmulateBlending.
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="stenzek" prNums="5067">GS/OpenGL: Use CreateRenderTarget() for temp HDR target</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="5067">
+  GS/OpenGL: Use CreateRenderTarget() for temp HDR target
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="lightningterror" prNums="5072">GS-wx: Fix some gui interaction.</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="5072">
+  GS-wx: Fix some gui interaction.
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="5087">GS: Unify HW texture caches</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="5087">
+  GS: Unify HW texture caches
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="lightningterror" prNums="5088">GS-glsl/fx: Split color clamp/wrap in it's own function.</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="5088">
+  GS-glsl/fx: Split color clamp/wrap in it's own function.
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="lightningterror" prNums="5098">GS Debugger: Fix Length of dump.</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="5098">
+  GS Debugger: Fix Length of dump.
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="lightningterror" prNums="5103">GS-hw: Sample depth on green channel</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="5103">
+  GS-hw: Sample depth on green channel
+</PCSX2PRLink>
 
-<SliderCompare before={require("./img/Pic21-HitmanBefore.webp").default} after={require("./img/Pic22-HitmanAfter.webp").default} />
-<SliderCompare before={require("./img/Pic23-ImpossibleBefore.webp").default} after={require("./img/Pic24-ImpossibleAfter.webp").default} />
+<SliderCompare
+  before={require("./img/Pic21-HitmanBefore.webp").default}
+  after={require("./img/Pic22-HitmanAfter.webp").default}
+/>
+<SliderCompare
+  before={require("./img/Pic23-ImpossibleBefore.webp").default}
+  after={require("./img/Pic24-ImpossibleAfter.webp").default}
+/>
 
-<PCSX2PRLink authors="lightningterror" prNums="5110">GS-hw: Try to use a mix of HW/SW blending in more situations.</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="5110">
+  GS-hw: Try to use a mix of HW/SW blending in more situations.
+</PCSX2PRLink>
 
 This will improve the blending behavior on default settings. Blending affects many things such as the lighting, shadows and more.
 
-<SliderCompare before={require("./img/Pic15-ColossusBefore.webp").default} after={require("./img/Pic16-ColossusAfter.webp").default} />
-<SliderCompare before={require("./img/Pic17-MGS2Before.webp").default} after={require("./img/Pic18-MGS2After.webp").default} />
+<SliderCompare
+  before={require("./img/Pic15-ColossusBefore.webp").default}
+  after={require("./img/Pic16-ColossusAfter.webp").default}
+/>
+<SliderCompare
+  before={require("./img/Pic17-MGS2Before.webp").default}
+  after={require("./img/Pic18-MGS2After.webp").default}
+/>
 
-<PCSX2PRLink authors="lightningterror" prNums="5128">GS-ogl: Optimize fragment shader uniform buffer.</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="5128">
+  GS-ogl: Optimize fragment shader uniform buffer.
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="lightningterror" prNums="5135">GS-hw: Optimize pabe (per pixel alpha blending)</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="5135">
+  GS-hw: Optimize pabe (per pixel alpha blending)
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="5138">GS: Replace separate HW renderers with single shared renderer</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="5138">
+  GS: Replace separate HW renderers with single shared renderer
+</PCSX2PRLink>
 
 In the past all the hardware renderers like OpenGL, Direct3D11 all had their own code locations which causes a lot of duplicated code and if someone made an improvement to one they shouldn't forget improving the other hardware renderers which causes code debt if they do.
 
 Now they all will share more code with each other.
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="5139">Fix broken resources</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="5139">
+  Fix broken resources
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="5154">GS: Check CLUT dirty write on vertex kick</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="5154">
+  GS: Check CLUT dirty write on vertex kick
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="5180">GS: Fix looping over pages of textures with massive strides</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="5180">
+  GS: Fix looping over pages of textures with massive strides
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="stenzek" prNums="5194">GS/OpenGL: Add a shader/program cache</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="5194">
+  GS/OpenGL: Add a shader/program cache
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="5196">GS: Move afix check to high blend level</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="5196">
+  GS: Move afix check to high blend level
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="lightningterror" prNums="5197">GS-hw: Fix recent alpha max check.</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="5197">
+  GS-hw: Fix recent alpha max check.
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="stenzek" prNums="5198">GS: Unify constant buffers between renderers</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="5198">
+  GS: Unify constant buffers between renderers
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="stenzek" prNums="5208">GS: Add missing override specifier to a few files</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="5208">
+  GS: Add missing override specifier to a few files
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="lightningterror" prNums="5213">GS-hw: Extend Blend mix to work when alpha is higher than 1.</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="5213">
+  GS-hw: Extend Blend mix to work when alpha is higher than 1.
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="lightningterror" prNums="5223">GS-hw: Mirror anisotropic filtering behavior on Direct3D11 like OpenGL, and allow it to run on Nearest texture filtering</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="5223">
+  GS-hw: Mirror anisotropic filtering behavior on Direct3D11 like OpenGL, and
+  allow it to run on Nearest texture filtering
+</PCSX2PRLink>
 
 ## <TextGradient startColor="#7828C8" endColor="#FF4ECD">Misc Improvements</TextGradient>
 
 ### GUI
 
-<PCSX2PRLink authors="Ziemas" prNums="4451">Allow relative elf file paths on command line</PCSX2PRLink>
+<PCSX2PRLink authors="Ziemas" prNums="4451">
+  Allow relative elf file paths on command line
+</PCSX2PRLink>
 
 Instead of the absolute path C:/User/Documents/PCSX2/ELF/test.elf, you can do things like ELF/test.elf instead.
 
-<PCSX2PRLink authors="GovanifY" prNums="4468">IPC: rename to pine</PCSX2PRLink>
+<PCSX2PRLink authors="GovanifY" prNums="4468">
+  IPC: rename to pine
+</PCSX2PRLink>
 
 IPC is a generic name for this function so PINE was chosen as it's replacement. Especially when it's already useful for RPCS3 and other potentially other emulators or programs.
 
-<PCSX2PRLink authors="MrCK1" prNums="4747">Savestates: Small refactoring</PCSX2PRLink>
+<PCSX2PRLink authors="MrCK1" prNums="4747">
+  Savestates: Small refactoring
+</PCSX2PRLink>
 
 In the times always knoweth, there lies an evil power known as entropy but one angry kot has arisen to the challenge to bring order to chaos. Okay, maybe not as epic as the first sentence makes you believe but CK1 made sure to automatically bring a subfolder per-game instead of one blob (root) of savestates inside the 'sstates' folder.
 
 What does it solve you wonder? Well, my dear reader if you do have several games and you make a lot of savestates in multiple slots (Don't look at me) you will gain the ability to have an easier overview which ironically kinda mimics how a real memcard structure works. If you want to compare it, just save normally on your memcard save and make sure it's a folder memcard to see the differences and similarities.
 
-<PCSX2PRLink authors="stenzek" prNums="4867">WX: Fix GS hotkeys losing values after reboot</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="4867">
+  WX: Fix GS hotkeys losing values after reboot
+</PCSX2PRLink>
 
 Makes sure that the hotkeys still retain their function after rebooting.
 
-<PCSX2PRLink authors="stenzek" prNums="4876">Fix memory card saving and trace log setting loading/saving</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="4876">
+  Fix memory card saving and trace log setting loading/saving
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="4882">GUI: remove presets 4,5,6</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="4882">
+  GUI: remove presets 4,5,6
+</PCSX2PRLink>
 
 Preset 4,5,6 (Preset 1 is bad too to be fair) were removed as they only brought specific improvements for specific hardware and it wasn't good in most cases anyway as it just did some random EE cyclerate and cycleskip.
 
@@ -512,37 +785,51 @@ PCSX2 shouldn't obfuscate with mostly useless settings that will only appeal a m
 Personally there should be only 3 modes for people:
 
 - Preset 2 which are the default settings (good for weaker computers that don't have enough cores)
-- Preset 3 which is just Preset 2 + MTVU  (it is free performance for the taking for good hardware)
+- Preset 3 which is just Preset 2 + MTVU (it is free performance for the taking for good hardware)
 - Custom global and custom per-game settings (any other situation that does not benefit the other two above ones)
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="4883">GUI : remove EE Cycle Skipping 3</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="4883">
+  GUI : remove EE Cycle Skipping 3
+</PCSX2PRLink>
 
 Since all these major timing changes, this isn't really useful and broke more often than not.
 More often than not downclocking the EE Cyclerate will give better results for the more lower-end hardware.
 
 Though even in it's current state Cycleskip 1 and 2 will have decent results for Shadow of The Collosus which didn't run full speed on the 'PlayStation 2'.
 
-<PCSX2PRLink authors="arcum42" prNums="4888">Add the current profile to the status bar.</PCSX2PRLink>
+<PCSX2PRLink authors="arcum42" prNums="4888">
+  Add the current profile to the status bar.
+</PCSX2PRLink>
 
 The main window will now say what preset you are using.
 
 <Image src={require("./img/Pic51-PCSX2Preset.webp").default} />
 
-<PCSX2PRLink authors="lightningterror" prNums="4896">GS Debugger: Show \</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="4896">
+  GS Debugger: Show \
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="stenzek" prNums="4905">Replace GSWnd with GL context wrappers, remove pDsp</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="4905">
+  Replace GSWnd with GL context wrappers, remove pDsp
+</PCSX2PRLink>
 
 This is preparation part 2 to bring in the new Qt GUI.
 
-<PCSX2PRLink authors="lightningterror" prNums="4931">Core: Few more warnings fixup.</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="4931">
+  Core: Few more warnings fixup.
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="italodirenzo93" prNums="4975">Add \</PCSX2PRLink>
+<PCSX2PRLink authors="italodirenzo93" prNums="4975">
+  Add \
+</PCSX2PRLink>
 
 If you moved or renamed your ISOs, you either had to nuke the recently played list, ignore it or set it back how it was before. More granular control on how you want to handle latest games played.
 
 <Image src={require("./img/Pic52-RemoveMissingFiles.webp").default} />
 
-<PCSX2PRLink authors="RedDevilus" prNums="4986">PCSX2-GUI: Fix GUI inconsistencies</PCSX2PRLink>
+<PCSX2PRLink authors="RedDevilus" prNums="4986">
+  PCSX2-GUI: Fix GUI inconsistencies
+</PCSX2PRLink>
 
 While not as exciting as a new fix for a game, increased performance on better compatibility this will make the text more aligned with the rest of the windows. Though it did have a meaningful change that the maximum audio latency is now 200 instead of 750.
 
@@ -554,205 +841,404 @@ Can you spot the differences?
 <Image src={require("./img/Pic54-PADGUI.webp").default} />
 <Image src={require("./img/Pic55-SPU2GUI.webp").default} />
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="4989">WX: Fix `pxExplore` on macOS</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="4989">
+  WX: Fix `pxExplore` on macOS
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="RedDevilus" prNums="5030">GUI: Bring back F6 string (Aspect Ratio)</PCSX2PRLink>
+<PCSX2PRLink authors="RedDevilus" prNums="5030">
+  GUI: Bring back F6 string (Aspect Ratio)
+</PCSX2PRLink>
 
 Doesn't need much explaining as it was gone by accident to show the keybinding for aspect ratio. Emulation development can have it fair share of regressions.
 
-<PCSX2PRLink authors="stenzek" prNums="5134">Rebase more de-wx-ifying from last month</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="5134">
+  Rebase more de-wx-ifying from last month
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="stenzek" prNums="5220">GSDumpDialog: Cache length instead of querying every packet</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="5220">
+  GSDumpDialog: Cache length instead of querying every packet
+</PCSX2PRLink>
 
 ### GameDB
 
-<PCSX2PRLink authors="RedDevilus" prNums="4768">GameDB: Typo Cleanup</PCSX2PRLink>
+<PCSX2PRLink authors="RedDevilus" prNums="4768">
+  GameDB: Typo Cleanup
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="4868">GameDB :add 'SingStar ABBA' entry</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="4868">
+  GameDB :add 'SingStar ABBA' entry
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="4869">GameDB: Add VU clamping to Monster Rancher 3</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="4869">
+  GameDB: Add VU clamping to Monster Rancher 3
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="4877">GameDB: Add missing entry</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="4877">
+  GameDB: Add missing entry
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="4935">GameDB: Add 'VUKickstart' to 'Maken Shao' games </PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="4935">
+  GameDB: Add 'VUKickstart' to 'Maken Shao' games{" "}
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="RedDevilus" prNums="4981">GameDB: Add and fix SingStar Entries</PCSX2PRLink>
+<PCSX2PRLink authors="RedDevilus" prNums="4981">
+  GameDB: Add and fix SingStar Entries
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Tokman5" prNums="4984">GameDB: Add and fix Power Pros series</PCSX2PRLink>
+<PCSX2PRLink authors="Tokman5" prNums="4984">
+  GameDB: Add and fix Power Pros series
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="4991">GameDB: Add EE clamping to 'Shadow of Zorro' and 'Evil Twin - Cyprien's Chronicles'</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="4991">
+  GameDB: Add EE clamping to 'Shadow of Zorro' and 'Evil Twin - Cyprien's
+  Chronicles'
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5004">GameDB: Add nearest rounding to 'Hitman - Contracts' and various fixes </PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5004">
+  GameDB: Add nearest rounding to 'Hitman - Contracts' and various fixes{" "}
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5007">GameDB: Add 'GIFFIFOHack' to 'Gunfighter 2 - Legend of Jesse James'</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5007">
+  GameDB: Add 'GIFFIFOHack' to 'Gunfighter 2 - Legend of Jesse James'
+</PCSX2PRLink>
 
-<SliderCompare before={require("./img/Pic31-GunfighterBefore.webp").default} after={require("./img/Pic32-GunfighterAfter.webp").default} />
+<SliderCompare
+  before={require("./img/Pic31-GunfighterBefore.webp").default}
+  after={require("./img/Pic32-GunfighterAfter.webp").default}
+/>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5020">GameDB: Add EE-Rounding and VU-Rounding to various entries</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5020">
+  GameDB: Add EE-Rounding and VU-Rounding to various entries
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5023">GameDB : Add various fixes for various games and remove not needed patches </PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5023">
+  GameDB : Add various fixes for various games and remove not needed
+  patches{" "}
+</PCSX2PRLink>
 
-<SliderCompare before={require("./img/Pic29-OnimushaBefore.webp").default} after={require("./img/Pic30-OnimushaAfter.webp").default} />
+<SliderCompare
+  before={require("./img/Pic29-OnimushaBefore.webp").default}
+  after={require("./img/Pic30-OnimushaAfter.webp").default}
+/>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5049">GameDB : Add fixes for various games </PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5049">
+  GameDB : Add fixes for various games{" "}
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5057">Gamedb: Remove the patch for Virtua Fighter 4</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5057">
+  Gamedb: Remove the patch for Virtua Fighter 4
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5058">GameDB: Purge patches for 'Knockout Kings 2002'</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5058">
+  GameDB: Purge patches for 'Knockout Kings 2002'
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5060">GameDB: Fix Fuuraiki 2 patch</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5060">
+  GameDB: Fix Fuuraiki 2 patch
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5073">GameDB: Add fixes for 'Shadow Man - 2econd Coming' and 'Ghosthunter' games.</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5073">
+  GameDB: Add fixes for 'Shadow Man - 2econd Coming' and 'Ghosthunter' games.
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5093">GameDB: Add 'VIFFIFOHack' to 'Men in Black II: Alien Escape'</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5093">
+  GameDB: Add 'VIFFIFOHack' to 'Men in Black II: Alien Escape'
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5097">GameDB: Add 'VUKickstartHack' to 'Crash Twinsanity'</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5097">
+  GameDB: Add 'VUKickstartHack' to 'Crash Twinsanity'
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5106">GameDB: Add patches to the 'K-1 World' series games add EE clamping full to 'D1 Professional Drift Grand Prix Series'</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5106">
+  GameDB: Add patches to the 'K-1 World' series games add EE clamping full to
+  'D1 Professional Drift Grand Prix Series'
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5114">GameDB: Add EEclamping full to 'Shinobido Takumi'</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5114">
+  GameDB: Add EEclamping full to 'Shinobido Takumi'
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5116">GameDB: Add VU clamping to 'MVP Baseball 2003'</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5116">
+  GameDB: Add VU clamping to 'MVP Baseball 2003'
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5118">GameDB: Add EEtiminghack to 'MGS2' and change VU- and EE-rounding for 'Primal' and add missing entries </PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5118">
+  GameDB: Add EEtiminghack to 'MGS2' and change VU- and EE-rounding for 'Primal'
+  and add missing entries{" "}
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5145">GameDB: Add patches to the 'Netsu Chu!' series and  'Samurai 7' series</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5145">
+  GameDB: Add patches to the 'Netsu Chu!' series and 'Samurai 7' series
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5148">GameDB: Add EE-clamping to 'Chou Saisoku! Zokusha King B.U.'</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5148">
+  GameDB: Add EE-clamping to 'Chou Saisoku! Zokusha King B.U.'
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5150">GameDB: Add EE-clamping to 'Dark cloud 2'</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5150">
+  GameDB: Add EE-clamping to 'Dark cloud 2'
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5153">GameDB: Add patches to 2k games</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5153">
+  GameDB: Add patches to 2k games
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Tokman5" prNums="5158">Add \</PCSX2PRLink>
+<PCSX2PRLink authors="Tokman5" prNums="5158">
+  Add \
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5166">GameDB: Add more 2k games patches</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5166">
+  GameDB: Add more 2k games patches
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5172">GameDB: Add gamefixes to 'Titeuf Mega-compet' and patch 'Yamiyo ni Sasayaku - Tantei Sagara Kyouichirou' series</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5172">
+  GameDB: Add gamefixes to 'Titeuf Mega-compet' and patch 'Yamiyo ni Sasayaku -
+  Tantei Sagara Kyouichirou' series
+</PCSX2PRLink>
 
-<SliderCompare before={require("./img/Pic27-TiteufBefore.webp").default} after={require("./img/Pic28-TiteufAfter.webp").default} />
+<SliderCompare
+  before={require("./img/Pic27-TiteufBefore.webp").default}
+  after={require("./img/Pic28-TiteufAfter.webp").default}
+/>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5178">GameDB: Add EE Clamping to 'Digimon Battle Chronicle' and fixes to other games</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5178">
+  GameDB: Add EE Clamping to 'Digimon Battle Chronicle' and fixes to other games
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5185">GameDB: Change VU-clamping on \</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5185">
+  GameDB: Change VU-clamping on \
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5187"> GameDB: add VU-clamping to \</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5187">
+  {" "}
+  GameDB: add VU-clamping to \
+</PCSX2PRLink>
 
 The game had wrongly colored eye textures (yellow/blue) but are now correctly white:
 
-<ImageCompare left={require("./img/Pic25-UltimateBefore.webp").default} right={require("./img/Pic26-UltimateAfter.webp").default} />
+<ImageCompare
+  left={require("./img/Pic25-UltimateBefore.webp").default}
+  right={require("./img/Pic26-UltimateAfter.webp").default}
+/>
 
-<PCSX2PRLink authors="stenzek" prNums="5199">Merge the Qt branch: Part 1</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="5199">
+  Merge the Qt branch: Part 1
+</PCSX2PRLink>
 
 The new GUI is moving along very well, but is not at feature parity as the current WX-Widgets GUI is. Please be patient when it will be released to you guys.
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5234">GameDB: Remove patches for  'Neo Contra' and add EE rounding and clamping</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5234">
+  GameDB: Remove patches for 'Neo Contra' and add EE rounding and clamping
+</PCSX2PRLink>
 
 ### Maintenance
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="4140">Remove wxString ↔︎ std::string implicit conversions</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="4140">
+  Remove wxString ↔︎ std::string implicit conversions
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="4709">GS Include Cleanup</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="4709">
+  GS Include Cleanup
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="stenzek" prNums="4786">Remove configuration coupling to GUI</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="4786">
+  Remove configuration coupling to GUI
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="4818">Add partial LTO to CMake</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="4818">
+  Add partial LTO to CMake
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="stenzek" prNums="4822">EE: Fix JIT exits on 64-bit Windows</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="4822">
+  EE: Fix JIT exits on 64-bit Windows
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="stenzek" prNums="4855">Fix some compile warnings spewed by MSVC x64</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="4855">
+  Fix some compile warnings spewed by MSVC x64
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tadanokojin" prNums="4872">FreeBSD fixup</PCSX2PRLink>
+<PCSX2PRLink authors="tadanokojin" prNums="4872">
+  FreeBSD fixup
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="4908">Remove 30-day artifact retention on windows builds</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="4908">
+  Remove 30-day artifact retention on windows builds
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="4929">Remove GTK dependency on macOS</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="4929">
+  Remove GTK dependency on macOS
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Ziemas" prNums="4938">Fix compilation with LTO on GCC</PCSX2PRLink>
+<PCSX2PRLink authors="Ziemas" prNums="4938">
+  Fix compilation with LTO on GCC
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="xTVaser" prNums="4970">actions: create automatic controller db updating workflow</PCSX2PRLink>
+<PCSX2PRLink authors="xTVaser" prNums="4970">
+  actions: create automatic controller db updating workflow
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="xTVaser" prNums="4973">actions: cleanup discord embed links and add release body</PCSX2PRLink>
+<PCSX2PRLink authors="xTVaser" prNums="4973">
+  actions: cleanup discord embed links and add release body
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="qurious-pixel" prNums="4978">Create AppRun hook to handle variables</PCSX2PRLink>
+<PCSX2PRLink authors="qurious-pixel" prNums="4978">
+  Create AppRun hook to handle variables
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="4982">GHActions: Don't shallow clone submodules</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="4982">
+  GHActions: Don't shallow clone submodules
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="xTVaser" prNums="4994">actions: increase max linux build times as well until cache-hit rate is reliable</PCSX2PRLink>
+<PCSX2PRLink authors="xTVaser" prNums="4994">
+  actions: increase max linux build times as well until cache-hit rate is
+  reliable
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="4999">CMake: Always default `CMAKE_BUILD_PO` off</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="4999">
+  CMake: Always default `CMAKE_BUILD_PO` off
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="orbea" prNums="5010">Update libchdr</PCSX2PRLink>
+<PCSX2PRLink authors="orbea" prNums="5010">
+  Update libchdr
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="arcum42" prNums="5033">Update the FAQ, as well as some general cleanup.</PCSX2PRLink>
+<PCSX2PRLink authors="arcum42" prNums="5033">
+  Update the FAQ, as well as some general cleanup.
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="5039">3rd Party: Update rogue file to correct BSD license</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="5039">
+  3rd Party: Update rogue file to correct BSD license
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="5040">Build: Remove old unused cheatscpp.h file</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="5040">
+  Build: Remove old unused cheatscpp.h file
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="xTVaser" prNums="5043">GitHub: Update and add new issue template for non-game related bug reports</PCSX2PRLink>
+<PCSX2PRLink authors="xTVaser" prNums="5043">
+  GitHub: Update and add new issue template for non-game related bug reports
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="MrCK1" prNums="5051">3rdparty: Upgrade soundtouch lib to 2.3.1</PCSX2PRLink>
+<PCSX2PRLink authors="MrCK1" prNums="5051">
+  3rdparty: Upgrade soundtouch lib to 2.3.1
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="MrCK1" prNums="5052">3rdparty: Upgrade xbyak to 6.00</PCSX2PRLink>
+<PCSX2PRLink authors="MrCK1" prNums="5052">
+  3rdparty: Upgrade xbyak to 6.00
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="xTVaser" prNums="5059">actions: Only announce `pre-release` releases</PCSX2PRLink>
+<PCSX2PRLink authors="xTVaser" prNums="5059">
+  actions: Only announce `pre-release` releases
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="kenshen112" prNums="5077">Fixes to CMake and version upgrade with CMake</PCSX2PRLink>
+<PCSX2PRLink authors="kenshen112" prNums="5077">
+  Fixes to CMake and version upgrade with CMake
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="dependabot" prNums="5083">Bump mathieudutour/github-tag-action from 5.6 to 6.0</PCSX2PRLink>
+<PCSX2PRLink authors="dependabot" prNums="5083">
+  Bump mathieudutour/github-tag-action from 5.6 to 6.0
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="dependabot" prNums="5084">Bump actions/cache from 2.1.6 to 2.1.7</PCSX2PRLink>
+<PCSX2PRLink authors="dependabot" prNums="5084">
+  Bump actions/cache from 2.1.6 to 2.1.7
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="5090">Readme : update links</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="5090">
+  Readme : update links
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="5091">GHActions: Fix Mac build</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="5091">
+  GHActions: Fix Mac build
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="xTVaser" prNums="5099">GameDB / Memcards - Replace `yaml-cpp` with `rapidyaml`</PCSX2PRLink>
+<PCSX2PRLink authors="xTVaser" prNums="5099">
+  GameDB / Memcards - Replace `yaml-cpp` with `rapidyaml`
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="F0bes" prNums="5100">Linux and Windows CMake Builds: Change output executable to lowercase</PCSX2PRLink>
+<PCSX2PRLink authors="F0bes" prNums="5100">
+  Linux and Windows CMake Builds: Change output executable to lowercase
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="5108">VS: Add some missing vcxproj filters</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="5108">
+  VS: Add some missing vcxproj filters
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="arcum42" prNums="5115">Only pass C++ flags to C++ files.</PCSX2PRLink>
+<PCSX2PRLink authors="arcum42" prNums="5115">
+  Only pass C++ flags to C++ files.
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="arcum42" prNums="5132">Make native builds default on Linux when using build.sh. Remove unused switch.</PCSX2PRLink>
+<PCSX2PRLink authors="arcum42" prNums="5132">
+  Make native builds default on Linux when using build.sh. Remove unused switch.
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="5152">CMake: Remove gio dependency on macOS</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="5152">
+  CMake: Remove gio dependency on macOS
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="5161">VS: Fix location of shaders in project</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="5161">
+  VS: Fix location of shaders in project
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="shiorid" prNums="5215">FreeBSD: fix compilation</PCSX2PRLink>
+<PCSX2PRLink authors="shiorid" prNums="5215">
+  FreeBSD: fix compilation
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="5219">GHActions: Fix game controller db updater</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="5219">
+  GHActions: Fix game controller db updater
+</PCSX2PRLink>
 
 ### Other
 
-<PCSX2PRLink prNums="4843">PGIF: Remove force fifo clear on GP1 (00-01)</PCSX2PRLink>
+<PCSX2PRLink prNums="4843">
+  PGIF: Remove force fifo clear on GP1 (00-01)
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="stenzek" prNums="4856">Common/StringHelpers: Fix printing of 64-bit pointers</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="4856">
+  Common/StringHelpers: Fix printing of 64-bit pointers
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Ziemas" prNums="4890">IOP Recompiler: Fix BIOS trace logging on 64bit</PCSX2PRLink>
+<PCSX2PRLink authors="Ziemas" prNums="4890">
+  IOP Recompiler: Fix BIOS trace logging on 64bit
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="4900">Common: Fix AT&T mixup in FastJmp code</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="4900">
+  Common: Fix AT&T mixup in FastJmp code
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="stenzek" prNums="4920">Config: Fix zoom/stretch options not updating on Apply</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="4920">
+  Config: Fix zoom/stretch options not updating on Apply
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="lightningterror" prNums="4943">Misc: Fix more warnings.</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="4943">
+  Misc: Fix more warnings.
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="4972">EE JIT: Backup shift on LDR/L if rs==rt</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="4972">
+  EE JIT: Backup shift on LDR/L if rs==rt
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="Mrlinkwii" prNums="4979">CI:Add build date to program log of nightly builds</PCSX2PRLink>
+<PCSX2PRLink authors="Mrlinkwii" prNums="4979">
+  CI:Add build date to program log of nightly builds
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="github-actions" prNums="5001">pad-linux: Update to latest controller database</PCSX2PRLink>
+<PCSX2PRLink authors="github-actions" prNums="5001">
+  pad-linux: Update to latest controller database
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="stenzek" prNums="5019">VSProps: Set MultiProcessorCompilation in CodeGen props</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="5019">
+  VSProps: Set MultiProcessorCompilation in CodeGen props
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="5037">GIF: Modify fifo read behaviour</PCSX2PRLink>
+<PCSX2PRLink authors="refractionpcsx2" prNums="5037">
+  GIF: Modify fifo read behaviour
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="stenzek" prNums="5141">EERec: Remove zero-distance jmp in full fpu mode</PCSX2PRLink>
+<PCSX2PRLink authors="stenzek" prNums="5141">
+  EERec: Remove zero-distance jmp in full fpu mode
+</PCSX2PRLink>
 
-<PCSX2PRLink authors="tellowkrinkle" prNums="5164">Common: Fix GetWorkingDirectory on unix</PCSX2PRLink>
+<PCSX2PRLink authors="tellowkrinkle" prNums="5164">
+  Common: Fix GetWorkingDirectory on unix
+</PCSX2PRLink>
 
 ## Metadata
 

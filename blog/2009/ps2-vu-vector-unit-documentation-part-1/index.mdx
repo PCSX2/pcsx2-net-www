@@ -1,12 +1,13 @@
 ---
 authors:
-- cottonvibes
+  - cottonvibes
 date: 2009-09-02 00:00:00
-description: This begins a series of blog posts intended for ps2 developers and ps2
+description:
+  This begins a series of blog posts intended for ps2 developers and ps2
   emu authors
 draft: false
 tags:
-- devblog
+  - devblog
 title: Ps2 VU Vector Unit Documentation Part 1
 ---
 
@@ -30,7 +31,6 @@ Since these articles are intended to describe advance secrets, I will
 this implies you have at least an intermediate level of how the VUs work
 or how to program for them.
 
-
 **Note 1: VI lower instructions**
 
 For lower opcode operations dealing with VI regs, there is a 5 bit range
@@ -42,7 +42,6 @@ Example
 ```cpp
 IAND: 1000000 | 0000 | it x 5 | is x 5 | id x 5 | 110100
 ```
-
 
 If for 'id' we have '18', then the destination would be
 
@@ -64,7 +63,6 @@ Example:
 IADDIU vi05, vi00, 100
 IBNE vi05, vi00 &lt; // ---- vi05's value is before the 100 was added
 ```
-
 
 The only exception to this are Flag reading lower instructions
 (FSxxx/FMxxx/FCxxx). In those cases the current value is read.
@@ -115,7 +113,6 @@ It does:
 [08d8] (81e2bb7d) SQI.xyzw vf23, vi02++
 ```
 
-
 The first time the above block of code is run, the IBNE value for vi02
 is the same value as it's value at \[08b0\] (before the chain starts).
 Next (assuming the branch is taken), the delay slot is ran and a NEW vi2
@@ -158,7 +155,6 @@ Example:
 ```cpp
 MAX vf02.x, vf00.x, vf01.x
 ```
-
 
 Assuming vf01.x holds a positive denormal, the result in vf02.x will be
 that same denormal.

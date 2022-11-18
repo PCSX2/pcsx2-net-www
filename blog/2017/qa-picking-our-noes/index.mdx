@@ -1,11 +1,11 @@
 ---
 authors:
-- gregory
+  - gregory
 date: 2017-02-14 00:00:00
 description: Quality & assurance is a full time job and it is a complex topic
 draft: false
 tags:
-- devblog
+  - devblog
 title: QA Picking Our Noes
 ---
 
@@ -25,7 +25,6 @@ and users.Big thanks to all of them, because without them nothing would
 have been possible. So quality is possible. Maybe we can't reach the
 100% perfect quality state but we can reach a decent level.
 
-
 The project took various actions in order to improve the quality and
 robustness of PCSX2. Some actions started a long time ago, most of them
 are still on-going, some are still planned. You won't find any
@@ -39,21 +38,21 @@ Continuous Integration. The goal is to ensure correctness of the project
 at every commit done. That's easy to say but quite hard to do.
 
 - Most of you know about
-the PCSX2 buildbot. It provides compiled snapshots regularly. It allows
-testers and users to play with the latest features. It also gives them
-the opportunity to report regressions much sooner in the development.
-Therefore, we can fix them better. Regressions are the highest priority
-bug reports for me.
+  the PCSX2 buildbot. It provides compiled snapshots regularly. It allows
+  testers and users to play with the latest features. It also gives them
+  the opportunity to report regressions much sooner in the development.
+  Therefore, we can fix them better. Regressions are the highest priority
+  bug reports for me.
 
 - The migration to Github
-allowed us to add additional bots to ensure compilation works fine with
-various compilers. PCSX2's buildbot is limited to a single version of
-the Microsoft compiler. Appveyor & Travis allow us to test multiple
-versions of Visual Studio (VS2013 & VS2015) but also clang/gcc. We even
-have a 64 bits compilation test validation.
+  allowed us to add additional bots to ensure compilation works fine with
+  various compilers. PCSX2's buildbot is limited to a single version of
+  the Microsoft compiler. Appveyor & Travis allow us to test multiple
+  versions of Visual Studio (VS2013 & VS2015) but also clang/gcc. We even
+  have a 64 bits compilation test validation.
 
 - The buildbot is limited to
-Windows, therefore a daily PPA build was added too.
+  Windows, therefore a daily PPA build was added too.
 
 ## Compiler
 
@@ -70,8 +69,7 @@ conscious exception and additional work has been done to re-enable them
 when possible.
 
 \* GCC warning counts are rather low (less than 20) but not 0 yet. And
-we even enabled most of the extra warnings.
-\* Clang reports lots of warnings because I asked clang to report some
+we even enabled most of the extra warnings. \* Clang reports lots of warnings because I asked clang to report some
 old code that I marked as deprecated. Otherwise we'd be around 50. I'm
 sure we can do better here too.
 
@@ -80,7 +78,6 @@ warnings with less warnings enabled. Clang used to be unable to compile
 the code. The road was quite long but we started to see the light
 
 ## Formal/Lint Tool
-
 
 Compilers are nice at reporting
 various problems but it isn't their main job. So dedicated tools were

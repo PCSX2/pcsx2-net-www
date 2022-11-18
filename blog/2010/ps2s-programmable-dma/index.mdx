@@ -1,19 +1,20 @@
 ---
 authors:
-- jake stine
+  - jake stine
 date: 2010-08-31 00:00:00
-description: For those who don't know, DMA stands for Direct Memory Access, and it
+description:
+  For those who don't know, DMA stands for Direct Memory Access, and it
   refers to logic circuits in a computer that allow for the automated transfer of
   system memory to and from peripherals
 draft: false
 tags:
-- devblog
+  - devblog
 title: PS2's Programmable DMA
 ---
 
-For those who don't know, DMA stands for ***Direct Memory Access*** ,
+For those who don't know, DMA stands for **_Direct Memory Access_** ,
 and it refers to logic circuits in a computer that allow for the
-automated transfer of system memory to and from *peripherals* . DMAs are
+automated transfer of system memory to and from _peripherals_ . DMAs are
 beneficial because they are simple circuits that do work in parallel to
 the CPU -- while a DMA transfers data, the CPU is free to do other
 work.that requires more complex computations and logic. The end result
@@ -21,7 +22,6 @@ is better utilization of the computer's maximum memory transfer
 bandwidth and computational/logical ability.
 
 <!-- truncate -->
-
 
 Traditionally DMAs are pretty simple. The Playstation 2's EmotionEngine,
 however, has an 'intelligent' programmable DMA controller (DMAC). Neatly
@@ -31,8 +31,8 @@ a number of special features to take advantage of the unique multi-core
 design of the EE. Furthermore, the EE's DMAC is much more tightly
 integrated with its memory bus than traditional DMAs, allowing it to
 transfer data with exceptional efficiency. These two features combined
-make the EE's DMAC a *key component* to PS2 games developers -- in quite
-a few games, the DMAC actually does *more raw work* than the EE Core CPU
+make the EE's DMAC a _key component_ to PS2 games developers -- in quite
+a few games, the DMAC actually does _more raw work_ than the EE Core CPU
 (R5900).
 
 **How The Real Thing Works**
@@ -60,7 +60,7 @@ Each peripheral (VIF, GIF, SIF, IPU, etc) has a 128 or 256 byte FIFO.
 The FIFO helps mitigate occasional latency differences between Main
 Memory/SPRAM and the peripheral (some peripherals, in particular the
 GIF, can incur cycle stalls depending on data sent to them). Thanks to
-the FIFOs, data can be *burst* to/from memory in 128-byte blocks, which
+the FIFOs, data can be _burst_ to/from memory in 128-byte blocks, which
 helps maximize data transfer rates since the EE's memory bus was built
 to operate most efficiently in those conditions. However, the maximum
 bandwidth of Main Memory (32MB) in ideal conditions is only \~1.2GB/s
@@ -73,7 +73,7 @@ about 40% of its theoretical maximum throughput.
 
 The Scratchpad (SPRAM) is 16KB of memory integrated directly into the
 EmotionEngine. Because it is directly integrated on-die, it has no
-read/write latencies and can *always* be accessed at the maximum
+read/write latencies and can _always_ be accessed at the maximum
 transfer rate of 2.4gb/s. The integrated nature of the SPRAM means it
 has to be small in order to fit -- and its lack of size is what limits
 its usefulness.
@@ -91,9 +91,8 @@ improves the system's CPU throughput.
 The MemoryFIFO function of the EE DMAC performs and managed two
 simultaneous DMA transfers, as follows:
 
--   Scratchpad -&gt; Main Memory (RAM)
--   Main Memory (RAM) -&gt; Peripheral (VIF1 or GIF)
-
+- Scratchpad -&gt; Main Memory (RAM)
+- Main Memory (RAM) -&gt; Peripheral (VIF1 or GIF)
 
 As the buffer in memory is filled by Scratchpad, it is simultaneously
 drained by the attached peripheral, either VIF1 or GIF. On the surface,
@@ -106,17 +105,17 @@ general improvement in overall transfer speeds.
 The PS2 engineers introduced the MFIFO for two reasons:
 
 1. The scratchpad is too small. MFIFO can be used by the EE core as a
-place to "empty" the scratchpad after its completed a set of data
-processing. While the data in the MFIFO awaits the DMAC to transfer it,
-the EE is free to load new raw data into Scratchpad for processing.
+   place to "empty" the scratchpad after its completed a set of data
+   processing. While the data in the MFIFO awaits the DMAC to transfer it,
+   the EE is free to load new raw data into Scratchpad for processing.
 
 2. The GIF has additional bandwidth constraints since it has direct
-connections to three **PATHs** : the the VU1 co-processor (GIF PATH1),
-VIF1 FIFO (GIF PATH2), and the DMAC's GIF channel (GIF PATH3). When
-transfers are active on any one of the paths, the other two paths must
-idle/stall until the current path's transfer completes; meaning that
-DMAC transfers to both GIF and VIF1 channels can have unexpectedly long
-stalls.
+   connections to three **PATHs** : the the VU1 co-processor (GIF PATH1),
+   VIF1 FIFO (GIF PATH2), and the DMAC's GIF channel (GIF PATH3). When
+   transfers are active on any one of the paths, the other two paths must
+   idle/stall until the current path's transfer completes; meaning that
+   DMAC transfers to both GIF and VIF1 channels can have unexpectedly long
+   stalls.
 
 So by using MFIFO, the EE core can mitigate the unpredictable GIF/VIF1
 stalls while it works on entirely new sets of data in parallel. If a GIF
@@ -130,5 +129,5 @@ productivity isn't affected, the EE's overall computational ability
 improves.
 
 I'll talk a bit more on actual emulation details of the PS2's
-programmable DMA controller in future blogs, so this is *To Be
-Continued...*
+programmable DMA controller in future blogs, so this is _To Be
+Continued..._

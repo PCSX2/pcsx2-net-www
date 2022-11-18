@@ -1,13 +1,13 @@
 ---
 authors:
-- lightningterror
-- ck1
-- kojin
+  - lightningterror
+  - ck1
+  - kojin
 date: 2019-06-18 00:00:00
 description: The planets aligned and the time came. A years worth of progress reports!
 draft: false
 tags:
-- progress-report
+  - progress-report
 title: From Q2 2018 To Q2 2019 - 1 Year Progress Report
 ---
 
@@ -20,7 +20,9 @@ reports!
 
 # New Speedrunning Tools Available
 
-<PCSX2PRLink authors="xTVaser" prNums="2412">Input Recording/Playback Functionality</PCSX2PRLink>
+<PCSX2PRLink authors="xTVaser" prNums="2412">
+  Input Recording/Playback Functionality
+</PCSX2PRLink>
 - and many other external contributors
 
 After more than a year of reviewing and improving this PR it finally got
@@ -43,7 +45,12 @@ with proper fixes and in a very cooperative spirit
 
 # Core Improvements
 
-<PCSX2PRLink authors="Refraction,MrCK1" shas="9b8244954215072068f4f83079d1c714a4b0e09a">Vector Units: Fix bug in Branch in Delay Slot</PCSX2PRLink>
+<PCSX2PRLink
+  authors="Refraction,MrCK1"
+  shas="9b8244954215072068f4f83079d1c714a4b0e09a"
+>
+  Vector Units: Fix bug in Branch in Delay Slot
+</PCSX2PRLink>
 
 While the Vector Units were well-suited for performing fast calculations
 in the hands of experienced programmers, that didn't stop them from
@@ -51,26 +58,33 @@ ignoring Sony's advice and implementing atrocious solutions to do stupid
 things. Enter the world of branch delay slots. One pesky game that we've
 had issues with for many years was Dropship United Peace Force. On our
 end of things, MicroVU will normally "optimize" NOP instructions
-(represented as `     MOVE.xyzw vf00, vf00    ` ).
+(represented as ` MOVE.xyzw vf00, vf00 ` ).
 
 As it turns out however, a longstanding bug in this code failed to
 account for a branch delay slot inside of another branch delay slot
 (this is as stupid as it sounds). In other words, the branch was being
 read as a NOP and got stuck running the wrong code until the game would
-crash. *Never underestimate PS2 developers. If you think they won't do
-something that's forbidden in the manual, you're dead wrong*
+crash. _Never underestimate PS2 developers. If you think they won't do
+something that's forbidden in the manual, you're dead wrong_
 
-<Image cols={6} src={require("./img/dropship-united-peace-force-s.webp").default} />
+<Image
+  cols={6}
+  src={require("./img/dropship-united-peace-force-s.webp").default}
+/>
 > Dropship United Peace Force
 
-<PCSX2PRLink authors="FlatOutPS2" prNums="2919">Recompiler: Fix stall in branch delay slot</PCSX2PRLink>
+<PCSX2PRLink authors="FlatOutPS2" prNums="2919">
+  Recompiler: Fix stall in branch delay slot
+</PCSX2PRLink>
 
 A recompiler bugfix has also been made which makes WRC games boot
 properly without hanging on the loading or relying on gamefix patches.
 
 # GUI/Usability Updates
 
-<PCSX2PRLink authors="FlatOutPS2,lightningterror" prNums="2690">FMV Aspect Ratio Switch/Override</PCSX2PRLink>
+<PCSX2PRLink authors="FlatOutPS2,lightningterror" prNums="2690">
+  FMV Aspect Ratio Switch/Override
+</PCSX2PRLink>
 
 Change "Switch to 4:3 aspect ratio when an FMV plays" to "FMV Aspect
 Ratio Override" drop down menu.
@@ -79,7 +93,9 @@ The option temporarily changes the Aspect Ratio to either 16:9 or 4:3
 depending on the option that is selected, and depending on the Window
 Aspect ratio that is selected.
 
-<PCSX2PRLink authors="turtleli" prNums="2567">Improved GameDB handling</PCSX2PRLink>
+<PCSX2PRLink authors="turtleli" prNums="2567">
+  Improved GameDB handling
+</PCSX2PRLink>
 
 The GameDB handling has been improved thanks to turtleli. To sum it up
 in a short and simple explanation turtleli did some magic, updated the
@@ -88,19 +104,23 @@ performance, a lot of old legacy code was removed as well. For more
 details you can read the detailed explanation in the PR description on
 Github.
 
-<PCSX2PRLink authors="arcum42" prNums="2574">Save/Load slot improvements</PCSX2PRLink>
+<PCSX2PRLink authors="arcum42" prNums="2574">
+  Save/Load slot improvements
+</PCSX2PRLink>
 
 From now on Save and Load slots will show date when a save is present in
 each slot for each game. Also empty save/load slots will show an Empty
 name tag instead. empty load slots will also be greyed out from the GUI
 interface.
 
-<Image cols={6} src={require("./img/saveslots.webp").default} />
-> Comparison of the old and new saveslot interface
+<Image cols={6} src={require("./img/saveslots.webp").default} />> Comparison of the
+old and new saveslot interface
 
 # GSdx: Enhancements for all renderers
 
-<PCSX2PRLink authors="tadanokojin" prNums="2934">GSdx-HW: Fix half-bottom screen issues on texture/color shuffling</PCSX2PRLink>
+<PCSX2PRLink authors="tadanokojin" prNums="2934">
+  GSdx-HW: Fix half-bottom screen issues on texture/color shuffling
+</PCSX2PRLink>
 
 Another major issue we have is the half screen bottom issue where only
 half of the screen post processing effects are rendered correctly. Kojin
@@ -112,7 +132,9 @@ but this is a huge step forward for future accuracy.
 Link to the meta issue
 [\#1339](https://github.com/PCSX2/pcsx2/issues/1339).
 
-<PCSX2PRLink authors="AlessandroVetere" prNums="2344,2681,2731">GSdx-TC: Palette management rework</PCSX2PRLink>
+<PCSX2PRLink authors="AlessandroVetere" prNums="2344,2681,2731">
+  GSdx-TC: Palette management rework
+</PCSX2PRLink>
 
 The entire palette management system in texture cache has seen a huge
 update by Alessandro.
@@ -125,25 +147,34 @@ The info is pretty technical so if anyone wants to follow up on it and
 read the technical stuff they can do so on the multiple linked pull
 requests.
 
-<PCSX2PRLink authors="FlatOutPS2,turtleli" prNums="2534">GSdx: Add Skipdraw Offset option for Skipdraw</PCSX2PRLink>
+<PCSX2PRLink authors="FlatOutPS2,turtleli" prNums="2534">
+  GSdx: Add Skipdraw Offset option for Skipdraw
+</PCSX2PRLink>
 
 Example: When the broken effects are at frames 91-100, the default
 skipdraw always skips 0-100, possibly skipping several functioning
 effects as well. By adding this new option, it is now possible to skip
 just frames 91 - 100.
 
-<PCSX2PRLink authors="gregory38,lightningterror" prNums="2855">Gsdx-HW: implement fixed TEX0 for all renderers</PCSX2PRLink>
+<PCSX2PRLink authors="gregory38,lightningterror" prNums="2855">
+  Gsdx-HW: implement fixed TEX0 for all renderers
+</PCSX2PRLink>
 
 This improves the hardware rendering and fixes the corrupt textures on
 games such as Lupin The Third andJames Bond 007: Nightfire, other games
 are likely to be affected as well however these are the only ones
 confirmed so far.
 
-<SliderCompare before={require("./img/007-nightfire-before-s.jpg").default} after={require("./img/007-nightfire-after-s.jpg").default} />
+<SliderCompare
+  before={require("./img/007-nightfire-before-s.jpg").default}
+  after={require("./img/007-nightfire-after-s.jpg").default}
+/>
 
 # GSdx: Enhancements for OpenGL
 
-<PCSX2PRLink authors="gregory38" prNums="2921">GSdx-GL: Bypass the texture cache when the framebuffer is sampled</PCSX2PRLink>
+<PCSX2PRLink authors="gregory38" prNums="2921">
+  GSdx-GL: Bypass the texture cache when the framebuffer is sampled
+</PCSX2PRLink>
 
 This allows to bypass the texture cache when the framebuffer is sampled
 on OpenGL when at least Basic Blending is enabled, it provides a huge
@@ -152,7 +183,12 @@ speed increase in Star Ocean 3, Ratchet and Clank and Jak games.
 A great example would be Star Ocean 3 from **20fps** to **94fps** with the same
 settings.
 
-<PCSX2PRLink authors="gregory38,tadanokojin,lightningterror" prNums="2837,2844,2843">GSdx-GL: Experimental Sparse Texture support</PCSX2PRLink>
+<PCSX2PRLink
+  authors="gregory38,tadanokojin,lightningterror"
+  prNums="2837,2844,2843"
+>
+  GSdx-GL: Experimental Sparse Texture support
+</PCSX2PRLink>
 
 This feature is still experimental and can be enabled in OpenGL Advanced
 settings within Advanced Settings & HW hacks.
@@ -169,7 +205,10 @@ broken.
 
 # GSdx: Enhancements for Direct3D
 
-<PCSX2PRLink authors="lightningterror" prNums="2459">GSdx-D3D: Improved palette support has been ported from OpenGL to Direct3D10/11</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="2459">
+  GSdx-D3D: Improved palette support has been ported from OpenGL to
+  Direct3D10/11
+</PCSX2PRLink>
 
 The purpose of the code is to support alpha channel of RT uses as an
 index for a palette texture. It fixes shadows in Star Ocean 3. Other
@@ -178,7 +217,10 @@ more technical details please visit the original commit for details
 [b0af54d](https://github.com/PCSX2/pcsx2/commit/b0af54d33e0ca35b1bbd3c991234f2b59eb0c001%22)
 .
 
-<PCSX2PRLink authors="lightningterror,KrossX" prNums="2590">GSdx-D3D: GPU accelerate 8 bits texture conversion port from OpenGL to Direct3D10/11</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror,KrossX" prNums="2590">
+  GSdx-D3D: GPU accelerate 8 bits texture conversion port from OpenGL to
+  Direct3D10/11
+</PCSX2PRLink>
 
 Direct3D also supports 8-bit conversion through a shader now like OpenGL
 does, this improves rendering on games that use 8-bit textures like FIFA
@@ -193,22 +235,31 @@ and
 [6121677a](https://github.com/PCSX2/pcsx2/commit/6121677aa1064269db333f4d5db0b3ead65270c1)
 .
 
-<Image cols={6} src={require("./img/Blood-Will-Tell.jpg").default} />
-> A comparison of graphical improvements on Blood Will Tell
+<Image cols={6} src={require("./img/Blood-Will-Tell.jpg").default} />> A comparison
+of graphical improvements on Blood Will Tell
 
-<PCSX2PRLink authors="tadanokojin" prNums="2752">GSdx: OSD improvements and port to Direct3D10/11</PCSX2PRLink>
+<PCSX2PRLink authors="tadanokojin" prNums="2752">
+  GSdx: OSD improvements and port to Direct3D10/11
+</PCSX2PRLink>
 
 On screen display(OSD) has seen quite a number of improvements such as
 being able to select the color of the font, some code cleanup and a full
 port to Direct3D10/11.
 
-<PCSX2PRLink authors="lightningterror,tadanokojin,krossx" prNums="2734">GSdx-D3D: Depth Emulation port to Direct3D10/11</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror,tadanokojin,krossx" prNums="2734">
+  GSdx-D3D: Depth Emulation port to Direct3D10/11
+</PCSX2PRLink>
 
 Previously only OpenGL supported depth emulation for rendering special
 post processing effects which left out the D3D11 backend a bit behind,
 this feature has been fully ported to Direct3D10/11.
 
-<PCSX2PRLink authors="lightningterror,tadanokojin,krossx" prNums="2745,2754,2823,2830">GSdx-D3D: Channel shuffle port to Direct3D10/11</PCSX2PRLink>
+<PCSX2PRLink
+  authors="lightningterror,tadanokojin,krossx"
+  prNums="2745,2754,2823,2830"
+>
+  GSdx-D3D: Channel shuffle port to Direct3D10/11
+</PCSX2PRLink>
 
 Just like depth emulation, channel shuffle also renders some special
 post processing effects, usually referred as the top left corner issue
@@ -218,7 +269,9 @@ Direct3D10/11 much closer to OpenGL. For anyone that missed the channel
 shuffle blog post when it was first introduced to OpenGL they can read
 it [here](/blog/2016/channel-shuffle-effect) .
 
-<PCSX2PRLink authors="lightningterror" prNums="2718,2723">GSdx: Accurate Date update and partial port to Direct3D10/11</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="2718,2723">
+  GSdx: Accurate Date update and partial port to Direct3D10/11
+</PCSX2PRLink>
 
 A new Fast option has been added to OpenGL Accurate Date which should
 render shadows/transparency without needing the full option, the same
@@ -226,7 +279,9 @@ feature has been ported to Direct3D10/11 along with a port of Fast DATE
 code. The entire feature is not fully ported to Direct3D10/11 as some
 cases are missing however it is still a huge improvement from before.
 
-<PCSX2PRLink authors="lightningterror" prNums="2807">GSdx-D3D: HDR Colclip blend port to Direct3D10/11</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="2807">
+  GSdx-D3D: HDR Colclip blend port to Direct3D10/11
+</PCSX2PRLink>
 
 The old inaccurate algorithm has been removed and replaced with a more
 accurate one just like on OpenGL. This feature imrpoves shadow rendering
@@ -234,7 +289,9 @@ on many games.
 A few examples would be: God of War 1 and 2, Final Fight Streetwise,
 Steambot Chronicles, Eternal Poison and many others.
 
-<PCSX2PRLink authors="lightningterror" prNums="2928,2937">GSdx-D3D: Accurate Blend Fbmask port to Direct3D10/11</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="2928,2937">
+  GSdx-D3D: Accurate Blend Fbmask port to Direct3D10/11
+</PCSX2PRLink>
 
 This feature allows to better render colors and shadows which can also
 be toggled by the Accurate Blending option, the feature on Direct3D
@@ -261,7 +318,9 @@ Accurate Date (Fast), Accurate Blending (Basic)
 Accurate Date renders the shadows better while Accurate Blending renders
 the stage as well as character models in this game.
 
-<PCSX2PRLink authors="hibye8313" prNums="2973">GSdx-D3D: Partial SW blending port to Direct3D10/11</PCSX2PRLink>
+<PCSX2PRLink authors="hibye8313" prNums="2973">
+  GSdx-D3D: Partial SW blending port to Direct3D10/11
+</PCSX2PRLink>
 
 Currently only Accumulation sw blending is supported, this feature
 similar to HDR Colclip also improves shadow rendering on games such as
@@ -283,21 +342,21 @@ Keep in mind these comparisons are for Direct3D as these improvements
 have been implemented for a long time on OpenGL. Comparison is also done
 between PCSX21.4 and current developmentbuilds (14 Jun 2019).
 
--   ICO HLE implementation would be a great example of this as it uses
-several.ICO uses a depth of field effect for the fog. Depth is
-extracted into the alpha channel of a texture. And then used as
-blending factor. A detailed explanation can be found in the original
-OpenGL pull request [here](https://github.com/PCSX2/pcsx2/pull/1854)
-. Unlike on OpenGL where implementation was easier to do so, we had
-to do a few extra steps on Direct3D because it's very limited and
-restricted.
+- ICO HLE implementation would be a great example of this as it uses
+  several.ICO uses a depth of field effect for the fog. Depth is
+  extracted into the alpha channel of a texture. And then used as
+  blending factor. A detailed explanation can be found in the original
+  OpenGL pull request [here](https://github.com/PCSX2/pcsx2/pull/1854)
+  . Unlike on OpenGL where implementation was easier to do so, we had
+  to do a few extra steps on Direct3D because it's very limited and
+  restricted.
 
 <Image cols={6} src={require("./img/ico.jpg").default} />
 
--   The next example we have is Urban Chaos, and oh boy is this a huge
-improvement, basically we have proper Texture shuffle emulation,
-Depth emulation, Channel shuffle emulation and special HLE shader
-emulation.
+- The next example we have is Urban Chaos, and oh boy is this a huge
+  improvement, basically we have proper Texture shuffle emulation,
+  Depth emulation, Channel shuffle emulation and special HLE shader
+  emulation.
 
 <Image cols={6} src={require("./img/urban-chaos.jpg").default} />
 
@@ -308,40 +367,40 @@ interested they can check meta issues such as the top left corner issue
 
 # GSdx Code Cleanup
 
--   Removal of Direct3D9 backend. Removal of Direct3D9 allowed us to
-better support the new features that were ported on Direct3D10/11
-without Direct3D9 holding us back.
--   Removal of MSAA. This form of anti-aliasing was removed due to its'
-incompatibility with newer DirectX features. At the same time, it
-was actively hindering development progress from being made due to a
-high amount of rendering bugs that were being produced while the
-code was still in place. On a more general note, keep in mind that
-MSAA has already fallen out of favor in most PC games in 2019 due to
-its' high overhead requirements. GS emulation is no stranger to
-this, as most systems would likely have no GPU overhead available to
-run MSAA without incurring major speed penalties. (on more demanding
-titles) *FXAA is still available as a replacement to all users
-through the GSdx dialog or the Page Up keyboard shortcut.*
--   Removal of many CRC hacks. Oh you heard right, once again we removed
-plenty of CRC hacks, this is because of the increased accuracy on
-all renderers - especially Direct3D10/11 and the purge of Direct3D9.
+- Removal of Direct3D9 backend. Removal of Direct3D9 allowed us to
+  better support the new features that were ported on Direct3D10/11
+  without Direct3D9 holding us back.
+- Removal of MSAA. This form of anti-aliasing was removed due to its'
+  incompatibility with newer DirectX features. At the same time, it
+  was actively hindering development progress from being made due to a
+  high amount of rendering bugs that were being produced while the
+  code was still in place. On a more general note, keep in mind that
+  MSAA has already fallen out of favor in most PC games in 2019 due to
+  its' high overhead requirements. GS emulation is no stranger to
+  this, as most systems would likely have no GPU overhead available to
+  run MSAA without incurring major speed penalties. (on more demanding
+  titles) _FXAA is still available as a replacement to all users
+  through the GSdx dialog or the Page Up keyboard shortcut._
+- Removal of many CRC hacks. Oh you heard right, once again we removed
+  plenty of CRC hacks, this is because of the increased accuracy on
+  all renderers - especially Direct3D10/11 and the purge of Direct3D9.
 
 # Other Enhancements
 
--   [\#2421](https://github.com/PCSX2/pcsx2/pull/2421) Unused Direct
-Compute render has been purged by
-[turtleli](https://github.com/turtleli) .
--   A lot of other legacy/useless code has been purged from the emulator
-as well. Guess we did a bit of a house cleaning.
--   Many fixes and patches were added to the GameDB to fix various
-issues such as unplayable games and visual glitches.
--   There were also core enhancements made by
-[Refraction](https://github.com/refractionpcsx2) that also
-improve/fix some games as well as improve core logging.
--   The GUI for SPUX-2 and GSdx have been updated to improve usability.
--   Gif Unit: Recheck VIF status after a reset is performed when waiting
-for PATH3 (Fixes Eragon)
--   VIF: "Hacked the Hack"(Fixes "Downtown Run")
+- [\#2421](https://github.com/PCSX2/pcsx2/pull/2421) Unused Direct
+  Compute render has been purged by
+  [turtleli](https://github.com/turtleli) .
+- A lot of other legacy/useless code has been purged from the emulator
+  as well. Guess we did a bit of a house cleaning.
+- Many fixes and patches were added to the GameDB to fix various
+  issues such as unplayable games and visual glitches.
+- There were also core enhancements made by
+  [Refraction](https://github.com/refractionpcsx2) that also
+  improve/fix some games as well as improve core logging.
+- The GUI for SPUX-2 and GSdx have been updated to improve usability.
+- Gif Unit: Recheck VIF status after a reset is performed when waiting
+  for PATH3 (Fixes Eragon)
+- VIF: "Hacked the Hack"(Fixes "Downtown Run")
 
 As you can see, we have been all but idle these past months, with many
 bug fixes, hack removals and improvements all around PCSX2 and plugins.

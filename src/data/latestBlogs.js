@@ -7,10 +7,10 @@ import latestBlogImage from "/blog/2022/life-is-short/homepage-thumb.png";
 export const latestProgressReport = {
   url: "/blog/2022/q4-2021-progress-report",
   title: "Q4 2021 Progress Report",
-  img: latestProgressReportImage
+  img: latestProgressReportImage,
 };
 export const latestBlog = {
   url: "/blog/2022/life-is-short",
   title: "Life is Short",
-  img: latestBlogImage
+  img: latestBlogImage,
 };

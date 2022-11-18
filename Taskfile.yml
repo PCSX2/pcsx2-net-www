@@ -1,9 +1,11 @@
-version: '3'
+version: "3"
+
+# TODO - replace all this with npm scripts
 
 tasks:
   serve:
     cmds:
-      - hugo server -D
+      - yarn start
   new-article:
     cmds:
       - python ./scripts/make-new-article.py
@@ -16,12 +18,3 @@ tasks:
   convert-pngs:
     cmds:
       - python ./scripts/convert-pngs.py
-  spell:
-    cmds:
-      - npx cspell content/**/*.md
-  docu:
-    cmds:
-      - python ./scripts/docu-generate-redirects.py
-  docu-migrate:
-    cmds:
-      - python ./scripts/hugo-to-docu.py

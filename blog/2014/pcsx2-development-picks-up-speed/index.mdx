@@ -1,12 +1,13 @@
 ---
 authors:
-- bositman
+  - bositman
 date: 2014-09-09 00:00:00
-description: After a brief period of slowed development, PCSX2 has started picking
+description:
+  After a brief period of slowed development, PCSX2 has started picking
   up speed again with the help of new contributors as well as familiar faces
 draft: false
 tags:
-- devblog
+  - devblog
 title: PCSX2 Development Picks Up Speed
 ---
 
@@ -52,48 +53,47 @@ Here is a rundown of the most significant changes:
 
 64 bit related:
 
--   Changed instances of u32 to uptr
--   Prepared emitter for 64 bit jumps
--   Made yuv2rgb and hashmap functions 64 bit ready
--   vtlb now works on on x64
--   Supported grabbing the MXCSR mask on x86_64 in cpudetect
--   GSdx now compiles for x64
+- Changed instances of u32 to uptr
+- Prepared emitter for 64 bit jumps
+- Made yuv2rgb and hashmap functions 64 bit ready
+- vtlb now works on on x64
+- Supported grabbing the MXCSR mask on x86_64 in cpudetect
+- GSdx now compiles for x64
 
 VIF:
 
--   Fixed Looney Tunes: Back in Action
-
+- Fixed Looney Tunes: Back in Action
 
 Improved Debugger:
 
--   Allows much easier debugging of broken games
--   Already used to get NHL games working
--   Features a live assembler (e.g. mark an instruction, type nop to
-replace that instruction with nop)
+- Allows much easier debugging of broken games
+- Already used to get NHL games working
+- Features a live assembler (e.g. mark an instruction, type nop to
+  replace that instruction with nop)
 
 Plugins:
 
--   Bug fixes for CDVDgigaherz
--   CDVDgigaherz now prevents the drive from spinning all the way down
-which improves performance when playing from disc
--   Lilypad supports hot-plugging of Xinput devices
+- Bug fixes for CDVDgigaherz
+- CDVDgigaherz now prevents the drive from spinning all the way down
+  which improves performance when playing from disc
+- Lilypad supports hot-plugging of Xinput devices
 
 Code cleanup:
 
--   Changed int to bool for variables that only hold 0/1
--   Fixes for potential crashes
--   Fixes for potential variable leaks
--   Preparation for WX3 (for now we still use a custom 2.8)
--   Removed managed Vsync
--   Folder name fixes for Windows/Linux
--   Improved use of namespaces
--   Fixes for ELF parser
--   Started using generic memcpy instead of custom one(this actually
-brings a small speedup!)
+- Changed int to bool for variables that only hold 0/1
+- Fixes for potential crashes
+- Fixes for potential variable leaks
+- Preparation for WX3 (for now we still use a custom 2.8)
+- Removed managed Vsync
+- Folder name fixes for Windows/Linux
+- Improved use of namespaces
+- Fixes for ELF parser
+- Started using generic memcpy instead of custom one(this actually
+  brings a small speedup!)
 
 Misc:
 
--   Updated translations for several languages
+- Updated translations for several languages
 
 Check out the new debugger below:
 

@@ -1,11 +1,11 @@
 ---
 authors:
-- jake stine
+  - jake stine
 date: 2009-06-23 00:00:00
 description: There are a lot of buzzwords in emulator recompilation
 draft: false
 tags:
-- devblog
+  - devblog
 title: Recompilers All Dems Buzzwords
 ---
 
@@ -14,15 +14,14 @@ include:
 
 <!-- truncate -->
 
--   Intermediate Representation
--   Intermediate Language
--   Register Mapping
--   Register Allocation
--   Constant Propagation
--   Constant Folding
--   Register coloring
--   SSA (static single assignment optimization)
-
+- Intermediate Representation
+- Intermediate Language
+- Register Mapping
+- Register Allocation
+- Constant Propagation
+- Constant Folding
+- Register coloring
+- SSA (static single assignment optimization)
 
 What do they mean? And perhaps more importantly, what do they mean to a
 user of the emulator? Truth is, not much usually. Most of these things
@@ -31,7 +30,7 @@ compilers like those for C/C++, C\#, Java, etc. Some of them are useful
 to emulator recompilers, some not so much.
 
 The first thing to consider when working on a recompiler is that we are
-working with what is most likely *optimized code* . The machine code
+working with what is most likely _optimized code_ . The machine code
 that your favorite games are running on your PS2 is already parsed and
 optimized by a compiler (or in the case of older consoles,
 hand-optimized). Secondly, recompilers typically have a single-block
@@ -77,13 +76,12 @@ generate the final recompiled product.
 
 In either case, the dual purposes of an IR/IL are:
 
--   To simplify the instruction set as much as possible so that
-optimizations can be analyzed without requiring a lot of
-special-case code.
--   To provide a platform-independent "stage" to the compilation
-process, so that ports of the recompiler to new target platforms
-need not be rewritten from the ground up.
-
+- To simplify the instruction set as much as possible so that
+  optimizations can be analyzed without requiring a lot of
+  special-case code.
+- To provide a platform-independent "stage" to the compilation
+  process, so that ports of the recompiler to new target platforms
+  need not be rewritten from the ground up.
 
 Because of the complicated nature of an emulator, an IL itself is
 virtually useless. There's typically too much per-instruction cpu state
@@ -97,11 +95,11 @@ fairly interchangeable terms. I prefer the term mapping, but other folks
 like to call it allocation. Register mapping/allocation is typically one
 of the final stages of recompilation since it's dependent on the target
 platform (in our case x86), and is also one of the most complex. It's
-also typically *not* very beneficial for performance when the target
+also typically _not_ very beneficial for performance when the target
 platform is an x86 machine (which in our case it is), unless register
-mapping algorithms are *very* clever.
+mapping algorithms are _very_ clever.
 
-As I mentioned in my previous blog entry, the *most significant* factor
+As I mentioned in my previous blog entry, the _most significant_ factor
 in a recompiler's speed is simply the fact that it's acting as a
 decoded-instruction cache, and that it executes instructions in bursts
 (a block at a time instead of one-by-one). All the rest of these

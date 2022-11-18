@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
 export function NumberTicker({ number, numberFunc }) {
   const [currVal, setCurrVal] = useState(0);
@@ -13,7 +13,7 @@ export function NumberTicker({ number, numberFunc }) {
     } else {
       currValTracker.current = currVal;
     }
-  }, [currVal])
+  }, [currVal]);
 
   useEffect(async () => {
     // Figure out the max value (either provided directly or via the function)
@@ -21,7 +21,7 @@ export function NumberTicker({ number, numberFunc }) {
       const num = await numberFunc();
       // TODO - handle error
       setMaxVal(num);
-      const startingVal = Math.max(0, Math.round(num - (num * 0.025)));
+      const startingVal = Math.max(0, Math.round(num - num * 0.025));
       setCurrVal(startingVal);
     } else {
       setMaxVal(number);
@@ -32,8 +32,5 @@ export function NumberTicker({ number, numberFunc }) {
     }, 25);
   }, []);
 
-
-
   return <span>{currVal}</span>;
-
 }

@@ -1,19 +1,19 @@
 ---
 authors:
-- blyss sarania
+  - blyss sarania
 date: 2015-07-26 00:00:00
-description: As promised in last month's update, welcome to PCSX2's very first monthly
+description:
+  As promised in last month's update, welcome to PCSX2's very first monthly
   progress report!
 draft: false
 tags:
-- progress-report
+  - progress-report
 title: June 2015 Progress Report
 ---
 
 <!-- truncate -->
 
 ![](./img/6-2015-logo.jpg)
-
 
 As promised in last month's update, welcome to PCSX2's very first
 monthly progress report! Sorry that it's a bit later than I had said -
@@ -32,6 +32,7 @@ them in hardware mode would result in only half the screen being visible
 because of the way the engine achieves the 2x SSAA.
 
 ## GSdx: Hardware rendering Snowblind Game fix
+
 - by [Gregory](https://github.com/gregory38) & [Refraction](https://github.com/refractionpcsx2)
 
 However the situation has changed drastically thanks to Gregory.
@@ -46,6 +47,7 @@ time, with Gregory taking on the GS and Refraction taking on the VU.
 There is quite a lot to cover, so let's get started!
 
 ## GSdx: Usage of programmable blending instead of fixed blending
+
 - by [Gregory](https://github.com/gregory38)
 
 To understand the following issues and their solutions, you must
@@ -65,9 +67,6 @@ the output of the blending unit can be out of the valid range. Normally
 this is no problem - a GPU will clamp it. But things get a little
 different in the case of the GS which also wraps it.
 
-
-
-
 | **Blending unit (Output)** | **Result** |
 | :------------------------: | :--------: |
 |            -10             |     0      |
@@ -81,7 +80,6 @@ different in the case of the GS which also wraps it.
 |            300             |     44     |
 
 > Graphics Synthesizer
-
 
 In order to remedy this discrepancy between GS and standard GPU behavior
 we are using a shader that emulates the blending in a proper way with
@@ -118,17 +116,35 @@ Now let's take a look at how some of the games look with a shader that
 properly emulates blending \[Accurate options enabled\] compared to
 normal GPU Blending \[Accurate options disabled\].
 
-<SliderCompare before={require("./img/fbmask_broken_s.jpg").default} after={require("./img/fbmask_fixed_s.jpg").default} />
+<SliderCompare
+  before={require("./img/fbmask_broken_s.jpg").default}
+  after={require("./img/fbmask_fixed_s.jpg").default}
+/>
 
-<SliderCompare before={require("./img/castlevania_broken_s.jpg").default} after={require("./img/castlevania_fixed_s.jpg").default} />
+<SliderCompare
+  before={require("./img/castlevania_broken_s.jpg").default}
+  after={require("./img/castlevania_fixed_s.jpg").default}
+/>
 
-<SliderCompare before={require("./img/moh_broken_s.jpg").default} after={require("./img/moh_fixed_s.jpg").default} />
+<SliderCompare
+  before={require("./img/moh_broken_s.jpg").default}
+  after={require("./img/moh_fixed_s.jpg").default}
+/>
 
-<SliderCompare before={require("./img/nemo_broken_s.jpg").default} after={require("./img/nemo_fixed_s.jpg").default} />
+<SliderCompare
+  before={require("./img/nemo_broken_s.jpg").default}
+  after={require("./img/nemo_fixed_s.jpg").default}
+/>
 
-<SliderCompare before={require("./img/fifa_street_broken_s.jpg").default} after={require("./img/fifa_street_fixed_s.jpg").default} />
+<SliderCompare
+  before={require("./img/fifa_street_broken_s.jpg").default}
+  after={require("./img/fifa_street_fixed_s.jpg").default}
+/>
 
-<SliderCompare before={require("./img/hulk_broken_s.jpg").default} after={require("./img/hulk_fixed_s.jpg").default} />
+<SliderCompare
+  before={require("./img/hulk_broken_s.jpg").default}
+  after={require("./img/hulk_fixed_s.jpg").default}
+/>
 
 Lastly, it should be noted that accurate date isn't the same as the
 other accurate options. Accurate date implements an even more accurate
@@ -141,18 +157,17 @@ Gregory is currently working on a branch merging all the separate
 options into a single one called "Blending Unit Accuracy" with different
 modes with respect to it's accuracy and impact on performance.
 
-
 ## Log message and Title bar for showcasing Renderer change
+
 - by [Turtleli](https://github.com/turtleli) & [ssakash](https://github.com/ssakash)
 
 <Image cols={6} src={require("./img/gsdx_renderer_displ.webp").default} />
 
 <Image cols={6} src={require("./img/gsdx_console_displ.webp").default} />
 
-
 The following feature had been requested a few times but was very low
 priority, since the setting could easily be identified by taking a look
-at the *GSdx Plugin settings*.
+at the _GSdx Plugin settings_.
 But this wasn't actually as simple a case as it could have been. There
 is a Shortcut key (F9) for toggling the mode of a specific renderer from
 software to hardware mode. Using said shortcut key and changing the
@@ -163,12 +178,11 @@ ssakash.
 
 Relevant PR:
 
--   [TitleBar](https://github.com/PCSX2/pcsx2/pull/606)
--   [Console Message](https://github.com/PCSX2/pcsx2/pull/617)
-
-
+- [TitleBar](https://github.com/PCSX2/pcsx2/pull/606)
+- [Console Message](https://github.com/PCSX2/pcsx2/pull/617)
 
 ## Stuart Little 3: VIF-MFIFO Stall Issue & Dev9ghz: Unique MAC
+
 - by [Refraction](https://github.com/refractionpcsx2)
 
 This issue was a regression which happened sometime between 1.0.0 and
@@ -186,13 +200,13 @@ based on the host's MAC address.
 
 Relevant commit:
 
--   [VIF-MFIFO: Fix for stalls on wait instructions, fixes Stuart Little
-3](https://github.com/PCSX2/pcsx2/commit/c753f0d206d0da7a59d4bd771fffc52fbd0a6d94)
--   [dev9ghzdrk: Make the MAC truely
-unique](https://github.com/PCSX2/pcsx2/commit/819133ee45834548bd5e4f248c0234584cb0ebb5)
-
+- [VIF-MFIFO: Fix for stalls on wait instructions, fixes Stuart Little
+  3](https://github.com/PCSX2/pcsx2/commit/c753f0d206d0da7a59d4bd771fffc52fbd0a6d94)
+- [dev9ghzdrk: Make the MAC truely
+  unique](https://github.com/PCSX2/pcsx2/commit/819133ee45834548bd5e4f248c0234584cb0ebb5)
 
 ## Dev9ghz: Improvement in Log file handling
+
 - by [TheLastRar](https://github.com/TheLastRar)
 
 Previously the Dev9ghz plugin used the system registry for saving
@@ -207,13 +221,13 @@ statement.
 
 Relevant PR:
 
--   [Fix Ethernet adapter
-crash](https://github.com/PCSX2/pcsx2/pull/654) .
--   [INI files for saving
-settings](https://github.com/PCSX2/pcsx2/pull/607) .
-
+- [Fix Ethernet adapter
+  crash](https://github.com/PCSX2/pcsx2/pull/654) .
+- [INI files for saving
+  settings](https://github.com/PCSX2/pcsx2/pull/607) .
 
 ## Custom Patches to fix game crashes/hangs
+
 - by [prafull](http://forums.pcsx2.net/User-prafull)
 
 The number of PS2 games playable with PCSX2 has vastly increased over
@@ -228,14 +242,13 @@ for users who were waiting to play these games.
 
 Games that have become playable with patches this month include:
 
--   Spongebob Squarepants - The Movie
--   Neo Contra
--   World Rally Championship 3
--   The Incredibles
--   The Incredibles - Rise of the Underminer
--   Dead or Alive 2 Hardcore
--   NHL 2K8
-
+- Spongebob Squarepants - The Movie
+- Neo Contra
+- World Rally Championship 3
+- The Incredibles
+- The Incredibles - Rise of the Underminer
+- Dead or Alive 2 Hardcore
+- NHL 2K8
 
 These new patches have been merged into the GameDB so that every user
 can make use of them by enabling "Automatic Gamefixes" option when

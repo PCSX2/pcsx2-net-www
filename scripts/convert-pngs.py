@@ -18,7 +18,7 @@ def find_and_replace_file(path, find, replace_with):
   with open(path, 'w') as file:
     file.write(filedata)
 
-for f in glob.glob('./content/blog/**/index.md', recursive=True):
+for f in glob.glob('./blog/**/index.md', recursive=True):
   article_dir = Path(f).parent.absolute()
   if os.path.exists(os.path.join(article_dir, 'img')):
     pngs = glob.glob(os.path.join(article_dir, 'img/*.png'))

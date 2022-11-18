@@ -1,12 +1,13 @@
 ---
 authors:
-- blyss sarania
+  - blyss sarania
 date: 2015-06-11 00:00:00
-description: Hello everyone! I know our news updates have been few and far between
+description:
+  Hello everyone! I know our news updates have been few and far between
   as of late, but that's going to change starting now!
 draft: false
 tags:
-- progress-report
+  - progress-report
 title: Major Gsdx Progress And Monthly Progress Reports!
 ---
 
@@ -56,7 +57,10 @@ Here is a screenshot comparison showing Tekken 5:
 
 Without/Without Align Sprite:
 
-<ImageCompare left={require("./img/Tekken-5-Without-Align-Hack_s.webp").default} right={require("./img/Tekken-5-With-Align-Hack_s.webp").default} />
+<ImageCompare
+  left={require("./img/Tekken-5-Without-Align-Hack_s.webp").default}
+  right={require("./img/Tekken-5-With-Align-Hack_s.webp").default}
+/>
 
 The second hack is the Round sprite hack. As above, this hack solves an
 upscaling problem that was not solvable in any other way. In many games
@@ -79,7 +83,10 @@ Here is a comparison screenshot showing Artonelico - Melody of Elemia:
 
 Without/Without Round Sprite:
 
-<ImageCompare left={require("./img/ATon-no-round-sprite_s.jpg").default} right={require("./img/ATon-round-sprite_s.jpg").default} />
+<ImageCompare
+  left={require("./img/ATon-no-round-sprite_s.jpg").default}
+  right={require("./img/ATon-round-sprite_s.jpg").default}
+/>
 
 For an in depth explanation of both of these new hacks, please read the
 developer blog post
@@ -112,7 +119,10 @@ Eater:
 
 Incorrect/Correct Blending:
 
-<ImageCompare left={require("./img/MGS-bad-blend_s.webp").default} right={require("./img/MGS-good-blend_s.webp").default} />
+<ImageCompare
+  left={require("./img/MGS-bad-blend_s.webp").default}
+  right={require("./img/MGS-good-blend_s.webp").default}
+/>
 
 For an in depth explanation of why we have "impossible" blends and how
 Gregory fixed that, please read the developer blog post located
@@ -125,7 +135,10 @@ par with the DirectX backend in most situations and even more accurate
 in some games. A good example of that is the shadow rendering in Shadow
 of the Colossus (pun not intended!).
 
-<ImageCompare left={require("./img/sotc_before_s.webp").default} right={require("./img/sotc_after_s.webp").default} />
+<ImageCompare
+  left={require("./img/sotc_before_s.webp").default}
+  right={require("./img/sotc_after_s.webp").default}
+/>
 
 We can see from these images that it's the OpenGL backend that does it
 best now. However the OpenGL backend is also known for being much slower
@@ -140,30 +153,36 @@ just how well they compare now (thanks go to Refraction for testing):
 **Soul Calibur III**
 
 Without MTVU:
+
 - OGL+Texture Storage = 96fps
 - DirectX11 = 92fps
 
 With MTVU:
+
 - OGL+Texture Storage = 114fps
 - DirectX11= 112fps
 
 **Grand Theft Auto: San Andreas**
 
 Without MTVU:
+
 - OGL+Texture Storage = 120fps
 - DirectX11= 121fps
 
 With MTVU:
+
 - OGL+Texture Storage = 155fps
 - DirectX11= 157fps
 
 **Grandia III**
 
 Without MTVU:
+
 - OGL+Texture Storage = 94fps
 - DirectX11= 94fps
 
 With MTVU:
+
 - OGL+Texture Storage = 123fps
 - DirectX11= 122fps
 

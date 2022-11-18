@@ -1,12 +1,12 @@
 ---
 authors:
-- lightningterror
-- ck1
+  - lightningterror
+  - ck1
 date: 2018-04-10 00:00:00
 description: What sorcery is this, we are on time with the progress report
 draft: false
 tags:
-- progress-report
+  - progress-report
 title: Q1 2018 Progress Report
 ---
 
@@ -18,7 +18,9 @@ We bring to you another progress report like usual. Enjoy!
 
 ![](./img/progrepq12018.jpg)
 
-<PCSX2PRLink authors="AlessandroVetere" prNums="1944">GSdx-TC: Performance improvement by using custom container</PCSX2PRLink>
+<PCSX2PRLink authors="AlessandroVetere" prNums="1944">
+  GSdx-TC: Performance improvement by using custom container
+</PCSX2PRLink>
 
 A massive improvement on GSdx was done in Q2 2017 that we forgot to
 mention which improves the performance on both hardware and software
@@ -27,23 +29,26 @@ It's a bit technical so all we can say is that it improves performance
 but if anyone wishes to read the more technical stuff then it's best to
 checkout the Pull Request on GitHub.
 
-<PCSX2PRLink authors="ssakash" prNums="2122">GSdx-TC: Load size calculation in target update</PCSX2PRLink>
+<PCSX2PRLink authors="ssakash" prNums="2122">
+  GSdx-TC: Load size calculation in target update
+</PCSX2PRLink>
 
 Akash also updated the texture cache that fixed/improved a few issues as
 well as solved a couple of regressions. These changes should help with
 improving emulation accuracy on native and upscaled resolutions.
 
--   Fix the load size calculation in target update.
--   Add an optional macro (ENABLE\_ACCURATE\_BUFFER\_EMULATION) for
-enabling more accurate emulation of the buffer size.
--   Fixed a regression that caused many games to crash with custom
-resolutions (Gran Turismo series, Silent Hill series, Persona
-series, Metal Gear Solid series and others as well).
--   Fixed a regression on Beyond Good And Evil that exhibited FMV
-flickering.
+- Fix the load size calculation in target update.
+- Add an optional macro (ENABLE_ACCURATE_BUFFER_EMULATION) for
+  enabling more accurate emulation of the buffer size.
+- Fixed a regression that caused many games to crash with custom
+  resolutions (Gran Turismo series, Silent Hill series, Persona
+  series, Metal Gear Solid series and others as well).
+- Fixed a regression on Beyond Good And Evil that exhibited FMV
+  flickering.
 
-<PCSX2PRLink authors="lightningterror" prNums="2347">GSdx: Texture Shuffle port to Direct3D</PCSX2PRLink>
-
+<PCSX2PRLink authors="lightningterror" prNums="2347">
+  GSdx: Texture Shuffle port to Direct3D
+</PCSX2PRLink>
 
 Previously texture shuffle only worked if CRC hack level was below full
 since it was in beta stage. lightningterror did the testing, adjusted
@@ -53,7 +58,6 @@ games that make use of the same effect.
 The Godfather, Urban Chaos, 50 Cent Bulletproof, Metal Gear solid
 series,God of War series, Final Fight Streetwise,The Suffering Ties that
 Bind,Sengoku Basara and many others.
-
 
 Note that texture shuffle is only supported by Direct3D10/11, however a
 partial port has been done for Direct3D9 as well. Direct3D 9 will skip
@@ -70,7 +74,9 @@ Here are some example comparisons on Direct3D11.
 
 <Image cols={6} src={require("./img/d3d-fixes-before-after.jpg").default} />
 
-<PCSX2PRLink authors="lightningterror" prNums="2347">GSdx: Channel Shuffle improvements on Direct3D</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="2347">
+  GSdx: Channel Shuffle improvements on Direct3D
+</PCSX2PRLink>
 
 A small adjustment has been made in the channel shuffle detection on
 Direct3D, a lot of games should see an improvement where the top left
@@ -122,7 +128,9 @@ The CRC hack code was also cleaned up a bit, many games
 (prequels/sequels) shared code, which has now been merged making it more
 compact, readable and cleaner.
 
-<PCSX2PRLink authors="ssakash" prNums="2239">PCSX2-Counters: Fix Hblank calculation for DVD video modes</PCSX2PRLink>
+<PCSX2PRLink authors="ssakash" prNums="2239">
+  PCSX2-Counters: Fix Hblank calculation for DVD video modes
+</PCSX2PRLink>
 
 Previously, the DVD variant NTSC/PAL modes used the horizontal blanking
 interval calculation algorithm used by digital video modes, which
@@ -136,22 +144,27 @@ graphic corruptions resolved.
 
 # GUI Changes and Enhancements
 
-<PCSX2PRLink authors="lightningterror" prNums="2272">Add configurable Cheats folder to Components Selectors</PCSX2PRLink>
+<PCSX2PRLink authors="lightningterror" prNums="2272">
+  Add configurable Cheats folder to Components Selectors
+</PCSX2PRLink>
 
 - Add GUI option to Plugins Components Selectors to change the default "Cheats" folder location. Similar to savestates/logs/..etc..
 
-<PCSX2PRLink authors="ssakash" prNums="2237">Display the video mode on titlebar</PCSX2PRLink>
+<PCSX2PRLink authors="ssakash" prNums="2237">
+  Display the video mode on titlebar
+</PCSX2PRLink>
 
 - Display current video mode at the title bar. (Useful for debugging purposes and for user feedback at cases when video mode is being changed)
 
 # Other Enhancements
 
-<PCSX2PRLink authors="FlatOutPS2" prNums="2295">XPad andUSBqemu have been moved to Legacy solution/plugins</PCSX2PRLink>
+<PCSX2PRLink authors="FlatOutPS2" prNums="2295">
+  XPad andUSBqemu have been moved to Legacy solution/plugins
+</PCSX2PRLink>
 
 No need to keep old legacy and outdated plugins in the main
 branch anyway. They also won't be included in the 1.6 release.
 If people want to use them they can be found on the website.
-
 
 # The PCSX2 code has gone through a lot of cleanup by [turtleli](https://github.com/turtleli)
 
@@ -168,7 +181,10 @@ issues such as the broken graphics in Spongebob: Creature from the
 Krusty Krab.
 Here is an example how the game looks right now:
 
-<SliderCompare before={require("./img/sbb-before-s.jpg").default} after={require("./img/sbb-after-s.jpg").default} />
+<SliderCompare
+  before={require("./img/sbb-before-s.jpg").default}
+  after={require("./img/sbb-after-s.jpg").default}
+/>
 
 There are other additions that haven't been mentioned as well but those
 can be viewed on GitHub and these are just the highlights we thought

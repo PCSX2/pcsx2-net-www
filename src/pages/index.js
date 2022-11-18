@@ -1,16 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import Link from '@docusaurus/Link';
-import Layout from '@theme/Layout';
-import { Text, Button, Row, Col, Card, Grid, getDocumentTheme } from "@nextui-org/react";
+import React, { useState, useEffect } from "react";
+import Link from "@docusaurus/Link";
+import Layout from "@theme/Layout";
+import {
+  Text,
+  Button,
+  Row,
+  Col,
+  Card,
+  Grid,
+  getDocumentTheme,
+} from "@nextui-org/react";
 import { NumberTicker } from "../components/NumberTicker";
-import { Animation } from '../components/SphereAnimation';
-import { getLatestRelease } from '../components/ReleaseDownloadButton';
+import { Animation } from "../components/SphereAnimation";
+import { getLatestRelease } from "../components/ReleaseDownloadButton";
 import BrowserOnly from "@docusaurus/BrowserOnly";
-import { ReleaseDownloadButton } from '../components/ReleaseDownloadButton';
-import { GoogleAd } from '../components/GoogleAd';
+import { ReleaseDownloadButton } from "../components/ReleaseDownloadButton";
+import { GoogleAd } from "../components/GoogleAd";
 import { useMediaQuery } from "../utils/mediaQuery";
 import { styled } from "@nextui-org/react";
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 const StyledTitle = styled("h1", {
   display: "inline",
@@ -42,13 +50,16 @@ const StyledSubtitle = styled("p", {
   color: "$accents7",
 });
 
-import CompatData from '@site/static/data/compat/data.min.json';
+import CompatData from "@site/static/data/compat/data.min.json";
 
 function getPlayableGameCount() {
   try {
     let count = 0;
     for (const entry of CompatData) {
-      if (entry.status.toLowerCase() === "perfect" || entry.status.toLowerCase() === "playable") {
+      if (
+        entry.status.toLowerCase() === "perfect" ||
+        entry.status.toLowerCase() === "playable"
+      ) {
         count++;
       }
     }
@@ -59,22 +70,19 @@ function getPlayableGameCount() {
   }
 }
 
+import { latestProgressReport, latestBlog } from "../data/latestBlogs";
 
-import { latestProgressReport, latestBlog } from '../data/latestBlogs';
-
-const baseApiUrl = "https://api.pcsx2.net/v1"
+const baseApiUrl = "https://api.pcsx2.net/v1";
 
 export default function Home() {
   const [latestStableRelease, setLatestStableRelease] = useState({});
   const [latestNightlyRelease, setLatestNightlyRelease] = useState({});
   const [apiErrorMsg, setApiErrorMsg] = useState(undefined);
-  const [homePosterUrl, setHomePosterUrl] = useState("/img/home-poster.webp")
+  const [homePosterUrl, setHomePosterUrl] = useState("/img/home-poster.webp");
 
   useEffect(async () => {
     try {
-      const resp = await fetch(
-        `${baseApiUrl}/latestReleasesAndPullRequests`
-      );
+      const resp = await fetch(`${baseApiUrl}/latestReleasesAndPullRequests`);
       if (resp.status === 429) {
         setApiErrorMsg("You are Being Rate-Limited. Try Again Later!");
       } else if (resp.status !== 200) {
@@ -96,59 +104,82 @@ export default function Home() {
       setApiErrorMsg("Unexpected API Error Occurred. Try Again Later!");
     }
 
-    setHomePosterUrl(getDocumentTheme(document?.documentElement) === "dark" ? "/img/home-poster.webp" : "/img/home-poster-light.webp");
+    setHomePosterUrl(
+      getDocumentTheme(document?.documentElement) === "dark"
+        ? "/img/home-poster.webp"
+        : "/img/home-poster-light.webp"
+    );
 
     const observer = new MutationObserver((mutation) => {
-      setHomePosterUrl(getDocumentTheme(document?.documentElement) === "dark" ? "/img/home-poster.webp" : "/img/home-poster-light.webp");
+      setHomePosterUrl(
+        getDocumentTheme(document?.documentElement) === "dark"
+          ? "/img/home-poster.webp"
+          : "/img/home-poster-light.webp"
+      );
     });
 
     // Observe the document theme changes
     observer.observe(document?.documentElement, {
       attributes: true,
-      attributeFilter: ['data-theme', 'style', "class"]
+      attributeFilter: ["data-theme", "style", "class"],
     });
   }, []);
 
   return (
-    <Layout
-      title={`Home`}
-      description="An Open-Source Playstation 2 Emulator">
+    <Layout title={`Home`} description="An Open-Source Playstation 2 Emulator">
       <main>
-        {useMediaQuery(960) ? <img src={useBaseUrl(homePosterUrl)} style={{
-                position: "absolute",
-                minHeight: "calc(84vh - 76px)",
-                width: "100%",
-                objectFit: "cover"
-              }} /> : <BrowserOnly>
-              {() => (<Animation />
-              )}
-            </BrowserOnly>}
-        <Grid.Container alignItems='center' gap={2} css={{
-          position: "relative",
-          minHeight: "calc(84vh - 76px)",
-          zIndex: "$2",
-          "@md": {
-            pl: "5em",
-            pr: "5em"
-          },
-          width: "100%",
-          margin: 0
-        }}>
+        {useMediaQuery(960) ? (
+          <img
+            src={useBaseUrl(homePosterUrl)}
+            style={{
+              position: "absolute",
+              minHeight: "calc(84vh - 76px)",
+              width: "100%",
+              objectFit: "cover",
+            }}
+          />
+        ) : (
+          <BrowserOnly>{() => <Animation />}</BrowserOnly>
+        )}
+        <Grid.Container
+          alignItems="center"
+          gap={2}
+          css={{
+            position: "relative",
+            minHeight: "calc(84vh - 76px)",
+            zIndex: "$2",
+            "@md": {
+              pl: "5em",
+              pr: "5em",
+            },
+            width: "100%",
+            margin: 0,
+          }}
+        >
           <Grid xs={12} md={6} direction="column">
             <Grid>
-              <StyledGradientTitle css={{ mb: 0 }}>PCSX2&nbsp;</StyledGradientTitle>
+              <StyledGradientTitle css={{ mb: 0 }}>
+                PCSX2&nbsp;
+              </StyledGradientTitle>
               <StyledTitle css={{ mb: 0 }}>is an open source&nbsp;</StyledTitle>
-              <StyledGradientTitle css={{ mb: 0 }}>PS2 Emulator</StyledGradientTitle>
+              <StyledGradientTitle css={{ mb: 0 }}>
+                PS2 Emulator
+              </StyledGradientTitle>
             </Grid>
             <Grid>
               <StyledSubtitle>
                 <span>
                   Supporting&nbsp;
                   <NumberTicker numberFunc={getPlayableGameCount} />
-                  &nbsp;Games from the PS2 Library</span>
+                  &nbsp;Games from the PS2 Library
+                </span>
               </StyledSubtitle>
             </Grid>
-            <Grid.Container direction="column" gap={2} alignItems={useMediaQuery(960) ? "center" : "flex-start"}>
+            <Grid.Container
+              direction="column"
+              gap={2}
+              alignItems={useMediaQuery(960) ? "center" : "flex-start"}
+            >
               <Grid>
                 <ReleaseDownloadButton
                   release={latestStableRelease}
@@ -166,7 +197,10 @@ export default function Home() {
                 />
               </Grid>
               <Grid>
-                <a href={useBaseUrl("/downloads")} style={{ textDecoration: "none" }}>
+                <a
+                  href={useBaseUrl("/downloads")}
+                  style={{ textDecoration: "none" }}
+                >
                   <Button light color="secondary" css={{ minWidth: "200px" }}>
                     Previous Versions
                   </Button>
@@ -179,9 +213,16 @@ export default function Home() {
               <Grid md={6}>
                 <a href={useBaseUrl(latestProgressReport.url)}>
                   <Card>
-                    <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
+                    <Card.Header
+                      css={{ position: "absolute", zIndex: 1, top: 5 }}
+                    >
                       <Col>
-                        <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
+                        <Text
+                          size={12}
+                          weight="bold"
+                          transform="uppercase"
+                          color="#ffffffAA"
+                        >
                           Latest Progress Report
                         </Text>
                         <Text h4 color="white">
@@ -196,7 +237,8 @@ export default function Home() {
                       height={"300px"}
                       alt="Card image background"
                     />
-                  </Card></a>
+                  </Card>
+                </a>
               </Grid>
             </Grid.Container>
             <Grid.Container gap={2}>
@@ -204,9 +246,16 @@ export default function Home() {
               <Grid md={6}>
                 <a href={useBaseUrl(latestBlog.url)}>
                   <Card>
-                    <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
+                    <Card.Header
+                      css={{ position: "absolute", zIndex: 1, top: 5 }}
+                    >
                       <Col>
-                        <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
+                        <Text
+                          size={12}
+                          weight="bold"
+                          transform="uppercase"
+                          color="#ffffffAA"
+                        >
                           Latest Blog
                         </Text>
                         <Text h4 color="white">
@@ -221,75 +270,105 @@ export default function Home() {
                       height={"300px"}
                       alt="Card image background"
                     />
-                  </Card></a>
+                  </Card>
+                </a>
               </Grid>
             </Grid.Container>
           </Grid>
         </Grid.Container>
-        <Row justify='center'>
-          <Col css={{
-            "@md": {
-              width: "50%"
-            },
-            "@mdMax": {
-              width: "100%"
-            }
-          }}>
+        <Row justify="center">
+          <Col
+            css={{
+              "@md": {
+                width: "50%",
+              },
+              "@mdMax": {
+                width: "100%",
+              },
+            }}
+          >
             <GoogleAd></GoogleAd>
           </Col>
         </Row>
-        <Grid.Container gap={2} css={{
-          "@md": {
-            pl: "5em",
-            pr: "5em"
-          },
-          "@mdMax": {
-            pl: "2em",
-            pr: "2em"
-          },
-          width: "100%",
-          margin: 0
-        }}>
-          <Grid xs={12} direction="column" >
+        <Grid.Container
+          gap={2}
+          css={{
+            "@md": {
+              pl: "5em",
+              pr: "5em",
+            },
+            "@mdMax": {
+              pl: "2em",
+              pr: "2em",
+            },
+            width: "100%",
+            margin: 0,
+          }}
+        >
+          <Grid xs={12} direction="column">
             <StyledTitle css={{ mb: 0 }}>About the Project</StyledTitle>
             <StyledSubtitle>
-              Being almost as old as the console it is emulating, PCSX2 not only has a lot of history behind it, but a continually evolving future.
+              Being almost as old as the console it is emulating, PCSX2 not only
+              has a lot of history behind it, but a continually evolving future.
             </StyledSubtitle>
           </Grid>
           <Grid.Container gap={2}>
             <Grid md={4}>
-              <span>PCSX2 is a free and open-source PlayStation 2 (PS2) emulator. Its purpose is to emulate the PS2's hardware, using a combination of MIPS CPU Interpreters, Recompilers and a Virtual Machine which manages hardware states and PS2 system memory.</span>
+              <span>
+                PCSX2 is a free and open-source PlayStation 2 (PS2) emulator.
+                Its purpose is to emulate the PS2's hardware, using a
+                combination of MIPS CPU Interpreters, Recompilers and a Virtual
+                Machine which manages hardware states and PS2 system memory.
+              </span>
             </Grid>
             <Grid md={4}>
-              <p>The project has been running for almost 20 years. Past versions could only run a few public domain game demos, but newer versions can run most games at full speed, including popular titles such as Final Fantasy X and Devil May Cry 3.</p>
+              <p>
+                The project has been running for almost 20 years. Past versions
+                could only run a few public domain game demos, but newer
+                versions can run most games at full speed, including popular
+                titles such as Final Fantasy X and Devil May Cry 3.
+              </p>
             </Grid>
             <Grid md={4}>
-              <p>A significant majority of the official PS2 library is considered playable or perfect, with the remainder at least making it to the menus. For more information on compatibility, see <Link to="/compat">here</Link>.</p>
+              <p>
+                A significant majority of the official PS2 library is considered
+                playable or perfect, with the remainder at least making it to
+                the menus. For more information on compatibility, see{" "}
+                <Link to="/compat">here</Link>.
+              </p>
             </Grid>
           </Grid.Container>
-          <Grid.Container gap={2}><Grid xs={12}>
-            <p>
-              PCSX2 allows you to play PS2 games on your PC, with many additional features and benefits. A few of those benefits include:
-              <ul>
-                <li>custom resolutions and upscaling</li>
-                <li>virtual and sharable memory cards</li>
-                <li>save-states</li>
-                <li>patching system</li>
-                <li>internal recorder to achieve lossless quality at full speed</li>
-              </ul>
-            </p>
-          </Grid></Grid.Container>
+          <Grid.Container gap={2}>
+            <Grid xs={12}>
+              <p>
+                PCSX2 allows you to play PS2 games on your PC, with many
+                additional features and benefits. A few of those benefits
+                include:
+                <ul>
+                  <li>custom resolutions and upscaling</li>
+                  <li>virtual and sharable memory cards</li>
+                  <li>save-states</li>
+                  <li>patching system</li>
+                  <li>
+                    internal recorder to achieve lossless quality at full speed
+                  </li>
+                </ul>
+              </p>
+            </Grid>
+          </Grid.Container>
         </Grid.Container>
         {/* TODO - this page can be made more interesting once Qt comes out (showcase notable features with some visuals) */}
-        <Row justify='center'>
-          <Col css={{
-            "@md": {
-              width: "50%"
-            },
-            "@mdMax": {
-              width: "100%"
-            }
-          }}>
+        <Row justify="center">
+          <Col
+            css={{
+              "@md": {
+                width: "50%",
+              },
+              "@mdMax": {
+                width: "100%",
+              },
+            }}
+          >
             <GoogleAd></GoogleAd>
           </Col>
         </Row>

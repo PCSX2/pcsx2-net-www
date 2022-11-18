@@ -1,11 +1,11 @@
 ---
 authors:
-- bositman
+  - bositman
 date: 2017-02-02 00:00:00
 description: Finally the Q4 2016 progress report!
 draft: false
 tags:
-- progress-report
+  - progress-report
 title: Q4 2016 Progress Report
 ---
 
@@ -17,6 +17,7 @@ will find it was worth the wait! On to the changes:
 ![](./img/progress-rep-q4-2016.jpg)
 
 ## cdvdgigaherz: Linux port
+
 - by [turtleli](https://github.com/turtleli)
 
 cdvdGigaherz was originally a Windows only CD/DVD disk reading plugin.
@@ -25,6 +26,7 @@ specific code as possible and adding a Linux disk reading backend and
 GUI, cdvdGigaherz now works on Linux.
 
 ## PSX mode compatibility
+
 - by [Rama](https://github.com/ramapcsx2) and [Pseudonym](https://github.com/sudonim1)
 
 Previously, PCSX2 had always failed to play PSX games due to
@@ -60,16 +62,15 @@ under PCSX2's brand new PSX mode:
 
 **Note**:
 
--   PSX backward compatibility is still in its nascent state, so bug
-reports related to it will be dismissed, until the emulation has
-matured enough.
--   Also quite interesting: None of the PSX emulators used for
-comparison produces reverb waveforms that look anything like the
-original hardware!
-
-
+- PSX backward compatibility is still in its nascent state, so bug
+  reports related to it will be dismissed, until the emulation has
+  matured enough.
+- Also quite interesting: None of the PSX emulators used for
+  comparison produces reverb waveforms that look anything like the
+  original hardware!
 
 ## PSX mode: Proper video mode initialization
+
 - by [ssakash](https://github.com/ssakash)
 
 PCSX2 initializes the video modes based on the parameters of the **SetGsCrt()** function call, however,
@@ -84,6 +85,7 @@ finally made PAL PSX games to output at their proper vertical
 frequency.
 
 ## LilyPad: Add separate bindings for each pad type
+
 - by [FlatOut](https://github.com/FlatOutPS2)
 
 Before this update, all pad types (DualShock 2, Guitar, Pop'n Music
@@ -95,6 +97,7 @@ of the other pad types. This has now been resolved by giving each of the
 pad types their own individual configuration.
 
 ## LilyPad: Add PlayStation Mouse support
+
 - by [FlatOut](https://github.com/FlatOutPS2)
 
 The PlayStation Mouse has been added as a new pad type. This mouse can
@@ -103,6 +106,7 @@ are no known PS2 titles that support it, but thanks to PCSX2's new PSX
 backward compatibility, you can now use it with PCSX2.
 
 ## LilyPad: Updated user interface
+
 - by [FlatOut](https://github.com/FlatOutPS2)
 
 The LilyPad user interface has been updated by removing some of the
@@ -134,9 +138,13 @@ The third new option is a "configure on bind" checkbox. With this
 enabled you'll be sent straight to the input configuration for each
 input you bind.
 
-<ImageCompare left={require("./img/lilypad-before-s.jpg").default} right={require("./img/lilypad-after-s.jpg").default} />
+<ImageCompare
+  left={require("./img/lilypad-before-s.jpg").default}
+  right={require("./img/lilypad-after-s.jpg").default}
+/>
 
 ## GSdx: Hardware mipmapping support
+
 - by [Gregory](https://github.com/gregory38)
 
 Previously, all the hardware renderers suffered from mipmapping issues
@@ -162,11 +170,20 @@ is impossible without a rewrite of texture cache. To shut them all up,
 **Gregory** took all the responsibility in his hands and finally added
 support for hardware mipmapping!
 
-<SliderCompare before={require("./img/ratchet-before1-s.jpg").default} after={require("./img/ratchet-after1-s.jpg").default} />
-<SliderCompare before={require("./img/ratchet-before2-s.jpg").default} after={require("./img/ratchet-after2-s.jpg").default} />
-<SliderCompare before={require("./img/ace-before-s.jpg").default} after={require("./img/ace-after-s.jpg").default} />
+<SliderCompare
+  before={require("./img/ratchet-before1-s.jpg").default}
+  after={require("./img/ratchet-after1-s.jpg").default}
+/>
+<SliderCompare
+  before={require("./img/ratchet-before2-s.jpg").default}
+  after={require("./img/ratchet-after2-s.jpg").default}
+/>
+<SliderCompare
+  before={require("./img/ace-before-s.jpg").default}
+  after={require("./img/ace-after-s.jpg").default}
+/>
 
-Note:** The current implementation of hardware mipmapping isn't totally
+Note:\*\* The current implementation of hardware mipmapping isn't totally
 accurate, the current implementation replaces the pointer of the base
 layer with the LOD min layer, assuming that it contains valid data.
 While the current hardware mipmapping implementation isn't really ideal,
@@ -179,6 +196,7 @@ support which will be quite hard to tackle without compromising on
 performance.
 
 ## GSdx-TextureCache: Proper scaling of all textures
+
 - by [Gregory](https://github.com/gregory38) and [ssakash](https://github.com/ssakash)
 
 On games like Devil May Cry, a few textures weren't being scaled
@@ -193,20 +211,23 @@ scaling value, **ssakash** later
 generalized the scaling equation to also make it work on custom
 resolutions.
 
-<SliderCompare before={require("./img/dmc-before-s.jpg").default} after={require("./img/dmc-after-s.jpg").default} />
+<SliderCompare
+  before={require("./img/dmc-before-s.jpg").default}
+  after={require("./img/dmc-after-s.jpg").default}
+/>
 
 ## GSdx: Handling illegal 8 bits pixel storage format
+
 - by [Gregory](https://github.com/gregory38)
 
 The Graphics Synthesizer supports 3 different color formats for the
 frame buffer,
 
--   32 bits (RGBA8): 3 color channels of 8 bits + 1 alpha channel of 8
-bits. **(PSMCT32)**
--   24 bits (RGB8): 3 color channels of 8 bits. **(PSMCT24)**
--   16 bits (RGB5A1): 3 color channels of 5 bits + alpha channel of 1
-bit. **(PSMCT16, PSMCT16S)**
-
+- 32 bits (RGBA8): 3 color channels of 8 bits + 1 alpha channel of 8
+  bits. **(PSMCT32)**
+- 24 bits (RGB8): 3 color channels of 8 bits. **(PSMCT24)**
+- 16 bits (RGB5A1): 3 color channels of 5 bits + alpha channel of 1
+  bit. **(PSMCT16, PSMCT16S)**
 
 However, some games seem to use an illegal format at the FRAME register,
 a format known as **PSMT8H**. The
@@ -220,10 +241,13 @@ issue](https://github.com/PCSX2/pcsx2/commit/9b93c073390de7c5f88e944bc9d26f9cf17
 by replacing the illegal format with a valid 32 bit format and channel
 masking in the FBMSK bitfield of FRAME register.
 
-<SliderCompare before={require("./img/berserk-before-s.jpg").default} after={require("./img/berserk-after-s.jpg").default} />
-
+<SliderCompare
+  before={require("./img/berserk-before-s.jpg").default}
+  after={require("./img/berserk-after-s.jpg").default}
+/>
 
 ## GSdx-PCRTC: Feedback write support
+
 - by [Gregory](https://github.com/gregory38)
 
 The graphics synthesizer contains a dedicated hardware to handle the
@@ -245,7 +269,10 @@ feedback write circuit, the DirectX port for the fix is yet to be done
 as there aren't really any active DX developers on our team at the
 moment.
 
-<SliderCompare before={require("./img/xenosaga-before-s.jpg").default} after={require("./img/xenosaga-after-s.jpg").default} />
+<SliderCompare
+  before={require("./img/xenosaga-before-s.jpg").default}
+  after={require("./img/xenosaga-after-s.jpg").default}
+/>
 
 **Xenosaga makes use of the feedback write mechanism to convert the color to a luminance greyscale.**
 

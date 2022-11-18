@@ -1,13 +1,14 @@
 ---
 authors:
-- jake stine
+  - jake stine
 date: 2010-01-31 00:00:00
-description: One problem that has plagued PCSX2 since as long as most anyone can remember
+description:
+  One problem that has plagued PCSX2 since as long as most anyone can remember
   is it's general inflexibility and instability when flipping between windowed and
   fullscreen modes
 draft: false
 tags:
-- devblog
+  - devblog
 title: A New Kind Of Fullscreen
 ---
 
@@ -37,32 +38,30 @@ disadvantages to this new approach:
 
 **Advantages of the new fullscreen method:**
 
--   Works perfectly in DX9 and DX10 alike.
--   No more risk of visual corruption or crashes, and no need to
-shutdown the emulator to avoid them.
--   Much faster and seamless flips.
--   Works with any GS plugin, regardless of how the GS plugin is
-implemented.
--   Always uses your LCD display's optimal resolution (assuming you have
-it set in the desktop as such, and you should).
--   Integrates better with your desktop -- Alt-Tab, TaskBar, popup
-errors, etc. are much less prone to being... annoying. (pulling up a
-strategy guide in a browser window, for example!)
--   Super-easy to implement, from a programming perspective!
-
+- Works perfectly in DX9 and DX10 alike.
+- No more risk of visual corruption or crashes, and no need to
+  shutdown the emulator to avoid them.
+- Much faster and seamless flips.
+- Works with any GS plugin, regardless of how the GS plugin is
+  implemented.
+- Always uses your LCD display's optimal resolution (assuming you have
+  it set in the desktop as such, and you should).
+- Integrates better with your desktop -- Alt-Tab, TaskBar, popup
+  errors, etc. are much less prone to being... annoying. (pulling up a
+  strategy guide in a browser window, for example!)
+- Super-easy to implement, from a programming perspective!
 
 **Disadvantages:**
 
--   A slight bit of extra window management overhead.
--   Always uses your desktop resolution on CRT displays (this is an
-advantage for anyone with an LCD display, but can be a disadvantage
-for people with CRT displays, depending on your setup .. however few
-of you are left)
-
+- A slight bit of extra window management overhead.
+- Always uses your desktop resolution on CRT displays (this is an
+  advantage for anyone with an LCD display, but can be a disadvantage
+  for people with CRT displays, depending on your setup .. however few
+  of you are left)
 
 The performance benefit of exclusive fullscreen is mostly related to
 Aero under Vista/Windows7. in which case the performance is sometimes
-*better* in a window over exclusive mode (this depending on video
+_better_ in a window over exclusive mode (this depending on video
 card/drivers/etc).
 
 The thing that really sold us on it though is the fact that overhead of
@@ -75,7 +74,7 @@ Aero even further to the point where even that will likely not make a
 significant impact on performance. So the idea of a seamlessly working
 fullscreen flip for all DirectX incarnations on all incarnations of
 Windows over a rather iffy, unstable, and fragile fullscreen flip that
-*might* be 2-3% faster on legacy hardware ended up being a no-brainer.
+_might_ be 2-3% faster on legacy hardware ended up being a no-brainer.
 
 We're still leaving the door open for adding optional support for
 exclusive mode fullscreen, since there could still be some use to it for

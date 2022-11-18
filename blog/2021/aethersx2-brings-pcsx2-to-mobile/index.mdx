@@ -1,13 +1,14 @@
 ---
 authors:
-- bositman
+  - bositman
 date: 2021-11-24 00:00:00
-description: As you have probably seen by now, there is a new Android emulator in
+description:
+  As you have probably seen by now, there is a new Android emulator in
   town called AetherSX2, which shows to have very promising performance and compatibility
 draft: false
 image: ./feature-AetherSX2sm.webp
 tags:
-- devblog
+  - devblog
 title: AetherSX2 brings PCSX2 to mobile
 ---
 
@@ -20,6 +21,7 @@ As you can expect, at first we were very skeptical about this, due to the whole 
 Since there have also been several people concerned about the licensing behind PCSX2, we decided to try and explain the situation and how it pertains to the GPL and LGPL license.
 
 PCSX2's core code is LGPLv3 licensed, which is compatible with the GPLv3 license, and all the plugin code which has been merged during the 1.7 dev cycle was relicensed to LGPL with authorisation from the authors, too. However, there's also 3 bits of GPL code used in the project that remain:
+
 - Some debugger code from PPSSPP
 - The FreeType library which is used for our OSD
 - libmpeg2 which is used for video decoding

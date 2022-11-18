@@ -1,8 +1,8 @@
-import React from 'react';
-import NavbarNavLink from '@theme-original/NavbarItem/NavbarNavLink';
+import React from "react";
+import NavbarNavLink from "@theme-original/NavbarItem/NavbarNavLink";
 import { Button } from "@nextui-org/react";
 import { GoHeart } from "react-icons/go";
-import Link from '@docusaurus/Link';
+import Link from "@docusaurus/Link";
 
 export default function NavbarNavLinkWrapper(props) {
   if (props.label === "Donate") {
@@ -38,8 +38,8 @@ export default function NavbarNavLinkWrapper(props) {
             },
             "&:hover": {
               color: "#59c5ff",
-              textDecoration: 'none'
-            }
+              textDecoration: "none",
+            },
           }}
           href={props.to}
           icon={<GoHeart fill="var(--nextui-colors-red600)" size={20} />}
@@ -49,7 +49,7 @@ export default function NavbarNavLinkWrapper(props) {
           Donate
         </Button>
       </>
-    )
+    );
   } else {
     return (
       <>
@@ -57,5 +57,4 @@ export default function NavbarNavLinkWrapper(props) {
       </>
     );
   }
-
 }

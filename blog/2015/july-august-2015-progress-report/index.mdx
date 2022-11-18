@@ -1,18 +1,17 @@
 ---
 authors:
-- bositman
+  - bositman
 date: 2015-08-17 00:00:00
 description: Hello everyone! Welcome to PCSX2's July-August 2015 progress report!
 draft: false
 tags:
-- progress-report
+  - progress-report
 title: July-August 2015 Progress Report
 ---
 
 <!-- truncate -->
 
 ![](./img/7-8-2015-logo.jpg)
-
 
 Hello everyone! Welcome to PCSX2's July-August 2015 progress report!
 Since we were late again we'll include the first half of August in this report as well. So sit
@@ -51,6 +50,7 @@ lets take a look at those!
 # GSdx
 
 ## Blending unit accuracy options
+
 - by [ssakash](https://github.com/ssakash) & [Gregory](https://github.com/gregory38)
 
 With the added accurate options in the OpenGL renderer, we had to group
@@ -59,15 +59,14 @@ blending options from None to Ultra (note that Full and Ultra have
 insane CPU requirements!), so our users can choose which to use
 depending on the game and the power of their PCs
 
-
 Relevant commit:
 [Gsdx-gui: Accurate blending unit for
 Windows](https://github.com/PCSX2/pcsx2/commit/68833e10d142734d5bccad6f5b71a32e84a83a76)
 
-------------------------------------------------------------------------
-
+---
 
 ## Implement an ultra accurate blending feature in high accurate blending with a small performance hit
+
 - by [Gregory](https://github.com/gregory38)
 
 Some users noticed that the ultra accurate blending mode was needed to
@@ -82,10 +81,10 @@ Relevant commit:
 [Gsdx-ogl: extend cclip blending level with destination alpha
 blending](https://github.com/PCSX2/pcsx2/commit/a0edcb58af8c725ef778ac343c9c72ebb8040217)
 
-------------------------------------------------------------------------
-
+---
 
 ## HDR colclip
+
 - by [Gregory](https://github.com/gregory38)
 
 HDR (AKA High Dynamic range rendering) is useful for calculations done
@@ -110,26 +109,25 @@ result using 2 passes, that's why it is also more CPU demanding than the
 old code.
 
 |  **Formula**  |   **Equation**   | **Result** |
-|:-------------:|:----------------:|:----------:|
+| :-----------: | :--------------: | :--------: |
 | (Cd+Cs) % 256 | (250 + 20) % 256 |     14     |
 | (Cd+Cs) % 256 | (14 + 255) % 256 |     13     |
 
 > Graphics Synthesizer
 
 |            **Formula**             |   **Equation**    |       **Result**       |
-|:----------------------------------:|:-----------------:|:----------------------:|
+| :--------------------------------: | :---------------: | :--------------------: |
 |     for Cs &lt; 128 : Cd + Cs      |    (250 + 20)     | 255 (saturated result) |
 | for Cs &gt; 128 : Cd - (256 - CS ) | (255 - (256-255)) |          254           |
 
 > Older Algorithmn (Direct3D)
-
 
 Where the old algorithm would only work in cases of no overflow of
 operations, the new one will be even better since the first pass could
 go beyond the minimum and maximum limits. (no overflow)
 
 |      **Formula**       |    **Equation Pass 1**    | **Equation Pass 2** | **Result** |
-|:----------------------:|:-------------------------:|:-------------------:|:----------:|
+| :--------------------: | :-----------------------: | :-----------------: | :--------: |
 | Cd + Cs =&gt; Cd % 256 |     250+20 =&gt; 270      |      270 % 256      |     14     |
 | Cd + Cs =&gt; Cd % 256 | 14+255 (pass 1) =&gt; 269 |      269 % 256      |     13     |
 
@@ -141,42 +139,54 @@ compared to the GS in comparison to the older algorithm.
 Check out the fog like effects in God of War 1 which are now emulated
 correctly in OpenGL with blending accuracy set to high:
 
-<SliderCompare before={require("./img/gow1-hdr-broken1-s.jpg").default} after={require("./img/gow1-hdr-fixed1-s.jpg").default} />
+<SliderCompare
+  before={require("./img/gow1-hdr-broken1-s.jpg").default}
+  after={require("./img/gow1-hdr-fixed1-s.jpg").default}
+/>
 
-<SliderCompare before={require("./img/gow1-hdr-broken2-s.jpg").default} after={require("./img/gow1-hdr-fixed2-s.jpg").default} />
+<SliderCompare
+  before={require("./img/gow1-hdr-broken2-s.jpg").default}
+  after={require("./img/gow1-hdr-fixed2-s.jpg").default}
+/>
 
 Relevant PR:
 [Hdr colclip](https://github.com/PCSX2/pcsx2/pull/688)
 
-------------------------------------------------------------------------
-
+---
 
 ## Software renderer fixes
+
 - by [Gregory](https://github.com/gregory38) & [Gabest](https://github.com/gabest11)
 
--   Silent Hill outputs a nan in Q to emulate the flashlight - an
-unsupported NaN (not a number) on the projection value (Q). The
-issue was fixed by Gregory using an isnan test to find out when this
-is used. Gabest pitched in and decreased the speed impact by using
-inlined ASM. Fixes the long standing Silent Hill 3 flashlight effect
-issue.
--   Wrong data mask for DATE operation on pseudo 16 bits RT: Fixes
-shadow colors on Haunting Ground
--   Fix texture addressing outside the limits (only for OCL and SW
-mode), done by extending the cached texture size to the upper limits
-of the region clamp values: Fixes Lupin the 3rd
--   Texture size reduction: Fixes Horzes, Stolen and likely all games
-that generate an out-of-memory error.
+- Silent Hill outputs a nan in Q to emulate the flashlight - an
+  unsupported NaN (not a number) on the projection value (Q). The
+  issue was fixed by Gregory using an isnan test to find out when this
+  is used. Gabest pitched in and decreased the speed impact by using
+  inlined ASM. Fixes the long standing Silent Hill 3 flashlight effect
+  issue.
+- Wrong data mask for DATE operation on pseudo 16 bits RT: Fixes
+  shadow colors on Haunting Ground
+- Fix texture addressing outside the limits (only for OCL and SW
+  mode), done by extending the cached texture size to the upper limits
+  of the region clamp values: Fixes Lupin the 3rd
+- Texture size reduction: Fixes Horzes, Stolen and likely all games
+  that generate an out-of-memory error.
 
 Haunting Ground shadow coloring is now fixed under the OpenGL software
 renderer:
 
-<SliderCompare before={require("./img/haunting-ground-broken-s.jpg").default} after={require("./img/haunting-ground-fixed-s.jpg").default} />
+<SliderCompare
+  before={require("./img/haunting-ground-broken-s.jpg").default}
+  after={require("./img/haunting-ground-fixed-s.jpg").default}
+/>
 
 Silent Hill 3 flashlight working properly under the OpenGL software
 renderer:
 
-<SliderCompare before={require("./img/silent-hill3-broken-s.jpg").default} after={require("./img/silent-hill3-fixed-s.jpg").default} />
+<SliderCompare
+  before={require("./img/silent-hill3-broken-s.jpg").default}
+  after={require("./img/silent-hill3-fixed-s.jpg").default}
+/>
 
 Relevant commits:
 [Gsdx: simplified isnan test, it compiles to an inline sse instruction
@@ -191,10 +201,10 @@ yet](https://github.com/PCSX2/pcsx2/commit/42f51591df66c3b82d353dc6bb6aad7e14d11
 usage in
 general](https://github.com/PCSX2/pcsx2/commit/49b3acea72a4c2a37811a4616cb2d940355b6952)
 
-------------------------------------------------------------------------
-
+---
 
 ## GSdx: Post-processing updates
+
 - by [Asmodean](https://github.com/Asmodean-)
 
 Our resident post processing effect guru Asmodean made his comeback,
@@ -208,10 +218,10 @@ Relevant PR:
 [GSdx: Post-processing
 updates](https://github.com/PCSX2/pcsx2/pull/739)
 
-
 # New feature:
 
 ## Folder memory cards
+
 - by [AdmiralCurtiss](https://github.com/AdmiralCurtiss)
 
 This huge PR was finally merged after much debate, testing and
@@ -220,14 +230,14 @@ memory card file system and creates a folder, where each game freely
 creates its save files without the 8mb file limitation.
 This means that users can switch to this system and:
 
--   Never worry again about their memcards getting filled and having to
-use many different files
--   Easily share single game saves instead of whole memory cards by
-simply zipping the folder of the game
--   Easily backup and delete game saves without going into the PS2 bios
-or running the game
--   Convert your old memory cards to a folder using the built-in convert
-feature
+- Never worry again about their memcards getting filled and having to
+  use many different files
+- Easily share single game saves instead of whole memory cards by
+  simply zipping the folder of the game
+- Easily backup and delete game saves without going into the PS2 bios
+  or running the game
+- Convert your old memory cards to a folder using the built-in convert
+  feature
 
 AdmiralCurtiss quickly nailed out some bugs that emerged after the
 merge, making this feature pretty much stable and safe for everyday
@@ -245,10 +255,10 @@ memory card configuration, create a new memory card and select Folder
 Relevant PR: [Memory Card as folder instead of a big raw
 file](https://github.com/PCSX2/pcsx2/pull/359%2026%20Nov%202014)
 
-
 # GUI:
 
 ## Upgrade to wxWidgets 3 for Windows-GUI fixes
+
 - by [turtleli](https://github.com/turtleli) & [micove](https://github.com/micove)
 
 PCSX2 has been using wxWidgets for its GUI since Jake Stine's redesign
@@ -267,10 +277,10 @@ Relevant PR and commits:
 PortAudio.](https://github.com/PCSX2/pcsx2/commit/0e533e1630a0bd34619a0b57f8d162455b96a056)
 [wxWidgets 3.0 fixes](https://github.com/PCSX2/pcsx2/pull/741)
 
-
 # Onepad (Linux):
 
 ## Dual Shock 3 support for OnePad in Linux
+
 - [JasonBrownDeveloper](https://github.com/JasonBrownDeveloper)
 
 A long standing issue with DS3 controller axis detection in Linux

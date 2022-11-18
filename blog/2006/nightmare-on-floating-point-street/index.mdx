@@ -1,13 +1,14 @@
 ---
 authors:
-- zerofrog
+  - zerofrog
 date: 2006-07-24 00:00:00
-description: It is very hard to emulate the floating-point calculations of the R5900
+description:
+  It is very hard to emulate the floating-point calculations of the R5900
   FPU and the Vector Units on an x86 CPU because the Playstation 2 does not follow
   the IEEE standard
 draft: false
 tags:
-- devblog
+  - devblog
 title: Nightmare On Floating Point Street
 ---
 
@@ -69,11 +70,11 @@ Pcsx2 will read the rounding mode and overflow settings from the patch
 files. This is so that all games can be accommodated with the
 best/fastest settings.
 
-**Moral of the blog** When comparing two floating point numbers *a* and
-*b* , never use *a* == *b* . Instead use something along the lines of
+**Moral of the blog** When comparing two floating point numbers _a_ and
+_b_ , never use _a_ == _b_ . Instead use something along the lines of
 
 ```
 fabs(a-b) < epsilon
 ```
 
-> where *epsilon* is some very small number.
+> where _epsilon_ is some very small number.

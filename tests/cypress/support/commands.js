@@ -24,9 +24,9 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('requestsCountByUrlPrefix', url =>
-    cy.wrap().then(() => {
-        const requests = cy.state('requests') || [];
-        return requests.filter(req => req.xhr.url.startsWith(url)).length;
-    })
+Cypress.Commands.add("requestsCountByUrlPrefix", (url) =>
+  cy.wrap().then(() => {
+    const requests = cy.state("requests") || [];
+    return requests.filter((req) => req.xhr.url.startsWith(url)).length;
+  })
 );

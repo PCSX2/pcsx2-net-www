@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import Layout from '@theme/Layout';
-import { Container, Text, Grid } from '@nextui-org/react';
-import Admonition from '@theme/Admonition';
-import { ReleaseDownloadButton } from '../../components/ReleaseDownloadButton';
-import { DownloadTable } from '../../components/DownloadTable';
-import { getLatestRelease } from '../../components/ReleaseDownloadButton';
-import Head from '@docusaurus/Head';
-import { GoogleAd } from '../../components/GoogleAd';
+import React, { useState, useEffect } from "react";
+import Layout from "@theme/Layout";
+import { Container, Text, Grid } from "@nextui-org/react";
+import Admonition from "@theme/Admonition";
+import { ReleaseDownloadButton } from "../../components/ReleaseDownloadButton";
+import { DownloadTable } from "../../components/DownloadTable";
+import { getLatestRelease } from "../../components/ReleaseDownloadButton";
+import Head from "@docusaurus/Head";
+import { GoogleAd } from "../../components/GoogleAd";
 
 const releaseTableColumns = [
   {
@@ -16,17 +16,22 @@ const releaseTableColumns = [
   {
     key: "createdAt",
     label: "DATE",
-  }
+  },
 ];
 
 const renderReleaseCell = (release, columnKey) => {
   const cellValue = release[columnKey];
   switch (columnKey) {
     case "version":
-      return <span className="monospaced">{cellValue}</span>
+      return <span className="monospaced">{cellValue}</span>;
     default:
       const date = new Date(cellValue);
-      return date.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      return date.toLocaleDateString(undefined, {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
   }
 };
 
@@ -38,7 +43,7 @@ const pullRequestTableColumns = [
   {
     key: "title",
     label: "CHANGE",
-  }
+  },
 ];
 
 const renderPullRequestCell = (user, columnKey) => {
@@ -63,9 +68,7 @@ export default function Downloads() {
 
   useEffect(async () => {
     try {
-      const resp = await fetch(
-        `${baseApiUrl}/latestReleasesAndPullRequests`
-      );
+      const resp = await fetch(`${baseApiUrl}/latestReleasesAndPullRequests`);
       if (resp.status === 429) {
         setApiErrorMsg("You are Being Rate-Limited. Try Again Later!");
       } else if (resp.status !== 200) {
@@ -100,10 +103,14 @@ export default function Downloads() {
   return (
     <Layout
       title="Downloads"
-      description="The official source for the latest stable and nightly builds (aka dev builds) for PCSX2 on all supported platforms">
+      description="The official source for the latest stable and nightly builds (aka dev builds) for PCSX2 on all supported platforms"
+    >
       <Head>
         <meta property="og:description" content="" />
-        <meta name="keywords" content="pcsx2 downloads,pcsx2 dev builds,pcsx2 dev,pcsx2 nightlies,pcsx2 stable" />
+        <meta
+          name="keywords"
+          content="pcsx2 downloads,pcsx2 dev builds,pcsx2 dev,pcsx2 nightlies,pcsx2 stable"
+        />
       </Head>
       <main>
         <Container fluid css={{ mt: "2em" }}>
@@ -122,25 +129,56 @@ export default function Downloads() {
                     Stable Releases
                   </Text>
                 </Grid>
-                {apiErrorMsg === undefined ? (null) :
+                {apiErrorMsg === undefined ? null : (
                   <Grid xs={12}>
                     <Admonition type="danger" title={apiErrorMsg}>
-                      <p>If the issue persists, let us know. In the meantime:</p>
+                      <p>
+                        If the issue persists, let us know. In the meantime:
+                      </p>
                       <ul>
-                        <li>You can download releases directly from <a href="https://github.com/PCSX2/pcsx2/releases" rel="noreferrer" target="_blank">GitHub</a></li>
-                        <li><a href="https://stats.uptimerobot.com/GAg8AuBByx" rel="noreferrer" target="_blank">Check our status page</a></li>
+                        <li>
+                          You can download releases directly from{" "}
+                          <a
+                            href="https://github.com/PCSX2/pcsx2/releases"
+                            rel="noreferrer"
+                            target="_blank"
+                          >
+                            GitHub
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://stats.uptimerobot.com/GAg8AuBByx"
+                            rel="noreferrer"
+                            target="_blank"
+                          >
+                            Check our status page
+                          </a>
+                        </li>
                       </ul>
                     </Admonition>
-                  </Grid>}
+                  </Grid>
+                )}
                 <Grid xs={12}>
-                  <p>Stable releases are infrequent but well tested compared to the nightly releases</p>
+                  <p>
+                    Stable releases are infrequent but well tested compared to
+                    the nightly releases
+                  </p>
                 </Grid>
                 <Grid xs={12}>
-                  <p>If you need help using the emulator, <a href="/docs/usage/setup/">see the following article.</a></p>
+                  <p>
+                    If you need help using the emulator,{" "}
+                    <a href="/docs/usage/setup/">see the following article.</a>
+                  </p>
                 </Grid>
                 <Grid xs={12}>
                   <Admonition type="info">
-                    <p>As we are now drawing closer to releasing a new stable version, we encourage you to use the latest nightly instead. If you encounter a problem, you will likely be told to try the latest nightly as a first step.</p>
+                    <p>
+                      As we are now drawing closer to releasing a new stable
+                      version, we encourage you to use the latest nightly
+                      instead. If you encounter a problem, you will likely be
+                      told to try the latest nightly as a first step.
+                    </p>
                   </Admonition>
                 </Grid>
                 <Grid xs={12} css={{ mt: "2em" }}>
@@ -151,7 +189,7 @@ export default function Downloads() {
                     errorMsg={apiErrorMsg}
                   />
                 </Grid>
-                <GoogleAd margins='2em'></GoogleAd>
+                <GoogleAd margins="2em"></GoogleAd>
                 <Grid xs={12} css={{ mt: "2em" }}>
                   <h2>Previous Stable Releases</h2>
                 </Grid>
@@ -164,9 +202,12 @@ export default function Downloads() {
                     tableColumns={releaseTableColumns}
                     renderRowFunc={renderReleaseCell}
                     fetchMoreFunc={async (offset) => {
-                      return await fetch(`${baseApiUrl}/stableReleases?offset=${offset}`);
+                      return await fetch(
+                        `${baseApiUrl}/stableReleases?offset=${offset}`
+                      );
                     }}
-                    tableType={"stable"} />
+                    tableType={"stable"}
+                  />
                 </Grid>
               </Grid.Container>
             </Grid>
@@ -184,21 +225,50 @@ export default function Downloads() {
                     Nightly Releases
                   </Text>
                 </Grid>
-                {apiErrorMsg === undefined ? (null) :
+                {apiErrorMsg === undefined ? null : (
                   <Grid xs={12}>
                     <Admonition type="danger" title={apiErrorMsg}>
-                      <p>If the issue persists, let us know. In the meantime:</p>
+                      <p>
+                        If the issue persists, let us know. In the meantime:
+                      </p>
                       <ul>
-                        <li>You can download releases directly from <a href="https://github.com/PCSX2/pcsx2/releases" rel="noreferrer" target="_blank">GitHub</a></li>
-                        <li><a href="https://stats.uptimerobot.com/GAg8AuBByx" rel="noreferrer" target="_blank">Check our status page</a></li>
+                        <li>
+                          You can download releases directly from{" "}
+                          <a
+                            href="https://github.com/PCSX2/pcsx2/releases"
+                            rel="noreferrer"
+                            target="_blank"
+                          >
+                            GitHub
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://stats.uptimerobot.com/GAg8AuBByx"
+                            rel="noreferrer"
+                            target="_blank"
+                          >
+                            Check our status page
+                          </a>
+                        </li>
                       </ul>
                     </Admonition>
-                  </Grid>}
+                  </Grid>
+                )}
                 <Grid xs={12}>
-                  <p>There is a new nightly release anytime a change is made, so you are getting the latest and greatest (but sometimes buggy) experience</p>
+                  <p>
+                    There is a new nightly release anytime a change is made, so
+                    you are getting the latest and greatest (but sometimes
+                    buggy) experience
+                  </p>
                 </Grid>
                 <Grid xs={12}>
-                  <p>For help using these releases, <a href="/docs/usage/nightly-setup/">see the following article.</a></p>
+                  <p>
+                    For help using these releases,{" "}
+                    <a href="/docs/usage/nightly-setup/">
+                      see the following article.
+                    </a>
+                  </p>
                 </Grid>
                 <Grid xs={12}>
                   <Admonition type="tip">
@@ -213,7 +283,7 @@ export default function Downloads() {
                     errorMsg={apiErrorMsg}
                   />
                 </Grid>
-                <GoogleAd margins='2em'></GoogleAd>
+                <GoogleAd margins="2em"></GoogleAd>
                 <Grid xs={12} css={{ mt: "2em" }}>
                   <h2>Previous Nightly Releases</h2>
                 </Grid>
@@ -226,11 +296,14 @@ export default function Downloads() {
                     tableColumns={releaseTableColumns}
                     renderRowFunc={renderReleaseCell}
                     fetchMoreFunc={async (offset) => {
-                      return await fetch(`${baseApiUrl}/nightlyReleases?offset=${offset}`);
+                      return await fetch(
+                        `${baseApiUrl}/nightlyReleases?offset=${offset}`
+                      );
                     }}
-                    tableType={"nightly"} />
+                    tableType={"nightly"}
+                  />
                 </Grid>
-                <GoogleAd margins='2em'></GoogleAd>
+                <GoogleAd margins="2em"></GoogleAd>
                 <Grid xs={12}>
                   <h2>Active Pull Requests</h2>
                 </Grid>
@@ -238,7 +311,10 @@ export default function Downloads() {
                   <p>These are changes that are actively being worked on.</p>
                 </Grid>
                 <Grid xs={12}>
-                  <p>Provided for visibility or for those interested in testing an upcoming change</p>
+                  <p>
+                    Provided for visibility or for those interested in testing
+                    an upcoming change
+                  </p>
                 </Grid>
                 <Grid xs={12}>
                   <DownloadTable
@@ -249,9 +325,12 @@ export default function Downloads() {
                     tableColumns={pullRequestTableColumns}
                     renderRowFunc={renderPullRequestCell}
                     fetchMoreFunc={async (offset) => {
-                      return await fetch(`${baseApiUrl}/pullRequestBuilds?offset=${offset}`);
+                      return await fetch(
+                        `${baseApiUrl}/pullRequestBuilds?offset=${offset}`
+                      );
                     }}
-                    tableType={"pullRequests"} />
+                    tableType={"pullRequests"}
+                  />
                 </Grid>
               </Grid.Container>
             </Grid>

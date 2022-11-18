@@ -1,14 +1,15 @@
 ---
 authors:
-- gregory
+  - gregory
 date: 2016-08-03 00:00:00
-description: GSdx got various improvements recently, issues were fixed on games such
+description:
+  GSdx got various improvements recently, issues were fixed on games such
   as Metal Gear Solid 3, Gran Turismo 4, Tekken 5, Tales of Legendia and Urban Chaos.
   All of those games use a certain effect that I have nicknamed as the Channel Shuffle
   Effect
 draft: false
 tags:
-- devblog
+  - devblog
 title: Channel Shuffle Effect
 ---
 
@@ -64,9 +65,8 @@ blending equation is quite basic too.
 
 You can configure the GS to do 2 main color operations,
 
--   primitive color \* texture color
--   primitive color (when no texture is available)
-
+- primitive color \* texture color
+- primitive color (when no texture is available)
 
 Texture sampling operations are done on the 4
 channels(Green/Red/Blue/Alpha) at once. You can't select any one of
@@ -100,7 +100,6 @@ output_color.r = sample_palette(rt.r).r;
 output_color.g = sample_palette(rt.g).g;
 output_color.b = sample_palette(rt.b).b;
 ```
-
 
 It is only a few lines of shader code. First line will read the current
 texture color. The 2nd line will apply the brightness correction on the
@@ -141,7 +140,6 @@ Now let's decompose the effect. The equivalent of
 c.r = sample_palette(rt.r).r;
 ```
 
-
 It is executed 3 times, one for each channel (Red/Green/Blue). The above
 explanation is done for a framebuffer of 64x32, you need to repeat it
 enough times to cover the full screen. It is already costly on
@@ -159,7 +157,6 @@ GS format:
 
 ![](./img/gt4_before_effect_s.webp)
 ![](./img/gt4_before_effect_8bit_s.webp)
-
 
 Yes it is nice but it is even more complex than you think. Granted, it
 isn't easy to see it but the texels aren't in the same order. You can
@@ -263,7 +260,6 @@ And now, the greenish texture generated to modulate the depth effect
 ![](./img/urban_chaos_depth_out_s.webp)
 
 # VI) Conclusion
-
 
 It is time to conclude this blog about the channel effect. There were
 two possible ways to implement the effect on GSdx. The traditional

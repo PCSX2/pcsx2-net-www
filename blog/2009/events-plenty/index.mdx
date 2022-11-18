@@ -1,12 +1,13 @@
 ---
 authors:
-- jake stine
+  - jake stine
 date: 2009-06-02 00:00:00
-description: One of the less obvious things that has plagued PCSX2's compatibility
+description:
+  One of the less obvious things that has plagued PCSX2's compatibility
   over the years is its event handling system
 draft: false
 tags:
-- devblog
+  - devblog
 title: Events Plenty
 ---
 
@@ -23,7 +24,7 @@ cycle updates. This is something we aim to fix in the coming weeks.
 All cpus have a cycle rate, which is typically the Mhz/Ghz values you're
 most familiar with when talking about any cpu. An i7 clocked at 2.83ghz
 has a 2.83ghz cycle rate. Now, the actual throughput of instructions can
-vary greatly since each cycle of the cpu consists of several *stages*
+vary greatly since each cycle of the cpu consists of several _stages_
 and multiple piplines, each of which can have dependency stalls and has
 varying rules for when such stalls occur. The cycle rate, however, is
 always 2.83ghz. Because cycle rates are a known constant, they make a
@@ -35,12 +36,11 @@ design like the Playstation 2.
 Recompilers work as a significant speedup over interpreters by doing two
 things:
 
--   Recompile the machine code of a emulated CPU (in our case MIPS
-instructions) into code native to the host machine (ix86
-instructions).
--   Prefetch and pre-decode emulated instructions, and inline them into
-blocks.
-
+- Recompile the machine code of a emulated CPU (in our case MIPS
+  instructions) into code native to the host machine (ix86
+  instructions).
+- Prefetch and pre-decode emulated instructions, and inline them into
+  blocks.
 
 The thing recompilers are most well-known for -- recompiling to native
 machine code -- is actually the less effective of the two things
@@ -50,7 +50,7 @@ addition to eliminating the instruction fetch/decode stage (by far the
 slowest part of any interpreter), also allows for cross-instruction
 optimizations such as constant propagation and register caching/mapping.
 In other words, a recompiler is effectively executing emulated
-instructions in pre-compiled *bursts* . This is so important to
+instructions in pre-compiled _bursts_ . This is so important to
 performance that a recompiler without block-level execution would hardly
 be any faster than an interpreter.
 
@@ -75,14 +75,13 @@ impossible to get right).
 The fix for this is to use an event system I'll call **decremental delta
 time.** It has three advantages:
 
--   Makes it easy to execute events in scheduled order regardless of the
-amount of time which has passed since the last Event Test.
--   Maintains relative cycle scheduling at a high level so that none of
-the events being re-scheduled "lose time" due to belated
-block-boundary event testing.
--   Simplifies event handling on all levels, and provides significant
-speedups for event testing and event dispatching.
-
+- Makes it easy to execute events in scheduled order regardless of the
+  amount of time which has passed since the last Event Test.
+- Maintains relative cycle scheduling at a high level so that none of
+  the events being re-scheduled "lose time" due to belated
+  block-boundary event testing.
+- Simplifies event handling on all levels, and provides significant
+  speedups for event testing and event dispatching.
 
 It's hard to know beforehand just how beneficial in-order execution of
 events will be. I'm anticipating that it might actually fix a few

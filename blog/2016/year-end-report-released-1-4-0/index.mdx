@@ -1,11 +1,11 @@
 ---
 authors:
-- bositman
+  - bositman
 date: 2016-01-07 00:00:00
 description: Hello PCSX2 followers and a belated Happy New Year!
 draft: false
 tags:
-- progress-report
+  - progress-report
 title: 1.4.0 Released! - Year End Report
 ---
 
@@ -41,6 +41,7 @@ So without further ado, here is the report!
 # Core
 
 ## New Feature - Debugger
+
 - by [Kingcom](https://github.com/Kingcom)
 
 <Image cols={6} src={require("./img/debugger_s.webp").default} />
@@ -54,6 +55,7 @@ list of Keyboard shortcuts for the debugger functions can be found at
 **docs/debugger.txt** .
 
 ## New Feature - Folder memory cards
+
 - by [AdmiralCurtiss](https://github.com/AdmiralCurtiss)
 
 <Image cols={6} src={require("./img/folder-memcards-s.jpg").default} />
@@ -77,8 +79,8 @@ memory cards.
 
 > Note: This feature is purely optional and can be disabled in the Memory Card Manager.
 
-
 ## New Feature - EE Overclock
+
 - by [ssakash](https://github.com/ssakash) and [Blyss Sarania](https://github.com/Sarania)
 
 <Image cols={6} src={require("./img/EEoc_s.webp").default} />
@@ -92,14 +94,12 @@ clockspeed.
 Take a look at the following comparison video to understand the impact
 of the EE overclock feature.
 
-
-
-
 ## Recompiler Improvements and Core Refactors
+
 - by [Refraction](https://github.com/refractionpcsx2), [ssakash](https://github.com/ssakash) and [Gregory](https://github.com/gregory38)
 
-
 ## GIF: Better Handling for Finish Interrupt request signal
+
 - by [Refraction](https://github.com/refractionpcsx2)
 
 Fixes issues on games like Indiecar Series 2005 where the previously
@@ -107,9 +107,13 @@ fired finish signals weren't cleared and it eventually lead to multiple
 fires of Interrupt requests.
 
 ## MicroVU: General Improvements
+
 - by [ssakash](https://github.com/ssakash) and [Refraction](https://github.com/refractionpcsx2)
 
-<SliderCompare before={require("./img/dothackbroken-s.webp").default} after={require("./img/dothackfixed-s.webp").default} />
+<SliderCompare
+  before={require("./img/dothackbroken-s.webp").default}
+  after={require("./img/dothackfixed-s.webp").default}
+/>
 
 There were some rare flickering issues on games like Naruto ultimate
 ninja series and dot hack games at cases when some of the MAC Flag
@@ -124,8 +128,8 @@ spiky shadows on True Crime - New York City , DT Racer and DT Carnage.
 
 > Dev note: The XG Kick Instruction trigger has been reworked to delay cycles regardless of the status of MemVI parameter which later got removed since it was pretty much useless as there should always be a delay for XG Kick instructions.
 
-
 ## SIF: Limit/Mask transfer size to 1mb-16bytes
+
 - by [Refraction](https://github.com/refractionpcsx2)
 
 Gregory Horror Show enters playable state ! The issue was due to the
@@ -137,9 +141,8 @@ top of the passed size to be mistaken as part of the size itself. Thanks
 to jpd002 (Author of Play!) the suggestion to Limit / Mask the transfer
 size finally made the game to enter playable state.
 
-
-
 ## VIF: Better handling of IRQ and MFIFO Timing improvements
+
 - by [Refraction](https://github.com/refractionpcsx2)
 
 Stuart Little 3 enters playable state. The issue was actually caused by
@@ -160,6 +163,7 @@ Looney Tunes Back In Action to hang unexpectedly, the condition has now
 been updated to make sure this is less likely to happen.
 
 ## EE Interpreter: Improved TLB miss exception handling
+
 - by [Gregory](https://github.com/gregory38)
 
 The Program Counter value would be saved into the EPC register
@@ -171,8 +175,8 @@ of the miss, we executed the next one!
 This was eventually fixed by fetching the program counter value before
 the increment and executing them in case of CPU exception.
 
-
 ## New Feature - Support for loading Gzip and CSO compressed ISO's
+
 - by [Avih](https://github.com/avih) and [Unknown W.Brackets](https://github.com/unknownbrackets)
 
 PCSX2 can now directly load compresed ISO images, so you can save your
@@ -181,12 +185,12 @@ precious HDD space! Here is a breakdown by Unknown Brackets himself:
 A few of the differences between CSOs and gzipped ISOs, with respect to
 PCSX2, are:
 
-* CSOs have the index built in to the file, and don't require an extra
-file.
-* CSOs compress fairly well, but lose a bit compared to gzipped ISOs.
-* However, if you keep the index file, CSOs may often be smaller.
-* In my tests, CSOs read faster in pcsx2 and use less memory than
-gzipped ISOs. But this is a tiny part of overall emulation.
+- CSOs have the index built in to the file, and don't require an extra
+  file.
+- CSOs compress fairly well, but lose a bit compared to gzipped ISOs.
+- However, if you keep the index file, CSOs may often be smaller.
+- In my tests, CSOs read faster in pcsx2 and use less memory than
+  gzipped ISOs. But this is a tiny part of overall emulation.
 
 For a comparison on size using Final Fantasy 12 (US) as a random
 example:
@@ -212,6 +216,7 @@ I don't think it supports gzipped ISOs.
 # GSDX
 
 ## Programmable blending to reproduce GS blending unit output
+
 - by [Gregory](https://github.com/gregory38)
 
 The source of the issues on GPU blending unit is due to the fact that
@@ -233,13 +238,23 @@ accuracy and performance.
 
 Here are some screenshots showing the improvements :
 
-<SliderCompare before={require("./img/noblend-s.jpg").default} after={require("./img/blend-s.jpg").default} />
+<SliderCompare
+  before={require("./img/noblend-s.jpg").default}
+  after={require("./img/blend-s.jpg").default}
+/>
 
-<SliderCompare before={require("./img/RuleofRose-no-blend-s.jpg").default} after={require("./img/RuleofRose-blending-s.jpg").default} />
+<SliderCompare
+  before={require("./img/RuleofRose-no-blend-s.jpg").default}
+  after={require("./img/RuleofRose-blending-s.jpg").default}
+/>
 
-<SliderCompare before={require("./img/VP2-no-blend-s.jpg").default} after={require("./img/VP2-blending-s.jpg").default} />
+<SliderCompare
+  before={require("./img/VP2-no-blend-s.jpg").default}
+  after={require("./img/VP2-blending-s.jpg").default}
+/>
 
 ## Improved CRTC output size handling
+
 - by [ssakash](https://github.com/ssakash) and [.r5](https://github.com/rz5)
 
 There were few rare cases on games running at NTSC video mode where the
@@ -251,11 +266,18 @@ proper saturation limit for height in case of NTSC video mode.
 
 Here are some comparison screenshots showing before and after the fix :
 
-<SliderCompare before={require("./img/Tribes_before_s.webp").default} after={require("./img/Tribes_after_s.webp").default} />
+<SliderCompare
+  before={require("./img/Tribes_before_s.webp").default}
+  after={require("./img/Tribes_after_s.webp").default}
+/>
 
-<SliderCompare before={require("./img/DMC3_before_s.webp").default} after={require("./img/DMC3_after_s.webp").default} />
+<SliderCompare
+  before={require("./img/DMC3_before_s.webp").default}
+  after={require("./img/DMC3_after_s.webp").default}
+/>
 
 ## Software renderer improvements
+
 - by [Gabest](https://github.com/gabest11) and [Gregory](https://github.com/gregory38)
 
 Silent Hill outputs a nan in Q to emulate the flashlight - an
@@ -264,7 +286,10 @@ used an isnan test to find such instances and emulate the flash
 light effect. Gabest later decreased the speed impact by using
 inlined ASM. Fixes Flash light effects on Silent Hill 3.
 
-<SliderCompare before={require("./img/silent-hill3-broken-s.jpg").default} after={require("./img/silent-hill3-fixed-s.jpg").default} />
+<SliderCompare
+  before={require("./img/silent-hill3-broken-s.jpg").default}
+  after={require("./img/silent-hill3-fixed-s.jpg").default}
+/>
 
 Better texture size management in software mode, fixes Horsez and
 Stolen memory issue and also lowers memory usage in general.
@@ -273,8 +298,8 @@ Better handling of textures addressing outside the limits by
 extending the cached texture size to the upper limits of the region
 clamp values: Fixes Lupin the 3rd
 
-
 ## Accurate destination alpha testing
+
 - by [Gregory](https://github.com/gregory38)
 
 Better behavior to replicate one of the GS functions where the Graphics
@@ -286,9 +311,13 @@ date implements a two pass algorithm to implement the effect. The 1st
 pass searches the valid primitive ID and the 2nd pass will do the draw
 based on the previous pass.
 
-<SliderCompare before={require("./img/persona3DATEwrong_s.webp").default} after={require("./img/persona3DATEcorrect_s.webp").default} />
+<SliderCompare
+  before={require("./img/persona3DATEwrong_s.webp").default}
+  after={require("./img/persona3DATEcorrect_s.webp").default}
+/>
 
 ## Improved read of depth / color
+
 - by [Gregory](https://github.com/gregory38)
 
 A standard GPU has separate textures for the color and the depth
@@ -302,10 +331,15 @@ reproduction of such effects. However these conversions require
 additional resources from your GPU which might gradually decrease
 performance in cost of accuracy.
 
-<SliderCompare before={require("./img/suikodentacticshardwaredepthoff_s.webp").default} after={require("./img/suikodentacticshardwaredepthon_s.webp").default} />
+<SliderCompare
+  before={require("./img/suikodentacticshardwaredepthoff_s.webp").default}
+  after={require("./img/suikodentacticshardwaredepthon_s.webp").default}
+/>
 
 # SPU2-X
+
 ## New Feature - Per channel volume adjustment
+
 - by [gigaherz](https://github.com/gigaherz)
 
 A.K.A Room Correction. This feature is present in the control panel of
@@ -327,8 +361,8 @@ larger, 2 will blow it up to 100x, and -1 will make it 1/10th of the
 original. Smaller values in the range of -1 to 1 are recommended for
 testing, as it's easy to cause unwanted clipping in the output.
 
-
 ## Time Stretcher: Improvements to tempo adjustments
+
 - by [Avih](https://github.com/avih)
 
 Previously latency values higher than 200ms will make the stretcher
@@ -340,10 +374,10 @@ bigger buffers.
 The latency slider will now allow a minimum value of 15ms. Providing
 choices of choosing from values between 15 to 29ms on the slider.
 
-
 # GUI
 
 ## Configurable template on GSFrame titlebar
+
 - by [Avih](https://github.com/avih)
 
 There was some
@@ -362,8 +396,8 @@ template is located in the [ inis_1.4.0/PCSX2_ui.ini
 ]{style="font-weight: bold;"} file though lacks a user interface for
 easier customization.
 
-
 ## Revamped Core and GSDX plugin dialogs
+
 - by [Turtleli](https://github.com/turtleli), [Gregory](https://github.com/gregory38) and [ssakash](https://github.com/ssakash)
 
 The Core and GSDX dialogs have undergone quite a deal of changes like
@@ -382,7 +416,10 @@ with the Linux GUI.
 
 Here is a preview of the old GSdx GUI and the new one:
 
-<ImageCompare left={require("./img/gsdx-old.webp").default} right={require("./img/gsdx-new.webp").default} />
+<ImageCompare
+  left={require("./img/gsdx-old.webp").default}
+  right={require("./img/gsdx-new.webp").default}
+/>
 
 In conclusion, the team would like to thank everyone who has contributed
 with their time, knowledge, opinion, code or otherwise for this release

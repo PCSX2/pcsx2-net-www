@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Table, Card, Row, Col, Text, Grid } from '@nextui-org/react';
-import ReactMarkdown from 'react-markdown';
-import { ReleaseDownloadButton } from '../ReleaseDownloadButton';
+import React, { useState, useEffect } from "react";
+import { Table, Card, Row, Col, Text, Grid } from "@nextui-org/react";
+import ReactMarkdown from "react-markdown";
+import { ReleaseDownloadButton } from "../ReleaseDownloadButton";
 import { GoDiffAdded, GoDiffRemoved } from "react-icons/go";
-import { IconContext } from 'react-icons';
+import { IconContext } from "react-icons";
 import { DateTime } from "luxon";
 
 export function PullRequestTableCard({ pullRequest }) {
@@ -17,14 +17,18 @@ export function PullRequestTableCard({ pullRequest }) {
             <h3>
               <a href={pullRequest.link}>PR #{pullRequest.number}</a>
               <span style={{ marginLeft: "0.5em", color: "#3fb950" }}>
-                <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
+                <IconContext.Provider
+                  value={{ style: { verticalAlign: "middle" } }}
+                >
                   <GoDiffAdded size={24}></GoDiffAdded>
                 </IconContext.Provider>
                 &nbsp;
                 {pullRequest.additions}
               </span>
               <span style={{ marginLeft: "0.5em", color: "#dd4a48" }}>
-                <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
+                <IconContext.Provider
+                  value={{ style: { verticalAlign: "middle" } }}
+                >
                   <GoDiffRemoved size={24}></GoDiffRemoved>
                 </IconContext.Provider>
                 &nbsp;
@@ -34,7 +38,8 @@ export function PullRequestTableCard({ pullRequest }) {
           </Card.Header>
           <Card.Body css={{ py: "$2" }}>
             <p>
-              <span style={{ fontWeight: 700 }}>Last Updated At</span> - {dateString}
+              <span style={{ fontWeight: 700 }}>Last Updated At</span> -{" "}
+              {dateString}
             </p>
             <ReactMarkdown>{pullRequest.body}</ReactMarkdown>
           </Card.Body>
@@ -44,50 +49,74 @@ export function PullRequestTableCard({ pullRequest }) {
   );
 }
 
-export function DownloadTableReleaseCard({ release, downloadButtonText, isNightly }) {
-  return (
-    !release ? (null) :
-      <Grid.Container css={{ mt: "0.5em" }}>
-        <Grid xs={12}>
-          <Card css={{ p: "$6", mw: "100%" }}>
-            <Card.Header>
-              <Text h3 css={{ lineHeight: "$xs" }}>
-                {release.version}
-              </Text>
-            </Card.Header>
-            <Card.Body css={{ py: "$2" }}>
-              <Text>
-                <ReactMarkdown>{release.description}</ReactMarkdown>
-              </Text>
-            </Card.Body>
-            <Card.Footer>
-              <ReleaseDownloadButton
-                release={release}
-                buttonText={downloadButtonText}
-                isNightly={isNightly}
-                bordered={true}
-              />
-            </Card.Footer>
-          </Card>
-        </Grid>
-      </Grid.Container>
+export function DownloadTableReleaseCard({
+  release,
+  downloadButtonText,
+  isNightly,
+}) {
+  return !release ? null : (
+    <Grid.Container css={{ mt: "0.5em" }}>
+      <Grid xs={12}>
+        <Card css={{ p: "$6", mw: "100%" }}>
+          <Card.Header>
+            <Text h3 css={{ lineHeight: "$xs" }}>
+              {release.version}
+            </Text>
+          </Card.Header>
+          <Card.Body css={{ py: "$2" }}>
+            <Text>
+              <ReactMarkdown>{release.description}</ReactMarkdown>
+            </Text>
+          </Card.Body>
+          <Card.Footer>
+            <ReleaseDownloadButton
+              release={release}
+              buttonText={downloadButtonText}
+              isNightly={isNightly}
+              bordered={true}
+            />
+          </Card.Footer>
+        </Card>
+      </Grid>
+    </Grid.Container>
   );
 }
 
 function renderSelectedCard(selectedData, tableType) {
   if (!selectedData) {
-    return (null);
+    return null;
   }
   if (tableType === "stable") {
-    return <DownloadTableReleaseCard release={selectedData} downloadButtonText={"Download Release"} isNightly={false} />
+    return (
+      <DownloadTableReleaseCard
+        release={selectedData}
+        downloadButtonText={"Download Release"}
+        isNightly={false}
+      />
+    );
   } else if (tableType === "nightly") {
-    return <DownloadTableReleaseCard release={selectedData} downloadButtonText={"Download Release"} isNightly={true} />
+    return (
+      <DownloadTableReleaseCard
+        release={selectedData}
+        downloadButtonText={"Download Release"}
+        isNightly={true}
+      />
+    );
   } else if (tableType === "pullRequests") {
-    return <PullRequestTableCard pullRequest={selectedData} />
+    return <PullRequestTableCard pullRequest={selectedData} />;
   }
-};
+}
 
-export function DownloadTable({ pageSize, tableLabel, color, initialTableData, tableColumns, renderRowFunc, fetchMoreFunc, tableType }) {
+export function DownloadTable({
+  pageSize,
+  tableLabel,
+  color,
+  initialTableData,
+  tableColumns,
+  renderRowFunc,
+  fetchMoreFunc,
+  tableType,
+}) {
   const [tableData, setTableData] = useState({ data: [] });
   const [tableLoadingState, setTableLoadingState] = useState("idle");
   const [tablePage, setTablePage] = useState(1);
@@ -120,7 +149,7 @@ export function DownloadTable({ pageSize, tableLabel, color, initialTableData, t
               minWidth: "100%",
               display: "table",
               noMargin: true,
-              padding: 0
+              padding: 0,
             }}
           >
             <Table.Header columns={tableColumns}>
@@ -140,7 +169,11 @@ export function DownloadTable({ pageSize, tableLabel, color, initialTableData, t
             <Table.Pagination
               noMargin
               align="center"
-              rowsPerPage={tableLoadingState == "loading" ? 2 : Math.min(pageSize, tableData?.pageInfo?.total)}
+              rowsPerPage={
+                tableLoadingState == "loading"
+                  ? 2
+                  : Math.min(pageSize, tableData?.pageInfo?.total)
+              }
               page={tablePage}
               onPageChange={async (page) => {
                 setTableLoadingState("loading");
@@ -149,14 +182,20 @@ export function DownloadTable({ pageSize, tableLabel, color, initialTableData, t
                 const newOffset = page * pageSize;
 
                 // See if we have to fetch more from the API
-                const fetchMore = tableData.data.length < newLength || Object.keys(tableData.data[newOffset]).length === 0;
+                const fetchMore =
+                  tableData.data.length < newLength ||
+                  Object.keys(tableData.data[newOffset]).length === 0;
                 if (fetchMore) {
                   const resp = await fetchMoreFunc(newOffset);
                   const data = await resp.json();
                   const newTableData = tableData.data;
                   // If array isn't as big as the start index, we need to fill up to that point
                   if (newTableData.length < newOffset) {
-                    for (let i = 0, newSize = newOffset - newTableData.length; i < newSize; i++) {
+                    for (
+                      let i = 0, newSize = newOffset - newTableData.length;
+                      i < newSize;
+                      i++
+                    ) {
                       newTableData.push({});
                     }
                   }
@@ -164,9 +203,11 @@ export function DownloadTable({ pageSize, tableLabel, color, initialTableData, t
                   // - if we are out of bounds, push undefined
                   // - if there is a value OTHER than undefined, skip, the user is just jumping around pages
                   for (let i = 0; i < data.data.length; i++) {
-                    if ((i + newOffset) >= newTableData.length) {
+                    if (i + newOffset >= newTableData.length) {
                       newTableData.push(data.data[i]);
-                    } else if (Object.keys(newTableData[i + newOffset]).length !== 0) {
+                    } else if (
+                      Object.keys(newTableData[i + newOffset]).length !== 0
+                    ) {
                       continue;
                     } else {
                       newTableData[i + newOffset] = data.data[i];
@@ -174,7 +215,7 @@ export function DownloadTable({ pageSize, tableLabel, color, initialTableData, t
                   }
                   setTableData({
                     data: newTableData,
-                    pageInfo: data.pageInfo
+                    pageInfo: data.pageInfo,
                   });
                 }
                 setTableLoadingState("idle");
@@ -184,7 +225,9 @@ export function DownloadTable({ pageSize, tableLabel, color, initialTableData, t
             />
           </Table>
         </Grid>
-      {selectedTableRow === undefined ? renderSelectedCard(selectedTableRow, tableType) : renderSelectedCard(tableData.data[selectedTableRow], tableType)}
+        {selectedTableRow === undefined
+          ? renderSelectedCard(selectedTableRow, tableType)
+          : renderSelectedCard(tableData.data[selectedTableRow], tableType)}
       </Grid.Container>
     </Grid>
   );

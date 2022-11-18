@@ -1,12 +1,13 @@
 ---
 authors:
-- rama
+  - rama
 date: 2012-08-03 00:00:00
-description: After many long years of development, debugging and testing effort, we
+description:
+  After many long years of development, debugging and testing effort, we
   have reached a point where PCSX2 runs a great majority of the games
 draft: false
 tags:
-- devblog
+  - devblog
 title: PCSX2 1.0 Released!
 ---
 
@@ -35,91 +36,81 @@ Here is an excerpt of the latest changes:
 
 **Core:**
 
--   Video timing adjustments
--   microVU fixes for Metal Gear Solid 2 and others
--   General speedups
--   microVU speedup
--   New GIF unit that mimics the real one better
--   microVU elementary function bug fixed (affecting Valkyrie Profile 2,
-Radiata Stories and Star Ocean 3)
--   Implemented Multi-Threaded VU! A new speed hack with almost 100%
-compatibility with games, using a third core to run the VU1 unit
-separately
--   CDVD fixes (Time Crisis boots now)
--   Added support for progressive scan timings
--   Path 3 arbitration and timing refinements
--   Added Finnish, Malaysian, Korean, French, Indonesian, Italian,
-Japanese and Polish translations
-
+- Video timing adjustments
+- microVU fixes for Metal Gear Solid 2 and others
+- General speedups
+- microVU speedup
+- New GIF unit that mimics the real one better
+- microVU elementary function bug fixed (affecting Valkyrie Profile 2,
+  Radiata Stories and Star Ocean 3)
+- Implemented Multi-Threaded VU! A new speed hack with almost 100%
+  compatibility with games, using a third core to run the VU1 unit
+  separately
+- CDVD fixes (Time Crisis boots now)
+- Added support for progressive scan timings
+- Path 3 arbitration and timing refinements
+- Added Finnish, Malaysian, Korean, French, Indonesian, Italian,
+  Japanese and Polish translations
 
 **SPU2-X:**
 
--   Configurable output volume
--   Fixes to reverb
--   Various sound looping fixes
--   Improved time stretcher
--   Reverse phase audio quality improved
-
+- Configurable output volume
+- Fixes to reverb
+- Various sound looping fixes
+- Improved time stretcher
+- Reverse phase audio quality improved
 
 **GSdx:**
 
--   Fixed RGB mode movie recording
--   Texture cache change that fixes some black screening games
--   Implemented NVidia FXAA 3.10, page up key activates it
--   Better multithreading
--   Arc the Lad bad fog fix
--   Fixed shadows in software renderer
--   Implementation of GSdx "Shadeboost" project (saturation,
-brightness, contrast settings)
--   User configurable hacks in the GUI
--   Fixed flickering in many FMVs
--   Implementation of GSdx "Cutie" project (various extra CRC hacks)
-
+- Fixed RGB mode movie recording
+- Texture cache change that fixes some black screening games
+- Implemented NVidia FXAA 3.10, page up key activates it
+- Better multithreading
+- Arc the Lad bad fog fix
+- Fixed shadows in software renderer
+- Implementation of GSdx "Shadeboost" project (saturation,
+  brightness, contrast settings)
+- User configurable hacks in the GUI
+- Fixed flickering in many FMVs
+- Implementation of GSdx "Cutie" project (various extra CRC hacks)
 
 **Lilypad:**
 
--   Pad state getting stuck with savestates bug fixed
-
+- Pad state getting stuck with savestates bug fixed
 
 **USBqemu:**
 
--   Revamped it a bit
-
+- Revamped it a bit
 
 **Linux:**
 
 **OnePad changes:**
 
--   New dialog configuration panel
--   Improved support of various pad (sixaxis)/mouse/wiimote
--   Added support for more controllers
--   Added support for pressure-sensitive buttons
-
+- New dialog configuration panel
+- Improved support of various pad (sixaxis)/mouse/wiimote
+- Added support for more controllers
+- Added support for pressure-sensitive buttons
 
 **GSdx:**
 
--   GSdx ported for Linux! Based on OpenGL 3.3 with some 4.x hardware
-independent extensions. Requires OpenGL 4.2 drivers and is still in
-experimental stages. Don't expect the hardware renderer to run
-properly, but the Software renderer should be fine.
+- GSdx ported for Linux! Based on OpenGL 3.3 with some 4.x hardware
+  independent extensions. Requires OpenGL 4.2 drivers and is still in
+  experimental stages. Don't expect the hardware renderer to run
+  properly, but the Software renderer should be fine.
 
--   Added support for configuration and keyboard shortcuts from PCSX2
-
+- Added support for configuration and keyboard shortcuts from PCSX2
 
 **ZZogl:**
 
--   Added support for configuration and keyboard shortcuts from PCSX2
--   Added a GLSL backend to replace CG. Like GSdx, it requires OpenGL
-4.2 drivers. Only available with PCSX2 self-compilation.
-
+- Added support for configuration and keyboard shortcuts from PCSX2
+- Added a GLSL backend to replace CG. Like GSdx, it requires OpenGL
+  4.2 drivers. Only available with PCSX2 self-compilation.
 
 **PCSX2 GUI:**
 
--   Added thread timing information to see the CPU usage in the status
-bar
--   Fix multiple frame/box letters sizing.
-
-
+- Added thread timing information to see the CPU usage in the status
+  bar
+- Fix multiple frame/box letters sizing.
 
 In addition to these changes we found a fixed several bugs that could
 lead to crashes in various situations.

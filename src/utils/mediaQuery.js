@@ -1,7 +1,6 @@
-import React from 'react';
+import React from "react";
 
-
-export const useMediaQuery = (width)=> {
+export const useMediaQuery = (width) => {
   const [targetReached, setTargetReached] = React.useState(false);
 
   const updateTarget = React.useCallback((e) => {

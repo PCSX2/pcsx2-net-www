@@ -1,16 +1,17 @@
 ---
 authors:
-- jake stine
+  - jake stine
 date: 2009-10-13 00:00:00
-description: 'One thing is for sure: The new 0.9.7 betas will use a lot more threads
-  than the current 0.9.6 releases'
+description:
+  "One thing is for sure: The new 0.9.7 betas will use a lot more threads
+  than the current 0.9.6 releases"
 draft: false
 tags:
-- devblog
+  - devblog
 title: Thread Counting
 ---
 
-One thing is for sure: The new 0.9.7 betas will use a *lot* more threads
+One thing is for sure: The new 0.9.7 betas will use a _lot_ more threads
 than the current 0.9.6 releases. Now this doesn't necessarily mean the
 emulator will take advantage of quad core CPUs better than 0.9.6, least
 not in a gameplay sense. As I explained in my previous blog, threading
@@ -22,7 +23,7 @@ sort.
 <!-- truncate -->
 
 One of the major changes in 0.9.7 will be the removal of what I call an
-**"aggressive spinwait"** in the *EmotionEngine (EEcore)* emulation
+**"aggressive spinwait"** in the _EmotionEngine (EEcore)_ emulation
 unit. A spinwait is a simple loop that waits on a variable to change,
 like so:
 
@@ -32,7 +33,6 @@ StartThreadedAction();
 while( IsRunning );
 // When the above while() exits, the ThreadedAction is done.
 ```
-
 
 This is a very simple threading design, but it's mostly drawbacks and
 not many advantages. We've continued to use it up to now in PCSX2's
@@ -50,7 +50,7 @@ the user. In the new 0.9.7 design, the EEcore has its own thread
 separate from the GUI. This allows us to remove the overhead of having
 to switch to/from GUI processing code, but it came with a somewhat
 unexpected drawback: the EEcore's aggressive spinwait is now suddenly
-*very* aggressive when a game becomes GS-limited. In 0.9.6 the spinwait
+_very_ aggressive when a game becomes GS-limited. In 0.9.6 the spinwait
 breaks from time to time to splice in some gui messages and make time
 for the GS to do its thing too. This kept everything pretty happy. But
 with the splicing gone, the EEcore is allowed to run free, soaking up

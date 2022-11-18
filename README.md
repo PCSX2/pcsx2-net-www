@@ -61,7 +61,7 @@ You should add an image to serve as a preview (if appropriate) by prefixing the 
 
 #### Caveats if Migrating a Legacy Article
 
-- When running the command above, you should provide an alias that matches the relative URL from the old website.  This will prevent legacy links from becoming dead.  See existing articles that have been migrated for an example.
+- When running the command above, you should provide an alias that matches the relative URL from the old website. This will prevent legacy links from becoming dead. See existing articles that have been migrated for an example.
 
 ### Shortcode Documentation
 
@@ -104,10 +104,10 @@ task vendor-deps
 ```
 
 This will:
+
 1. Re-vendor all referenced dependencies
 2. Go through all `.html` files in the hugo theme, and up replace the referenced versions
 
 Deleting a dependency is more involved and is likely a manual effort.
 
 Inspect and commit the changes.
-

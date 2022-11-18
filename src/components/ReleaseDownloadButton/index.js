@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Dropdown } from '@nextui-org/react';
+import React, { useState, useEffect } from "react";
+import { Dropdown } from "@nextui-org/react";
 import { BsWindows, BsApple } from "react-icons/bs";
 import { FaLinux } from "react-icons/fa";
 import { IoIosCloudyNight } from "react-icons/io";
 import { GiBrickWall } from "react-icons/gi";
-import { useMediaQuery } from '../../utils/mediaQuery';
+import { useMediaQuery } from "../../utils/mediaQuery";
 
 export function getLatestRelease(releases, platform) {
   for (const release of releases) {
@@ -16,8 +16,10 @@ export function getLatestRelease(releases, platform) {
 }
 
 function toProperCase(str) {
-  return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
-};
+  return str.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+}
 
 function getOSIcon(os, fillColor) {
   if (os === "windows") {
@@ -27,7 +29,7 @@ function getOSIcon(os, fillColor) {
   } else if (os === "macos") {
     return <BsApple size={22} fill={fillColor}></BsApple>;
   } else {
-    return (null);
+    return null;
   }
 }
 
@@ -42,7 +44,9 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
   }
 
   let items = [];
-  for (const asset of assets.filter(asset => !asset.additionalTags.includes("symbols"))) {
+  for (const asset of assets.filter(
+    (asset) => !asset.additionalTags.includes("symbols")
+  )) {
     let displayName = asset.displayName;
     for (const removal of textRemovals) {
       displayName = displayName.replace(removal, "");
@@ -64,21 +68,27 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       >
         {displayName}
       </Dropdown.Item>
-    )
+    );
   }
   return items;
 }
 
 function openAssetLink(href) {
-  Object.assign(document.createElement('a'), {
-    rel: 'noopener noreferrer',
+  Object.assign(document.createElement("a"), {
+    rel: "noopener noreferrer",
     href: href,
   }).click();
 }
 
-export function ReleaseDownloadButton({release, buttonText, bordered, errorMsg, isNightly}) {
+export function ReleaseDownloadButton({
+  release,
+  buttonText,
+  bordered,
+  errorMsg,
+  isNightly,
+}) {
   const buttonStyling = {
-    minWidth: "200px"
+    minWidth: "200px",
   };
   if (isNightly) {
     buttonStyling.color = "$warning";
@@ -91,26 +101,81 @@ export function ReleaseDownloadButton({release, buttonText, bordered, errorMsg, 
 
   useEffect(() => {
     if ("windows" in release) {
-      setWindowsItems(generateDropdownItems(release.windows, "windows", release.windows?.assets?.Windows, ["Windows"], isNightly));
+      setWindowsItems(
+        generateDropdownItems(
+          release.windows,
+          "windows",
+          release.windows?.assets?.Windows,
+          ["Windows"],
+          isNightly
+        )
+      );
     } else {
-      setWindowsItems(generateDropdownItems(release, "windows", release.assets?.Windows, ["Windows"], isNightly));
+      setWindowsItems(
+        generateDropdownItems(
+          release,
+          "windows",
+          release.assets?.Windows,
+          ["Windows"],
+          isNightly
+        )
+      );
     }
     if ("linux" in release) {
-      setLinuxItems(generateDropdownItems(release.linux, "linux", release.linux?.assets?.Linux, ["Linux", "AppImage"], isNightly));
+      setLinuxItems(
+        generateDropdownItems(
+          release.linux,
+          "linux",
+          release.linux?.assets?.Linux,
+          ["Linux", "AppImage"],
+          isNightly
+        )
+      );
     } else {
-      setLinuxItems(generateDropdownItems(release, "linux", release.assets?.Linux, ["Linux", "AppImage"], isNightly));
+      setLinuxItems(
+        generateDropdownItems(
+          release,
+          "linux",
+          release.assets?.Linux,
+          ["Linux", "AppImage"],
+          isNightly
+        )
+      );
     }
     if ("macos" in release) {
-      setMacosItems(generateDropdownItems(release.macos, "macos", release.macos?.assets?.MacOS, ["MacOS"], isNightly));
+      setMacosItems(
+        generateDropdownItems(
+          release.macos,
+          "macos",
+          release.macos?.assets?.MacOS,
+          ["MacOS"],
+          isNightly
+        )
+      );
     } else {
-      setMacosItems(generateDropdownItems(release, "macos", release.assets?.MacOS, ["MacOS"], isNightly));
+      setMacosItems(
+        generateDropdownItems(
+          release,
+          "macos",
+          release.assets?.MacOS,
+          ["MacOS"],
+          isNightly
+        )
+      );
     }
   }, [release]);
 
   return (
-    <Dropdown isBordered placement={useMediaQuery(960) ? "bottom-left" : "right-top"} >
-      <Dropdown.Button color={isNightly ? "warning" : "primary"} css={buttonStyling} bordered={bordered}>
-        {isNightly ? <IoIosCloudyNight size={22}/> : <GiBrickWall size={16}/>}
+    <Dropdown
+      isBordered
+      placement={useMediaQuery(960) ? "bottom-left" : "right-top"}
+    >
+      <Dropdown.Button
+        color={isNightly ? "warning" : "primary"}
+        css={buttonStyling}
+        bordered={bordered}
+      >
+        {isNightly ? <IoIosCloudyNight size={22} /> : <GiBrickWall size={16} />}
         &nbsp;
         {buttonText}
       </Dropdown.Button>
@@ -120,14 +185,38 @@ export function ReleaseDownloadButton({release, buttonText, bordered, errorMsg, 
         css={{ $$dropdownMenuWidth: "100%" }}
         onAction={(assetUrl) => openAssetLink(assetUrl)}
       >
-        <Dropdown.Section title={errorMsg === undefined ? windowsItems.length > 0 ? "Windows" : "Windows - None Available" : errorMsg}>
-          {errorMsg === undefined ? windowsItems : (null)}
+        <Dropdown.Section
+          title={
+            errorMsg === undefined
+              ? windowsItems.length > 0
+                ? "Windows"
+                : "Windows - None Available"
+              : errorMsg
+          }
+        >
+          {errorMsg === undefined ? windowsItems : null}
         </Dropdown.Section>
-        <Dropdown.Section title={errorMsg === undefined ? linuxItems.length > 0 ? "Linux" : "Linux - None Available" : errorMsg}>
-          {errorMsg === undefined ? linuxItems : (null)}
+        <Dropdown.Section
+          title={
+            errorMsg === undefined
+              ? linuxItems.length > 0
+                ? "Linux"
+                : "Linux - None Available"
+              : errorMsg
+          }
+        >
+          {errorMsg === undefined ? linuxItems : null}
         </Dropdown.Section>
-        <Dropdown.Section title={errorMsg === undefined ? macosItems.length > 0 ? "MacOS" : "MacOS - None Available" : errorMsg}>
-          {errorMsg === undefined ? macosItems : (null)}
+        <Dropdown.Section
+          title={
+            errorMsg === undefined
+              ? macosItems.length > 0
+                ? "MacOS"
+                : "MacOS - None Available"
+              : errorMsg
+          }
+        >
+          {errorMsg === undefined ? macosItems : null}
         </Dropdown.Section>
       </Dropdown.Menu>
     </Dropdown>

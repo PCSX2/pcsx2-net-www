@@ -1,12 +1,13 @@
 ---
 authors:
-- cottonvibes
+  - cottonvibes
 date: 2009-08-31 00:00:00
-description: In pcsx2's advanced options dialog (if you've dared to look), you've
+description:
+  In pcsx2's advanced options dialog (if you've dared to look), you've
   might have noticed there's "FPU Clamp Mode" and "VU Clamp Mode" settings
 draft: false
 tags:
-- devblog
+  - devblog
 title: Whats Clamping Why Do We Need It
 ---
 
@@ -27,7 +28,6 @@ Basically there's something called the "The IEEE Standard for
 Floating-Point Arithmetic" (or IEEE 754), which defines floating point
 representation; and most systems abide by those rules (of course not our
 wonderful PS2).
-
 
 There's 32-bit "Single Precision Floats" (commonly referred to as
 'float'), 64-bit "Double Precision Floats" (commonly referred to as
@@ -93,7 +93,6 @@ INF - 1000 = Some Large Value - 100
 And there's many more combinations, but the point is that the results
 are not the same between PC and the PS2.
 
-
 So how do we solve these problems?
 Well there's no 'fast' way to emulate the ps2 behavior 100% correct
 (this would require a software FPU, which will be **very-slow** ).
@@ -123,7 +122,6 @@ break;
 }
 ```
 
-
 If the above code was ran on the ps2, it will eventually print "Hello
 World", because INF is treated as a regular large number, and will
 continue to be divided by 2 until its less than 1.
@@ -151,9 +149,9 @@ break;
 
 The clamping will convert the INF into a normal (ordered) number. Then
 that normal number can be divided by 2 repetitively until its less than
-1. Then it will eventually satisfy (value less or equal 1), and print
-"Hello World".
 
+1. Then it will eventually satisfy (value less or equal 1), and print
+   "Hello World".
 
 Sometimes clamping breaks games (because of a lot of reasons that will
 take too long to explain), but the basic problem is:
@@ -166,7 +164,6 @@ some situations, we have different clamp modes in pcsx2's advanced
 options.
 Also clamping is SLOW if done a lot, so different clamp modes are faster
 than others ('None' is the fastest of course)
-
 
 I also should mention that in earlier examples i said:
 sqrt(-4) = NaN; // on your PC
@@ -183,10 +180,8 @@ return value;
 }
 ```
 
-
 so:
-ps2\_sqrt(-4) = 2;
-
+ps2_sqrt(-4) = 2;
 
 Now this post is getting really large, and I tried to simplify things a
 lot (which may have made things more confusing).

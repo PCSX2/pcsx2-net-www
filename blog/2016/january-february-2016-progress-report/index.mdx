@@ -1,11 +1,11 @@
 ---
 authors:
-- bositman
+  - bositman
 date: 2016-03-02 00:00:00
 description: Hello everyone and welcome to another glorious PCSX2 progress report!
 draft: false
 tags:
-- progress-report
+  - progress-report
 title: January - February 2016 Progress Report
 ---
 
@@ -21,8 +21,8 @@ lack of manpower - for the most part, the same people that work on the
 emulator itself write the progress reports. Because of that there are
 many times when they'd rather spend their free time improving the
 emulator rather than writing about the improvements. With this in mind
-we have decided that from now on *our progress reports will be released
-every three months* .
+we have decided that from now on _our progress reports will be released
+every three months_ .
 
 This will enable us to release higher quality progress reports as well
 as dedicate more time to development.
@@ -34,6 +34,7 @@ Now with that out of the way, let's get down to it!
 ![](./img/progress-rep-1-2-2016.jpg)
 
 ## GSDX-OpenGL: Fast accurate blending
+
 - by [Gregory](https://github.com/gregory38) and [Turtleli](https://github.com/turtleli)
 
 As most of you know, Blending Unit Accuracy is an option where a SW
@@ -48,11 +49,10 @@ performance well below an acceptable level.
 Two reasons why poor performance was observed on some games while using
 accurate blending:
 
--   Primitives being drawn one by one when any primitive overlap is
-detected
--   The GPU Texture Cache needs to be flushed at each instances of
-reading a target.
-
+- Primitives being drawn one by one when any primitive overlap is
+  detected
+- The GPU Texture Cache needs to be flushed at each instances of
+  reading a target.
 
 **Turtleli** fixed the first issue
 by reworking the code so that non-overlapping consecutive sprite
@@ -78,7 +78,7 @@ in the target are constant. This also means that said bits are the same
 in the cache (which contains the value of rendering target at a random
 time). Because of this we don't care which data is read, cached or not,
 the required bits will be the same. This provides a significant increase
-at speed on games like *Xenosaga*.
+at speed on games like _Xenosaga_.
 
 **Note:** The former slow method
 of accurate blending can still be used by enabling "Safe Accurate
@@ -86,13 +86,14 @@ blending" on HW hacks. ( useful for checking on regressions caused by
 the current fast blending)
 
 |      **Game**      | **Blending unit accuracy \[disabled\]** | **Blending unit accuracy \[medium\] (before)** | **Blending unit accuracy \[medium\] (now)** |
-|:------------------:|:---------------------------------------:|:----------------------------------------------:|:-------------------------------------------:|
+| :----------------: | :-------------------------------------: | :--------------------------------------------: | :-----------------------------------------: |
 |      Xenosaga      |                   172                   |                       36                       |                     153                     |
 | Zone of the Enders |                   172                   |                       27                       |                     156                     |
 
 > Speed impact of Fast accurate blending
 
 ## GSDX-OpenGL: Depth buffer lookup optimization
+
 - by [Gregory](https://github.com/gregory38)
 
 The Graphics synthesizer (GS) is allowed to overlap the depth buffer and
@@ -107,15 +108,14 @@ handle the depth buffer when it isn't used by the game. It removes most
 of the overhead of the HW depth option on games like Tekken 5.
 
 | **Game** | **HW depth \[disabled\]** | **HW depth \[enabled\] (before)** | **HW depth \[enabled\] (now)** |
-|----------|:-------------------------:|:---------------------------------:|:------------------------------:|
+| -------- | :-----------------------: | :-------------------------------: | :----------------------------: |
 | Tekken 5 |            215            |                32                 |              205               |
 
 > Speed impact of depth buffer lookup optimization
 
-
-
 ## GSDX-FX: Post-Processing updates
--  [Asmodean](https://github.com/Asmodean)
+
+- [Asmodean](https://github.com/Asmodean)
 
 Asmodean has updated his effects suite with improved cel edges of the
 cel shader and a new debanding shader along with Timothy Lottes' CRT
@@ -124,33 +124,45 @@ emulation shader.
 Here are some comparison screenshots showing the effect of the CRT
 emulation shader:
 
-<SliderCompare before={require("./img/gundam-noshader-s.webp").default} after={require("./img/gundam-shader-s.webp").default} />
+<SliderCompare
+  before={require("./img/gundam-noshader-s.webp").default}
+  after={require("./img/gundam-shader-s.webp").default}
+/>
 
-<SliderCompare before={require("./img/dmc3-noshader-s.webp").default} after={require("./img/dmc3-shader-s.webp").default} />
-
+<SliderCompare
+  before={require("./img/dmc3-noshader-s.webp").default}
+  after={require("./img/dmc3-shader-s.webp").default}
+/>
 
 ## GSDX: Proper handling of 576P/720P/1080I video modes
+
 - by [ssakash](https://github.com/ssakash)
 
 **1080P (before/after)**
 
-<SliderCompare before={require("./img/height-broken-s.webp").default} after={require("./img/height-fixed-s.webp").default} />
+<SliderCompare
+  before={require("./img/height-broken-s.webp").default}
+  after={require("./img/height-fixed-s.webp").default}
+/>
 
 > Note: This screenshot is of an ELF file called "Video mode test" which was designed to observe the Display/SMODE registers value changes at each video modes.
 
 **Gitaroo Man \[PAL\] (before/after)**
 
-<SliderCompare before={require("./img/gitarooman-broken-s.webp").default} after={require("./img/gitarooman-fixed-s.webp").default} />
+<SliderCompare
+  before={require("./img/gitarooman-broken-s.webp").default}
+  after={require("./img/gitarooman-fixed-s.webp").default}
+/>
 
->  Note: The NTSC version of Gitaroo Man didn't suffer the following issue since it uses a height of 448 whereas the PAL version uses 576.
+> Note: The NTSC version of Gitaroo Man didn't suffer the following issue since it uses a height of 448 whereas the PAL version uses 576.
 
 The physical display dimensions (CRTC size) of the video modes can be
 found using the value of the following display registers:
 
--   DW - Display Width
--   DH - Display Height
--   MAGH - Horizontal Magnification factor
--   MAGV - Vertical Magnification factor
+- DW - Display Width
+- DH - Display Height
+- MAGH - Horizontal Magnification factor
+- MAGV - Vertical Magnification factor
 
 The width and height are calculated by the formula (DW+1) / (MAGH + 1) and **(DH+1) / (MAGV + 1)** respectively.
 Different video modes use different magnification factors and it depends
@@ -172,25 +184,25 @@ height of the device size instead of the display rectangle. We don't
 need to divide once again as device size already goes through the
 halving of height when the respective register values are set.
 
-
 ## PCSX2: GUI Improvements
+
 - [ssakash](https://github.com/ssakash), [Turtleli](https://github.com/turtleli) and [NZJenkins](https://github.com/NZJenkins)
 
--   Console Window: Improved size handling and better autodock behavior
-when maximized.
--   Console Window: make enable/disable/restore defaults affect all menu
-items.
--   Debugger: proper deletion of breakpoint when multiple breakpoints
-are present.
--   Debugger: prevent unexpected resuming when stepping into/over
-disabled breakpoints.
--   Debugger: stepout works without any preceding step in / step over.
--   GSFrame: Resolution is displayed at titlebar with respect to
-upscaling value.
--   VideoPanel: Better gray out of dialog elements.
-
+- Console Window: Improved size handling and better autodock behavior
+  when maximized.
+- Console Window: make enable/disable/restore defaults affect all menu
+  items.
+- Debugger: proper deletion of breakpoint when multiple breakpoints
+  are present.
+- Debugger: prevent unexpected resuming when stepping into/over
+  disabled breakpoints.
+- Debugger: stepout works without any preceding step in / step over.
+- GSFrame: Resolution is displayed at titlebar with respect to
+  upscaling value.
+- VideoPanel: Better gray out of dialog elements.
 
 ## PCSX2-Auto test suite
+
 - by [Gregory](https://github.com/gregory38), [Rama](https://github.com/ramapcsx2) and [Refraction](https://github.com/refractionpcsx2)
 
 The [PS2 Autotests](https://github.com/unknownbrackets/ps2autotests) is
@@ -213,19 +225,19 @@ such tests and allows faster debugging for the developers - these tests
 have already helped our developers fix a couple of issues. (few of them
 are listed below for reference)
 
--   [EE-Interpreter: Fix a subtle bug in a
-QFSRV](https://github.com/PCSX2/pcsx2/commit/46a2f6ed24067dfdc2002ff9a1a365d941ff7779)
--   [IOP: Fix MTLO
-Instruction](https://github.com/PCSX2/pcsx2/commit/ba62ce9e933499f94a613f34a0a02361fd870fc6)
--   [DMAC: Most significant bits of MADR is fixed to 0 in 8/9
-channels](https://github.com/PCSX2/pcsx2/commit/5efbf2a8023432d4ff6f9564e77eda7714c4f91d)
--   [Vif-Recompiler: Fix skip size
-calculation.](https://github.com/PCSX2/pcsx2/commit/cf993c2a3632a6371fc807da1ee6b945ccca5b9d)
--   [Vif-Recompiler: Proper handling when domode is set
-to 3.](https://github.com/PCSX2/pcsx2/commit/e5e0f85b50feb943e761944ca4a368402a1600f2)
-
+- [EE-Interpreter: Fix a subtle bug in a
+  QFSRV](https://github.com/PCSX2/pcsx2/commit/46a2f6ed24067dfdc2002ff9a1a365d941ff7779)
+- [IOP: Fix MTLO
+  Instruction](https://github.com/PCSX2/pcsx2/commit/ba62ce9e933499f94a613f34a0a02361fd870fc6)
+- [DMAC: Most significant bits of MADR is fixed to 0 in 8/9
+  channels](https://github.com/PCSX2/pcsx2/commit/5efbf2a8023432d4ff6f9564e77eda7714c4f91d)
+- [Vif-Recompiler: Fix skip size
+  calculation.](https://github.com/PCSX2/pcsx2/commit/cf993c2a3632a6371fc807da1ee6b945ccca5b9d)
+- [Vif-Recompiler: Proper handling when domode is set
+  to 3.](https://github.com/PCSX2/pcsx2/commit/e5e0f85b50feb943e761944ca4a368402a1600f2)
 
 ## PCSX2-Vector Units: Scarface I bit hack
+
 - by [Refraction](https://github.com/refractionpcsx2)
 
 **Scarface - The World is Yours**
@@ -253,8 +265,8 @@ This is an optional hack which can be found under the **Gamefixes** tab of the e
 is slower to handle things this way and is quite specific, but it was
 requested by quite a few users, so we obliged!
 
-
 ## LilyPad: Add Pop'n Music controller support
+
 - by [ekudritski](https://github.com/ekudritski)
 
 <Image cols={6} src={require("./img/lilypad-pop-n-music-s.webp").default} />

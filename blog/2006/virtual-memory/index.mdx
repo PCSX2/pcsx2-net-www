@@ -1,11 +1,11 @@
 ---
 authors:
-- zerofrog
+  - zerofrog
 date: 2006-07-30 00:00:00
 description: The Playstation 2 uses co-processor 0 to implement virtual paging
 draft: false
 tags:
-- devblog
+  - devblog
 title: Virtual Memory
 ---
 
@@ -17,10 +17,10 @@ Emotion Engine side is:
 
 <!-- truncate -->
 
-The 32Mb of main memory occupying 0000\_0000 - 01ff\_ffff
-Hardware registers occupying 1000\_0000 - 1000\_ffff
-VU/BIOS/SPU2 addresses in 1100\_0000-1fff\_ffff
-Special kernel modes etc in 8000\_0000-bfff\_ffff
+The 32Mb of main memory occupying 0000_0000 - 01ff_ffff
+Hardware registers occupying 1000_0000 - 1000_ffff
+VU/BIOS/SPU2 addresses in 1100_0000-1fff_ffff
+Special kernel modes etc in 8000_0000-bfff_ffff
 A scratch pad in some other address
 ...And of course can't forget the hidden addresses (thanks SONY)
 
@@ -71,7 +71,7 @@ is switch the mapping of the physical page as many times as needed! To
 achieve this, Pcsx2 hacks into the root exception handler and intercepts
 every exception the program generates. Whenever an illegal virtual page
 is accessed (ie, no physical page mapped to it), Pcsx2 gets a
-EXCEPTION\_ACCESS\_VIOLATION then it remaps the correct physical page to
+EXCEPTION_ACCESS_VIOLATION then it remaps the correct physical page to
 that empty virtual page and returns. Although I haven't calculated
 precisely, I'm pretty sure that switching physical pages around is
 pretty expensive, computationally speaking. So all this works fine under

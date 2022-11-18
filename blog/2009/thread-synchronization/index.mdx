@@ -1,13 +1,14 @@
 ---
 authors:
-- jake stine
+  - jake stine
 date: 2009-10-07 00:00:00
-description: It's the year 2009, and it's almost over at that; and as anyone reading
+description:
+  It's the year 2009, and it's almost over at that; and as anyone reading
   this blog well knows, multithreaded applications are the here-and-now and future
   of desktop computing
 draft: false
 tags:
-- devblog
+  - devblog
 title: Thread Synchronization
 ---
 
@@ -46,10 +47,10 @@ only in co-operative fashion (extending it to support multiple is
 possible, but very difficult), the threaded approach can be scaled to
 load dozens of images at once with no additional complications.
 
-The drawback is that thread synchronization and *especially* structured
+The drawback is that thread synchronization and _especially_ structured
 error handling across threads tends to be much more complicated than
 that of the linear cooperative model. If you don't have errors to
-handle, or don't really *care* about handling errors, then threaded
+handle, or don't really _care_ about handling errors, then threaded
 tasking isn't so bad.
 
 Enter PCSX2, where everything ends up being damn complicated. Being a
@@ -64,7 +65,7 @@ input when appropriate (and not just throwing out annoying or vague
 message boxes).
 
 Interlocking dependencies can be a nightmare. For example, if you start
-a thread that loads an image, and then *block* on that thread until it
+a thread that loads an image, and then _block_ on that thread until it
 completes, you're worse off than if you wrote yourself a cooperative
 image loader because now the whole program stalls waiting for the thread
 to complete anyway. And like everything else, there are two ways to

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 import { Grid } from "@nextui-org/react";
 
 export default function SliderCompare({ children, cols, before, after }) {
@@ -10,7 +10,7 @@ export default function SliderCompare({ children, cols, before, after }) {
 
   function handleMouseUp(event) {
     isDragging = false;
-  };
+  }
 
   function handleMouseDownOrTouchStart(event) {
     isDragging = true;
@@ -19,10 +19,10 @@ export default function SliderCompare({ children, cols, before, after }) {
     let position = ((event.pageX - rect.left) / elem.offsetWidth) * 100;
     if (position <= 100) {
       imgClipper.current.style.width = position + "%";
-      beforeImg.current.style.width = ((100 / position) * 100) + "%";
+      beforeImg.current.style.width = (100 / position) * 100 + "%";
       beforeImg.current.style.zIndex = 3;
     }
-  };
+  }
 
   function handleMouseMove(event) {
     if (!isDragging) {
@@ -33,7 +33,7 @@ export default function SliderCompare({ children, cols, before, after }) {
     let position = ((event.pageX - rect.left) / elem.offsetWidth) * 100;
     if (position <= 100) {
       imgClipper.current.style.width = position + "%";
-      beforeImg.current.style.width = ((100 / position) * 100) + "%";
+      beforeImg.current.style.width = (100 / position) * 100 + "%";
       beforeImg.current.style.zIndex = 3;
     }
   }
@@ -47,16 +47,31 @@ export default function SliderCompare({ children, cols, before, after }) {
   }
 
   return (
-    <Grid.Container style={{marginBottom: "1em"}}>
+    <Grid.Container style={{ marginBottom: "1em" }}>
       <Grid xs={12} md={Math.min(12, cols ?? 12)}>
-        <div ref={container} className="img-compare-container"
+        <div
+          ref={container}
+          className="img-compare-container"
           onMouseUp={handleMouseUp}
           onMouseDown={handleMouseDownOrTouchStart}
           onTouchStart={handleMouseDownOrTouchStart}
-          onMouseMove={handleMouseMove}>
-          <img src={after} loading="lazy" alt="" draggable="false" onLoad={imageLoaded} />
+          onMouseMove={handleMouseMove}
+        >
+          <img
+            src={after}
+            loading="lazy"
+            alt=""
+            draggable="false"
+            onLoad={imageLoaded}
+          />
           <div ref={imgClipper} className="img-clipper">
-            <img ref={beforeImg} src={before} loading="lazy" alt="" draggable="false" />
+            <img
+              ref={beforeImg}
+              src={before}
+              loading="lazy"
+              alt=""
+              draggable="false"
+            />
             <div className="img-cmp-label before">Before</div>
           </div>
           <div className="img-cmp-label after">After</div>

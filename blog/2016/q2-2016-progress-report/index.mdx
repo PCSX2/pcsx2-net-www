@@ -1,11 +1,11 @@
 ---
 authors:
-- bositman
+  - bositman
 date: 2016-06-17 00:00:00
 description: Hey everyone and welcome to another spectacular PCSX2 progress report!
 draft: false
 tags:
-- progress-report
+  - progress-report
 title: Q2 2016 Progress Report
 ---
 
@@ -13,7 +13,7 @@ title: Q2 2016 Progress Report
 
 ![](./img/progress-rep-q2-2016.jpg)
 
-------------------------------------------------------------------------
+---
 
 Hey everyone and welcome to another spectacular PCSX2 progress report!
 As you may have read in the last report we have moved from doing reports
@@ -38,9 +38,13 @@ With that out of the way let's jump right in to the PCSX2 progress
 report for Q2 2016! Strap yourself in for the ride because here we go!
 
 ## OnePAD: Updated GUI
+
 - by [kust2708](https://github.com/kust2708)
 
-<ImageCompare left={require("./img/onepad_old_s.webp").default} right={require("./img/onepad_new_s.webp").default} />
+<ImageCompare
+  left={require("./img/onepad_old_s.webp").default}
+  right={require("./img/onepad_new_s.webp").default}
+/>
 
 OnePAD is the default pad plugin for PCSX2 on Linux. Recently kust2708
 updated OnePAD's UI to make it a bit nicer and more user friendly.
@@ -48,8 +52,8 @@ Instead of the drab gray buttons laid out in a sort of Dual Shock
 arrangement users can now much more intuitively configure their
 controllers with a nice Dual Shock 2 graphic.
 
-
 ## Core: Automatic aspect ratio switch during FMV playback
+
 - by [FlatOut](https://github.com/FlatOutPS2)
 
 <Image cols={6} src={require("./img/auto-aspect-ratio-switch.webp").default} />
@@ -61,22 +65,22 @@ game in widescreen. This new option automatically switches PCSX2's
 aspect ratio to 4:3 when an FMV begins and back to widescreen when it
 ends, so both the in-game part and the FMV's are displayed correctly.
 
-
 ## CDVDgigaherz: Fixed dual layer DVD reading
+
 - by [turtleli](https://github.com/turtleli)
 
 Dual layer DVDs have never worked properly with CDVDgigaherz and it
 turns out that there were quite a few issues:
 
--   DVD layer information sector addresses were not converted from big
-endian to little endian.
--   Windows filesystem drivers prevented layer 1 sectors from being read
-due to boundary checks.
--   Dual layer DVDs were reported to PCSX2 as having multiple tracks,
-when all single session DVDs only have one track.
--   Generation of the Table of Contents was skipped.
--   The layer break address was off by one.
--   PTP DVDs were wrongly recognized as OTP DVDs.
+- DVD layer information sector addresses were not converted from big
+  endian to little endian.
+- Windows filesystem drivers prevented layer 1 sectors from being read
+  due to boundary checks.
+- Dual layer DVDs were reported to PCSX2 as having multiple tracks,
+  when all single session DVDs only have one track.
+- Generation of the Table of Contents was skipped.
+- The layer break address was off by one.
+- PTP DVDs were wrongly recognized as OTP DVDs.
 
 These issues are now fixed so dual layer DVDs should now be playable
 with CDVDgigaherz. A list of games affected by this change can be found
@@ -84,8 +88,8 @@ with CDVDgigaherz. A list of games affected by this change can be found
 Wikipedia](https://en.wikipedia.org/wiki/List_of_PlayStation_2_DVD-9_games)
 .
 
-
 ## CDVD: Improved ISO layer break detection algorithm
+
 - by [turtleli](https://github.com/turtleli)
 
 When using large DVD ISOs (>4.3GB e.g. dual layer DVDs) a brute force
@@ -95,12 +99,12 @@ break was found.
 
 This approach wasn't optimal due to the following reasons:
 
--   PCSX2 would appear to be unresponsive while it searches for the
-layer break address the first time the ISO is booted.
--   The layer break address needs to be cached to speed up subsequent
-loads.
--   If there is no layer break, the entire DVD would be searched each
-time the ISO is booted - this could take a few minutes.
+- PCSX2 would appear to be unresponsive while it searches for the
+  layer break address the first time the ISO is booted.
+- The layer break address needs to be cached to speed up subsequent
+  loads.
+- If there is no layer break, the entire DVD would be searched each
+  time the ISO is booted - this could take a few minutes.
 
 Doing it this way was unnecessary. The DVD layer 0 Primary Volume
 Descriptor contains the total number of sectors on layer 0 of the DVD.
@@ -109,8 +113,8 @@ a dual layer DVD, however, this sector count is equal to the first
 logical sector number on layer 1. Using this knowledge a much faster and
 simpler layer break search algorithm was implemented.
 
-
 ## GSDX: Fast texture invalidation
+
 - by [Gregory](https://github.com/gregory38)
 
 Not too long ago the half screen issue caused by the texture cache was
@@ -134,7 +138,7 @@ of many small uploads which greatly reduces the driver overhead. As a
 trade-off it increases the PCIe bandwidth requirement by 20-30%. However
 at this point PCIe is up to the third generation (and soon the fourth)
 so a good deal of bandwidth is available. Benchmarks show that this
-change produces a nice speedup - however some scenes were *still* too slow.
+change produces a nice speedup - however some scenes were _still_ too slow.
 
 Further profiling revealed that the game reads the render target a lot.
 This is slow because you need to flush the full GPU pipeline first.
@@ -150,15 +154,14 @@ have a good processor with an Nvidia GPU then you should be able to
 enjoy them in full upscaled glory now!
 
 |           **Game**           | **1.4.0 Release** | **1.5.0 w/FTI** |
-|:----------------------------:|:-----------------:|:---------------:|
+| :--------------------------: | :---------------: | :-------------: |
 | Baldur's Gate: Dark Alliance |        30         |       80        |
 |     Champions of Norrath     |        52         |       105       |
 
 > Speed Impact of Fast Texture Invalidation
 
-
-
 ## GSDX: Improved detection of Framebuffer size
+
 - by [ssakash](https://github.com/ssakash)
 
 Previously the height of the framebuffer was calculated using guesswork
@@ -170,16 +173,22 @@ a base for the framebuffer height.
 Here are some comparison screenshots showing the issues fixed by this
 change:
 
-
 **Crash Nitro Kart**
 
-<SliderCompare before={require("./img/CNK-before_s.webp").default} after={require("./img/CNK-after_s.webp").default} />
+<SliderCompare
+  before={require("./img/CNK-before_s.webp").default}
+  after={require("./img/CNK-after_s.webp").default}
+/>
 
 **Richard Burns Rally**
 
-<SliderCompare before={require("./img/RBR-before_s.webp").default} after={require("./img/RBR-after_s.webp").default} />
+<SliderCompare
+  before={require("./img/RBR-before_s.webp").default}
+  after={require("./img/RBR-after_s.webp").default}
+/>
 
 ## GSDX: Enable reading of Depth Buffer
+
 - by [Gregory](https://github.com/gregory38)
 
 There are certain scenarios where the Core (EE) reads the depth buffer
@@ -194,11 +203,18 @@ it to the EE when it wants to read the depth buffer. This implementation
 has finally fixed the lens flare issue on Kingdom Hearts II and also
 some depth related issues on ICO and Nocturne.
 
-<SliderCompare before={require("./img/kingdom-hearts2-before_s.jpg").default} after={require("./img/kingdom-hearts2-after_s.jpg").default} />
+<SliderCompare
+  before={require("./img/kingdom-hearts2-before_s.jpg").default}
+  after={require("./img/kingdom-hearts2-after_s.jpg").default}
+/>
 
-<SliderCompare before={require("./img/ICO-before_s.webp").default} after={require("./img/ICO-after_s.webp").default} />
+<SliderCompare
+  before={require("./img/ICO-before_s.webp").default}
+  after={require("./img/ICO-after_s.webp").default}
+/>
 
 ## GSDX: Improved PCRTC merge circuit emulation
+
 - by [turtleli](https://github.com/turtleli) and [ssakash](https://github.com/ssakash)
 
 In some cases the GS is configured to use two side by side display
@@ -220,8 +236,8 @@ playable.
 
 <Image cols={6} src={require("./img/timecrisis-after.webp").default} />
 
-
 ## VIF: Timing fix for MSCALF, MSCNT instructions
+
 - by [Refraction](https://github.com/refractionpcsx2)
 
 Previously the **MSCALF** and
@@ -237,9 +253,15 @@ potentially other games.
 Refraction fixed these issues by reworking the code to only allow delays
 for the **MSCAL** instruction.
 
-<SliderCompare before={require("./img/Downhil-Before_s.jpg").default} after={require("./img/Downhil-after_s.jpg").default} />
+<SliderCompare
+  before={require("./img/Downhil-Before_s.jpg").default}
+  after={require("./img/Downhil-after_s.jpg").default}
+/>
 
-<SliderCompare before={require("./img/twisted-metal-before_s.webp").default} after={require("./img/twisted-metal-after_s.webp").default} />
+<SliderCompare
+  before={require("./img/twisted-metal-before_s.webp").default}
+  after={require("./img/twisted-metal-after_s.webp").default}
+/>
 
 As usual, there were even more additions and developments while this
 report was being written but they will be included in our next quarterly

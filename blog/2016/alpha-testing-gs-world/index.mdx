@@ -1,11 +1,11 @@
 ---
 authors:
-- gregory
+  - gregory
 date: 2016-09-25 00:00:00
 description: Today, we will discuss the alpha testing feature of the GS
 draft: false
 tags:
-- devblog
+  - devblog
 title: Alpha Testing Gs World
 ---
 
@@ -24,7 +24,6 @@ called fragment tests). It is really easy; If the test fails (pixel is
 rendered behind the current one), you discard the color depth value. If
 the test passes (pixel is rendered above the current one), you update
 both, color and depth values.
-
 
 In order to allow special effects, extra pixel tests were added to the
 graphic pipeline, alpha testing is one of them. This time, instead of
@@ -80,18 +79,16 @@ Addition C2 then C1 =&gt; Color Final = C1 + (C2 + C0 )= 30 + (100 + 0)
 = 130
 
 R-Subtraction C1 then C2 =&gt; Color Final = C2 - (C1 - C0) = 100 - (30
-- 0) = 100 - 30 = 70
-R-Subtraction C2 then C1 =&gt; Color Final = C1 - (C2 - C0 )= 30 - (100
-- 0) = 30 - 100 = -70 (which will be clamped to 0)
+
+- 0. = 100 - 30 = 70
+     R-Subtraction C2 then C1 =&gt; Color Final = C1 - (C2 - C0 )= 30 - (100
+- 0. = 30 - 100 = -70 (which will be clamped to 0)
 
 Now that blending is explained, we can go back to the Burnout / GTA
 games. Bingo, those games use operations that aren't commutative. So the
 previous 2 pass shader doesn't work.
 
-Some info on the Burnout bad draw call
-\* Depth test: greater or equal
-\* Alpha test: discard depth if alpha greater than AREF
-\* Blending equation: C = Alpha Src \* Color Src + (1 - Alpha Src) \*
+Some info on the Burnout bad draw call \* Depth test: greater or equal \* Alpha test: discard depth if alpha greater than AREF \* Blending equation: C = Alpha Src \* Color Src + (1 - Alpha Src) \*
 Alpha Destination
 
 Screenshots (of the game Kengo, but it is the same) can be found at the end of the blog
@@ -100,7 +97,7 @@ Screenshots (of the game Kengo, but it is the same) can be found at the end of t
 
 Color isn't commutative. Neither is Depth... Too bad. Looking further in
 the primitive in that draw call, I noticed that the Z value is constant
-at 0xFF\_FFFF. It is the maximum value of the 24 bits depth buffer. In
+at 0xFF_FFFF. It is the maximum value of the 24 bits depth buffer. In
 other words, depth tests are always passing as it will always be greater
 or equal than the current value. So the depth test could be replaced by
 always true. As a bonus, it allows a small micro optimization of the GPU
@@ -153,7 +150,6 @@ beautiful text rendering in God of War, Grand Theft Auto, Kengo,
 Burnout, Stuntman, HSG4 and hopefully more.
 
 ## Some screenshots of the alpha test issue
-
 
 Here is an example of the rendering of letters.
 

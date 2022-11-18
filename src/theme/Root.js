@@ -1,25 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import { createTheme, NextUIProvider, getDocumentTheme } from '@nextui-org/react'
+import React, { useEffect, useState } from "react";
+import {
+  createTheme,
+  NextUIProvider,
+  getDocumentTheme,
+} from "@nextui-org/react";
 import CookieConsent, { getCookieConsentValue } from "react-cookie-consent";
 
 const lightTheme = createTheme({
-  type: 'light',
+  type: "light",
   theme: {
     // colors: {...}, // optional
-  }
-})
+  },
+});
 
 const darkTheme = createTheme({
-  type: 'dark',
+  type: "dark",
   theme: {
     // colors: {...}, // optional
-  }
-})
+  },
+});
 
 function loadGoogleAds() {
-  if (getCookieConsentValue("pcsx2CookieConsent") === "true" && document.getElementById("googleAdScript") === null) {
+  if (
+    getCookieConsentValue("pcsx2CookieConsent") === "true" &&
+    document.getElementById("googleAdScript") === null
+  ) {
     const elem = document.createElement("script");
-    elem.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0996284081546238";
+    elem.src =
+      "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0996284081546238";
     elem.async = true;
     elem.defer = true;
     elem.id = "googleAdScript";
@@ -33,14 +41,14 @@ export default function Root({ children }) {
 
   useEffect(() => {
     // you can use any storage
-    let theme = window.localStorage.getItem('theme');
-    setIsDark(theme === 'dark');
+    let theme = window.localStorage.getItem("theme");
+    setIsDark(theme === "dark");
 
     const observer = new MutationObserver((mutation) => {
       let newTheme = getDocumentTheme(document?.documentElement);
-      if (newTheme === 'dark') {
+      if (newTheme === "dark") {
         if (!document?.documentElement.classList.contains("dark-theme")) {
-          document?.documentElement.classList.add('dark-theme');
+          document?.documentElement.classList.add("dark-theme");
         }
         setIsDark(true);
       } else {
@@ -51,7 +59,7 @@ export default function Root({ children }) {
     // Observe the document theme changes
     observer.observe(document?.documentElement, {
       attributes: true,
-      attributeFilter: ['data-theme', 'style', "class"]
+      attributeFilter: ["data-theme", "style", "class"],
     });
 
     loadGoogleAds();
@@ -59,20 +67,26 @@ export default function Root({ children }) {
     return () => observer.disconnect();
   }, []);
 
-  return <NextUIProvider theme={isDark ? darkTheme : lightTheme} disableBaseline={true}>
-    <CookieConsent
-      location="bottom"
-      buttonText="Agree"
-      declineButtonText="Decline"
-      cookieName="pcsx2CookieConsent"
-      enableDeclineButton={true}
-      style={{ background: "#2B373B" }}
-      expires={150}
-      onAccept={() => {
-        loadGoogleAds();
-      }}
+  return (
+    <NextUIProvider
+      theme={isDark ? darkTheme : lightTheme}
+      disableBaseline={true}
     >
-      This website uses cookies to enhance the user experience.
-    </CookieConsent>
-    {children}</NextUIProvider>;
+      <CookieConsent
+        location="bottom"
+        buttonText="Agree"
+        declineButtonText="Decline"
+        cookieName="pcsx2CookieConsent"
+        enableDeclineButton={true}
+        style={{ background: "#2B373B" }}
+        expires={150}
+        onAccept={() => {
+          loadGoogleAds();
+        }}
+      >
+        This website uses cookies to enhance the user experience.
+      </CookieConsent>
+      {children}
+    </NextUIProvider>
+  );
 }

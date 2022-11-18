@@ -1,11 +1,11 @@
 ---
 authors:
-- bositman
+  - bositman
 date: 2015-10-01 00:00:00
 description: Now its time to present this month's changes.
 draft: false
 tags:
-- progress-report
+  - progress-report
 title: September 2015 Progress Report
 ---
 
@@ -29,25 +29,25 @@ done guys!
 Now its time to present this month's changes.
 
 ## Windows Visual Studio improvement
+
 - by [Micove](https://github.com/micove) [Pistachioman](https://github.com/Pistachioman)
 
 Windows build management had become very disorganized recently, however
 that has been improved a good deal thanks to the following changes:
 
--   In a gigantic PR started by Micove, Visual Studio 2012 support was
-dropped and Visual Studio 2015 support was added. As a bonus some
-build targets that weren't working for quite a while were fixed as
-well as the compilation issues with the newly released update 5 of
-Visual Studio 2013. Maintaining the old versions was pretty tiresome
-but now we've been relieved of that burden.
--   The version-specific Visual Studio solution and project files were
-replaced with a single set of multi-version files. This removed 30k
-lines of code and it allows us to easily support new versions of
-Visual Studio.
--   Sometimes builds failed to compile due to a strange environment
-setup. After hours of debugging the culprit was found - missing
-dependencies and a header conflict.
-
+- In a gigantic PR started by Micove, Visual Studio 2012 support was
+  dropped and Visual Studio 2015 support was added. As a bonus some
+  build targets that weren't working for quite a while were fixed as
+  well as the compilation issues with the newly released update 5 of
+  Visual Studio 2013. Maintaining the old versions was pretty tiresome
+  but now we've been relieved of that burden.
+- The version-specific Visual Studio solution and project files were
+  replaced with a single set of multi-version files. This removed 30k
+  lines of code and it allows us to easily support new versions of
+  Visual Studio.
+- Sometimes builds failed to compile due to a strange environment
+  setup. After hours of debugging the culprit was found - missing
+  dependencies and a header conflict.
 
 Relevant commits and PRs:
 [Visual Studio: Fixes for
@@ -60,8 +60,8 @@ file](https://github.com/PCSX2/pcsx2/pull/690)
 [Remove Dependency and UAC info from the manifest
 file](https://github.com/PCSX2/pcsx2/commit/4a743ac2fbebc28e7b85edb0a4d6c17810445d52)
 
-
 ## Windows version detection
+
 - by [Micove](https://github.com/micove)
 
 After the big improvement to the build system, Micove decided to fix the
@@ -74,9 +74,8 @@ vice versa.
 Relevant PR:
 [Recognize Win 8, 8.1 and 10](https://github.com/PCSX2/pcsx2/pull/795)
 
-
-
 ## GSdx GUI revamp
+
 - by [Turtleli](https://github.com/turtleli), [ssakash](https://github.com/ssakash) and [gregory](https://github.com/gregory38)
 
 In the meantime, Turtleli revamped the GSdx GUI with some help from
@@ -85,21 +84,23 @@ screenshots of the GUI.
 
 Before changes on the left, after changes on the right
 
-<SliderCompare before={require("./img/gsdx-before-s.webp").default} after={require("./img/gsdx-after-s.webp").default} />
+<SliderCompare
+  before={require("./img/gsdx-before-s.webp").default}
+  after={require("./img/gsdx-after-s.webp").default}
+/>
 
--   As you can see, the Anisotropic Filtering Checkbox was removed as it
-was redundant with the 1x state (called OFF now).
--   Most of the options now have a nice tooltip to describe them. It is
-not as complete as a full guide but it's handy to see the impact of
-an option without 10 minutes of googling. Hovering the cursor over
-an option will display some quick info about it.
--   CRC hack selection was moved from the hack section to the main
-panel. The main reason is that that option was independent of the
-"Enable HW hacks" checkbox.
--   Confusing 3 state checkboxes were replaced by much nicer comboboxes.
--   Various options are OpenGL or DirectX renderer specific. Those
-options will be hidden based on the renderer selection.
-
+- As you can see, the Anisotropic Filtering Checkbox was removed as it
+  was redundant with the 1x state (called OFF now).
+- Most of the options now have a nice tooltip to describe them. It is
+  not as complete as a full guide but it's handy to see the impact of
+  an option without 10 minutes of googling. Hovering the cursor over
+  an option will display some quick info about it.
+- CRC hack selection was moved from the hack section to the main
+  panel. The main reason is that that option was independent of the
+  "Enable HW hacks" checkbox.
+- Confusing 3 state checkboxes were replaced by much nicer comboboxes.
+- Various options are OpenGL or DirectX renderer specific. Those
+  options will be hidden based on the renderer selection.
 
 Relevant PRs:
 [little changes on AF value
@@ -108,9 +109,8 @@ behavior.](https://github.com/PCSX2/pcsx2/pull/754)
 [GSDX: Rework Internal resolution function.
 (windows)](https://github.com/PCSX2/pcsx2/pull/829/commits)
 
-
-
 ## PCSX2: Revamped FPS counter
+
 - by [avih](https://github.com/avih) and [ssakash](https://github.com/ssakash)
 
 **Old FPS Counter**
@@ -141,6 +141,7 @@ value](https://github.com/PCSX2/pcsx2/commit/ece9c7f2d257a56e5e3aa03e6985e2fcec6
 NTSC-progressive](https://github.com/PCSX2/pcsx2/commit/a6737b87fdf9214bc4bb544010f4533f5dd77069)
 
 ## (Windows) Request the use of the high-performance graphics card on systems where multiple graphics processors are available (nVidia Optimus, AMD Hybrid Graphics)
+
 - by [charliebruce](https://github.com/charliebruce)
 
 Before this fix, PCSX2 would always use the default video adapter of
@@ -155,8 +156,8 @@ Relevant PR:
 [Improve nVidia Optimus and AMD PowerXpress
 compatibility](https://github.com/PCSX2/pcsx2/pull/767)
 
-
 ## (Windows) Lilypad: Fix Local Volume control checkbox behavior
+
 - by [ssakash](https://github.com/ssakash)
 
 A bug was fixed where the local volume control feature would always be
@@ -167,8 +168,8 @@ Relevant PR:
 [Lilypad: Fix Local Volume control CB function and few other
 stuff](https://github.com/PCSX2/pcsx2/pull/781)
 
-
 ## (Windows) Third-party libraries updates
+
 - by [Micove](https://github.com/micove)
 
 Micove performed a much needed update to (most) of the third-party

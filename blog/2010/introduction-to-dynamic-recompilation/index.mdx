@@ -1,13 +1,14 @@
 ---
 authors:
-- cottonvibes
+  - cottonvibes
 date: 2010-03-13 00:00:00
-description: his blog post is an introduction to dynamic recompilers (dynarecs), and
+description:
+  his blog post is an introduction to dynamic recompilers (dynarecs), and
   hopes to provide some insight on how they work and why pcsx2 uses them to speed
   up emulation
 draft: false
 tags:
-- devblog
+  - devblog
 title: Introduction To Dynamic Recompilation
 ---
 
@@ -31,12 +32,12 @@ Lets assume the processor we are emulating is a made-up chip I'll call
 SL3 (super lame 3), and has only these 3 instructions (and each
 instruction has fixed width of 4 bytes):
 
-MOV dest\_reg, src1\_reg // Move source register to destination
+MOV dest_reg, src1_reg // Move source register to destination
 register
-ADD dest\_reg, src1\_reg, src2\_reg // Add source1 and source2
+ADD dest_reg, src1_reg, src2_reg // Add source1 and source2
 registers, and store the result in destination register
-BR relative\_address // Branch (jump) to relative address (PC +=
-relative\_address \* 4)
+BR relative_address // Branch (jump) to relative address (PC +=
+relative_address \* 4)
 
 Processors generally have what we call registers which can hold data,
 and the processor's instructions perform the operations on these
@@ -53,20 +54,20 @@ ADD reg4, reg2, reg3
 BR 5
 ```
 
-
 What this code does is:
-1) It moves register 0 to register 1 (so now register 1 holds a copy of
-register 0's data).
-2) It adds register 2 and register 3 together, and stores the result in
-register 4.
-3) It branches 5 instructions further away (so now it jumps to some code
-that is further down (not shown in above example))
+
+1. It moves register 0 to register 1 (so now register 1 holds a copy of
+   register 0's data).
+2. It adds register 2 and register 3 together, and stores the result in
+   register 4.
+3. It branches 5 instructions further away (so now it jumps to some code
+   that is further down (not shown in above example))
 
 So that is how we can program for the SL3 processor in assembly code.
 But how do we emulate it?
 
-To actually emulate this processor we can use an ***interpreter*** . An
-interpreter simply fetches each *instruction opcode* and executes them
+To actually emulate this processor we can use an **_interpreter_** . An
+interpreter simply fetches each _instruction opcode_ and executes them
 accordingly (e.g. by calling emulated methods for each different
 instruction). The rest of the emulator (emulating other
 processors/peripherals of our system) can then get updated sometime in
@@ -104,7 +105,6 @@ MOV reg1, reg0
 ADD reg4, reg2, reg3
 BR 5
 ```
-
 
 Lets assume this code is part of some function and gets called 100's of
 times a second (this could sound crazy, but games/applications commonly
@@ -230,13 +230,12 @@ jmp eax; // The block to jump to is returned in eax
 }
 ```
 
-
 Note the above code doesn't have any logic to successfully exit once it
 starts executing recompiled blocks... I left this stuff out in order to
 not complicate things... so assume that somehow execution ends and we
 can get back to running the other parts of the emulator...
 Also note we need to restore registers when we exit execution, and we
-also need to set rec\_cache to the new x86 emitter address (so it can
+also need to set rec_cache to the new x86 emitter address (so it can
 continue where it left off instead of writing over already recompiled
 memory blocks).
 ( [Click here for a more complete sl3 recompiler code with cycle
@@ -274,7 +273,6 @@ We can also perform many optimizations while recompiling such as
 regalloc, constant propagation, optimized asm generation for special
 opcode cases, etc... (we didn't do this stuff in our example to avoid
 complexities).
-
 
 Hopefully this article has helped you gain a bit of understanding on how
 dynamic recompilation works, and why we use it in pcsx2 to gain a lot

@@ -1,11 +1,11 @@
 ---
 authors:
-- gregory
+  - gregory
 date: 2015-06-08 00:00:00
 description: The goal of blending is to combine two colors
 draft: false
 tags:
-- devblog
+  - devblog
 title: Explanation Impossible Blend
 ---
 
@@ -35,15 +35,14 @@ Coefficient is the alpha value (transparency) of the source or
 destination, or a constant.
 
 The issues we have with this are as follows:
-1. In the PS2, the coefficient factor could range from \[0;2\]
-(fortunately this almost never happens)
-2. If Color3 and Color1 are the same source, the equation will be:
 
+1. In the PS2, the coefficient factor could range from \[0;2\]
+   (fortunately this almost never happens)
+2. If Color3 and Color1 are the same source, the equation will be:
 
 ```cpp
 Color1 * (1+Coefficient) - Color2 *Coefficient
 ```
-
 
 which will result in the first half of this equation always being larger
 than 1. This is a problem because the GPU is limited to 1. This is why
@@ -81,7 +80,6 @@ is provided to invalidate the cache
 
 The end result is that we can implement basic blending in the fragment
 shader instead of relying on the limited GPU core.
-
 
 Proofread and corrected by [Blyss
 Sarania](http://forums.pcsx2.net/User-Blyss-Sarania)

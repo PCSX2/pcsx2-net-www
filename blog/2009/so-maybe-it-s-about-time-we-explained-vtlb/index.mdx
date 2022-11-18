@@ -1,12 +1,13 @@
 ---
 authors:
-- jake stine
+  - jake stine
 date: 2009-02-13 00:00:00
-description: Zerofrog documented the concepts of Virtual Memory a few years back.
+description:
+  Zerofrog documented the concepts of Virtual Memory a few years back.
   So now I figure it's VTLB's turn
 draft: false
 tags:
-- devblog
+  - devblog
 title: So Maybe It's About Time We Explained Vtlb
 ---
 
@@ -40,7 +41,7 @@ as "direct access" (fast mode). A page of memory is 4096 bytes long, so
 the PS2's 32Meg physical address space translates into 8192 total pages
 of memory, which ends up being a pretty small and efficient size as far
 as lookup tables are concerned. By comparison the current EErec uses a
-lookup table with *8 million entries* !
+lookup table with _8 million entries_ !
 
 So when a PS2 instruction performs a memory operation (usually referred
 to as a memOp), the VTLB grabs the lookup address. If the address has
@@ -79,8 +80,8 @@ the memOp to the appropriate physical address.
 
 Thus, the flow would be as such:
 
-**Ps2\_Virtual\_Address -&gt; VTLB\_Lookup -&gt; Handler -&gt;
-Ps2\_Physical\_Address**
+**Ps2_Virtual_Address -&gt; VTLB_Lookup -&gt; Handler -&gt;
+Ps2_Physical_Address**
 
 The benefits of this model are three-fold: efficiency, extensibility,
 and ease of debugging. If a game doesn't use the Ps2's TLB, then the

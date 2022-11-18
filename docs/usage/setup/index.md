@@ -78,9 +78,9 @@ If this article does not help solve your problem, reach out in the Discord or th
 
 1. Download the version suited for you from our [Downloads](/downloads) Section (for beginners, the full installer of the latest stable release is recommended)
 2. Get the BIOS file from your PlayStation 2 console. This is not included with PCSX2 since it breaks copyright law, so you have to obtain it from your console. [See below for how to do this](#how-to-dump-your-ps2-bios).
-3. Configure the emulator using the provided instructions in the stable release download.  Alternatively these can be found [here in the GitHub repository](https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/Configuration_Guide/Configuration_Guide.md)
-   1. Translated versions of this guide are available, but your milage may vary as many are not for the latest stable version.  [See below for links to these](#translated-configuration-guides)
-4. Launch your game using the ISO file that you have dumped yourself.  [See below for how to do this](#dumping-ps2-discs-via-imgburn)
+3. Configure the emulator using the provided instructions in the stable release download. Alternatively these can be found [here in the GitHub repository](https://github.com/PCSX2/pcsx2/blob/1.6.x/pcsx2/Docs/Configuration_Guide/Configuration_Guide.md)
+   1. Translated versions of this guide are available, but your milage may vary as many are not for the latest stable version. [See below for links to these](#translated-configuration-guides)
+4. Launch your game using the ISO file that you have dumped yourself. [See below for how to do this](#dumping-ps2-discs-via-imgburn)
 
 ### Translated configuration guides
 
@@ -170,6 +170,7 @@ If you wish to apply for a new translation or to update an existing one, visit t
 ### Still have problems?
 
 If your game is not working, there are a few things you can do:
+
 - Check the [compatibility page](/compat) to see if the game has been tested to run properly
 - Consult the [wiki page](https://wiki.pcsx2.net) for the game for similar information
 - Check the [GitHub issues page](https://github.com/PCSX2/pcsx2/issues) to see if there are any reported issues
@@ -186,7 +187,7 @@ If none of the above suggestions help you solve your problem, consider reaching 
 
 ## How to dump your PS2 BIOS
 
-In order for PCSX2 to function properly, both a legitimate BIOS and copies of games must be obtained from **your own** PlayStation 2 console and original PlayStation 2 discs respectively.  The following explains the recommended ways to accomplish both of these tasks.
+In order for PCSX2 to function properly, both a legitimate BIOS and copies of games must be obtained from **your own** PlayStation 2 console and original PlayStation 2 discs respectively. The following explains the recommended ways to accomplish both of these tasks.
 
 Dumping your PS2 BIOS is conceptually a two-step process:
 
@@ -198,20 +199,20 @@ There is a generally useful program, uLaunchELF, that lets you browse memory car
 ### Popular approaches to modify PS2 operation
 
 1. FreeMcBoot Memory Card
-    - Works for all but the newest (9xxxx serial number with a date code larger than 8B) slim PS2s. Can be found online for ~10 USD.
+   - Works for all but the newest (9xxxx serial number with a date code larger than 8B) slim PS2s. Can be found online for ~10 USD.
 2. FreeDVDBoot
-    - Works for many slim models, and some phat models. Slight effort, but free.
-    - You will require a blank DVD for this method to work!
+   - Works for many slim models, and some phat models. Slight effort, but free.
+   - You will require a blank DVD for this method to work!
 3. Disc swap exploits
-    - Technical in nature, involves hardware tampering. Guides can be found quickly by Googling.
+   - Technical in nature, involves hardware tampering. Guides can be found quickly by Googling.
 4. Mod chips
-    - Extremely technical, requires soldering skills. DO NOT ATTEMPT unless you are an electronics pro.
+   - Extremely technical, requires soldering skills. DO NOT ATTEMPT unless you are an electronics pro.
 
 ### Downloading the BIOS dumper utility
 
 Our recommended BIOS dumper utility is [biosdrain](https://github.com/F0bes/biosdrain). Therefore the instructions below will be for this tool.
 
-- The download for the latest stable biosdrain is  [here](https://github.com/f0bes/biosdrain/releases/latest/download/biosdrain.elf).
+- The download for the latest stable biosdrain is [here](https://github.com/f0bes/biosdrain/releases/latest/download/biosdrain.elf).
 
 ### Option 1: Starting a PS2 with FreeMcBoot
 
@@ -232,7 +233,9 @@ There are two options available when dumping the BIOS.
 biosdrain supports USB and HOST through PS2link. If your console does not have networking support, please refer to the USB method, otherwise you can use the ps2client method.
 
 - USB
+
   - Take the biosdrain.elf file that was downloaded above, and transfer it to a FAT32 formatted USB flash drive.
+
     - Please note that some incompatibilities between certain USB drives and PS2 USB drivers have been reported throughout the years. If your USB drive is not detected by uLaunchELF (`mass:` is empty) please try another one, preferably USB 2.0.
 
   - Insert your USB flash drive into your PS2.
@@ -240,6 +243,7 @@ biosdrain supports USB and HOST through PS2link. If your console does not have n
   - Locate and run `biosdrain.elf`.
   - You will know that it is finished when biosdrain says `Finished Everything`. Please be patient, as USB on the PS2 is SLOW!
   - Once the final message appears, you can now plug the USB drive back into your computer. You will know that the dump was successful if you see files ending in `.rom0`,`.rom1`,`.nvm`, etc, prefixed by your console model ID in your USB drive.
+
 - PS2client / XLINK & PS2link
   - When using XLINK, simply execute the `biosdrain.elf` with the user interface.
   - When using PS2client, cd into the directory where you have `biosdrain.elf`, and simply run `ps2client execee host:biosdrain.elf`

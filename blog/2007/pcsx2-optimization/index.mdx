@@ -1,12 +1,13 @@
 ---
 authors:
-- zerofrog
+  - zerofrog
 date: 2007-01-30 00:00:00
-description: Many people have visited the forums giving ideas on how and where PCSX2
+description:
+  Many people have visited the forums giving ideas on how and where PCSX2
   should be optimized
 draft: false
 tags:
-- devblog
+  - devblog
 title: PCSX2 Optimization
 ---
 
@@ -48,7 +49,7 @@ most often called the recompilers. Note that there are three hearts that
 Pcsx2 can be compiled with depending on your CPU: the interpreter
 (actually always present), x86, and x86-64. Starting with 0.9.3, Pcsx2
 has been retrofitted to compile the interpreter on any little-endian CPU
-architecture by compiling with the PCSX2\_NORECBUILD define. There is
+architecture by compiling with the PCSX2_NORECBUILD define. There is
 also the memory management scheme that factors into dynamic translation
 since memory accesses can be optimized away instead of calling one huge
 MemoryRead(address, value) that redirects execution to the various
