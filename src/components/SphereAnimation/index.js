@@ -263,6 +263,7 @@ class PureCanvas extends React.Component {
           position: "absolute",
           minHeight: "calc(84vh - 76px)",
           width: "100%",
+          opacity: "0.5"
         }}
       />
     );

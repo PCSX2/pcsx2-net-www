@@ -8,7 +8,7 @@ import {
   Col,
   Card,
   Grid,
-  getDocumentTheme,
+  getDocumentTheme, Container
 } from "@nextui-org/react";
 import { NumberTicker } from "../components/NumberTicker";
 import { Animation } from "../components/SphereAnimation";
@@ -47,7 +47,7 @@ const StyledSubtitle = styled("p", {
   width: "100%",
   display: "inline-flex",
   fontWeight: "$medium",
-  color: "$accents7",
+  color: "$accents7"
 });
 
 import CompatData from "@site/static/data/compat/data.min.json";
@@ -70,7 +70,7 @@ function getPlayableGameCount() {
   }
 }
 
-import { latestProgressReport, latestBlog } from "../data/latestBlogs";
+import { latestProgressReport, latestBlog, previousBlog, previousProgressReport } from "../data/latestBlogs";
 
 const baseApiUrl = "https://api.pcsx2.net/v1";
 
@@ -143,6 +143,7 @@ export default function Home() {
         )}
         <Grid.Container
           alignItems="center"
+          justify="center"
           gap={2}
           css={{
             position: "relative",
@@ -157,7 +158,7 @@ export default function Home() {
           }}
         >
           <Grid xs={12} md={6} direction="column">
-            <Grid>
+            <Grid style={{ textAlign: "center" }}>
               <StyledGradientTitle css={{ mb: 0 }}>
                 PCSX2&nbsp;
               </StyledGradientTitle>
@@ -167,7 +168,7 @@ export default function Home() {
               </StyledGradientTitle>
             </Grid>
             <Grid>
-              <StyledSubtitle>
+              <StyledSubtitle css={{ justifyContent: "center" }}>
                 <span>
                   Supporting&nbsp;
                   <NumberTicker numberFunc={getPlayableGameCount} />
@@ -176,9 +177,10 @@ export default function Home() {
               </StyledSubtitle>
             </Grid>
             <Grid.Container
-              direction="column"
+              direction="row"
               gap={2}
               alignItems={useMediaQuery(960) ? "center" : "flex-start"}
+              justify="center"
             >
               <Grid>
                 <ReleaseDownloadButton
@@ -186,6 +188,7 @@ export default function Home() {
                   buttonText={"Latest Stable"}
                   isNightly={false}
                   errorMsg={apiErrorMsg}
+                  placement={useMediaQuery(960) ? "bottom-left" : "left-top"}
                 />
               </Grid>
               <Grid>
@@ -194,10 +197,7 @@ export default function Home() {
                   buttonText={"Latest Nightly"}
                   isNightly={true}
                   errorMsg={apiErrorMsg}
-                />
-              </Grid>
-              <Grid>
-                <a
+                /><a
                   href={useBaseUrl("/downloads")}
                   style={{ textDecoration: "none" }}
                 >
@@ -208,74 +208,8 @@ export default function Home() {
               </Grid>
             </Grid.Container>
           </Grid>
-          <Grid xs={12} md={6} direction={"column"}>
-            <Grid.Container gap={2}>
-              <Grid md={6}>
-                <a href={useBaseUrl(latestProgressReport.url)}>
-                  <Card>
-                    <Card.Header
-                      css={{ position: "absolute", zIndex: 1, top: 5 }}
-                    >
-                      <Col>
-                        <Text
-                          size={12}
-                          weight="bold"
-                          transform="uppercase"
-                          color="#ffffffAA"
-                        >
-                          Latest Progress Report
-                        </Text>
-                        <Text h4 color="white">
-                          {latestProgressReport.title}
-                        </Text>
-                      </Col>
-                    </Card.Header>
-                    <Card.Image
-                      src={latestProgressReport.img}
-                      objectFit="cover"
-                      width="100%"
-                      height={"300px"}
-                      alt="Card image background"
-                    />
-                  </Card>
-                </a>
-              </Grid>
-            </Grid.Container>
-            <Grid.Container gap={2}>
-              <Grid xs={0} md={6}></Grid>
-              <Grid md={6}>
-                <a href={useBaseUrl(latestBlog.url)}>
-                  <Card>
-                    <Card.Header
-                      css={{ position: "absolute", zIndex: 1, top: 5 }}
-                    >
-                      <Col>
-                        <Text
-                          size={12}
-                          weight="bold"
-                          transform="uppercase"
-                          color="#ffffffAA"
-                        >
-                          Latest Blog
-                        </Text>
-                        <Text h4 color="white">
-                          {latestBlog.title}
-                        </Text>
-                      </Col>
-                    </Card.Header>
-                    <Card.Image
-                      src={latestBlog.img}
-                      objectFit="cover"
-                      width="100%"
-                      height={"300px"}
-                      alt="Card image background"
-                    />
-                  </Card>
-                </a>
-              </Grid>
-            </Grid.Container>
-          </Grid>
         </Grid.Container>
+        <Container>
         <Row justify="center">
           <Col
             css={{
@@ -303,8 +237,196 @@ export default function Home() {
             },
             width: "100%",
             margin: 0,
+            position: "relative"
           }}
         >
+          <div style={{
+            position: "absolute",
+            zIndex: -1,
+            top: "-75%",
+            left: "-25%"
+          }}>
+            <img src={"/img/theming-gradient.svg"}/>
+          </div>
+          <Grid xs={12} direction="column">
+            <StyledTitle css={{ mb: 0 }}>Recent Progress Reports</StyledTitle>
+            <StyledSubtitle>
+              Stay up to date on the latest improvements and fixes on the project
+            </StyledSubtitle>
+          </Grid>
+          <Grid.Container gap={2}>
+            <Grid xs={12} md={6} justify="center">
+              <a href={useBaseUrl(latestProgressReport.url)}>
+                <Card>
+                  <Card.Header
+                    css={{ position: "absolute", zIndex: 1, top: 5 }}
+                  >
+                    <Col>
+                      <Text
+                        size={12}
+                        weight="bold"
+                        transform="uppercase"
+                        color="#ffffffAA"
+                      >
+                        Latest Progress Report
+                      </Text>
+                      <Text h4 color="white">
+                        {latestProgressReport.title}
+                      </Text>
+                    </Col>
+                  </Card.Header>
+                  <Card.Image
+                    src={latestProgressReport.img}
+                    objectFit="cover"
+                    width="100%"
+                    alt="Card image background"
+                    height={"300px"}
+                  />
+                </Card>
+              </a>
+            </Grid>
+            <Grid xs={12} md={6} justify="center">
+              <a href={useBaseUrl(previousProgressReport.url)}>
+                <Card>
+                  <Card.Header
+                    css={{ position: "absolute", zIndex: 1, top: 5 }}
+                  >
+                    <Col>
+                      <Text
+                        size={12}
+                        weight="bold"
+                        transform="uppercase"
+                        color="#ffffffAA"
+                      >
+                        Previous Progress Report
+                      </Text>
+                      <Text h4 color="white">
+                        {previousProgressReport.title}
+                      </Text>
+                    </Col>
+                  </Card.Header>
+                  <Card.Image
+                    src={previousProgressReport.img}
+                    objectFit="cover"
+                    width="100%"
+                    alt="Card image background"
+                    height={"300px"}
+                  />
+                </Card>
+              </a>
+            </Grid>
+          </Grid.Container>
+        </Grid.Container>
+        <Grid.Container
+          gap={2}
+          css={{
+            "@md": {
+              pl: "5em",
+              pr: "5em",
+            },
+            "@mdMax": {
+              pl: "2em",
+              pr: "2em",
+            },
+            width: "100%",
+            margin: 0,
+            mt: "5em"
+          }}
+        >
+          <Grid xs={12} direction="column">
+            <StyledTitle css={{ mb: 0 }}>Recent Blog Posts</StyledTitle>
+            <StyledSubtitle>
+              Articles that go more in-depth on how things work, how they were fixed, or sometimes why they don't
+            </StyledSubtitle>
+          </Grid>
+          <Grid.Container gap={2}>
+            <Grid xs={12} md={6} justify="center">
+              <a href={useBaseUrl(latestBlog.url)}>
+                <Card>
+                  <Card.Header
+                    css={{ position: "absolute", zIndex: 1, top: 5 }}
+                  >
+                    <Col>
+                      <Text
+                        size={12}
+                        weight="bold"
+                        transform="uppercase"
+                        color="#ffffffAA"
+                      >
+                        Latest Blog
+                      </Text>
+                      <Text h4 color="white">
+                        {latestBlog.title}
+                      </Text>
+                    </Col>
+                  </Card.Header>
+                  <Card.Image
+                    src={latestBlog.img}
+                    objectFit="cover"
+                    width="100%"
+                    alt="Card image background"
+                    height={"300px"}
+                  />
+                </Card>
+              </a>
+            </Grid>
+            <Grid xs={12} md={6} justify="center">
+              <a href={useBaseUrl(previousBlog.url)}>
+                <Card>
+                  <Card.Header
+                    css={{ position: "absolute", zIndex: 1, top: 5 }}
+                  >
+                    <Col>
+                      <Text
+                        size={12}
+                        weight="bold"
+                        transform="uppercase"
+                        color="#ffffffAA"
+                      >
+                        Previous Blog
+                      </Text>
+                      <Text h4 color="white">
+                        {previousBlog.title}
+                      </Text>
+                    </Col>
+                  </Card.Header>
+                  <Card.Image
+                    src={previousBlog.img}
+                    objectFit="cover"
+                    width="100%"
+                    alt="Card image background"
+                    height={"300px"}
+                  />
+                </Card>
+              </a>
+            </Grid>
+          </Grid.Container>
+        </Grid.Container>
+        <Grid.Container
+          gap={2}
+          css={{
+            "@md": {
+              pl: "5em",
+              pr: "5em",
+            },
+            "@mdMax": {
+              pl: "2em",
+              pr: "2em",
+            },
+            width: "100%",
+            margin: 0,
+            mt: "5em",
+            position: "relative"
+          }}
+        >
+          <div style={{
+            position: "absolute",
+            zIndex: -1,
+            top: "-45%",
+            right: "-25%"
+          }}>
+            <img src={"/img/theming-gradient.svg"}/>
+          </div>
           <Grid xs={12} direction="column">
             <StyledTitle css={{ mb: 0 }}>About the Project</StyledTitle>
             <StyledSubtitle>
@@ -371,7 +493,7 @@ export default function Home() {
           >
             <GoogleAd></GoogleAd>
           </Col>
-        </Row>
+        </Row></Container>
       </main>
     </Layout>
   );

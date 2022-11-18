@@ -86,6 +86,7 @@ export function ReleaseDownloadButton({
   bordered,
   errorMsg,
   isNightly,
+  placement
 }) {
   const buttonStyling = {
     minWidth: "200px",
@@ -168,7 +169,7 @@ export function ReleaseDownloadButton({
   return (
     <Dropdown
       isBordered
-      placement={useMediaQuery(960) ? "bottom-left" : "right-top"}
+      placement={placement ? placement : useMediaQuery(960) ? "bottom-left" : "right-top"}
     >
       <Dropdown.Button
         color={isNightly ? "warning" : "primary"}
