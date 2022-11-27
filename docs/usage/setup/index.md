@@ -21,15 +21,15 @@ This article details everything you should need to get started using PCSX2.
 
 If this article does not help solve your problem, reach out in the Discord or the forums for help.
 
-## Requirements to use PCSX2
+## Requirements to use Nightly PCSX2 builds
 
 ### System Requirements
 
 #### Minimum
 
 - Operating system
-  - Windows 8.1 or newer (64-bit)
-  - Ubuntu 18.04/Debian or newer, Arch Linux, or other distro (64-bit)
+  - Windows 10 21H2 (1809 or later) (64-bit)
+  - Ubuntu 20.04/Debian or newer, Arch Linux, or other distro (64-bit)
 - CPU
   - Supports SSE4.1
   - [PassMark single thread performance](https://www.cpubenchmark.net/singleThread.html) rating near or greater than 1600
@@ -40,6 +40,7 @@ If this article does not help solve your problem, reach out in the Discord or th
 - GPU
   - Direct3D10 support
   - OpenGL 3.x support
+  - Vulkan 1.1 support
   - [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating around 3000 (GeForce GTX 750)
     - Note: Recommended GPU is based on 3x internal, ~1080p resolution requirements. Higher resolutions will require stronger cards; 6x internal, ~4K resolution will require a [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating around 12000 (GeForce GTX 1070 Ti).
       - Just like CPU requirements, this is also highly game dependent. A quick reference for GPU **intensive games**: [Wiki](https://wiki.pcsx2.net/Category:GPU_intensive_games)
@@ -50,8 +51,8 @@ If this article does not help solve your problem, reach out in the Discord or th
 #### Recommended
 
 - Operating system
-  - Windows 10 (64-bit)
-  - Ubuntu 19.04/Debian or newer, Arch Linux, or other distro (64-bit)
+  - Windows 10 21H2 (1809 or later) (64-bit)
+  - Ubuntu 22.04/Debian or newer, Arch Linux, or other distro (64-bit)
 - CPU
   - Supports AVX2
   - [PassMark single thread performance](https://www.cpubenchmark.net/singleThread.html) rating near or greater than 2100
@@ -59,6 +60,7 @@ If this article does not help solve your problem, reach out in the Discord or th
 - GPU
   - Direct3D11 support
   - OpenGL 4.6 support
+  - Vulkan 1.3 support
   - [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating around 6000 (GeForce GTX 1050 Ti)
   - 4 GB video memory
 - RAM
@@ -71,7 +73,7 @@ If this article does not help solve your problem, reach out in the Discord or th
 ### Version deprecation notes
 
 - Windows XP and Direct3D9 support was dropped after stable release 1.4.0.
-- Windows 7 and Windows 8.0 support was dropped after stable release 1.6.0.
+- Windows 7, Windows 8.0, and Windows 8.1 support was dropped after stable release 1.6.0.
 - 32-bit support was dropped after stable release 1.6.0.
 
 ## Downloading and configuring PCSX2
