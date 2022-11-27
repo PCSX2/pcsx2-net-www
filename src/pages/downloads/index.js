@@ -156,7 +156,7 @@ export default function Downloads() {
                   </p>
                 </Grid>
                 <Grid xs={12}>
-                  <Admonition type="info">
+                  <Admonition type="caution">
                     <p>
                       As we are now drawing closer to releasing a new stable
                       version, we encourage you to use the latest nightly
