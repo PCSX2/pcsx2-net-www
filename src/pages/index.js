@@ -7,13 +7,10 @@ import {
   Row,
   Col,
   Card,
-  Grid,
-  getDocumentTheme, Container
+  Grid, Container
 } from "@nextui-org/react";
 import { NumberTicker } from "../components/NumberTicker";
-import { Animation } from "../components/SphereAnimation";
 import { getLatestRelease } from "../components/ReleaseDownloadButton";
-import BrowserOnly from "@docusaurus/BrowserOnly";
 import { ReleaseDownloadButton } from "../components/ReleaseDownloadButton";
 import { GoogleAd } from "../components/GoogleAd";
 import { useMediaQuery } from "../utils/mediaQuery";
@@ -74,11 +71,12 @@ import { latestProgressReport, latestBlog, previousBlog, previousProgressReport 
 
 const baseApiUrl = "https://api.pcsx2.net/v1";
 
+import SplashVideo from "@site/static/videos/splash.webm";
+
 export default function Home() {
   const [latestStableRelease, setLatestStableRelease] = useState({});
   const [latestNightlyRelease, setLatestNightlyRelease] = useState({});
   const [apiErrorMsg, setApiErrorMsg] = useState(undefined);
-  const [homePosterUrl, setHomePosterUrl] = useState("/img/home-poster.webp");
 
   useEffect(async () => {
     try {
@@ -103,44 +101,21 @@ export default function Home() {
     } catch (err) {
       setApiErrorMsg("Unexpected API Error Occurred. Try Again Later!");
     }
-
-    setHomePosterUrl(
-      getDocumentTheme(document?.documentElement) === "dark"
-        ? "/img/home-poster.webp"
-        : "/img/home-poster-light.webp"
-    );
-
-    const observer = new MutationObserver((mutation) => {
-      setHomePosterUrl(
-        getDocumentTheme(document?.documentElement) === "dark"
-          ? "/img/home-poster.webp"
-          : "/img/home-poster-light.webp"
-      );
-    });
-
-    // Observe the document theme changes
-    observer.observe(document?.documentElement, {
-      attributes: true,
-      attributeFilter: ["data-theme", "style", "class"],
-    });
   }, []);
 
   return (
     <Layout title={`Home`} description="An Open-Source Playstation 2 Emulator">
       <main>
-        {useMediaQuery(960) ? (
-          <img
-            src={useBaseUrl(homePosterUrl)}
+      <video
+            src={useBaseUrl(SplashVideo)} autoPlay="true" loop="true"
             style={{
               position: "absolute",
-              minHeight: "calc(50vh)",
+              height: "calc(50vh)",
               width: "100%",
-              objectFit: "cover",
+              objectFit: "contain",
+              filter: "opacity(75%)"
             }}
           />
-        ) : (
-          <BrowserOnly>{() => <Animation />}</BrowserOnly>
-        )}
         <Grid.Container
           alignItems="center"
           justify="center"
@@ -240,14 +215,6 @@ export default function Home() {
             position: "relative"
           }}
         >
-          <div style={{
-            position: "absolute",
-            zIndex: -1,
-            top: "-75%",
-            left: "-25%"
-          }}>
-            <img src={"/img/theming-gradient.svg"}/>
-          </div>
           <Grid xs={12} direction="column">
             <StyledTitle css={{ mb: 0 }}>Recent Progress Reports</StyledTitle>
             <StyledSubtitle>
@@ -419,14 +386,6 @@ export default function Home() {
             position: "relative"
           }}
         >
-          <div style={{
-            position: "absolute",
-            zIndex: -1,
-            top: "-45%",
-            right: "-25%"
-          }}>
-            <img src={"/img/theming-gradient.svg"}/>
-          </div>
           <Grid xs={12} direction="column">
             <StyledTitle css={{ mb: 0 }}>About the Project</StyledTitle>
             <StyledSubtitle>
