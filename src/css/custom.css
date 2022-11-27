@@ -163,6 +163,10 @@ nav:not(.navbar-sidebar--show) {
   backdrop-filter: saturate(180%) blur(10px);
 }
 
+aside > div > nav.menu {
+  backdrop-filter: none;
+}
+
 /* TODO - move to module CSS */
 
 .nextui-table-container {

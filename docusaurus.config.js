@@ -61,6 +61,10 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      // announcementBar: {
+      //   id: 'announcementBar-0', // Increment on change
+      //   content: `test`,
+      // },
       // TODO - Algolia Integration
       colorMode: {
         defaultMode: "dark",
