@@ -9,6 +9,7 @@ import {
   Card,
   Grid,
   Container,
+  getDocumentTheme,
 } from "@nextui-org/react";
 import { NumberTicker } from "../components/NumberTicker";
 import { getLatestRelease } from "../components/ReleaseDownloadButton";
@@ -44,8 +45,8 @@ const StyledSubtitle = styled("p", {
   fs: "$xl",
   width: "100%",
   display: "inline-flex",
-  fontWeight: "$medium",
-  color: "$accents7",
+  fontWeight: "500",
+  color: "$accents9",
 });
 
 import CompatData from "@site/static/data/compat/data.min.json";
@@ -77,12 +78,11 @@ import {
 
 const baseApiUrl = "https://api.pcsx2.net/v1";
 
-import SplashVideo from "@site/static/videos/splash.webm";
-
 export default function Home() {
   const [latestStableRelease, setLatestStableRelease] = useState({});
   const [latestNightlyRelease, setLatestNightlyRelease] = useState({});
   const [apiErrorMsg, setApiErrorMsg] = useState(undefined);
+  const [homeVideoPath, setHomeVideoPath] = useState("/videos/splash.webm");
 
   useEffect(async () => {
     try {
@@ -107,13 +107,33 @@ export default function Home() {
     } catch (err) {
       setApiErrorMsg("Unexpected API Error Occurred. Try Again Later!");
     }
+
+    setHomeVideoPath(
+      getDocumentTheme(document?.documentElement) === "dark"
+        ? "/videos/splash.webm"
+        : "/videos/splash-light.mp4"
+    );
+
+    const observer = new MutationObserver((mutation) => {
+      setHomeVideoPath(
+        getDocumentTheme(document?.documentElement) === "dark"
+          ? "/videos/splash.webm"
+          : "/videos/splash-light.mp4"
+      );
+    });
+
+    // Observe the document theme changes
+    observer.observe(document?.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme", "style", "class"],
+    });
   }, []);
 
   return (
     <Layout title={`Home`} description="An Open-Source Playstation 2 Emulator">
       <main>
         <video
-          src={useBaseUrl(SplashVideo)}
+          src={useBaseUrl(homeVideoPath)}
           autoPlay={true}
           loop={true}
           style={{
@@ -121,7 +141,7 @@ export default function Home() {
             height: "calc(50vh)",
             width: "100%",
             objectFit: "contain",
-            filter: "opacity(75%)",
+            filter: "opacity(50%)",
           }}
         />
         <Grid.Container
@@ -185,7 +205,11 @@ export default function Home() {
                   href={useBaseUrl("/downloads")}
                   style={{ textDecoration: "none" }}
                 >
-                  <Button light color="secondary" css={{ minWidth: "200px" }}>
+                  <Button
+                    light
+                    color="secondary"
+                    css={{ minWidth: "200px", fontWeight: 700 }}
+                  >
                     Previous Versions
                   </Button>
                 </a>
