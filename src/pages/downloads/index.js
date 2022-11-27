@@ -177,7 +177,7 @@ export default function Downloads() {
                 <Grid xs={12}>
                   <Grid.Container alignItems="center" css={{ fontWeight: 700 }}>
                     <Switch
-                      color="warning"
+                      color="primary"
                       checked={showPreviousStables}
                       onChange={(e) => setShowPreviousStables(e.target.checked)}
                     />
