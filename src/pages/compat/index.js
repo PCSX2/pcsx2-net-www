@@ -373,7 +373,7 @@ export default function Compatiblity() {
       description="Find out how well your PlayStation 2 games will run on PCSX2 and if there are any associated issues"
     >
       <main>
-        <Container fluid css={{ mt: "2em", maxWidth: "100%" }}>
+        <Container css={{ mt: "2em" }}>
           <Grid.Container>
             <Grid.Container>
               <Grid>
@@ -418,7 +418,7 @@ export default function Compatiblity() {
               )}
             </Row>
             <Grid.Container alignItems="end" css={{ mt: "2em", mb: "1em" }}>
-              <Grid xs={12} md={4}>
+              <Grid xs={12} lg={4}>
                 <Grid.Container gap={1}>
                   <Grid xs={12}>
                     <Input
@@ -430,7 +430,7 @@ export default function Compatiblity() {
                   </Grid>
                 </Grid.Container>
               </Grid>
-              <Grid xs={12} md={8}>
+              <Grid xs={12} lg={8}>
                 <Grid.Container alignItems="end" gap={1}>
                   <Grid>
                     <Button
