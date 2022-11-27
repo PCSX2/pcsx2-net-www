@@ -22,7 +22,7 @@ until version 0.8.0 (January 2005)! So, here goes.....
 
 Around the middle of 2001 (Roughly) the PCSX2 project started with just
 2 people, Linuzappz and Shadow, who formally coded the PS1 emulator
-named PCSX.� Having finished that project to a point they deemed
+named PCSX. Having finished that project to a point they deemed
 successful, they decided to embark on a new project which at the time,
 was completely unheard of, a Playstation 2 emulator, so PCSX2 was
 born.
@@ -33,7 +33,7 @@ with a big dream, little documentation and lackluster hardware (at the
 time, it was good gear!) managed to forge something together which
 vaguely simulated a playstation 2, but only to the lengths of running
 simple homebrew software, which had its doors opened by this small
-achievement.� Not content with the fact they had developed a homebrew
+achievement. Not content with the fact they had developed a homebrew
 emulator, the guys wanted some genuine PS2 software to run, so they
 picked a few simple games (such as Bust-a-move) and got to work.
 
@@ -45,8 +45,8 @@ possible.
 
 To show a true emulation image of a system such as the PS2, there is one
 behemoth which must be conquered to give it that feel which the
-playstation 2 has, the PS2's own BIOS file.� This was an extremely
-complex, tricky bit of software to emulate.� From what i've been told,
+playstation 2 has, the PS2's own BIOS file. This was an extremely
+complex, tricky bit of software to emulate. From what i've been told,
 this took days of solid coding, hacking and debugging and reading of
 Assembly language to achieve, however when they did eventually get it to
 run it was extremely distorted, graphically incorrect and extremely
@@ -66,7 +66,7 @@ in speed from the age old Interpreter which is slow by design.
 
 Through time several developers have come and gone. I (Refraction)
 joined the team around version 0.8.0 (January 2005) after submitting
-some MFIFO fixes which helped improve the emulation of Final Fantasy X.�
+some MFIFO fixes which helped improve the emulation of Final Fantasy X.
 Later we had Zerofrog join the team, who is responsible for ZeroGS,
 ZeroSPU2 and the rewrite of the last incarnation of the VU and EE
 Recompilers which gave us the huge speed boost many will remember in
@@ -77,7 +77,7 @@ the emulator nobody had dare attempt before, he managed to get Netplay
 to happen! Myself, GiGaHeRz, CKemu, Saqib and Falcon4ever found
 ourselves logging in to Monster Hunter for a general meet up and
 drinking session in the virtual world. This was an amazing event for
-us,� it was also very fun talking to other players with the conversation
+us, it was also very fun talking to other players with the conversation
 generally going like "Hey, I'm playing this on my PS3
 
 That's cool, we are playing this on our PC's using PCSX2" "oooh! that's
