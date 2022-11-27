@@ -133,7 +133,7 @@ export default function Home() {
             src={useBaseUrl(homePosterUrl)}
             style={{
               position: "absolute",
-              minHeight: "calc(84vh - 76px)",
+              minHeight: "calc(50vh)",
               width: "100%",
               objectFit: "cover",
             }}
@@ -147,7 +147,7 @@ export default function Home() {
           gap={2}
           css={{
             position: "relative",
-            minHeight: "calc(84vh - 76px)",
+            minHeight: "calc(50vh)",
             zIndex: "$2",
             "@md": {
               pl: "5em",
