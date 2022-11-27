@@ -97,7 +97,7 @@ export default function Downloads() {
         />
       </Head>
       <main>
-        <Container fluid css={{ mt: "2em" }}>
+        <Container css={{ mt: "2em" }}>
           <Grid.Container gap={2}>
             <Grid xs={12} md={6}>
               <Grid.Container css={{ display: "inline-block" }}>
@@ -175,33 +175,38 @@ export default function Downloads() {
                 </Grid>
                 <GoogleAd margins="2em"></GoogleAd>
                 <Grid xs={12}>
-                  <Grid.Container alignItems="center" css={{fontWeight: 700}}>
-                  <Switch color="warning" checked={showPreviousStables} onChange={(e) => setShowPreviousStables(e.target.checked)} />
-                  &nbsp;Show Previous Versions
+                  <Grid.Container alignItems="center" css={{ fontWeight: 700 }}>
+                    <Switch
+                      color="warning"
+                      checked={showPreviousStables}
+                      onChange={(e) => setShowPreviousStables(e.target.checked)}
+                    />
+                    &nbsp;Show Previous Versions
                   </Grid.Container>
                 </Grid>
                 {!showPreviousStables ? null : (
                   <>
-                <Grid xs={12} css={{ mt: "2em" }}>
-                  <h2>Previous Stable Releases</h2>
-                </Grid>
-                <Grid xs={12}>
-                  <DownloadTable
-                    pageSize={pageSize}
-                    tableLabel={"Previous stable releases table"}
-                    color={"primary"}
-                    initialTableData={stableReleases}
-                    tableColumns={releaseTableColumns}
-                    renderRowFunc={renderReleaseCell}
-                    fetchMoreFunc={async (offset) => {
-                      return await fetch(
-                        `${baseApiUrl}/stableReleases?offset=${offset}`
-                      );
-                    }}
-                    tableType={"stable"}
-                  />
-                </Grid>
-                <GoogleAd margins="2em"></GoogleAd></>
+                    <Grid xs={12} css={{ mt: "2em" }}>
+                      <h2>Previous Stable Releases</h2>
+                    </Grid>
+                    <Grid xs={12}>
+                      <DownloadTable
+                        pageSize={pageSize}
+                        tableLabel={"Previous stable releases table"}
+                        color={"primary"}
+                        initialTableData={stableReleases}
+                        tableColumns={releaseTableColumns}
+                        renderRowFunc={renderReleaseCell}
+                        fetchMoreFunc={async (offset) => {
+                          return await fetch(
+                            `${baseApiUrl}/stableReleases?offset=${offset}`
+                          );
+                        }}
+                        tableType={"stable"}
+                      />
+                    </Grid>
+                    <GoogleAd margins="2em"></GoogleAd>
+                  </>
                 )}
               </Grid.Container>
             </Grid>
@@ -274,33 +279,40 @@ export default function Downloads() {
                 </Grid>
                 <GoogleAd margins="2em"></GoogleAd>
                 <Grid xs={12}>
-                  <Grid.Container alignItems="center" css={{fontWeight: 700}}>
-                  <Switch color="warning" checked={showPreviousNightlies} onChange={(e) => setShowPreviousNightlies(e.target.checked)} />
-                  &nbsp;Show Previous Versions
+                  <Grid.Container alignItems="center" css={{ fontWeight: 700 }}>
+                    <Switch
+                      color="warning"
+                      checked={showPreviousNightlies}
+                      onChange={(e) =>
+                        setShowPreviousNightlies(e.target.checked)
+                      }
+                    />
+                    &nbsp;Show Previous Versions
                   </Grid.Container>
                 </Grid>
                 {!showPreviousNightlies ? null : (
                   <>
-                <Grid xs={12} css={{ mt: "2em" }}>
-                  <h2>Previous Nightly Releases</h2>
-                </Grid>
-                <Grid xs={12}>
-                  <DownloadTable
-                    pageSize={pageSize}
-                    tableLabel={"Previous nightly releases table"}
-                    color={"warning"}
-                    initialTableData={nightlyReleases}
-                    tableColumns={releaseTableColumns}
-                    renderRowFunc={renderReleaseCell}
-                    fetchMoreFunc={async (offset) => {
-                      return await fetch(
-                        `${baseApiUrl}/nightlyReleases?offset=${offset}`
-                      );
-                    }}
-                    tableType={"nightly"}
-                  />
-                </Grid>
-                <GoogleAd margins="2em"></GoogleAd></>
+                    <Grid xs={12} css={{ mt: "2em" }}>
+                      <h2>Previous Nightly Releases</h2>
+                    </Grid>
+                    <Grid xs={12}>
+                      <DownloadTable
+                        pageSize={pageSize}
+                        tableLabel={"Previous nightly releases table"}
+                        color={"warning"}
+                        initialTableData={nightlyReleases}
+                        tableColumns={releaseTableColumns}
+                        renderRowFunc={renderReleaseCell}
+                        fetchMoreFunc={async (offset) => {
+                          return await fetch(
+                            `${baseApiUrl}/nightlyReleases?offset=${offset}`
+                          );
+                        }}
+                        tableType={"nightly"}
+                      />
+                    </Grid>
+                    <GoogleAd margins="2em"></GoogleAd>
+                  </>
                 )}
               </Grid.Container>
             </Grid>

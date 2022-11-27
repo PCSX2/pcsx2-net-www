@@ -20,6 +20,7 @@
     hue-rotate(209deg) brightness(86%) contrast(114%);
   --nightly-button-background: #000;
   --ifm-footer-background-color: var(--nextui-colors-accents0);
+  --card-color-background: #000;
 }
 
 [data-theme="dark"] {
@@ -36,6 +37,7 @@
   --navbar-svg-icons-filter: invert(100%) sepia(3%) saturate(13%)
     hue-rotate(81deg) brightness(106%) contrast(106%);
   --nightly-button-background: var(--nextui-colors-accents0);
+  --card-color-background: var(--nextui-colors-backgroundContrast);
 }
 
 button {

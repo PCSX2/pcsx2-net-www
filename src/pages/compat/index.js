@@ -138,37 +138,61 @@ const renderCell = (entry, columnKey) => {
       switch (cellValue.toLowerCase()) {
         case "perfect":
           return (
-            <Badge borderWeight="light" color="success" css={{backgroundColor: "#BA68C8"}}>
+            <Badge
+              borderWeight="light"
+              color="success"
+              css={{ backgroundColor: "#BA68C8" }}
+            >
               {cellValue}
             </Badge>
           );
         case "playable":
           return (
-            <Badge borderWeight="light" color="primary" css={{backgroundColor: "#9CCC65", color: "#000"}}>
+            <Badge
+              borderWeight="light"
+              color="primary"
+              css={{ backgroundColor: "#9CCC65", color: "#000" }}
+            >
               {cellValue}
             </Badge>
           );
         case "ingame":
           return (
-            <Badge borderWeight="light" color="secondary" css={{backgroundColor: "#29B6F6", color: "#000"}}>
+            <Badge
+              borderWeight="light"
+              color="secondary"
+              css={{ backgroundColor: "#29B6F6", color: "#000" }}
+            >
               {cellValue}
             </Badge>
           );
         case "menus":
           return (
-            <Badge borderWeight="light" color="warning" css={{backgroundColor: "#FBC02D", color: "#000"}}>
+            <Badge
+              borderWeight="light"
+              color="warning"
+              css={{ backgroundColor: "#FBC02D", color: "#000" }}
+            >
               {cellValue}
             </Badge>
           );
         case "intros":
           return (
-            <Badge borderWeight="light" color="warning" css={{backgroundColor: "#F57C00", color: "#000"}}>
+            <Badge
+              borderWeight="light"
+              color="warning"
+              css={{ backgroundColor: "#F57C00", color: "#000" }}
+            >
               {cellValue}
             </Badge>
           );
         default:
           return (
-            <Badge borderWeight="light" color="error" css={{backgroundColor: "#D32F2F"}}>
+            <Badge
+              borderWeight="light"
+              color="error"
+              css={{ backgroundColor: "#D32F2F" }}
+            >
               {cellValue}
             </Badge>
           );
@@ -437,9 +461,13 @@ export default function Compatiblity() {
                       bordered={filterOptions.perfect}
                       disabled={filterStats.perfect === undefined}
                       css={{
-                        backgroundColor: filterOptions.perfect ? "inherit" : "#BA68C8",
+                        backgroundColor: filterOptions.perfect
+                          ? "inherit"
+                          : "#BA68C8",
                         color: filterOptions.perfect ? "#BA68C8" : "inherit",
-                        borderColor: filterOptions.perfect ? "#BA68C8" : "inherit"
+                        borderColor: filterOptions.perfect
+                          ? "#BA68C8"
+                          : "inherit",
                       }}
                       auto
                       onPress={() => toggleFilter("perfect")}
@@ -459,9 +487,13 @@ export default function Compatiblity() {
                       bordered={filterOptions.playable}
                       disabled={filterStats.playable === undefined}
                       css={{
-                        backgroundColor: filterOptions.playable ? "inherit" : "#9CCC65",
+                        backgroundColor: filterOptions.playable
+                          ? "inherit"
+                          : "#9CCC65",
                         color: filterOptions.playable ? "#9CCC65" : "#000",
-                        borderColor: filterOptions.playable ? "#9CCC65" : "inherit"
+                        borderColor: filterOptions.playable
+                          ? "#9CCC65"
+                          : "inherit",
                       }}
                       auto
                       onPress={() => toggleFilter("playable")}
@@ -481,9 +513,13 @@ export default function Compatiblity() {
                       bordered={filterOptions.ingame}
                       disabled={filterStats.ingame === undefined}
                       css={{
-                        backgroundColor: filterOptions.ingame ? "inherit" : "#29B6F6",
+                        backgroundColor: filterOptions.ingame
+                          ? "inherit"
+                          : "#29B6F6",
                         color: filterOptions.ingame ? "#29B6F6" : "#000",
-                        borderColor: filterOptions.ingame ? "#29B6F6" : "inherit"
+                        borderColor: filterOptions.ingame
+                          ? "#29B6F6"
+                          : "inherit",
                       }}
                       auto
                       onPress={() => toggleFilter("ingame")}
@@ -503,9 +539,13 @@ export default function Compatiblity() {
                       bordered={filterOptions.menus}
                       disabled={filterStats.menus === undefined}
                       css={{
-                        backgroundColor: filterOptions.menus ? "inherit" : "#FBC02D",
+                        backgroundColor: filterOptions.menus
+                          ? "inherit"
+                          : "#FBC02D",
                         color: filterOptions.menus ? "#FBC02D" : "#000",
-                        borderColor: filterOptions.menus ? "#FBC02D" : "inherit"
+                        borderColor: filterOptions.menus
+                          ? "#FBC02D"
+                          : "inherit",
                       }}
                       auto
                       onPress={() => toggleFilter("menus")}
@@ -525,9 +565,13 @@ export default function Compatiblity() {
                       bordered={filterOptions.intro}
                       disabled={filterStats.intro === undefined}
                       css={{
-                        backgroundColor: filterOptions.intro ? "inherit" : "#F57C00",
+                        backgroundColor: filterOptions.intro
+                          ? "inherit"
+                          : "#F57C00",
                         color: filterOptions.intro ? "#F57C00" : "#000",
-                        borderColor: filterOptions.intro ? "#F57C00" : "inherit"
+                        borderColor: filterOptions.intro
+                          ? "#F57C00"
+                          : "inherit",
                       }}
                       auto
                       onPress={() => toggleFilter("intro")}
@@ -547,9 +591,13 @@ export default function Compatiblity() {
                       bordered={filterOptions.nothing}
                       disabled={filterStats.nothing === undefined}
                       css={{
-                        backgroundColor: filterOptions.nothing ? "inherit" : "#D32F2F",
+                        backgroundColor: filterOptions.nothing
+                          ? "inherit"
+                          : "#D32F2F",
                         color: filterOptions.nothing ? "#D32F2F" : "inherit",
-                        borderColor: filterOptions.nothing ? "#D32F2F" : "inherit"
+                        borderColor: filterOptions.nothing
+                          ? "#D32F2F"
+                          : "inherit",
                       }}
                       auto
                       onPress={() => toggleFilter("nothing")}

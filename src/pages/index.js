@@ -7,7 +7,8 @@ import {
   Row,
   Col,
   Card,
-  Grid, Container
+  Grid,
+  Container,
 } from "@nextui-org/react";
 import { NumberTicker } from "../components/NumberTicker";
 import { getLatestRelease } from "../components/ReleaseDownloadButton";
@@ -44,7 +45,7 @@ const StyledSubtitle = styled("p", {
   width: "100%",
   display: "inline-flex",
   fontWeight: "$medium",
-  color: "$accents7"
+  color: "$accents7",
 });
 
 import CompatData from "@site/static/data/compat/data.min.json";
@@ -67,7 +68,12 @@ function getPlayableGameCount() {
   }
 }
 
-import { latestProgressReport, latestBlog, previousBlog, previousProgressReport } from "../data/latestBlogs";
+import {
+  latestProgressReport,
+  latestBlog,
+  previousBlog,
+  previousProgressReport,
+} from "../data/latestBlogs";
 
 const baseApiUrl = "https://api.pcsx2.net/v1";
 
@@ -106,16 +112,18 @@ export default function Home() {
   return (
     <Layout title={`Home`} description="An Open-Source Playstation 2 Emulator">
       <main>
-      <video
-            src={useBaseUrl(SplashVideo)} autoPlay={true} loop={true}
-            style={{
-              position: "absolute",
-              height: "calc(50vh)",
-              width: "100%",
-              objectFit: "contain",
-              filter: "opacity(75%)"
-            }}
-          />
+        <video
+          src={useBaseUrl(SplashVideo)}
+          autoPlay={true}
+          loop={true}
+          style={{
+            position: "absolute",
+            height: "calc(50vh)",
+            width: "100%",
+            objectFit: "contain",
+            filter: "opacity(75%)",
+          }}
+        />
         <Grid.Container
           alignItems="center"
           justify="center"
@@ -172,7 +180,8 @@ export default function Home() {
                   buttonText={"Latest Nightly"}
                   isNightly={true}
                   errorMsg={apiErrorMsg}
-                /><a
+                />
+                <a
                   href={useBaseUrl("/downloads")}
                   style={{ textDecoration: "none" }}
                 >
@@ -185,274 +194,280 @@ export default function Home() {
           </Grid>
         </Grid.Container>
         <Container>
-        <Row justify="center">
-          <Col
+          <Row justify="center">
+            <Col
+              css={{
+                "@md": {
+                  width: "50%",
+                },
+                "@mdMax": {
+                  width: "100%",
+                },
+              }}
+            >
+              <GoogleAd></GoogleAd>
+            </Col>
+          </Row>
+          <Grid.Container
+            gap={2}
             css={{
               "@md": {
-                width: "50%",
+                pl: "5em",
+                pr: "5em",
               },
               "@mdMax": {
-                width: "100%",
+                pl: "2em",
+                pr: "2em",
               },
+              width: "100%",
+              margin: 0,
+              position: "relative",
             }}
           >
-            <GoogleAd></GoogleAd>
-          </Col>
-        </Row>
-        <Grid.Container
-          gap={2}
-          css={{
-            "@md": {
-              pl: "5em",
-              pr: "5em",
-            },
-            "@mdMax": {
-              pl: "2em",
-              pr: "2em",
-            },
-            width: "100%",
-            margin: 0,
-            position: "relative"
-          }}
-        >
-          <Grid xs={12} direction="column">
-            <StyledTitle css={{ mb: 0 }}>Recent Progress Reports</StyledTitle>
-            <StyledSubtitle>
-              Stay up to date on the latest improvements and fixes on the project
-            </StyledSubtitle>
-          </Grid>
-          <Grid.Container gap={2}>
-            <Grid xs={12} md={6} justify="center">
-              <a href={useBaseUrl(latestProgressReport.url)}>
-                <Card>
-                  <Card.Header
-                    css={{ position: "absolute", zIndex: 1, top: 5 }}
-                  >
-                    <Col>
-                      <Text
-                        size={12}
-                        weight="bold"
-                        transform="uppercase"
-                        color="#ffffffAA"
-                      >
-                        Latest Progress Report
-                      </Text>
-                      <Text h4 color="white">
-                        {latestProgressReport.title}
-                      </Text>
-                    </Col>
-                  </Card.Header>
-                  <Card.Image
-                    src={latestProgressReport.img}
-                    objectFit="contain"
-                    width="100%"
-                    alt="Card image background"
-                    height={"300px"}
-                  />
-                </Card>
-              </a>
+            <Grid xs={12} direction="column">
+              <StyledTitle css={{ mb: 0 }}>Recent Progress Reports</StyledTitle>
+              <StyledSubtitle>
+                Stay up to date on the latest improvements and fixes on the
+                project
+              </StyledSubtitle>
             </Grid>
-            <Grid xs={12} md={6} justify="center">
-              <a href={useBaseUrl(previousProgressReport.url)}>
-                <Card>
-                  <Card.Header
-                    css={{ position: "absolute", zIndex: 1, top: 5 }}
-                  >
-                    <Col>
-                      <Text
-                        size={12}
-                        weight="bold"
-                        transform="uppercase"
-                        color="#ffffffAA"
-                      >
-                        Previous Progress Report
-                      </Text>
-                      <Text h4 color="white">
-                        {previousProgressReport.title}
-                      </Text>
-                    </Col>
-                  </Card.Header>
-                  <Card.Image
-                    src={previousProgressReport.img}
-                    objectFit="contain"
-                    width="100%"
-                    alt="Card image background"
-                    height={"300px"}
-                  />
-                </Card>
-              </a>
-            </Grid>
+            <Grid.Container gap={2}>
+              <Grid xs={12} md={6} justify="center">
+                <a href={useBaseUrl(latestProgressReport.url)}>
+                  <Card css={{ background: "var(--card-color-background)" }}>
+                    <Card.Header
+                      css={{ position: "absolute", zIndex: 1, top: 5 }}
+                    >
+                      <Col>
+                        <Text
+                          size={12}
+                          weight="bold"
+                          transform="uppercase"
+                          color="#ffffffAA"
+                        >
+                          Latest Progress Report
+                        </Text>
+                        <Text h4 color="white">
+                          {latestProgressReport.title}
+                        </Text>
+                      </Col>
+                    </Card.Header>
+                    <Card.Image
+                      src={latestProgressReport.img}
+                      objectFit="contain"
+                      width="100%"
+                      alt="Card image background"
+                      height={"300px"}
+                    />
+                  </Card>
+                </a>
+              </Grid>
+              <Grid xs={12} md={6} justify="center">
+                <a href={useBaseUrl(previousProgressReport.url)}>
+                  <Card css={{ background: "var(--card-color-background)" }}>
+                    <Card.Header
+                      css={{ position: "absolute", zIndex: 1, top: 5 }}
+                    >
+                      <Col>
+                        <Text
+                          size={12}
+                          weight="bold"
+                          transform="uppercase"
+                          color="#ffffffAA"
+                        >
+                          Previous Progress Report
+                        </Text>
+                        <Text h4 color="white">
+                          {previousProgressReport.title}
+                        </Text>
+                      </Col>
+                    </Card.Header>
+                    <Card.Image
+                      src={previousProgressReport.img}
+                      objectFit="contain"
+                      width="100%"
+                      alt="Card image background"
+                      height={"300px"}
+                    />
+                  </Card>
+                </a>
+              </Grid>
+            </Grid.Container>
           </Grid.Container>
-        </Grid.Container>
-        <Grid.Container
-          gap={2}
-          css={{
-            "@md": {
-              pl: "5em",
-              pr: "5em",
-            },
-            "@mdMax": {
-              pl: "2em",
-              pr: "2em",
-            },
-            width: "100%",
-            margin: 0,
-            mt: "5em"
-          }}
-        >
-          <Grid xs={12} direction="column">
-            <StyledTitle css={{ mb: 0 }}>Recent Blog Posts</StyledTitle>
-            <StyledSubtitle>
-              Articles that go more in-depth on how things work, how they were fixed, or sometimes why they don't
-            </StyledSubtitle>
-          </Grid>
-          <Grid.Container gap={2}>
-            <Grid xs={12} md={6} justify="center">
-              <a href={useBaseUrl(latestBlog.url)}>
-                <Card>
-                  <Card.Header
-                    css={{ position: "absolute", zIndex: 1, top: 5 }}
-                  >
-                    <Col>
-                      <Text
-                        size={12}
-                        weight="bold"
-                        transform="uppercase"
-                        color="#ffffffAA"
-                      >
-                        Latest Blog
-                      </Text>
-                      <Text h4 color="white">
-                        {latestBlog.title}
-                      </Text>
-                    </Col>
-                  </Card.Header>
-                  <Card.Image
-                    src={latestBlog.img}
-                    objectFit="contain"
-                    width="100%"
-                    alt="Card image background"
-                    height={"300px"}
-                  />
-                </Card>
-              </a>
-            </Grid>
-            <Grid xs={12} md={6} justify="center">
-              <a href={useBaseUrl(previousBlog.url)}>
-                <Card>
-                  <Card.Header
-                    css={{ position: "absolute", zIndex: 1, top: 5 }}
-                  >
-                    <Col>
-                      <Text
-                        size={12}
-                        weight="bold"
-                        transform="uppercase"
-                        color="#ffffffAA"
-                      >
-                        Previous Blog
-                      </Text>
-                      <Text h4 color="white">
-                        {previousBlog.title}
-                      </Text>
-                    </Col>
-                  </Card.Header>
-                  <Card.Image
-                    src={previousBlog.img}
-                    objectFit="contain"
-                    width="100%"
-                    alt="Card image background"
-                    height={"300px"}
-                  />
-                </Card>
-              </a>
-            </Grid>
-          </Grid.Container>
-        </Grid.Container>
-        <Grid.Container
-          gap={2}
-          css={{
-            "@md": {
-              pl: "5em",
-              pr: "5em",
-            },
-            "@mdMax": {
-              pl: "2em",
-              pr: "2em",
-            },
-            width: "100%",
-            margin: 0,
-            mt: "5em",
-            position: "relative"
-          }}
-        >
-          <Grid xs={12} direction="column">
-            <StyledTitle css={{ mb: 0 }}>About the Project</StyledTitle>
-            <StyledSubtitle>
-              Being almost as old as the console it is emulating, PCSX2 not only
-              has a lot of history behind it, but a continually evolving future.
-            </StyledSubtitle>
-          </Grid>
-          <Grid.Container gap={2}>
-            <Grid md={4}>
-              <span>
-                PCSX2 is a free and open-source PlayStation 2 (PS2) emulator.
-                Its purpose is to emulate the PS2's hardware, using a
-                combination of MIPS CPU Interpreters, Recompilers and a Virtual
-                Machine which manages hardware states and PS2 system memory.
-              </span>
-            </Grid>
-            <Grid md={4}>
-              <p>
-                The project has been running for almost 20 years. Past versions
-                could only run a few public domain game demos, but newer
-                versions can run most games at full speed, including popular
-                titles such as Final Fantasy X and Devil May Cry 3.
-              </p>
-            </Grid>
-            <Grid md={4}>
-              <p>
-                A significant majority of the official PS2 library is considered
-                playable or perfect, with the remainder at least making it to
-                the menus. For more information on compatibility, see{" "}
-                <Link to="/compat">here</Link>.
-              </p>
-            </Grid>
-          </Grid.Container>
-          <Grid.Container gap={2}>
-            <Grid xs={12}>
-              <p>
-                PCSX2 allows you to play PS2 games on your PC, with many
-                additional features and benefits. A few of those benefits
-                include:
-                <ul>
-                  <li>custom resolutions and upscaling</li>
-                  <li>virtual and sharable memory cards</li>
-                  <li>save-states</li>
-                  <li>patching system</li>
-                  <li>
-                    internal recorder to achieve lossless quality at full speed
-                  </li>
-                </ul>
-              </p>
-            </Grid>
-          </Grid.Container>
-        </Grid.Container>
-        {/* TODO - this page can be made more interesting once Qt comes out (showcase notable features with some visuals) */}
-        <Row justify="center">
-          <Col
+          <Grid.Container
+            gap={2}
             css={{
               "@md": {
-                width: "50%",
+                pl: "5em",
+                pr: "5em",
               },
               "@mdMax": {
-                width: "100%",
+                pl: "2em",
+                pr: "2em",
               },
+              width: "100%",
+              margin: 0,
+              mt: "5em",
             }}
           >
-            <GoogleAd></GoogleAd>
-          </Col>
-        </Row></Container>
+            <Grid xs={12} direction="column">
+              <StyledTitle css={{ mb: 0 }}>Recent Blog Posts</StyledTitle>
+              <StyledSubtitle>
+                Articles that go more in-depth on how things work, how they were
+                fixed, or sometimes why they don't
+              </StyledSubtitle>
+            </Grid>
+            <Grid.Container gap={2}>
+              <Grid xs={12} md={6} justify="center">
+                <a href={useBaseUrl(latestBlog.url)}>
+                  <Card css={{ background: "var(--card-color-background)" }}>
+                    <Card.Header
+                      css={{ position: "absolute", zIndex: 1, top: 5 }}
+                    >
+                      <Col>
+                        <Text
+                          size={12}
+                          weight="bold"
+                          transform="uppercase"
+                          color="#ffffffAA"
+                        >
+                          Latest Blog
+                        </Text>
+                        <Text h4 color="white">
+                          {latestBlog.title}
+                        </Text>
+                      </Col>
+                    </Card.Header>
+                    <Card.Image
+                      src={latestBlog.img}
+                      objectFit="contain"
+                      width="100%"
+                      alt="Card image background"
+                      height={"300px"}
+                    />
+                  </Card>
+                </a>
+              </Grid>
+              <Grid xs={12} md={6} justify="center">
+                <a href={useBaseUrl(previousBlog.url)}>
+                  <Card css={{ background: "var(--card-color-background)" }}>
+                    <Card.Header
+                      css={{ position: "absolute", zIndex: 1, top: 5 }}
+                    >
+                      <Col>
+                        <Text
+                          size={12}
+                          weight="bold"
+                          transform="uppercase"
+                          color="#ffffffAA"
+                        >
+                          Previous Blog
+                        </Text>
+                        <Text h4 color="white">
+                          {previousBlog.title}
+                        </Text>
+                      </Col>
+                    </Card.Header>
+                    <Card.Image
+                      src={previousBlog.img}
+                      objectFit="contain"
+                      width="100%"
+                      alt="Card image background"
+                      height={"300px"}
+                    />
+                  </Card>
+                </a>
+              </Grid>
+            </Grid.Container>
+          </Grid.Container>
+          <Grid.Container
+            gap={2}
+            css={{
+              "@md": {
+                pl: "5em",
+                pr: "5em",
+              },
+              "@mdMax": {
+                pl: "2em",
+                pr: "2em",
+              },
+              width: "100%",
+              margin: 0,
+              mt: "5em",
+              position: "relative",
+            }}
+          >
+            <Grid xs={12} direction="column">
+              <StyledTitle css={{ mb: 0 }}>About the Project</StyledTitle>
+              <StyledSubtitle>
+                Being almost as old as the console it is emulating, PCSX2 not
+                only has a lot of history behind it, but a continually evolving
+                future.
+              </StyledSubtitle>
+            </Grid>
+            <Grid.Container gap={2}>
+              <Grid md={4}>
+                <span>
+                  PCSX2 is a free and open-source PlayStation 2 (PS2) emulator.
+                  Its purpose is to emulate the PS2's hardware, using a
+                  combination of MIPS CPU Interpreters, Recompilers and a
+                  Virtual Machine which manages hardware states and PS2 system
+                  memory.
+                </span>
+              </Grid>
+              <Grid md={4}>
+                <p>
+                  The project has been running for almost 20 years. Past
+                  versions could only run a few public domain game demos, but
+                  newer versions can run most games at full speed, including
+                  popular titles such as Final Fantasy X and Devil May Cry 3.
+                </p>
+              </Grid>
+              <Grid md={4}>
+                <p>
+                  A significant majority of the official PS2 library is
+                  considered playable or perfect, with the remainder at least
+                  making it to the menus. For more information on compatibility,
+                  see <Link to="/compat">here</Link>.
+                </p>
+              </Grid>
+            </Grid.Container>
+            <Grid.Container gap={2}>
+              <Grid xs={12}>
+                <p>
+                  PCSX2 allows you to play PS2 games on your PC, with many
+                  additional features and benefits. A few of those benefits
+                  include:
+                  <ul>
+                    <li>custom resolutions and upscaling</li>
+                    <li>virtual and sharable memory cards</li>
+                    <li>save-states</li>
+                    <li>patching system</li>
+                    <li>
+                      internal recorder to achieve lossless quality at full
+                      speed
+                    </li>
+                  </ul>
+                </p>
+              </Grid>
+            </Grid.Container>
+          </Grid.Container>
+          {/* TODO - this page can be made more interesting once Qt comes out (showcase notable features with some visuals) */}
+          <Row justify="center">
+            <Col
+              css={{
+                "@md": {
+                  width: "50%",
+                },
+                "@mdMax": {
+                  width: "100%",
+                },
+              }}
+            >
+              <GoogleAd></GoogleAd>
+            </Col>
+          </Row>
+        </Container>
       </main>
     </Layout>
   );
