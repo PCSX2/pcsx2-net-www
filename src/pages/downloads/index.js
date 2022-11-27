@@ -253,11 +253,6 @@ export default function Downloads() {
                     </a>
                   </p>
                 </Grid>
-                <Grid xs={12}>
-                  <Admonition type="tip">
-                    <p>If your CPU supports AVX2 you should use it over SSE4</p>
-                  </Admonition>
-                </Grid>
                 <Grid xs={12} css={{ mt: "2em" }}>
                   <ReleaseDownloadButton
                     release={latestNightlyRelease}
