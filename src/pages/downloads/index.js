@@ -35,21 +35,6 @@ const renderReleaseCell = (release, columnKey) => {
   }
 };
 
-const pullRequestTableColumns = [
-  {
-    key: "githubUser",
-    label: "AUTHOR",
-  },
-  {
-    key: "title",
-    label: "CHANGE",
-  },
-];
-
-const renderPullRequestCell = (user, columnKey) => {
-  return user[columnKey];
-};
-
 const baseApiUrl = "https://api.pcsx2.net/v1";
 
 export default function Downloads() {
@@ -61,8 +46,6 @@ export default function Downloads() {
   // - nightlies
   const [nightlyReleases, setNightlyReleases] = useState({ data: [] });
   const [latestNightlyRelease, setLatestNightlyRelease] = useState({});
-  // - pull requests
-  const [pullRequests, setPullRequests] = useState({ data: [] });
   // general api
   const [apiErrorMsg, setApiErrorMsg] = useState(undefined);
 
@@ -93,7 +76,6 @@ export default function Downloads() {
 
         setStableReleases(data.stableReleases);
         setNightlyReleases(data.nightlyReleases);
-        setPullRequests(data.pullRequestBuilds);
       }
     } catch (err) {
       setApiErrorMsg("Unexpected API Error Occurred. Try Again Later!");
@@ -209,6 +191,7 @@ export default function Downloads() {
                     tableType={"stable"}
                   />
                 </Grid>
+                <GoogleAd margins="2em"></GoogleAd>
               </Grid.Container>
             </Grid>
             <Grid xs={12} md={6}>
@@ -304,34 +287,6 @@ export default function Downloads() {
                   />
                 </Grid>
                 <GoogleAd margins="2em"></GoogleAd>
-                <Grid xs={12}>
-                  <h2>Active Pull Requests</h2>
-                </Grid>
-                <Grid xs={12}>
-                  <p>These are changes that are actively being worked on.</p>
-                </Grid>
-                <Grid xs={12}>
-                  <p>
-                    Provided for visibility or for those interested in testing
-                    an upcoming change
-                  </p>
-                </Grid>
-                <Grid xs={12}>
-                  <DownloadTable
-                    pageSize={pageSize}
-                    tableLabel={"Active pull requests"}
-                    color={"secondary"}
-                    initialTableData={pullRequests}
-                    tableColumns={pullRequestTableColumns}
-                    renderRowFunc={renderPullRequestCell}
-                    fetchMoreFunc={async (offset) => {
-                      return await fetch(
-                        `${baseApiUrl}/pullRequestBuilds?offset=${offset}`
-                      );
-                    }}
-                    tableType={"pullRequests"}
-                  />
-                </Grid>
               </Grid.Container>
             </Grid>
           </Grid.Container>
