@@ -19,6 +19,7 @@
   --navbar-svg-icons-filter: invert(0%) sepia(100%) saturate(7500%)
     hue-rotate(209deg) brightness(86%) contrast(114%);
   --nightly-button-background: #000;
+  --ifm-footer-background-color: var(--nextui-colors-accents0);
 }
 
 [data-theme="dark"] {
@@ -44,6 +45,7 @@ button {
 
 footer {
   margin-top: 10em;
+  text-align: center;
 }
 
 .footer--dark {
