@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "@theme/Layout";
-import { Container, Text, Grid } from "@nextui-org/react";
+import { Container, Text, Grid, Switch } from "@nextui-org/react";
 import Admonition from "@theme/Admonition";
 import { ReleaseDownloadButton } from "../../components/ReleaseDownloadButton";
 import { DownloadTable } from "../../components/DownloadTable";
@@ -43,9 +43,11 @@ export default function Downloads() {
   // - stables
   const [stableReleases, setStableReleases] = useState({ data: [] });
   const [latestStableRelease, setLatestStableRelease] = useState({});
+  const [showPreviousStables, setShowPreviousStables] = useState(false);
   // - nightlies
   const [nightlyReleases, setNightlyReleases] = useState({ data: [] });
   const [latestNightlyRelease, setLatestNightlyRelease] = useState({});
+  const [showPreviousNightlies, setShowPreviousNightlies] = useState(false);
   // general api
   const [apiErrorMsg, setApiErrorMsg] = useState(undefined);
 
@@ -172,6 +174,14 @@ export default function Downloads() {
                   />
                 </Grid>
                 <GoogleAd margins="2em"></GoogleAd>
+                <Grid xs={12}>
+                  <Grid.Container alignItems="center" css={{fontWeight: 700}}>
+                  <Switch color="warning" checked={showPreviousStables} onChange={(e) => setShowPreviousStables(e.target.checked)} />
+                  &nbsp;Show Previous Versions
+                  </Grid.Container>
+                </Grid>
+                {!showPreviousStables ? null : (
+                  <>
                 <Grid xs={12} css={{ mt: "2em" }}>
                   <h2>Previous Stable Releases</h2>
                 </Grid>
@@ -191,7 +201,8 @@ export default function Downloads() {
                     tableType={"stable"}
                   />
                 </Grid>
-                <GoogleAd margins="2em"></GoogleAd>
+                <GoogleAd margins="2em"></GoogleAd></>
+                )}
               </Grid.Container>
             </Grid>
             <Grid xs={12} md={6}>
@@ -262,6 +273,14 @@ export default function Downloads() {
                   />
                 </Grid>
                 <GoogleAd margins="2em"></GoogleAd>
+                <Grid xs={12}>
+                  <Grid.Container alignItems="center" css={{fontWeight: 700}}>
+                  <Switch color="warning" checked={showPreviousNightlies} onChange={(e) => setShowPreviousNightlies(e.target.checked)} />
+                  &nbsp;Show Previous Versions
+                  </Grid.Container>
+                </Grid>
+                {!showPreviousNightlies ? null : (
+                  <>
                 <Grid xs={12} css={{ mt: "2em" }}>
                   <h2>Previous Nightly Releases</h2>
                 </Grid>
@@ -281,7 +300,8 @@ export default function Downloads() {
                     tableType={"nightly"}
                   />
                 </Grid>
-                <GoogleAd margins="2em"></GoogleAd>
+                <GoogleAd margins="2em"></GoogleAd></>
+                )}
               </Grid.Container>
             </Grid>
           </Grid.Container>

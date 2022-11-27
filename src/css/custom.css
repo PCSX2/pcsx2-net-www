@@ -31,7 +31,6 @@
   --ifm-color-primary-lighter: #8dd7ff;
   --ifm-color-primary-lightest: #c0e9ff;
   --ifm-background-color: #000000 !important;
-  --ifm-footer-background-color: #000000 !important;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --nextui-colors-warningSolidContrast: #000 !important;
   --navbar-svg-icons-filter: invert(100%) sepia(3%) saturate(13%)
@@ -46,10 +45,6 @@ button {
 footer {
   margin-top: 10em;
   text-align: center;
-}
-
-.footer--dark {
-  --ifm-footer-background-color: var(--docusaurus-highlighted-code-line-bg);
 }
 
 .navbar__link {

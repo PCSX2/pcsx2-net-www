@@ -107,7 +107,7 @@ export default function Home() {
     <Layout title={`Home`} description="An Open-Source Playstation 2 Emulator">
       <main>
       <video
-            src={useBaseUrl(SplashVideo)} autoPlay="true" loop="true"
+            src={useBaseUrl(SplashVideo)} autoPlay={true} loop={true}
             style={{
               position: "absolute",
               height: "calc(50vh)",
