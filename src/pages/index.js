@@ -244,7 +244,7 @@ export default function Home() {
                   </Card.Header>
                   <Card.Image
                     src={latestProgressReport.img}
-                    objectFit="cover"
+                    objectFit="contain"
                     width="100%"
                     alt="Card image background"
                     height={"300px"}
@@ -274,7 +274,7 @@ export default function Home() {
                   </Card.Header>
                   <Card.Image
                     src={previousProgressReport.img}
-                    objectFit="cover"
+                    objectFit="contain"
                     width="100%"
                     alt="Card image background"
                     height={"300px"}
@@ -329,7 +329,7 @@ export default function Home() {
                   </Card.Header>
                   <Card.Image
                     src={latestBlog.img}
-                    objectFit="cover"
+                    objectFit="contain"
                     width="100%"
                     alt="Card image background"
                     height={"300px"}
@@ -359,7 +359,7 @@ export default function Home() {
                   </Card.Header>
                   <Card.Image
                     src={previousBlog.img}
-                    objectFit="cover"
+                    objectFit="contain"
                     width="100%"
                     alt="Card image background"
                     height={"300px"}
