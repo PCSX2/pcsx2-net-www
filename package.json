@@ -15,7 +15,7 @@
     "jquery": "3.6.0",
     "lodash": "4.17.21",
     "marked": "4.0.12",
-    "mdb-ui-kit": "3.10.2",
+    "mdb-ui-kit": "6.0.1",
     "vanilla-lazyload": "17.8.1"
   }
 }
