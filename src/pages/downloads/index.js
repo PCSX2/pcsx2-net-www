@@ -174,7 +174,7 @@ export default function Downloads() {
                   />
                 </Grid>
                 <GoogleAd margins="2em"></GoogleAd>
-                <Grid xs={12}>
+                <Grid xs={12} css={{ mt: "1em" }}>
                   <Grid.Container alignItems="center" css={{ fontWeight: 700 }}>
                     <Switch
                       color="primary"
@@ -278,7 +278,7 @@ export default function Downloads() {
                   />
                 </Grid>
                 <GoogleAd margins="2em"></GoogleAd>
-                <Grid xs={12}>
+                <Grid xs={12} css={{ mt: "1em" }}>
                   <Grid.Container alignItems="center" css={{ fontWeight: 700 }}>
                     <Switch
                       color="warning"
