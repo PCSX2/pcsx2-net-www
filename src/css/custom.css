@@ -40,6 +40,17 @@
   --card-color-background: var(--nextui-colors-backgroundContrast);
 }
 
+/* Workaround to resolve FOUC issues */
+html {
+  visibility: hidden;
+  opacity: 0;
+}
+
+html.app-loaded {
+  visibility: visible;
+  opacity: 1;
+}
+
 /* Fonts */
 @font-face {
   font-family: 'Inter';

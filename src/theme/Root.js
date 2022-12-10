@@ -40,6 +40,10 @@ export default function Root({ children }) {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
+    // App mounted, make the page visible!
+    document?.documentElement?.classList.add("app-loaded");
+
+    console.log("blerg");
     // you can use any storage
     let theme = window.localStorage.getItem("theme");
     setIsDark(theme === "dark");
@@ -53,6 +57,9 @@ export default function Root({ children }) {
         setIsDark(true);
       } else {
         setIsDark(false);
+      }
+      if (!document?.documentElement.classList.contains("app-loaded")) {
+        document?.documentElement?.classList.add("app-loaded");
       }
     });
 
