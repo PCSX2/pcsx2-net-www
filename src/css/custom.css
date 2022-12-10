@@ -96,7 +96,7 @@ button {
   font-family: var(--ifm-font-family-base);
 }
 
-footer {
+footer.footer {
   margin-top: 10em;
   text-align: center;
 }
