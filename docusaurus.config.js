@@ -28,8 +28,7 @@ const config = {
     locales: ["en"],
   },
   stylesheets: [
-    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;700&display=swap",
-    "https://fonts.googleapis.com/icon?family=Material+Icons",
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;700&display=swap"
   ],
   presets: [
     [

@@ -136,6 +136,7 @@ export default function Home() {
           src={useBaseUrl(homeVideoPath)}
           autoPlay={true}
           loop={true}
+          muted={true}
           style={{
             position: "absolute",
             height: "calc(50vh)",
