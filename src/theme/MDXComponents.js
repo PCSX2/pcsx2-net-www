@@ -1,8 +1,8 @@
 import React from "react";
 // Import the original mapper
 import MDXComponents from "@theme-original/MDXComponents";
-import PCSX2PRLink from "@site/src/mdx/PCSX2PRLink";
-import SliderCompare from "@site/src/mdx/SliderCompare";
+import PCSX2PRLink from "@site/src/mdx/PRLink/PCSX2PRLink";
+import SliderCompare from "@site/src/mdx/SliderCompare/SliderCompare";
 import Image from "@site/src/mdx/Image";
 import ImageCompare from "@site/src/mdx/ImageCompare";
 import TextGradient from "@site/src/mdx/TextGradient";
