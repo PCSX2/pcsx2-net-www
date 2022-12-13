@@ -1,0 +1,20 @@
+data:
+  - name: Sly 2
+    "Before (R7 360)": 82
+    "After (R7 360)": 95
+  - name: Echo Night 3
+    "Before (R7 360)": 20
+    "After (R7 360)": 37
+  - name: Big Mutha Truckers
+    "Before (R7 360)": 53
+    "After (R7 360)": 77
+barOptions:
+  "Before (R7 360)":
+    fillColor: "rgb(106, 156, 255)"
+  "After (R7 360)":
+    fillColor: "rgb(200, 45, 69)"
+axis:
+  x:
+    dataKey: name
+  y:
+    label: "Frames Per Seconds (VPS)"

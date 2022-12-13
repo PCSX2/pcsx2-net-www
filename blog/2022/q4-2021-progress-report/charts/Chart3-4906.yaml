@@ -1,0 +1,26 @@
+data:
+  - name: MDK2
+    "Before (1070)": 145
+    "After (1070)": 180
+  - name: Syphon Filter DM
+    "Before (1070)": 90
+    "After (1070)": 104
+  - name: Drakan Ancient Gates
+    "Before (1070)": 110
+    "After (1070)": 118
+  - name: Tomb Raider AoD
+    "Before (1070)": 155
+    "After (1070)": 177
+  - name: Hitman 2
+    "Before (1070)": 230
+    "After (1070)": 235
+barOptions:
+  "Before (1070)":
+    fillColor: "rgb(106, 156, 255)"
+  "After (1070)":
+    fillColor: "rgb(200, 45, 69)"
+axis:
+  x:
+    dataKey: name
+  y:
+    label: "Frames Per Seconds (VPS)"

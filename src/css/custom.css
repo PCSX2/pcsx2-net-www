@@ -1,0 +1,297 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+:root {
+  --ifm-color-primary: #0055b3;
+  --ifm-color-primary-dark: #004da1;
+  --ifm-color-primary-darker: #004898;
+  --ifm-color-primary-darkest: #003c7d;
+  --ifm-color-primary-light: #005ec5;
+  --ifm-color-primary-lighter: #0062ce;
+  --ifm-color-primary-lightest: #006fe9;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-background-color: #fff;
+  --ifm-font-family-base: "Inter";
+  --nextui-colors-warningSolidContrast: #000 !important;
+  --navbar-svg-icons-filter: invert(0%) sepia(100%) saturate(7500%)
+    hue-rotate(209deg) brightness(86%) contrast(114%);
+  --nightly-button-background: #000;
+  --ifm-footer-background-color: var(--nextui-colors-accents0);
+  --card-color-background: #000;
+}
+
+[data-theme="dark"] {
+  --ifm-color-primary: #59c5ff;
+  --ifm-color-primary-dark: #37b9ff;
+  --ifm-color-primary-darker: #25b3ff;
+  --ifm-color-primary-darkest: #009df1;
+  --ifm-color-primary-light: #7bd1ff;
+  --ifm-color-primary-lighter: #8dd7ff;
+  --ifm-color-primary-lightest: #c0e9ff;
+  --ifm-background-color: #000000 !important;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --nextui-colors-warningSolidContrast: #000 !important;
+  --navbar-svg-icons-filter: invert(100%) sepia(3%) saturate(13%)
+    hue-rotate(81deg) brightness(106%) contrast(106%);
+  --nightly-button-background: var(--nextui-colors-accents0);
+  --card-color-background: var(--nextui-colors-backgroundContrast);
+}
+
+/* Workaround to resolve FOUC issues */
+html {
+  visibility: hidden;
+  opacity: 0;
+}
+
+html.app-loaded {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Fonts */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/static/Inter-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/static/Inter-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/static/Inter-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("/fonts/Roboto_Mono/static/RobotoMono-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("/fonts/Roboto_Mono/static/RobotoMono-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+button {
+  font-family: var(--ifm-font-family-base);
+}
+
+footer.footer {
+  margin-top: 10em;
+  text-align: center;
+}
+
+.navbar__link {
+  font-weight: 400;
+}
+
+.navbar__link--active {
+  font-weight: 600;
+}
+
+.header-github-link::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: flex;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
+    no-repeat;
+  filter: var(--navbar-svg-icons-filter);
+}
+
+.header-github-link:hover {
+  filter: invert(42%) sepia(24%) saturate(3714%) hue-rotate(175deg)
+    brightness(103%) contrast(104%);
+}
+
+.blog-post-page header > h1 {
+  background-image: linear-gradient(
+    rgb(80, 153, 255) 25%,
+    rgb(70, 94, 174) 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.table-of-contents__link--active {
+  font-weight: 600;
+}
+
+.header-discord-link::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: flex;
+  background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0xOS41NCAwYzEuMzU2IDAgMi40NiAxLjEwNCAyLjQ2IDIuNDcydjIxLjUyOGwtMi41OC0yLjI4LTEuNDUyLTEuMzQ0LTEuNTM2LTEuNDI4LjYzNiAyLjIyaC0xMy42MDhjLTEuMzU2IDAtMi40Ni0xLjEwNC0yLjQ2LTIuNDcydi0xNi4yMjRjMC0xLjM2OCAxLjEwNC0yLjQ3MiAyLjQ2LTIuNDcyaDE2LjA4em0tNC42MzIgMTUuNjcyYzIuNjUyLS4wODQgMy42NzItMS44MjQgMy42NzItMS44MjQgMC0zLjg2NC0xLjcyOC02Ljk5Ni0xLjcyOC02Ljk5Ni0xLjcyOC0xLjI5Ni0zLjM3Mi0xLjI2LTMuMzcyLTEuMjZsLS4xNjguMTkyYzIuMDQuNjI0IDIuOTg4IDEuNTI0IDIuOTg4IDEuNTI0LTEuMjQ4LS42ODQtMi40NzItMS4wMi0zLjYxMi0xLjE1Mi0uODY0LS4wOTYtMS42OTItLjA3Mi0yLjQyNC4wMjRsLS4yMDQuMDI0Yy0uNDIuMDM2LTEuNDQuMTkyLTIuNzI0Ljc1Ni0uNDQ0LjIwNC0uNzA4LjM0OC0uNzA4LjM0OHMuOTk2LS45NDggMy4xNTYtMS41NzJsLS4xMi0uMTQ0cy0xLjY0NC0uMDM2LTMuMzcyIDEuMjZjMCAwLTEuNzI4IDMuMTMyLTEuNzI4IDYuOTk2IDAgMCAxLjAwOCAxLjc0IDMuNjYgMS44MjQgMCAwIC40NDQtLjU0LjgwNC0uOTk2LTEuNTI0LS40NTYtMi4xLTEuNDE2LTIuMS0xLjQxNmwuMzM2LjIwNC4wNDguMDM2LjA0Ny4wMjcuMDE0LjAwNi4wNDcuMDI3Yy4zLjE2OC42LjMuODc2LjQwOC40OTIuMTkyIDEuMDguMzg0IDEuNzY0LjUxNi45LjE2OCAxLjk1Ni4yMjggMy4xMDguMDEyLjU2NC0uMDk2IDEuMTQtLjI2NCAxLjc0LS41MTYuNDItLjE1Ni44ODgtLjM4NCAxLjM4LS43MDggMCAwLS42Ljk4NC0yLjE3MiAxLjQyOC4zNi40NTYuNzkyLjk3Mi43OTIuOTcyem0tNS41OC01LjYwNGMtLjY4NCAwLTEuMjI0LjYtMS4yMjQgMS4zMzIgMCAuNzMyLjU1MiAxLjMzMiAxLjIyNCAxLjMzMi42ODQgMCAxLjIyNC0uNiAxLjIyNC0xLjMzMi4wMTItLjczMi0uNTQtMS4zMzItMS4yMjQtMS4zMzJ6bTQuMzggMGMtLjY4NCAwLTEuMjI0LjYtMS4yMjQgMS4zMzIgMCAuNzMyLjU1MiAxLjMzMiAxLjIyNCAxLjMzMi42ODQgMCAxLjIyNC0uNiAxLjIyNC0xLjMzMiAwLS43MzItLjU0LTEuMzMyLTEuMjI0LTEuMzMyeiIvPjwvc3ZnPg==")
+    no-repeat;
+  filter: var(--navbar-svg-icons-filter);
+}
+
+.header-discord-link:hover {
+  filter: invert(42%) sepia(24%) saturate(3714%) hue-rotate(175deg)
+    brightness(103%) contrast(104%);
+}
+
+.header-twitter-link::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: flex;
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjQgNC41NTdjLS44ODMuMzkyLTEuODMyLjY1Ni0yLjgyOC43NzUgMS4wMTctLjYwOSAxLjc5OC0xLjU3NCAyLjE2NS0yLjcyNC0uOTUxLjU2NC0yLjAwNS45NzQtMy4xMjcgMS4xOTUtLjg5Ny0uOTU3LTIuMTc4LTEuNTU1LTMuNTk0LTEuNTU1LTMuMTc5IDAtNS41MTUgMi45NjYtNC43OTcgNi4wNDUtNC4wOTEtLjIwNS03LjcxOS0yLjE2NS0xMC4xNDgtNS4xNDQtMS4yOSAyLjIxMy0uNjY5IDUuMTA4IDEuNTIzIDYuNTc0LS44MDYtLjAyNi0xLjU2Ni0uMjQ3LTIuMjI5LS42MTYtLjA1NCAyLjI4MSAxLjU4MSA0LjQxNSAzLjk0OSA0Ljg5LS42OTMuMTg4LTEuNDUyLjIzMi0yLjIyNC4wODQuNjI2IDEuOTU2IDIuNDQ0IDMuMzc5IDQuNiAzLjQxOS0yLjA3IDEuNjIzLTQuNjc4IDIuMzQ4LTcuMjkgMi4wNCAyLjE3OSAxLjM5NyA0Ljc2OCAyLjIxMiA3LjU0OCAyLjIxMiA5LjE0MiAwIDE0LjMwNy03LjcyMSAxMy45OTUtMTQuNjQ2Ljk2Mi0uNjk1IDEuNzk3LTEuNTYyIDIuNDU3LTIuNTQ5eiIvPjwvc3ZnPg==")
+    no-repeat;
+  filter: var(--navbar-svg-icons-filter);
+}
+
+.header-twitter-link:hover {
+  filter: invert(42%) sepia(24%) saturate(3714%) hue-rotate(175deg)
+    brightness(103%) contrast(104%);
+}
+
+.header-youtube-link::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: flex;
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTkuNjE1IDMuMTg0Yy0zLjYwNC0uMjQ2LTExLjYzMS0uMjQ1LTE1LjIzIDAtMy44OTcuMjY2LTQuMzU2IDIuNjItNC4zODUgOC44MTYuMDI5IDYuMTg1LjQ4NCA4LjU0OSA0LjM4NSA4LjgxNiAzLjYuMjQ1IDExLjYyNi4yNDYgMTUuMjMgMCAzLjg5Ny0uMjY2IDQuMzU2LTIuNjIgNC4zODUtOC44MTYtLjAyOS02LjE4NS0uNDg0LTguNTQ5LTQuMzg1LTguODE2em0tMTAuNjE1IDEyLjgxNnYtOGw4IDMuOTkzLTggNC4wMDd6Ii8+PC9zdmc+")
+    no-repeat;
+  filter: var(--navbar-svg-icons-filter);
+}
+
+.header-youtube-link:hover {
+  filter: invert(42%) sepia(24%) saturate(3714%) hue-rotate(175deg)
+    brightness(103%) contrast(104%);
+}
+
+#__docusaurus > div {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar--fixed-top {
+  box-shadow: rgba(2, 1, 1, 0.1) 0px 5px 20px -5px;
+  z-index: 999;
+  background: transparent;
+}
+
+[data-theme="dark"] .navbar-sidebar {
+  box-shadow: rgba(2, 1, 1, 0.1) 0px 5px 20px -5px;
+  z-index: 999;
+  background: transparent;
+  backdrop-filter: saturate(180%) blur(10px);
+  --webkit-backdrop-filter: saturate(180%) blur(10px);
+}
+
+[data-theme="light"] .navbar-sidebar {
+  background: rgba(255, 255, 255, 1);
+  backdrop-filter: saturate(180%) blur(60px);
+  --webkit-backdrop-filter: saturate(180%) blur(34px);
+}
+
+nav:not(.navbar-sidebar--show) {
+  backdrop-filter: saturate(180%) blur(10px);
+}
+
+aside > div > nav.menu {
+  backdrop-filter: none;
+}
+
+/* TODO - move to module CSS */
+
+.nextui-table-container {
+  width: 100%;
+}
+
+.monospaced {
+  font-family: "Roboto Mono", "monospaced";
+}
+
+table thead {
+  background-color: unset;
+}
+
+.nextui-table-hidden-row {
+  border: none;
+}
+
+table th,
+table td {
+  border: none;
+}
+
+.pr-link {
+  margin-bottom: 1em !important;
+  font-weight: 700;
+}
+
+.img-compare-container {
+  display: inline-block;
+  line-height: 0;
+  position: relative;
+  width: 100%;
+  padding-top: 42.3%;
+  cursor: col-resize;
+  margin-bottom: 2em;
+}
+
+.img-compare-container > img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  max-width: unset !important;
+}
+
+.img-clipper {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  box-shadow: 2px 0 red;
+}
+
+.img-clipper > img {
+  width: 200%;
+  position: absolute;
+  height: 100%;
+  max-width: unset !important;
+}
+
+.img-cmp-label {
+  position: absolute;
+  z-index: 100;
+  font-weight: 700;
+  color: white;
+  pointer-events: none;
+  top: 1em;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+.img-cmp-label.before {
+  left: 1rem;
+}
+.img-cmp-label.after {
+  right: 1rem;
+  z-index: 2;
+}

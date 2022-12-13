@@ -1,0 +1,688 @@
+---
+authors:
+  - lightningterror
+date: 2021-04-09 00:00:00
+description:
+  Once again we are back with another progress report bringing you amazing
+  progress.
+draft: false
+hide_table_of_contents: false
+image: ./feature-progrepq12021.webp
+tags:
+  - progress-report
+title: Q1 2021 Progress Report
+---
+
+Once again we are back with another progress report bringing you amazing progress.
+
+<!-- truncate -->
+
+## Core Improvements
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4115">
+  PAD/Counters: MakeVSync Queue adjustable in the UI. Extra Pad update.
+</PCSX2PRLink>
+
+New UI option (ini option has been there a while) so users can choose between a little bit extra performance or reduced input lag.
+
+Also added the PAD Update to the VSync call in Counters as it seemed to reduce input lag marginally.
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4066">
+  IPU: Return contentsof the bottom of the FIFO in CMD except FDEC/VDEC.
+</PCSX2PRLink>
+
+This is based on the work by [@PS1-Rockin](https://github.com/PSI-Rockin) on Dobiestation but modified based on the theory that it always returns the first 32bits of the FIFO unless an FDEC/VDEC command is executed, however FDEC is basically doing this anyway, but VDEC returns decoded information.
+
+Fixed videos for probably all broken EA games, but namely:
+
+- F1 2001
+- F1 2002
+- Neo Contra
+- Shox
+- Theme Park Rollercoaster/World
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4225">
+  IPU: Fill Input FIFOon command end ready for next command.
+</PCSX2PRLink>
+
+Dance Summit 2001: So basically what the game does is it does some IPU
+stuff, but the DMA is left with 1 QWC left to be read on the DMA, on the
+hardware this will normally be flushed in to the FIFO. The game then
+does a FIFO reset (To get rid of it) then starts another DMA. The
+problem we have is because we still had the DMA pending for 1 QWC, it
+ignored the new DMA start and the IPU would hang up waiting for data to
+be fed in. This PR resolves that problem.
+
+Test Drive: Also added DMA 4 (To IPU) being flushed if BCLR is called
+without first stopping the DMA.
+
+Set the Picture type on VDEC to I-Picture if set to 0 in the IPU_CTRL,
+this fixes a bunch of Eyetoy games which incorrectly set this register.
+
+- Fixes EyeToy Play(1-3).
+- Fixes Bakufuu Slash!! Kizna Arashi.
+- Fixes Kaiketsu Zorro Mezase! SIF0 and SIF1 stall control.
+- Fixes Test Drive: IPU hang in middle of Event 5.
+
+### DEV9
+
+<PCSX2PRLink authors="TheLastRar" prNums="4062">
+  Support 16bit reads/writes to SPD\_R\_PIO\_DATA & SPD\_R\_PIO\_DIR
+</PCSX2PRLink>
+
+This improves [#3192](https://github.com/PCSX2/pcsx2/issues/3192), the online beta now sends a DHCP Discover packet, although it appears to be invalid.
+
+<PCSX2PRLink authors="TheLastRar" prNums="4059">
+  Generate unique MAC for TAP
+</PCSX2PRLink>
+
+An unique MAC is needed for full compatibility with XLink Kai.
+
+Uses a method similar to what was done for PCAP.
+
+<PCSX2PRLink authors="TheLastRar" prNums="3932">
+  Add HDDemulation
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="TheLastRar" prNums="4214">
+  Merge _DEV9*() functions into *Net(), and check ethEnable before calling
+  InitNet()
+</PCSX2PRLink>
+
+Previously, the ethEnable config value was not checked before starting network RX net thread.
+
+<PCSX2PRLink authors="TheLastRar" prNums="4219">
+  Fix crash on Linux when we fail to open the adapter
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="TheLastRar" prNums="4149">
+  Re-add PCAP(both bridged and switched) on windows
+</PCSX2PRLink>
+
+### CDVD
+
+<PCSX2PRLink authors="rtissera,SleepyMan,siddhartha77" prNums="4314,4045">
+  Add CHD compression format support
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4146">
+  Increase buffer for DVD_LAYER_DESCRIPTOR.
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="F0bes" prNums="4236">
+  Implement mechacon command 0xEF
+</PCSX2PRLink>
+
+### microVU
+
+<PCSX2PRLink
+  authors="refractionpcsx2"
+  shas="ee07f860fc1dd7e8ada6c13903bb3a592b8d4864"
+>
+  microVU: Implement Overflow checks
+</PCSX2PRLink>
+
+Fixes Superman Returns.
+
+<PCSX2PRLink
+  authors="refractionpcsx2"
+  shas="413fd004da0ba46786b878683f6b177ad1bdcde7"
+>
+  microVU: Fix jump caching when using doJumpAsSameProgram
+</PCSX2PRLink>
+
+<PCSX2PRLink
+  authors="refractionpcsx2"
+  shas="c9bc6eac69a3ceea6dffe6cec07b17caa1e2fc6e"
+>
+  microVU: Fix P flag instance on Ebit
+</PCSX2PRLink>
+
+Also small fix for flag statuses on M-Bit on Branch.
+
+<PCSX2PRLink
+  authors="refractionpcsx2"
+  shas="0f7044a90f62f84db4844292bb2bcc7d4cc7626b"
+>
+  microVU: Removed full flag optimisations
+</PCSX2PRLink>
+
+They were unused, broken and cluttering up the code.
+
+<PCSX2PRLink authors="kozarovv" prNums="4198">
+  Fix Esinopcode
+</PCSX2PRLink>
+
+Someone accidentally used bad function to analyze ESIN opcode on microVU, that generated bad values due to wrong register field being used.
+
+Fixes X2 - Wolverine's Revenge.
+
+<PCSX2PRLink
+  authors="refractionpcsx2"
+  shas="f9d96f55a538ce373f1662a5554d8052173940b1"
+>
+  microVU: move the overflow flags to the correct position
+</PCSX2PRLink>
+
+### VIF
+
+<PCSX2PRLink
+  authors="refractionpcsx2"
+  shas="ddffd9acd671ee3165061980554d4a36c86eeb5e"
+>
+  VIF: Fix MPG VU Address wrapping
+</PCSX2PRLink>
+
+Fixes Boogie.
+
+<PCSX2PRLink
+  authors="refractionpcsx2"
+  shas="89991594de89b0068efd906286b5a39cc7c8186f"
+>
+  VIF: Clean up some old (incorrect) code
+</PCSX2PRLink>
+
+### SPU2
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4074">
+  SPU2: Attempt 96khz sample rate if 48khz fails (WASAPI).
+</PCSX2PRLink>
+
+WASAPI is terrible and doesn't support sample rate conversion in shared
+(normal) mode and requires exclusive mode.
+
+This PR basically attempts to double the PS2 sample rate of 48khz to
+96khz as this tends to be the other windows default. If this fails it
+will put a log message to say you need to use Exclusive mode.
+
+Note: When using PS1 game emulation you will need to use exclusive mode,
+nothing I can do about this (44.1khz doesn't divide nicely from 48khz or
+96khz).
+
+<PCSX2PRLink
+  authors="refractionpcsx2"
+  prNums="4057,4085"
+  shas="f1e44bfd47e3761388ebb5cc8ca4db78bb24916c"
+>
+  SPU2: Improve DMA/IRQ timing
+</PCSX2PRLink>
+
+- Fixes The Simple 2000 Series Vol 51 - The Senkan (AKA The Battleship) which was not booting with anything but ZeroSPU2
+- Fixes The Simpsons, problem was due to an ADMA refill bug.
+
+<PCSX2PRLink
+  authors="refractionpcsx2"
+  shas="f5d89062e02933b5dc4e090ff7c7f4dc5368ef26"
+>
+  SPU2: Update voices before DMA reads, reset OutPos on reset
+</PCSX2PRLink>
+
+Improves the booting reliability of GTA VC, especially on consecutive boots without closing the emulator.
+
+<PCSX2PRLink authors="Ziemas" prNums="4134">
+  Switch to a more accurate noise algorithm
+</PCSX2PRLink>
+
+This algorithm comes from PCSX-R and is an implementation of Dr. Hell's research.
+
+The previous implementation was a simple LFSR and did not use the
+provided noise clock from the ATTR register.
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4171">
+  SPU2: Improve ADMA behaviour/timing.
+</PCSX2PRLink>
+
+- Hopefully improves the crackling in burnout 3.
+- Fixes music looping in Ratatouille.
+- Fixes Vexx clicking sound (Partial ADMA transfers).
+- Fixes the Dolby Pro Logic video missing sound in Primal (Partial ADMA transfers).
+- Fixes Splinter Cell panning audio problem and high pitched noises in cut-scenes.
+- Fixes Myst 3 panning audio problem.
+- Fixes Dynasty Warriors 5 stuttering videos when Dolby is enabled.
+
+<PCSX2PRLink
+  authors="refractionpcsx2"
+  shas="e0394921e98136547176f9a224a9bb9084fbda47"
+>
+  SPU2: Tighten AutoDMA IRQ timing
+</PCSX2PRLink>
+
+Fixes games which monitor the MADR while transferring.
+
+Fixes Tom & Jerry in War of the Whiskers jumpy music.
+
+<PCSX2PRLink authors="Ziemas" prNums="4210">
+  Adjust interpolation implementations
+</PCSX2PRLink>
+
+These seems to be have been adjusted to match the output of catmull-rom
+which is really the one in the wrong by being twice as loud.
+
+As a result of the interpolated output being at a reasonable level we
+can use ApplyVolume to apply the ADSR volume.
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4203">
+  SPU2: Make sure cache hits match previous block decoded samples.
+</PCSX2PRLink>
+
+Caching blocks of ADPCM is a bit sketchy because the previous samples
+(which it uses to generate the new ones) can change depending on if it's
+the start of the voice on or if it has looped around, so you can end up
+with blips and glitches in the sample stream, this should avoid that
+problem whilst not making the cache completely unusable.
+
+Should get rid of clicking and popping noises in loops samples.
+
+Fixes Sphinx and the Cursed Mummy sound distortion.
+
+Also fixes remaining blips in Vexx.
+
+<PCSX2PRLink authors="Ziemas" prNums="4195">
+  Add Gaussian interpolation
+</PCSX2PRLink>
+
+This implements the actual SPU interpolation as documented by nocash.
+
+<PCSX2PRLink authors="Ziemas" prNums="4226">
+  Resample reverb input/output
+</PCSX2PRLink>
+
+The reverb runs at half the sample rate of the rest of the SPU so a
+change of sample rate is required. The way this is currently done is by
+decimating when down-sampling and duplicating samples when up-sampling
+without doing any filtering.
+
+This adds proper filtering to this process, the filter coefficients are
+from Mednafen but we think they were originally found by Neill Corlett.
+
+<PCSX2PRLink
+  authors="refractionpcsx2"
+  shas="f42befadf10493a8ccb5a021de416cc1efeb5e03"
+>
+  SPU2: Try to recover DMA pointer after savestate load
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4186">
+  SPU2: Ignore LSAL/H Writes after key on if voice sets loop point.
+</PCSX2PRLink>
+
+Fixes behaviour with loop address writes within 4T's of a voice keying
+on which is what the old Delay Cycles tried to address, if the voice
+sets its own loop point the write from hardware is ignored.
+
+Fixes Mafia music loops.
+
+<PCSX2PRLink
+  authors="refractionpcsx2"
+  shas="ce8047bd8cb8d036ed3ba4e9cd2f85743f018ccd"
+>
+  Reset IRQ Status when swapping game in case it got set previously
+</PCSX2PRLink>
+
+### Memory Card
+
+<PCSX2PRLink authors="Ziemas" prNums="4113">
+  Memorycards: Fix out of bounds array access in folder memcards.
+</PCSX2PRLink>
+
+Don't keep the DataClusterInUse bit when accessing the next cluster.
+
+With this folder memcards work on 64bit.
+
+<PCSX2PRLink authors="KrossX" prNums="2995">
+  Memorycards: Add support for OpenPS2Loader VirtualMemoryCards.
+</PCSX2PRLink>
+
+Adds some basic support to OPL VMC files (.bin) that use 512 bytes
+pages.
+
+Normal pages are 528 bytes long, those extra 16 bytes contain 12 bytes
+of ECC data.
+
+### Debuggers
+
+<PCSX2PRLink authors="F0bes" prNums="4252">
+  Debugger: Add \
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="F0bes" prNums="4289">
+  Debugger: Require emulator start before enabling Break/Run button.
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="F0bes" prNums="4326,4287">
+  Misc: Support more BIOSes for the Debugger Thread View.
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="GovanifY" prNums="4271">
+  GS/Core: Implement the new generation of GS Debugger.
+</PCSX2PRLink>
+
+This is a full in-core reimplementation of GSDumpGUI. It will be used
+for GS Debugging once GSdx is merged in to the core.
+
+One step closer in to merging GSdx in to the core.
+
+### Misc core
+
+<PCSX2PRLink authors="monster860" prNums="3011">
+  Implements IOPbreakpoints
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="F0bes" prNums="4234">
+  Execute breakpoints for the interpreter
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="TellowKrinkle" prNums="4205">
+  Don't Destroy() modals
+</PCSX2PRLink>
+
+On macOS it prevents the parent window from regaining focus. By
+
+<PCSX2PRLink authors="Nobbs66" prNums="4223">
+  PGIF: PS1DRV handlesbit 28 of GPU Status register, not PGIF.
+</PCSX2PRLink>
+
+Fixes several PSX games:
+
+- Castlevania: Symphony of the Night
+- Twisted Metal
+- Pink Panther
+
+<PCSX2PRLink authors="jackun" shas="c695a7eabbac4c3a0138b6eeb0e9005ff708f985">
+  USB: usb-mic: Send 1ms worth of samples for 48kHz and 8kHz sample rates
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="CookiePLMonster" prNums="4310">
+  USB: Improve Force Feedback test so it doesn't block UI.
+</PCSX2PRLink>
+
+This modifies DirectInput USB Force Feedback test not to block the UI.
+Instead of performing the test synchronously on the UI thread, a timer
+gets created which advances the test every half a second.
+
+<PCSX2PRLink authors="Florin9doi" prNums="4232">
+  Eyetoy mirroring
+</PCSX2PRLink>
+
+- Fixes Bakufuu Slash! Kizna Arashi.
+
+<PCSX2PRLink authors="F0bes" prNums="4250">
+  Core: Preserve read only bits in the COP0 config register.
+</PCSX2PRLink>
+
+The read-only bits in question are the Instruction cache size (IC) and
+the Data cache size (DC).
+
+Before this MTC0 would freely write to the entire config register.
+
+<PCSX2PRLink authors="F0bes" prNums="4123">
+  Core: Implement proper %s handling for syscall 117 (0x75).
+</PCSX2PRLink>
+
+This makes the syscall iterate through the format string which can be
+considered "slow" but this syscall is only going to be used for
+debugging purposes.
+
+<PCSX2PRLink authors="Tupelov" prNums="4255">
+  Core: Added support for little endian data for patches.
+</PCSX2PRLink>
+
+Allows users to use the leshort, leword, and ledouble datatypes inside
+their patches. Using these datatypes ensures that values in the memory
+view appear the same as the values in the patch.
+
+This was made with easing patch development in mind as now developers
+can make patches without having to reverse endianness. This is
+especially useful when using programs like ghidra that displays
+instructions in little endian.
+
+## GSdx Improvements
+
+<PCSX2PRLink authors="lightningterror,tadanokojin" prNums="4206">
+  GSdx-hw: Implement per pixel alpha blending (PABE).
+</PCSX2PRLink>
+
+Improves shadow/lighting effects on certain games, both HW renderers
+support the feature.
+
+So far we have a few games that see an improvement:
+
+Fixes Strawberry Shortcake character shadow/lighting.
+
+Fixes Cartoon Network Racing shadow/lighting.
+
+And for those that enjoy some image comparisons:
+
+Cartoon Network Racing: Before -&gt; After
+
+<SliderCompare
+  before={require("./img/cnr_before_s.webp").default}
+  after={require("./img/cnr_after_s.webp").default}
+/>
+
+Strawberry Shortcake: Before -&gt; After
+
+<SliderCompare
+  before={require("./img/ss_before_s.webp").default}
+  after={require("./img/ss_after_s.webp").default}
+/>
+
+### Misc GSdx
+
+<PCSX2PRLink authors="RedDevilus" prNums="3973">
+  Some GUI changes
+</PCSX2PRLink>
+
+Changed some options:
+
+- Large framebuffer renamed into conservative framebuffer.
+- Dithering context menu re-ordered.
+- 8-bit textures renamed into GPU Palette Conversion.
+
+<PCSX2PRLink
+  authors="lightningterror"
+  shas="dabfff8b3562f1424526812681bb2beafb560aa0"
+>
+  GSdx-hw: Get rid of some extra branches/conditions in DATE selection
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="RedDevilus" prNums="4182">
+  Fix alignment of font
+</PCSX2PRLink>
+
+Should fix invisible characters.
+
+<PCSX2PRLink authors="GovanifY,F0bes,turtleli" prNums="4188,4261,4320">
+  GSdx: Switch to unicode
+</PCSX2PRLink>
+
+This brings GSdx one step closer to be merged with the core.
+
+<PCSX2PRLink authors="lightningterror" prNums="4270">
+  GSdx-d3d11: Cleanup gsdevice11.cpp warnings reported on codacy.
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="TellowKrinkle" prNums="4131,4288">
+  Use constexpr to initialize AVX vectors without AVX instructions{" "}
+</PCSX2PRLink>
+
+List of removed CRC hacks:
+
+<PCSX2PRLink authors="tadanokojin" prNums="4082">
+  Remove Unofficial CRCs
+</PCSX2PRLink>
+<PCSX2PRLink
+  authors="lightningterror"
+  shas="f6e12f82de7fbdb15ccbf574eb8552fb54c47ac2"
+>
+  Gsdx-hw: Remove Bully crc hack, it broke a bunch of effects
+</PCSX2PRLink>
+
+## TAS (Tool Assisted Speedrun) Utility Improvements
+
+<PCSX2PRLink authors="sonicfind" prNums="4019">
+  Recording: Reorganize and realign InputRecordingControls.
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="sonicfind" prNums="4060">
+  Recording: GUI Improvements around savestate-based input recordings.
+</PCSX2PRLink>
+
+## IPC (Interprocess Communication) Improvements
+
+<PCSX2PRLink authors="GovanifY" prNums="4262">
+  Socket re-usability
+</PCSX2PRLink>
+
+This avoids port overfills on windows, while increasing performance
+substantially on platforms that do port overfills.
+
+<PCSX2PRLink authors="GovanifY" prNums="4267">
+  Add a slot system
+</PCSX2PRLink>
+
+This allows multiple emulator sessions to run at the same time and
+windows user to configure their used port to their preferred one.
+
+<PCSX2PRLink authors="GovanifY" prNums="4272">
+  Fix type polymorphism & checkbox
+</PCSX2PRLink>
+
+Some versions of wxWidgets are more sensitive than others on dynamic
+casting, so instead I used a C style cast to prevent any crash.
+
+## GameDB Improvements
+
+<PCSX2PRLink
+  authors="refractionpcsx2"
+  shas="4b71dd3c08e0f98afe9965a6c38b4262053d8c6b"
+>
+  GameDB: Remove patches for Quake 3 videos, no longer required
+</PCSX2PRLink>
+
+<PCSX2PRLink
+  authors="refractionpcsx2"
+  shas="7512c01ca6ff861a1dc70066345ccbcb31445061"
+>
+  GameDB: Removed no longer required FMV skip patches
+</PCSX2PRLink>
+
+List of removed patches for games include:
+
+- BDFL Manager 2005 (EU)
+- F1 Racing Championship (Japan and EU regions)
+- Paris-Dakar Rally (EU)
+
+<PCSX2PRLink authors="RedPanda4552" prNums="4259">
+  GameDB: Add improved Xenosaga save crash prevention patch.
+</PCSX2PRLink>
+
+Updated patch rewrites a chunk of game code to decrement JPEG quality,
+rather than just immediately floor it. Allows thumbnails to still look
+kind of okay.
+
+<PCSX2PRLink authors="kozarovv" prNums="4187,4249">
+  Add patchesfor KOF series
+</PCSX2PRLink>
+
+Fixes depth precision, game fills upper 16bits of depth with 0xFFFF.
+This results in a really high 32 bit value which is then converted to
+float because both HW and SW renderers lack double precision the lower
+16 bits of the initial 32 bit value lose precision.
+
+## Misc Improvements
+
+<PCSX2PRLink authors="kenshen112" prNums="3999">
+  Add GHC Filesystem
+</PCSX2PRLink>
+
+This adds GHC filesystem to pcsx2 common utilities.
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4073">
+  3rdparty: PortAudio: Upgrade PortAudio to latest master.
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="4277">
+  3rdparty: Update Libsamplerate to 0.2.1.
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="RedDevilus" prNums="3991">
+  Keyboard Shortcuts Strings
+</PCSX2PRLink>
+
+Based on <https://wiki.pcsx2.net/Hotkeys>.
+
+<PCSX2PRLink authors="laenion" prNums="4216">
+  Fix compilation in path with spaces
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="F0bes" prNums="4283">
+  Fix various Debug Tools Codacy complaints
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="TellowKrinkle" prNums="4010">
+  Fix paths on macOS
+</PCSX2PRLink>
+
+MacOS was using linux paths rather than wx's macOS-specific subclass,
+which doesn't match how the app is installed in macOS (all paths should
+be relative to the executable).
+
+Also adds steps to copy missing resources into the app bundle.
+
+<PCSX2PRLink authors="rtissera" prNums="4243">
+  Purge GSNull plugin entirely
+</PCSX2PRLink>
+
+The plugin is obsolete, GSdx already provides Null(no display functionality).
+
+<PCSX2PRLink authors="RedPanda4552" prNums="4201">
+  GUI: Prevent Vsync setting from being wiped on preset changes.
+</PCSX2PRLink>
+
+Reapplies the currently applied vsync mode when changing preset options.
+
+<PCSX2PRLink authors="MrCK1" prNums="4230">
+  Remove unused code
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="KrossX" prNums="4244">
+  Avoid presets from resetting VsyncQueueSize
+</PCSX2PRLink>
+
+The VsyncQueueSize setting is currently affected by presets, would
+revert to default on start as well. Since the setting is not grayed out,
+this change makes it be unaffected.
+
+<PCSX2PRLink authors="xTVaser" prNums="3556">
+  GUI: If available, enable menu option to load backup savestate when a game is
+  first launched
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="xTVaser" prNums="4306">
+  GUI: Visually indicate the current savestate slot in the load/save menu
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="sonicfind" prNums="4036">
+  Capture: Optimizations with file names, SPU2 recording, and capture menu gui
+</PCSX2PRLink>
+
+Addresses some oversights involving transferring a file name between the
+GS & SPU2 recording setups.
+
+Adds a new audio toggle setting that allows a user to control whether a
+WAV file should be generated alongside a video recording. In doing this,
+behavior for when SPU2 recording fails to be setup becomes more defined
+and consistent.
+
+Additionally, F12 will now route to sMainFrame if GUI is active as to
+keep the capture menu GUI accurate to the current state.
+
+## Conclusion
+
+And that's all from us, see you next time in our 2021 Q2 Report!
+
+## Metadata
+
+2021 Q1:
+(dev818 to dev1163) (2020-01-01 - 2020-03-31)
