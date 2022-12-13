@@ -1,0 +1,20 @@
+data:
+  - name: Sly 2
+    "Before (R7 360)": 25
+    "After (R7 360)": 33
+  - name: DBZ Tenkaichi 3
+    "Before (R7 360)": 55
+    "After (R7 360)": 81
+  - name: Half Life
+    "Before (R7 360)": 92
+    "After (R7 360)": 200
+barOptions:
+  "Before (R7 360)":
+    fillColor: "rgb(106, 156, 255)"
+  "After (R7 360)":
+    fillColor: "rgb(200, 45, 69)"
+axis:
+  x:
+    dataKey: name
+  y:
+    label: "Frames Per Seconds (VPS)"

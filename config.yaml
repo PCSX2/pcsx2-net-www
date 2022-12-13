@@ -1,8 +1,8 @@
 module:
   hugoVersion:
     extended: true
-baseURL: '/'
-publishDir: 'public/'
+baseURL: "/"
+publishDir: "public/"
 disableKinds:
   # users dont need to see the taxonomy listing pages
   - "taxonomy"
@@ -42,31 +42,31 @@ params:
     - name: Donate
       icon: fa-solid fa-heart
       weight: 1
-      url: 'https://github.com/sponsors/PCSX2'
+      url: "https://github.com/sponsors/PCSX2"
     - name: Discord
       icon: fab fa-discord
       weight: 1
-      url: 'https://discord.com/invite/TCz3t9k'
+      url: "https://discord.com/invite/TCz3t9k"
     - name: Github
       icon: fab fa-github
       weight: 2
-      url: 'https://github.com/PCSX2'
+      url: "https://github.com/PCSX2"
     - name: Forums
       icon: fa-solid fa-comments
       weight: 4
-      url: 'https://forums.pcsx2.net/'
+      url: "https://forums.pcsx2.net/"
     - name: Wiki
       icon: fa-solid fa-circle-info
       weight: 6
-      url: 'https://wiki.pcsx2.net'
+      url: "https://wiki.pcsx2.net"
     - name: Twitter
       icon: fab fa-twitter
       weight: 3
-      url: 'https://twitter.com/PCSX2'
+      url: "https://twitter.com/PCSX2"
     - name: YouTube
       icon: fab fa-youtube
       weight: 5
-      url: 'https://www.youtube.com/user/PCSX2team'
+      url: "https://www.youtube.com/user/PCSX2team"
 taxonomies:
   category: categories
   tag: tags
@@ -74,7 +74,7 @@ taxonomies:
 languages:
   en:
     # baseURL: 'https://pcsx2.net/en/'
-    languageName: ':uk:'
+    languageName: ":uk:"
     menu:
       main:
         - name: Download
