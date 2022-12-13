@@ -39,8 +39,10 @@ function generateCommitLinks(commitShas) {
   for (const sha of shas) {
     icons.push(
       <a key={i++} href={`https://github.com/PCSX2/pcsx2/commit/${sha}`}>
-        <GoGitCommit size={24}></GoGitCommit>
-        {sha}
+        <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
+          <GoGitCommit size={24}></GoGitCommit>
+        </IconContext.Provider>
+        {sha.substr(0, 6)}
       </a>
     );
   }
