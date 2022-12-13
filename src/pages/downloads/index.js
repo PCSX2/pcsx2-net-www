@@ -52,6 +52,19 @@ export default function Downloads() {
   const [apiErrorMsg, setApiErrorMsg] = useState(undefined);
 
   useEffect(async () => {
+    let shouldShowPreviousNightlies = window.localStorage.getItem(
+      "downloads-showPreviousNightlies"
+    );
+    if (shouldShowPreviousNightlies) {
+      setShowPreviousNightlies(shouldShowPreviousNightlies === "true");
+    }
+    let shouldShowPreviousStables = window.localStorage.getItem(
+      "downloads-showPreviousStables"
+    );
+    if (shouldShowPreviousStables) {
+      setShowPreviousStables(shouldShowPreviousStables === "true");
+    }
+
     try {
       const resp = await fetch(`${baseApiUrl}/latestReleasesAndPullRequests`);
       if (resp.status === 429) {
@@ -179,7 +192,13 @@ export default function Downloads() {
                     <Switch
                       color="primary"
                       checked={showPreviousStables}
-                      onChange={(e) => setShowPreviousStables(e.target.checked)}
+                      onChange={(e) => {
+                        setShowPreviousStables(e.target.checked);
+                        window.localStorage.setItem(
+                          "downloads-showPreviousStables",
+                          e.target.checked
+                        );
+                      }}
                     />
                     &nbsp;Show Previous Versions
                   </Grid.Container>
@@ -283,9 +302,13 @@ export default function Downloads() {
                     <Switch
                       color="warning"
                       checked={showPreviousNightlies}
-                      onChange={(e) =>
-                        setShowPreviousNightlies(e.target.checked)
-                      }
+                      onChange={(e) => {
+                        setShowPreviousNightlies(e.target.checked);
+                        window.localStorage.setItem(
+                          "downloads-showPreviousNightlies",
+                          e.target.checked
+                        );
+                      }}
                     />
                     &nbsp;Show Previous Versions
                   </Grid.Container>

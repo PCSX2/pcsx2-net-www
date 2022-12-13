@@ -42,8 +42,6 @@ export default function Root({ children }) {
   useEffect(() => {
     // App mounted, make the page visible!
     document?.documentElement?.classList.add("app-loaded");
-
-    console.log("blerg");
     // you can use any storage
     let theme = window.localStorage.getItem("theme");
     setIsDark(theme === "dark");
@@ -58,6 +56,7 @@ export default function Root({ children }) {
       } else {
         setIsDark(false);
       }
+      // Ensure the page is visible if the class list has changed
       if (!document?.documentElement.classList.contains("app-loaded")) {
         document?.documentElement?.classList.add("app-loaded");
       }
