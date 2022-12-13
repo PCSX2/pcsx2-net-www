@@ -41,6 +41,7 @@
 }
 
 /* Workaround to resolve FOUC issues */
+
 html {
   visibility: hidden;
   opacity: 0;
@@ -52,6 +53,7 @@ html.app-loaded {
 }
 
 /* Fonts */
+
 @font-face {
   font-family: "Inter";
   src: url("/fonts/Inter/static/Inter-Bold.ttf");
@@ -96,10 +98,14 @@ button {
   font-family: var(--ifm-font-family-base);
 }
 
+/* Footer */
+
 footer.footer {
   margin-top: 10em;
   text-align: center;
 }
+
+/* Navbar */
 
 .navbar__link {
   font-weight: 400;
@@ -107,6 +113,34 @@ footer.footer {
 
 .navbar__link--active {
   font-weight: 600;
+}
+
+.navbar--fixed-top {
+  box-shadow: rgba(2, 1, 1, 0.1) 0px 5px 20px -5px;
+  z-index: 999;
+  background: transparent;
+}
+
+[data-theme="dark"] .navbar-sidebar {
+  box-shadow: rgba(2, 1, 1, 0.1) 0px 5px 20px -5px;
+  z-index: 999;
+  background: transparent;
+  backdrop-filter: saturate(180%) blur(10px);
+  --webkit-backdrop-filter: saturate(180%) blur(10px);
+}
+
+[data-theme="light"] .navbar-sidebar {
+  background: rgba(255, 255, 255, 1);
+  backdrop-filter: saturate(180%) blur(60px);
+  --webkit-backdrop-filter: saturate(180%) blur(34px);
+}
+
+nav:not(.navbar-sidebar--show) {
+  backdrop-filter: saturate(180%) blur(10px);
+}
+
+aside > div > nav.menu {
+  backdrop-filter: none;
 }
 
 .header-github-link::before {
@@ -122,19 +156,6 @@ footer.footer {
 .header-github-link:hover {
   filter: invert(42%) sepia(24%) saturate(3714%) hue-rotate(175deg)
     brightness(103%) contrast(104%);
-}
-
-.blog-post-page header > h1 {
-  background-image: linear-gradient(
-    rgb(80, 153, 255) 25%,
-    rgb(70, 94, 174) 100%
-  );
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.table-of-contents__link--active {
-  font-weight: 600;
 }
 
 .header-discord-link::before {
@@ -182,45 +203,28 @@ footer.footer {
     brightness(103%) contrast(104%);
 }
 
+/* Article CSS */
+
+.blog-post-page header > h1 {
+  background-image: linear-gradient(
+    rgb(80, 153, 255) 25%,
+    rgb(70, 94, 174) 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.table-of-contents__link--active {
+  font-weight: 600;
+}
+
 #__docusaurus > div {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-.navbar--fixed-top {
-  box-shadow: rgba(2, 1, 1, 0.1) 0px 5px 20px -5px;
-  z-index: 999;
-  background: transparent;
-}
-
-[data-theme="dark"] .navbar-sidebar {
-  box-shadow: rgba(2, 1, 1, 0.1) 0px 5px 20px -5px;
-  z-index: 999;
-  background: transparent;
-  backdrop-filter: saturate(180%) blur(10px);
-  --webkit-backdrop-filter: saturate(180%) blur(10px);
-}
-
-[data-theme="light"] .navbar-sidebar {
-  background: rgba(255, 255, 255, 1);
-  backdrop-filter: saturate(180%) blur(60px);
-  --webkit-backdrop-filter: saturate(180%) blur(34px);
-}
-
-nav:not(.navbar-sidebar--show) {
-  backdrop-filter: saturate(180%) blur(10px);
-}
-
-aside > div > nav.menu {
-  backdrop-filter: none;
-}
-
-/* TODO - move to module CSS */
-
-.nextui-table-container {
-  width: 100%;
-}
+/* General */
 
 .monospaced {
   font-family: "Roboto Mono", "monospaced";
@@ -230,68 +234,17 @@ table thead {
   background-color: unset;
 }
 
-.nextui-table-hidden-row {
-  border: none;
-}
-
 table th,
 table td {
   border: none;
 }
 
-.pr-link {
-  margin-bottom: 1em !important;
-  font-weight: 700;
-}
+/* NextUI Overrides */
 
-.img-compare-container {
-  display: inline-block;
-  line-height: 0;
-  position: relative;
+.nextui-table-container {
   width: 100%;
-  padding-top: 42.3%;
-  cursor: col-resize;
-  margin-bottom: 2em;
 }
 
-.img-compare-container > img {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  height: 100%;
-  max-width: unset !important;
-}
-
-.img-clipper {
-  width: 50%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  overflow: hidden;
-  box-shadow: 2px 0 red;
-}
-
-.img-clipper > img {
-  width: 200%;
-  position: absolute;
-  height: 100%;
-  max-width: unset !important;
-}
-
-.img-cmp-label {
-  position: absolute;
-  z-index: 100;
-  font-weight: 700;
-  color: white;
-  pointer-events: none;
-  top: 1em;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
-}
-.img-cmp-label.before {
-  left: 1rem;
-}
-.img-cmp-label.after {
-  right: 1rem;
-  z-index: 2;
+.nextui-table-hidden-row {
+  border: none;
 }
