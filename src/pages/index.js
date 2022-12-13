@@ -9,6 +9,7 @@ import {
   Card,
   Grid,
   Container,
+  Tooltip,
   getDocumentTheme,
 } from "@nextui-org/react";
 import { NumberTicker } from "../components/NumberTicker";
@@ -187,13 +188,24 @@ export default function Home() {
               justify="center"
             >
               <Grid>
-                <ReleaseDownloadButton
-                  release={latestStableRelease}
-                  buttonText={"Latest Stable"}
-                  isNightly={false}
-                  errorMsg={apiErrorMsg}
-                  placement={useMediaQuery(960) ? "bottom-left" : "left-top"}
-                />
+                <Tooltip
+                  content={
+                    <span style={{ color: "black" }}>
+                      We recommend using the latest nightly instead!
+                    </span>
+                  }
+                  color="warning"
+                  trigger="hover"
+                  placement="bottom"
+                >
+                  <ReleaseDownloadButton
+                    release={latestStableRelease}
+                    buttonText={"Latest Stable"}
+                    isNightly={false}
+                    errorMsg={apiErrorMsg}
+                    placement={useMediaQuery(960) ? "bottom-left" : "left-top"}
+                  />
+                </Tooltip>
               </Grid>
               <Grid>
                 <ReleaseDownloadButton
