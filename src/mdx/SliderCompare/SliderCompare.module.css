@@ -1,0 +1,51 @@
+.imgCompareContainer {
+  display: inline-block;
+  line-height: 0;
+  position: relative;
+  width: 100%;
+  padding-top: 42.3%;
+  cursor: col-resize;
+  margin-bottom: 2em;
+}
+
+.imgCompareContainer > img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  max-width: unset !important;
+}
+
+.imgClipper {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  box-shadow: 2px 0 red;
+}
+
+.imgClipper > img {
+  width: 200%;
+  position: absolute;
+  height: 100%;
+  max-width: unset !important;
+}
+
+.imgCmpLabel {
+  position: absolute;
+  z-index: 100;
+  font-weight: 700;
+  color: white;
+  pointer-events: none;
+  top: 1em;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+.imgCmpLabel.before {
+  left: 1rem;
+}
+.imgCmpLabel.after {
+  right: 1rem;
+  z-index: 2;
+}
