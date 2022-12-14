@@ -65,6 +65,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
         key={asset.url}
         description={release.version}
         icon={getOSIcon(os, fillColor)}
+        css={{ transition: "none" }}
       >
         {displayName}
       </Dropdown.Item>
