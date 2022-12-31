@@ -87,13 +87,13 @@ const config = {
         docs: {
           path: "docs",
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://github.com/PCSX2/pcsx2-net-www/tree/master/",
+          editUrl: "https://github.com/PCSX2/pcsx2-net-www/tree/main/",
         },
         blog: {
           path: "blog",
           blogSidebarCount: 0,
           showReadingTime: true,
-          editUrl: "https://github.com/PCSX2/pcsx2-net-www/tree/master/",
+          editUrl: "https://github.com/PCSX2/pcsx2-net-www/tree/main/",
           feedOptions: {
             type: "all",
             copyright: `Copyright © ${new Date().getFullYear()} PCSX2.`,
