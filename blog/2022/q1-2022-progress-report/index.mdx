@@ -2,7 +2,7 @@
 authors:
   - reddevilus
 date: 2022-10-17 00:00:00
-description: Vulkanic progress and metamorphosis to Qt.
+description: Vulkanic progress and Qt-ing for the future.
 draft: false
 hide_table_of_contents: false
 tags:
@@ -10,22 +10,18 @@ tags:
 title: Q1 2022 Progress Report
 ---
 
-So finally we are back to the first progress report of the year at the end of 2022. Sorry for the delay but let's bulldoze to the following changes below. At this time we are at the crossroads to finally cast away the outdated WX-widgets GUI toolkit and going forwards with the Qt GUI.
-
+"Ladies and gentlemen, hold onto your controllers and prepare for an exciting journey as we unveil our first progress report of the year. After a seemingly endless delay, we're back and ready to take you through the crossroads of progress. We've said goodbye to the creaky and outdated WX-widgets GUI toolkit and hello to the sleek and shiny Qt GUI. It's like upgrading from a horse-drawn carriage to a sports car, or a butterfly emerging from its cocoon.
 <!-- truncate -->
 
 x69image
 
-At this time Vulkan was added and texture replacements are possible and countless other noteworthy changes.
+And that's not all, we've also revved up the engine with the addition of the Vulkan renderer, allowing for smoother and more efficient gameplay. Plus, with the new texture replacement feature, you'll be able to customize your gaming experience like never before.
 
-The balance of writing something technical, correct and more importantly understood by many and giving it a more human feeling is hopefully noticed and appreciated.
+But don't worry, we haven't forgotten the technical side of things. Our team of experts has been working tirelessly to optimize and improve the CDVD, VU, and SPU systems, ensuring that our emulator runs at its best.
 
-As with many things in life where stillness is death, advancements is the only thing keeping it in life such as the Core Team, Contributors, Discord users, Wiki users, Forum users, Testers and others that aren't mentioned keep PCSX2 fresh and better with each day (maybe for some a bit too overeager) for many years now.
+None of this would be possible without the support and contributions of our dedicated community. From the Core Team, to the Contributors, Discord users, Wiki users, Forum users, Testers and all the others who aren't mentioned, you keep PCSX2 fresh and better each day.
 
-Enough with me mumbling about this pajazz.
-I will talk about only a few improvements in details below.
-
-Happy reading!
+So, buckle up and get ready for a wild ride as we dive into the nitty-gritty details below. Happy reading!"
 
 ## Core Improvements
 
@@ -35,9 +31,13 @@ Happy reading!
   CDVD: Implement speed register, fix up SpindleCtrl
 </PCSX2PRLink>
 
+In this update, we've implemented the functionality of the speed register (0x2013) in the CDVD system. This improves how the emulator handles data from CDs and DVDs, ensuring a more accurate and smooth experience. We've also properly handled the SpindleCtrl value set by reads, which is a rare but important feature. Additionally, we've made sure that when the drive is ejected, it's also set as not spinning. This ensures that the emulator is in the correct state and prevents any potential errors. Overall, this update improves the overall performance and accuracy of the emulator when reading data from CDs and DVDs.
+
 <PCSX2PRLink authors="refractionpcsx2" prNums="5283">
   CDVD: Adjust error timing and modify error used for high sector.
 </PCSX2PRLink>
+
+In this update, we've made adjustments to the error timing in the CDVD system to better handle the reading of data from CDs and DVDs. Specifically, we've modified the error used for high sector reads to better mimic the behavior of the PlayStation 2. This addresses an issue (#5280) where the emulator would crash when reading the second trailer in the "Silent Hill 2 Black Ribbon" demo disc. We've added timing to error calls to improve the overall performance and stability of the emulator when handling errors. This update improves the overall performance and accuracy of the emulator when reading data from CDs and DVDs, especially for games that do unusual things like Silent Hill 2 Black Ribbon demo disc, which previously caused the emulator to crash.
 
 <PCSX2PRLink
   authors="refractionpcsx2"
@@ -53,6 +53,8 @@ Happy reading!
   CDVD: Don't delay abort commands on DVDs, at least for now..Fixes #5301
 </PCSX2PRLink>
 
+In this update, we've addressed an issue (#5301) where the emulator would hang when changing BGM tracks in Arcade mode in the game Auto Modellista (SLUS-20642). The music would stop and then after a couple of seconds, a "Read Time Out 15000(msec)" message would appear in the Program Log, especially when scrolling through tracks fast. We've made changes to the CDVD controller to prevent this issue by not delaying the abort commands on DVDs. This fix improves the overall performance and stability of the emulator when handling BGM tracks in Arcade mode for Auto Modellista.
+
 <PCSX2PRLink
   authors="refractionpcsx2"
   shas="4194553450846e549d7be9a4e7a9f4f5b6e52d2f"
@@ -60,11 +62,15 @@ Happy reading!
   CDVD: Centralise cdvd.Ready updates + add MECHA_INIT bit
 </PCSX2PRLink>
 
+This pull request centralizes the updates to the cdvd.Ready variable and adds the MECHA_INIT bit. The MECHA_INIT bit is a flag that indicates that the 'mecha' or mechanical part of the emulated CD/DVD drive has been initialized. This is used to make sure that certain games, such as Cold Fear, will run properly in the emulator.
+
 ### VU
 
 <PCSX2PRLink authors="refractionpcsx2" prNums="5374">
   VU: Adjust path for conditional evil blocks
 </PCSX2PRLink>
+
+Branch, Branch, Branch! is a warning message that appears in PCSX2 when a game is making too many branches in a short amount of time. This can cause the emulator to run slower and can lead to graphical artifacts. A conditional evil branch is a branch that is performed in a VU (Vector Unit) that is not properly handled and is treated like a jump instead. This can cause the emulator to not handle the operation properly and can lead to graphical artifacts such as Pac-man World Rally. The bug caused shadows and other elements to appear incorrectly on the screen during transitions.
 
 <PCSX2PRLink authors="refractionpcsx2" prNums="5391">
   mVU: Rework multiple branch chaining
@@ -74,15 +80,15 @@ Happy reading!
   EE/MicroVU: Elide COP2 flag updates where safe-ish
 </PCSX2PRLink>
 
+Meanwhile stenzek has been working hard to make the VU0/COP2 heavy games run more smoothly and came up with a new "optimization" option that skips some steps in the process to speed things up. It's like taking the shortcuts on a race track! This new option isn't 100% safe, but it's been tested and it works great for most games. It's like taking a risk to finish the race faster! There also made some other changes that will give you a boost in performance, anywhere from 3-10%, depending on the game. So buckle up and get ready for a smoother ride in your favorite VU0/COP2 heavy games!
+
 <PCSX2PRLink authors="refractionpcsx2" prNums="5572">
   VU: Run sync ahead on small blocks & Rework VU Kickstart
 </PCSX2PRLink>
 
-Attempt to run the VU (VU0 mainly) ahead if it's only running a small block, to try and reduce overhead.
-VU Kickstart is now always on and is replaced with a VU Sync option as less games need the sync than the run ahead.
+This PR aims to improve the performance of PCSX2 by running the VU (VU0 mainly) ahead when it's only running a small block. This reduces the overhead and makes the overall process more efficient. Additionally, the VU Kickstart option is now always on and replaced with a VU Sync option as less games require the sync.
 
-Running blocks of like 3 cycles is very inefficient when you factor in entering and exiting a recompiler, so this makes sure at least a more reasonable amount of cycles is run. Combined with Pull Request 5571 it can give 10-20% improvement in a bunch of games.
-
+By running blocks of at least 3 cycles, this PR ensures that the program runs smoothly and avoids any inefficiencies that come from entering and exiting a recompiler. When combined with Pull Request 5571, this PR can give a boost of 10-20% in a number of games
 <!-- TODO fix chart! -->
 <!-- {{< progress/chart data="./charts/Chart1-5572.json" >}} -->
 
@@ -96,7 +102,7 @@ Running blocks of like 3 cycles is very inefficient when you factor in entering 
   Qt: Reduce max SPU - Change Speed Preset
 </PCSX2PRLink>
 
-Changing the maximum 3000 ms to 200 ms as the computers that can run PCSX2 don't need so much potential latency and also 1% emulation speed is changed to 2% due to multiple issues.
+As part of our ongoing effort to improve the performance and usability of PCSX2, we have made a change to the maximum SPU latency. The previous maximum of 3000 ms has been reduced to 200 ms, which will provide a more responsive experience for users on modern computers. Additionally, we have also changed the emulation speed preset from 1% to 2% to address some issues that have been reported like the gs dump speed.
 
 ### PAD
 
@@ -118,13 +124,19 @@ Changing the maximum 3000 ms to 200 ms as the computers that can run PCSX2 don't
   USB: CaptureEye/OV511p webcam emulation
 </PCSX2PRLink>
 
-Besides EyeToy, there are other games needing a certain webcam like police 24/7.
+This Pull Request adds support for the CaptureEye/OV511p webcam, which is needed for games like Police 24/7 but other games still need specific Webcam device emulation. This again lowers the number of non-emulated devices by 1 from the list of missing USB/PAD devices.
 
 ### DEV9
+
+<PCSX2PRLink authors="TheLastRar" prNums="4944">
+  DEV9: Add a socket based backend for DEV9 networking
+</PCSX2PRLink>
 
 <PCSX2PRLink authors="TheLastRar" prNums="5336">
   DEV9: Check for null ifa_addr in PCAPGetIfAdapter
 </PCSX2PRLink>
+
+This pull request includes a fix to prevent crashes on Linux systems with multiple adapters. It specifically addresses the issue of null ifa_addr, which is a field in some interface adapters that may not be set. This can cause the program to crash when trying to match the specified adapter to the list of adapters returned by the getifaddrs() function. This change adds a null check for ifa_addr in the PCAPGetIfAdapter() function to prevent this crash from occurring.
 
 <PCSX2PRLink authors="TheLastRar" prNums="5501">
   DEV9: Merge settings file into Pcsx2Config
@@ -134,11 +146,11 @@ Besides EyeToy, there are other games needing a certain webcam like police 24/7.
   DEV9: Qt Settings Panel
 </PCSX2PRLink>
 
-x69 image
+The new Qt UI for configuring DEV9 settings makes it more user-friendly and easy to navigate. The host list has also been merged into the main settings file in Qt/Core. Additionally, there's now an option to configure DNS1 or DNS2 to use the internal server, which is only available in the Qt UI.
 
-<PCSX2PRLink authors="TheLastRar" prNums="4944">
-  DEV9: Add a socket based backend for DEV9 networking
-</PCSX2PRLink>
+Note that validation of Ethernet and HDD settings are no longer performed by the UI, and that the Ethernet Api/Type dropdown doesn't actually set the corresponding settings field. This was done to keep these two values in sync, such as when switching API & device mid-emulation. HDD creation is done on emulation start, with progress logged to the console. However, users will need to manually click on the "Create Image" button as the HDD will not auto-create an image. Modifying settings during emulation may behave unexpectedly, such as when enabling Ethernet before specifying an adapter, or adjusting HDD settings.
+
+x69 image
 
 ### IPU
 
