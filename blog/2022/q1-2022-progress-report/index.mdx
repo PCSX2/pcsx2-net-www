@@ -11,6 +11,7 @@ title: Q1 2022 Progress Report
 ---
 
 "Ladies and gentlemen, hold onto your controllers and prepare for an exciting journey as we unveil our first progress report of the year. After a seemingly endless delay, we're back and ready to take you through the crossroads of progress. We've said goodbye to the creaky and outdated WX-widgets GUI toolkit and hello to the sleek and shiny Qt GUI. It's like upgrading from a horse-drawn carriage to a sports car, or a butterfly emerging from its cocoon.
+
 <!-- truncate -->
 
 x69image
@@ -89,6 +90,7 @@ Meanwhile stenzek has been working hard to make the VU0/COP2 heavy games run mor
 This PR aims to improve the performance of PCSX2 by running the VU (VU0 mainly) ahead when it's only running a small block. This reduces the overhead and makes the overall process more efficient. Additionally, the VU Kickstart option is now always on and replaced with a VU Sync option as less games require the sync.
 
 By running blocks of at least 3 cycles, this PR ensures that the program runs smoothly and avoids any inefficiencies that come from entering and exiting a recompiler. When combined with Pull Request 5571, this PR can give a boost of 10-20% in a number of games
+
 <!-- TODO fix chart! -->
 <!-- {{< progress/chart data="./charts/Chart1-5572.json" >}} -->
 
