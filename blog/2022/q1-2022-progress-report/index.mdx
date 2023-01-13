@@ -134,6 +134,14 @@ This Pull Request adds support for the CaptureEye/OV511p webcam, which is needed
   DEV9: Add a socket based backend for DEV9 networking
 </PCSX2PRLink>
 
+This pull request adds a new socket-based backend for DEV9 networking, similar to the existing Winsock backend provided by CLR_DEV9. This new backend allows for easier configuration and joining of online/resurrected games however some will need specific DNS or DNAS patches.
+
+It's important to note that while this backend is able to join online games with minimal configuration, hosting online games with Sockets is not currently supported. Additionally, for LAN games, it allows joining a game hosted by actual hardware or hosted by an instance of PCSX2 using TAP/Pcap.
+
+For Mac and Linux users, the auto adapter selection feature will not be able to select an adapter, and you currently must specify an adapter manually. To support this, PR #4930 is reliant on it.
+
+Handling of ICMP Echo packets (performed by the Network Access Disc) also required platform-specific code, and it's not guaranteed that it works correctly on all platforms.
+
 <PCSX2PRLink authors="TheLastRar" prNums="5336">
   DEV9: Check for null ifa_addr in PCAPGetIfAdapter
 </PCSX2PRLink>
@@ -164,6 +172,8 @@ x69 image
   IPU DMA: If no underflow occurs on QWC = 0, end DMA.
 </PCSX2PRLink>
 
+Refraction, the author of this pull request, has identified a problem with the IPU_FROM DMA (the component that handles e.g. MPEG2 cutscenes). The issue arises when the QWC value is set to 0 at the start of the DMA and there is nothing waiting in the FIFO. In this scenario, the DMA will not underflow and will not end as intended. To address this problem, refraction has added a check for this specific scenario and implemented a solution to end the DMA when it occurs. This change is crucial for ensuring the proper functioning of Hudson games and their videos. In addition, refraction has also provided further explanation in the code to assist other developers in understanding the reasoning behind this change.
+
 ### Debugger
 
 <PCSX2PRLink authors="Tokman5" prNums="5466">
@@ -192,6 +202,24 @@ x69 image
 
 ### GS
 
+<PCSX2PRLink authors="iMineLink" prNums="3895">
+  GS-hw, TC: improve tex in rt.
+</PCSX2PRLink>
+
+As a writer for PCSX2, I am excited to announce that we have made significant improvements to the tex in rt code. The logic is now encapsulated in the GSTextureCache::ComputeSurfaceOffset method, which considers two surfaces A and B and computes the offset from B to A in terms of B coordinates. This improved logic is able to fix and improve a number of issues in games such as Burnout 3, Xenosaga 3, The Getaway, Indiana Jones and the Emperor's Tomb, and Wild Arms 4.
+
+One of the major benefits of this change is that it allows us to handle higher blending loads with less performance impact. Additionally, the GSTextureCache::ComputeSurfaceOffset method is intended as future-proof, potentially useful for detecting overlaps between EE writes and cached Targets, or between cached Targets alone.
+
+We've also made a number of bonus improvements to the texture cache, such as inverting the order in which Target and Source are searched in the cache, reading back Targets from LRU to MRU, and partially dirty targets are now searched for valid data.
+
+This improved logic is enabled via the .ini file (UserHacks_TextureInsideRt = 1) for non Jak games, or from the GS HW hacks settings GUI. However, due to the nature of GS-hw TC, the logic cannot be always enabled without causing regressions. There is more context on the Pull Request with tons of images so I only outlined some of improvements, most already said by iMineLink and others there.
+
+x69image
+
+<PCSX2PRLink authors="tellowkrinkle" prNums="4922">
+  GS: Various GSDumpGUI Improvements
+</PCSX2PRLink>
+
 <PCSX2PRLink authors="tellowkrinkle" prNums="5076">
   GS: Add dedicated functions for choosing renderers and adapters
 </PCSX2PRLink>
@@ -208,9 +236,29 @@ x69 image
   GS-hw: Improve DATE selection
 </PCSX2PRLink>
 
+The author, lightningterror, has made improvements to the DATE selection process in the PCSX2 emulator. Specifically, for the OpenGL renderer, a check for fbmask is now implemented and an accurate path for DATE_GL45 is used when present. Additionally, a check for FBA is added and the fast path DATE_one is used when all pixels are 128 or more.
+
+For the Direct3D renderer, a similar check for fbmask is added, however, the accurate path is not supported so only the DATE path is used. A check for FBA is also implemented and the fast path DATE_one is used when all pixels are 128 or more.
+
+This change is aimed at optimizing the performance of the emulator, specifically in regards to the handling of shadows and transparency in the games.
+
 <PCSX2PRLink authors="stenzek" prNums="5224">
   GS: Add a Vulkan renderer
 </PCSX2PRLink>
+
+Introducing Vulkanic, our new Vulkan renderer for PCSX2! (Just kidding, it's just called Vulkan.) We've been working hard to bring PCSX2 users a new renderer option, and it's finally here! The Vulkan renderer is a powerful new addition to our emulator that promises to take your gaming experience to the next level.
+
+The advantages of using the Vulkan renderer are numerous:
+
+    Speed: It can handle high blending loads with ease, even outperforming the NVIDIA GL driver in certain cases.
+    Future-proofing: With the rise of Vulkan, it's important to keep up with the latest technology.
+    More efficient: In theory, Vulkan is more efficient than Direct3D and OpenGL.
+
+For users with AMD graphics cards, the Vulkan renderer has the added benefit of being less punishing on performance when using higher blending modes, compared to the OpenGL renderer. And for Linux users, we're happy to report that the Vulkan renderer is fully supported and runs exceptionally well on this platform.
+
+On Windows, the Vulkan renderer may have some performance advantage over OpenGL, but on Mac and Linux, the performance impact may vary and it depends on various factors.
+
+We're excited to see how the Vulkan renderer performs on a wide range of devices, so we encourage users to give it a try and let us know your thoughts. Whether you're running on an AMD, NVIDIA, or Intel graphics card, we want to hear from you!
 
 x69
 
@@ -254,20 +302,34 @@ x69
   GS/DX11: Add a shader cache
 </PCSX2PRLink>
 
+Introducing our shiny new DX11 shader cache! It's like putting a turbocharger on your graphics card, you'll be flying through games with lightning speed.
+
+Gone are the days of waiting for shaders to recompile every time you switch between hardware and software renderers. With the new cache, we're saving the program binaries in a disk cache, so the next time you need that shader, it's ready to go, no waiting around.
+
+Now, some of you may be thinking, "But my driver already has a built-in hash-based cache!" And you'd be right! But, not all drivers have this feature and even if they do, our cache is an added layer of optimization. Plus, who doesn't love a little redundancy?
+
+One thing to note, due to the use of a single program object, there may be more variants than before, but don't worry, they're all cached and shared between games. This means less stalls caused by shader compiling and more opportunities for inter-stage optimization from the driver. Last year OpenGL already had something similar for disk cache but it's now being expanded to D3D11.
+
 <PCSX2PRLink authors="iMineLink" prNums="5281">
   GS: use xxHash to hash palettes.
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="iMineLink" prNums="5282">
+  GS: improve targets clearing
 </PCSX2PRLink>
 
 <PCSX2PRLink authors="stenzek" prNums="5291">
   GS: Faster texture preloading
 </PCSX2PRLink>
 
+Are you tired of waiting for textures to load in your favorite PS2 games? Say goodbye to those pesky delays with the new and improved texture preloading feature in PCSX2!
+
+This latest update, brought to you by the talented stenzek, speeds up the preloading process by hashing the GS blocks that make up the texture rather than expanding the entire RGBA8 texture. This means less work for the CPU and faster loading times for you!
+
+And don't worry about a few false positives here and there - at worst, it'll just result in an extra upload. But when you consider the CPU savings from not expanding the texture, it's a small price to pay.
+
 <PCSX2PRLink authors="iMineLink" prNums="5346">
   GS: optimize xxHash usage in palette hashing.
-</PCSX2PRLink>
-
-<PCSX2PRLink authors="iMineLink" prNums="5282">
-  GS: improve targets clearing
 </PCSX2PRLink>
 
 <PCSX2PRLink authors="stenzek" prNums="5360">
@@ -306,32 +368,28 @@ x69
   GS: Only autoflush on move/self blend (Perf test)
 </PCSX2PRLink>
 
-<PCSX2PRLink authors="refractionpcsx2" prNums="5404">
-  Revert \
-</PCSX2PRLink>
-
 <PCSX2PRLink authors="refractionpcsx2" prNums="5395">
   GS: Adjust auto interlace mode with scanmask(frame)
 </PCSX2PRLink>
 
-<PCSX2PRLink authors="F0bes" prNums="5412">
-  GS-wx: Add extra check for shader options when VK is selected
+<PCSX2PRLink authors="tellowkrinkle" prNums="5400">
+  GS: Prefer one-frame-old textures
 </PCSX2PRLink>
 
 <PCSX2PRLink authors="lightningterror" prNums="5411">
   GS-hw: Implement alternative hw blending for Cs*Ad, Cs*Ad + Cd, Cd - Cs*Ad
 </PCSX2PRLink>
 
+The changes in this PR improve the performance and accuracy of the graphics synthesizer (GS) hardware side in the emulator when it comes to blending colors. The change implements an alternative method for blending colors in certain situations where the previous method was not accurate. This leads to more accurate and visually pleasing graphics in the games being emulated. Additionally, this change also improves the performance of the GS hardware by reducing the workload of the software blending and shifting more of it to the hardware. This results in a faster and smoother gaming experience for the user.
+
+x69 image
+
+<PCSX2PRLink authors="F0bes" prNums="5412">
+  GS-wx: Add extra check for shader options when VK is selected
+</PCSX2PRLink>
+
 <PCSX2PRLink authors="lightningterror" prNums="5417">
   GS-hw: Properly disable skipdraw when userhacks are disabled.
-</PCSX2PRLink>
-
-<PCSX2PRLink authors="iMineLink" prNums="3895">
-  GS-hw, TC: improve tex in rt.
-</PCSX2PRLink>
-
-<PCSX2PRLink authors="tellowkrinkle" prNums="5400">
-  GS: Prefer one-frame-old textures
 </PCSX2PRLink>
 
 <PCSX2PRLink authors="stenzek" prNums="5422">
@@ -340,10 +398,6 @@ x69
 
 <PCSX2PRLink authors="iMineLink" prNums="5433">
   GS: fix overlap check in hw tc.
-</PCSX2PRLink>
-
-<PCSX2PRLink authors="tellowkrinkle" prNums="4922">
-  Various GSDumpGUI Improvements
 </PCSX2PRLink>
 
 <PCSX2PRLink authors="lightningterror" prNums="5436">
@@ -465,6 +519,20 @@ x69
   GS: Add hash based texture cache
 </PCSX2PRLink>
 
+This pull request introduces a new feature to the texture cache of the Graphics Synthesizer (GS) which is a hardware component of the PlayStation 2. The new feature is a hash-based cache that is added to the existing TEX0-key-based-cache.
+
+The hash-based cache works by creating a unique identifier for each texture based on its data, rather than its location in VRAM. This eliminates the need for texture uploads in games that frequently move textures to different locations in VRAM across frames. This can result in a significant performance boost in games that have a lot of texture uploads, such as Grand Theft Auto: San Andreas or Grand Theft Auto: Liberty City Stories.
+
+Another benefit of the hash-based cache is that it can be used for texture replacements. A proof-of-concept for this feature has been implemented and it has been shown to work well.
+
+In terms of implementation, the hash-based cache can be turned on or off in the configuration settings, and users can choose to use the default TEX0-key-based-cache, partial preloading with the hash-based cache or full preloading using the hash-based cache. It also has a maximum texture size that it can cache, to avoid caching too many large textures which would consume too much memory.
+
+Overall, this pull request offers a significant performance boost for games that heavily stream textures and provides a new feature for texture replacements, making it a valuable addition to the GS's texture cache.
+
+Though keep in mind that some games will abuse the texture cache in different ways and might have the opposite effect but that can be disabled or done by the team in automatic settings so that most don't need to worry. Please report if you see any Hash Cache stopping OSD message.
+
+x69 image
+
 <PCSX2PRLink authors="stenzek" prNums="5562">
   GS/TextureCache: Fix target not getting invalidated in some cases
 </PCSX2PRLink>
@@ -481,6 +549,18 @@ x69
   PCSX2-GUI: Rename Interlacing to Deinterlacing
 </PCSX2PRLink>
 
+We've got a little mix-up on our hands, folks! We've been calling our "Interlacing" option something that it's not. So, we're giving it a new name that better reflects what it actually does.
+
+"Interlacing" is now officially known as "De-interlacing"!
+
+You might be wondering, "But wait, what does de-interlacing even mean?" Well, picture a checkerboard pattern on your screen. That's interlacing for you. It's a way for older TVs to display a higher resolution image, but it can look pretty janky on modern displays. Back then it was a way that analog television systems used to reduced bandwith to transmit the video signal. It works by transmitting only the even or odd lines of the image in each frame (called fields like bottom field and top field), rather than transmitting all the lines in each frame. This reduces the amount of data that needs to be transmitted, allowing the video signal to be transmitted using less bandwidth. The downside is that it can make the image appear less smooth and can cause flicker or other artifacts.
+
+De-interlacing smooths out that checkerboard pattern and makes the image look more like a progressive image. We've got a few different methods to choose from.
+
+Weave is like a saw-tooth pattern, Bob is the sharpest but can make things look like they're bouncing a bit, and Blending is a bit blurrier but the most consistent and has no bouncing. If you are still confused, just let it be automatic and it should switch to None De-interlacing automatically if it sees a progressive signal as to not make it ugly, however for interlaced signals it needs other deinterlacing methods. An exception is No-Interlacing patches which will also now switch to none De-interlacing but the game will think it's still interlaced
+
+So there you have it, folks! A little change that goes a long way in making things less confusing for everyone.
+
 <PCSX2PRLink authors="iMineLink" prNums="5477">
   GS: Remove upscaling dependency on PCTRC enabling.
 </PCSX2PRLink>
@@ -488,6 +568,21 @@ x69
 <PCSX2PRLink authors="stenzek" prNums="5547">
   GS: Add texture dumping and replacement system
 </PCSX2PRLink>
+
+This pull request aims to add a feature that many have requested, the ability to dump and replace textures in-game. This allows users to customize the game's graphics to their liking, whether it be for improving the visuals or changing them entirely (see the image if you want a sample of cursed).
+
+The pull request includes:
+
+    Basic texture dumping feature, allowing users to save the game's textures to their computer for editing or replacement.
+    Basic texture replacement feature, allowing users to load their own textures back into the game.
+    Asynchronous texture dumping and loading for improved performance.
+    Support for preloading textures to memory for faster texture loading during game-play.
+    Support for dumping mip-maps, which are smaller versions of a texture used for objects that are farther away from the camera.
+    Support for loading DDS files and compressed textures, which is an image file format that uses lossy compression to reduce the file size.
+
+Please note that while the developer is not planning on changing the texture filenames or hashes.
+
+x69 image
 
 <PCSX2PRLink authors="refractionpcsx2" prNums="5569">
   GS: Ignore 24bit on DATE and Handle Reversed Color and Z
@@ -671,6 +766,12 @@ x69
   GUI: Make aspect ratio/frame limiter OSD messages keyed
 </PCSX2PRLink>
 
+This pull request aims to improve the user interface of the on-screen display (OSD) messages. The OSD is the in-game display that shows information such as frame rate and other settings.
+
+Specifically, this pull request addresses an issue where spamming the turbo or frame limiter keys would generate multiple messages, making it difficult for the user to understand the current settings. The changes made in this pull request prevent these messages from piling up, so that only the most recent message is displayed at a time.
+
+x69 gif
+
 <PCSX2PRLink authors="refractionpcsx2" prNums="5327">
   GUI: Convert Power plan name to UTF-8
 </PCSX2PRLink>
@@ -679,9 +780,23 @@ x69
   Qt Part 4
 </PCSX2PRLink>
 
+This pull request brings the power of the Qt framework to PCSX2. Qt is a modern, cross-platform framework that offers a lot of features and functionality out of the box. Compared to the existing WX Widgets, Winapi/winforms, and GTK for Linux, using Qt will make the codebase cleaner and easier to maintain, and will allow for much more flexibility and potential for improvements.
+
+For code enthusiasts, this pull request represents a huge step forward in terms of code quality and maintainability. The introduction of Qt will allow developers to take advantage of its powerful widgets and modules, which will make the code look much more polished and professional. Furthermore, the framework provides a lot of pre-built functionality that would have been extremely difficult to implement otherwise.
+
+For those who don't understand code, this change means that the emulator will be more stable, faster, and have a more polished user interface. The use of Qt will allow the development team to focus on improving the core functionality of the emulator, rather than spending a lot of time on making the user interface work correctly.
+
+Overall, this pull request is a significant step forward in the development of PCSX2, and will greatly benefit both code enthusiasts and regular users alike.
+
 <PCSX2PRLink authors="stenzek" prNums="5439">
   Qt: Enable SDL2 input source for Qt
 </PCSX2PRLink>
+
+This pull request enables the use of SDL2 for input source in the Qt version of PCSX2, the popular Playstation 2 emulator. This means that users will now be able to use their DualShock 4 controllers natively on both Windows and Linux.
+
+Previously, the Windows version of PCSX2 1.6 used a plugin called Lilypad, which only supported Xinput and preconfigured keybindings, making it difficult for users to customize their controller settings or to even see they have correct bindings. On the other hand, the Linux version of PCSX2 1.6 used a plugin called OnePad-legacy, which only allowed for keyboard hotkeys and had no automatic default mapping for controllers.
+
+With the implementation of SDL2 in the Qt version, users will now have a more intuitive and visually clear way to customize their controller settings, without any platform specific differences. This will make it easier for users to use their controllers and improve their overall experience with the emulator.
 
 <PCSX2PRLink authors="stenzek" prNums="5441">
   Qt: Add save state loading/loaded/saved events
@@ -699,9 +814,21 @@ x69
   Qt: Fix type table sizing + spaces
 </PCSX2PRLink>
 
+The main window's type table did not have enough width to display all text, especially when the filter button was used. This caused some text to be cut off and not fully visible to the user. Additionally, some strings within the table were not properly spaced, making it difficult to read and understand the information being displayed.
+
+To address these issues, this pull request increases the width of the type table and adds spaces to the strings within the table to make the information more legible and easy to understand. The filter button's width is also adjusted, so it will not push the string away anymore.
+
+x69 image
+
 <PCSX2PRLink authors="RedDevilus" prNums="5464">
   Qt: More sizing + improve hotkeys code
 </PCSX2PRLink>
+
+This pull request addresses several issues with the layout and design of the main window in PCSX2. Specifically, it addresses issues with the width of the "Type" table and the "Region" and "CRC" columns, which were not wide enough to display the full text. The pull request also improves the hotkeys code by adding missing hotkeys and organizing them in a more intuitive way on the GUI level.
+
+The new changes make the layout of the main window look better and more polished than before. Additionally, more hotkeys have been added, making the feature more complete. The developer has also provided images to show the new hotkeys that have been added. However, it is important to note that there are still some hotkeys missing and some old ones are not included in this update.
+
+For reference users should take a look at the PCSX2 hotkeys wiki page (https://wiki.pcsx2.net/Hotkeys) for more information about the new and missing hotkeys as there are some breaking changes like using only one - instead of -- in the old WX version.
 
 <PCSX2PRLink authors="stenzek" prNums="5478">
   Qt: Misc graphics settings fixes
@@ -710,6 +837,10 @@ x69
 <PCSX2PRLink authors="RedDevilus" prNums="5473">
   Qt: Resize Windows + Change Framerate Presets + Lower OSD time
 </PCSX2PRLink>
+
+This pull request addresses issues with the sizing and layout of the main window, Interface Settings and the OSD message display. The main window will now correctly display the full Toolbar, Interface Settings will not go out of bounds, and the OSD message display timing has been shortened from 10 seconds to something like 5 or 8 depending on severity. Additionally, the speed percentage presets have been changed for better user experience.
+
+The changes made in this pull request are meant to improve the overall user experience by addressing minor layout and display issues, and providing more customization options for speed percentage presets.
 
 <PCSX2PRLink authors="stenzek" prNums="5485">
   Fix some vsync related issues, implement Vulkan adaptive vsync
@@ -734,6 +865,17 @@ x69
 <PCSX2PRLink authors="RedDevilus" prNums="5537">
   Qt: Resize default headersize BIOS + Adding 4 new themes
 </PCSX2PRLink>
+
+This pull request brings some much needed eye candy to PCSX2 with the addition of four new custom themes! Say goodbye to boring, bland interfaces and hello to some retina-burning, soul-incinerating visuals.
+
+Introducing "Untouched Lagoon" - a light theme with a refreshing blue and green color scheme, perfect for those hot summer gaming sessions. "Baby Pastel" - a light theme with a soft and dreamy color palette, ideal for those who prefer a more delicate aesthetic. "PCSX2" - a light theme with the iconic PCSX2 blue color, perfect for those who want to represent their love for the emulator. And last but not least, "Scarlet Devil" - a dark theme with a bold and striking red color scheme, perfect for those who want to add a touch of edginess to their gaming experience.
+
+So go ahead, give your eyes the treat they deserve and switch up your theme. Just make sure to have your sunglasses handy, because these custom themes are not for the faint of heart!
+
+x69image
+x69image
+x69image
+x69image
 
 <PCSX2PRLink authors="arcum42" prNums="5560">
   Qt: Fix qt compilation on linux.
