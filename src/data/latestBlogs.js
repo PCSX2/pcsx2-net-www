@@ -7,7 +7,7 @@ import previousProgressReportImage from "/blog/2022/q4-2021-progress-report/feat
 import previousBlogImage from "/blog/2021/aethersx2-brings-pcsx2-to-mobile/feature-AetherSX2sm.webp";
 
 export const latestProgressReport = {
-  url: "/blog/2022/q1-2022-progress-report",
+  url: "/blog/2023/q1-2022-progress-report",
   title: "Q1 2022 Progress Report",
   img: latestProgressReportImage,
 };
