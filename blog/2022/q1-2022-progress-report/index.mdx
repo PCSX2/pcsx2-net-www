@@ -10,7 +10,7 @@ tags:
 title: Q1 2022 Progress Report
 ---
 
-"Ladies and gentlemen, hold onto your controllers and prepare for an exciting journey as we unveil our first progress report of the year. After a seemingly endless delay, we're back and ready to take you through the crossroads of progress. We've said goodbye to the creaky and outdated WX-widgets GUI toolkit and hello to the sleek and shiny Qt GUI. It's like upgrading from a horse-drawn carriage to a sports car, or a butterfly emerging from its cocoon.
+"Ladies and gentlemen, hold onto your controllers and prepare for an exciting journey as we unveil our first progress report of the year for last year!? After a seemingly endless delay, we're back and ready to take you through the crossroads of progress. We've said goodbye to the creaky and outdated WX-widgets GUI toolkit and hello to the sleek and shiny Qt GUI. It's like upgrading from a horse-drawn carriage to a sports car, or a butterfly emerging from its cocoon.
 
 <!-- truncate -->
 
@@ -1247,18 +1247,13 @@ x69image
   GameDB: Patch for Midnight Club 2 T-Bit
 </PCSX2PRLink>
 
-<PCSX2PRLink shas="91ac0368e34b4ab5a63ecef0c97caf19eea08b34">
-  GameDB: Add Ratchet & Clank demo and Spider-Man 3 Fixes + several new entries
-  as well as the removal of the virtual-on Ontario program fixes.This commit
-  fixes several entries from the GameIndex, removes the clamping fixes from
-  Virtual On ontario program which wasn't needed, adds several rounding fixes to
-  Ratchet 1 titles to fix the Hydrodisplacer Behaviour and adds several entries
-  as well.For Ratchet 1, After having done tests on actual hardware,the results
-  shows that even real hardware will behave badly on the retail
-  version....However, the demo does indeed have an issue, so let's fix
-  that.Also, this fixes an oversight made for Spiderman 3 in the past, now the
-  proper fix is applied.
+<PCSX2PRLink
+  authors="refractionpcsx2"
+  shas="91ac0368e34b4ab5a63ecef0c97caf19eea08b34"
+>
+  GameDB: Add Ratchet & Clank demo and Spider-Man 3 Fixes + ...
 </PCSX2PRLink>
+This pull request updates the PCSX2 GameDB, adding new entries for the Ratchet & Clank demo and Spider-Man 3. It also includes several fixes for these games, such as rounding fixes for Ratchet 1 titles to improve Hydrodisplacer behavior. Additionally, the pull request removes an unnecessary fix for the Virtual On ontario program and corrects an oversight made for Spiderman 3 in the past. Overall, these changes will improve the overall performance and accuracy of these games in the emulator.
 
 <PCSX2PRLink
   authors="refractionpcsx2"
@@ -1391,6 +1386,14 @@ x69image
 <PCSX2PRLink authors="xTVaser" prNums="5130">
   CI - Remove 32bit Builds
 </PCSX2PRLink>
+
+PCSX2 is proud to announce that we have officially removed 32-bit builds from our continuous integration (CI) process. This marks an important step in the future of the PCSX2 project, as we shift our focus to 64-bit builds.
+
+As technology continues to evolve, the PCSX2 team has made the decision to no longer support 32-bit builds. While the current builds of PCSX2 do not typically use more than 4 GB of RAM, the use of 64-bit builds allows for improvements in register usage and overall performance.
+
+In the interest of maintaining a smooth transition, we have made the smallest possible change to remove 32-bit builds from our CI process. There is still 32-bit scaffolding and code throughout the repository, but we will continue to work towards removing all traces of 32-bit support in the future.
+
+We have also added a link to our new build page and updated our scripts to no longer consider 32-bit artifacts. We apologize for any inconvenience this may cause for users still utilizing 32-bit systems, but we believe that this move towards 64-bit builds is necessary for the continued development and improvement of PCSX2.
 
 <PCSX2PRLink authors="xTVaser" prNums="5699">
   deps: update `rapid-yaml` to `v0.4.1`
