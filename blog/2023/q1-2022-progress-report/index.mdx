@@ -1,7 +1,7 @@
 ---
 authors:
   - reddevilus
-date: 2023-01-13 00:00:00
+date: 2023-02-01 00:00:00
 description: Vulkanic progress and Qt-ing for the future.
 draft: false
 hide_table_of_contents: false
@@ -160,7 +160,10 @@ The new Qt UI for configuring DEV9 settings makes it more user-friendly and easy
 
 Note that validation of Ethernet and HDD settings are no longer performed by the UI, and that the Ethernet Api/Type dropdown doesn't actually set the corresponding settings field. This was done to keep these two values in sync, such as when switching API & device mid-emulation. HDD creation is done on emulation start, with progress logged to the console. However, users will need to manually click on the "Create Image" button as the HDD will not auto-create an image. Modifying settings during emulation may behave unexpectedly, such as when enabling Ethernet before specifying an adapter, or adjusting HDD settings.
 
-x69 image
+<ImageCompare
+  left={require("./img/5649-1-QtSettings.png").default}
+  right={require("./img/5649-2-QtSettings.png").default}
+/>
 
 ### IPU
 
@@ -214,7 +217,11 @@ We've also made a number of bonus improvements to the texture cache, such as inv
 
 This improved logic is enabled via the .ini file (UserHacks_TextureInsideRt = 1) for non Jak games, or from the GS HW hacks settings GUI. However, due to the nature of GS-hw TC, the logic cannot be always enabled without causing regressions. There is more context on the Pull Request with tons of images so I only outlined some of improvements, most already said by iMineLink and others there.
 
-x69image
+<ImageCompare
+  left={require("./img/3895-BurnoutBlackSky.png").default}
+  middle={require("./img/3895-BurnoutFixedSky.png").default}
+  right={require("./img/3895-TheGetAwayPause.png").default}
+/>
 
 <PCSX2PRLink authors="tellowkrinkle" prNums="4922">
   GS: Various GSDumpGUI Improvements
@@ -260,7 +267,10 @@ On Windows, the Vulkan renderer may have some performance advantage over OpenGL,
 
 We're excited to see how the Vulkan renderer performs on a wide range of devices, so we encourage users to give it a try and let us know your thoughts. Whether you're running on an AMD, NVIDIA, or Intel graphics card, we want to hear from you!
 
-x69
+<Image cols={6} src={require("./img/LogoVulkanGSDX.png").default} />
+* Plugins are gone already, don't worry about this image.
+
+Above is an alternative reality when plugins were still a thing and would've used the logo for Vulkan. Even PCSX2 plans can change on the spot, short-term or long-term.
 
 <PCSX2PRLink authors="stenzek" prNums="5292">
   GS/DX11: Implement merge feedback write
@@ -382,8 +392,10 @@ And don't worry about a few false positives here and there - at worst, it'll jus
 
 The changes in this PR improve the performance and accuracy of the graphics synthesizer (GS) hardware side in the emulator when it comes to blending colors. The change implements an alternative method for blending colors in certain situations where the previous method was not accurate. This leads to more accurate and visually pleasing graphics in the games being emulated. Additionally, this change also improves the performance of the GS hardware by reducing the workload of the software blending and shifting more of it to the hardware. This results in a faster and smoother gaming experience for the user.
 
-x69 image
-
+<SliderCompare
+  before={require("./img/5411-HumansBefore.png").default}
+  after={require("./img/5411-HumansAfter.png").default}
+/>
 <PCSX2PRLink authors="F0bes" prNums="5412">
   GS-wx: Add extra check for shader options when VK is selected
 </PCSX2PRLink>
@@ -531,7 +543,8 @@ Overall, this pull request offers a significant performance boost for games that
 
 Though keep in mind that some games will abuse the texture cache in different ways and might have the opposite effect but that can be disabled or done by the team in automatic settings so that most don't need to worry. Please report if you see any Hash Cache stopping OSD message.
 
-x69 image
+<Image cols={6} src={require("./img/5545-AbuseCache.png").default} />
+* Example of hash cache abuse bringing down performance.
 
 <PCSX2PRLink authors="stenzek" prNums="5562">
   GS/TextureCache: Fix target not getting invalidated in some cases
@@ -582,7 +595,15 @@ The pull request includes:
 
 Please note that while the developer is not planning on changing the texture filenames or hashes.
 
-x69 image
+<Image cols={6} src={require("./img/5547-FatChocobo.png").default} />
+* We do a little bit of trolling.
+
+<SliderCompare
+  before={require("./img/5547-Before.png").default}
+  after={require("./img/5547-After.png").default}
+/>
+* Okay, fine here is a nice example of what you can do if you were serious in expanding experience.
+
 
 <PCSX2PRLink authors="refractionpcsx2" prNums="5569">
   GS: Ignore 24bit on DATE and Handle Reversed Color and Z
@@ -592,7 +613,7 @@ x69 image
   GS: Texture replacement fixes
 </PCSX2PRLink>
 
-x69
+<Image cols={6} src={require("./img/5574-HashCacheOverflow.png").default} />
 
 <PCSX2PRLink authors="stenzek" prNums="5582">
   GS/TextureCache: Don't let hash cache memusage go negative
@@ -647,7 +668,9 @@ x69
   GameDatabase: Automatic GS hardware fixes
 </PCSX2PRLink>
 
-x69
+<Image cols={6} src={require("./img/5593-AutomaticRendererAndUpscalingFixes.png").default} />
+* When most automatic fixes like VU/EE Rounding and clamping were added, there are now new variables like renderering and upscaling that can be given on the GameDB. 
+  A long manual process that will severely lessen the need of user's need of tinkering per-game.
 
 <PCSX2PRLink authors="refractionpcsx2" prNums="5612">
   GS: Improvements to MTBA Mip Mapping
@@ -756,7 +779,8 @@ x69
   Merge the Qt branch: Part 2
 </PCSX2PRLink>
 
-x69
+<Image cols={6} src={require("./img/5221-Qt 2020.png").default} />
+* Image from https://www.qt.io/blog/qt-offering-changes-2020. Qt is coming closer and closer to official release.
 
 <PCSX2PRLink authors="stenzek" prNums="5268">
   GSDump: Fix renderer override
@@ -818,7 +842,10 @@ The main window's type table did not have enough width to display all text, espe
 
 To address these issues, this pull request increases the width of the type table and adds spaces to the strings within the table to make the information more legible and easy to understand. The filter button's width is also adjusted, so it will not push the string away anymore.
 
-x69 image
+<ImageCompare
+  left={require("./img/5461-TableBefore.png").default}
+  right={require("./img/5461-TableAfter.png").default}
+/>
 
 <PCSX2PRLink authors="RedDevilus" prNums="5464">
   Qt: More sizing + improve hotkeys code
@@ -872,10 +899,20 @@ Introducing "Untouched Lagoon" - a light theme with a refreshing blue and green 
 
 So go ahead, give your eyes the treat they deserve and switch up your theme. Just make sure to have your sunglasses handy, because these custom themes are not for the faint of heart!
 
-x69image
-x69image
-x69image
-x69image
+<SliderCompare
+  before={require("./img/5537-BabyPastelOld.png").default}
+  after={require("./img/5537-BabyPastelNew.png").default}
+/>
+
+<SliderCompare
+  before={require("./img/5537-LagoonOld.png").default}
+  after={require("./img/5537-LagoonNew.png").default}
+/>
+
+<SliderCompare
+  before={require("./img/5537-PCSX2Old.png").default}
+  after={require("./img/5537-PCSX2New.png").default}
+/>
 
 <PCSX2PRLink authors="arcum42" prNums="5560">
   Qt: Fix qt compilation on linux.
