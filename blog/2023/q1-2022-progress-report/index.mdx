@@ -427,6 +427,18 @@ The changes in this PR improve the performance and accuracy of the graphics synt
   GS: Enable small framebuffers at 1x
 </PCSX2PRLink>
 
+We've made some exciting updates to the texture cache in our latest release. Our goal with these changes is to improve the speed and image quality of games on integrated GPUs with low memory bandwidth.
+
+Specifically, we've stopped the texture cache from downscaling targets when used as a source, enabled smaller framebuffers even when rendering at 1x, and added optimizations to move sampling to hardware when possible. This has had a noticeable impact on the performance of Burnout at 1x on integrated GPUs. Additionally, these changes have improved the image quality of Burnout when upscaled to a multiplier of your choice.
+
+We've made these updates by editing the vertex and fragment shaders to support rescaling normalized coordinates, though we did consider an alternative approach of allocating full scale textures.
+
+<SliderCompare
+  before={require("./img/5387-BurnoutMacBefore.webp").default}
+  after={require("./img/5387-BurnoutMacAfter.webp").default}
+/>
+* As you see even if you never touch the upscaling multiplier and run at Native PS2
+resolution it will still benefit and look less compressed/blurry.
 <PCSX2PRLink authors="tellowkrinkle" prNums="5446">
   GS: Fix region repeat bounds checking for zero crossings
 </PCSX2PRLink>
