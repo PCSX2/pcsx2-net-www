@@ -453,6 +453,7 @@ and run at 2x PS2 resolution it will still benefit and look less compressed/blur
 </PCSX2PRLink>
 
 #5285 take 2. iMineLink refined the process yet again:
+
 - Added full support for target rescaling in GS TC, respecting the texture aspect ratio.
 - Avoid redundant clears when the target is going to be completely drawn when rescaling/converting.
 - Merge the two ways to lookup render targets (for draw and frame) into a single slightly more complex method, to recycle the rescaling logic and other code.
