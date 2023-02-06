@@ -28,7 +28,7 @@ Navigate to your local git repository for the site and use the below to start th
 To start the server you will need to be in your Github repository that contains the `package.json`.
 
 ```bash
-yarn start
+yarn start # alternatively, you can use `npm run start`
 ```
 
 Browse to http://localhost:8080/

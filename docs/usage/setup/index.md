@@ -269,7 +269,7 @@ PlayStation 2 game discs are unencrypted DVDs and CDs. This means they can be du
 - Put your game disc into an optical drive
 - Create an image file from a disc inside ImgBurn (highlighted in screenshot below)
 
-{{< img cols="6" src="./img/imgburn.webp">}}
+<Image cols={6} src={require("./img/imgburn.webp").default} />
 
 ## Alternative: Dumping PlayStation 2 discs with Media Preservation Frontend (more advanced)
 
@@ -293,4 +293,4 @@ This tool is currently only available on Windows, but Linux support may be added
 
 One quick note, the lower the drive speed of the optical drive the more likely you are to get a good dump of the disc. The fastest drive speed will take much less time, but may be incomplete, corrupted, or inaccurate. It could also be perfectly fine, so depending on your drive and your media, try different things and see what works best for you.
 
-{{< img cols="6" src="./img/MPF.webp">}}
+<Image cols={6} src={require("./img/MPF.webp").default} />

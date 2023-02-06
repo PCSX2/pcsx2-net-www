@@ -104,7 +104,7 @@ def convert_article(orig_path):
   # TODO - lint over HTML tags that i skipped in the original migration, catch them now
   content = article.content
   # recreate folder structure
-  new_dir = os.path.dirname(orig_path).replace("content", "pcsx2-net")
+  new_dir = os.path.dirname(orig_path).replace("content/", "")
   os.makedirs(new_dir, exist_ok=True)
   # copy contents
   copy_tree(os.path.dirname(orig_path), new_dir)
@@ -154,7 +154,7 @@ import json
 with open("scripts/track.json") as f:
   track_data = json.load(f)
 
-subfolders = [ f.path for f in os.scandir("content/blog/2020") if f.is_dir() ]
+subfolders = [ f.path for f in os.scandir("content/blog/2022") if f.is_dir() ]
 
 for article in subfolders:
   article = article.replace("\\", "/")
