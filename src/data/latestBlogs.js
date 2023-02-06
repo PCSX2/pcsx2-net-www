@@ -1,7 +1,7 @@
 // docusaurus does not have a query engine layer, so these can be set manually or at build-time
 // (manually for now)
 
-import latestProgressReportImage from "/blog/2022/q4-2021-progress-report/feature-progrepq42021-bgonly.jpg";
+import latestProgressReportImage from "/blog/2023/q1-2022-progress-report/feature-progrepq1-2022-bgonly.webp";
 import latestBlogImage from "/blog/2022/life-is-short/feature-nobbs66.webp";
 import previousProgressReportImage from "/blog/2022/q4-2021-progress-report/feature-progrepq42021-bgonly.jpg";
 import previousBlogImage from "/blog/2021/aethersx2-brings-pcsx2-to-mobile/feature-AetherSX2sm.webp";
