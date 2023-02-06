@@ -452,14 +452,14 @@ and run at 2x PS2 resolution it will still benefit and look less compressed/blur
   GS: target rescaling take 2.
 </PCSX2PRLink>
 
-#5285 take 2.
-Added full support for target rescaling in GS TC, respecting the texture aspect ratio.
-Avoid redundant clears when the target is going to be completely drawn when rescaling/converting.
-Merge the two ways to lookup render targets (for draw and frame) into a single slightly more complex method, to recycle the rescaling logic and other code.
-Avoid using upscaled size for targets requested at native resolution when upscaling.
-Correctly set texture scale for targets created in a frame lookup.
-Update targets from GS memory before converting color to depth.
-Update targets validity region when uploading dirty data from GS memory (especially useful in combination with preload frame data, which makes the initial validity region of the target non empty).
+#5285 take 2. iMineLink refined the process yet again:
+- Added full support for target rescaling in GS TC, respecting the texture aspect ratio.
+- Avoid redundant clears when the target is going to be completely drawn when rescaling/converting.
+- Merge the two ways to lookup render targets (for draw and frame) into a single slightly more complex method, to recycle the rescaling logic and other code.
+- Avoid using upscaled size for targets requested at native resolution when upscaling.
+- Correctly set texture scale for targets created in a frame lookup.
+- Update targets from GS memory before converting color to depth.
+- Update targets validity region when uploading dirty data from GS memory (especially useful in combination with preload frame data, which makes the initial validity region of the target non empty).
 
 <PCSX2PRLink authors="stenzek" prNums="5448">
   GS/Vulkan: Buffer flag changes, HostDisplay cleanup
