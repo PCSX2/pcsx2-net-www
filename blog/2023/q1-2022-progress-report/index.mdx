@@ -437,8 +437,9 @@ We've made these updates by editing the vertex and fragment shaders to support r
   before={require("./img/5387-BurnoutMacBefore.webp").default}
   after={require("./img/5387-BurnoutMacAfter.webp").default}
 />
-* As you see in this example that even if you barely touch the upscaling multiplier and run at 2x PS2
-resolution it will still benefit and look less compressed/blurry , but it benefits a ton of potential hardware configurations.
+* As you see in this example that even if you barely touch the upscaling multiplier
+and run at 2x PS2 resolution it will still benefit and look less compressed/blurry
+, but it benefits a ton of potential hardware configurations.
 <PCSX2PRLink authors="tellowkrinkle" prNums="5446">
   GS: Fix region repeat bounds checking for zero crossings
 </PCSX2PRLink>
@@ -450,6 +451,15 @@ resolution it will still benefit and look less compressed/blurry , but it benefi
 <PCSX2PRLink authors="iMineLink" prNums="5419">
   GS: target rescaling take 2.
 </PCSX2PRLink>
+
+#5285 take 2.
+Added full support for target rescaling in GS TC, respecting the texture aspect ratio.
+Avoid redundant clears when the target is going to be completely drawn when rescaling/converting.
+Merge the two ways to lookup render targets (for draw and frame) into a single slightly more complex method, to recycle the rescaling logic and other code.
+Avoid using upscaled size for targets requested at native resolution when upscaling.
+Correctly set texture scale for targets created in a frame lookup.
+Update targets from GS memory before converting color to depth.
+Update targets validity region when uploading dirty data from GS memory (especially useful in combination with preload frame data, which makes the initial validity region of the target non empty).
 
 <PCSX2PRLink authors="stenzek" prNums="5448">
   GS/Vulkan: Buffer flag changes, HostDisplay cleanup
