@@ -600,7 +600,7 @@ The pull request includes:
     Support for dumping mip-maps, which are smaller versions of a texture used for objects that are farther away from the camera.
     Support for loading DDS files and compressed textures, which is an image file format that uses lossy compression to reduce the file size.
 
-Please note that while the developer is not planning on changing the texture filenames or hashes.
+Please note that while the developer is not planning on changing the texture filenames or hashes unless it's about refining the current implementation to be cleaner and better for users.
 
 <Image cols={6} src={require("./img/5547-FatChocobo.webp").default} /> * We do a
 little bit of trolling.
@@ -1902,6 +1902,10 @@ We have also added a link to our new build page and updated our scripts to no lo
 
 Gone are the days of fiddling with 1 or more controllers, you can finally bind (most) controller by simply going to the correct window and pressing on automatic mapping when you have your controller(s) connected. You can access this menu by either enabling Toolbar and then controllers or Settings > Controllers > Controller Port 1 > Automatic Mapping > YourControllerName.
 By default there is a keyboard mapping so make sure to bind it correctly, we use SDL mapping maintained by the community not only limited to PCSX2: https://github.com/gabomdq/SDL_GameControllerDB if you ever wondered seeing latest controller database builds. Are your controllers not working then it's best to contact us in the Discord or if needed contact upstream if the config doesn't have a mapping yet.
+You can check yourself on Windows or Linux here: https://gitlab.com/ryochan7/sdl2-gamepad-mapper/-/releases or use other methods states on the first URL.
+
+<Image cols={6} src={require("./img/5759-SDL.webp").default} />* Example of a config
+already ready to be used for automatic mapping in PCSX2.
 
 <PCSX2PRLink authors="github-actions" prNums="5775">
   PAD: Update to latest controller database
