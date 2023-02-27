@@ -113,7 +113,20 @@ const config = {
       //   id: 'announcementBar-0', // Increment on change
       //   content: `test`,
       // },
-      // TODO - Algolia Integration
+      algolia: {
+        // The application ID provided by Algolia
+        appId: "TR9JNR7TSP",
+        // Public API key: it is safe to commit it
+        apiKey: "a63d89935faca83290750981be9a313c",
+        indexName: "pcsx2",
+        // Optional: see doc section below
+        contextualSearch: true,
+        // Optional: Algolia search parameters
+        searchParameters: {},
+        // Optional: path for search page that enabled by default (`false` to disable it)
+        searchPagePath: "search",
+        //... other Algolia params
+      },
       colorMode: {
         defaultMode: "dark",
         disableSwitch: false,
@@ -155,10 +168,10 @@ const config = {
             label: "Donate",
             position: "right",
           },
-          // {
-          //   type: 'search',
-          //   position: 'right',
-          // },
+          {
+            type: "search",
+            position: "right",
+          },
           {
             to: "https://forums.pcsx2.net/",
             label: "Forums",
