@@ -35,7 +35,7 @@ jobs:
           node-version: 16
           cache: "yarn"
 
-      - name: Install Depdencies
+      - name: Install Dependencies
         run: yarn install --frozen-lockfile
 
       - name: Check Formatting
