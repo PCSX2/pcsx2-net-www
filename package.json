@@ -34,7 +34,7 @@
     "react-icons": "^4.6.0",
     "react-markdown": "^8.0.5",
     "recharts": "2.1.12",
-    "yaml": "^2.2.1"
+    "yaml": "^2.2.2"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^2.2.0",
