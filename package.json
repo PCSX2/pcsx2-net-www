@@ -37,7 +37,7 @@
     "yaml": "^2.2.2"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.2.0",
+    "@docusaurus/module-type-aliases": "^2.4.1",
     "glob": "8.0.3",
     "prettier": "2.8.8",
     "prompts": "2.4.2",
