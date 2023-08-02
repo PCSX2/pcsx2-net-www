@@ -87,6 +87,7 @@ const config = {
         docs: {
           path: "docs",
           sidebarPath: require.resolve("./sidebars.js"),
+          showLastUpdateAuthor: true,
           editUrl: "https://github.com/PCSX2/pcsx2-net-www/tree/main/",
         },
         blog: {
