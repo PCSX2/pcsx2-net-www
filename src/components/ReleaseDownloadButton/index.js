@@ -75,8 +75,6 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
         displayName = `Flatpak - x64 - Qt`;
       } else if (asset.additionalTags.includes("appimage")) {
         displayName = `AppImage - x64 - Qt`;
-      } else {
-        displayName = `Linux - x64 - Qt`;
       }
     } else if (os === "macos") {
       displayName = `App - x64 - Qt`;
