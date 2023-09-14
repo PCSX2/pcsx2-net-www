@@ -40,7 +40,6 @@ function getOSIcon(os, fillColor) {
   }
 }
 
-// Generate a more dynamic displayName based on asset properties, following the format of package type - Bits(64) - GUI Widget (Qt)
 function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
   if (!assets) {
     return [];
@@ -68,7 +67,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       }
     }
 
-    // Generate a more dynamic displayName based on asset properties
+// Generate a more dynamic displayName based on asset properties, following the format of package type - Bits(64) - GUI Widget (Qt)
     if (os === "windows") {
       displayName = `Exe - ${displayName}`;
     } else if (os === "linux") {
