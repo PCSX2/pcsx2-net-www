@@ -66,15 +66,15 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
 
     // Generate a more dynamic displayName based on asset properties
     if (os === "windows") {
-      displayName = `Exe - ${os} - ${displayName}`;
+      displayName = `Exe - ${displayName}`;
     } else if (os === "linux") {
       if (asset.additionalTags.includes("appimage")) {
-        displayName = `AppImage - ${os} - ${displayName}`;
+        displayName = `AppImage - ${displayName}`;
       } else if (asset.additionalTags.includes("flatpak")) {
-        displayName = `Flatpak - ${os} - ${displayName}`;
+        displayName = `Flatpak - ${displayName}`;
       }
     } else if (os === "macos") {
-      displayName = `App.tar - ${os} - ${displayName}`;
+      displayName = `App - ${displayName}`;
     }
 
     items.push(
