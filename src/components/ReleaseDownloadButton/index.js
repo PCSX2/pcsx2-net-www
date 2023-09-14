@@ -67,7 +67,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       }
     }
 
-// Generate a more dynamic displayName based on asset properties, following the format of package type - Bits(64) - GUI Widget (Qt)
+    // Generate a more dynamic displayName based on asset properties, following the format of package type - Bits(64) - GUI Widget (Qt)
     if (os === "windows") {
       displayName = `Exe - ${displayName}`;
     } else if (os === "linux") {
