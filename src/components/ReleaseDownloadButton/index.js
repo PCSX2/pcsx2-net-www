@@ -60,6 +60,16 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       }
     }
 
+    // This will append "App" to the release for cleaner looking formatting for the downloads dropdown on pcsx2.net frontpage and downloads page
+    if (os === "macos") {
+      displayName = `App - ${displayName}`;
+    }
+
+    // This will append "Exe" to the release for cleaner looking formatting for the downloads dropdown on pcsx2.net frontpage and downloads page
+    if (os === "windows") {
+      displayName = `Exe - ${displayName}`;
+    }
+
     items.push(
       <Dropdown.Item
         key={asset.url}
