@@ -190,7 +190,7 @@ export function ReleaseDownloadButton({
         )
       );
     }
-  }, [release, isNightly]);
+  }, [release]);
 
   // Render the dropdown button and menu
   return (
