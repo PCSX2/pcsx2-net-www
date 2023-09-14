@@ -16,10 +16,14 @@ export function getLatestRelease(releases, platform) {
   return undefined;
 }
 
-// Function to convert text to proper case
+// Function to convert text to proper case, skipping capitalizing "x64"
 function toProperCase(str) {
   return str.replace(/\w\S*/g, function (txt) {
-    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    if (txt.toLowerCase() === "x64") {
+      return txt.toLowerCase();
+    } else {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }
   });
 }
 
@@ -36,7 +40,7 @@ function getOSIcon(os, fillColor) {
   }
 }
 
-// Function to generate dropdown items based on release assets
+  // Generate a more dynamic displayName based on asset properties, following the format of package type - Bits(64) - GUI Widget (Qt)
 function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
   if (!assets) {
     return [];
