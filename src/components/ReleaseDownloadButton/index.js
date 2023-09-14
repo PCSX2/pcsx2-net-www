@@ -129,7 +129,7 @@ export function ReleaseDownloadButton({
           release.linux,
           "linux",
           release.linux?.assets?.Linux,
-          ["Linux", "AppImage"],
+          ["Linux"],
           isNightly
         )
       );
@@ -139,7 +139,7 @@ export function ReleaseDownloadButton({
           release,
           "linux",
           release.assets?.Linux,
-          ["Linux", "AppImage"],
+          ["Linux"],
           isNightly
         )
       );
