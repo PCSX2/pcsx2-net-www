@@ -96,6 +96,13 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
 }
 
 // Component for the Release Download Button
+function openAssetLink(href) {
+  Object.assign(document.createElement("a"), {
+    rel: "noopener noreferrer",
+    href: href,
+  }).click();
+}
+
 export function ReleaseDownloadButton({
   release,
   buttonText,
@@ -198,7 +205,7 @@ export function ReleaseDownloadButton({
         css={buttonStyling}
         bordered={bordered}
       >
-        {isNightly ? <GiBrickWall size={16} /> : null}
+        {isNightly ? <IoIosCloudyNight size={22} /> : <GiBrickWall size={16} />}
         &nbsp;
         {buttonText}
       </Dropdown.Button>
@@ -206,7 +213,7 @@ export function ReleaseDownloadButton({
         color={isNightly ? "warning" : "primary"}
         aria-label="Actions"
         css={{ $$dropdownMenuWidth: "100%" }}
-        // Removed onAction handler to avoid extra clickable modifications
+        onAction={(assetUrl) => openAssetLink(assetUrl)}
       >
         <Dropdown.Section
           title={
