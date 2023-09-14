@@ -69,15 +69,19 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
 
     // Generate a more dynamic displayName based on asset properties, following the format of package type - Bits(64) - GUI Widget (Qt)
     if (os === "windows") {
-      displayName = `Exe - ${displayName}`;
+      displayName = `Exe - x64 - Qt`;
     } else if (os === "linux") {
-      if (asset.additionalTags.includes("appimage")) {
-        displayName = `AppImage - ${displayName}`;
-      } else if (asset.additionalTags.includes("flatpak")) {
-        displayName = `Flatpak - ${displayName}`;
+      if (asset.additionalTags.includes("flatpak")) {
+        displayName = `Flatpak - x64 - Qt`;
+      } else if (asset.additionalTags.includes("appimage")) {
+        displayName = `AppImage - x64 - Qt`;
+      } else {
+        displayName = `Linux - x64 - Qt`;
       }
     } else if (os === "macos") {
-      displayName = `App - ${displayName}`;
+      displayName = `App - x64 - Qt`;
+    } else {
+      displayName = `Unknown - x64 - Qt`; // Fallback for other OS
     }
 
     items.push(
