@@ -6,6 +6,7 @@ import { IoIosCloudyNight } from "react-icons/io";
 import { GiBrickWall } from "react-icons/gi";
 import { useMediaQuery } from "../../utils/mediaQuery";
 
+// Function to get the latest release for a specific platform
 export function getLatestRelease(releases, platform) {
   for (const release of releases) {
     if (platform in release.assets && release.assets[platform].length > 0) {
@@ -15,12 +16,14 @@ export function getLatestRelease(releases, platform) {
   return undefined;
 }
 
+// Function to convert text to proper case
 function toProperCase(str) {
   return str.replace(/\w\S*/g, function (txt) {
     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
   });
 }
 
+// Function to get the OS icon based on the platform
 function getOSIcon(os, fillColor) {
   if (os === "windows") {
     return <BsWindows size={22} fill={fillColor}></BsWindows>;
@@ -33,6 +36,7 @@ function getOSIcon(os, fillColor) {
   }
 }
 
+// Function to generate dropdown items based on release assets
 function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
   if (!assets) {
     return [];
@@ -60,14 +64,17 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       }
     }
 
-    // This will append "App" to the release for cleaner looking formatting for the downloads dropdown on pcsx2.net frontpage and downloads page
-    if (os === "macos") {
-      displayName = `App - ${displayName}`;
-    }
-
-    // This will append "Exe" to the release for cleaner looking formatting for the downloads dropdown on pcsx2.net frontpage and downloads page
+    // Generate a more dynamic displayName based on asset properties
     if (os === "windows") {
-      displayName = `Exe - ${displayName}`;
+      displayName = `Exe - ${os} - ${displayName}`;
+    } else if (os === "linux") {
+      if (asset.additionalTags.includes("appimage")) {
+        displayName = `AppImage - ${os} - ${displayName}`;
+      } else if (asset.additionalTags.includes("flatpak")) {
+        displayName = `Flatpak - ${os} - ${displayName}`;
+      }
+    } else if (os === "macos") {
+      displayName = `App.tar - ${os} - ${displayName}`;
     }
 
     items.push(
@@ -84,13 +91,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
   return items;
 }
 
-function openAssetLink(href) {
-  Object.assign(document.createElement("a"), {
-    rel: "noopener noreferrer",
-    href: href,
-  }).click();
-}
-
+// Component for the Release Download Button
 export function ReleaseDownloadButton({
   release,
   buttonText,
@@ -99,6 +100,7 @@ export function ReleaseDownloadButton({
   isNightly,
   placement,
 }) {
+  // Styling for the button
   const buttonStyling = {
     minWidth: "200px",
   };
@@ -107,10 +109,12 @@ export function ReleaseDownloadButton({
     buttonStyling.bgColor = "var(--nightly-button-background)";
   }
 
+  // States to hold dropdown items for each platform
   const [windowsItems, setWindowsItems] = useState([]);
   const [linuxItems, setLinuxItems] = useState([]);
   const [macosItems, setMacosItems] = useState([]);
 
+  // Effect to generate dropdown items when the release or other inputs change
   useEffect(() => {
     if ("windows" in release) {
       setWindowsItems(
@@ -175,8 +179,9 @@ export function ReleaseDownloadButton({
         )
       );
     }
-  }, [release]);
+  }, [release, isNightly]);
 
+  // Render the dropdown button and menu
   return (
     <Dropdown
       isBordered
@@ -189,7 +194,7 @@ export function ReleaseDownloadButton({
         css={buttonStyling}
         bordered={bordered}
       >
-        {isNightly ? <IoIosCloudyNight size={22} /> : <GiBrickWall size={16} />}
+        {isNightly ? <GiBrickWall size={16} /> : null}
         &nbsp;
         {buttonText}
       </Dropdown.Button>
@@ -197,7 +202,7 @@ export function ReleaseDownloadButton({
         color={isNightly ? "warning" : "primary"}
         aria-label="Actions"
         css={{ $$dropdownMenuWidth: "100%" }}
-        onAction={(assetUrl) => openAssetLink(assetUrl)}
+        // Removed onAction handler to avoid extra clickable modifications
       >
         <Dropdown.Section
           title={
