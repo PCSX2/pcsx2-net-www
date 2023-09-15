@@ -67,17 +67,18 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       }
     }
 
-    // Generate a more dynamic displayName based on asset properties, following the format of package type - Bits(64) - GUI Widget (Qt) as a fallback
+    // Generate a more dynamic displayName based on asset properties, old way was following the format of package type - Bits(64) - GUI Widget (Qt)
     if (os === "windows") {
-      displayName = `Download`;
+      displayName = "Download";
     } else if (os === "linux") {
+      // Check for Flatpak or AppImage tags
       if (asset.additionalTags.includes("flatpak")) {
-        displayName = `Flatpak`;
+        displayName = "Flatpak";
       } else if (asset.additionalTags.includes("appimage")) {
-        displayName = `AppImage`;
+        displayName = "AppImage";
       }
     } else if (os === "macos") {
-      displayName = `Download`;
+      displayName = "Download";
     }
 
     items.push(
