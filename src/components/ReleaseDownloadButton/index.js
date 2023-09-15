@@ -80,7 +80,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
     // Generate a more dynamic displayName based on asset properties, old way was following the format of package type - Bits(64) - GUI Widget (Qt)
     // Differentiate between installer and portable based on asset name or tags
     if (os === "windows") {
-      if (asset.additionalTags.includes("installer")) {
+      if (asset.additionalTags.includes("installer") && !asset.additionalTags.includes("32bit")) {
         installerItem = (
           <Dropdown.Item
             key={asset.url}
@@ -91,7 +91,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
             Installer
           </Dropdown.Item>
         );
-      } else if (asset.additionalTags.includes("portable")) {
+      } else if (asset.additionalTags.includes("portable") && !asset.additionalTags.includes("32bit")) {
         portableItem = (
           <Dropdown.Item
             key={asset.url}
@@ -106,12 +106,12 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
     } else if (os === "linux") {
       // Check for Flatpak or AppImage tags which will make Appimage - x64 Qt and Flatpak - x64 Qt and no way to seemingly fix the regular way
       if (asset.additionalTags.includes("appimage")) {
-        displayName = "AppImage";
+        displayName = isNightly ? "AppImage" : "Binary";
       } else if (asset.additionalTags.includes("flatpak")) {
-        displayName = "Flatpak";
-      } else {
-        // Handle Linux Binary here and add release version
-        displayName = `Binary - ${release.version}`;
+        displayName = isNightly ? "Flatpak" : "Binary";
+      } else if (!isNightly) {
+        // Handle Linux Binary here without the release version for stable releases
+        displayName = "Binary";
       }
     } else if (os === "macos") {
       displayName = "Download";
@@ -142,11 +142,27 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
     );
   }
 
-  // Prioritize installer and portable items over "Download"
-  if (installerItem) {
-    items.unshift(installerItem);
-  } else if (portableItem) {
-    items.unshift(portableItem);
+  // Prioritize installer and portable items over "Download" for Windows releases
+  if (os === "windows") {
+    if (installerItem) {
+      items.unshift(installerItem);
+    } else if (portableItem) {
+      items.unshift(portableItem);
+    } else {
+      // If it's a nightly build, set "Download" as the default
+      if (isNightly) {
+        items.unshift(
+          <Dropdown.Item
+            key="default-download"
+            description={release.version}
+            icon={getOSIcon(os, fillColor)}
+            css={{ transition: "none" }}
+          >
+            Download
+          </Dropdown.Item>
+        );
+      }
+    }
   }
 
   return items;
