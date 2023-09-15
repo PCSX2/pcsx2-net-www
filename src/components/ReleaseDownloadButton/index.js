@@ -71,9 +71,10 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
     if (os === "windows") {
       displayName = "Download";
     } else if (os === "linux") {
-      // Check for Flatpak or AppImage tags
+      // Check for Flatpak or AppImage tags which will make Appimage - x64 Qt and Flatpak - x64 Qt and no way to seemingly fix the regular way
       if (asset.additionalTags.includes("appimage")) {
-        displayName = "AppImage";
+        displayName =
+          "App" + displayName.charAt(3).toUpperCase() + displayName.slice(4); // Convert "Appimage" to "AppImage" because tags failing to uppercase it
       } else if (asset.additionalTags.includes("flatpak")) {
         displayName = "Flatpak";
       }
@@ -81,7 +82,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       displayName = "Download";
     }
 
-    // Strip the "- x64 Qt" for Linux
+    // Strip the "- x64 Qt" for Linux because it's being annoying with the tags and who cares about how good the code looks for now it's a bit of jank.
     if (os === "linux") {
       displayName = displayName.replace(/- x64 Qt$/, "");
     }
