@@ -72,13 +72,20 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       displayName = "Download";
     } else if (os === "linux") {
       // Check for Flatpak or AppImage tags
-      if (asset.additionalTags.includes("flatpak")) {
-        displayName = "Flatpak";
-      } else if (asset.additionalTags.includes("appimage")) {
+      if (asset.additionalTags.includes("appimage")) {
         displayName = "AppImage";
+      } else if (asset.additionalTags.includes("flatpak")) {
+        displayName = "Flatpak";
+      } else {
+        displayName = "Linux"; // Default to "Linux" if no recognized tags
       }
     } else if (os === "macos") {
       displayName = "Download";
+    }
+	
+    // Strip the "- x64 Qt" for Linux
+    if (os === "linux") {
+      displayName = displayName.replace(/- x64 Qt$/, "");
     }
 
     items.push(
