@@ -54,7 +54,6 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
   let items = [];
   let installerItem = null;
   let portableItem = null;
-  let assetUrls = {}; // Store asset URLs to prevent duplicates
 
   for (const asset of assets.filter(
     (asset) => !asset.additionalTags.includes("symbols")
@@ -117,20 +116,16 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
         .replace("Appimage", "AppImage");
     }
 
-    // Check if the asset URL is already added for another OS to prevent duplicates
-    if (!assetUrls[asset.url]) {
-      items.push(
-        <Dropdown.Item
-          key={asset.url}
-          description={release.version}
-          icon={getOSIcon(os, fillColor)}
-          css={{ transition: "none" }}
-        >
-          {displayName}
-        </Dropdown.Item>
-      );
-      assetUrls[asset.url] = true;
-    }
+    items.push(
+      <Dropdown.Item
+        key={asset.url}
+        description={release.version}
+        icon={getOSIcon(os, fillColor)}
+        css={{ transition: "none" }}
+      >
+        {displayName}
+      </Dropdown.Item>
+    );
   }
 
   // Prioritize installer and portable items over "Download"
@@ -141,12 +136,12 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
   } else {
     items.unshift(
       <Dropdown.Item
-        key={asset.url}
+        key="default-download"
         description={release.version}
         icon={getOSIcon(os, fillColor)}
         css={{ transition: "none" }}
       >
-        {displayName}
+        Download
       </Dropdown.Item>
     );
   }
@@ -284,7 +279,9 @@ export function ReleaseDownloadButton({
               : errorMsg
           }
         >
-          {errorMsg === undefined ? windowsItems : null}
+          {errorMsg === undefined && windowsItems.length > 0
+            ? windowsItems
+            : null}
         </Dropdown.Section>
         <Dropdown.Section
           title={
@@ -295,7 +292,7 @@ export function ReleaseDownloadButton({
               : errorMsg
           }
         >
-          {errorMsg === undefined ? linuxItems : null}
+          {errorMsg === undefined && linuxItems.length > 0 ? linuxItems : null}
         </Dropdown.Section>
         <Dropdown.Section
           title={
@@ -306,7 +303,7 @@ export function ReleaseDownloadButton({
               : errorMsg
           }
         >
-          {errorMsg === undefined ? macosItems : null}
+          {errorMsg === undefined && macosItems.length > 0 ? macosItems : null}
         </Dropdown.Section>
       </Dropdown.Menu>
     </Dropdown>
