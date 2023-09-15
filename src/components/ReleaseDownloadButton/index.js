@@ -80,7 +80,10 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
     // Generate a more dynamic displayName based on asset properties, old way was following the format of package type - Bits(64) - GUI Widget (Qt)
     // Differentiate between installer and portable based on asset name or tags
     if (os === "windows") {
-      if (asset.additionalTags.includes("installer") && !asset.additionalTags.includes("32bit")) {
+      if (
+        asset.additionalTags.includes("installer") &&
+        !asset.additionalTags.includes("32bit")
+      ) {
         installerItem = (
           <Dropdown.Item
             key={asset.url}
@@ -91,7 +94,10 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
             Installer
           </Dropdown.Item>
         );
-      } else if (asset.additionalTags.includes("portable") && !asset.additionalTags.includes("32bit")) {
+      } else if (
+        asset.additionalTags.includes("portable") &&
+        !asset.additionalTags.includes("32bit")
+      ) {
         portableItem = (
           <Dropdown.Item
             key={asset.url}
