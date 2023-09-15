@@ -54,6 +54,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
   let items = [];
   let installerItem = null;
   let portableItem = null;
+  let assetUrls = {}; // Store asset URLs to prevent duplicates
 
   for (const asset of assets.filter(
     (asset) => !asset.additionalTags.includes("symbols")
@@ -116,16 +117,20 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
         .replace("Appimage", "AppImage");
     }
 
-    items.push(
-      <Dropdown.Item
-        key={asset.url}
-        description={release.version}
-        icon={getOSIcon(os, fillColor)}
-        css={{ transition: "none" }}
-      >
-        {displayName}
-      </Dropdown.Item>
-    );
+    // Check if the asset URL is already added for another OS to prevent duplicates
+    if (!assetUrls[asset.url]) {
+      items.push(
+        <Dropdown.Item
+          key={asset.url}
+          description={release.version}
+          icon={getOSIcon(os, fillColor)}
+          css={{ transition: "none" }}
+        >
+          {displayName}
+        </Dropdown.Item>
+      );
+      assetUrls[asset.url] = true;
+    }
   }
 
   // Prioritize installer and portable items over "Download"
@@ -149,7 +154,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
   return items;
 }
 
-// Function to open the asset link when an item is clicked
+// Component for the Release Download Button
 function openAssetLink(href) {
   Object.assign(document.createElement("a"), {
     rel: "noopener noreferrer",
