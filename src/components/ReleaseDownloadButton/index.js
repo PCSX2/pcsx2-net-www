@@ -16,15 +16,21 @@ export function getLatestRelease(releases, platform) {
   return undefined;
 }
 
-// Function to convert text to proper case, skipping capitalizing "x64"
-function toProperCase(str) {
-  return str.replace(/\w\S*/g, function (txt) {
-    if (txt.toLowerCase() === "x64") {
-      return txt.toLowerCase();
-    } else {
-      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    }
-  });
+// Function to convert text to proper case, skipping capitalizing "x64" for stable releases
+function toProperCase(str, os) {
+  if (os !== "linux" && os !== "macos" && os !== "windows") {
+    return str; // Do not modify if the OS is not recognized
+  }
+
+  if (os === "linux" || os === "macos" || os === "windows") {
+    return str.replace(/\w\S*/g, function (txt) {
+      if (txt.toLowerCase() === "x64") {
+        return txt.toLowerCase();
+      } else {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      }
+    });
+  }
 }
 
 // Function to get the OS icon based on the platform
