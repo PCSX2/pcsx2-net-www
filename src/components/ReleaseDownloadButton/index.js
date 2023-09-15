@@ -147,31 +147,6 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       </Dropdown.Item>
     );
   }
-
-  // Prioritize installer and portable items over "Download" for Windows releases
-  if (os === "windows") {
-    if (installerItem) {
-      items.unshift(installerItem);
-    } else if (portableItem) {
-      items.unshift(portableItem);
-    } else {
-      // If it's a nightly build, set "Download" as the default
-      if (isNightly) {
-        items.unshift(
-          <Dropdown.Item
-            key="default-download"
-            description={release.version}
-            icon={getOSIcon(os, fillColor)}
-            css={{ transition: "none" }}
-          >
-            Download
-          </Dropdown.Item>
-        );
-      }
-    }
-  }
-
-  return items;
 }
 
 // Component for the Release Download Button
