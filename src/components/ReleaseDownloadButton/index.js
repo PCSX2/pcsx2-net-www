@@ -147,6 +147,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       </Dropdown.Item>
     );
   }
+  return items;
 }
 
 // Component for the Release Download Button
