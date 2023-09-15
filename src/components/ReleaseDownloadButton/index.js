@@ -78,8 +78,6 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       }
     } else if (os === "macos") {
       displayName = `Archive`;
-    } else {
-      displayName = `${displayName}`; // Keep the original display name
     }
 
     items.push(
