@@ -73,7 +73,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
     } else if (os === "linux") {
       // Check for Flatpak or AppImage tags which will make Appimage - x64 Qt and Flatpak - x64 Qt and no way to seemingly fix the regular way
       if (asset.additionalTags.includes("appimage")) {
-        displayName = "App" + displayName.charAt(3).toUpperCase() + displayName.slice(4); // Convert "Appimage" to "AppImage" because tags failing to uppercase it
+        displayName = "AppImage";
       } else if (asset.additionalTags.includes("flatpak")) {
         displayName = "Flatpak";
       }
@@ -82,8 +82,11 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
     }
 
     // Strip the "- x64 Qt" for Linux because it's being annoying with the tags and who cares about how good the code looks for now it's a bit of jank.
+    // Replace "Appimage" with "AppImage" as the tags don't seem to work properly, so just replace the whole thing
     if (os === "linux") {
-      displayName = displayName.replace(/- x64 Qt$/, "");
+      displayName = displayName
+        .replace(/- x64 Qt$/, "")
+        .replace("Appimage", "AppImage");
     }
 
     items.push(
