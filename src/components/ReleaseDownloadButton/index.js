@@ -80,7 +80,8 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
     // Generate a more dynamic displayName based on asset properties, old way was following the format of package type - Bits(64) - GUI Widget (Qt)
     // Differentiate between installer and portable based on asset name or tags
     if (os === "windows") {
-      if (asset.additionalTags.includes("installer")) {
+      displayName = "Download";
+      else if (asset.additionalTags.includes("installer")) {
         installerItem = (
           <Dropdown.Item
             key={asset.url}
