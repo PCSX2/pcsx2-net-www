@@ -76,8 +76,6 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
         displayName = "AppImage";
       } else if (asset.additionalTags.includes("flatpak")) {
         displayName = "Flatpak";
-      } else {
-        displayName = "Linux"; // Default to "Linux" if no recognized tags
       }
     } else if (os === "macos") {
       displayName = "Download";
