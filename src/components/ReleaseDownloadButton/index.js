@@ -69,7 +69,14 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
 
     // Generate a more dynamic displayName based on asset properties, old way was following the format of package type - Bits(64) - GUI Widget (Qt)
     if (os === "windows") {
-      displayName = "Download";
+      // Differentiate between installer and portable based on asset name or tags
+      if (asset.name.toLowerCase().includes("installer")) {
+        displayName = "Installer";
+      } else if (asset.name.toLowerCase().includes("portable")) {
+        displayName = "Portable";
+      } else {
+        displayName = "Download"; // Set a default value
+      }
     } else if (os === "linux") {
       // Check for Flatpak or AppImage tags which will make Appimage - x64 Qt and Flatpak - x64 Qt and no way to seemingly fix the regular way
       if (asset.additionalTags.includes("appimage")) {
