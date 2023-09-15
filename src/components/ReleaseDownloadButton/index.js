@@ -16,21 +16,15 @@ export function getLatestRelease(releases, platform) {
   return undefined;
 }
 
-// Function to convert text to proper case, skipping capitalizing "x64" for stable releases
-function toProperCase(str, os) {
-  if (os !== "linux" && os !== "macos" && os !== "windows") {
-    return str; // Do not modify if the OS is not recognized
-  }
-
-  if (os === "linux" || os === "macos" || os === "windows") {
-    return str.replace(/\w\S*/g, function (txt) {
-      if (txt.toLowerCase() === "x64") {
-        return txt.toLowerCase();
-      } else {
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-      }
-    });
-  }
+// Function to convert text to proper case, skipping capitalizing "x64"
+function toProperCase(str) {
+  return str.replace(/\w\S*/g, function (txt) {
+    if (txt.toLowerCase() === "x64") {
+      return txt.toLowerCase();
+    } else {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }
+  });
 }
 
 // Function to get the OS icon based on the platform
@@ -88,7 +82,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
             icon={getOSIcon(os, fillColor)}
             css={{ transition: "none" }}
           >
-            Installer
+            Installer - {displayName.includes("32") ? "32 bits" : "64 bits"}
           </Dropdown.Item>
         );
       } else if (asset.additionalTags.includes("portable")) {
@@ -99,7 +93,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
             icon={getOSIcon(os, fillColor)}
             css={{ transition: "none" }}
           >
-            Portable
+            Portable - {displayName.includes("32") ? "32 bits" : "64 bits"}
           </Dropdown.Item>
         );
       }
@@ -109,6 +103,11 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
         displayName = "AppImage";
       } else if (asset.additionalTags.includes("flatpak")) {
         displayName = "Flatpak";
+      }
+
+      // Check for 32-bit
+      if (displayName.includes("32")) {
+        displayName = `${displayName} - 32 bit`;
       }
     } else if (os === "macos") {
       displayName = "Download";
@@ -122,6 +121,11 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
         .replace("Appimage", "AppImage");
     }
 
+    // Uppercase the first letter for display names that are all lowercase
+    if (/^[a-z]+$/.test(displayName)) {
+      displayName = displayName.charAt(0).toUpperCase() + displayName.slice(1);
+    }
+
     items.push(
       <Dropdown.Item
         key={asset.url}
@@ -130,6 +134,24 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
         css={{ transition: "none" }}
       >
         {displayName}
+      </Dropdown.Item>
+    );
+  }
+
+  // Prioritize installer and portable items over "Download"
+  if (installerItem) {
+    items.unshift(installerItem);
+  } else if (portableItem) {
+    items.unshift(portableItem);
+  } else {
+    items.unshift(
+      <Dropdown.Item
+        key="default-download"
+        description={release.version}
+        icon={getOSIcon(os, fillColor)}
+        css={{ transition: "none" }}
+      >
+        Download
       </Dropdown.Item>
     );
   }
