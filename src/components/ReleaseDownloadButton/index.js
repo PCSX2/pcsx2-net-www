@@ -71,9 +71,13 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
     if (os === "windows") {
       displayName = "Download";
     } else if (os === "linux") {
-      // Check for Flatpak or AppImage tags which will make Appimage - x64 Qt and Flatpak - x64 Qt and no way to seemingly fix the regular way
+      // Check for Flatpak or AppImage tags
       if (asset.additionalTags.includes("appimage")) {
-        displayName = "App" + displayName.charAt(3).toUpperCase() + displayName.slice(4); // Convert "Appimage" to "AppImage" because tags failing to uppercase it
+        // Appimage gets shown instead due to problems with the tags, so strip it and append it
+        displayName =
+          "App" + displayName.charAt(3).toUpperCase() + displayName.slice(4); // Convert "Appimage" to "AppImage"
+        displayName = displayName.replace("image", ""); // Strip "image"
+        displayName = displayName + "Image"; // Append "Image"
       } else if (asset.additionalTags.includes("flatpak")) {
         displayName = "Flatpak";
       }
