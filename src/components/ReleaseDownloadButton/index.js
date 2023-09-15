@@ -48,7 +48,7 @@ function getOSIcon(os, fillColor) {
 
 // Function to generate dropdown items based on release, OS, assets, text removals, and whether it's a nightly build
 function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
-  if (!assets) {
+  if (!assets || assets.length === 0) {
     return [];
   }
 
@@ -79,7 +79,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
 
     // Generate a more dynamic displayName based on asset properties, old way was following the format of package type - Bits(64) - GUI Widget (Qt)
     // Differentiate between installer and portable based on asset name or tags
-    if (os === "windows" && !isNightly) {
+    if (os === "windows") {
       if (asset.additionalTags.includes("installer")) {
         installerItem = (
           <Dropdown.Item
@@ -109,6 +109,9 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
         displayName = "AppImage";
       } else if (asset.additionalTags.includes("flatpak")) {
         displayName = "Flatpak";
+      } else {
+        // Handle Linux Binary here and add release version
+        displayName = `Binary - ${release.version}`;
       }
     } else if (os === "macos") {
       displayName = "Download";
@@ -139,21 +142,11 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
     );
   }
 
+  // Prioritize installer and portable items over "Download"
   if (installerItem) {
     items.unshift(installerItem);
   } else if (portableItem) {
     items.unshift(portableItem);
-  } else {
-    items.unshift(
-      <Dropdown.Item
-        key="default-download"
-        description={release.version}
-        icon={getOSIcon(os, fillColor)}
-        css={{ transition: "none" }}
-      >
-        Download
-      </Dropdown.Item>
-    );
   }
 
   return items;
