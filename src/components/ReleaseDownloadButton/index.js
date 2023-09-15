@@ -6,6 +6,7 @@ import { IoIosCloudyNight } from "react-icons/io";
 import { GiBrickWall } from "react-icons/gi";
 import { useMediaQuery } from "../../utils/mediaQuery";
 
+// Function to get the latest release for a specific platform
 export function getLatestRelease(releases, platform) {
   for (const release of releases) {
     if (platform in release.assets && release.assets[platform].length > 0) {
@@ -15,12 +16,18 @@ export function getLatestRelease(releases, platform) {
   return undefined;
 }
 
+// Function to convert text to proper case, skipping capitalizing "x64"
 function toProperCase(str) {
   return str.replace(/\w\S*/g, function (txt) {
-    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    if (txt.toLowerCase() === "x64") {
+      return txt.toLowerCase();
+    } else {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }
   });
 }
 
+// Function to get the OS icon based on the platform
 function getOSIcon(os, fillColor) {
   if (os === "windows") {
     return <BsWindows size={22} fill={fillColor}></BsWindows>;
@@ -60,6 +67,28 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       }
     }
 
+    // Generate a more dynamic displayName based on asset properties, old way was following the format of package type - Bits(64) - GUI Widget (Qt)
+    if (os === "windows") {
+      displayName = "Download";
+    } else if (os === "linux") {
+      // Check for Flatpak or AppImage tags which will make Appimage - x64 Qt and Flatpak - x64 Qt and no way to seemingly fix the regular way
+      if (asset.additionalTags.includes("appimage")) {
+        displayName = "AppImage";
+      } else if (asset.additionalTags.includes("flatpak")) {
+        displayName = "Flatpak";
+      }
+    } else if (os === "macos") {
+      displayName = "Download";
+    }
+
+    // Strip the "- x64 Qt" for Linux because it's being annoying with the tags and who cares about how good the code looks for now it's a bit of jank.
+    // Replace "Appimage" with "AppImage" as the tags don't seem to work properly, so just replace the whole thing
+    if (os === "linux") {
+      displayName = displayName
+        .replace(/- x64 Qt$/, "")
+        .replace("Appimage", "AppImage");
+    }
+
     items.push(
       <Dropdown.Item
         key={asset.url}
@@ -74,6 +103,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
   return items;
 }
 
+// Component for the Release Download Button
 function openAssetLink(href) {
   Object.assign(document.createElement("a"), {
     rel: "noopener noreferrer",
@@ -89,6 +119,7 @@ export function ReleaseDownloadButton({
   isNightly,
   placement,
 }) {
+  // Styling for the button
   const buttonStyling = {
     minWidth: "200px",
   };
@@ -97,10 +128,12 @@ export function ReleaseDownloadButton({
     buttonStyling.bgColor = "var(--nightly-button-background)";
   }
 
+  // States to hold dropdown items for each platform
   const [windowsItems, setWindowsItems] = useState([]);
   const [linuxItems, setLinuxItems] = useState([]);
   const [macosItems, setMacosItems] = useState([]);
 
+  // Effect to generate dropdown items when the release or other inputs change
   useEffect(() => {
     if ("windows" in release) {
       setWindowsItems(
@@ -167,6 +200,7 @@ export function ReleaseDownloadButton({
     }
   }, [release]);
 
+  // Render the dropdown button and menu
   return (
     <Dropdown
       isBordered
