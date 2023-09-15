@@ -81,7 +81,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
     // Differentiate between installer and portable based on asset name or tags
     if (os === "windows") {
       displayName = "Download";
-      else if (asset.additionalTags.includes("installer")) {
+      if (asset.additionalTags.includes("installer")) {
         installerItem = (
           <Dropdown.Item
             key={asset.url}
