@@ -82,7 +82,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
     } else if (os === "macos") {
       displayName = "Download";
     }
-	
+
     // Strip the "- x64 Qt" for Linux
     if (os === "linux") {
       displayName = displayName.replace(/- x64 Qt$/, "");
