@@ -16,21 +16,15 @@ export function getLatestRelease(releases, platform) {
   return undefined;
 }
 
-// Function to convert text to proper case, skipping capitalizing "x64" for stable releases
-function toProperCase(str, os) {
-  if (os !== "linux" && os !== "macos" && os !== "windows") {
-    return str; // Do not modify if the OS is not recognized
-  }
-
-  if (os === "linux" || os === "macos" || os === "windows") {
-    return str.replace(/\w\S*/g, function (txt) {
-      if (txt.toLowerCase() === "x64") {
-        return txt.toLowerCase();
-      } else {
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-      }
-    });
-  }
+// Function to convert text to proper case, skipping capitalizing "x64"
+function toProperCase(str) {
+  return str.replace(/\w\S*/g, function (txt) {
+    if (txt.toLowerCase() === "x64") {
+      return txt.toLowerCase();
+    } else {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }
+  });
 }
 
 // Function to get the OS icon based on the platform
@@ -107,8 +101,18 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       // Check for Flatpak or AppImage tags which will make Appimage - x64 Qt and Flatpak - x64 Qt and no way to seemingly fix the regular way
       if (asset.additionalTags.includes("appimage")) {
         displayName = "AppImage";
+        const archTag = asset.additionalTags.find((tag) =>
+          tag.match(/(32|64)bit/i)
+        );
+        if (archTag) {
+          displayName += ` - ${archTag.replace(/(32|64)bit/i, "$1-bit")}`;
+        }
+        displayName += ` - v${release.version}`;
       } else if (asset.additionalTags.includes("flatpak")) {
         displayName = "Flatpak";
+      } else {
+        // For other Linux assets, remove any mention of 32bits or 64bits
+        displayName = displayName.replace(/(32|64)bits?/i, "Binary");
       }
     } else if (os === "macos") {
       displayName = "Download";
@@ -135,6 +139,24 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
         css={{ transition: "none" }}
       >
         {displayName}
+      </Dropdown.Item>
+    );
+  }
+
+  // Prioritize installer and portable items over "Download"
+  if (installerItem) {
+    items.unshift(installerItem);
+  } else if (portableItem) {
+    items.unshift(portableItem);
+  } else {
+    items.unshift(
+      <Dropdown.Item
+        key="default-download"
+        description={release.version}
+        icon={getOSIcon(os, fillColor)}
+        css={{ transition: "none" }}
+      >
+        Download
       </Dropdown.Item>
     );
   }
@@ -272,9 +294,7 @@ export function ReleaseDownloadButton({
               : errorMsg
           }
         >
-          {errorMsg === undefined && windowsItems.length > 0
-            ? windowsItems
-            : null}
+          {errorMsg === undefined ? windowsItems : null}
         </Dropdown.Section>
         <Dropdown.Section
           title={
@@ -285,7 +305,7 @@ export function ReleaseDownloadButton({
               : errorMsg
           }
         >
-          {errorMsg === undefined && linuxItems.length > 0 ? linuxItems : null}
+          {errorMsg === undefined ? linuxItems : null}
         </Dropdown.Section>
         <Dropdown.Section
           title={
@@ -296,7 +316,7 @@ export function ReleaseDownloadButton({
               : errorMsg
           }
         >
-          {errorMsg === undefined && macosItems.length > 0 ? macosItems : null}
+          {errorMsg === undefined ? macosItems : null}
         </Dropdown.Section>
       </Dropdown.Menu>
     </Dropdown>
