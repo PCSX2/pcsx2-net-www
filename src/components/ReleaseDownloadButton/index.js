@@ -40,6 +40,7 @@ function getOSIcon(os, fillColor) {
   }
 }
 
+// Function to generate dropdown items based on release, OS, assets, text removals, and whether it's a nightly build
 function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
   if (!assets) {
     return [];
@@ -51,6 +52,9 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
   }
 
   let items = [];
+  let installerItem = null;
+  let portableItem = null;
+
   for (const asset of assets.filter(
     (asset) => !asset.additionalTags.includes("symbols")
   )) {
@@ -68,14 +72,30 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
     }
 
     // Generate a more dynamic displayName based on asset properties, old way was following the format of package type - Bits(64) - GUI Widget (Qt)
+    // Differentiate between installer and portable based on asset name or tags
     if (os === "windows") {
-      // Differentiate between installer and portable based on asset name or tags
-      if (asset.name && asset.name.toLowerCase().includes("installer")) {
-        displayName = "Installer";
-      } else if (asset.name && asset.name.toLowerCase().includes("portable")) {
-        displayName = "Portable";
-      } else {
-        displayName = "Download"; // Set a default value
+      if (asset.additionalTags.includes("installer")) {
+        installerItem = (
+          <Dropdown.Item
+            key={asset.url}
+            description={release.version}
+            icon={getOSIcon(os, fillColor)}
+            css={{ transition: "none" }}
+          >
+            Installer
+          </Dropdown.Item>
+        );
+      } else if (asset.additionalTags.includes("portable")) {
+        portableItem = (
+          <Dropdown.Item
+            key={asset.url}
+            description={release.version}
+            icon={getOSIcon(os, fillColor)}
+            css={{ transition: "none" }}
+          >
+            Portable
+          </Dropdown.Item>
+        );
       }
     } else if (os === "linux") {
       // Check for Flatpak or AppImage tags which will make Appimage - x64 Qt and Flatpak - x64 Qt and no way to seemingly fix the regular way
@@ -107,10 +127,29 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       </Dropdown.Item>
     );
   }
+
+  // Prioritize installer and portable items over "Download"
+  if (installerItem) {
+    items.unshift(installerItem);
+  } else if (portableItem) {
+    items.unshift(portableItem);
+  } else {
+    items.unshift(
+      <Dropdown.Item
+        key="default-download"
+        description={release.version}
+        icon={getOSIcon(os, fillColor)}
+        css={{ transition: "none" }}
+      >
+        Download
+      </Dropdown.Item>
+    );
+  }
+
   return items;
 }
 
-// Component for the Release Download Button
+// Function to open the asset link when an item is clicked
 function openAssetLink(href) {
   Object.assign(document.createElement("a"), {
     rel: "noopener noreferrer",
@@ -118,6 +157,7 @@ function openAssetLink(href) {
   }).click();
 }
 
+// Component for the Release Download Button
 export function ReleaseDownloadButton({
   release,
   buttonText,
