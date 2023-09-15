@@ -128,24 +128,6 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
     );
   }
 
-  // Prioritize installer and portable items over "Download"
-  if (installerItem) {
-    items.unshift(installerItem);
-  } else if (portableItem) {
-    items.unshift(portableItem);
-  } else {
-    items.unshift(
-      <Dropdown.Item
-        key="default-download"
-        description={release.version}
-        icon={getOSIcon(os, fillColor)}
-        css={{ transition: "none" }}
-      >
-        Download
-      </Dropdown.Item>
-    );
-  }
-
   return items;
 }
 
