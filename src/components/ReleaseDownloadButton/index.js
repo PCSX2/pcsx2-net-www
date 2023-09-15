@@ -141,12 +141,12 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
   } else {
     items.unshift(
       <Dropdown.Item
-        key="default-download"
+        key={asset.url}
         description={release.version}
         icon={getOSIcon(os, fillColor)}
         css={{ transition: "none" }}
       >
-        Download
+        {displayName}
       </Dropdown.Item>
     );
   }
