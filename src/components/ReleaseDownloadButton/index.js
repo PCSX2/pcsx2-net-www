@@ -122,10 +122,10 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
         .replace("Appimage", "AppImage");
     }
 
-        // Uppercase the first letter for display names that are all lowercase
-        if (/^[a-z]+$/.test(displayName)) {
-          displayName = displayName.charAt(0).toUpperCase() + displayName.slice(1);
-        }
+    // Uppercase the first letter for display names that are all lowercase
+    if (/^[a-z]+$/.test(displayName)) {
+      displayName = displayName.charAt(0).toUpperCase() + displayName.slice(1);
+    }
 
     items.push(
       <Dropdown.Item
