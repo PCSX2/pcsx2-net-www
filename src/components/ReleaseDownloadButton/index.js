@@ -67,9 +67,9 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       }
     }
 
-    // Generate a more dynamic displayName based on asset properties, following the format of package type - Bits(64) - GUI Widget (Qt)
+    // Generate a more dynamic displayName based on asset properties, following the format of package type - Bits(64) - GUI Widget (Qt) as a fallback
     if (os === "windows") {
-      displayName = `7z Archive`;
+      displayName = `Archive`;
     } else if (os === "linux") {
       if (asset.additionalTags.includes("flatpak")) {
         displayName = `Flatpak`;
@@ -77,9 +77,9 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
         displayName = `AppImage`;
       }
     } else if (os === "macos") {
-      displayName = `tar.xz Archive`;
+      displayName = `Archive`;
     } else {
-      displayName = `${os.charAt(0).toUpperCase() + os.slice(1)} - x64 - Qt`;
+      displayName = `${displayName}`; // Keep the original display name
     }
 
     items.push(
