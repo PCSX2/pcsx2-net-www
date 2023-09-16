@@ -78,6 +78,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
         displayName = "Download";
       }
     } else if (os === "linux") {
+      // Check for Flatpak or AppImage tags which will make Appimage - x64 Qt and Flatpak - x64 Qt and no way to seemingly fix the regular way
       if (asset.additionalTags.includes("appimage")) {
         displayName = "AppImage";
       } else if (asset.additionalTags.includes("flatpak")) {
