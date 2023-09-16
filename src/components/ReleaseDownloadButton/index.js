@@ -84,7 +84,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       } else if (asset.additionalTags.includes("flatpak")) {
         displayName = "Flatpak";
       } else {
-        displayName = displayName;
+        displayName = toProperCase(displayName); // Capitalize the first letter for other cases like old Linux releases
       }
     } else if (os === "macos") {
       displayName = "Download";
