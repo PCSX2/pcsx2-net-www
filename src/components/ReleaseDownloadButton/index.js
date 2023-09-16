@@ -16,21 +16,15 @@ export function getLatestRelease(releases, platform) {
   return undefined;
 }
 
-// Function to convert text to proper case, skipping capitalizing "x64" for stable releases
-function toProperCase(str, os) {
-  if (os !== "linux" && os !== "macos" && os !== "windows") {
-    return str; // Do not modify if the OS is not recognized
-  }
-
-  if (os === "linux" || os === "macos" || os === "windows") {
-    return str.replace(/\w\S*/g, function (txt) {
-      if (txt.toLowerCase() === "x64") {
-        return txt.toLowerCase();
-      } else {
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-      }
-    });
-  }
+// Function to convert text to proper case, skipping capitalizing "x64"
+function toProperCase(str) {
+  return str.replace(/\w\S*/g, function (txt) {
+    if (txt.toLowerCase() === "x64") {
+      return txt.toLowerCase();
+    } else {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }
+  });
 }
 
 // Function to get the OS icon based on the platform
@@ -48,7 +42,7 @@ function getOSIcon(os, fillColor) {
 
 // Function to generate dropdown items based on release, OS, assets, text removals, and whether it's a nightly build
 function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
-  if (!assets || assets.length === 0) {
+  if (!assets) {
     return [];
   }
 
@@ -58,9 +52,6 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
   }
 
   let items = [];
-  let installerItem = null;
-  let portableItem = null;
-
   for (const asset of assets.filter(
     (asset) => !asset.additionalTags.includes("symbols")
   )) {
@@ -78,46 +69,21 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
     }
 
     // Generate a more dynamic displayName based on asset properties, old way was following the format of package type - Bits(64) - GUI Widget (Qt)
-    // Differentiate between installer and portable based on asset name or tags
     if (os === "windows") {
-      if (
-        asset.additionalTags.includes("installer") &&
-        !asset.additionalTags.includes("32bit")
-      ) {
-        installerItem = (
-          <Dropdown.Item
-            key={asset.url}
-            description={release.version}
-            icon={getOSIcon(os, fillColor)}
-            css={{ transition: "none" }}
-          >
-            Installer
-          </Dropdown.Item>
-        );
-      } else if (
-        asset.additionalTags.includes("portable") &&
-        !asset.additionalTags.includes("32bit")
-      ) {
-        portableItem = (
-          <Dropdown.Item
-            key={asset.url}
-            description={release.version}
-            icon={getOSIcon(os, fillColor)}
-            css={{ transition: "none" }}
-          >
-            Portable
-          </Dropdown.Item>
-        );
+      if (asset.additionalTags.includes("installer")) {
+        displayName = "Installer";
+      } else if (asset.additionalTags.includes("portable")) {
+        displayName = "Portable";
+      } else {
+        displayName = "Download";
       }
     } else if (os === "linux") {
-      // Check for Flatpak or AppImage tags which will make Appimage - x64 Qt and Flatpak - x64 Qt and no way to seemingly fix the regular way
       if (asset.additionalTags.includes("appimage")) {
-        displayName = isNightly ? "AppImage" : "Binary";
+        displayName = "AppImage";
       } else if (asset.additionalTags.includes("flatpak")) {
-        displayName = isNightly ? "Flatpak" : "Binary";
-      } else if (!isNightly) {
-        // Handle Linux Binary here without the release version for stable releases
-        displayName = "Binary";
+        displayName = "Flatpak";
+      } else {
+        displayName = "Download";
       }
     } else if (os === "macos") {
       displayName = "Download";
@@ -129,11 +95,6 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       displayName = displayName
         .replace(/- x64 Qt$/, "")
         .replace("Appimage", "AppImage");
-    }
-
-    // Uppercase the first letter for display names that are all lowercase
-    if (/^[a-z]+$/.test(displayName)) {
-      displayName = displayName.charAt(0).toUpperCase() + displayName.slice(1);
     }
 
     items.push(
@@ -158,7 +119,6 @@ function openAssetLink(href) {
   }).click();
 }
 
-// Component for the Release Download Button
 export function ReleaseDownloadButton({
   release,
   buttonText,
@@ -280,9 +240,7 @@ export function ReleaseDownloadButton({
               : errorMsg
           }
         >
-          {errorMsg === undefined && windowsItems.length > 0
-            ? windowsItems
-            : null}
+          {errorMsg === undefined ? windowsItems : null}
         </Dropdown.Section>
         <Dropdown.Section
           title={
@@ -293,7 +251,7 @@ export function ReleaseDownloadButton({
               : errorMsg
           }
         >
-          {errorMsg === undefined && linuxItems.length > 0 ? linuxItems : null}
+          {errorMsg === undefined ? linuxItems : null}
         </Dropdown.Section>
         <Dropdown.Section
           title={
@@ -304,7 +262,7 @@ export function ReleaseDownloadButton({
               : errorMsg
           }
         >
-          {errorMsg === undefined && macosItems.length > 0 ? macosItems : null}
+          {errorMsg === undefined ? macosItems : null}
         </Dropdown.Section>
       </Dropdown.Menu>
     </Dropdown>
