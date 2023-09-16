@@ -40,6 +40,7 @@ function getOSIcon(os, fillColor) {
   }
 }
 
+// Function to generate dropdown items based on release, OS, assets, text removals, and whether it's a nightly build
 function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
   if (!assets) {
     return [];
@@ -69,13 +70,21 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
 
     // Generate a more dynamic displayName based on asset properties, old way was following the format of package type - Bits(64) - GUI Widget (Qt)
     if (os === "windows") {
-      displayName = "Download";
+      if (asset.additionalTags.includes("installer")) {
+        displayName = "Installer";
+      } else if (asset.additionalTags.includes("portable")) {
+        displayName = "Portable";
+      } else {
+        displayName = "Download";
+      }
     } else if (os === "linux") {
       // Check for Flatpak or AppImage tags which will make Appimage - x64 Qt and Flatpak - x64 Qt and no way to seemingly fix the regular way
       if (asset.additionalTags.includes("appimage")) {
         displayName = "AppImage";
       } else if (asset.additionalTags.includes("flatpak")) {
         displayName = "Flatpak";
+      } else {
+        displayName = toProperCase(displayName); // Capitalize the first letter for other cases like old Linux releases
       }
     } else if (os === "macos") {
       displayName = "Download";
