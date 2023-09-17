@@ -283,7 +283,7 @@ export default function Downloads() {
                 <Grid xs={12}>
                   <p>
                     For help using these releases,{" "}
-                    <a href="/docs/usage/nightly-setup/">
+                    <a href="/docs/usage/setup/">
                       see the following article.
                     </a>
                   </p>
