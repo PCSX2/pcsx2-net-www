@@ -283,9 +283,7 @@ export default function Downloads() {
                 <Grid xs={12}>
                   <p>
                     For help using these releases,{" "}
-                    <a href="/docs/usage/nightly-setup/">
-                      see the following article.
-                    </a>
+                    <a href="/docs/usage/setup/">see the following article.</a>
                   </p>
                 </Grid>
                 <Grid xs={12} css={{ mt: "2em" }}>
