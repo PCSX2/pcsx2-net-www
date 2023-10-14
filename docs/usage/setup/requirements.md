@@ -14,6 +14,7 @@ sidebar_position: 1
 - Operating system
   - Windows 10 21H2 (1809 or later) (64-bit)
   - Ubuntu 22.04/Debian or newer, Arch Linux, or other distro (64-bit)
+  - macOS 11.0
 - CPU
 
   - Supports SSE4.1
@@ -44,6 +45,7 @@ sidebar_position: 1
 - Operating system
   - Windows 10 21H2 (1809 or later) (64-bit)
   - Ubuntu 23.04/Debian or newer, Arch Linux, or other distro (64-bit)
+  - macOS 11.0
 - CPU
   - Supports AVX2
   - [PassMark single thread performance](https://www.cpubenchmark.net/singleThread.html) rating near or greater than 2000
@@ -63,7 +65,7 @@ sidebar_position: 1
 - Operating System
   - Windows 10 22H2 (64-bit)
   - Ubuntu 23.04/Debian or newer, Arch Linux, or other distro (64-bit)
-  - macOS 10.14
+  - macOS 11.0
 - CPU
   - Supports AVX2
   - [PassMark single thread performance](https://www.cpubenchmark.net/singleThread.html) rating near or greater than 2600
