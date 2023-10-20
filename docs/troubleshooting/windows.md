@@ -23,7 +23,7 @@ If you see this error message during PCSX2 startup such as the following:
 <Image cols={6} src={require("./img/ffmpeg.webp").default} />
 
 - PCSX2 requires some additional ffmpeg libraries to enable video capture.
-  - Grab the ffmpeg Windows files [here](https://github.com/PCSX2/pcsx2-windows-dependencies/releases/download/FFMPEG/ffmpeglibs-6.0.7z).
+  - Grab the ffmpeg Windows files [here](https://github.com/PCSX2/pcsx2-windows-dependencies/releases/download/FFMPEG/ffmpeglibs-6.0.7.7z).
   - Extract the zip file, then place the extracted dll files in your PCSX2 folder. They should be in the same folder as the main PCSX2 exe file.
 
 ### Failed to create render device
