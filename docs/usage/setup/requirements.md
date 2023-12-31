@@ -49,7 +49,7 @@ sidebar_position: 1
 - GPU
   - Supports Vulkan 1.3, Direct3D12, OpenGL 4.6, Metal (Mac only)
   - [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating around 6000 (GeForce GTX 1650, Radeon RX 570)
-  - :::
+    :::note
     Higher resolutions will require stronger cards; 6x internal PS2 resolution (about 4K) will require a [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating of around 12000 (GeForce GTX 1070 Ti).
     :::
   - 4 GB video memory
