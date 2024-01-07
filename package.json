@@ -23,7 +23,7 @@
     "@mdx-js/react": "^1.6.22",
     "@nextui-org/react": "^1.0.0-beta.13",
     "autoprefixer": "^10.4.15",
-    "clsx": "^2.0.0",
+    "clsx": "^2.1.0",
     "fuse.js": "^6.6.2",
     "luxon": "^3.3.0",
     "postcss": "^8.4.31",
