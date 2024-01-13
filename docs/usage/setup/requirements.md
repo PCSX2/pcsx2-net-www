@@ -12,7 +12,7 @@ sidebar_position: 1
 ### Minimum
 
 - Operating system
-  - Windows 10 21H2 (1809 or later) (64-bit)
+  - Windows 10 Version 1809 (64-bit)
   - Ubuntu 22.04/Debian or newer, Arch Linux, or other distro (64-bit)
   - macOS 11.0
 - CPU
@@ -38,12 +38,12 @@ sidebar_position: 1
     - A quick reference for GPU **intensive games**: [Wiki](https://wiki.pcsx2.net/Category:GPU_intensive_games)
   - 2 GB video memory
 - RAM
-  - 4 GB system memory
+  - 8 GB system memory
 
 ### Recommended
 
 - Operating system
-  - Windows 10 21H2 (1809 or later) (64-bit)
+  - Windows 10 Version 22H2 (64-bit)
   - Ubuntu 23.04/Debian or newer, Arch Linux, or other distro (64-bit)
   - macOS 11.0
 - CPU
@@ -58,12 +58,12 @@ sidebar_position: 1
   - [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating around 6000 (GeForce GTX 1650, Radeon RX 570)
   - 4 GB video memory
 - RAM
-  - 8 GB system memory
+  - 16 GB system memory
 
 ### Heavy
 
 - Operating System
-  - Windows 10 22H2 (64-bit)
+  - Windows 10 Version 22H2 (64-bit)
   - Ubuntu 23.04/Debian or newer, Arch Linux, or other distro (64-bit)
   - macOS 11.0
 - CPU
@@ -76,9 +76,9 @@ sidebar_position: 1
   - Vulkan 1.3 support
   - Metal support
   - [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating around 6000 (GeForce GTX 1650, Radeon RX 570)
-  - 4GB of Video Memory
+  - 4 GB of Video Memory
 - RAM
-  - 8GB of System Memory
+  - 16 GB of System Memory
 
 ## Required Software
 
