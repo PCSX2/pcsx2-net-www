@@ -1,0 +1,17 @@
+data:
+  - name: Gran Turismo 4, 3x IR, 2070 Super (~36.4%)
+    "1.6.0": 132
+    "2.0": 181
+  - name: Baldur's Gate, Native IR, 2070 Super (~513.9%)
+    "1.6.0": 33
+    "2.0": 207
+barOptions:
+  "1.6.0":
+    fillColor: "rgb(106, 156, 255)"
+  "2.0":
+    fillColor: "rgb(200, 45, 69)"
+axis:
+  x:
+    dataKey: name
+  y:
+    label: "Frames Per Seconds (VPS)"
