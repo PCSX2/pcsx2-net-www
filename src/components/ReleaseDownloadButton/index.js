@@ -126,6 +126,7 @@ export function ReleaseDownloadButton({
   bordered,
   errorMsg,
   isNightly,
+  isDisabled,
   placement,
 }) {
   // Styling for the button
@@ -221,6 +222,7 @@ export function ReleaseDownloadButton({
         color={isNightly ? "warning" : "primary"}
         css={buttonStyling}
         bordered={bordered}
+        disabled={isDisabled}
       >
         {isNightly ? <IoIosCloudyNight size={22} /> : <GiBrickWall size={16} />}
         &nbsp;
