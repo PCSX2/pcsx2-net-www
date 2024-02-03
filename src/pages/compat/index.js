@@ -242,7 +242,7 @@ const renderCell = (entry, columnKey) => {
                 <MdLibraryBooks size={22}></MdLibraryBooks>
               </Link>
             </Tooltip>
-          </Grid>
+          </Grid>,
         );
       }
       if (cellValue?.forum) {
@@ -257,7 +257,7 @@ const renderCell = (entry, columnKey) => {
                 <MdForum size={22}></MdForum>
               </Link>
             </Tooltip>
-          </Grid>
+          </Grid>,
         );
       }
       if (icons.length > 0) {
@@ -362,14 +362,14 @@ export default function Compatiblity() {
       ? ""
       : `Perfect - ${round(
           (filterStats.perfect / tableData.length) * 100,
-          2
+          2,
         )}%`;
   const playableFilterText =
     filterStats.playable === undefined
       ? ""
       : `Playable - ${round(
           (filterStats.playable / tableData.length) * 100,
-          2
+          2,
         )}%`;
   const ingameFilterText =
     filterStats.ingame === undefined
@@ -388,7 +388,7 @@ export default function Compatiblity() {
       ? ""
       : `Nothing - ${round(
           (filterStats.nothing / tableData.length) * 100,
-          2
+          2,
         )}%`;
 
   return (

@@ -112,14 +112,14 @@ export default function Home() {
     setHomeVideoPath(
       getDocumentTheme(document?.documentElement) === "dark"
         ? "/videos/splash.webm"
-        : "/videos/splash-light.mp4"
+        : "/videos/splash-light.mp4",
     );
 
     const observer = new MutationObserver((mutation) => {
       setHomeVideoPath(
         getDocumentTheme(document?.documentElement) === "dark"
           ? "/videos/splash.webm"
-          : "/videos/splash-light.mp4"
+          : "/videos/splash-light.mp4",
       );
     });
 

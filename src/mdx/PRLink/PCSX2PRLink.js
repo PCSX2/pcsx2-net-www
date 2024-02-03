@@ -21,7 +21,7 @@ function generatePRLinks(prNums) {
           <GoGitPullRequest size={24}></GoGitPullRequest>
         </IconContext.Provider>
         {num}
-      </a>
+      </a>,
     );
   }
   return icons;
@@ -44,7 +44,7 @@ function generateCommitLinks(commitShas) {
           <GoGitCommit size={24}></GoGitCommit>
         </IconContext.Provider>
         {sha.substr(0, 6)}
-      </a>
+      </a>,
     );
   }
   return icons;
@@ -78,7 +78,7 @@ function generateAuthorAvatars(authors) {
           color="gradient"
           stacked
         />
-      </Tooltip>
+      </Tooltip>,
     );
   }
   return (

@@ -21,7 +21,7 @@ function _renderChart(chartData) {
         key={index}
         dataKey={key}
         fill={chartData.barOptions[key].fillColor}
-      />
+      />,
     );
   });
   return (

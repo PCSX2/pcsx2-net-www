@@ -23,7 +23,7 @@ describe("Cookie consent", () => {
     cy.wait(1000);
     cy.requestsCountByUrlPrefix("https://pagead2.googlesyndication.com").should(
       "eq",
-      0
+      0,
     );
   });
 });

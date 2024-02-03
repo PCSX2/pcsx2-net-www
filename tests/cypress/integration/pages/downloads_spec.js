@@ -41,7 +41,7 @@ describe("Download Page - Desktop", () => {
           method: "GET",
           url: "http://localhost:3000/v1/latestReleasesAndPullRequests",
         },
-        { fixture: "downloads/only_latest.json" }
+        { fixture: "downloads/only_latest.json" },
       ).as("getDownloadData");
       cy.visit("/downloads");
       cy.get(".cc-deny").click();
@@ -52,10 +52,10 @@ describe("Download Page - Desktop", () => {
       { scrollBehavior: "center" },
       () => {
         cy.get(
-          "#latest-release-artifacts > :nth-child(1) .artifact-dropdown"
+          "#latest-release-artifacts > :nth-child(1) .artifact-dropdown",
         ).click();
         cy.get(
-          "#latest-release-artifacts > :nth-child(1) > .dropdown > .dropdown-menu > :nth-child(1) > .dropdown-item"
+          "#latest-release-artifacts > :nth-child(1) > .dropdown > .dropdown-menu > :nth-child(1) > .dropdown-item",
         ).contains("Windows 32bit");
         cy.get("#latest-release-artifacts > :nth-child(2) .artifact-dropdown")
           .contains("Linux")
@@ -65,17 +65,17 @@ describe("Download Page - Desktop", () => {
           .contains("Windows")
           .should("be.disabled");
         cy.get(
-          "#latest-nightly-artifacts > :nth-child(2) .artifact-dropdown"
+          "#latest-nightly-artifacts > :nth-child(2) .artifact-dropdown",
         ).click({ force: true });
         cy.get(
-          "#latest-nightly-artifacts > :nth-child(2) > .dropdown > .dropdown-menu > :nth-child(1) > .dropdown-item"
+          "#latest-nightly-artifacts > :nth-child(2) > .dropdown > .dropdown-menu > :nth-child(1) > .dropdown-item",
         ).contains("AppImage");
-      }
+      },
     );
 
     it("pull requests are empty", { scrollBehavior: "center" }, () => {
       cy.get("#pull-request-table-body > tr > td").contains(
-        "No Pull Requests to Display!"
+        "No Pull Requests to Display!",
       );
     });
   });
@@ -87,7 +87,7 @@ describe("Download Page - Desktop", () => {
           method: "GET",
           url: "http://localhost:3000/v1/latestReleasesAndPullRequests",
         },
-        { fixture: "downloads/no_data.json" }
+        { fixture: "downloads/no_data.json" },
       ).as("getDownloadData");
       cy.visit("/downloads");
       cy.get(".cc-deny").click();
@@ -95,19 +95,19 @@ describe("Download Page - Desktop", () => {
 
     it("stable releases are empty", { scrollBehavior: "center" }, () => {
       cy.get("#stable-table-body > tr > td").contains(
-        "No Releases to Display!"
+        "No Releases to Display!",
       );
     });
 
     it("nightly releases are empty", { scrollBehavior: "center" }, () => {
       cy.get("#nightly-table-body > tr > td").contains(
-        "No Releases to Display!"
+        "No Releases to Display!",
       );
     });
 
     it("pull requests are empty", { scrollBehavior: "center" }, () => {
       cy.get("#pull-request-table-body > tr > td").contains(
-        "No Pull Requests to Display!"
+        "No Pull Requests to Display!",
       );
     });
   });
@@ -119,7 +119,7 @@ describe("Download Page - Desktop", () => {
           method: "GET",
           url: "http://localhost:3000/v1/latestReleasesAndPullRequests",
         },
-        { fixture: "downloads/multi_page.json" }
+        { fixture: "downloads/multi_page.json" },
       ).as("getDownloadData");
       cy.visit("/downloads");
       cy.get(".cc-deny").click();
@@ -132,7 +132,7 @@ describe("Download Page - Desktop", () => {
           method: "GET",
           url: "http://localhost:3000/v1/stableReleases?offset=10",
         },
-        { data: [] }
+        { data: [] },
       );
       cy.get("#stable-pagination-container > :nth-child(2) > .btn").click();
       cy.get("#stable-table-body").find("tr").its("length").should("eq", 1);
@@ -145,7 +145,7 @@ describe("Download Page - Desktop", () => {
           method: "GET",
           url: "http://localhost:3000/v1/nightlyReleases?offset=10",
         },
-        { data: [] }
+        { data: [] },
       );
       cy.get("#nightly-pagination-container > :nth-child(2) > .btn").click({
         force: true,
@@ -163,10 +163,10 @@ describe("Download Page - Desktop", () => {
           method: "GET",
           url: "http://localhost:3000/v1/pullRequests?offset=10",
         },
-        { data: [] }
+        { data: [] },
       );
       cy.get("#pull-request-pagination-container > :nth-child(2) > .btn").click(
-        { force: true }
+        { force: true },
       );
       cy.get("#pull-request-table-body")
         .find("tr")
@@ -219,7 +219,7 @@ describe("Download Page - Mobile", () => {
           method: "GET",
           url: "http://localhost:3000/v1/latestReleasesAndPullRequests",
         },
-        { fixture: "downloads/only_latest.json" }
+        { fixture: "downloads/only_latest.json" },
       ).as("getDownloadData");
       cy.visit("/downloads");
       cy.get(".cc-deny").click();
@@ -230,10 +230,10 @@ describe("Download Page - Mobile", () => {
       { scrollBehavior: "center" },
       () => {
         cy.get(
-          "#latest-release-artifacts > :nth-child(1) .artifact-dropdown"
+          "#latest-release-artifacts > :nth-child(1) .artifact-dropdown",
         ).click();
         cy.get(
-          "#latest-release-artifacts > :nth-child(1) > .dropdown > .dropdown-menu > :nth-child(1) > .dropdown-item"
+          "#latest-release-artifacts > :nth-child(1) > .dropdown > .dropdown-menu > :nth-child(1) > .dropdown-item",
         ).contains("Windows 32bit");
         cy.get("#latest-release-artifacts > :nth-child(2) .artifact-dropdown")
           .contains("Linux")
@@ -243,17 +243,17 @@ describe("Download Page - Mobile", () => {
           .contains("Windows")
           .should("be.disabled");
         cy.get(
-          "#latest-nightly-artifacts > :nth-child(2) .artifact-dropdown"
+          "#latest-nightly-artifacts > :nth-child(2) .artifact-dropdown",
         ).click({ force: true });
         cy.get(
-          "#latest-nightly-artifacts > :nth-child(2) > .dropdown > .dropdown-menu > :nth-child(1) > .dropdown-item"
+          "#latest-nightly-artifacts > :nth-child(2) > .dropdown > .dropdown-menu > :nth-child(1) > .dropdown-item",
         ).contains("AppImage");
-      }
+      },
     );
 
     it("pull requests are empty", { scrollBehavior: "center" }, () => {
       cy.get("#pull-request-table-body > tr > td").contains(
-        "No Pull Requests to Display!"
+        "No Pull Requests to Display!",
       );
     });
   });
@@ -265,7 +265,7 @@ describe("Download Page - Mobile", () => {
           method: "GET",
           url: "http://localhost:3000/v1/latestReleasesAndPullRequests",
         },
-        { fixture: "downloads/no_data.json" }
+        { fixture: "downloads/no_data.json" },
       ).as("getDownloadData");
       cy.visit("/downloads");
       cy.get(".cc-deny").click();
@@ -273,19 +273,19 @@ describe("Download Page - Mobile", () => {
 
     it("stable releases are empty", { scrollBehavior: "center" }, () => {
       cy.get("#stable-table-body > tr > td").contains(
-        "No Releases to Display!"
+        "No Releases to Display!",
       );
     });
 
     it("nightly releases are empty", { scrollBehavior: "center" }, () => {
       cy.get("#nightly-table-body > tr > td").contains(
-        "No Releases to Display!"
+        "No Releases to Display!",
       );
     });
 
     it("pull requests are empty", { scrollBehavior: "center" }, () => {
       cy.get("#pull-request-table-body > tr > td").contains(
-        "No Pull Requests to Display!"
+        "No Pull Requests to Display!",
       );
     });
   });
@@ -297,7 +297,7 @@ describe("Download Page - Mobile", () => {
           method: "GET",
           url: "http://localhost:3000/v1/latestReleasesAndPullRequests",
         },
-        { fixture: "downloads/multi_page.json" }
+        { fixture: "downloads/multi_page.json" },
       ).as("getDownloadData");
       cy.visit("/downloads");
       cy.get(".cc-deny").click();
@@ -310,7 +310,7 @@ describe("Download Page - Mobile", () => {
           method: "GET",
           url: "http://localhost:3000/v1/stableReleases?offset=10",
         },
-        { data: [] }
+        { data: [] },
       );
       cy.get("#stable-pagination-container > :nth-child(2) > .btn").click();
       cy.get("#stable-table-body").find("tr").its("length").should("eq", 1);
@@ -323,7 +323,7 @@ describe("Download Page - Mobile", () => {
           method: "GET",
           url: "http://localhost:3000/v1/nightlyReleases?offset=10",
         },
-        { data: [] }
+        { data: [] },
       );
       cy.get("#nightly-pagination-container > :nth-child(2) > .btn").click({
         force: true,
@@ -341,10 +341,10 @@ describe("Download Page - Mobile", () => {
           method: "GET",
           url: "http://localhost:3000/v1/pullRequests?offset=10",
         },
-        { data: [] }
+        { data: [] },
       );
       cy.get("#pull-request-pagination-container > :nth-child(2) > .btn").click(
-        { force: true }
+        { force: true },
       );
       cy.get("#pull-request-table-body")
         .find("tr")

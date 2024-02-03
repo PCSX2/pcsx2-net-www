@@ -53,7 +53,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
 
   let items = [];
   for (const asset of assets.filter(
-    (asset) => !asset.additionalTags.includes("symbols")
+    (asset) => !asset.additionalTags.includes("symbols"),
   )) {
     let displayName = asset.displayName;
     for (const removal of textRemovals) {
@@ -106,7 +106,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
         css={{ transition: "none" }}
       >
         {displayName}
-      </Dropdown.Item>
+      </Dropdown.Item>,
     );
   }
   return items;
@@ -152,8 +152,8 @@ export function ReleaseDownloadButton({
           "windows",
           release.windows?.assets?.Windows,
           ["Windows"],
-          isNightly
-        )
+          isNightly,
+        ),
       );
     } else {
       setWindowsItems(
@@ -162,8 +162,8 @@ export function ReleaseDownloadButton({
           "windows",
           release.assets?.Windows,
           ["Windows"],
-          isNightly
-        )
+          isNightly,
+        ),
       );
     }
     if ("linux" in release) {
@@ -173,8 +173,8 @@ export function ReleaseDownloadButton({
           "linux",
           release.linux?.assets?.Linux,
           ["Linux"],
-          isNightly
-        )
+          isNightly,
+        ),
       );
     } else {
       setLinuxItems(
@@ -183,8 +183,8 @@ export function ReleaseDownloadButton({
           "linux",
           release.assets?.Linux,
           ["Linux"],
-          isNightly
-        )
+          isNightly,
+        ),
       );
     }
     if ("macos" in release) {
@@ -194,8 +194,8 @@ export function ReleaseDownloadButton({
           "macos",
           release.macos?.assets?.MacOS,
           ["MacOS"],
-          isNightly
-        )
+          isNightly,
+        ),
       );
     } else {
       setMacosItems(
@@ -204,8 +204,8 @@ export function ReleaseDownloadButton({
           "macos",
           release.assets?.MacOS,
           ["MacOS"],
-          isNightly
-        )
+          isNightly,
+        ),
       );
     }
   }, [release]);
