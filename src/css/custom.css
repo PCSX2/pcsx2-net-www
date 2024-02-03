@@ -248,3 +248,24 @@ table td {
 .nextui-table-hidden-row {
   border: none;
 }
+
+.header-blog {
+  margin: 0;
+  margin-right: 0px;
+  margin-left: 0px;
+  background: #eee;
+  background-image: none;
+  background-size: auto;
+  padding: 1em;
+  border-radius: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  background-size: cover;
+  text-shadow: 0px 5px 4px #000;
+  margin-bottom: 1cm;
+}
+
+.blog-post-page header > h1 {
+  text-shadow: none;
+  filter: drop-shadow(0px 5px 4px #000);
+}
