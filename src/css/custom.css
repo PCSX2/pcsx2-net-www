@@ -262,6 +262,7 @@ table td {
   margin-right: auto;
   background-size: cover;
   text-shadow: 0px 5px 4px #000;
+  margin-bottom: 1cm;
 }
 
 .blog-post-page header > h1 {
