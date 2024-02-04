@@ -265,7 +265,15 @@ table td {
   margin-bottom: 1cm;
 }
 
-.blog-post-page header > h1 {
+.header-blog h1 {
   text-shadow: none;
   filter: drop-shadow(0px 5px 4px #000);
+}
+
+.header-blog a {
+  color: rgb(89, 197, 255);
+}
+
+.header-blog .margin-vert--md {
+  color: rgb(227, 227, 227);
 }
