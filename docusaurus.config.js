@@ -207,6 +207,13 @@ const config = {
             "aria-label": "YouTube",
             target: "_blank",
           },
+          {
+            href: "https://pcsx2.net/blog/rss.xml",
+            position: "right",
+            className: "header-rss-link",
+            "aria-label": "RSS",
+            target: "_blank",
+          },
         ],
       },
       footer: {
