@@ -9,5 +9,18 @@ if len(invalid_images) != 0:
     print(img)
   exit(1)
 
-print("Found no PNGs, good to go")
+
+invalid_images = glob.glob('blog/**/*.webp', recursive=True)
+invalid_images += glob.glob('docs/**/*.webp', recursive=True)
+
+for str in invalid_images:
+  invalid = False
+  if ' ' in str:
+    invalid = True
+    print("Found space in path: " + str)
+  if(invalid):
+    exit(1)
+
+
+print("Found no PNGs or spaces, good to go")
 exit(0)
