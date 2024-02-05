@@ -52,7 +52,7 @@ yarn new-article
 
 The article will go into `/blog/<year>/<title>`
 
-You should add an image to serve as a preview and title card respectively (if appropriate) by using the `image:` and `titleImage` frontmatter field, for example:
+You should add an image to serve as a preview and title card respectively (if appropriate) by using the `image:` and `titleImage:` frontmatter field, for example:
 
 ```yaml
 ---
