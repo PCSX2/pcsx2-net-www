@@ -37,7 +37,7 @@ But before we jump in totally, we also reached 100 Million and more lifetime dow
 
 You might know the name wxWidgets from its time as the UI framework that PCSX2 used, or even other old emulators like Dolphin. For a long time, it served us sufficiently well, but its age and implementation began to show rather quickly. Threading issues resulting in deadlocks and race conditions, because it was not properly separated from the emulation core. UI elements which were constructed entirely in C++ code. The technical debt already started high, and was only made worse as the project tried to keep moving forward.
 
-But now, wxWidgets is GONE. No more desktop experience reminding you of what Windows desktop apps looked like in 2006. Qt brings with it a much more slick appearance, more efficient UI backend, and provided the perfect opportunity to redo all our menus and widgets. The addition of themes lets you personalize your PCSX2 to your liking. The result is by far our best user experience to date! Massive thanks to Stenzek for bringing his Qt expertise from Duckstation, and leading the charge on PCSX2's new Qt design!
+But now, wxWidgets is GONE. No more desktop experience reminding you of what Windows desktop apps looked like in 2006. Qt brings with it a much more slick appearance, more efficient UI backend, and provided the perfect opportunity to redo all our menus and widgets. The addition of themes lets you personalize your PCSX2 to your liking. The result is by far our best user experience to date! Massive thanks to Stenzek for bringing his Qt expertise from DuckStation, and leading the charge on PCSX2's new Qt design!
 
 <Image src={require("./img/qt.webp").default} />
 
@@ -51,9 +51,9 @@ A difficult decision had to be made. How do we get rid of plugins, but keep feat
 
 ## Simplifying Configuration With Automatic Game Fixes
 
-A major priority for the team has been a focus on automation. How many things are there that users have to deal with, that they really shouldn't need to? The answer was... A lot. Really, a lot. You might recall our old interface had graphics fixes buried in the graphics plugin. Or perhaps the CPU modes which were handled in their own tabs. We could add that speedhacks had another tab. More graphics settings on their own somehow not connected to the plugin. Game fixes which were somehow supposed to be different from everything else... We could keep going. It was confusing.
+A major priority for the team has been a focus on automation. How many things are there that users have to deal with, that they really shouldn't need to? The answer was... A lot. Really, a lot. You might recall our old interface had graphics fixes buried in the graphics plugin. Or perhaps the CPU modes which were handled in their own tabs. We could add that speed-hacks had another tab. More graphics settings on their own somehow not connected to the plugin. Game fixes which were somehow supposed to be different from everything else... We could keep going. It was confusing.
 
-But then we had a thought - since we are already shipping a database file with information on games, why not include more information about what settings a game needs to run correctly? And so PCSX2's new "game index" was made a reality. It contains a complete list of all known games, and with this index, we now ship preconfigured fixes to ensure your games will automatically run smoothly. You no longer need to remember to enable those graphics fixes every time you switch games - PCSX2 will already know what that game needs, and do it for you!
+But then we had a thought - since we are already shipping a database file with information on games, why not include more information about what settings a game needs to run correctly? And so PCSX2's new "game index" was made a reality. It contains a complete list of all known games, and with this index, we now ship pre-configured fixes to ensure your games will automatically run smoothly. You no longer need to remember to enable those graphics fixes every time you switch games - PCSX2 will already know what that game needs, and do it for you!
 
 ## Goodbye Goldfish Brain, Hello Per-Game Settings
 
@@ -65,7 +65,7 @@ PCSX2 now includes per-game settings which are detached from your global setting
 
 ## You Get a Menu, You Get a Menu, Everyone Gets a Menu!
 
-Game compatibility has always been an odd duck in the PS2 space. For the most part there aren't nasty surprises keeping games from running, and the number of problem games relative to those which are fine is extremely low. However, for those few problem games, they are incredibly stubborn and it remains that way now. Right now the games which aren't playable are down to games with servers which have gone offline, really obscure peripherals that no one can replicate in emulation yet, bizarre FPU math causing games to break themselves, or overengineered engines which would bring even the best PC hardware to a literal crawl if it were emulated correctly.
+Game compatibility has always been an odd duck in the PS2 space. For the most part there aren't nasty surprises keeping games from running, and the number of problem games relative to those which are fine is extremely low. However, for those few problem games, they are incredibly stubborn and it remains that way now. Right now the games which aren't playable are down to games with servers which have gone offline, really obscure peripherals that no one can replicate in emulation yet, bizarre FPU math causing games to break themselves, or over-engineered engines which would bring even the best PC hardware to a literal crawl if it were emulated correctly.
 
 But you might notice, we never said there are still games that don't boot. And that's right! We have officially emptied the Nothing and Intros categories on our compatibility list! Boot a game in PCSX2, and it will at least get you to a menu. Provided no one uncovers any more obscure PS2 games that have been lost to time, it is safe to say PCSX2 has entered a new compatibility era. The challenge becomes how to get the last few games up and running again.
 
@@ -73,7 +73,7 @@ But you might notice, we never said there are still games that don't boot. And t
 
 Couch gamers have been making themselves increasingly known in the emulation space, embracing the thrill and enjoyment of their classic games with the comfort and simplicity of a controller, couch, and a TV comfortably at the other end of the room. PCSX2 classically has been a desktop application, and it sure handled like one too. While those roots haven't been abandoned, what we did do was add the option to pick what experience you'd like to have.
 
-PCSX2 now has a Big Picture mode! Want to use your controller to navigate PCSX2's menus on the big screen? Simply boot PCSX2 into big picture by adding the new `-bigpicture` switch to your shortcut, and away you go! Using a brand new ImGui implementation courtesy of Stenzek, you can boot your games without getting up from the couch, and all critical PCSX2 menus now have a Big Picture accessible option.
+PCSX2 now has a Big Picture mode! Want to use your controller to navigate PCSX2's menus on the big screen? Simply boot PCSX2 into big picture by adding the new `-bigpicture` switch to your shortcut, and away you go! Using a brand new ImGui implementation courtesy of Stenzek, you can boot your games without getting up from the couch, and all critical PCSX2 menus now have a Big Picture accessible option. For more information on how to use command-line arguments, here is a comprehensive general link: https://wiki.pcsx2.net/Command-line_support
 
 <Image src={require("./img/bigpicture.webp").default} />
 
@@ -83,7 +83,7 @@ PCSX2 now has a Big Picture mode! Want to use your controller to navigate PCSX2'
 
 Translation historically has been cumbersome and time consuming. One of the limits of wxWidgets used to be a rather clunky translation system where PO files had to be manually updated and managed. We also needed dedicated resources to maintain individual languages. This ended up being a significant time delay for our 1.6.0 release, fun fact! That all changes going out from here!
 
-[PCSX2 is now on Crowdin](https://crowdin.com/project/pcsx2-emulator), and our build system is set to automatically update translations as they are made! Anyone can contribute to translations, and the best contributions voted by the community will be what you get in the emulator. If you see something in your language that isn't translated or doesn't look right, consider hopping on over to our Crowdin page and making some suggestions!
+[PCSX2 is now on Crowdin](https://crowdin.com/project/pcsx2-emulator), and our build system is set to automatically update translations as they are made! Anyone can contribute to translations, and the best contributions voted by the community will be what you get in the emulator. If you see something in your language that isn't translated or doesn't look right, consider hopping on over to our Crowdin page and making some suggestions! With easily 30 languages at the moment of writing but if your language isn't there or missing some refinements, you can always contribute your personal time to the project if you want to volunteer.
 
 ## PCSX2 Joins GitHub Sponsors
 
@@ -201,7 +201,7 @@ Texture pack creators: Due to the design of the PS2 GS and how many games uses i
 
 ## Graphics Honorable Mentions
 
-Among the pile of graphics improvements, some games deserve shoutouts because they have been problematic for so long. Some are more interesting than others, some more popular than others. See if anything stands out to you!
+Among the pile of graphics improvements, some games deserve shout-outs because they have been problematic for so long. Some are more interesting than others, some more popular than others. See if anything stands out to you!
 
 ### Burnout
 
@@ -214,7 +214,7 @@ You might remember when the Burnout community joked about putting anime characte
 
 ### Ratchet and Clank
 
-These games were relatively solid considering how tempermental they can be. However, one pesky remnant was the pause menu background and, in some of the later games, the main menu background, only rendering correctly in the top left corner. This is resolved so you can now properly see the background in all the games!
+These games were relatively solid considering how temperamental they can be. However, one pesky remnant was the pause menu background and, in some of the later games, the main menu background, only rendering correctly in the top left corner. This is resolved so you can now properly see the background in all the games!
 
 ### Destroy All Humans
 
@@ -296,11 +296,11 @@ Compression started becoming a critical component of emulation when emulators fo
 
 ### The Long Awaited Arrival of CHD
 
-Support for CHD has arrived! For anyone unaware, CHD is a compression format similar to CSO in performance. But unlike CSO which is specifically designed for the DVD-based ISO format, CHD can operate on both ISO files, and the CD-based BIN/CUE format. You can now compress your entire library with CHD, or pick and choose depending on which format works best!
+Support for CHD has arrived! For anyone unaware, CHD is a compression format similar to CSO in performance. But unlike CSO which is specifically designed for the DVD-based ISO format, CHD can operate on both ISO files, and the CD-based BIN/CUE format. You can now compress your entire library with CHD, or pick and choose depending on which format works best! Refraction has made a script that can compress or extract to multiple formats (excluding ZSO at time of writing): https://my.pcloud.com/publink/show?code=kZDH81kZHH9txOzWRSfidhxYhMviSYe30lW7
 
 ### Introducing ZSO: A Cross Platform Compression Option
 
-Those who use OPL on their PS2 might be familiar with ZSO. It has become a bit of a hit lately with OPL's recent experimental support, and now you can use it on PCSX2! For those who want to only keep one copy of their games and have them compressed, ZSO is a great option because you can now use them both for OPL and PCSX2!
+Those who use OPL on their PS2 might be familiar with ZSO. It has become a bit of a hit lately with OPL's recent experimental support, and now you can use it on PCSX2! For those who want to only keep one copy of their games and have them compressed, ZSO is a great option because you can now use them both for OPL and PCSX2! For those that don't know the format, it is based on CSO and can be done via maxcso by unknownbrackets as one way to compress your ISO files.
 
 ## A Wild Automatic Updater Has Appeared!
 
