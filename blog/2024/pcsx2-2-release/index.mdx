@@ -78,7 +78,7 @@ But you might notice, we never said there are still games that don't boot. And t
 
 Couch gamers have been making themselves increasingly known in the emulation space, embracing the thrill and enjoyment of their classic games with the comfort and simplicity of a controller, couch, and a TV comfortably at the other end of the room. PCSX2 classically has been a desktop application, and it sure handled like one too. While those roots haven't been abandoned, what we did do was add the option to pick what experience you'd like to have.
 
-PCSX2 now has a Big Picture mode! Want to use your controller to navigate PCSX2's menus on the big screen? Simply boot PCSX2 into big picture by adding the new `-bigpicture` switch to your shortcut, and away you go! Using a brand new ImGui implementation courtesy of Stenzek, you can boot your games without getting up from the couch, and all critical PCSX2 menus now have a Big Picture accessible option. For more information on how to use command-line arguments, here is a comprehensive general link: https://wiki.pcsx2.net/Command-line_support
+PCSX2 now has a Big Picture mode! Want to use your controller to navigate PCSX2's menus on the big screen? Simply boot PCSX2 into big picture by adding the new `-bigpicture` switch to your shortcut, and away you go! Using a brand new ImGui implementation courtesy of Stenzek, you can boot your games without getting up from the couch, and all critical PCSX2 menus now have a Big Picture accessible option. For more information on how to use command-line arguments, here is a [comprehensive general link.](https://wiki.pcsx2.net/Command-line_support)
 
 <Image src={require("./img/bigpicture.webp").default} />
 
@@ -122,7 +122,7 @@ Pnach 2.0 is an incremental update to the patching system which introduces INI-l
 
 The PCSX2 team now has [a separate repository](https://github.com/PCSX2/pcsx2_patches) set up for collecting and tracking version history of patches. Any patches present in this repository will be shipped with the emulator. As of now, we generally accept widescreen, no-interlacing, and 60 FPS patches. We have also included a small selection of finely tested, hand-picked quality of life improvements for especially troublesome games.
 
-Please note that the we do not create or fix patches - we operate this repository as curators, and just as ever the success of patches depends on the patch authors to reliably test their work. Like our game index, this repository is a constant work in progress and will need community feedback to succeed!
+Please note that **we do not** create or fix patches - we operate this repository as curators, and just as ever the success of patches depends on the patch authors to reliably test their work. Like our game index, this repository is a constant work in progress and will need community feedback to succeed!
 
 ## The Core Exploded! Wait, No It Didn't!
 
@@ -263,7 +263,7 @@ A tweaked ADSR envelope helps prevent hangs, and makes your games sound better! 
 
 ### Fresh, Buttery Smooth Interpolation!
 
-PCSX2 has always had a pile of interpolation options for sound. Historically, this was to try and let users squeeze every bit of power out of their PC by sacrificing sound quality. In modern times, this has become negligible if not pointless, and emphasis has switched almost fully to making things sound as best as they can. Older interpolation methods generated harsh peaks and valleys in the waveforms they output; the new gaussian mode is buttery smooth in comparison, and was validated against actual PS2 audio. The audio levels are the same!
+PCSX2 has always had a pile of interpolation options for sound. Historically, this was to let users squeeze every bit of power out of their PC by sacrificing sound quality. In modern times, this has become negligible if not pointless, and emphasis has switched almost fully to making things sound as best as they can. Older interpolation methods generated harsh peaks and valleys in the waveforms they output; the new Gaussian mode is buttery smooth in comparison, and was validated against actual PS2 audio. The audio levels are the same!
 
 ### Your Ears Can Relax Now!
 
@@ -321,4 +321,4 @@ We hope you enjoy the latest we have to offer for PCSX2! It has been quite the j
 
 Happy gaming, and here's to whatever comes next!
 
-- PCSX2 Team
+— PCSX2 Team
