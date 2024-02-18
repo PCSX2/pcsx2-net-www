@@ -22,19 +22,11 @@ authors:
   <meta name="twitter:card" content="summary_large_image" />
 </head>
 
-### Day 0, The Dawn of an Era... PCSX2 Before PCSX2 (PSDUO)
-
-2001 was 23 years ago, it sure doesn't feel that long. It was also the year that one particular PS2 emulator emerged from its digital cocoon, aptly named "PSDUO" is what PCSX2 was known as before PCSX2.
-
 ### Present Day, Present Time
 
-It has been almost four whole years since the last stable PCSX2 revision released. A lot of things can happen in four years, but we could not have predicted just how much progress would be made in that time. So many things have happened, PCSX2 has received over 5500 changes since the last 1.6.0 stable release! Besides it doesn't even count the dev-build/nightly count changed from a PR-based count instead of a per commit basis. Anyway, this includes design changes, new faces, technical discoveries, and more. So much so, it is hard to keep track of everything! So let's jump right in to it and get started with the highlights from four years of development!
+It has been almost four whole years since the last stable PCSX2 revision released. A lot of things can happen in four years, but we could not have predicted just how much progress would be made in that time. So many things have happened, PCSX2 has received over 5500 changes since the last 1.6.0 stable release and it doesn't even count the dev-build/nightly count that were changed from a PR-based count instead of a per commit basis! We have also reached 100 Million and more lifetime downloads in 2023, and are celebrating PCSX2's 23th (almost 24th) anniversary.
 
-But before we fully jump in, we also reached 100 Million and more lifetime downloads in 2023, and celebrating PCSX2's 23th (almost 24th) anniversary.
-
-<Image src={require("./img/timeline1.webp").default} />
-
-<Image src={require("./img/timeline2.webp").default} />
+Anyway, this new version includes design changes, new faces, technical discoveries, and more. So much so, it is hard to keep track of everything! So let's jump right in to it and get started with the highlights from four years of development!
 
 <!--truncate-->
 
@@ -202,7 +194,7 @@ Here is Crash Twinsanity for comparison (with texture replacements applied):
 
 Texture pack users: The PCSX2 community **does not** provide support for texture packs or allow sharing packs on any PCSX2 sites. This includes our forums, Discord, GitHub, etc. Issues with texture packs should be sent to the creators of those packs.
 
-Texture pack creators: Due to the design of the PS2 GS and how many games uses it, there are some textures which will **not** be replaceable, as they generate new hashes every time they are loaded. This cannot be worked around, this cannot be fixed, this is the PS2 GS working as intended. This is a side effect of the GS having no restrictions, or really any standard API at all. It is possible these hashes will continue to change as emulation gets more accurate, so be prepared to update your packs as PCSX2 continues to change. We are glad to answer any technical questions about what may have changed, but cannot assist in fixing your packs.
+Texture pack creators: Due to the design of the PS2 GS and how many games use it, there are some textures which will **not** be replaceable, as they generate new hashes every time they are loaded. This cannot be worked around, this cannot be fixed, this is the PS2 GS working as intended. This is a side effect of the GS having no restrictions, or really any standard API at all. It is possible these hashes will continue to change as emulation gets more accurate, so be prepared to update your packs as PCSX2 continues to change. We are glad to answer any technical questions about what may have changed, but cannot assist in fixing your packs.
 
 ## Graphics Honorable Mentions
 
@@ -285,11 +277,13 @@ With the introduction of SDL and Qt came the opportunity to add automatic contro
 
 ## Achievement Unlocked!
 
-Do you like hunting for achievements? Well you're in luck as PCSX2 now supports [RetroAchievements](https://retroachievements.org/) (also known as Rcheevos)! This community driven feature supports more than 450 games so far as of the writing of this blog.
+Do you like hunting for achievements? Well you're in luck as PCSX2 now supports [RetroAchievements](https://retroachievements.org/) (also known as Rcheevos)!
+
+RetroAchievements is a community which intends to bring modern achievements to games which were released before the concept existed. This community driven feature supports more than 450 games so far as of the writing of this blog.
 
 ## PINE Isn't a Tree, It's a Protocol!
 
-Introduced by GovanifY, [PINE](https://github.com/GovanifY/pine) is a protocol we adopted for networked software to access PCSX2. If you've ever wanted to have external software be able to probe PS2 memory, write into it, or even command savestate loads or saves, it's your lucky day! PINE opens the door to automation like never before and gives developers the opportunity to make companion apps for PCSX2. The possibilities are endless! Companion apps like KAMI have already been made to add native mouse support to games, and we can't wait to see what else people come up with! It was also actually ported to our neigbours for PS3, RPCS3 and theoretically can be ported and used for other emulators in the future if they so desire.
+Introduced by GovanifY, [PINE](https://github.com/GovanifY/pine) is a protocol we adopted for networked software to access PCSX2. If you've ever wanted to have external software be able to probe PS2 memory, write into it, or even command savestate loads or saves, it's your lucky day! PINE opens the door to automation like never before and gives developers the opportunity to make companion apps for PCSX2. The possibilities are endless! Companion apps like KAMI have already been made to add native mouse support to games, and we can't wait to see what else people come up with!
 
 ## Debugging Just Got Less Buggy
 
@@ -305,15 +299,15 @@ Compression started becoming a critical component of emulation when emulators fo
 
 ### The Long Awaited Arrival of CHD
 
-Support for CHD has arrived! For anyone unaware, CHD is a compression format similar to CSO in performance. But unlike CSO which is specifically designed for the DVD-based ISO format, CHD can operate on both ISO files, and the CD-based BIN/CUE format. You can now compress your entire library with CHD, or pick and choose depending on which format works best! Refraction has made a script that can compress or extract to multiple formats (excluding ZSO at time of writing): https://my.pcloud.com/publink/show?code=kZDH81kZHH9txOzWRSfidhxYhMviSYe30lW7
+Support for CHD has arrived! For anyone unaware, CHD is a compression format similar to CSO in performance. But unlike CSO which is specifically designed for the DVD-based ISO format, CHD can operate on both ISO files, and the CD-based BIN/CUE format. You can now compress your entire library with CHD, or pick and choose depending on which format works best! Refraction has made a script that can compress or extract to multiple formats (excluding ZSO at time of writing). If you have a lot of games you wish to compress, [here are some scripts](https://my.pcloud.com/publink/show?code=kZDH81kZHH9txOzWRSfidhxYhMviSYe30lW7) to help speed up the process.
 
 ### Introducing ZSO: A Cross Platform Compression Option
 
-Those who use OPL on their PS2 might be familiar with ZSO. It has become a bit of a hit lately with OPL's recent experimental support, and now you can use it on PCSX2! For those who want to only keep one copy of their games and have them compressed, ZSO is a great option because you can now use them both for OPL and PCSX2! For those that don't know the format, it is based on CSO and can be done via maxcso by unknownbrackets as one way to compress your ISO files.
+Those who use OPL on their PS2 might be familiar with ZSO. It has become a bit of a hit lately with OPL's recent experimental support, and now you can use it on PCSX2! For those who want to only keep one copy of their games and have them compressed, ZSO is a great option because you can now use them both for OPL and PCSX2!
 
 ## A Wild Automatic Updater Has Appeared!
 
-You read it right! We have an automatic updater now! The new updater will automatically download and install the new version for you, so less messing with extracting archives.
+A long standing pain point of PCSX2's wxWidgets era was that every update meant extracting a new archive file. Then you would have to move your saves, settings and other files around; this led to lots of confusion and problems with all the files moving around. With the introduction of Qt, PCSX2 has also introduced an automatic updater! The updater will let you know when a new PCSX2 version is available, and let you download and install it with the click of a button!
 
 ## Looking Towards the Future
 
