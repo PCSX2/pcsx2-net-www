@@ -24,7 +24,7 @@ authors:
 
 ### Present Day, Present Time
 
-It has been almost four whole years since the last stable PCSX2 revision released. A lot of things can happen in four years, but we could not have predicted just how much progress would be made in that time. So many things have happened, PCSX2 has received over 5500 changes since the last 1.6.0 stable release and it doesn't even count the dev-build/nightly count that were changed from a PR-based count instead of a per commit basis! We have also reached 100 Million and more lifetime downloads in 2023, and are celebrating PCSX2's 23th (almost 24th) anniversary.
+It has been almost four whole years since the last stable PCSX2 revision released. A lot of things can happen in four years, but we could not have predicted just how much progress would be made in that time. PCSX2 has received over 5500 changes, passed 100 million downloads, and celebrated its 20th aniversary! There are lots of design changes, technical discoveries, and more to discuss. So much so, it is hard to keep track of everything! So let's jump right in to it and get started with the highlights from four years of development!
 
 Anyway, this new version includes design changes, new faces, technical discoveries, and more. So much so, it is hard to keep track of everything! So let's jump right in to it and get started with the highlights from four years of development!
 
@@ -32,9 +32,9 @@ Anyway, this new version includes design changes, new faces, technical discoveri
 
 ## The Elephant in the Room: PCSX2 Enters Its Qt Era
 
-You might know the name wxWidgets from its time as the UI framework that PCSX2 used, or even other old emulators like Dolphin. For a long time, it served us sufficiently well, but its age and implementation began to show rather quickly. Threading issues resulting in deadlocks and race conditions, because it was not properly separated from the emulation core. UI elements which were constructed entirely in C++ code. The technical debt already started high, and was only made worse as the project tried to keep moving forward.
+You might know the name wxWidgets from its time as PCSX2's choice of GUI, or from other emulators like Dolphin which used it before migrating to Qt. For a long time, it served us sufficiently well, but its age and implementation began to show rather quickly. Threading issues resulting in deadlocks and race conditions, because it was not properly separated from the emulation core. UI elements which were constructed entirely in C++ code. The technical debt already started high, and was only made worse as the project tried to keep moving forward.
 
-But now, wxWidgets is GONE. No more desktop experience reminding you of what Windows desktop apps looked like in 2006. Qt brings with it a much more slick appearance, more efficient UI backend, and provided the perfect opportunity to redo all our menus and widgets. The addition of themes lets you personalize your PCSX2 to your liking. The result is by far our best user experience to date! Massive thanks to Stenzek for bringing his Qt expertise from DuckStation, and leading the charge on PCSX2's new Qt design!
+But now, wxWidgets is GONE. No more desktop experience reminding you of what Windows desktop apps looked like in 2006. Qt brings with it a much more slick appearance, more efficient UI backend, and provided the perfect opportunity to redo all our menus and widgets. The addition of themes allows you personalize your PCSX2 to your liking. The result is by far our best user experience to date! Massive thanks to Stenzek for bringing his Qt expertise from DuckStation, and leading the charge on PCSX2's new Qt design!
 
 <Image src={require("./img/qt.webp").default} />
 
@@ -66,11 +66,11 @@ Game compatibility has always been an odd duck in the PS2 space. For the most pa
 
 But you might notice, we never said there are still games that don't boot. And that's right! We have officially emptied the Nothing and Intros categories on our compatibility list! Boot a game in PCSX2, and it will at least get you to a menu. Provided no one uncovers any more obscure PS2 games that have been lost to time, it is safe to say PCSX2 has entered a new compatibility era. The challenge becomes how to get the last few games up and running again.
 
-## Big Picture Mode: Coming Soon to a TV Near You!
+## "Big Picture" Mode: Coming Soon to a TV Near You!
 
 Couch gamers have been making themselves increasingly known in the emulation space, embracing the thrill and enjoyment of their classic games with the comfort and simplicity of a controller, couch, and a TV comfortably at the other end of the room. PCSX2 classically has been a desktop application, and it sure handled like one too. While those roots haven't been abandoned, what we did do was add the option to pick what experience you'd like to have.
 
-PCSX2 now has a Big Picture mode! Want to use your controller to navigate PCSX2's menus on the big screen? Simply boot PCSX2 into big picture by adding the new `-bigpicture` switch to your shortcut, and away you go! Using a brand new ImGui implementation courtesy of Stenzek, you can boot your games without getting up from the couch, and all critical PCSX2 menus now have a Big Picture accessible option. For more information on how to use command-line arguments, here is a [comprehensive general link.](https://wiki.pcsx2.net/Command-line_support)
+PCSX2 now has a Big Picture mode! Want to use your controller to navigate PCSX2's menus on the big screen? Simply boot PCSX2 into big picture by adding the new `-bigpicture` switch to your shortcut, and away you go! Using a brand new ImGui implementation courtesy of Stenzek, you can boot your games without getting up from the couch, and all critical PCSX2 menus now have a Big Picture accessible option. There are other command switches for things like fullscreen, or closing PCSX2 when you shut down your game! See our wiki for a comprehensive list of [supported command switches](https://wiki.pcsx2.net/Command-line_support#General_Options_QT) you can add to your shortcuts or launchers.
 
 <Image src={require("./img/bigpicture.webp").default} />
 
@@ -80,7 +80,7 @@ PCSX2 now has a Big Picture mode! Want to use your controller to navigate PCSX2'
 
 Translation historically has been cumbersome and time consuming. One of the limits of wxWidgets used to be a rather clunky translation system where PO files had to be manually updated and managed. We also needed dedicated resources to maintain individual languages. This ended up being a significant time delay for our 1.6.0 release, fun fact! That all changes going out from here!
 
-[PCSX2 is now on Crowdin](https://crowdin.com/project/pcsx2-emulator), and our build system is set to automatically update translations as they are made! Anyone can contribute to translations, and the best contributions voted by the community will be what you get in the emulator. If you see something in your language that isn't translated or doesn't look right, consider hopping on over to our Crowdin page and making some suggestions! With easily 30 languages at the moment of writing but if your language isn't there or missing some refinements, you can always contribute your personal time to the project if you want to volunteer.
+[PCSX2 is now on Crowdin](https://crowdin.com/project/pcsx2-emulator), and our build system is set to automatically update translations as they are made! Anyone can contribute to translations, and the best contributions voted by the community will be what you get in the emulator. If you see something in your language that isn't translated or doesn't look right, consider hopping on over to our Crowdin page and making some suggestions!
 
 ## PCSX2 Joins GitHub Sponsors
 
@@ -132,14 +132,6 @@ A few scarce CPU instructions for the Emotion Engine finally got recompiler supp
 
 Stenzek brought us some of his expertise from Duckstation and helped tidy up some instructions which were not running efficiently. Results can vary depending on how frequently these instructions were used by games.
 
-Here are some benchmarks in a few selected games:
-
-<BarChart chartDataUrl={require("./charts/Chart-gameperf-pt1.yaml").default} />
-
-<BarChart chartDataUrl={require("./charts/Chart-gameperf-pt2.yaml").default} />
-
-<BarChart chartDataUrl={require("./charts/Chart-gameperf-pt3.yaml").default} />
-
 ### Who Needed Infinity and NaN Anyways? Gran Turismo 4 Does!
 
 If you've occupied the same space as a PS2 emulator developer, you might have heard them using floating point math terms in place of swear words. One of the benefits of that unbridled rage is they might go and fix some long standing floating point math errors.
@@ -165,6 +157,14 @@ That's where PCSX2's Automatic renderer comes in. Our testers have gone through 
 As if using floating point math terms as swears wasn't enough, blending effects haunt graphics developers with nightmares that make even the best horror films look like a joke. Blending is a special technique seen in PS2 games generally used to blend two layers of graphics together. If there's a really cool looking light, bloom, shadow, transparency, reflection, or overlay in your game, there's a fair chance blends are making that happen.
 
 Blending performance overall has been substantially improved and is a major reason for overall graphics performance improvements. Three major techniques are used in PC graphics to help replicate blends: barriers, render passes, and readbacks. These have received a lot more attention than usual, because too many of any of these, and performance begins to fall off of a cliff. These counts are down across the board, meaning more frames for you. Plus, now these are viewable directly in our new and revamped on-screen display!
+
+Here are some benchmarks in a few selected games:
+
+<BarChart chartDataUrl={require("./charts/Chart-gameperf-pt1.yaml").default} />
+
+<BarChart chartDataUrl={require("./charts/Chart-gameperf-pt2.yaml").default} />
+
+<BarChart chartDataUrl={require("./charts/Chart-gameperf-pt3.yaml").default} />
 
 ### Everybody's Shufflin'
 
