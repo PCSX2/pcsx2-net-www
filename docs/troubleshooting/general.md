@@ -1,56 +1,27 @@
 ---
-title: "Identifying the problem"
-date: 2023-08-02
-summary: "Steps on how to diagnose problems during PCSX2 Setup"
+title: "General Issues"
+date: 2024-03-20
+summary: "Common issues that may occur when using PCSX2."
 draft: false
 toc: true
 sidebar_position: 1
 ---
 
-## General
-
-Hit a snag? Follow through this page to find out on how to gather more information about the issues! Especially useful for when you wanted to report them.
-
-### Collecting Emulog
-
-When reporting an issue, it is highly recommended that you also provide `emulog.txt` and GS Dump (For graphical glitches) so we can help you better!
-
-`emulog.txt` contains useful program logs for the team to investigate issues, please provide emulog whenever you're reporting issues.
-
-To get the emulog:
-
-- First enable logging by checking `Tools > Enable File Logging`.
-- Restart PCSX2.
-- Reproduce your issue.
-- Close PCSX2, _and do not open it again. **PCSX2 must be closed before you will be able to upload the emulog, and opening it again will remove any helpful information from the file**._
-
-<Image cols={10} src={require("./img/emulog.webp").default} />
+This section details some common issues that may occur when you are using PCSX2.
 
 :::tip
-To avoid any confusion, make sure you do not boot another game or restart PCSX2 after your issue occurs; **this will wipe any helpful information out of the log and we won't be able to help you!**
+If you are encountering issues, before troubleshooting them it is highly recommended that you update your PCSX2 version if you haven't done so already.
 :::
 
-### Collecting GS Dump
+## Game are stuck on black screen or does not load correctly
 
-A GS dump is a dump of PS2 graphics data. The dump allows helpers, testers and developers to figure out how to fix graphics bugs.
+This usually indicates that your dump is corrupted. To verify the integrity of your dump, right-click on the game you want to check, then click on properties.
 
-#### Where do I make the dump?
+You should be greeted with the game properties window. Next up click the verify button under the disc track list.
 
-Get to a point in your game where the graphics bug is clearly visible. The issue must appear on your screen in order for it to be captured in the dump. More information on the [PCSX2 forums](https://forums.pcsx2.net/Thread-How-to-create-a-proper-GS-dump)
+If it returns a green checkmark (✅) then your game dumps are working just fine, otherwise if it returns a red cross (❌) then your dumps are corrupted and you will have to redump your game. You can checkout [the gathering files page](../setup/gather.md#dumping-ps2-discs-via-imgburn) for the instructions on how to do so.
 
-#### How do I make the dump?
-
-Use the key combination `Shift + F8`
-
-You can also use `Tools > Save Single Frame GS Dump`
-
-<Image cols={10} src={require("./img/gsdump.webp").default} />
-
-#### Where does the GS dump save to?
-
-GS dumps are saved to the `/snaps` folder.
-
-Your graphics settings DO NOT affect the dump, and you will not need to change renderers, hardware fixes or any other settings.
+<Image src={require("./img/verify.webp").default} />
 
 ## Still have problems?
 
@@ -59,7 +30,3 @@ If your game is not working, there are a few things you can do:
 - Check the [compatibility page](/compat) to see if the game has been tested to run properly
 - Consult the [wiki page](https://wiki.pcsx2.net) for the game for similar information
 - Check the [GitHub issues page](https://github.com/PCSX2/pcsx2/issues) to see if there are any reported issues
-
-### Reach out for help
-
-If none of the above suggestions help you solve your problem, consider reaching out in either the respective [Discord](https://discord.com/invite/TCz3t9k) channel or the forum.

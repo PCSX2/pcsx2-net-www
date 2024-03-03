@@ -1,11 +1,13 @@
 ---
 title: "Gathering Files"
-date: 2023-08-02
+date: 2024-03-20
 summary: "Steps on how to gather required files for you to be able to use PCSX2"
 draft: false
 toc: true
 sidebar_position: 2
 ---
+
+This section will help you gather all the required files needed for PCSX2 to run.
 
 :::caution
 In order for PCSX2 to function properly, both a legitimate BIOS and copies of games must be obtained from **your own** PlayStation 2 console and original PlayStation 2 discs respectively.
@@ -37,17 +39,19 @@ There is a generally useful program, uLaunchELF, that lets you browse memory car
    - Extremely technical, requires soldering skills. DO NOT ATTEMPT unless you are an electronics pro.
      :::caution
      Due to how modchips operate, it is possible for your BIOS dump to be incomplete or even corrupted while they are active.
-     To guarantee a proper BIOS dump, first use your modchip to install FMCB or Fortuna. Then disable your modchip\* and use one of the aforementioned exploits to launch biosdrain.  
-      \*Refer to your modchips documentation to see what button combination disables your modchip.
+     To guarantee a proper BIOS dump, first use your modchip to install FMCB or Fortuna. Then disable your modchip\* and use one of the aforementioned exploits to launch biosdrain.
+     \*Refer to your modchips documentation to see what button combination disables your modchip.
      :::
 
 ### Downloading the BIOS dumper utility
 
 Our recommended BIOS dumper utility is [biosdrain](https://github.com/F0bes/biosdrain). Therefore the instructions below will be for this tool.
 
-<Image cols={9} src={require("./img/biosdrain.webp").default} />
+<Image src={require("./img/biosdrain.webp").default} />
 
-- The download for the latest stable biosdrain is [here](https://github.com/f0bes/biosdrain/releases/latest/download/biosdrain.elf).
+:::info
+The download for the latest stable release of biosdrain is [here](https://github.com/f0bes/biosdrain/releases/latest/download/biosdrain.elf).
+:::
 
 ### Option 1: Starting a PS2 with FreeMcBoot
 
@@ -67,9 +71,9 @@ Our recommended BIOS dumper utility is [biosdrain](https://github.com/F0bes/bios
 There are two options available when dumping the BIOS.
 biosdrain supports USB and HOST through PS2link. If your console does not have networking support, please refer to the USB method, otherwise you can use the ps2client method.
 
-- USB
+#### USB
 
-  - Take the biosdrain.elf file that was downloaded above, and transfer it to a FAT32 formatted, with MBR Disk type (not GPT) USB flash drive.
+- Take the biosdrain.elf file that was downloaded above, and transfer it to a FAT32 formatted, with MBR Disk type (not GPT) USB flash drive.
 
   :::note
   Please note that some incompatibilities between certain USB drives and PS2 USB drivers have been reported throughout the years. If your USB drive is not detected by uLaunchELF (`mass:` is empty) please try another one, preferably USB 2.0.
@@ -77,13 +81,14 @@ biosdrain supports USB and HOST through PS2link. If your console does not have n
 
   - Insert your USB flash drive into your PS2.
   - In uLaunchELF, navigate to the device named `mass:` and open it.
-    <Image cols={9} src={require("./img/ule.webp").default} />
+    <Image src={require("./img/ule.webp").default} />
   - Locate and run `biosdrain.elf`.
   - You will know that it is finished when biosdrain says `Finished Everything`. Please be patient, as USB on the PS2 is SLOW!
   - Once the final message appears, you can now plug the USB drive back into your computer. You will know that the dump was successful if you see files ending in `.rom0`,`.rom1`,`.nvm`, etc, prefixed by your console model ID in your USB drive.
 
-- PS2client / XLINK & PS2link
-  - When using XLINK, simply execute the `biosdrain.elf` with the user interface.
+#### PS2client / XLINK & PS2link
+
+- When using XLINK, simply execute the `biosdrain.elf` with the user interface.
   - When using PS2client, cd into the directory where you have `biosdrain.elf`, and simply run `ps2client execee host:biosdrain.elf`
   - biosdrain will automatically detect that the `host` device is present and will dump your BIOS contents to the root directory of `host` **(Usually where you have the biosdrain.elf file)**.
   - You will know that it is finished when biosdrain says `Finished Everything`, either on screen or in your console log.
@@ -103,7 +108,7 @@ PlayStation 2 game discs are unencrypted DVDs and CDs. This means they can be du
 - Put your game disc into an optical drive
 - Create an image file from a disc inside ImgBurn (highlighted in screenshot below)
 
-<Image cols={6} src={require("./img/imgburn.webp").default} />
+<Image src={require("./img/imgburn.webp").default} />
 
 ## Alternative: Dumping PlayStation 2 discs with Media Preservation Frontend (more advanced)
 
@@ -127,4 +132,4 @@ This tool is currently only available on Windows, but Linux support may be added
 
 One quick note, the lower the drive speed of the optical drive the more likely you are to get a good dump of the disc. The fastest drive speed will take much less time, but may be incomplete, corrupted, or inaccurate. It could also be perfectly fine, so depending on your drive and your media, try different things and see what works best for you.
 
-<Image cols={6} src={require("./img/MPF.webp").default} />
+<Image src={require("./img/MPF.webp").default} />

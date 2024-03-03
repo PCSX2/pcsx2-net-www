@@ -1,6 +1,6 @@
 ---
 title: "Linux"
-date: 2023-08-02
+date: 2024-03-20
 summary: "Known Linux-specific issues for PCSX2"
 draft: false
 toc: true

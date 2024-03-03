@@ -1,6 +1,6 @@
 const redirects = [
   {
-    to: "/docs/usage/setup",
+    to: "/docs/category/setup",
     from: [
       "/guides/basic-setup",
       "/getting-started",

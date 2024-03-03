@@ -1,11 +1,13 @@
 ---
 title: "Requirements"
-date: 2023-08-02
-summary: "Requirements to get PCSX2 up and running."
+date: 2024-03-20
+summary: "System requirements to get PCSX2 up and running."
 draft: false
 toc: true
 sidebar_position: 1
 ---
+
+This section list down the system requirements to get PCSX2 up and running.
 
 ## System Requirements
 
@@ -80,20 +82,7 @@ sidebar_position: 1
 - RAM
   - 16 GB of System Memory
 
-## Required Software
-
-### Visual C++ Redistributable
-
-- You need the [Visual C++ 2019 x86 Redistributables](https://support.microsoft.com/en-us/help/2977003/) to run PCSX2.
-  - They are combined with other yearly releases Visual Studio 2015, 2017, 2019, and 2022. 64-bit version (x64) is required for 1.7.0 and higher (though early 1.7 builds still required 32 bit versions)
-
-### FFmpeg
-
-- PCSX2 requires some additional ffmpeg libraries to enable video capture.
-  - Grab the ffmpeg Windows files [here](https://github.com/PCSX2/pcsx2-windows-dependencies/releases/download/FFMPEG/ffmpeglibs-6.0.7.7z).
-  - Extract the zip file, then place the extracted dll files in your PCSX2 folder. They should be in the same folder as the main PCSX2 exe file.
-
-## Version Deprecation Notes
+## Version deprecation notes
 
 - Windows XP and Direct3D9 support was dropped after stable release 1.4.0.
 - Windows 7, Windows 8.0, and Windows 8.1 support was dropped after stable release 1.6.0.
