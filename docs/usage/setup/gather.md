@@ -26,13 +26,20 @@ There is a generally useful program, uLaunchELF, that lets you browse memory car
 
 1. FreeMcBoot Memory Card
    - Works for all but the newest (9xxxx serial number with a date code larger than 8B) slim PS2s. Can be found online for ~10 USD.
-2. FreeDVDBoot
+2. Fortuna Memory Card
+   - Works for all slim models. Can also be found for ~10 USD.
+3. FreeDVDBoot
    - Works for many slim models, and some phat models. Slight effort, but free.
    - You will require a blank DVD for this method to work!
-3. Disc swap exploits
+4. Disc swap exploits
    - Technical in nature, involves hardware tampering. Guides can be found quickly by Googling.
-4. Mod chips
+5. Mod chips
    - Extremely technical, requires soldering skills. DO NOT ATTEMPT unless you are an electronics pro.
+     :::caution
+     Due to how modchips operate, it is possible for your BIOS dump to be incomplete or even corrupted while they are active.
+     To guarantee a proper BIOS dump, first use your modchip to install FMCB or Fortuna. Then disable your modchip\* and use one of the aforementioned exploits to launch biosdrain.  
+      \*Refer to your modchips documentation to see what button combination disables your modchip.
+     :::
 
 ### Downloading the BIOS dumper utility
 
