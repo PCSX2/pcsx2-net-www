@@ -154,7 +154,9 @@ That's where PCSX2's Automatic renderer comes in. Our testers have gone through 
 
 As if using floating point math terms as swears wasn't enough, blending effects haunt graphics developers with nightmares that make even the best horror films look like a joke. Blending is a special technique seen in PS2 games generally used to blend two layers of graphics together. If there's a really cool looking light, bloom, shadow, transparency, reflection, or overlay in your game, there's a fair chance blends are making that happen.
 
-Blending performance overall has been substantially improved and is a major reason for overall graphics performance improvements. Three major techniques are used in PC graphics to help replicate blends: barriers, render passes, and readbacks. These have received a lot more attention than usual, because too many of these means performance begins to fall off a cliff. These counts are down across the board, meaning more frames for you. Plus, now these are viewable directly in our new and revamped on-screen display!
+Blending performance overall has been substantially improved and is a major reason for overall graphics performance improvements. Three major techniques are used in PC graphics to help replicate blends: barriers, render passes, and readbacks. These have received a lot more attention than usual, because too many of these means performance begins to fall off a cliff. These counts are down across the board, meaning more frames for you. Plus, now these statistics are viewable directly in our new and revamped on-screen display!
+
+Historically, some games may needs higher blending accuracy than basic to emulate certain graphical effects which will absolutely tanks the performance especially on older GPUs. Now that is no longer the case as basic blending should cover a good chunk of it, across all renderers!
 
 Here are some benchmarks in a few selected games:
 
