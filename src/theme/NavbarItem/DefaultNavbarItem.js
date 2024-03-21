@@ -11,7 +11,7 @@ function DefaultNavbarItemDesktop({
     <NavbarNavLink
       className={clsx(
         isDropdownItem ? "dropdown__link" : "navbar__item navbar__link",
-        className
+        className,
       )}
       isDropdownLink={isDropdownItem}
       {...props}

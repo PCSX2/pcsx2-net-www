@@ -10,3 +10,7 @@ updates:
     schedule:
       # Reminder for manually vendored dependencies
       interval: "monthly"
+    groups:
+      frontend-dependencies:
+        patterns:
+          - "*"

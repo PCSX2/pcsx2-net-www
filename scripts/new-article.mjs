@@ -37,7 +37,7 @@ response = await prompts({
 });
 const articleDate = response.value;
 content.push(
-  `date: ${articleDate.toISOString().replace("T", " ").replace("Z", "")}`
+  `date: ${articleDate.toISOString().replace("T", " ").replace("Z", "")}`,
 );
 
 response = await prompts({
@@ -78,5 +78,5 @@ fs.mkdirSync(`./blog/${articleDate.getFullYear()}/${articleSlug}/img`, {
 });
 fs.writeFileSync(
   `./blog/${articleDate.getFullYear()}/${articleSlug}/index.mdx`,
-  content.join("\n")
+  content.join("\n"),
 );

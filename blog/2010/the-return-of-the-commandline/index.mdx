@@ -33,37 +33,37 @@ Syntax: **pcsx2 \[IsoFile\] --toggle --option=value ... etc**
 
 General Options :
 
-- --cfg=\[file\] {specify a custom configuration file to use instead
-  of PCSX2.ini (does not affect plugins)}
-- --cfgpath=\[dir\] {specifies the config folder; applies to pcsx2 +
-  plugins}
-- --help {display this help text}
-- --forcewiz {forces running of the First-time Wizard (selection of
-  docs folders and what-not)}
+- `--cfg=[file]` specify a custom configuration file to use instead
+  of PCSX2.ini (does not affect plugins)
+- `--cfgpath=[dir]` specifies the config folder; applies to pcsx2 +
+  plugins
+- `--help` display this help text
+- `--forcewiz` forces running of the First-time Wizard (selection of
+  docs folders and what-not)
 
 Auto-Run Options :
 
-- --elf=\[file\] {executes an ELF image}
-- --nogui {disables display of the gui on exit (program auto-exits)}
-- --nodisc {boots with an empty dvd tray; use this to boot into the
-  PS2 system menu}
-- --usecd {uses the configured CDVD plugin instead of IsoFile}
+- `--elf=[file]` executes an ELF image
+- `--nogui` disables display of the gui on exit (program auto-exits)
+- `--nodisc` boots with an empty dvd tray; use this to boot into the
+  PS2 system menu
+- `--usecd` uses the configured CDVD plugin instead of IsoFile
 
 Compatibility Options:
 
-- --nohacks {disables all speedhacks}
-- --gamefixes=\[fix,fix\] {Enable specific gamefixes for this session.
+- `--nohacks` disables all speedhacks
+- `--gamefixes=[fix,fix]` Enable specific gamefixes for this session.
   Valid fixes in 0.9.7 are: VuAddSub, VuClipFlag, FpuCompare,
-  FpuNegDiv, XGKick, IpuWait, EETiming, SkipMpeg }
-- --fullboot {disables the quick boot feature, forcing you to sit
-  through the PS2 startup splash screens}
+  FpuNegDiv, XGKick, IpuWait, EETiming, SkipMpeg
+- `--fullboot` disables the quick boot feature, forcing you to sit
+  through the PS2 startup splash screens
 
 Plugin Overrides (specified dlls will be used in place of configured
 dlls):
 
-- --cdvd=\[dllpath\] {override for the CDVD plugin}
-- --gs=\[dllpath\] {override for the GS plugin}
-- --spu=\[dllpath\] {override for the SPU2 plugin}
-- --pad=\[dllpath\] {override for the PAD plugin only}
-- --dev9=\[dllpath\] {override for the DEV9 plugin}
-- --usb=\[dllpath\] {override for the USB plugin only}
+- `--cdvd=[dllpath]` override for the CDVD plugin
+- `--gs=[dllpath]` override for the GS plugin
+- `--spu=[dllpath]` override for the SPU2 plugin
+- `--pad=[dllpath]` override for the PAD plugin only
+- `--dev9=[dllpath]` override for the DEV9 plugin
+- `--usb=[dllpath]` override for the USB plugin only

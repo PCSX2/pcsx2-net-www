@@ -23,7 +23,7 @@ describe("Home Page - Desktop", () => {
       .click({ force: true });
     cy.location("href").should(
       "eq",
-      Cypress.config("baseUrl") + "/tags/progress-report/"
+      Cypress.config("baseUrl") + "/tags/progress-report/",
     );
   });
 
@@ -37,7 +37,7 @@ describe("Home Page - Desktop", () => {
       .click({ force: true });
     cy.location("href").should(
       "eq",
-      Cypress.config("baseUrl") + "/tags/devblog/"
+      Cypress.config("baseUrl") + "/tags/devblog/",
     );
   });
 });
@@ -67,7 +67,7 @@ describe("Home Page - Mobile", () => {
       .click({ force: true });
     cy.location("href").should(
       "eq",
-      Cypress.config("baseUrl") + "/tags/progress-report/"
+      Cypress.config("baseUrl") + "/tags/progress-report/",
     );
   });
 
@@ -81,7 +81,7 @@ describe("Home Page - Mobile", () => {
       .click({ force: true });
     cy.location("href").should(
       "eq",
-      Cypress.config("baseUrl") + "/tags/devblog/"
+      Cypress.config("baseUrl") + "/tags/devblog/",
     );
   });
 });

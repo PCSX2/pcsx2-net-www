@@ -14,7 +14,7 @@ describe("Blog Page - Desktop", () => {
     cy.get(".pagination > :nth-child(4) > .page-link").click();
     cy.location("href").should(
       "eq",
-      Cypress.config("baseUrl") + "/blog/page/2/"
+      Cypress.config("baseUrl") + "/blog/page/2/",
     );
   });
 
@@ -25,7 +25,7 @@ describe("Blog Page - Desktop", () => {
       .click();
     cy.location("href").should(
       "eq",
-      Cypress.config("baseUrl") + "/tags/devblog/"
+      Cypress.config("baseUrl") + "/tags/devblog/",
     );
     cy.get('[data-test-id="tag-button-row"]')
       .find(".btn")
@@ -40,7 +40,7 @@ describe("Blog Page - Desktop", () => {
       .click();
     cy.location("href").should(
       "eq",
-      Cypress.config("baseUrl") + "/tags/progress-report/"
+      Cypress.config("baseUrl") + "/tags/progress-report/",
     );
     cy.get('[data-test-id="tag-button-row"]')
       .find(".btn")
@@ -65,7 +65,7 @@ describe("Blog Page - Mobile", () => {
     cy.get(".pagination > :nth-child(4) > .page-link").click();
     cy.location("href").should(
       "eq",
-      Cypress.config("baseUrl") + "/blog/page/2/"
+      Cypress.config("baseUrl") + "/blog/page/2/",
     );
   });
 
@@ -76,7 +76,7 @@ describe("Blog Page - Mobile", () => {
       .click();
     cy.location("href").should(
       "eq",
-      Cypress.config("baseUrl") + "/tags/devblog/"
+      Cypress.config("baseUrl") + "/tags/devblog/",
     );
     cy.get('[data-test-id="tag-button-row"]')
       .find(".btn")
@@ -91,7 +91,7 @@ describe("Blog Page - Mobile", () => {
       .click();
     cy.location("href").should(
       "eq",
-      Cypress.config("baseUrl") + "/tags/progress-report/"
+      Cypress.config("baseUrl") + "/tags/progress-report/",
     );
     cy.get('[data-test-id="tag-button-row"]')
       .find(".btn")
