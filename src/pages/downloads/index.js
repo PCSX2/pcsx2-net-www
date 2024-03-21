@@ -165,7 +165,7 @@ export default function Downloads() {
                 <Grid xs={12}>
                   <p>
                     If you need help using the emulator,{" "}
-                    <a href="/docs/usage/setup/">see the following article.</a>
+                    <a href="/docs/">see the following article.</a>
                   </p>
                 </Grid>
                 <Grid xs={12}>
@@ -278,12 +278,6 @@ export default function Downloads() {
                     There is a new nightly release anytime a change is made, so
                     you are getting the latest and greatest (but sometimes
                     buggy) experience
-                  </p>
-                </Grid>
-                <Grid xs={12}>
-                  <p>
-                    For help using these releases,{" "}
-                    <a href="/docs/usage/setup/">see the following article.</a>
                   </p>
                 </Grid>
                 <Grid xs={12} css={{ mt: "2em" }}>

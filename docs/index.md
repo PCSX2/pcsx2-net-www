@@ -6,6 +6,4 @@ sidebar_position: 1
 
 Here you will find various documentation related to the PCSX2 project, intended for both general user and technical audiences.
 
-## Setup
-
-Topics such as how to get the emulator up and running, dump your BIOS, etc.
+If this article does not help solve your problem, reach out in the [Discord](https://discord.com/invite/TCz3t9k) channel or the [forum](https://forums.pcsx2.net/).

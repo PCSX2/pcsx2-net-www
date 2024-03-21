@@ -5,7 +5,7 @@
       "comments": false,
       "strings": true
     },
-    "editor.wordBasedSuggestions": false,
+    "editor.wordBasedSuggestions": "off",
     "editor.snippetSuggestions": "top"
   }
 }
