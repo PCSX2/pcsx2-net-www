@@ -15,6 +15,10 @@ General information in regards to PCSX2 features.
 **When in doubt, use the automatic renderer option.**
 :::
 
+### Automatic
+
+Automatic will figure out out what renderer works for what GPU architectures, and it is set up to pick the best option for you. Priority goes first to stability, then accuracy. **Always use this option if you are unsure.**
+
 ### Software mode
 
 Renders on your CPU for maximum accuracy. Does not use your GPU.

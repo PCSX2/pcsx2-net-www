@@ -26,28 +26,27 @@ If you see this error message during PCSX2 startup such as the following:
   - Grab the ffmpeg Windows files [here](https://github.com/PCSX2/pcsx2-windows-dependencies/releases/download/FFMPEG/ffmpeglibs-6.0.7.7z).
   - Extract the zip file, then place the extracted dll files in your PCSX2 folder. They should be in the same folder as the main PCSX2 exe file.
 
-## Failed to create render device
+## Crashes
 
-If you get this error message when attempting to launch a game:
+There are various problems that can cause PCSX2 to crash during operation, here we list the most common ones:
+
+### Crash when opening setting
+
+If PCSX2 crashes when opening settings or, you get this error message when attempting to launch a game:
 <Image src={require("./img/old_driver.webp").default} />
+
 This means your GPU drivers are out of date, please update your GPU drivers and try again.
 
-Always use the newest driver, but at minimum you need:
+#### How do i update my GPU driver?
 
-```ini
-- Nvidia: 497.29
-- AMD: Adrenalin 21.12.1
-- Intel: 30.0.101.1191
-```
+- Intel: [Search for your GPU or CPU model](https://www.intel.com/content/www/us/en/download-center/home.html)
+- Nvidia: [Search for your GPU model](https://www.nvidia.com/Download/index.aspx?lang=en-us) or [use GeForce Experience to update drivers automatically](https://www.nvidia.com/en-us/geforce/geforce-experience/)
+- AMD: [Search for your GPU or CPU model, or use the download buttons at the top to update drivers automatically](https://www.amd.com/en/support)
 
 :::caution
 Make sure you update the drivers **for all your GPUs** on the system, even if you are not using it for PCSX2.
 Most notably for laptops, don't forget to also update the driver for the Integrated GPU as well.
 :::
-
-## Crashes
-
-There are various culprits that can cause PCSX2 to crash during operation, here we list the most common ones:
 
 ### Crash when adding a File/Directory to the Game List or opening PCSX2 setting
 

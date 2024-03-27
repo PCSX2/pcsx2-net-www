@@ -50,13 +50,13 @@ This section will help you through the process of setting up PCSX2 on Linux.
 ## Build from source (Advanced users)
 
 :::tip
-For more details on building from source for Linux, checkout our [GitHub Wiki](https://github.com/PCSX2/pcsx2/wiki/10-Building-on-Linux).
+For more details on building from source for Linux (or even Windows), check out our [GitHub Wiki](https://github.com/PCSX2/pcsx2/wiki/10-Building-on-Linux).
 :::
 
 - PCSX2 can be built from source using **Ninja**.
   - This method is not recommended for inexperienced users and assumes you know how to navigate directories from the command line.
 - To obtain the source code from the command line, type `git clone https://github.com/PCSX2/pcsx2 --recurse`.
-- Next, enter the `pcsx2` directory you created and type `cmake --present=clang-release`.
+- Next, enter the `pcsx2` directory you created and type `cmake --preset=clang-release`.
 - Finally, enter the `build` subdirectory which was just created and enter the command `ninja`.
 - This will build PCSX2, which could take several minutes depending on your CPU.
 - After the build is compiled, the executable file `pcsx2-qt` will be in the `build/bin` directory.

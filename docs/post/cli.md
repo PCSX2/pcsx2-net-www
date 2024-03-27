@@ -54,5 +54,7 @@ The ISO file `Final Fantasy X.iso` will be launched in fullscreen automatically 
 ### Automatically start PCSX2 in Big Picture mode
 
 ```sh
-D:\PCSX2\pcsx2-qt.exe -fullscreen -bigpicture -nogui
+D:\PCSX2\pcsx2-qt.exe -fullscreen -bigpicture
 ```
+
+This will automatically launch PCSX2 in Big Picture Mode.
