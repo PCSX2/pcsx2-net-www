@@ -81,40 +81,6 @@ From here, you can test your mapping by pressing the buttons on your controller 
 
 <Image src={require("./img/padtest.webp").default} />
 
-## Custom profile
-
-### What is the purpose of a controller profile?
-
-Custom profiles are intended for overriding your normal Shared mappings. You use profiles when you want a completely different controller setup for a specific game. For example, you may create a profile for games which use a guitar controller, rather than changing your mappings every time you play that one game. If you aren't trying to make a special setup for one specific game, don't use profiles.
-
-### Why isn't my game recognizing my profile?
-
-The Shared profile is what you start out with and is what all games default to, unless told otherwise. When creating a profile, the name prompt tells you to change the input profile in your per-game settings.
-
-If you want to use a custom profile for a specific game, then you need to assign it to the game. You can find this option on the per-game setting's summary tab, Right click it in your games list, hit Properties, then select the appropriate item under Input Profile.
-
-### I am trying to map multiple PC devices to a single PS2 controller
-
-Profiles do not do this. To map multiple PC devices to a single PS2 controller, simply shift-click a mapping button. You will be given a screen with the ability to add a mapping from a second device (or more).
-
-### I am trying to change my mappings between two layouts while I play the game
-
-This is not and will not be a supported feature in PCSX2. Use external software to do this.
-
-## Multitap
-
-Multitaps are physical devices sold separately for the Playstation 2. A multitap fills both a controller and memory card port, and expands those out to four controller and memory card slots each.
-
-:::info
-PCSX2 currently does not support multitapped memory cards.
-:::
-
-For games which support more than two players, a multitap is required to connect more than two controllers. Depending on which port you enable a multitap for, controllers labelled A-D will be added for that port.
-
-For example, enabling multitap in port 1 will add controllers 1-A through 1-D. The A slot will always be the "original" controller port, with the B-D slots being the additional slots added.
-
-The Playstation 2 SDK places no restrictions on how games use a multitap. Some games will ignore multitapped controllers if you do not multitap a specific port or use specific slots. You will need to refer to your game's manual to understand which port the game supports multitaps for, and in what order a game expects multitapped controllers to be added.
-
 ## Setting up pressure sensitivity
 
 :::caution
@@ -135,7 +101,23 @@ Follow this step:
 4. Enable the XInput source in PCSX2
 5. Use "Automatic Binding" button and select XInput
 
-## Wheel Compatibility
+## Multitap
+
+Multitaps are physical devices sold separately for the Playstation 2. A multitap fills both a controller and memory card port, and expands those out to four controller and memory card slots each.
+
+:::info
+PCSX2 currently does not support multitapped memory cards.
+:::
+
+For games which support more than two players, a multitap is required to connect more than two controllers. Depending on which port you enable a multitap for, controllers labelled A-D will be added for that port.
+
+For example, enabling multitap in port 1 will add controllers 1-A through 1-D. The A slot will always be the "original" controller port, with the B-D slots being the additional slots added.
+
+The Playstation 2 SDK places no restrictions on how games use a multitap. Some games will ignore multitapped controllers if you do not multitap a specific port or use specific slots. You will need to refer to your game's manual to understand which port the game supports multitaps for, and in what order a game expects multitapped controllers to be added.
+
+## Peripherals & Accessory
+
+### Wheel compatibility
 
 When setting up your wheel device, you must pick the PS2 wheel that closest matches your PC wheel. Failing to do so may result in broken or missing FFB (Force Feedback), or unresponsive steering.
 
@@ -144,9 +126,45 @@ When setting up your wheel device, you must pick the PS2 wheel that closest matc
 3. Driving Force Pro: 900 degree, no FFB
 4. Driving Force Pro (rev11.02): 900 degree, FFB supported
 
-### Game-specific behavior
+:::caution
+Some games may not support FFB on certain wheel types, even if that wheel supports FFB. Even if this is the case, do not switch your emulated PS2 wheel to a type which does not match your PC wheel.
+:::
 
-Some games may not support FFB on certain wheel types, even if that wheel supports FFB. Even if this is the case, do not switch your emulated PS2 wheel to a type which does not match your PC wheel!
+### Buzz controller
+
+#### Windows setup
+
+PS2 Buzz controllers can be used on a PC but may need extra setup steps on Windows.
+
+If your Buzz controllers do not appear in the list of available devices in PCSX2:
+
+1. Hit Start, type Device Manager and hit enter.
+2. Locate the Buzz controller. It is likely going to be in the Universal Serial Bus controllers section, named Standard USB HUB and have a yellow warning triangle on it.
+3. Right click and go to Properties.
+4. Click Update Driver, then Browse Computer for Driver Software, then Let me pick from drivers on my computer, then USB Input Device.
+5. Click OK, and exit out of Device Manager.
+
+Your Buzz controller should now be detected by PCSX2. You may need to close and reopen PCSX2 if it is not immediately available.
+
+## Custom profile
+
+### What is the purpose of a controller profile?
+
+Custom profiles are intended for overriding your normal Shared mappings. You use profiles when you want a completely different controller setup for a specific game. For example, you may create a profile for games which use a guitar controller, rather than changing your mappings every time you play that one game. If you aren't trying to make a special setup for one specific game, don't use profiles.
+
+### Why isn't my game recognizing my profile?
+
+The Shared profile is what you start out with and is what all games default to, unless told otherwise. When creating a profile, the name prompt tells you to change the input profile in your per-game settings.
+
+If you want to use a custom profile for a specific game, then you need to assign it to the game. You can find this option on the per-game setting's summary tab, Right click it in your games list, hit Properties, then select the appropriate item under Input Profile.
+
+### I am trying to map multiple PC devices to a single PS2 controller
+
+Profiles do not do this. To map multiple PC devices to a single PS2 controller, simply shift-click a mapping button. You will be given a screen with the ability to add a mapping from a second device (or more).
+
+### I am trying to change my mappings between two layouts while I play the game
+
+This is not and will not be a supported feature in PCSX2. Use external software to do this.
 
 ## Known Issues
 
