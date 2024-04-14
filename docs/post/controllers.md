@@ -57,7 +57,7 @@ Only use if you are having issues with SDL or XInput.
 
 ## Mapping the buttons
 
-To start mapping your controller, you can first check if your controller is availale for automatic mapping by clicking on the "Automatic Mapping" button on the top right. If automatic mapping is not available, you will have to map the buttons to your controller manually.
+To start mapping your controller, you can first check if your controller is available for automatic mapping by clicking on the "Automatic Mapping" button on the top right. If automatic mapping is not available, you will have to map the buttons to your controller manually.
 
 :::caution
 Automatic Mapping is not available for controllers using the DInput source.
@@ -73,7 +73,7 @@ Some third party controllers may fail to map using Automatic Mapping, even with 
 
 :::info
 PCSX2 currently doesn't have any way to test your inputs directly from the UI.
-:::info
+:::
 
 To test your controller input, grab this [PS2 Pad Tester ELF](https://github.com/PCSX2/tools/releases/download/tests%2Fpad/padtest_ps2.elf) file then drag and drop it into PCSX2's main window.
 
@@ -93,13 +93,23 @@ Only the original DualShock 3 OEM controllers are compatible with pressure sensi
 
 This allows you to take advantage DualShock 3's pressure sensitive face button on PCSX2.
 
-Follow this step:
+### Windows
 
 1. Install [DsHidMini](https://forums.pcsx2.net/Thread-DsHidMini-Windows-10-driver-for-the-DualShock-3)
 2. Set DsHidMini to SXS mode
 3. Drop DsHidMini's custom XInput DLL into the PCSX2 folder
 4. Enable the XInput source in PCSX2
 5. Use "Automatic Binding" button and select XInput
+
+### Linux and Mac (Experimental)
+
+The auto binding system doesn't fully support it, but the backend does.
+
+- Bind all your keys, then close PCSX2 and edit the `PCSX2.ini` file to delete all the buttons and change all the axes from `-Axis##` or `+Axis##` to `FullAxis##`
+
+:::caution
+On Linux, [you may need to add udev rules to give PCSX2 access to the controller](https://wiki.rpcs3.net/index.php?title=Help:Controller_Configuration#On_Linux).
+:::
 
 ## Multitap
 

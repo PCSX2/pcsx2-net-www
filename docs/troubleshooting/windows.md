@@ -7,7 +7,7 @@ toc: true
 sidebar_position: 3
 ---
 
-Here are some known Windows-specific issue that can happen to PCSX2
+Here are some known Windows-specific issue that can occur.
 
 ## Missing "MSVCP140.dll"
 

@@ -4,7 +4,7 @@ date: 2024-03-20
 summary: "Steps on how to install and run PCSX2 on Windows"
 draft: false
 toc: true
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 This section will help you through the process of setting up PCSX2 on Windows.
