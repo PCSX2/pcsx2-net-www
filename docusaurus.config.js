@@ -99,6 +99,7 @@ const config = {
           feedOptions: {
             type: "all",
             copyright: `Copyright © ${new Date().getFullYear()} PCSX2.`,
+            limit: 3,
           },
         },
         theme: {
