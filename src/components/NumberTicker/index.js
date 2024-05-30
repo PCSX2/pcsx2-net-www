@@ -15,10 +15,10 @@ export function NumberTicker({ number, numberFunc }) {
     }
   }, [currVal]);
 
-  useEffect(async () => {
+  useEffect(() => {
     // Figure out the max value (either provided directly or via the function)
     if (numberFunc) {
-      const num = await numberFunc();
+      const num = numberFunc();
       // TODO - handle error
       setMaxVal(num);
       const startingVal = Math.max(0, Math.round(num - num * 0.025));

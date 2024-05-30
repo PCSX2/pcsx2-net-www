@@ -51,20 +51,7 @@ export default function Downloads() {
   // general api
   const [apiErrorMsg, setApiErrorMsg] = useState(undefined);
 
-  useEffect(async () => {
-    let shouldShowPreviousNightlies = window.localStorage.getItem(
-      "downloads-showPreviousNightlies",
-    );
-    if (shouldShowPreviousNightlies) {
-      setShowPreviousNightlies(shouldShowPreviousNightlies === "true");
-    }
-    let shouldShowPreviousStables = window.localStorage.getItem(
-      "downloads-showPreviousStables",
-    );
-    if (shouldShowPreviousStables) {
-      setShowPreviousStables(shouldShowPreviousStables === "true");
-    }
-
+  const fetchLatestReleases = async () => {
     try {
       const resp = await fetch(`${baseApiUrl}/latestReleasesAndPullRequests`);
       if (resp.status === 429) {
@@ -95,6 +82,23 @@ export default function Downloads() {
     } catch (err) {
       setApiErrorMsg("Unexpected API Error Occurred. Try Again Later!");
     }
+  };
+
+  useEffect(() => {
+    let shouldShowPreviousNightlies = window.localStorage.getItem(
+      "downloads-showPreviousNightlies",
+    );
+    if (shouldShowPreviousNightlies) {
+      setShowPreviousNightlies(shouldShowPreviousNightlies === "true");
+    }
+    let shouldShowPreviousStables = window.localStorage.getItem(
+      "downloads-showPreviousStables",
+    );
+    if (shouldShowPreviousStables) {
+      setShowPreviousStables(shouldShowPreviousStables === "true");
+    }
+
+    fetchLatestReleases();
   }, []);
 
   return (

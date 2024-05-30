@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Table, Card, Row, Col, Text, Grid } from "@nextui-org/react";
+import { Table, Card, Text, Grid } from "@nextui-org/react";
 import ReactMarkdown from "react-markdown";
 import { ReleaseDownloadButton } from "../ReleaseDownloadButton";
-import { GoDiffAdded, GoDiffRemoved } from "react-icons/go";
+import { GoPlus, GoDash } from "react-icons/go";
 import { IconContext } from "react-icons";
 import { DateTime } from "luxon";
 
@@ -20,7 +20,7 @@ export function PullRequestTableCard({ pullRequest }) {
                 <IconContext.Provider
                   value={{ style: { verticalAlign: "middle" } }}
                 >
-                  <GoDiffAdded size={24}></GoDiffAdded>
+                  <GoPlus size={24}></GoPlus>
                 </IconContext.Provider>
                 &nbsp;
                 {pullRequest.additions}
@@ -29,7 +29,7 @@ export function PullRequestTableCard({ pullRequest }) {
                 <IconContext.Provider
                   value={{ style: { verticalAlign: "middle" } }}
                 >
-                  <GoDiffRemoved size={24}></GoDiffRemoved>
+                  <GoDash size={24}></GoDash>
                 </IconContext.Provider>
                 &nbsp;
                 {pullRequest.deletions}

@@ -85,7 +85,7 @@ export default function Home() {
   const [apiErrorMsg, setApiErrorMsg] = useState(undefined);
   const [homeVideoPath, setHomeVideoPath] = useState("/videos/splash.webm");
 
-  useEffect(async () => {
+  const fetchLatestReleases = async () => {
     try {
       const resp = await fetch(`${baseApiUrl}/latestReleasesAndPullRequests`);
       if (resp.status === 429) {
@@ -108,7 +108,10 @@ export default function Home() {
     } catch (err) {
       setApiErrorMsg("Unexpected API Error Occurred. Try Again Later!");
     }
+  };
 
+  useEffect(() => {
+    fetchLatestReleases();
     setHomeVideoPath(
       getDocumentTheme(document?.documentElement) === "dark"
         ? "/videos/splash.webm"

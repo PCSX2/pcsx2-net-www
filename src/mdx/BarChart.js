@@ -84,14 +84,17 @@ function _renderChart(chartData) {
 export default function Chart(props) {
   const [chartData, setChartData] = useState(undefined);
 
-  useEffect(async () => {
-    const resp = await fetch(props.chartDataUrl);
+  const fetchChartData = async (chartDataUrl) => {
+    const resp = await fetch(chartDataUrl);
     // TODO - handle error cases
     const yamlText = await resp.text();
     const data = YAML.parse(yamlText);
-
     // With the chart data, construct whats needed to make the chart
     setChartData(data);
+  };
+
+  useEffect(() => {
+    fetchChartData(props.chartDataUrl);
   }, [props?.chartDataUrl]);
 
   return (
