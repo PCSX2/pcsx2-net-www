@@ -3,10 +3,12 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      # Check for updates to GitHub Actions every month
       interval: "monthly"
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      # Reminder for manually vendored dependencies
       interval: "monthly"
+    groups:
+      frontend-deps:
+        patterns:
+          - "*"
