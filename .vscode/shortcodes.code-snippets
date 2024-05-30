@@ -3,9 +3,9 @@
     "scope": "markdown,md",
     "prefix": ["textgradient"],
     "body": [
-      "<TextGradient startColor=\"${1:color}\" endColor=\"${2:color}\">${3:text}</TextGradient>"
+      "<TextGradient startColor=\"${1:color}\" endColor=\"${2:color}\">${3:text}</TextGradient>",
     ],
-    "description": "Plain text with a gradient background"
+    "description": "Plain text with a gradient background",
   },
   "PR Link": {
     "scope": "markdown,md",
@@ -13,9 +13,9 @@
     "body": [
       "<PCSX2PRLink authors=\"${1:authors}\" prNums=\"${2:pullReqNumbers - CommaSep}\">",
       "  ${3:title}",
-      "</PCSX2PRLink>"
+      "</PCSX2PRLink>",
     ],
-    "description": "Github Link to PR(s)"
+    "description": "Github Link to PR(s)",
   },
   "Commit Link": {
     "scope": "markdown,md",
@@ -23,9 +23,9 @@
     "body": [
       "<PCSX2PRLink authors=\"${1:authors}\" shas=\"${2:commitShas - CommaSep}\">",
       "  ${3:title}",
-      "</PCSX2PRLink>"
+      "</PCSX2PRLink>",
     ],
-    "description": "Github Link to Commits(s)"
+    "description": "Github Link to Commits(s)",
   },
   "PR and Commit Link": {
     "scope": "markdown,md",
@@ -33,15 +33,15 @@
     "body": [
       "<PCSX2PRLink authors=\"${1:authors}\" prNums=\"${2:pullReqNumbers - CommaSep}\" shas=\"${3:commitShas - CommaSep}\">",
       "  ${4:title}",
-      "</PCSX2PRLink>"
+      "</PCSX2PRLink>",
     ],
-    "description": "Github Link to PR(s) and Commit(s)"
+    "description": "Github Link to PR(s) and Commit(s)",
   },
   "Image": {
     "scope": "markdown,md",
     "prefix": ["img"],
     "body": ["<Image src={require(\"./img/${1:path}.webp\").default} />"],
-    "description": "Display an Image"
+    "description": "Display an Image",
   },
   "Image Compare": {
     "scope": "markdown,md",
@@ -50,9 +50,9 @@
       "<ImageCompare",
       "  left={require(\"./img/${1:leftPath}.webp\").default}",
       "  right={require(\"./img/${2:rightPath}.webp\").default}",
-      "/>"
+      "/>",
     ],
-    "description": "Compare two images side-by-side"
+    "description": "Compare two images side-by-side",
   },
   "Compare Slider": {
     "scope": "markdown,md",
@@ -61,16 +61,16 @@
       "<SliderCompare",
       "  before={require(\"./img/${1:beforePath}.webp\").default}",
       "  after={require(\"./img/${2:afterPath}.webp\").default}",
-      "/>"
+      "/>",
     ],
-    "description": "Compare two images side-by-side"
+    "description": "Compare two images side-by-side",
   },
   "BarChart": {
     "scope": "markdown,md",
     "prefix": ["chart-bar"],
     "body": [
-      "<BarChart chartDataUrl={require(\"./charts/${1:dataFile}\").default} />"
+      "<BarChart chartDataUrl={require(\"./charts/${1:dataFile}\").default} />",
     ],
-    "description": "Create a BarChart!"
-  }
+    "description": "Create a BarChart!",
+  },
 }

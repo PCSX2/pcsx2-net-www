@@ -73,7 +73,7 @@ describe("Compatibility Page - Desktop", () => {
           method: "GET",
           url: "/compat/data.min.json",
         },
-        []
+        [],
       ).as("getCompatData");
       cy.visit("/compat");
       cy.get(".cc-deny").click();
@@ -91,7 +91,7 @@ describe("Compatibility Page - Desktop", () => {
           method: "GET",
           url: "/compat/data.min.json",
         },
-        { fixture: "compat_search_data.json" }
+        { fixture: "compat_search_data.json" },
       ).as("getCompatData");
       cy.visit("/compat");
       cy.get(".cc-deny").click();
@@ -215,7 +215,7 @@ describe("Compatibility Page - Desktop", () => {
           method: "GET",
           url: "/compat/data.min.json",
         },
-        { fixture: "compat_search_data.json" }
+        { fixture: "compat_search_data.json" },
       ).as("getCompatData");
       cy.visit("/compat");
       cy.get(".cc-deny").click();
@@ -387,7 +387,7 @@ describe("Compatibility Page - Mobile", () => {
           method: "GET",
           url: "/compat/data.min.json",
         },
-        []
+        [],
       ).as("getCompatData");
       cy.visit("/compat");
       cy.get(".cc-deny").click();
@@ -405,7 +405,7 @@ describe("Compatibility Page - Mobile", () => {
           method: "GET",
           url: "/compat/data.min.json",
         },
-        { fixture: "compat_search_data.json" }
+        { fixture: "compat_search_data.json" },
       ).as("getCompatData");
       cy.visit("/compat");
       cy.get(".cc-deny").click();
@@ -529,7 +529,7 @@ describe("Compatibility Page - Mobile", () => {
           method: "GET",
           url: "/compat/data.min.json",
         },
-        { fixture: "compat_search_data.json" }
+        { fixture: "compat_search_data.json" },
       ).as("getCompatData");
       cy.visit("/compat");
       cy.get(".cc-deny").click();

@@ -53,13 +53,13 @@ export default function Downloads() {
 
   useEffect(async () => {
     let shouldShowPreviousNightlies = window.localStorage.getItem(
-      "downloads-showPreviousNightlies"
+      "downloads-showPreviousNightlies",
     );
     if (shouldShowPreviousNightlies) {
       setShowPreviousNightlies(shouldShowPreviousNightlies === "true");
     }
     let shouldShowPreviousStables = window.localStorage.getItem(
-      "downloads-showPreviousStables"
+      "downloads-showPreviousStables",
     );
     if (shouldShowPreviousStables) {
       setShowPreviousStables(shouldShowPreviousStables === "true");
@@ -196,7 +196,7 @@ export default function Downloads() {
                         setShowPreviousStables(e.target.checked);
                         window.localStorage.setItem(
                           "downloads-showPreviousStables",
-                          e.target.checked
+                          e.target.checked,
                         );
                       }}
                     />
@@ -218,7 +218,7 @@ export default function Downloads() {
                         renderRowFunc={renderReleaseCell}
                         fetchMoreFunc={async (offset) => {
                           return await fetch(
-                            `${baseApiUrl}/stableReleases?offset=${offset}`
+                            `${baseApiUrl}/stableReleases?offset=${offset}`,
                           );
                         }}
                         tableType={"stable"}
@@ -298,7 +298,7 @@ export default function Downloads() {
                         setShowPreviousNightlies(e.target.checked);
                         window.localStorage.setItem(
                           "downloads-showPreviousNightlies",
-                          e.target.checked
+                          e.target.checked,
                         );
                       }}
                     />
@@ -320,7 +320,7 @@ export default function Downloads() {
                         renderRowFunc={renderReleaseCell}
                         fetchMoreFunc={async (offset) => {
                           return await fetch(
-                            `${baseApiUrl}/nightlyReleases?offset=${offset}`
+                            `${baseApiUrl}/nightlyReleases?offset=${offset}`,
                           );
                         }}
                         tableType={"nightly"}
