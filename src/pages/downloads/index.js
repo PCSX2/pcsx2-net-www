@@ -51,20 +51,7 @@ export default function Downloads() {
   // general api
   const [apiErrorMsg, setApiErrorMsg] = useState(undefined);
 
-  useEffect(async () => {
-    let shouldShowPreviousNightlies = window.localStorage.getItem(
-      "downloads-showPreviousNightlies"
-    );
-    if (shouldShowPreviousNightlies) {
-      setShowPreviousNightlies(shouldShowPreviousNightlies === "true");
-    }
-    let shouldShowPreviousStables = window.localStorage.getItem(
-      "downloads-showPreviousStables"
-    );
-    if (shouldShowPreviousStables) {
-      setShowPreviousStables(shouldShowPreviousStables === "true");
-    }
-
+  const fetchLatestReleases = async () => {
     try {
       const resp = await fetch(`${baseApiUrl}/latestReleasesAndPullRequests`);
       if (resp.status === 429) {
@@ -95,6 +82,23 @@ export default function Downloads() {
     } catch (err) {
       setApiErrorMsg("Unexpected API Error Occurred. Try Again Later!");
     }
+  };
+
+  useEffect(() => {
+    let shouldShowPreviousNightlies = window.localStorage.getItem(
+      "downloads-showPreviousNightlies",
+    );
+    if (shouldShowPreviousNightlies) {
+      setShowPreviousNightlies(shouldShowPreviousNightlies === "true");
+    }
+    let shouldShowPreviousStables = window.localStorage.getItem(
+      "downloads-showPreviousStables",
+    );
+    if (shouldShowPreviousStables) {
+      setShowPreviousStables(shouldShowPreviousStables === "true");
+    }
+
+    fetchLatestReleases();
   }, []);
 
   return (
@@ -196,7 +200,7 @@ export default function Downloads() {
                         setShowPreviousStables(e.target.checked);
                         window.localStorage.setItem(
                           "downloads-showPreviousStables",
-                          e.target.checked
+                          e.target.checked,
                         );
                       }}
                     />
@@ -218,7 +222,7 @@ export default function Downloads() {
                         renderRowFunc={renderReleaseCell}
                         fetchMoreFunc={async (offset) => {
                           return await fetch(
-                            `${baseApiUrl}/stableReleases?offset=${offset}`
+                            `${baseApiUrl}/stableReleases?offset=${offset}`,
                           );
                         }}
                         tableType={"stable"}
@@ -298,7 +302,7 @@ export default function Downloads() {
                         setShowPreviousNightlies(e.target.checked);
                         window.localStorage.setItem(
                           "downloads-showPreviousNightlies",
-                          e.target.checked
+                          e.target.checked,
                         );
                       }}
                     />
@@ -320,7 +324,7 @@ export default function Downloads() {
                         renderRowFunc={renderReleaseCell}
                         fetchMoreFunc={async (offset) => {
                           return await fetch(
-                            `${baseApiUrl}/nightlyReleases?offset=${offset}`
+                            `${baseApiUrl}/nightlyReleases?offset=${offset}`,
                           );
                         }}
                         tableType={"nightly"}
