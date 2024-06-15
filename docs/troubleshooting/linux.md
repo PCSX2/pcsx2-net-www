@@ -7,7 +7,7 @@ toc: true
 sidebar_position: 4
 ---
 
-Here are some known Linux-specific issue that can happen to PCSX2
+Here are some known Linux-specific issue that can occur.
 
 ### libfuse2
 

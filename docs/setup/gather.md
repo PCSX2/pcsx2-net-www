@@ -1,5 +1,5 @@
 ---
-title: "Gathering Files"
+title: "Dumping BIOS"
 date: 2024-03-20
 summary: "Steps on how to gather required files for you to be able to use PCSX2"
 draft: false
@@ -7,7 +7,7 @@ toc: true
 sidebar_position: 2
 ---
 
-This section will help you gather all the required files needed for PCSX2 to run.
+This section will help you dump the BIOS files that are required for PCSX2 to run.
 
 :::caution
 In order for PCSX2 to function properly, both a legitimate BIOS and copies of games must be obtained from **your own** PlayStation 2 console and original PlayStation 2 discs respectively.
@@ -92,44 +92,3 @@ biosdrain supports USB and HOST through PS2link. If your console does not have n
   - When using PS2client, cd into the directory where you have `biosdrain.elf`, and simply run `ps2client execee host:biosdrain.elf`
   - biosdrain will automatically detect that the `host` device is present and will dump your BIOS contents to the root directory of `host` **(Usually where you have the biosdrain.elf file)**.
   - You will know that it is finished when biosdrain says `Finished Everything`, either on screen or in your console log.
-
-## Dumping PS2 Discs via ImgBurn
-
-PlayStation 2 game discs are unencrypted DVDs and CDs. This means they can be dumped quickly using a standard optical drive that supports DVD and CD optical media and the ImgBurn software. Dumping discs does not harm optical media directly.
-
-### Where to get ImgBurn
-
-- Via [Ninite](https://ninite.com/imgburn) (Recommended, safe and fast):
-- Via [ImgBurn](http://www.imgburn.com/index.php?act=download) themselves (Not recommended, comes with adware in the installer that must be manually unchecked during the install):
-
-### How it works
-
-- Install and run ImgBurn
-- Put your game disc into an optical drive
-- Create an image file from a disc inside ImgBurn (highlighted in screenshot below)
-
-<Image src={require("./img/imgburn.webp").default} />
-
-## Alternative: Dumping PlayStation 2 discs with Media Preservation Frontend (more advanced)
-
-This is a GUI for several applications aimed at preserving optical media. It can be a bit more involved for non-PlayStation disc dumping, but for PS1 and PS2 its fairly simple.
-
-### Where to get MPF
-
-[MPF's GitHub repo](https://github.com/SabreTools/MPF)
-
-This tool is currently only available on Windows, but Linux support may be added in the future. It should be noted the command-line tools that are used for the backend of this tool are all free, open-source and available on all major operating systems.
-
-### How to use it
-
-- Extract and run MPF
-- Put your game disc into an optical drive
-- Select PS2 for system/media type
-- Select whether it is a CD-ROM PS2 game or DVD-ROM PS2 game
-- Select output file name and directory
-- Select the appropriate drive letter for the drive with the optical media in it
-- Select "Start dumping"
-
-One quick note, the lower the drive speed of the optical drive the more likely you are to get a good dump of the disc. The fastest drive speed will take much less time, but may be incomplete, corrupted, or inaccurate. It could also be perfectly fine, so depending on your drive and your media, try different things and see what works best for you.
-
-<Image src={require("./img/MPF.webp").default} />
