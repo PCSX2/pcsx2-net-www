@@ -23,13 +23,13 @@ This section list down the system requirements to get PCSX2 up and running.
   - [PassMark single thread performance](https://www.cpubenchmark.net/singleThread.html) rating near or greater than 1500
   - A quick reference for CPU **intensive games**: [Wiki](https://wiki.pcsx2.net/Category:CPU_intensive_games), [Forum](https://forums.pcsx2.net/Thread-LIST-The-Most-CPU-Intensive-Games)
     - And CPU **light** games: [Forum](https://forums.pcsx2.net/Thread-LIST-Games-that-don-t-need-a-strong-CPU-to-emulate)
-  - Two physical cores, with hyperthreading
+  - Two physical cores, with SMT
     :::note
     Recommended single thread performance is based on moderately complex games. Games that pushed the PS2 hardware to its limits will struggle on CPUs at this level. Some release titles and 2D games which underutilized the PS2 hardware may run on CPUs rated as low as 1200.
     :::
 
 - GPU
-  - Direct3D 11 (Feature Level 11.0) support
+  - Direct3D 11 (Feature Level 10.0) support
   - OpenGL 3.3 support
   - Vulkan 1.1 support
   - [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating around 3000 (GeForce GTX 750, Radeon RX 560, Intel Arc A380)
@@ -46,12 +46,12 @@ This section list down the system requirements to get PCSX2 up and running.
 
 - Operating system
   - Windows 10 Version 22H2 (64-bit)
-  - Ubuntu 23.04/Debian or newer, Arch Linux, or other distro (64-bit)
+  - Ubuntu 24.04/Debian or newer, Arch Linux, or other distro (64-bit)
   - macOS 11.0
 - CPU
   - Supports AVX2
   - [PassMark single thread performance](https://www.cpubenchmark.net/singleThread.html) rating near or greater than 2000
-  - Four physical cores, with or without hyperthreading
+  - Four physical cores, with or without SMT
 - GPU
   - Direct3D12 support
   - OpenGL 4.6 support
@@ -66,18 +66,18 @@ This section list down the system requirements to get PCSX2 up and running.
 
 - Operating System
   - Windows 10 Version 22H2 (64-bit)
-  - Ubuntu 23.04/Debian or newer, Arch Linux, or other distro (64-bit)
+  - Ubuntu 24.04/Debian or newer, Arch Linux, or other distro (64-bit)
   - macOS 11.0
 - CPU
   - Supports AVX2
   - [PassMark single thread performance](https://www.cpubenchmark.net/singleThread.html) rating near or greater than 2600
-  - Four physical cores, with or without hyperthreading.
+  - Six physical cores, with SMT
 - GPU
   - Direct3D12 support
   - OpenGL 4.6 support
   - Vulkan 1.3 support
   - Metal support
-  - [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating around 6000 (GeForce GTX 1650, Radeon RX 570)
+  - [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating around 12,000 (GeForce RTX 3050, Radeon RX 5600XT)
   - 4 GB of Video Memory
 - RAM
   - 16 GB of System Memory
