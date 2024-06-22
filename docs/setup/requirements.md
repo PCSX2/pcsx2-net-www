@@ -16,7 +16,7 @@ This section list down the system requirements to get PCSX2 up and running.
 - Operating system
   - Windows 10 Version 1809 (64-bit)
   - Ubuntu 22.04/Debian or newer, Arch Linux, or other distro (64-bit)
-  - macOS 11.0
+  - macOS 11.0 (Big Sur)
 - CPU
 
   - Supports SSE4.1
@@ -47,7 +47,7 @@ This section list down the system requirements to get PCSX2 up and running.
 - Operating system
   - Windows 10 Version 22H2 (64-bit)
   - Ubuntu 24.04/Debian or newer, Arch Linux, or other distro (64-bit)
-  - macOS 11.0
+  - macOS 11.0 (Big Sur)
 - CPU
   - Supports AVX2
   - [PassMark single thread performance](https://www.cpubenchmark.net/singleThread.html) rating near or greater than 2000
@@ -67,7 +67,7 @@ This section list down the system requirements to get PCSX2 up and running.
 - Operating System
   - Windows 10 Version 22H2 (64-bit)
   - Ubuntu 24.04/Debian or newer, Arch Linux, or other distro (64-bit)
-  - macOS 11.0
+  - macOS 11.0 (Big Sur)
 - CPU
   - Supports AVX2
   - [PassMark single thread performance](https://www.cpubenchmark.net/singleThread.html) rating near or greater than 2600

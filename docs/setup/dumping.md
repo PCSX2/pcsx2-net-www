@@ -29,9 +29,20 @@ The lower the drive speed of the optical drive the more likely you are to get a 
 
 - Install and run ImgBurn
 - Put your game disc into an optical drive
-- Create an image file from a disc inside ImgBurn (highlighted in screenshot below)
+- Choose the "Create an image file from disc" option inside ImgBurn (highlighted in screenshot below)
 
-<Image src={require("./img/imgburn.webp").default} />
+<Image src={require("./img/imgburn_main.webp").default} />
+
+On the disc dumping screen:
+
+1. Determine the location of the resulting ISO
+2. Press to start the disc dumping process
+
+<Image src={require("./img/imgburn_setting.webp").default} />
+
+Wait for the dumping process to be completed. Depending on the game size, this will take some time.
+
+<Image src={require("./img/imgburn_dump.webp").default} />
 
 ### Alternative: Dumping PlayStation 2 discs with MPF (more advanced)
 
@@ -66,17 +77,14 @@ This tool is currently only available on Windows, but Linux support may be added
   - Fedora: `sudo dnf install k3b`
   - Arch Linux: `sudo pacman -S k3b`
 - Put your game disc into an optical drive
-- Open K3b, and you will be greeted with this screen:
-  <Image src={require("./img/k3b.webp").default} />
-
+- Open K3b
 - Click on Copy Medium.
-- Make sure your disc is selected and enable the "Only Create Image" option.
+  <Image src={require("./img/k3b.webp").default} />
+- Make sure your disc is selected and enable the "Only create image" option
   <Image src={require("./img/k3b_source.webp").default} />
-
-- Go to the Image tab and define the destination folder for the dump.
+- Go to the Image tab and determine the destination folder for the dump
   <Image src={require("./img/k3b_name.webp").default} />
-
-- Click on Start and wait for the dumping process to be completed. Depending on the game size, this will take some time.
+- Click on Start and wait for the dumping process to be completed. Depending on the game size, this will take some time
 
 <Image src={require("./img/k3b_dumping.webp").default} />
 
@@ -89,14 +97,14 @@ You will also need a basic understanding of the Linux terminal.
 
 #### Figuring out the DVD drive location
 
-You will need to figure out the location of your DVD drive first. We will use `lsblk` for that.
+You will need to figure out the location of your DVD drive first. We will use `lsblk` for that
 
 - Open up a terminal and run the `lsblk -f` command.
 - This will show the list of all drivers that are recognized by Linux:
   <Image src={require("./img/lsblk.webp").default} />
 
 :::tip
-CD and DVD drives on Linux are usually located either in `/dev/cdrom0` or `/dev/sr0` respectively.
+CD and DVD drives on Linux are usually located either in `/dev/cdrom0` or `/dev/sr0` respectively.  
 :::
 
 We have now identified the location of our DVD drive, in our example it is in `/dev/sr0`
@@ -115,12 +123,13 @@ WHERE:
 NOTE: DO NOT include the brackets
 ```
 
-- This will dump the disc into the current directory.
 - An example of a complete command:
 
 ```bash
 dd if=/dev/sr0 of=./GT3.iso status=progress
 ```
+
+- This will dump the disc into the current directory
 
 Now wait until the dumping process is completed.
 

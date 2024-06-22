@@ -19,7 +19,7 @@ This usually indicates that your dump is corrupted. To verify the integrity of y
 
 You should be greeted with the game properties window. Next up click the verify button under the disc track list.
 
-If it returns a green checkmark (✅) then your game dumps are working just fine, otherwise if it returns a red cross (❌) then your dumps are corrupted and you will have to redump your game. You can checkout [the gathering files page](../setup/gather.md#dumping-ps2-discs-via-imgburn) for the instructions on how to do so.
+If it returns a green checkmark (✅) then your game dumps are working just fine, otherwise if it returns a red cross (❌) then your dumps are corrupted and you will have to redump your game. You can checkout [the gathering files page](../setup/dumping.md#dumping-ps2-discs-via-imgburn) for the instructions on how to do so.
 
 <Image src={require("./img/verify.webp").default} />
 
