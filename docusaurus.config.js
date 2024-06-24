@@ -197,7 +197,15 @@ const config = {
             target: "_blank",
           },
           {
-            href: "https://twitter.com/PCSX2",
+            href: "https://mastodon.social/@PCSX2",
+            position: "right",
+            rel: "me",
+            className: "header-mastodon-link",
+            "aria-label": "Mastodon",
+            target: "_blank",
+          },
+          {
+            href: "https://x.com/PCSX2",
             position: "right",
             className: "header-twitter-link",
             "aria-label": "Twitter",
@@ -275,8 +283,12 @@ const config = {
                 href: "https://forums.pcsx2.net/",
               },
               {
+                label: "Mastodon",
+                href: "https://mastodon.social/@PCSX2",
+              },
+              {
                 label: "Twitter",
-                href: "https://twitter.com/PCSX2",
+                href: "https://x.com/PCSX2",
               },
               {
                 label: "YouTube",
