@@ -46,7 +46,7 @@ Parameter list:
 ### Launching a game from command line
 
 ```sh
-D:\PCSX2\pcsx2-qt.exe -fullscreen -batch -- "D:\Games\ROMs\PS2\Final Fantasy X.iso"
+D:\PCSX2\pcsx2-qt.exe -fullscreen -batch -- D:\Games\ROMs\PS2\Final Fantasy X.iso
 ```
 
 The ISO file `Final Fantasy X.iso` will be launched in fullscreen automatically after PCSX2 is started.

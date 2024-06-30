@@ -18,11 +18,11 @@ This section will help you through the process of setting up PCSX2 on Linux.
       <Image src={require("./img/executable.webp").default} />
   - Or in a terminal, run `chmod +x <path-to-AppImage-file>`
     <Image src={require("./img/chmod.webp").default} />
-- You should be able to open the file like any other application.
+- You should be able to open the file by double-clicking it or by running it through terminal.
 
 ## Flatpak
 
-- PCSX2 is also available on Flatpak!
+- PCSX2 is also available on [Flatpak](appstream:net.pcsx2.PCSX2)!
 - In order to install PCSX2 from Flatpak using the command line, open the terminal and type `flatpak install net.pcsx2.PCSX2`.
 
   - Typing `flatpak install pcsx2` should find this same reference.
@@ -34,8 +34,8 @@ This section will help you through the process of setting up PCSX2 on Linux.
 - Some distributions and desktop environments have a visual software manager which can also install Flatpak applications.
 
   - These include:
-    - GNOME Software
     - KDE Plasma's Discover
+    - GNOME Software
     - Linux Mint's Software Manager
     - Manjaro's pamac
     - Pop!\_OS' Repoman
