@@ -1,0 +1,17 @@
+data:
+  - name: Zone of the Enders, 3x IR, 2070 Super (~178.8%)
+    "1.6.0": 138
+    "2.0": 247
+  - name: Ratchet & Clank 3, Native IR, 5600X (~29.9%)
+    "1.6.0": 107
+    "2.0": 139
+barOptions:
+  "1.6.0":
+    fillColor: "rgb(106, 156, 255)"
+  "2.0":
+    fillColor: "rgb(200, 45, 69)"
+axis:
+  x:
+    dataKey: name
+  y:
+    label: "Frames Per Seconds (VPS)"
