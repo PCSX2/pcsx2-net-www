@@ -28,7 +28,7 @@ jobs:
 
       # TODO - consider direct committing this once we have confidence
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6.0.5
+        uses: peter-evans/create-pull-request@v6.1.0
         with:
           title: "Compat Data: Update compatibility data"
           commit-message: "compat: Update to latest compatibility data"
