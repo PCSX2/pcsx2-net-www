@@ -284,6 +284,15 @@ export default function Downloads() {
                     buggy) experience
                   </p>
                 </Grid>
+                <Grid xs={12}>
+                  <Admonition type="caution">
+                    <p>
+                      If you are having trouble downloading, try disabling your
+                      pop-up blocker (e.g. Poper Blocker) as they are known to
+                      cause problems with our downloads links.
+                    </p>
+                  </Admonition>
+                </Grid>
                 <Grid xs={12} css={{ mt: "2em" }}>
                   <ReleaseDownloadButton
                     release={latestNightlyRelease}
