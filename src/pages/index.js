@@ -194,8 +194,7 @@ export default function Home() {
                 <Tooltip
                   content={
                     <span style={{ color: "black" }}>
-                      A stable release is coming soon! Use the latest nightly
-                      instead.
+                      22 years in the making.
                     </span>
                   }
                   color="warning"
@@ -206,7 +205,7 @@ export default function Home() {
                     release={latestStableRelease}
                     buttonText={"Latest Stable"}
                     isNightly={false}
-                    isDisabled={true}
+                    isDisabled={false}
                     errorMsg={apiErrorMsg}
                     placement={useMediaQuery(960) ? "bottom-left" : "left-top"}
                   />
