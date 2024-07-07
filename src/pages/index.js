@@ -262,92 +262,6 @@ export default function Home() {
               },
               width: "100%",
               margin: 0,
-              position: "relative",
-            }}
-          >
-            <Grid xs={12} direction="column">
-              <StyledTitle css={{ mb: 0 }}>Recent Progress Reports</StyledTitle>
-              <StyledSubtitle>
-                Stay up to date on the latest improvements and fixes on the
-                project
-              </StyledSubtitle>
-            </Grid>
-            <Grid.Container gap={2}>
-              <Grid xs={12} md={6} justify="center">
-                <a href={useBaseUrl(latestProgressReport.url)}>
-                  <Card css={{ background: "var(--card-color-background)" }}>
-                    <Card.Header
-                      css={{ position: "absolute", zIndex: 1, top: 5 }}
-                    >
-                      <Col>
-                        <Text
-                          size={12}
-                          weight="bold"
-                          transform="uppercase"
-                          color="#ffffffAA"
-                        >
-                          Latest Progress Report
-                        </Text>
-                        <Text h4 color="white">
-                          {latestProgressReport.title}
-                        </Text>
-                      </Col>
-                    </Card.Header>
-                    <Card.Image
-                      src={latestProgressReport.img}
-                      objectFit="contain"
-                      width="100%"
-                      alt="Card image background"
-                      height={"300px"}
-                    />
-                  </Card>
-                </a>
-              </Grid>
-              <Grid xs={12} md={6} justify="center">
-                <a href={useBaseUrl(previousProgressReport.url)}>
-                  <Card css={{ background: "var(--card-color-background)" }}>
-                    <Card.Header
-                      css={{ position: "absolute", zIndex: 1, top: 5 }}
-                    >
-                      <Col>
-                        <Text
-                          size={12}
-                          weight="bold"
-                          transform="uppercase"
-                          color="#ffffffAA"
-                        >
-                          Previous Progress Report
-                        </Text>
-                        <Text h4 color="white">
-                          {previousProgressReport.title}
-                        </Text>
-                      </Col>
-                    </Card.Header>
-                    <Card.Image
-                      src={previousProgressReport.img}
-                      objectFit="contain"
-                      width="100%"
-                      alt="Card image background"
-                      height={"300px"}
-                    />
-                  </Card>
-                </a>
-              </Grid>
-            </Grid.Container>
-          </Grid.Container>
-          <Grid.Container
-            gap={2}
-            css={{
-              "@md": {
-                pl: "5em",
-                pr: "5em",
-              },
-              "@mdMax": {
-                pl: "2em",
-                pr: "2em",
-              },
-              width: "100%",
-              margin: 0,
               mt: "5em",
             }}
           >
@@ -411,6 +325,92 @@ export default function Home() {
                     </Card.Header>
                     <Card.Image
                       src={previousBlog.img}
+                      objectFit="contain"
+                      width="100%"
+                      alt="Card image background"
+                      height={"300px"}
+                    />
+                  </Card>
+                </a>
+              </Grid>
+            </Grid.Container>
+          </Grid.Container>
+          <Grid.Container
+            gap={2}
+            css={{
+              "@md": {
+                pl: "5em",
+                pr: "5em",
+              },
+              "@mdMax": {
+                pl: "2em",
+                pr: "2em",
+              },
+              width: "100%",
+              margin: 0,
+              position: "relative",
+            }}
+          >
+            <Grid xs={12} direction="column">
+              <StyledTitle css={{ mb: 0 }}>Recent Progress Reports</StyledTitle>
+              <StyledSubtitle>
+                Stay up to date on the latest improvements and fixes on the
+                project
+              </StyledSubtitle>
+            </Grid>
+            <Grid.Container gap={2}>
+              <Grid xs={12} md={6} justify="center">
+                <a href={useBaseUrl(latestProgressReport.url)}>
+                  <Card css={{ background: "var(--card-color-background)" }}>
+                    <Card.Header
+                      css={{ position: "absolute", zIndex: 1, top: 5 }}
+                    >
+                      <Col>
+                        <Text
+                          size={12}
+                          weight="bold"
+                          transform="uppercase"
+                          color="#ffffffAA"
+                        >
+                          Latest Progress Report
+                        </Text>
+                        <Text h4 color="white">
+                          {latestProgressReport.title}
+                        </Text>
+                      </Col>
+                    </Card.Header>
+                    <Card.Image
+                      src={latestProgressReport.img}
+                      objectFit="contain"
+                      width="100%"
+                      alt="Card image background"
+                      height={"300px"}
+                    />
+                  </Card>
+                </a>
+              </Grid>
+              <Grid xs={12} md={6} justify="center">
+                <a href={useBaseUrl(previousProgressReport.url)}>
+                  <Card css={{ background: "var(--card-color-background)" }}>
+                    <Card.Header
+                      css={{ position: "absolute", zIndex: 1, top: 5 }}
+                    >
+                      <Col>
+                        <Text
+                          size={12}
+                          weight="bold"
+                          transform="uppercase"
+                          color="#ffffffAA"
+                        >
+                          Previous Progress Report
+                        </Text>
+                        <Text h4 color="white">
+                          {previousProgressReport.title}
+                        </Text>
+                      </Col>
+                    </Card.Header>
+                    <Card.Image
+                      src={previousProgressReport.img}
                       objectFit="contain"
                       width="100%"
                       alt="Card image background"
