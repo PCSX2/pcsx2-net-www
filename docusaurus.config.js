@@ -136,7 +136,10 @@ const config = {
         respectPrefersColorScheme: true,
       },
       image: "img/logo.webp",
-      metadata: [{ name: "twitter:card", content: "summary" }],
+      metadata: [
+        { name: "twitter:card", content: "summary" },
+        { name: "darkreader-lock" },
+      ],
       navbar: {
         title: "PCSX2",
         logo: {
