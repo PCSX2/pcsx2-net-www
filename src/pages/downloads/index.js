@@ -175,10 +175,9 @@ export default function Downloads() {
                 <Grid xs={12}>
                   <Admonition type="caution">
                     <p>
-                      As we are now drawing closer to releasing a new stable
-                      version, we encourage you to use the latest nightly
-                      instead. If you encounter a problem, you will likely be
-                      told to try the latest nightly as a first step.
+                      If you are having trouble downloading, try disabling your
+                      pop-up blocker (e.g. Poper Blocker) as they are known to
+                      cause problems with our downloads links.
                     </p>
                   </Admonition>
                 </Grid>
@@ -283,15 +282,6 @@ export default function Downloads() {
                     you are getting the latest and greatest (but sometimes
                     buggy) experience
                   </p>
-                </Grid>
-                <Grid xs={12}>
-                  <Admonition type="caution">
-                    <p>
-                      If you are having trouble downloading, try disabling your
-                      pop-up blocker (e.g. Poper Blocker) as they are known to
-                      cause problems with our downloads links.
-                    </p>
-                  </Admonition>
                 </Grid>
                 <Grid xs={12} css={{ mt: "2em" }}>
                   <ReleaseDownloadButton
