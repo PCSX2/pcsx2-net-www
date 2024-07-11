@@ -4,7 +4,7 @@ title: Introducing PCSX2 2.0!
 tags:
   - devblog
 date: 2024-07-12
-description: PCSX2 2.0 Release Blogpost
+description: PCSX2 2.0 Release Blog Post
 hide_table_of_contents: false
 titleImage: /img/2-0-banner.webp
 image: /img/2-0-banner.webp
@@ -171,6 +171,12 @@ Here are some benchmarks in a few selected games:
 
 <BarChart chartDataUrl={require("./charts/Chart-gameperf-pt3.yaml").default} />
 
+### Ghostbusting with Native Scaling
+
+A long-standing issue with upscaling games has been with misaligned bloom, or "ghosting". In some games, this ghosting becomes so bad that it renders the game nauseating to play. Created by Refraction and refined by Stenzek, native scaling is a new option which we automatically apply to games that need it. This clever trick attempts to detect a game's efforts to downscale the picture in order to do post-processing bloom effects. These effects were intended to be done at native resolution and tend to break down when upscaling.
+
+In short, native scaling unbreaks the bloom when upscaling. Other automatically applied tools such as new, more sophisticated half-pixel offset modes mean that hundreds of games are now more playable than ever when upscaled.
+
 ### Everybody's Shufflin'
 
 Blending isn't the only star of the show. Shuffles are another advanced graphics technique used by PS2 games to exploit the memory layout of the GS and perform crazy effects within its limited space. A lot of optimizations went into these to keep them working nicely with blends, and along the way this fixed some graphics bugs and brought a lot of performance with it too.
@@ -200,12 +206,6 @@ Here is Crash Twinsanity for comparison (with texture replacements applied):
 Texture pack users: The PCSX2 community **does not** provide support for texture packs or allow sharing packs on any PCSX2 sites. This includes our forums, Discord, GitHub, etc. Issues with texture packs should be sent to the creators of those packs.
 
 Texture pack creators: Due to the design of the PS2 GS and how many games use it, there are some textures which will **not** be replaceable, as they generate new hashes every time they are loaded. This cannot be worked around, this cannot be fixed, this is the PS2 GS working as intended. This is a side effect of the GS having no restrictions, or really any standard API at all. It is possible these hashes will continue to change as emulation gets more accurate, so be prepared to update your packs as PCSX2 continues to change. We are glad to answer any technical questions about what may have changed, but we cannot assist in fixing your packs.
-
-### Ghostbusting with Native Scaling
-
-A long-standing issue with upscaling games has been with misaligned bloom, or "ghosting". In some games, this ghosting becomes so bad that it renders the game nauseating to play. Created by Refraction and refined by Stenzek, native scaling is a new option which we automatically apply to games that need it. This clever trick attempts to detect a game's efforts to downscale the picture in order to do post-processing bloom effects. These effects were intended to be done at native resolution and tend to break down when upscaling.
-
-In short, native scaling unbreaks the bloom when upscaling. Other automatically applied tools such as new, more sophisticated half-pixel offset modes mean that hundreds of games are now more playable than ever when upscaled.
 
 ## Graphics Honorable Mentions
 
