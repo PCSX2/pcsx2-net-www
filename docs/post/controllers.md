@@ -95,11 +95,11 @@ This allows you to take advantage DualShock 3's pressure sensitive face button o
 
 ### Windows
 
-1. Install [DsHidMini](https://forums.pcsx2.net/Thread-DsHidMini-Windows-10-driver-for-the-DualShock-3)
-2. Set DsHidMini to SXS mode
-3. Drop DsHidMini's custom XInput DLL into the PCSX2 folder
-4. Enable the XInput source in PCSX2
-5. Use "Automatic Binding" button and select XInput
+1. Download [DsHidMini](https://docs.nefarius.at/projects/DsHidMini/) and Install it.
+2. Set DsHidMini to SXS mode.
+3. Drop DsHidMini's custom XInput DLL into the PCSX2 folder.
+4. Enable the XInput source in PCSX2.
+5. Use "Automatic Binding" button and select XInput.
 
 ### Linux and Mac (Experimental)
 
@@ -131,10 +131,10 @@ The Playstation 2 SDK places no restrictions on how games use a multitap. Some g
 
 When setting up your wheel device, you must pick the PS2 wheel that closest matches your PC wheel. Failing to do so may result in broken or missing FFB (Force Feedback), or unresponsive steering.
 
-1. Driving Force: 270 degree, no FFB
-2. GT Force: 270 degree, FFB supported
-3. Driving Force Pro: 900 degree, no FFB
-4. Driving Force Pro (rev11.02): 900 degree, FFB supported
+1. Driving Force: 270 degree, no FFB.
+2. GT Force: 270 degree, FFB supported.
+3. Driving Force Pro: 900 degree, no FFB.
+4. Driving Force Pro (rev11.02): 900 degree, FFB supported.
 
 :::caution
 Some games may not support FFB on certain wheel types, even if that wheel supports FFB. Even if this is the case, do not switch your emulated PS2 wheel to a type which does not match your PC wheel.
@@ -188,10 +188,10 @@ Most common example of this is when you press the circle button, it pauses PCSX2
 
 A few options work around this issue. We've ordered them from simplest first, to most complicated last:
 
-1. Fully exit Steam (right click in the system tray, then Exit)
-2. Disable controller support for your controller in Steam
-3. Change the keyboard mappings for your controller in Steam
-4. Change the hotkey mappings in PCSX2 to no longer include any of the keyboard keys that Steam is remapping your controller to
+1. Fully exit Steam (right click in the system tray, then Exit).
+2. Disable controller support for your controller in Steam.
+3. Change the keyboard mappings for your controller in Steam.
+4. Change the hotkey mappings in PCSX2 to no longer include any of the keyboard keys that Steam is remapping your controller to.
 
 ### Crashes due to EZFRD64.dll
 
