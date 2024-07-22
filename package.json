@@ -21,7 +21,7 @@
     "@docusaurus/plugin-client-redirects": "^3.3.2",
     "@docusaurus/preset-classic": "^3.3.2",
     "@mdx-js/react": "^3.0.1",
-    "@nextui-org/react": "1.0.0-beta.13",
+    "@nextui-org/react": "2.4.6",
     "autoprefixer": "^10.4.17",
     "clsx": "^2.1.1",
     "fuse.js": "^7.0.0",
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.3.2",
-    "glob": "10.4.1",
+    "glob": "11.0.0",
     "prettier": "3.3.3",
     "prompts": "2.4.2",
     "webp-converter": "2.3.3"
