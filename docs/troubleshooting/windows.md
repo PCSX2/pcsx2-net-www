@@ -18,14 +18,6 @@ If you see this error message during PCSX2 startup such as the following:
 - You need the [Latest Visual C++ 2019 x64 Redistributables](https://aka.ms/vs/17/release/vc_redist.x64.exe) to run PCSX2.
   - They are combined with other yearly releases Visual Studio 2015, 2017, 2019, and 2022. 64-bit version (x64) is required for 1.7.0 and higher (though early 1.7 builds still required 32 bit versions)
 
-## Unable to start Video Capture
-
-<Image src={require("./img/ffmpeg.webp").default} />
-
-- PCSX2 requires some additional ffmpeg libraries to enable video capture.
-  - Grab the ffmpeg Windows files [here](https://github.com/PCSX2/pcsx2-windows-dependencies/releases/download/FFMPEG/ffmpeglibs-6.0.7.7z).
-  - Extract the zip file, then place the extracted dll files in your PCSX2 folder. They should be in the same folder as the main PCSX2 exe file.
-
 ## Crashes
 
 There are various problems that can cause PCSX2 to crash during operation, here we list the most common ones:
