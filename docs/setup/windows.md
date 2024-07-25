@@ -28,10 +28,6 @@ Make sure to install all the required software-first before proceeding with the 
 
 ## Setup process
 
-:::info
-As we are now drawing closer to releasing a new stable version, we encourage you to use the latest nightly instead of stable. If you encounter a problem, you will likely be told to try the latest nightly as a first step.
-:::
-
 ### Extracting PCSX2
 
 :::tip
