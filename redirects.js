@@ -9,6 +9,10 @@ const redirects = [
     ],
   },
   {
+    to: "https://discord.com/invite/TCz3t9k",
+    from: "/discord",
+  },
+  {
     to: "/blog/2021/aethersx2-brings-pcsx2-to-mobile",
     from: "/301-aethersx2-pcsx2-mobile",
   },

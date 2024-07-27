@@ -186,7 +186,7 @@ const config = {
           },
           { to: "https://wiki.pcsx2.net/", label: "Wiki", position: "right" },
           {
-            href: "https://discord.com/invite/TCz3t9k",
+            href: "https://pcsx2.net/discord",
             position: "right",
             className: "header-discord-link",
             "aria-label": "Discord",
@@ -279,7 +279,7 @@ const config = {
             items: [
               {
                 label: "Discord",
-                href: "https://discord.com/invite/TCz3t9k",
+                href: "https://pcsx2.net/discord",
               },
               {
                 label: "Forums",
