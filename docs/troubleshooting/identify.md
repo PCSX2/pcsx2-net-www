@@ -73,4 +73,4 @@ It helps to write down the PCSX2 versions you're testing as you go, and note whe
 
 ## Reach out for help
 
-After you've collected all the report materials, consider reaching out in either the respective [Discord](https://discord.com/invite/TCz3t9k) channel or the [forum](https://forums.pcsx2.net/) for further assistance.
+After you've collected all the report materials, consider reaching out in either the respective [Discord](https://www.pcsx2.net/discord) channel or the [forum](https://forums.pcsx2.net/) for further assistance.

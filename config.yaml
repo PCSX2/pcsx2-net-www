@@ -46,7 +46,7 @@ params:
     - name: Discord
       icon: fab fa-discord
       weight: 1
-      url: "https://discord.com/invite/TCz3t9k"
+      url: "https://pcsx2.net/discord"
     - name: Github
       icon: fab fa-github
       weight: 2
@@ -130,7 +130,7 @@ languages:
   #         url: /about
   #       - name: Discord
   #         weight: 6
-  #         url: 'https://discord.com/invite/TCz3t9k'
+  #         url: 'https://pcsx2.net/discord'
   #         pre: fa fa-discord
   #       - name: Github
   #         weight: 7
