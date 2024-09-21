@@ -36,6 +36,7 @@ Parameter list:
   -testconfig: Initializes configuration and checks version, then exits.
   -setupwizard: Forces initial setup wizard to run.
   -debugger: Open debugger and break on entry point.
+  -raintegration: Use RAIntegration instead of built-in achievement support.
   --: Signals that no more arguments will follow and the remaining
     parameters make up the filename. Use when the filename contains
     spaces or starts with a dash.
