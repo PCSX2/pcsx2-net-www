@@ -191,25 +191,14 @@ export default function Home() {
               justify="center"
             >
               <Grid>
-                <Tooltip
-                  content={
-                    <span style={{ color: "black" }}>
-                      22 years in the making.
-                    </span>
-                  }
-                  color="warning"
-                  trigger="hover"
-                  placement="bottom"
-                >
-                  <ReleaseDownloadButton
-                    release={latestStableRelease}
-                    buttonText={"Latest Stable"}
-                    isNightly={false}
-                    isDisabled={false}
-                    errorMsg={apiErrorMsg}
-                    placement={useMediaQuery(960) ? "bottom-left" : "left-top"}
-                  />
-                </Tooltip>
+                <ReleaseDownloadButton
+                  release={latestStableRelease}
+                  buttonText={"Latest Stable"}
+                  isNightly={false}
+                  isDisabled={false}
+                  errorMsg={apiErrorMsg}
+                  placement={useMediaQuery(960) ? "bottom-left" : "left-top"}
+                />
               </Grid>
               <Grid>
                 <ReleaseDownloadButton
