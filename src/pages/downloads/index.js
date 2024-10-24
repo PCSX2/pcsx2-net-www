@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "@theme/Layout";
-import { Container, Text, Grid, Switch } from "@nextui-org/react";
+import { Switch } from "@nextui-org/react";
 import Admonition from "@theme/Admonition";
 import { ReleaseDownloadButton } from "../../components/ReleaseDownloadButton";
 import { DownloadTable } from "../../components/DownloadTable";

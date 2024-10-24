@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { Grid } from "@nextui-org/react";
 import styles from "./SliderCompare.module.css";
 
 export default function SliderCompare({ children, cols, before, after }) {

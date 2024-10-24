@@ -2,7 +2,7 @@ import React from "react";
 import BlogPostItemHeaderTitle from "@theme-original/BlogPostItem/Header/Title";
 import BlogPostItemHeaderInfo from "@theme-original/BlogPostItem/Header/Info";
 import BlogPostItemHeaderAuthors from "@theme-original/BlogPostItem/Header/Authors";
-import { useBlogPost } from "@docusaurus/theme-common/internal";
+import { useBlogPost } from '@docusaurus/plugin-content-blog/client';
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
 export default function BlogPostItemHeader() {

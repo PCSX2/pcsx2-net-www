@@ -1,5 +1,4 @@
 import React from "react";
-import { Grid } from "@nextui-org/react";
 
 export default function Image({ children, cols, src, alt }) {
   return (

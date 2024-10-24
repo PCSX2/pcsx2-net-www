@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Row, Col } from "@nextui-org/react";
 import {
   BarChart,
   Bar,

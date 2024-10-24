@@ -2,53 +2,47 @@ import React, { useState, useEffect } from "react";
 import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
 import {
-  Text,
   Button,
-  Row,
-  Col,
   Card,
-  Grid,
-  Container,
-  Tooltip,
-  getDocumentTheme,
+  Tooltip
 } from "@nextui-org/react";
+import {useTheme} from "next-themes";
 import { NumberTicker } from "../components/NumberTicker";
 import { getLatestRelease } from "../components/ReleaseDownloadButton";
 import { ReleaseDownloadButton } from "../components/ReleaseDownloadButton";
 import { GoogleAd } from "../components/GoogleAd";
 import { useMediaQuery } from "../utils/mediaQuery";
-import { styled } from "@nextui-org/react";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
-const StyledTitle = styled("h1", {
-  display: "inline",
-  fontWeight: "$bold",
-  color: "$text",
-  lh: "1.2",
-  fs: "2.5rem",
-  "@sm": {
-    fs: "3rem",
-  },
-  "@lg": {
-    fs: "3.5rem",
-  },
-});
+// const StyledTitle = styled("h1", {
+//   display: "inline",
+//   fontWeight: "$bold",
+//   color: "$text",
+//   lh: "1.2",
+//   fs: "2.5rem",
+//   "@sm": {
+//     fs: "3rem",
+//   },
+//   "@lg": {
+//     fs: "3.5rem",
+//   },
+// });
 
-const StyledGradientTitle = styled(StyledTitle, {
-  textGradient: "180deg, #5099ff 25%, #465eae 100%",
-  "&::selection": {
-    WebkitTextFillColor: "$colors$text",
-  },
-});
+// const StyledGradientTitle = styled(StyledTitle, {
+//   textGradient: "180deg, #5099ff 25%, #465eae 100%",
+//   "&::selection": {
+//     WebkitTextFillColor: "$colors$text",
+//   },
+// });
 
-const StyledSubtitle = styled("p", {
-  pl: "$1",
-  fs: "$xl",
-  width: "100%",
-  display: "inline-flex",
-  fontWeight: "500",
-  color: "$accents9",
-});
+// const StyledSubtitle = styled("p", {
+//   pl: "$1",
+//   fs: "$xl",
+//   width: "100%",
+//   display: "inline-flex",
+//   fontWeight: "500",
+//   color: "$accents9",
+// });
 
 import CompatData from "@site/static/data/compat/data.min.json";
 
@@ -80,6 +74,7 @@ import {
 const baseApiUrl = "https://api.pcsx2.net/v1";
 
 export default function Home() {
+  const { theme, setTheme } = useTheme();
   const [latestStableRelease, setLatestStableRelease] = useState({});
   const [latestNightlyRelease, setLatestNightlyRelease] = useState({});
   const [apiErrorMsg, setApiErrorMsg] = useState(undefined);
@@ -113,14 +108,14 @@ export default function Home() {
   useEffect(() => {
     fetchLatestReleases();
     setHomeVideoPath(
-      getDocumentTheme(document?.documentElement) === "dark"
+      theme === "dark"
         ? "/videos/splash.webm"
         : "/videos/splash-light.mp4",
     );
 
     const observer = new MutationObserver((mutation) => {
       setHomeVideoPath(
-        getDocumentTheme(document?.documentElement) === "dark"
+        theme === "dark"
           ? "/videos/splash.webm"
           : "/videos/splash-light.mp4",
       );
