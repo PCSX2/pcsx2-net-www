@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Table, Card, Text, Grid } from "@nextui-org/react";
+import { Table, Card } from "@nextui-org/react";
 import ReactMarkdown from "react-markdown";
 import { ReleaseDownloadButton } from "../ReleaseDownloadButton";
 import { GoPlus, GoDash } from "react-icons/go";

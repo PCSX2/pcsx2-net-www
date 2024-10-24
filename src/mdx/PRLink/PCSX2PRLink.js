@@ -1,6 +1,6 @@
 import React from "react";
 import { GoGitCommit, GoGitPullRequest } from "react-icons/go";
-import { Avatar, Grid, Tooltip } from "@nextui-org/react";
+import { Avatar, Tooltip } from "@nextui-org/react";
 import { IconContext } from "react-icons";
 import styles from "./PCSX2PRLink.module.css";
 

@@ -1,24 +1,10 @@
 import React, { useEffect, useState } from "react";
 import {
-  createTheme,
   NextUIProvider,
-  getDocumentTheme,
 } from "@nextui-org/react";
+import {ThemeProvider as NextThemesProvider} from "next-themes";
+import {useTheme} from "next-themes";
 import CookieConsent, { getCookieConsentValue } from "react-cookie-consent";
-
-const lightTheme = createTheme({
-  type: "light",
-  theme: {
-    // colors: {...}, // optional
-  },
-});
-
-const darkTheme = createTheme({
-  type: "dark",
-  theme: {
-    // colors: {...}, // optional
-  },
-});
 
 function loadGoogleAds() {
   if (
@@ -37,6 +23,7 @@ function loadGoogleAds() {
 
 // Default implementation, that you can customize
 export default function Root({ children }) {
+  const { theme, setTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -47,7 +34,7 @@ export default function Root({ children }) {
     setIsDark(theme === "dark");
 
     const observer = new MutationObserver((mutation) => {
-      let newTheme = getDocumentTheme(document?.documentElement);
+      let newTheme = theme;
       if (newTheme === "dark") {
         if (!document?.documentElement.classList.contains("dark-theme")) {
           document?.documentElement.classList.add("dark-theme");
@@ -74,25 +61,24 @@ export default function Root({ children }) {
   }, []);
 
   return (
-    <NextUIProvider
-      theme={isDark ? darkTheme : lightTheme}
-      disableBaseline={true}
-    >
-      <CookieConsent
-        location="bottom"
-        buttonText="Agree"
-        declineButtonText="Decline"
-        cookieName="pcsx2CookieConsent"
-        enableDeclineButton={true}
-        style={{ background: "#2B373B" }}
-        expires={150}
-        onAccept={() => {
-          loadGoogleAds();
-        }}
-      >
-        This website uses cookies to enhance the user experience.
-      </CookieConsent>
-      {children}
+    <NextUIProvider disableBaseline={true}>
+      <NextThemesProvider attribute="class" defaultTheme="dark">
+        <CookieConsent
+          location="bottom"
+          buttonText="Agree"
+          declineButtonText="Decline"
+          cookieName="pcsx2CookieConsent"
+          enableDeclineButton={true}
+          style={{ background: "#2B373B" }}
+          expires={150}
+          onAccept={() => {
+            loadGoogleAds();
+          }}
+        >
+          This website uses cookies to enhance the user experience.
+        </CookieConsent>
+        {children}
+      </NextThemesProvider>
     </NextUIProvider>
   );
 }
