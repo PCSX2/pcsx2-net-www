@@ -61,7 +61,7 @@ export default function Root({ children }) {
   }, []);
 
   return (
-    <NextUIProvider disableBaseline={true}>
+    <NextUIProvider>
       <NextThemesProvider attribute="class" defaultTheme="dark">
         <CookieConsent
           location="bottom"

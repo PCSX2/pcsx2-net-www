@@ -98,6 +98,10 @@ html.app-loaded {
   font-display: swap;
 }
 
+body {
+  font-family: var(--ifm-font-family-base);
+}
+
 button {
   font-family: var(--ifm-font-family-base);
 }
