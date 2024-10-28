@@ -6,6 +6,20 @@ const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
 const redirects = require("./redirects");
 
+function tailwindPlugin(context, options) {
+  return {
+    name: 'tailwind-plugin',
+    configurePostCss(postcssOptions) {
+      postcssOptions.plugins = [
+        require('postcss-import'),
+        require('tailwindcss'),
+        require('autoprefixer'),
+      ];
+      return postcssOptions;
+    },
+  };
+}
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "PCSX2",
@@ -92,6 +106,7 @@ const config = {
           editUrl: "https://github.com/PCSX2/pcsx2-net-www/tree/main/",
         },
         blog: {
+          onUntruncatedBlogPosts: 'ignore',
           path: "blog",
           blogSidebarCount: 0,
           showReadingTime: true,
@@ -320,6 +335,7 @@ const config = {
       },
     }),
   plugins: [
+    tailwindPlugin,
     [
       "@docusaurus/plugin-client-redirects",
       {
