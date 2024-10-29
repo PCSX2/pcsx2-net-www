@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Dropdown } from "@nextui-org/react";
+import { Button, Dropdown, DropdownTrigger, DropdownSection, DropdownMenu } from "@nextui-org/react";
 import { BsWindows, BsApple } from "react-icons/bs";
 import { FaLinux } from "react-icons/fa";
 import { IoIosCloudyNight } from "react-icons/io";
@@ -218,23 +218,25 @@ export function ReleaseDownloadButton({
         placement ? placement : useMediaQuery(960) ? "bottom-left" : "right-top"
       }
     >
-      <Dropdown.Button
-        color={isNightly ? "warning" : "primary"}
-        css={buttonStyling}
-        bordered={bordered}
-        disabled={isDisabled}
-      >
-        {isNightly ? <IoIosCloudyNight size={22} /> : <GiBrickWall size={16} />}
+      <DropdownTrigger>
+        <Button 
+          color={isNightly ? "warning" : "primary"}
+          variant="solid"
+          disabled={isDisabled}
+          css={buttonStyling}
+        >
+          {isNightly ? <IoIosCloudyNight size={22} /> : <GiBrickWall size={16} />}
         &nbsp;
         {buttonText}
-      </Dropdown.Button>
-      <Dropdown.Menu
+        </Button>
+      </DropdownTrigger>
+      <DropdownMenu
         color={isNightly ? "warning" : "primary"}
         aria-label="Actions"
         css={{ $$dropdownMenuWidth: "100%" }}
         onAction={(assetUrl) => openAssetLink(assetUrl)}
       >
-        <Dropdown.Section
+        <DropdownSection
           title={
             errorMsg === undefined
               ? windowsItems.length > 0
@@ -244,8 +246,8 @@ export function ReleaseDownloadButton({
           }
         >
           {errorMsg === undefined ? windowsItems : null}
-        </Dropdown.Section>
-        <Dropdown.Section
+        </DropdownSection>
+        <DropdownSection
           title={
             errorMsg === undefined
               ? linuxItems.length > 0
@@ -255,8 +257,8 @@ export function ReleaseDownloadButton({
           }
         >
           {errorMsg === undefined ? linuxItems : null}
-        </Dropdown.Section>
-        <Dropdown.Section
+        </DropdownSection>
+        <DropdownSection
           title={
             errorMsg === undefined
               ? macosItems.length > 0
@@ -266,8 +268,8 @@ export function ReleaseDownloadButton({
           }
         >
           {errorMsg === undefined ? macosItems : null}
-        </Dropdown.Section>
-      </Dropdown.Menu>
+        </DropdownSection>
+      </DropdownMenu>
     </Dropdown>
   );
 }

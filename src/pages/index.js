@@ -2,19 +2,15 @@ import React, { useState, useEffect } from "react";
 import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
 import {
-  Button,
   Card,
   CardFooter,
-  CardHeader,
   Image,
-  Tooltip
 } from "@nextui-org/react";
+import { ReleaseDownloadButton } from "../components/ReleaseDownloadButton";
 import { useTheme } from "next-themes";
 import { NumberTicker } from "../components/NumberTicker";
 import { getLatestRelease } from "../components/ReleaseDownloadButton";
-import { ReleaseDownloadButton } from "../components/ReleaseDownloadButton";
 import { GoogleAd } from "../components/GoogleAd";
-import { useMediaQuery } from "../utils/mediaQuery";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
 const StyledTitle = "inline font-bold text-[2.5rem] leading-[1.2] text-current sm:text-[3rem] lg:text-[3.5rem]";
@@ -107,18 +103,15 @@ export default function Home() {
 
   return (
     <Layout title={`Home`} description="An Open-Source Playstation 2 Emulator">
-      <main>
+      <main className="docusaurus-reset">
         <video
           src={useBaseUrl(homeVideoPath)}
           autoPlay={true}
           loop={true}
           muted={true}
+          className="absolute h-[50vh] w-full object-contain opacity-50"
           style={{
-            position: "absolute",
-            height: "calc(50vh)",
-            width: "100%",
-            objectFit: "contain",
-            filter: "opacity(50%)",
+            backgroundColor: "var(--home-video-background-color)"
           }}
         />
         <div
@@ -144,9 +137,33 @@ export default function Home() {
                 </span>
               </p>
             </div>
+            <div className="flex gap-2 justify-center mt-5">
+              <ReleaseDownloadButton
+                release={latestStableRelease}
+                buttonText="Latest Stable"
+                isNightly={false}
+                isDisabled={false}
+                errorMsg={apiErrorMsg}
+                placement={window.innerWidth >= 960 ? "bottom-left" : "left-top"}
+              />
+              <div className="flex flex-col">
+                <ReleaseDownloadButton
+                  release={latestNightlyRelease}
+                  buttonText="Latest Nightly"
+                  isNightly={true}
+                  errorMsg={apiErrorMsg}
+                />
+                {/* TODO - change to nextui */}
+                <a href={useBaseUrl("/downloads")} className="mt-1">
+                  <button class="bg-transparent text-secondary font-semibold min-w-[200px]">
+                    Previous Versions
+                  </button>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="w-full">
+        <div className="w-full container mx-auto">
           {/* Google Ad Section */}
           <div className="flex justify-center">
             <div className="w-full md:w-1/2">
@@ -167,25 +184,20 @@ export default function Home() {
               {/* Latest Blog */}
               <div className="flex justify-center">
                 <a href={useBaseUrl(latestBlog.url)}>
-                  <Card radius={"md"} isFooterBlurred className="w-full h-[300px] col-span-12 sm:col-span-7">
+                  <Card radius={"md"} isFooterBlurred className="w-full h-[300px] col-span-12 sm:col-span-7" style={{ all: 'revert-layer' }}>
                     <Image
                       removeWrapper
-                      className="z-0 w-full h-full object-cover"
+                      className="z-0 w-full h-full object-contain"
                       src={latestBlog.img}
+                      alt="Latest blog image"
                     />
                     <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
                       <div className="flex flex-grow gap-2 items-center">
-                        <Image
-                          alt="Breathing app icon"
-                          className="rounded-full w-10 h-11 bg-black"
-                          src="https://nextui.org/images/breathing-app-icon.jpeg"
-                        />
                         <div className="flex flex-col">
-                          <p className="text-tiny text-white/60">Latest Blog</p>
-                          <p className="text-tiny text-white/60">{latestBlog.title}</p>
+                          <h2 className="text-base uppercase font-bold mb-0">Latest Blog</h2>
+                          <p className="text-sm text-white/70">{latestBlog.title}</p>
                         </div>
                       </div>
-                      <Button radius="full" size="sm">Get App</Button>
                     </CardFooter>
                   </Card>
                 </a>
@@ -194,19 +206,22 @@ export default function Home() {
               {/* Previous Blog */}
               <div className="flex justify-center">
                 <a href={useBaseUrl(previousBlog.url)}>
-                  <div className="relative bg-[var(--card-color-background)]">
-                    <div className="absolute z-10 top-2 p-2">
-                      <div>
-                        <p className="text-xs font-bold uppercase text-white/70">Previous Blog</p>
-                        <h4 className="text-white">{previousBlog.title}</h4>
-                      </div>
-                    </div>
-                    <img
+                  <Card radius={"md"} isFooterBlurred className="w-full h-[300px] col-span-12 sm:col-span-7" style={{ all: 'revert-layer' }}>
+                    <Image
+                      removeWrapper
+                      className="z-0 w-full h-full object-contain"
                       src={previousBlog.img}
                       alt="Previous blog image"
-                      className="object-contain w-full h-[300px]"
                     />
-                  </div>
+                    <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
+                      <div className="flex flex-grow gap-2 items-center">
+                        <div className="flex flex-col">
+                          <h2 className="text-base uppercase font-bold mb-0">Previous Blog</h2>
+                          <p className="text-sm text-white/70">{previousBlog.title}</p>
+                        </div>
+                      </div>
+                    </CardFooter>
+                  </Card>
                 </a>
               </div>
             </div>
@@ -225,38 +240,44 @@ export default function Home() {
               {/* Latest Progress Report */}
               <div className="flex justify-center">
                 <a href={useBaseUrl(latestProgressReport.url)}>
-                  <div className="relative bg-[var(--card-color-background)]">
-                    <div className="absolute z-10 top-2 p-2">
-                      <div>
-                        <p className="text-xs font-bold uppercase text-white/70">Latest Progress Report</p>
-                        <h4 className="text-white">{latestProgressReport.title}</h4>
-                      </div>
-                    </div>
-                    <img
+                  <Card radius={"md"} isFooterBlurred className="w-full h-[300px] col-span-12 sm:col-span-7" style={{ all: 'revert-layer' }}>
+                    <Image
+                      removeWrapper
+                      className="z-0 w-full h-full object-contain"
                       src={latestProgressReport.img}
                       alt="Latest progress report image"
-                      className="object-contain w-full h-[300px]"
                     />
-                  </div>
+                    <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
+                      <div className="flex flex-grow gap-2 items-center">
+                        <div className="flex flex-col">
+                          <h2 className="text-base uppercase font-bold mb-0">Latest Progress Report</h2>
+                          <p className="text-sm text-white/70">{latestProgressReport.title}</p>
+                        </div>
+                      </div>
+                    </CardFooter>
+                  </Card>
                 </a>
               </div>
 
               {/* Previous Progress Report */}
               <div className="flex justify-center">
                 <a href={useBaseUrl(previousProgressReport.url)}>
-                  <div className="relative bg-[var(--card-color-background)]">
-                    <div className="absolute z-10 top-2 p-2">
-                      <div>
-                        <p className="text-xs font-bold uppercase text-white/70">Previous Progress Report</p>
-                        <h4 className="text-white">{previousProgressReport.title}</h4>
-                      </div>
-                    </div>
-                    <img
+                  <Card radius={"md"} isFooterBlurred className="w-full h-[300px] col-span-12 sm:col-span-7" style={{ all: 'revert-layer' }}>
+                    <Image
+                      removeWrapper
+                      className="z-0 w-full h-full object-contain"
                       src={previousProgressReport.img}
                       alt="Previous progress report image"
-                      className="object-contain w-full h-[300px]"
                     />
-                  </div>
+                    <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
+                      <div className="flex flex-grow gap-2 items-center">
+                        <div className="flex flex-col">
+                          <h2 className="text-base uppercase font-bold mb-0">Previous Progress Report</h2>
+                          <p className="text-sm text-white/70">{previousProgressReport.title}</p>
+                        </div>
+                      </div>
+                    </CardFooter>
+                  </Card>
                 </a>
               </div>
             </div>

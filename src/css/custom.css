@@ -23,8 +23,9 @@
   --navbar-svg-icons-filter: invert(0%) sepia(100%) saturate(7500%)
     hue-rotate(209deg) brightness(86%) contrast(114%);
   --nightly-button-background: #000;
-  --ifm-footer-background-color: var(--nextui-colors-accents0);
+  --ifm-footer-background-color: red;
   --card-color-background: #000;
+  --home-video-background-color: #fff;
 }
 
 [data-theme="dark"] {
@@ -42,6 +43,17 @@
     hue-rotate(81deg) brightness(106%) contrast(106%);
   --nightly-button-background: var(--nextui-colors-accents0);
   --card-color-background: var(--nextui-colors-backgroundContrast);
+  --home-video-background-color: #000;
+  --ifm-footer-background-color: #020915;
+}
+
+.docusaurus-reset p {
+  margin: 0;
+}
+
+.docusaurus-reset button {
+  cursor: pointer;
+  border: none;
 }
 
 /* Workaround to resolve FOUC issues */

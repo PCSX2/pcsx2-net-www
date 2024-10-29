@@ -335,7 +335,6 @@ const config = {
       },
     }),
   plugins: [
-    tailwindPlugin,
     [
       "@docusaurus/plugin-client-redirects",
       {
@@ -362,6 +361,7 @@ const config = {
         };
       },
     }),
+    tailwindPlugin,
   ],
 };
 
