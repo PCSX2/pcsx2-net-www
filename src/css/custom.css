@@ -56,6 +56,20 @@
   border: none;
 }
 
+.docusaurus-reset table thead tr {
+  border: none;
+  border-top: none;
+}
+
+.docusaurus-reset table tr {
+  border: none;
+  border-top: none;
+}
+
+.docusaurus-reset table {
+  display: table;
+}
+
 /* Workaround to resolve FOUC issues */
 
 html {
@@ -115,6 +129,10 @@ body {
 }
 
 button {
+  font-family: var(--ifm-font-family-base);
+}
+
+.default-font {
   font-family: var(--ifm-font-family-base);
 }
 
