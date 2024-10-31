@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "@theme/Layout";
 import {
   Table, Spinner,
-  TableHeader, TableBody, TableColumn, TablePagination, TableRow, TableCell,
+  TableHeader, TableBody, TableColumn, Pagination, TableRow, TableCell,
   Tooltip,
   Badge,
   Link,
@@ -14,6 +14,7 @@ import Fuse from "fuse.js";
 import { DateTime } from "luxon";
 import { GoogleAd } from "../../components/GoogleAd";
 import { useMediaQuery } from "../../utils/mediaQuery";
+import { CompatibilityButton } from "./CompatibilityButton";
 
 function getTableData(compatData) {
   const compatRows = [];
@@ -307,6 +308,21 @@ export default function Compatiblity() {
   const [searchString, setSearchString] = useState("");
   const [readyToFilter, setReadyToFilter] = useState(false);
 
+  const rowsPerPage = 25;
+
+  const tableRows = React.useMemo(() => {
+    const start = (page - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+    return filteredData.slice(start, end);
+  }, [page, filteredData]);
+
+  const totalPages = React.useMemo(() => {
+    if (Math.ceil(filteredData.length / 25) < 1) {
+      return 1;
+    }
+    return Math.ceil(filteredData.length / 25);
+  }, [filteredData]);
+
   useEffect(() => {
     setTableData(getTableData(CompatData));
     // Determine distribution of statuses
@@ -431,126 +447,60 @@ export default function Compatiblity() {
             </div>
             <div class="lg:w-2/3">
               <div class="flex flex-row gap-2">
-                <Button
-                  bordered={filterOptions.perfect}
-                  disabled={filterStats.perfect === undefined}
-                  isLoading={filterStats.perfect === undefined}
-                  css={{
-                    backgroundColor: filterOptions.perfect
-                      ? "inherit"
-                      : "#BA68C8",
-                    color: filterOptions.perfect ? "#BA68C8" : "inherit",
-                    borderColor: filterOptions.perfect
-                      ? "#BA68C8"
-                      : "inherit",
-                  }}
-                  auto
-                  onPress={() => toggleFilter("perfect")}
-                >
+                <CompatibilityButton
+                categoryFiltered={filterOptions.perfect}
+                disabledOrLoading={filterStats.perfect === undefined}
+                category={"perfect"}
+                onPress={() => toggleFilter("perfect")}>
                   {filterStats.perfect !== undefined && (
                     <span>{perfectFilterText}</span>
                   )}
-                </Button>
-                <Button
-                  bordered={filterOptions.playable}
-                  disabled={filterStats.playable === undefined}
-                  css={{
-                    backgroundColor: filterOptions.playable
-                      ? "inherit"
-                      : "#9CCC65",
-                    color: filterOptions.playable ? "#9CCC65" : "#000",
-                    borderColor: filterOptions.playable
-                      ? "#9CCC65"
-                      : "inherit",
-                  }}
-                  auto
-                  onPress={() => toggleFilter("playable")}
-                >
-                  {filterStats.playable === undefined && (
-                    <Spinner size="sm" />
+                </CompatibilityButton>
+                <CompatibilityButton
+                categoryFiltered={filterOptions.playable}
+                disabledOrLoading={filterStats.playable === undefined}
+                category={"playable"}
+                onPress={() => toggleFilter("playable")}>
+                  {filterStats.playable !== undefined && (
+                    <span>{playableFilterText}</span>
                   )}
-                  {playableFilterText}
-                </Button>
-                <Button
-                  bordered={filterOptions.ingame}
-                  disabled={filterStats.ingame === undefined}
-                  css={{
-                    backgroundColor: filterOptions.ingame
-                      ? "inherit"
-                      : "#29B6F6",
-                    color: filterOptions.ingame ? "#29B6F6" : "#000",
-                    borderColor: filterOptions.ingame
-                      ? "#29B6F6"
-                      : "inherit",
-                  }}
-                  auto
-                  onPress={() => toggleFilter("ingame")}
-                >
-                  {filterStats.ingame === undefined && (
-                    <Spinner size="sm" />
+                </CompatibilityButton>
+                <CompatibilityButton
+                categoryFiltered={filterOptions.ingame}
+                disabledOrLoading={filterStats.ingame === undefined}
+                category={"ingame"}
+                onPress={() => toggleFilter("ingame")}>
+                  {filterStats.ingame !== undefined && (
+                    <span>{ingameFilterText}</span>
                   )}
-                  {ingameFilterText}
-                </Button>
-                <Button
-                  bordered={filterOptions.menus}
-                  disabled={filterStats.menus === undefined}
-                  css={{
-                    backgroundColor: filterOptions.menus
-                      ? "inherit"
-                      : "#FBC02D",
-                    color: filterOptions.menus ? "#FBC02D" : "#000",
-                    borderColor: filterOptions.menus
-                      ? "#FBC02D"
-                      : "inherit",
-                  }}
-                  auto
-                  onPress={() => toggleFilter("menus")}
-                >
-                  {filterStats.menus === undefined && (
-                    <Spinner size="sm" />
+                </CompatibilityButton>
+                <CompatibilityButton
+                categoryFiltered={filterOptions.menus}
+                disabledOrLoading={filterStats.menus === undefined}
+                category={"menus"}
+                onPress={() => toggleFilter("menus")}>
+                  {filterStats.menus !== undefined && (
+                    <span>{menusFilterText}</span>
                   )}
-                  {menusFilterText}
-                </Button>
-                <Button
-                  bordered={filterOptions.intro}
-                  disabled={filterStats.intro === undefined}
-                  css={{
-                    backgroundColor: filterOptions.intro
-                      ? "inherit"
-                      : "#F57C00",
-                    color: filterOptions.intro ? "#F57C00" : "#000",
-                    borderColor: filterOptions.intro
-                      ? "#F57C00"
-                      : "inherit",
-                  }}
-                  auto
-                  onPress={() => toggleFilter("intro")}
-                >
-                  {filterStats.intro === undefined && (
-                    <Spinner size="sm" />
+                </CompatibilityButton>
+                <CompatibilityButton
+                categoryFiltered={filterOptions.intro}
+                disabledOrLoading={filterStats.intro === undefined}
+                category={"intro"}
+                onPress={() => toggleFilter("intro")}>
+                  {filterStats.intro !== undefined && (
+                    <span>{introFilterText}</span>
                   )}
-                  {introFilterText}
-                </Button>
-                <Button
-                  bordered={filterOptions.nothing}
-                  disabled={filterStats.nothing === undefined}
-                  css={{
-                    backgroundColor: filterOptions.nothing
-                      ? "inherit"
-                      : "#D32F2F",
-                    color: filterOptions.nothing ? "#D32F2F" : "inherit",
-                    borderColor: filterOptions.nothing
-                      ? "#D32F2F"
-                      : "inherit",
-                  }}
-                  auto
-                  onPress={() => toggleFilter("nothing")}
-                >
-                  {filterStats.nothing === undefined && (
-                    <Spinner size="sm" />
+                </CompatibilityButton>
+                <CompatibilityButton
+                categoryFiltered={filterOptions.nothing}
+                disabledOrLoading={filterStats.nothing === undefined}
+                category={"nothing"}
+                onPress={() => toggleFilter("nothing")}>
+                  {filterStats.nothing !== undefined && (
+                    <span>{nothingFilterText}</span>
                   )}
-                  {nothingFilterText}
-                </Button>
+                </CompatibilityButton>
               </div>
             </div>
           </div>
@@ -563,17 +513,16 @@ export default function Compatiblity() {
               isStriped
               aria-label="Compatibility Table"
               bottomContent={
-                <Pagination
-                  isCompact
-                  rowsPerPage={
-                    loadingState == "loading"
-                      ? 2
-                      : Math.min(25, filteredData.length)
-                  }
-                  page={page}
-                  onPageChange={setPage}
-                  total={Math.ceil(filteredData.length / 25)}
-                />
+                <div className="flex w-full justify-center">
+                  <Pagination
+                    isCompact
+                    showControls
+                    showShadow
+                    page={page}
+                    onChange={(page) => setPage(page)}
+                    total={totalPages}
+                  />
+                </div>
               }
             >
               <TableHeader columns={columns}>
@@ -583,7 +532,7 @@ export default function Compatiblity() {
                   </TableColumn>
                 )}
               </TableHeader>
-              <TableBody items={filteredData} isLoading={isTableLoading}>
+              <TableBody items={tableRows} isLoading={isTableLoading}>
                 {(item) => (
                   <TableRow key={item.key}>
                     {(columnKey) => (

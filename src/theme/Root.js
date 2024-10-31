@@ -23,15 +23,12 @@ function loadGoogleAds() {
 
 // Default implementation, that you can customize
 export default function Root({ children }) {
-  const { theme, setTheme } = useTheme();
-  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     // App mounted, make the page visible!
     document?.documentElement?.classList.add("app-loaded");
     // you can use any storage
     let theme = window.localStorage.getItem("theme");
-    setIsDark(theme === "dark");
 
     const observer = new MutationObserver((mutation) => {
       let newTheme = theme;
@@ -39,9 +36,6 @@ export default function Root({ children }) {
         if (!document?.documentElement.classList.contains("dark-theme")) {
           document?.documentElement.classList.add("dark-theme");
         }
-        setIsDark(true);
-      } else {
-        setIsDark(false);
       }
       // Ensure the page is visible if the class list has changed
       if (!document?.documentElement.classList.contains("app-loaded")) {

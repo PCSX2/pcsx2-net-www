@@ -53,7 +53,7 @@
 
 .docusaurus-reset button {
   cursor: pointer;
-  border: none;
+  /* border: none; */
 }
 
 .docusaurus-reset table thead tr {
