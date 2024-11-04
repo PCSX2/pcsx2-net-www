@@ -129,7 +129,7 @@ const config = {
     ({
       announcementBar: {
         id: "announcementBar-0", // Increment on change
-        content: `<a href="/blog/2024/pcsx2-2-release/">PCSX2 2.0 is finally here, check out our new blog post!</a>`,
+        content: `<a class="no-underline font-medium" href="/blog/2024/pcsx2-2-release/">PCSX2 2.0 is finally here, check out our new blog post!</a>`,
         backgroundColor: "#4765c8",
         textColor: "#fafbfc",
         isCloseable: true,

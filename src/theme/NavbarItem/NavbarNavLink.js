@@ -11,7 +11,7 @@ export default function NavbarNavLinkWrapper(props) {
       return (
         <>
           <Link {...props}>
-            <GoHeart fill="var(--nextui-colors-red600)" size={20} />
+            <GoHeart fill="#C20E4D" size={20} />
             Donate
           </Link>
         </>
@@ -20,29 +20,10 @@ export default function NavbarNavLinkWrapper(props) {
     return (
       <>
         <Button
-          auto
           as="a"
-          css={{
-            bg: "$gray50",
-            color: "$text",
-            maxH: "38px",
-            px: "$8",
-            "@mdMax": {
-              d: "none",
-            },
-            "& .nextui-button-icon": {
-              mr: "$2",
-            },
-            "& .nextui-button-icon svg": {
-              transition: "$default",
-            },
-            "&:hover": {
-              color: "#59c5ff",
-              textDecoration: "none",
-            },
-          }}
+          className="cursor-pointer hover:no-underline hover:text-red-200 gap-1 font-medium border-none text-red-400 bg-[#090a11]"
           href={props.to}
-          icon={<GoHeart fill="var(--nextui-colors-red600)" size={20} />}
+          startContent={<GoHeart fill="#C20E4D" size={20} />}
           rel="noreferrer"
           target="_blank"
         >

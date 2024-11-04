@@ -283,6 +283,8 @@ const searchOptions = {
 
 import CompatData from "@site/static/data/compat/data.min.json";
 
+// TODO - add a github query button - https://github.com/PCSX2/pcsx2/issues?q=is%3Aissue%20SCUS-97265%20OR%20%22Jak%20II%22
+
 export default function Compatiblity() {
   // State
   const [tableData, setTableData] = useState([]);

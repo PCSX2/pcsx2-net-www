@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
 import {
+  Button,
   Card,
   CardFooter,
   Image,
@@ -12,6 +13,7 @@ import { NumberTicker } from "../components/NumberTicker";
 import { getLatestRelease } from "../components/ReleaseDownloadButton";
 import { GoogleAd } from "../components/GoogleAd";
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import { useMediaQuery } from "../utils/mediaQuery";
 
 const StyledTitle = "inline font-bold text-[2.5rem] leading-[1.2] text-current sm:text-[3rem] lg:text-[3.5rem]";
 const StyledGradientTitle = `${StyledTitle} bg-clip-text text-transparent bg-gradient-to-b from-[#5099ff] to-[#465eae]`;
@@ -44,7 +46,7 @@ import {
   previousProgressReport,
 } from "../data/latestBlogs";
 
-const baseApiUrl = "https://api.pcsx2.net/v1";
+let baseApiUrl = "https://api.pcsx2.net/v1";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
@@ -52,6 +54,10 @@ export default function Home() {
   const [latestNightlyRelease, setLatestNightlyRelease] = useState({});
   const [apiErrorMsg, setApiErrorMsg] = useState(undefined);
   const [homeVideoPath, setHomeVideoPath] = useState("/videos/splash.webm");
+
+  if (window.location.hostname === "localhost") {
+    baseApiUrl = "https://localhost:8001/v1"
+  }
 
   const fetchLatestReleases = async () => {
     try {
@@ -144,7 +150,7 @@ export default function Home() {
                 isNightly={false}
                 isDisabled={false}
                 errorMsg={apiErrorMsg}
-                placement={window.innerWidth >= 960 ? "bottom-left" : "left-top"}
+                placement={useMediaQuery(960) ? "bottom-start" : "left-start"}
               />
               <div className="flex flex-col">
                 <ReleaseDownloadButton
@@ -153,12 +159,9 @@ export default function Home() {
                   isNightly={true}
                   errorMsg={apiErrorMsg}
                 />
-                {/* TODO - change to nextui */}
-                <a href={useBaseUrl("/downloads")} className="mt-1">
-                  <button class="bg-transparent text-secondary font-semibold min-w-[200px]">
-                    Previous Versions
-                  </button>
-                </a>
+                <Button color="secondary" className="mt-2 border-solid font-medium" variant="bordered" role="link" data-href={useBaseUrl("/downloads")} href={useBaseUrl("/downloads")}>
+                  Previous Versions
+                </Button>
               </div>
             </div>
           </div>

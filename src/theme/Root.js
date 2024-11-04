@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
   NextUIProvider,
 } from "@nextui-org/react";
 import {ThemeProvider as NextThemesProvider} from "next-themes";
-import {useTheme} from "next-themes";
 import CookieConsent, { getCookieConsentValue } from "react-cookie-consent";
 
 function loadGoogleAds() {
