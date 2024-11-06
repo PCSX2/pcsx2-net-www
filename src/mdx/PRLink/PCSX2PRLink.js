@@ -1,8 +1,7 @@
 import React from "react";
 import { GoGitCommit, GoGitPullRequest } from "react-icons/go";
-import { Avatar, Tooltip } from "@nextui-org/react";
+import { Avatar, Tooltip, AvatarGroup } from "@nextui-org/react";
 import { IconContext } from "react-icons";
-import styles from "./PCSX2PRLink.module.css";
 
 function generatePRLinks(prNums) {
   if (!prNums) {
@@ -82,26 +81,26 @@ function generateAuthorAvatars(authors) {
     );
   }
   return (
-    <Avatar.Group
+    <AvatarGroup
       animated={avatars.length > 1}
       style={{ marginRight: "0.5em" }}
     >
       {avatars}
-    </Avatar.Group>
+    </AvatarGroup>
   );
 }
 
 export default function PCSX2PRLink({ children, prNums, shas, authors }) {
   return (
-    <Grid.Container className={styles["pr-link"]}>
-      <Grid xs={12} alignItems="center">
-        <span style={{ marginRight: "1.5em" }}>{children}</span>
-      </Grid>
-      <Grid xs={12} alignItems="center" css={{ ml: "0.75em" }}>
+    <div className={"pr-link flex flex-wrap"}>
+      <div className="w-full flex items-center">
+        <span className="mr-6">{children}</span>
+      </div>
+      <div className="w-full flex items-center ml-3">
         {generateAuthorAvatars(authors)}
         {generatePRLinks(prNums)}
         {generateCommitLinks(shas)}
-      </Grid>
-    </Grid.Container>
+      </div>
+    </div>
   );
 }
