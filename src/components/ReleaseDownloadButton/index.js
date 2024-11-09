@@ -242,7 +242,7 @@ export function ReleaseDownloadButton({
           color={isNightly ? "warning" : "primary"}
           variant="solid"
           disabled={isDisabled}
-          className="border-none font-medium"
+          className="border-none font-medium cursor-pointer"
         >
           {isNightly ? (
             <IoIosCloudyNight size={22} />

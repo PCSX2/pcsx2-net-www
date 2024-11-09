@@ -168,7 +168,7 @@ export default function Home() {
                 />
                 <Button
                   color="secondary"
-                  className="mt-2 border-solid font-medium"
+                  className="mt-2 border-solid font-medium cursor-pointer"
                   variant="bordered"
                   role="link"
                   data-href={useBaseUrl("/downloads")}

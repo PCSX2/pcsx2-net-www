@@ -426,7 +426,7 @@ export default function Compatiblity() {
             <h1>Compatibility Data</h1>
           </div>
           <div class="flex flex-row">
-            <p class="text-red-600">
+            <p class="text-default-400">
               Here is the latest data on the emulator's compatibility. Use the
               filtering and searching options below to find what you are
               interested in
