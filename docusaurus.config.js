@@ -127,13 +127,13 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      announcementBar: {
-        id: "announcementBar-0", // Increment on change
-        content: `<a class="no-underline font-medium" href="/blog/2024/pcsx2-2-release/">PCSX2 2.0 is finally here, check out our new blog post!</a>`,
-        backgroundColor: "#4765c8",
-        textColor: "#fafbfc",
-        isCloseable: true,
-      },
+      // announcementBar: {
+      //   id: "announcementBar-1", // Increment on change (2.0 was 0, next announcement should be 1)
+      //   content: `<a class="no-underline font-medium" href="/blog/2024/pcsx2-2-release/">PCSX2 2.0 is finally here, check out our new blog post!</a>`,
+      //   backgroundColor: "#4765c8",
+      //   textColor: "#fafbfc",
+      //   isCloseable: true,
+      // },
       algolia: {
         // The application ID provided by Algolia
         appId: "TR9JNR7TSP",
