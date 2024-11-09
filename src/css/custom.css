@@ -55,7 +55,7 @@ button.docusaurus-reset {
   cursor: pointer;
 }
 
-.docusaurus-reset table  {
+.docusaurus-reset table {
   border: none;
   border-top: none;
   display: table;
@@ -72,21 +72,21 @@ button.docusaurus-reset {
 }
 
 menu.docusaurus-reset {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 ol.docusaurus-reset {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 ul.docusaurus-reset {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .theme-doc-sidebar-container nav {

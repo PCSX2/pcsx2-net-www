@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
-import {
-  NextUIProvider,
-} from "@nextui-org/react";
-import {ThemeProvider as NextThemesProvider} from "next-themes";
+import { NextUIProvider } from "@nextui-org/react";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 import CookieConsent, { getCookieConsentValue } from "react-cookie-consent";
 
 function loadGoogleAds() {
@@ -22,7 +20,6 @@ function loadGoogleAds() {
 
 // Default implementation, that you can customize
 export default function Root({ children }) {
-
   useEffect(() => {
     // App mounted, make the page visible!
     document?.documentElement?.classList.add("app-loaded");

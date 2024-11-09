@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
-import {
-  Button,
-  Card,
-  CardFooter,
-  Image,
-} from "@nextui-org/react";
+import { Button, Card, CardFooter, Image } from "@nextui-org/react";
 import { ReleaseDownloadButton } from "../components/ReleaseDownloadButton";
 import { useTheme } from "next-themes";
 import { NumberTicker } from "../components/NumberTicker";
@@ -15,9 +10,11 @@ import { GoogleAd } from "../components/GoogleAd";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import { useMediaQuery } from "../utils/mediaQuery";
 
-const StyledTitle = "inline font-bold text-[2.5rem] leading-[1.2] text-current sm:text-[3rem] lg:text-[3.5rem]";
+const StyledTitle =
+  "inline font-bold text-[2.5rem] leading-[1.2] text-current sm:text-[3rem] lg:text-[3.5rem]";
 const StyledGradientTitle = `${StyledTitle} bg-clip-text text-transparent bg-gradient-to-b from-[#5099ff] to-[#465eae]`;
-const StyledSubtitle = "pl-1 text-xl w-full inline-flex font-medium text-accents-9";
+const StyledSubtitle =
+  "pl-1 text-xl w-full inline-flex font-medium text-accents-9";
 
 import CompatData from "@site/static/data/compat/data.min.json";
 
@@ -56,7 +53,7 @@ export default function Home() {
   const [homeVideoPath, setHomeVideoPath] = useState("/videos/splash.webm");
 
   if (window.location.hostname === "localhost") {
-    baseApiUrl = "https://localhost:8001/v1"
+    baseApiUrl = "https://localhost:8001/v1";
   }
 
   const fetchLatestReleases = async () => {
@@ -87,16 +84,12 @@ export default function Home() {
   useEffect(() => {
     fetchLatestReleases();
     setHomeVideoPath(
-      theme === "dark"
-        ? "/videos/splash.webm"
-        : "/videos/splash-light.mp4",
+      theme === "dark" ? "/videos/splash.webm" : "/videos/splash-light.mp4",
     );
 
     const observer = new MutationObserver((mutation) => {
       setHomeVideoPath(
-        theme === "dark"
-          ? "/videos/splash.webm"
-          : "/videos/splash-light.mp4",
+        theme === "dark" ? "/videos/splash.webm" : "/videos/splash-light.mp4",
       );
     });
 
@@ -117,7 +110,7 @@ export default function Home() {
           muted={true}
           className="absolute h-[50vh] w-full object-contain opacity-50"
           style={{
-            backgroundColor: "var(--home-video-background-color)"
+            backgroundColor: "var(--home-video-background-color)",
           }}
         />
         <div
@@ -126,11 +119,25 @@ export default function Home() {
         >
           <div className="w-full md:w-1/2 flex flex-col">
             <div className="text-center">
-              <h1 className={`${StyledGradientTitle} mb-0`} style={{ backgroundImage: "linear-gradient(180deg, #5099ff 25%, #465eae 100%)", "::selection": { WebkitTextFillColor: "var(--tw-text)" } }}>
+              <h1
+                className={`${StyledGradientTitle} mb-0`}
+                style={{
+                  backgroundImage:
+                    "linear-gradient(180deg, #5099ff 25%, #465eae 100%)",
+                  "::selection": { WebkitTextFillColor: "var(--tw-text)" },
+                }}
+              >
                 PCSX2&nbsp;
               </h1>
               <h1 className={`${StyledTitle} mb-0`}>is an open source&nbsp;</h1>
-              <h1 className={`${StyledGradientTitle} mb-0`} style={{ backgroundImage: "linear-gradient(180deg, #5099ff 25%, #465eae 100%)", "::selection": { WebkitTextFillColor: "var(--tw-text)" } }}>
+              <h1
+                className={`${StyledGradientTitle} mb-0`}
+                style={{
+                  backgroundImage:
+                    "linear-gradient(180deg, #5099ff 25%, #465eae 100%)",
+                  "::selection": { WebkitTextFillColor: "var(--tw-text)" },
+                }}
+              >
                 PS2 Emulator
               </h1>
             </div>
@@ -159,7 +166,14 @@ export default function Home() {
                   isNightly={true}
                   errorMsg={apiErrorMsg}
                 />
-                <Button color="secondary" className="mt-2 border-solid font-medium" variant="bordered" role="link" data-href={useBaseUrl("/downloads")} href={useBaseUrl("/downloads")}>
+                <Button
+                  color="secondary"
+                  className="mt-2 border-solid font-medium"
+                  variant="bordered"
+                  role="link"
+                  data-href={useBaseUrl("/downloads")}
+                  href={useBaseUrl("/downloads")}
+                >
                   Previous Versions
                 </Button>
               </div>
@@ -179,7 +193,8 @@ export default function Home() {
             <div className="flex flex-col">
               <h1 className={`${StyledTitle} mb-0`}>Recent Blog Posts</h1>
               <p className={`${StyledSubtitle}`}>
-                Articles that go more in-depth on how things work, how they were fixed, or sometimes why they don't.
+                Articles that go more in-depth on how things work, how they were
+                fixed, or sometimes why they don't.
               </p>
             </div>
 
@@ -187,7 +202,12 @@ export default function Home() {
               {/* Latest Blog */}
               <div className="flex justify-center">
                 <a href={useBaseUrl(latestBlog.url)}>
-                  <Card radius={"md"} isFooterBlurred className="w-full h-[300px] col-span-12 sm:col-span-7" style={{ all: 'revert-layer' }}>
+                  <Card
+                    radius={"md"}
+                    isFooterBlurred
+                    className="w-full h-[300px] col-span-12 sm:col-span-7"
+                    style={{ all: "revert-layer" }}
+                  >
                     <Image
                       removeWrapper
                       className="z-0 w-full h-full object-contain"
@@ -197,8 +217,12 @@ export default function Home() {
                     <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
                       <div className="flex flex-grow gap-2 items-center">
                         <div className="flex flex-col">
-                          <h2 className="text-base uppercase font-bold mb-0">Latest Blog</h2>
-                          <p className="text-sm text-white/70">{latestBlog.title}</p>
+                          <h2 className="text-base uppercase font-bold mb-0">
+                            Latest Blog
+                          </h2>
+                          <p className="text-sm text-white/70">
+                            {latestBlog.title}
+                          </p>
                         </div>
                       </div>
                     </CardFooter>
@@ -209,7 +233,12 @@ export default function Home() {
               {/* Previous Blog */}
               <div className="flex justify-center">
                 <a href={useBaseUrl(previousBlog.url)}>
-                  <Card radius={"md"} isFooterBlurred className="w-full h-[300px] col-span-12 sm:col-span-7" style={{ all: 'revert-layer' }}>
+                  <Card
+                    radius={"md"}
+                    isFooterBlurred
+                    className="w-full h-[300px] col-span-12 sm:col-span-7"
+                    style={{ all: "revert-layer" }}
+                  >
                     <Image
                       removeWrapper
                       className="z-0 w-full h-full object-contain"
@@ -219,8 +248,12 @@ export default function Home() {
                     <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
                       <div className="flex flex-grow gap-2 items-center">
                         <div className="flex flex-col">
-                          <h2 className="text-base uppercase font-bold mb-0">Previous Blog</h2>
-                          <p className="text-sm text-white/70">{previousBlog.title}</p>
+                          <h2 className="text-base uppercase font-bold mb-0">
+                            Previous Blog
+                          </h2>
+                          <p className="text-sm text-white/70">
+                            {previousBlog.title}
+                          </p>
                         </div>
                       </div>
                     </CardFooter>
@@ -235,7 +268,8 @@ export default function Home() {
             <div className="flex flex-col">
               <h1 className={`${StyledTitle} mb-0`}>Recent Progress Reports</h1>
               <p className={`${StyledSubtitle}`}>
-                Stay up to date on the latest improvements and fixes on the project.
+                Stay up to date on the latest improvements and fixes on the
+                project.
               </p>
             </div>
 
@@ -243,7 +277,12 @@ export default function Home() {
               {/* Latest Progress Report */}
               <div className="flex justify-center">
                 <a href={useBaseUrl(latestProgressReport.url)}>
-                  <Card radius={"md"} isFooterBlurred className="w-full h-[300px] col-span-12 sm:col-span-7" style={{ all: 'revert-layer' }}>
+                  <Card
+                    radius={"md"}
+                    isFooterBlurred
+                    className="w-full h-[300px] col-span-12 sm:col-span-7"
+                    style={{ all: "revert-layer" }}
+                  >
                     <Image
                       removeWrapper
                       className="z-0 w-full h-full object-contain"
@@ -253,8 +292,12 @@ export default function Home() {
                     <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
                       <div className="flex flex-grow gap-2 items-center">
                         <div className="flex flex-col">
-                          <h2 className="text-base uppercase font-bold mb-0">Latest Progress Report</h2>
-                          <p className="text-sm text-white/70">{latestProgressReport.title}</p>
+                          <h2 className="text-base uppercase font-bold mb-0">
+                            Latest Progress Report
+                          </h2>
+                          <p className="text-sm text-white/70">
+                            {latestProgressReport.title}
+                          </p>
                         </div>
                       </div>
                     </CardFooter>
@@ -265,7 +308,12 @@ export default function Home() {
               {/* Previous Progress Report */}
               <div className="flex justify-center">
                 <a href={useBaseUrl(previousProgressReport.url)}>
-                  <Card radius={"md"} isFooterBlurred className="w-full h-[300px] col-span-12 sm:col-span-7" style={{ all: 'revert-layer' }}>
+                  <Card
+                    radius={"md"}
+                    isFooterBlurred
+                    className="w-full h-[300px] col-span-12 sm:col-span-7"
+                    style={{ all: "revert-layer" }}
+                  >
                     <Image
                       removeWrapper
                       className="z-0 w-full h-full object-contain"
@@ -275,8 +323,12 @@ export default function Home() {
                     <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
                       <div className="flex flex-grow gap-2 items-center">
                         <div className="flex flex-col">
-                          <h2 className="text-base uppercase font-bold mb-0">Previous Progress Report</h2>
-                          <p className="text-sm text-white/70">{previousProgressReport.title}</p>
+                          <h2 className="text-base uppercase font-bold mb-0">
+                            Previous Progress Report
+                          </h2>
+                          <p className="text-sm text-white/70">
+                            {previousProgressReport.title}
+                          </p>
                         </div>
                       </div>
                     </CardFooter>
@@ -298,24 +350,34 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
               <div>
                 <p>
-                  PCSX2 is a free and open-source PlayStation 2 (PS2) emulator. Its purpose is to emulate the PS2's hardware, using a combination of MIPS CPU Interpreters, Recompilers, and a Virtual Machine that manages hardware states and system memory.
+                  PCSX2 is a free and open-source PlayStation 2 (PS2) emulator.
+                  Its purpose is to emulate the PS2's hardware, using a
+                  combination of MIPS CPU Interpreters, Recompilers, and a
+                  Virtual Machine that manages hardware states and system
+                  memory.
                 </p>
               </div>
               <div>
                 <p>
-                  The project has been running for almost 20 years. Past versions could only run a few game demos, but newer versions can run most games at full speed, including titles like Final Fantasy X and Devil May Cry 3.
+                  The project has been running for almost 20 years. Past
+                  versions could only run a few game demos, but newer versions
+                  can run most games at full speed, including titles like Final
+                  Fantasy X and Devil May Cry 3.
                 </p>
               </div>
               <div>
                 <p>
-                  A significant majority of the PS2 library is considered playable. For more info on compatibility, see <Link to="/compat">here</Link>.
+                  A significant majority of the PS2 library is considered
+                  playable. For more info on compatibility, see{" "}
+                  <Link to="/compat">here</Link>.
                 </p>
               </div>
             </div>
 
             <div className="mt-8">
               <p>
-                PCSX2 allows you to play PS2 games on your PC with added features like:
+                PCSX2 allows you to play PS2 games on your PC with added
+                features like:
                 <ul className="list-disc ml-5">
                   <li>Custom resolutions and upscaling</li>
                   <li>Virtual and sharable memory cards</li>

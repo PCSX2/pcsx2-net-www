@@ -81,10 +81,7 @@ function generateAuthorAvatars(authors) {
     );
   }
   return (
-    <AvatarGroup
-      animated={avatars.length > 1}
-      style={{ marginRight: "0.5em" }}
-    >
+    <AvatarGroup animated={avatars.length > 1} style={{ marginRight: "0.5em" }}>
       {avatars}
     </AvatarGroup>
   );

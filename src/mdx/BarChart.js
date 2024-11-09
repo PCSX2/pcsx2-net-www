@@ -105,7 +105,9 @@ export default function Chart(props) {
       ) : null}
       <div className="flex justify-center my-4">
         <div className="w-full">
-          {chartData === undefined ? "Loading Chart Data" : _renderChart(chartData)}
+          {chartData === undefined
+            ? "Loading Chart Data"
+            : _renderChart(chartData)}
         </div>
       </div>
     </div>

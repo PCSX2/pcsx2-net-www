@@ -8,12 +8,12 @@ const redirects = require("./redirects");
 
 function tailwindPlugin(context, options) {
   return {
-    name: 'tailwind-plugin',
+    name: "tailwind-plugin",
     configurePostCss(postcssOptions) {
       postcssOptions.plugins = [
-        require('postcss-import'),
-        require('tailwindcss'),
-        require('autoprefixer'),
+        require("postcss-import"),
+        require("tailwindcss"),
+        require("autoprefixer"),
       ];
       return postcssOptions;
     },
@@ -106,7 +106,7 @@ const config = {
           editUrl: "https://github.com/PCSX2/pcsx2-net-www/tree/main/",
         },
         blog: {
-          onUntruncatedBlogPosts: 'ignore',
+          onUntruncatedBlogPosts: "ignore",
           path: "blog",
           blogSidebarCount: 0,
           showReadingTime: true,

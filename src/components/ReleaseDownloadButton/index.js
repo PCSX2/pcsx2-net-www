@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { Button, Dropdown, DropdownTrigger, DropdownItem, DropdownSection, DropdownMenu } from "@nextui-org/react";
+import {
+  Button,
+  Dropdown,
+  DropdownTrigger,
+  DropdownItem,
+  DropdownSection,
+  DropdownMenu,
+} from "@nextui-org/react";
 import { BsWindows, BsApple } from "react-icons/bs";
 import { FaLinux } from "react-icons/fa";
 import { IoIosCloudyNight } from "react-icons/io";
 import { GiBrickWall } from "react-icons/gi";
 import { useMediaQuery } from "../../utils/mediaQuery";
-import {commonColors, semanticColors} from "@nextui-org/theme";
-import {useTheme} from "next-themes";
+import { commonColors, semanticColors } from "@nextui-org/theme";
+import { useTheme } from "next-themes";
 
 // Function to get the latest release for a specific platform
 export function getLatestRelease(releases, platform) {
@@ -219,7 +226,11 @@ export function ReleaseDownloadButton({
   return (
     <Dropdown
       placement={
-        placement ? placement : useMediaQuery(960) ? "bottom-end" : "right-start"
+        placement
+          ? placement
+          : useMediaQuery(960)
+            ? "bottom-end"
+            : "right-start"
       }
       classNames={{
         base: "before:bg-default-200", // change arrow background
@@ -233,10 +244,24 @@ export function ReleaseDownloadButton({
           disabled={isDisabled}
           className="border-none font-medium"
         >
-          {isNightly ? <IoIosCloudyNight size={22} /> : <GiBrickWall size={16} />}
+          {isNightly ? (
+            <IoIosCloudyNight size={22} />
+          ) : (
+            <GiBrickWall size={16} />
+          )}
           &nbsp;
-          {buttonText}<svg fill="none" height="14" viewBox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.9188 8.17969H11.6888H6.07877C5.11877 8.17969 4.63877 9.33969 5.31877 10.0197L10.4988 15.1997C11.3288 16.0297 12.6788 16.0297 13.5088 15.1997L15.4788 13.2297L18.6888 10.0197C19.3588 9.33969 18.8788 8.17969 17.9188 8.17969Z" fill="currentColor" />
+          {buttonText}
+          <svg
+            fill="none"
+            height="14"
+            viewBox="0 0 24 24"
+            width="14"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17.9188 8.17969H11.6888H6.07877C5.11877 8.17969 4.63877 9.33969 5.31877 10.0197L10.4988 15.1997C11.3288 16.0297 12.6788 16.0297 13.5088 15.1997L15.4788 13.2297L18.6888 10.0197C19.3588 9.33969 18.8788 8.17969 17.9188 8.17969Z"
+              fill="currentColor"
+            />
           </svg>
         </Button>
       </DropdownTrigger>
@@ -245,34 +270,41 @@ export function ReleaseDownloadButton({
         variant="faded"
         onAction={(assetUrl) => openAssetLink(assetUrl)}
       >
-        <DropdownSection showDivider title={errorMsg === undefined
-          ? windowsItems.length > 0
-            ? "Windows"
-            : "Windows - None Available"
-          : errorMsg}>
+        <DropdownSection
+          showDivider
+          title={
+            errorMsg === undefined
+              ? windowsItems.length > 0
+                ? "Windows"
+                : "Windows - None Available"
+              : errorMsg
+          }
+        >
           {errorMsg === undefined ? windowsItems : null}
         </DropdownSection>
         <DropdownSection
-        showDivider title={
-          errorMsg === undefined
-            ? linuxItems.length > 0
-              ? "Linux"
-              : "Linux - None Available"
-            : errorMsg
-        }
-      >
-        {errorMsg === undefined ? linuxItems : null}
-      </DropdownSection>
-      <DropdownSection title={
-          errorMsg === undefined
-            ? macosItems.length > 0
-              ? "MacOS"
-              : "MacOS - None Available"
-            : errorMsg
-        }
-      >
-        {errorMsg === undefined ? macosItems : null}
-      </DropdownSection>
+          showDivider
+          title={
+            errorMsg === undefined
+              ? linuxItems.length > 0
+                ? "Linux"
+                : "Linux - None Available"
+              : errorMsg
+          }
+        >
+          {errorMsg === undefined ? linuxItems : null}
+        </DropdownSection>
+        <DropdownSection
+          title={
+            errorMsg === undefined
+              ? macosItems.length > 0
+                ? "MacOS"
+                : "MacOS - None Available"
+              : errorMsg
+          }
+        >
+          {errorMsg === undefined ? macosItems : null}
+        </DropdownSection>
       </DropdownMenu>
     </Dropdown>
   );

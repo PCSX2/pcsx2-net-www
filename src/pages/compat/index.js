@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Layout from "@theme/Layout";
 import {
-  Table, Spinner,
-  TableHeader, TableBody, TableColumn, Pagination, TableRow, TableCell,
+  Table,
+  Spinner,
+  TableHeader,
+  TableBody,
+  TableColumn,
+  Pagination,
+  TableRow,
+  TableCell,
   Tooltip,
   Badge,
   Link,
@@ -258,7 +264,11 @@ const renderCell = (entry, columnKey) => {
         );
       }
       if (icons.length > 0) {
-        return <div class="flex flex-row flex-wrap gap-2 justify-center">{icons}</div>;
+        return (
+          <div class="flex flex-row flex-wrap gap-2 justify-center">
+            {icons}
+          </div>
+        );
       } else {
         return null;
       }
@@ -375,16 +385,16 @@ export default function Compatiblity() {
     filterStats.perfect === undefined
       ? ""
       : `Perfect - ${round(
-        (filterStats.perfect / tableData.length) * 100,
-        2,
-      )}%`;
+          (filterStats.perfect / tableData.length) * 100,
+          2,
+        )}%`;
   const playableFilterText =
     filterStats.playable === undefined
       ? ""
       : `Playable - ${round(
-        (filterStats.playable / tableData.length) * 100,
-        2,
-      )}%`;
+          (filterStats.playable / tableData.length) * 100,
+          2,
+        )}%`;
   const ingameFilterText =
     filterStats.ingame === undefined
       ? ""
@@ -401,9 +411,9 @@ export default function Compatiblity() {
     filterStats.nothing === undefined
       ? ""
       : `Nothing - ${round(
-        (filterStats.nothing / tableData.length) * 100,
-        2,
-      )}%`;
+          (filterStats.nothing / tableData.length) * 100,
+          2,
+        )}%`;
 
   return (
     <Layout
@@ -417,8 +427,8 @@ export default function Compatiblity() {
           </div>
           <div class="flex flex-row">
             <p class="text-red-600">
-              Here is the latest data on the emulator's compatibility. Use
-              the filtering and searching options below to find what you are
+              Here is the latest data on the emulator's compatibility. Use the
+              filtering and searching options below to find what you are
               interested in
             </p>
           </div>
@@ -436,10 +446,7 @@ export default function Compatiblity() {
             <div class="lg:w-1/3">
               <Input
                 classNames={{
-                  input: [
-                    "border-none",
-                    "default-font"
-                  ]
+                  input: ["border-none", "default-font"],
                 }}
                 labelPlacement="outside"
                 label="Search by Name, Serial or CRC"
@@ -450,55 +457,61 @@ export default function Compatiblity() {
             <div class="lg:w-2/3">
               <div class="flex flex-row gap-2">
                 <CompatibilityButton
-                categoryFiltered={filterOptions.perfect}
-                disabledOrLoading={filterStats.perfect === undefined}
-                category={"perfect"}
-                onPress={() => toggleFilter("perfect")}>
+                  categoryFiltered={filterOptions.perfect}
+                  disabledOrLoading={filterStats.perfect === undefined}
+                  category={"perfect"}
+                  onPress={() => toggleFilter("perfect")}
+                >
                   {filterStats.perfect !== undefined && (
                     <span>{perfectFilterText}</span>
                   )}
                 </CompatibilityButton>
                 <CompatibilityButton
-                categoryFiltered={filterOptions.playable}
-                disabledOrLoading={filterStats.playable === undefined}
-                category={"playable"}
-                onPress={() => toggleFilter("playable")}>
+                  categoryFiltered={filterOptions.playable}
+                  disabledOrLoading={filterStats.playable === undefined}
+                  category={"playable"}
+                  onPress={() => toggleFilter("playable")}
+                >
                   {filterStats.playable !== undefined && (
                     <span>{playableFilterText}</span>
                   )}
                 </CompatibilityButton>
                 <CompatibilityButton
-                categoryFiltered={filterOptions.ingame}
-                disabledOrLoading={filterStats.ingame === undefined}
-                category={"ingame"}
-                onPress={() => toggleFilter("ingame")}>
+                  categoryFiltered={filterOptions.ingame}
+                  disabledOrLoading={filterStats.ingame === undefined}
+                  category={"ingame"}
+                  onPress={() => toggleFilter("ingame")}
+                >
                   {filterStats.ingame !== undefined && (
                     <span>{ingameFilterText}</span>
                   )}
                 </CompatibilityButton>
                 <CompatibilityButton
-                categoryFiltered={filterOptions.menus}
-                disabledOrLoading={filterStats.menus === undefined}
-                category={"menus"}
-                onPress={() => toggleFilter("menus")}>
+                  categoryFiltered={filterOptions.menus}
+                  disabledOrLoading={filterStats.menus === undefined}
+                  category={"menus"}
+                  onPress={() => toggleFilter("menus")}
+                >
                   {filterStats.menus !== undefined && (
                     <span>{menusFilterText}</span>
                   )}
                 </CompatibilityButton>
                 <CompatibilityButton
-                categoryFiltered={filterOptions.intro}
-                disabledOrLoading={filterStats.intro === undefined}
-                category={"intro"}
-                onPress={() => toggleFilter("intro")}>
+                  categoryFiltered={filterOptions.intro}
+                  disabledOrLoading={filterStats.intro === undefined}
+                  category={"intro"}
+                  onPress={() => toggleFilter("intro")}
+                >
                   {filterStats.intro !== undefined && (
                     <span>{introFilterText}</span>
                   )}
                 </CompatibilityButton>
                 <CompatibilityButton
-                categoryFiltered={filterOptions.nothing}
-                disabledOrLoading={filterStats.nothing === undefined}
-                category={"nothing"}
-                onPress={() => toggleFilter("nothing")}>
+                  categoryFiltered={filterOptions.nothing}
+                  disabledOrLoading={filterStats.nothing === undefined}
+                  category={"nothing"}
+                  onPress={() => toggleFilter("nothing")}
+                >
                   {filterStats.nothing !== undefined && (
                     <span>{nothingFilterText}</span>
                   )}
@@ -529,9 +542,7 @@ export default function Compatiblity() {
             >
               <TableHeader columns={columns}>
                 {(column) => (
-                  <TableColumn key={column.key}>
-                    {column.label}
-                  </TableColumn>
+                  <TableColumn key={column.key}>{column.label}</TableColumn>
                 )}
               </TableHeader>
               <TableBody items={tableRows} isLoading={isTableLoading}>
@@ -549,6 +560,6 @@ export default function Compatiblity() {
           </div>
         </div>
       </main>
-    </Layout >
+    </Layout>
   );
 }
