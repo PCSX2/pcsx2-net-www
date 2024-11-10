@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Layout from "@theme/Layout";
 import {
   Table,
-  Spinner,
   TableHeader,
   TableBody,
   TableColumn,
@@ -10,10 +9,9 @@ import {
   TableRow,
   TableCell,
   Tooltip,
-  Badge,
+  Chip,
   Link,
   Input,
-  Button,
 } from "@nextui-org/react";
 import { MdLibraryBooks, MdForum } from "react-icons/md";
 import Fuse from "fuse.js";
@@ -141,72 +139,87 @@ const renderCell = (entry, columnKey) => {
       switch (cellValue.toLowerCase()) {
         case "perfect":
           return (
-            <Badge
+            <Chip
               borderWeight="light"
               color="success"
-              css={{ backgroundColor: "#BA68C8" }}
+              classNames={{
+                base: "font-semibold bg-[#BA68C8]",
+                content: "font-medium",
+              }}
             >
               {cellValue}
-            </Badge>
+            </Chip>
           );
         case "playable":
           return (
-            <Badge
+            <Chip
               borderWeight="light"
               color="primary"
-              css={{ backgroundColor: "#9CCC65", color: "#000" }}
+              classNames={{
+                base: "bg-[#9CCC65] text-[#000]",
+                content: "font-medium",
+              }}
             >
               {cellValue}
-            </Badge>
+            </Chip>
           );
         case "ingame":
           return (
-            <Badge
+            <Chip
               borderWeight="light"
               color="secondary"
-              css={{ backgroundColor: "#29B6F6", color: "#000" }}
+              classNames={{
+                base: "bg-[#29B6F6] text-[#000]",
+                content: "font-medium",
+              }}
             >
               {cellValue}
-            </Badge>
+            </Chip>
           );
         case "menus":
           return (
-            <Badge
+            <Chip
               borderWeight="light"
               color="warning"
-              css={{ backgroundColor: "#FBC02D", color: "#000" }}
+              classNames={{
+                base: "bg-[#FBC02D] text-[#000]",
+                content: "font-medium",
+              }}
             >
               {cellValue}
-            </Badge>
+            </Chip>
           );
         case "intros":
           return (
-            <Badge
+            <Chip
               borderWeight="light"
               color="warning"
-              css={{ backgroundColor: "#F57C00", color: "#000" }}
+              classNames={{
+                base: "bg-[#F57C00] text-[#000]",
+                content: "font-medium",
+              }}
             >
               {cellValue}
-            </Badge>
+            </Chip>
           );
         default:
           return (
-            <Badge
+            <Chip
               borderWeight="light"
               color="error"
-              css={{ backgroundColor: "#D32F2F" }}
+              classNames={{
+                base: "bg-[#D32F2F] text-[#000]",
+                content: "font-medium",
+              }}
             >
               {cellValue}
-            </Badge>
+            </Chip>
           );
       }
     case "latest_testing":
       if (cellValue) {
-        let color = "neutral";
-        if (
-          cellValue.version.startsWith("1.6") ||
-          cellValue.version.startsWith("1.7")
-        ) {
+        let color = "default";
+        if (cellValue.version.startsWith("2.")) {
           color = "success";
         }
         if (cellValue.date) {
@@ -216,23 +229,51 @@ const renderCell = (entry, columnKey) => {
               content={`Tested on - ${date.toLocaleString(DateTime.DATE_FULL)}`}
               placement="left"
             >
-              <Badge variant="bordered" color={color}>
+              <Chip
+                classNames={{
+                  base: "border border-solid",
+                  content: "font-medium",
+                }}
+                variant="bordered"
+                color={color}
+              >
                 {cellValue.version}
-              </Badge>
+              </Chip>
             </Tooltip>
           );
         } else {
           return (
-            <Badge variant="bordered" color={color}>
+            <Chip
+              classNames={{
+                base: "border border-solid",
+                content: "font-medium",
+              }}
+              variant="bordered"
+              color={color}
+            >
               {cellValue.version}
-            </Badge>
+            </Chip>
           );
         }
       } else {
         return null;
       }
     case "links":
-      const icons = [];
+      const icons = [
+        <div>
+          <Tooltip content={"GitHub Issues"} placement={"left"}>
+            <Link
+              href={encodeURI(
+                `https://github.com/PCSX2/pcsx2/issues?q=is:issue ${entry.serial} OR "${entry.title}"`,
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub size={22}></FaGithub>
+            </Link>
+          </Tooltip>
+        </div>,
+      ];
       if (cellValue?.wiki) {
         icons.push(
           <div>
@@ -264,11 +305,7 @@ const renderCell = (entry, columnKey) => {
         );
       }
       if (icons.length > 0) {
-        return (
-          <div class="flex flex-row flex-wrap gap-2 justify-center">
-            {icons}
-          </div>
-        );
+        return <div class="flex flex-row flex-wrap gap-2">{icons}</div>;
       } else {
         return null;
       }
@@ -292,8 +329,9 @@ const searchOptions = {
 };
 
 import CompatData from "@site/static/data/compat/data.min.json";
-
-// TODO - add a github query button - https://github.com/PCSX2/pcsx2/issues?q=is%3Aissue%20SCUS-97265%20OR%20%22Jak%20II%22
+import { div } from "framer-motion/client";
+import { GiOctopus } from "react-icons/gi";
+import { FaGithub } from "react-icons/fa";
 
 export default function Compatiblity() {
   // State
@@ -442,8 +480,8 @@ export default function Compatiblity() {
               </div>
             )}
           </div>
-          <div class="flex flex-row gap-2 items-end">
-            <div class="lg:w-1/3">
+          <div class="grid gap-4 lg:grid-cols-2 md:grid-cols-1">
+            <div class="lg:col-span-1 md:col-span-12 place-content-end">
               <Input
                 classNames={{
                   input: ["border-none", "default-font"],
@@ -454,71 +492,75 @@ export default function Compatiblity() {
                 disabled={isTableLoading}
               ></Input>
             </div>
-            <div class="lg:w-2/3">
-              <div class="flex flex-row gap-2">
-                <CompatibilityButton
-                  categoryFiltered={filterOptions.perfect}
-                  disabledOrLoading={filterStats.perfect === undefined}
-                  category={"perfect"}
-                  onPress={() => toggleFilter("perfect")}
-                >
-                  {filterStats.perfect !== undefined && (
-                    <span>{perfectFilterText}</span>
-                  )}
-                </CompatibilityButton>
-                <CompatibilityButton
-                  categoryFiltered={filterOptions.playable}
-                  disabledOrLoading={filterStats.playable === undefined}
-                  category={"playable"}
-                  onPress={() => toggleFilter("playable")}
-                >
-                  {filterStats.playable !== undefined && (
-                    <span>{playableFilterText}</span>
-                  )}
-                </CompatibilityButton>
-                <CompatibilityButton
-                  categoryFiltered={filterOptions.ingame}
-                  disabledOrLoading={filterStats.ingame === undefined}
-                  category={"ingame"}
-                  onPress={() => toggleFilter("ingame")}
-                >
-                  {filterStats.ingame !== undefined && (
-                    <span>{ingameFilterText}</span>
-                  )}
-                </CompatibilityButton>
-                <CompatibilityButton
-                  categoryFiltered={filterOptions.menus}
-                  disabledOrLoading={filterStats.menus === undefined}
-                  category={"menus"}
-                  onPress={() => toggleFilter("menus")}
-                >
-                  {filterStats.menus !== undefined && (
-                    <span>{menusFilterText}</span>
-                  )}
-                </CompatibilityButton>
-                <CompatibilityButton
-                  categoryFiltered={filterOptions.intro}
-                  disabledOrLoading={filterStats.intro === undefined}
-                  category={"intro"}
-                  onPress={() => toggleFilter("intro")}
-                >
-                  {filterStats.intro !== undefined && (
-                    <span>{introFilterText}</span>
-                  )}
-                </CompatibilityButton>
-                <CompatibilityButton
-                  categoryFiltered={filterOptions.nothing}
-                  disabledOrLoading={filterStats.nothing === undefined}
-                  category={"nothing"}
-                  onPress={() => toggleFilter("nothing")}
-                >
-                  {filterStats.nothing !== undefined && (
-                    <span>{nothingFilterText}</span>
-                  )}
-                </CompatibilityButton>
-              </div>
+            <div class="grid md:col-span-12 lg:grid-rows-1 lg:col-span-1 grid-cols-1 md:grid-cols-2 md:grid-rows-3 gap-2">
+              <CompatibilityButton
+                categoryFiltered={filterOptions.perfect}
+                disabledOrLoading={filterStats.perfect === undefined}
+                category={"perfect"}
+                onPress={() => toggleFilter("perfect")}
+              >
+                {filterStats.perfect !== undefined && (
+                  <span>{perfectFilterText}</span>
+                )}
+              </CompatibilityButton>
+
+              <CompatibilityButton
+                categoryFiltered={filterOptions.playable}
+                disabledOrLoading={filterStats.playable === undefined}
+                category={"playable"}
+                onPress={() => toggleFilter("playable")}
+              >
+                {filterStats.playable !== undefined && (
+                  <span>{playableFilterText}</span>
+                )}
+              </CompatibilityButton>
+
+              <CompatibilityButton
+                categoryFiltered={filterOptions.ingame}
+                disabledOrLoading={filterStats.ingame === undefined}
+                category={"ingame"}
+                onPress={() => toggleFilter("ingame")}
+              >
+                {filterStats.ingame !== undefined && (
+                  <span>{ingameFilterText}</span>
+                )}
+              </CompatibilityButton>
+
+              <CompatibilityButton
+                categoryFiltered={filterOptions.menus}
+                disabledOrLoading={filterStats.menus === undefined}
+                category={"menus"}
+                onPress={() => toggleFilter("menus")}
+              >
+                {filterStats.menus !== undefined && (
+                  <span>{menusFilterText}</span>
+                )}
+              </CompatibilityButton>
+
+              <CompatibilityButton
+                categoryFiltered={filterOptions.intro}
+                disabledOrLoading={filterStats.intro === undefined}
+                category={"intro"}
+                onPress={() => toggleFilter("intro")}
+              >
+                {filterStats.intro !== undefined && (
+                  <span>{introFilterText}</span>
+                )}
+              </CompatibilityButton>
+
+              <CompatibilityButton
+                categoryFiltered={filterOptions.nothing}
+                disabledOrLoading={filterStats.nothing === undefined}
+                category={"nothing"}
+                onPress={() => toggleFilter("nothing")}
+              >
+                {filterStats.nothing !== undefined && (
+                  <span>{nothingFilterText}</span>
+                )}
+              </CompatibilityButton>
             </div>
           </div>
+
           <div class="flex flex-row flex-wrap gap-2 justify-center mt-5">
             {/* https://nextui.org/docs/components/table#paginated-table */}
             <Table
