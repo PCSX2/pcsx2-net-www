@@ -12,7 +12,7 @@ export default function NavbarNavLinkWrapper(props) {
       return (
         <>
           <Link {...props}>
-            <GoHeart fill="#C20E4D" size={20} />
+            <GoHeart fill="#C20E4D" size={20} className="mr-1" />
             Donate
           </Link>
         </>
@@ -22,7 +22,7 @@ export default function NavbarNavLinkWrapper(props) {
         <>
           <Button
             as="a"
-            className="cursor-pointer hover:no-underline hover:text-red-200 gap-1 font-medium border-none text-red-400 bg-[#090a11]"
+            className="dark light cursor-pointer hover:no-underline dark:hover:text-red-200 light:hover:text-red-600 gap-1 font-medium border-none text-red-400 dark:bg-[#090a11] light:bg-[#ebedf0]"
             href={props.to}
             startContent={<GoHeart fill="#C20E4D" size={20} />}
             rel="noreferrer"

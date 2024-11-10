@@ -86,19 +86,7 @@ export default function Home() {
     setHomeVideoPath(
       theme === "dark" ? "/videos/splash.webm" : "/videos/splash-light.mp4",
     );
-
-    const observer = new MutationObserver((mutation) => {
-      setHomeVideoPath(
-        theme === "dark" ? "/videos/splash.webm" : "/videos/splash-light.mp4",
-      );
-    });
-
-    // Observe the document theme changes
-    observer.observe(document?.documentElement, {
-      attributes: true,
-      attributeFilter: ["data-theme", "style", "class"],
-    });
-  }, []);
+  }, [theme]);
 
   return (
     <Layout title={`Home`} description="An Open-Source Playstation 2 Emulator">
@@ -206,7 +194,6 @@ export default function Home() {
                     radius={"md"}
                     isFooterBlurred
                     className="w-full h-[300px] col-span-12 sm:col-span-7"
-                    style={{ all: "revert-layer" }}
                   >
                     <Image
                       removeWrapper
@@ -217,7 +204,7 @@ export default function Home() {
                     <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
                       <div className="flex flex-grow gap-2 items-center">
                         <div className="flex flex-col">
-                          <h2 className="text-base uppercase font-bold mb-0">
+                          <h2 className="text-base uppercase font-bold mb-0 text-white">
                             Latest Blog
                           </h2>
                           <p className="text-sm text-white/70">
@@ -248,7 +235,7 @@ export default function Home() {
                     <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
                       <div className="flex flex-grow gap-2 items-center">
                         <div className="flex flex-col">
-                          <h2 className="text-base uppercase font-bold mb-0">
+                          <h2 className="text-base uppercase font-bold mb-0 text-white">
                             Previous Blog
                           </h2>
                           <p className="text-sm text-white/70">
@@ -292,7 +279,7 @@ export default function Home() {
                     <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
                       <div className="flex flex-grow gap-2 items-center">
                         <div className="flex flex-col">
-                          <h2 className="text-base uppercase font-bold mb-0">
+                          <h2 className="text-base uppercase font-bold mb-0 text-white">
                             Latest Progress Report
                           </h2>
                           <p className="text-sm text-white/70">
@@ -323,7 +310,7 @@ export default function Home() {
                     <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
                       <div className="flex flex-grow gap-2 items-center">
                         <div className="flex flex-col">
-                          <h2 className="text-base uppercase font-bold mb-0">
+                          <h2 className="text-base uppercase font-bold mb-0 text-white">
                             Previous Progress Report
                           </h2>
                           <p className="text-sm text-white/70">
