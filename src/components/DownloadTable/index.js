@@ -1,111 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Table, Card } from "@nextui-org/react";
-import ReactMarkdown from "react-markdown";
-import { ReleaseDownloadButton } from "../ReleaseDownloadButton";
-import { GoPlus, GoDash } from "react-icons/go";
-import { IconContext } from "react-icons";
-import { DateTime } from "luxon";
-
-export function PullRequestTableCard({ pullRequest }) {
-  const date = DateTime.fromISO(pullRequest.updatedAt);
-  const dateString = date.toLocaleString(DateTime.DATE_FULL);
-  return (
-    <Grid.Container css={{ mt: "0.5em" }}>
-      <Grid xs={12}>
-        <Card css={{ p: "$6", mw: "100%" }}>
-          <Card.Header>
-            <h3>
-              <a href={pullRequest.link}>PR #{pullRequest.number}</a>
-              <span style={{ marginLeft: "0.5em", color: "#3fb950" }}>
-                <IconContext.Provider
-                  value={{ style: { verticalAlign: "middle" } }}
-                >
-                  <GoPlus size={24}></GoPlus>
-                </IconContext.Provider>
-                &nbsp;
-                {pullRequest.additions}
-              </span>
-              <span style={{ marginLeft: "0.5em", color: "#dd4a48" }}>
-                <IconContext.Provider
-                  value={{ style: { verticalAlign: "middle" } }}
-                >
-                  <GoDash size={24}></GoDash>
-                </IconContext.Provider>
-                &nbsp;
-                {pullRequest.deletions}
-              </span>
-            </h3>
-          </Card.Header>
-          <Card.Body css={{ py: "$2" }}>
-            <p>
-              <span style={{ fontWeight: 700 }}>Last Updated At</span> -{" "}
-              {dateString}
-            </p>
-            <ReactMarkdown>{pullRequest.body}</ReactMarkdown>
-          </Card.Body>
-        </Card>
-      </Grid>
-    </Grid.Container>
-  );
-}
-
-export function DownloadTableReleaseCard({
-  release,
-  downloadButtonText,
-  isNightly,
-}) {
-  return !release ? null : (
-    <Grid.Container css={{ mt: "0.5em" }}>
-      <Grid xs={12}>
-        <Card css={{ p: "$6", mw: "100%" }}>
-          <Card.Header>
-            <Text h3 css={{ lineHeight: "$xs" }}>
-              {release.version}
-            </Text>
-          </Card.Header>
-          <Card.Body css={{ py: "$2" }}>
-            <Text>
-              <ReactMarkdown>{release.description}</ReactMarkdown>
-            </Text>
-          </Card.Body>
-          <Card.Footer>
-            <ReleaseDownloadButton
-              release={release}
-              buttonText={downloadButtonText}
-              isNightly={isNightly}
-              bordered={true}
-            />
-          </Card.Footer>
-        </Card>
-      </Grid>
-    </Grid.Container>
-  );
-}
-
-function renderSelectedCard(selectedData, tableType) {
-  if (!selectedData) {
-    return null;
-  }
-  if (tableType === "stable") {
-    return (
-      <DownloadTableReleaseCard
-        release={selectedData}
-        downloadButtonText={"Download Release"}
-        isNightly={false}
-      />
-    );
-  } else if (tableType === "nightly") {
-    return (
-      <DownloadTableReleaseCard
-        release={selectedData}
-        downloadButtonText={"Download Release"}
-        isNightly={true}
-      />
-    );
-  } else if (tableType === "pullRequests") {
-    return <PullRequestTableCard pullRequest={selectedData} />;
-  }
-}
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableRow,
+  TableCell,
+  TableBody,
+} from "@nextui-org/react";
 
 export function DownloadTable({
   pageSize,
@@ -117,56 +18,59 @@ export function DownloadTable({
   fetchMoreFunc,
   tableType,
 }) {
+  // NOTE: https://github.com/nextui-org/nextui/issues/2193
+  const [tableKey, setTableKey] = useState("");
   const [tableData, setTableData] = useState({ data: [] });
   const [tableLoadingState, setTableLoadingState] = useState("idle");
   const [tablePage, setTablePage] = useState(1);
-  const [selectedTableRow, setSelectedTableRow] = useState(undefined);
+  const [selectedVersion, setSelectedVersion] = useState(undefined);
 
   useEffect(() => {
     setTableData(initialTableData);
   }, [initialTableData]);
 
   return (
-    <Grid xs={12}>
-      <Grid.Container>
-        <Grid xs={12}>
-          <Table
-            striped
-            compact
-            sticked
-            selectionMode={"single"}
-            color={color}
-            aria-label={tableLabel}
-            onSelectionChange={(selection) => {
-              if (selection.size <= 0) {
-                setSelectedTableRow(undefined);
-              } else {
-                setSelectedTableRow([...selection][0]);
-              }
-            }}
-            css={{
-              height: "auto",
-              minWidth: "100%",
-              display: "table",
-              noMargin: true,
-              padding: 0,
-            }}
-          >
-            <Table.Header columns={tableColumns}>
-              {(column) => (
-                <Table.Column key={column.key}>{column.label}</Table.Column>
-              )}
-            </Table.Header>
-            <Table.Body items={tableData.data} loadingState={tableLoadingState}>
-              {(item) => (
-                <Table.Row key={tableData.data.indexOf(item)}>
-                  {(columnKey) => (
-                    <Table.Cell>{renderRowFunc(item, columnKey)}</Table.Cell>
-                  )}
-                </Table.Row>
-              )}
-            </Table.Body>
-            <Table.Pagination
+    <div className="w-full container">
+      <div className="flex flex-row">
+        <Table
+          key={`${tableLabel}-${tableKey}`}
+          isStriped
+          compact
+          selectionMode={"single"}
+          aria-label={tableLabel}
+          onSelectionChange={(selection) => {
+            if (selection.size <= 0) {
+              setSelectedVersion(undefined);
+            } else {
+              const key = [...selection][0];
+              setSelectedVersion(key);
+            }
+            setTableKey(crypto.randomUUID());
+          }}
+        >
+          <TableHeader columns={tableColumns}>
+            {(column) => (
+              <TableColumn key={column.key}>{column.label}</TableColumn>
+            )}
+          </TableHeader>
+          <TableBody items={tableData.data} loadingState={tableLoadingState}>
+            {(item) => (
+              <TableRow key={item.version}>
+                {(columnKey) => (
+                  <TableCell>
+                    {renderRowFunc(
+                      item,
+                      columnKey,
+                      tableType === "nightly",
+                      selectedVersion !== undefined &&
+                        item.version === selectedVersion,
+                    )}
+                  </TableCell>
+                )}
+              </TableRow>
+            )}
+          </TableBody>
+          {/* <Pagination
               noMargin
               align="center"
               rowsPerPage={
@@ -222,13 +126,9 @@ export function DownloadTable({
                 setTablePage(page + 1);
               }}
               total={Math.ceil(tableData?.pageInfo?.total / pageSize)}
-            />
-          </Table>
-        </Grid>
-        {selectedTableRow === undefined
-          ? renderSelectedCard(selectedTableRow, tableType)
-          : renderSelectedCard(tableData.data[selectedTableRow], tableType)}
-      </Grid.Container>
-    </Grid>
+            /> */}
+        </Table>
+      </div>
+    </div>
   );
 }

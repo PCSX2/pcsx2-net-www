@@ -12,7 +12,7 @@ import { FaLinux } from "react-icons/fa";
 import { IoIosCloudyNight } from "react-icons/io";
 import { GiBrickWall } from "react-icons/gi";
 import { useMediaQuery } from "../../utils/mediaQuery";
-import { commonColors, semanticColors } from "@nextui-org/theme";
+import { semanticColors } from "@nextui-org/theme";
 import { useTheme } from "next-themes";
 
 // Function to get the latest release for a specific platform
@@ -130,6 +130,34 @@ function openAssetLink(href) {
   }).click();
 }
 
+function renderDropdownItems(errorMsg, windowsItems, linuxItems, macosItems) {
+  let items = [];
+  if (errorMsg !== undefined) {
+    items.push(<DropdownSection title={errorMsg}></DropdownSection>);
+  } else {
+    items.push(
+      <DropdownSection
+        showDivider
+        title={windowsItems.length > 0 ? "Windows" : "Windows - None Available"}
+      >
+        {windowsItems}
+      </DropdownSection>,
+      <DropdownSection
+        showDivider
+        title={linuxItems.length > 0 ? "Linux" : "Linux - None Available"}
+      >
+        {linuxItems}
+      </DropdownSection>,
+      <DropdownSection
+        title={macosItems.length > 0 ? "MacOS" : "MacOS - None Available"}
+      >
+        {macosItems}
+      </DropdownSection>,
+    );
+  }
+  return items;
+}
+
 export function ReleaseDownloadButton({
   release,
   buttonText,
@@ -139,8 +167,6 @@ export function ReleaseDownloadButton({
   isDisabled,
   placement,
 }) {
-  const { theme, setTheme } = useTheme();
-
   // Styling for the button
   const buttonStyling = {
     minWidth: "200px",
@@ -233,7 +259,7 @@ export function ReleaseDownloadButton({
             : "right-start"
       }
       classNames={{
-        base: "before:bg-default-200", // change arrow background
+        base: "docusaurus-reset before:bg-default-200", // change arrow background
         content: "py-1 px-1 border border-default-200",
       }}
     >
@@ -270,41 +296,7 @@ export function ReleaseDownloadButton({
         variant="faded"
         onAction={(assetUrl) => openAssetLink(assetUrl)}
       >
-        <DropdownSection
-          showDivider
-          title={
-            errorMsg === undefined
-              ? windowsItems.length > 0
-                ? "Windows"
-                : "Windows - None Available"
-              : errorMsg
-          }
-        >
-          {errorMsg === undefined ? windowsItems : null}
-        </DropdownSection>
-        <DropdownSection
-          showDivider
-          title={
-            errorMsg === undefined
-              ? linuxItems.length > 0
-                ? "Linux"
-                : "Linux - None Available"
-              : errorMsg
-          }
-        >
-          {errorMsg === undefined ? linuxItems : null}
-        </DropdownSection>
-        <DropdownSection
-          title={
-            errorMsg === undefined
-              ? macosItems.length > 0
-                ? "MacOS"
-                : "MacOS - None Available"
-              : errorMsg
-          }
-        >
-          {errorMsg === undefined ? macosItems : null}
-        </DropdownSection>
+        {renderDropdownItems(errorMsg, windowsItems, linuxItems, macosItems)}
       </DropdownMenu>
     </Dropdown>
   );

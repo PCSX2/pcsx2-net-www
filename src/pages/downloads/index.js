@@ -6,6 +6,7 @@ import { ReleaseDownloadButton } from "../../components/ReleaseDownloadButton";
 import { DownloadTable } from "../../components/DownloadTable";
 import { getLatestRelease } from "../../components/ReleaseDownloadButton";
 import Head from "@docusaurus/Head";
+import ReactMarkdown from "react-markdown";
 import { GoogleAd } from "../../components/GoogleAd";
 
 const releaseTableColumns = [
@@ -14,30 +15,57 @@ const releaseTableColumns = [
     label: "VERSION",
   },
   {
-    key: "createdAt",
-    label: "DATE",
+    key: "releaseInfo",
+    label: "INFO",
   },
 ];
 
-const renderReleaseCell = (release, columnKey) => {
+const renderReleaseCell = (release, columnKey, isNightly, isSelected) => {
   const cellValue = release[columnKey];
   switch (columnKey) {
     case "version":
       return <span className="monospaced">{cellValue}</span>;
     default:
-      const date = new Date(cellValue);
-      return date.toLocaleDateString(undefined, {
+      const date = new Date(release.createdAt);
+      const dateString = date.toLocaleDateString(undefined, {
         weekday: "long",
         year: "numeric",
         month: "long",
         day: "numeric",
+        hour: "2-digit",
       });
+      if (!isSelected) {
+        return dateString;
+      } else {
+        return (
+          <div className="flex flex-col">
+            <div className="mb-2">
+              <em>{dateString}</em>
+            </div>
+            <div className="mb-2 remove-last-bottom-margin">
+              <ReactMarkdown>{release.description}</ReactMarkdown>
+            </div>
+            <div>
+              <ReleaseDownloadButton
+                release={release}
+                buttonText={"Download Release"}
+                isNightly={isNightly}
+                bordered={true}
+              />
+            </div>
+          </div>
+        );
+      }
   }
 };
 
-const baseApiUrl = "https://api.pcsx2.net/v1";
+let baseApiUrl = "https://api.pcsx2.net/v1";
 
 export default function Downloads() {
+  if (window.location.hostname === "localhost") {
+    baseApiUrl = "https://localhost:8001/v1";
+  }
+
   const pageSize = 10;
   // State
   // - stables
@@ -113,25 +141,19 @@ export default function Downloads() {
           content="pcsx2 downloads,pcsx2 dev builds,pcsx2 dev,pcsx2 nightlies,pcsx2 stable"
         />
       </Head>
-      <main>
-        <Container css={{ mt: "2em" }}>
-          <Grid.Container gap={2}>
-            <Grid xs={12} md={6}>
-              <Grid.Container css={{ display: "inline-block" }}>
-                <Grid xs={12}>
-                  <Text
-                    h1
-                    size={40}
-                    css={{
-                      textGradient: "180deg, #5099ff 25%, #465eae 100%",
-                    }}
-                    weight="bold"
-                  >
+      <main className="docusaurus-reset">
+        <div className="container mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Left Column - Stable Releases */}
+            <div>
+              <div className="inline-block">
+                <div>
+                  <h1 className="bg-clip-text text-transparent bg-gradient-to-b from-[#5099ff] to-[#465eae]">
                     Stable Releases
-                  </Text>
-                </Grid>
-                {apiErrorMsg === undefined ? null : (
-                  <Grid xs={12}>
+                  </h1>
+                </div>
+                {apiErrorMsg !== undefined && (
+                  <div>
                     <Admonition type="danger" title={apiErrorMsg}>
                       <p>
                         If the issue persists, let us know. In the meantime:
@@ -141,8 +163,9 @@ export default function Downloads() {
                           You can download releases directly from{" "}
                           <a
                             href="https://github.com/PCSX2/pcsx2/releases"
-                            rel="noreferrer"
                             target="_blank"
+                            rel="noreferrer"
+                            className="text-blue-500 hover:underline"
                           >
                             GitHub
                           </a>
@@ -150,48 +173,51 @@ export default function Downloads() {
                         <li>
                           <a
                             href="https://stats.uptimerobot.com/GAg8AuBByx"
-                            rel="noreferrer"
                             target="_blank"
+                            rel="noreferrer"
+                            className="text-blue-500 hover:underline"
                           >
                             Check our status page
                           </a>
                         </li>
                       </ul>
                     </Admonition>
-                  </Grid>
+                  </div>
                 )}
-                <Grid xs={12}>
+                <div>
                   <p>
                     Stable releases are infrequent but well tested compared to
-                    the nightly releases
+                    the nightly releases.
                   </p>
-                </Grid>
-                <Grid xs={12}>
+                </div>
+                <div>
                   <p>
                     If you need help using the emulator,{" "}
-                    <a href="/docs/">see the following article.</a>
+                    <a href="/docs/" className="text-blue-500 hover:underline">
+                      see the following article.
+                    </a>
                   </p>
-                </Grid>
-                <Grid xs={12}>
+                </div>
+                <div>
                   <Admonition type="caution">
                     <p>
                       If you are having trouble downloading, try disabling your
                       pop-up blocker (e.g. Poper Blocker) as they are known to
-                      cause problems with our downloads links.
+                      cause problems with our download links.
                     </p>
                   </Admonition>
-                </Grid>
-                <Grid xs={12} css={{ mt: "2em" }}>
+                </div>
+                <div className="mt-8">
                   <ReleaseDownloadButton
                     release={latestStableRelease}
                     buttonText={"Latest Stable"}
                     isNightly={false}
                     errorMsg={apiErrorMsg}
                   />
-                </Grid>
-                <GoogleAd margins="2em"></GoogleAd>
-                <Grid xs={12} css={{ mt: "1em" }}>
-                  <Grid.Container alignItems="center" css={{ fontWeight: 700 }}>
+                </div>
+                <GoogleAd margins="2em" />
+                <div className="mt-4">
+                  <div className="flex items-center font-bold">
                     <Switch
                       color="primary"
                       checked={showPreviousStables}
@@ -204,14 +230,14 @@ export default function Downloads() {
                       }}
                     />
                     &nbsp;Show Previous Versions
-                  </Grid.Container>
-                </Grid>
-                {!showPreviousStables ? null : (
+                  </div>
+                </div>
+                {showPreviousStables && (
                   <>
-                    <Grid xs={12} css={{ mt: "2em" }}>
+                    <div className="mt-8">
                       <h2>Previous Stable Releases</h2>
-                    </Grid>
-                    <Grid xs={12}>
+                    </div>
+                    <div>
                       <DownloadTable
                         pageSize={pageSize}
                         tableLabel={"Previous stable releases table"}
@@ -226,28 +252,23 @@ export default function Downloads() {
                         }}
                         tableType={"stable"}
                       />
-                    </Grid>
-                    <GoogleAd margins="2em"></GoogleAd>
+                    </div>
+                    <GoogleAd margins="2em" />
                   </>
                 )}
-              </Grid.Container>
-            </Grid>
-            <Grid xs={12} md={6}>
-              <Grid.Container css={{ display: "inline-block" }}>
-                <Grid xs={12}>
-                  <Text
-                    h1
-                    size={40}
-                    css={{
-                      textGradient: "180deg, $warning 25%, #777500 100%",
-                    }}
-                    weight="bold"
-                  >
+              </div>
+            </div>
+
+            {/* Right Column - Nightly Releases */}
+            <div>
+              <div className="inline-block">
+                <div>
+                  <h1 className="bg-clip-text text-transparent bg-gradient-to-b to-[#777500] from-[#f2a40a]">
                     Nightly Releases
-                  </Text>
-                </Grid>
-                {apiErrorMsg === undefined ? null : (
-                  <Grid xs={12}>
+                  </h1>
+                </div>
+                {apiErrorMsg !== undefined && (
+                  <div>
                     <Admonition type="danger" title={apiErrorMsg}>
                       <p>
                         If the issue persists, let us know. In the meantime:
@@ -257,8 +278,9 @@ export default function Downloads() {
                           You can download releases directly from{" "}
                           <a
                             href="https://github.com/PCSX2/pcsx2/releases"
-                            rel="noreferrer"
                             target="_blank"
+                            rel="noreferrer"
+                            className="text-blue-500 hover:underline"
                           >
                             GitHub
                           </a>
@@ -266,34 +288,35 @@ export default function Downloads() {
                         <li>
                           <a
                             href="https://stats.uptimerobot.com/GAg8AuBByx"
-                            rel="noreferrer"
                             target="_blank"
+                            rel="noreferrer"
+                            className="text-blue-500 hover:underline"
                           >
                             Check our status page
                           </a>
                         </li>
                       </ul>
                     </Admonition>
-                  </Grid>
+                  </div>
                 )}
-                <Grid xs={12}>
+                <div>
                   <p>
                     There is a new nightly release anytime a change is made, so
                     you are getting the latest and greatest (but sometimes
-                    buggy) experience
+                    buggy) experience.
                   </p>
-                </Grid>
-                <Grid xs={12} css={{ mt: "2em" }}>
+                </div>
+                <div className="mt-8">
                   <ReleaseDownloadButton
                     release={latestNightlyRelease}
                     buttonText={"Latest Nightly"}
                     isNightly={true}
                     errorMsg={apiErrorMsg}
                   />
-                </Grid>
-                <GoogleAd margins="2em"></GoogleAd>
-                <Grid xs={12} css={{ mt: "1em" }}>
-                  <Grid.Container alignItems="center" css={{ fontWeight: 700 }}>
+                </div>
+                <GoogleAd margins="2em" />
+                <div className="mt-4">
+                  <div className="flex items-center font-bold">
                     <Switch
                       color="warning"
                       checked={showPreviousNightlies}
@@ -306,14 +329,14 @@ export default function Downloads() {
                       }}
                     />
                     &nbsp;Show Previous Versions
-                  </Grid.Container>
-                </Grid>
-                {!showPreviousNightlies ? null : (
+                  </div>
+                </div>
+                {showPreviousNightlies && (
                   <>
-                    <Grid xs={12} css={{ mt: "2em" }}>
+                    <div className="mt-8">
                       <h2>Previous Nightly Releases</h2>
-                    </Grid>
-                    <Grid xs={12}>
+                    </div>
+                    <div>
                       <DownloadTable
                         pageSize={pageSize}
                         tableLabel={"Previous nightly releases table"}
@@ -328,14 +351,14 @@ export default function Downloads() {
                         }}
                         tableType={"nightly"}
                       />
-                    </Grid>
-                    <GoogleAd margins="2em"></GoogleAd>
+                    </div>
+                    <GoogleAd margins="2em" />
                   </>
                 )}
-              </Grid.Container>
-            </Grid>
-          </Grid.Container>
-        </Container>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </Layout>
   );

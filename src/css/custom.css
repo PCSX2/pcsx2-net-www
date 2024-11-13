@@ -78,16 +78,24 @@ menu.docusaurus-reset {
   padding: 0;
 }
 
-ol.docusaurus-reset {
+.docusaurus-reset ol {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-ul.docusaurus-reset {
+.docusaurus-reset ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.docusaurus-reset table tr:nth-child(2n) {
+  background-color: unset;
+}
+
+.remove-last-bottom-margin p:last-child {
+  margin-bottom: 0;
 }
 
 .theme-doc-sidebar-container nav {

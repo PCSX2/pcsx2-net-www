@@ -1,0 +1,1020 @@
+{
+  "data": [
+    {
+      "version": "v2.2.0",
+      "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.2.0",
+      "semverMajor": 2,
+      "semverMinor": 2,
+      "semverPatch": 0,
+      "description": "- [CI: Default to flatpak beta branch](https://github.com/PCSX2/pcsx2/pull/11926)\r\n",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.2.0/pcsx2-v2.2.0-windows-x64-installer.exe",
+            "displayName": "Windows x64",
+            "additionalTags": ["installer"],
+            "downloadCount": 48432,
+            "size": 45315167
+          },
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.2.0/pcsx2-v2.2.0-windows-x64-Qt-symbols.7z",
+            "displayName": "Windows x64",
+            "additionalTags": ["Qt", "symbols"],
+            "downloadCount": 196,
+            "size": 12441607
+          },
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.2.0/pcsx2-v2.2.0-windows-x64-Qt.7z",
+            "displayName": "Windows x64",
+            "additionalTags": ["Qt"],
+            "downloadCount": 90480,
+            "size": 19657542
+          }
+        ],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.2.0/pcsx2-v2.2.0-linux-appimage-x64-Qt.AppImage",
+            "displayName": "Linux appimage",
+            "additionalTags": ["x64", "Qt"],
+            "downloadCount": 24069,
+            "size": 54546776
+          },
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.2.0/pcsx2-v2.2.0-linux-flatpak-x64-Qt.flatpak",
+            "displayName": "Linux flatpak",
+            "additionalTags": ["x64", "Qt"],
+            "downloadCount": 1358,
+            "size": 19517000
+          }
+        ],
+        "MacOS": [
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.2.0/pcsx2-v2.2.0-macos-Qt.tar.xz",
+            "displayName": "MacOS",
+            "additionalTags": ["Qt.tar"],
+            "downloadCount": 6550,
+            "size": 22345204
+          }
+        ]
+      },
+      "type": 1,
+      "prerelease": false,
+      "createdAt": "2024-10-31T13:22:11.000Z",
+      "publishedAt": "2024-10-31T14:20:30.000Z"
+    },
+    {
+      "version": "v2.0.2",
+      "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.0.2",
+      "semverMajor": 2,
+      "semverMinor": 0,
+      "semverPatch": 2,
+      "description": "Release of Stable Version - v2.0.0\r\n",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.2/pcsx2-v2.0.2-windows-x64-installer.exe",
+            "displayName": "Windows x64",
+            "additionalTags": ["installer"],
+            "downloadCount": 943990,
+            "size": 44793287
+          },
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.2/pcsx2-v2.0.2-windows-x64-Qt-symbols.7z",
+            "displayName": "Windows x64",
+            "additionalTags": ["Qt", "symbols"],
+            "downloadCount": 708,
+            "size": 11550272
+          },
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.2/pcsx2-v2.0.2-windows-x64-Qt.7z",
+            "displayName": "Windows x64",
+            "additionalTags": ["Qt"],
+            "downloadCount": 827345,
+            "size": 19308953
+          }
+        ],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.2/pcsx2-v2.0.2-linux-appimage-x64-Qt.AppImage",
+            "displayName": "Linux appimage",
+            "additionalTags": ["x64", "Qt"],
+            "downloadCount": 41099,
+            "size": 59233472
+          },
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.2/pcsx2-v2.0.2-linux-flatpak-x64-Qt.flatpak",
+            "displayName": "Linux flatpak",
+            "additionalTags": ["x64", "Qt"],
+            "downloadCount": 22854,
+            "size": 18639000
+          }
+        ],
+        "MacOS": [
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.2/pcsx2-v2.0.2-macos-Qt.tar.xz",
+            "displayName": "MacOS",
+            "additionalTags": ["Qt.tar"],
+            "downloadCount": 89105,
+            "size": 21945864
+          }
+        ]
+      },
+      "type": 1,
+      "prerelease": false,
+      "createdAt": "2024-07-13T03:19:16.000Z",
+      "publishedAt": "2024-07-13T03:38:06.000Z"
+    },
+    {
+      "version": "v2.0.0",
+      "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.0.0",
+      "semverMajor": 2,
+      "semverMinor": 0,
+      "semverPatch": 0,
+      "description": "Release of Stable Version - v2.0.0\r\n",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.0/pcsx2-v2.0.0-windows-x64-installer.exe",
+            "displayName": "Windows x64",
+            "additionalTags": ["installer"],
+            "downloadCount": 5637,
+            "size": 44793364
+          },
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.0/pcsx2-v2.0.0-windows-x64-Qt-symbols.7z",
+            "displayName": "Windows x64",
+            "additionalTags": ["Qt", "symbols"],
+            "downloadCount": 39,
+            "size": 11553389
+          },
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.0/pcsx2-v2.0.0-windows-x64-Qt.7z",
+            "displayName": "Windows x64",
+            "additionalTags": ["Qt"],
+            "downloadCount": 5949,
+            "size": 19308134
+          }
+        ],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.0/pcsx2-v2.0.0-linux-appimage-x64-Qt.AppImage",
+            "displayName": "Linux appimage",
+            "additionalTags": ["x64", "Qt"],
+            "downloadCount": 631,
+            "size": 59233472
+          },
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.0/pcsx2-v2.0.0-linux-flatpak-x64-Qt.flatpak",
+            "displayName": "Linux flatpak",
+            "additionalTags": ["x64", "Qt"],
+            "downloadCount": 122,
+            "size": 18763280
+          }
+        ],
+        "MacOS": [
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.0/pcsx2-v2.0.0-macos-Qt.tar.xz",
+            "displayName": "MacOS",
+            "additionalTags": ["Qt.tar"],
+            "downloadCount": 1734,
+            "size": 21932908
+          }
+        ]
+      },
+      "type": 1,
+      "prerelease": false,
+      "createdAt": "2024-07-13T00:20:19.000Z",
+      "publishedAt": "2024-07-13T02:12:22.000Z"
+    },
+    {
+      "version": "v1.6.0",
+      "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.6.0",
+      "semverMajor": 1,
+      "semverMinor": 6,
+      "semverPatch": 0,
+      "description": "Release of Stable Version - v1.6.0",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-installer.exe",
+            "displayName": "Windows 32bit",
+            "additionalTags": ["installer"],
+            "downloadCount": 5031363,
+            "size": 7184137
+          },
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-portable.7z",
+            "displayName": "Windows 32bit",
+            "additionalTags": ["portable"],
+            "downloadCount": 1745127,
+            "size": 6448924
+          }
+        ],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-linux-AppImage-32bit.AppImage",
+            "displayName": "Linux AppImage",
+            "additionalTags": ["32bit"],
+            "downloadCount": 179109,
+            "size": 156057640
+          }
+        ],
+        "MacOS": []
+      },
+      "type": 1,
+      "prerelease": false,
+      "createdAt": "2020-05-07T05:37:51.000Z",
+      "publishedAt": "2020-05-07T06:31:55.000Z"
+    },
+    {
+      "version": "v1.4.0",
+      "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.4.0",
+      "semverMajor": 1,
+      "semverMinor": 4,
+      "semverPatch": 0,
+      "description": "Release of Stable Version - v1.4.0",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.4.0/pcsx2-v1.4.0-windows-32bit-installer.exe",
+            "displayName": "Windows 32bit",
+            "additionalTags": ["installer"],
+            "downloadCount": 114356,
+            "size": 17837152
+          },
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.4.0/pcsx2-v1.4.0-windows-32bit-portable.7z",
+            "displayName": "Windows 32bit",
+            "additionalTags": ["portable"],
+            "downloadCount": 46954,
+            "size": 4789020
+          }
+        ],
+        "Linux": [],
+        "MacOS": []
+      },
+      "type": 1,
+      "prerelease": false,
+      "createdAt": "2016-01-05T17:23:08.000Z",
+      "publishedAt": "2021-12-05T23:27:34.000Z"
+    },
+    {
+      "version": "v1.2.1",
+      "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.2.1",
+      "semverMajor": 1,
+      "semverMinor": 2,
+      "semverPatch": 1,
+      "description": "Release of Stable Version - v1.2.1",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.2.1/pcsx2-v1.2.1-windows-32bit-installer.exe",
+            "displayName": "Windows 32bit",
+            "additionalTags": ["installer"],
+            "downloadCount": 25147,
+            "size": 10658408
+          },
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.2.1/pcsx2-v1.2.1-windows-32bit-portable.7z",
+            "displayName": "Windows 32bit",
+            "additionalTags": ["portable"],
+            "downloadCount": 15517,
+            "size": 3702217
+          }
+        ],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.2.1/pcsx2-v1.2.2-linux-binary.7z",
+            "displayName": "Linux binary",
+            "additionalTags": [],
+            "downloadCount": 24694,
+            "size": 3207454
+          }
+        ],
+        "MacOS": []
+      },
+      "type": 1,
+      "prerelease": false,
+      "createdAt": "2014-02-02T22:46:06.000Z",
+      "publishedAt": "2021-12-05T23:27:27.000Z"
+    },
+    {
+      "version": "v1.0",
+      "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.0",
+      "semverMajor": 1,
+      "semverMinor": 0,
+      "semverPatch": 0,
+      "description": "Release of Stable Version - v1.0.0",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.0/pcsx2-v1.0.0-windows-32bit-installer.exe",
+            "displayName": "Windows 32bit",
+            "additionalTags": ["installer"],
+            "downloadCount": 21555,
+            "size": 8958282
+          },
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.0/pcsx2-v1.0.0-windows-32bit-portable.7z",
+            "displayName": "Windows 32bit",
+            "additionalTags": ["portable"],
+            "downloadCount": 12694,
+            "size": 3372975
+          }
+        ],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.0/pcsx2-v1.0.0-linux-binary.7z",
+            "displayName": "Linux binary",
+            "additionalTags": [],
+            "downloadCount": 2392,
+            "size": 4144316
+          }
+        ],
+        "MacOS": []
+      },
+      "type": 1,
+      "prerelease": false,
+      "createdAt": "2012-08-01T00:48:00.000Z",
+      "publishedAt": "2021-12-05T23:27:19.000Z"
+    },
+    {
+      "version": "v0.9.8",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.9.8",
+      "semverMajor": 0,
+      "semverMinor": 9,
+      "semverPatch": 8,
+      "description": "\r\nStable Release of v0.9.8\r\n\r\nLinux Dependencies:\r\n> gtk2, opengl, libbz2, libjpeg, glew-dev, libxxf86vm-dev, x11proto-xf86vidmodeautomake and autoconf (version >= 1.9) Nvidia Cg-Toolkit (link), libasound-dev, joystick\r\n",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.9.8/pcsx2-v0.9.8-windows-installer.exe",
+            "displayName": "Windows",
+            "additionalTags": ["installer"],
+            "downloadCount": 21316,
+            "size": 12780479
+          },
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.9.8/pcsx2-v0.9.8-windows-portable.7z",
+            "displayName": "Windows",
+            "additionalTags": ["portable"],
+            "downloadCount": 11076,
+            "size": 2854217
+          }
+        ],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.9.8/pcsx2-v0.9.8-linux-binary.tar.gz",
+            "displayName": "Linux",
+            "additionalTags": ["binary"],
+            "downloadCount": 1787,
+            "size": 2997712
+          }
+        ],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2012-03-25T12:00:00.000Z",
+      "publishedAt": "2021-11-25T00:46:09.000Z"
+    },
+    {
+      "version": "v0.9.7",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.9.7",
+      "semverMajor": 0,
+      "semverMinor": 9,
+      "semverPatch": 7,
+      "description": "\r\nStable Release of v0.9.7",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.9.7/pcsx2-v0.9.7-windows-installer.exe",
+            "displayName": "Windows",
+            "additionalTags": ["installer"],
+            "downloadCount": 7712,
+            "size": 12585895
+          },
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.9.7/pcsx2-v0.9.7-windows-portable.7z",
+            "displayName": "Windows",
+            "additionalTags": ["portable"],
+            "downloadCount": 4342,
+            "size": 2753124
+          }
+        ],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.9.7/pcsx2-v0.9.7-linux-binary.tar.gz",
+            "displayName": "Linux",
+            "additionalTags": ["binary"],
+            "downloadCount": 603,
+            "size": 2391197
+          }
+        ],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2010-10-05T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:34:39.000Z"
+    },
+    {
+      "version": "v0.9.6",
+      "url": "https://github.com/PCSX2/pcsx2/releases/tag/v0.9.6",
+      "semverMajor": 0,
+      "semverMinor": 9,
+      "semverPatch": 6,
+      "description": "Release of Stable Version - v0.9.6",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v0.9.6/pcsx2-v0.9.6-windows-32bit-installer.msi",
+            "displayName": "Windows 32bit",
+            "additionalTags": ["installer"],
+            "downloadCount": 5418,
+            "size": 5354496
+          },
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v0.9.6/pcsx2-v0.9.6-windows-32bit-portable.7z",
+            "displayName": "Windows 32bit",
+            "additionalTags": ["portable"],
+            "downloadCount": 3978,
+            "size": 2574990
+          }
+        ],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/pcsx2/releases/download/v0.9.6/pcsx2-v0.9.6-linux-binary.7z",
+            "displayName": "Linux binary",
+            "additionalTags": [],
+            "downloadCount": 691,
+            "size": 1852693
+          }
+        ],
+        "MacOS": []
+      },
+      "type": 1,
+      "prerelease": false,
+      "createdAt": "2009-03-05T04:14:30.000Z",
+      "publishedAt": "2021-12-05T23:27:09.000Z"
+    },
+    {
+      "version": "v0.9.4",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.9.4",
+      "semverMajor": 0,
+      "semverMinor": 9,
+      "semverPatch": 4,
+      "description": "\r\nStable Release of v0.9.4",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.9.4/pcsx2-v0.9.4-windows-installer.exe",
+            "displayName": "Windows",
+            "additionalTags": ["installer"],
+            "downloadCount": 5016,
+            "size": 7171783
+          },
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.9.4/pcsx2-v0.9.4-windows-portable.7z",
+            "displayName": "Windows",
+            "additionalTags": ["portable"],
+            "downloadCount": 2890,
+            "size": 5387576
+          }
+        ],
+        "Linux": [],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2007-11-11T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:36:12.000Z"
+    },
+    {
+      "version": "v0.9.3",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.9.3",
+      "semverMajor": 0,
+      "semverMinor": 9,
+      "semverPatch": 3,
+      "description": "\r\nStable Release of v0.9.3",
+      "assets": {
+        "Windows": [],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.9.3/pcsx2-v0.9.3-linux-32bit.tgz",
+            "displayName": "Linux",
+            "additionalTags": ["32bit"],
+            "downloadCount": 925,
+            "size": 2424624
+          },
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.9.3/pcsx2-v0.9.3-linux-64bit.tgz",
+            "displayName": "Linux",
+            "additionalTags": ["64bit"],
+            "downloadCount": 1687,
+            "size": 1605800
+          }
+        ],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2007-04-01T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:37:43.000Z"
+    },
+    {
+      "version": "v0.9.2",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.9.2",
+      "semverMajor": 0,
+      "semverMinor": 9,
+      "semverPatch": 2,
+      "description": "\r\nStable Release of v0.9.2",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.9.2/pcsx2-v0.9.2-windows-portable.7z",
+            "displayName": "Windows",
+            "additionalTags": ["portable"],
+            "downloadCount": 11720,
+            "size": 2917962
+          }
+        ],
+        "Linux": [],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2006-11-18T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:38:41.000Z"
+    },
+    {
+      "version": "v0.9.1",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.9.1",
+      "semverMajor": 0,
+      "semverMinor": 9,
+      "semverPatch": 1,
+      "description": "\r\nStable Release of v0.9.1",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.9.1/pcsx2-v0.9.1-windows-installer.7z",
+            "displayName": "Windows",
+            "additionalTags": ["installer"],
+            "downloadCount": 1449,
+            "size": 3337173
+          },
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.9.1/pcsx2-v0.9.1-windows-portable.7z",
+            "displayName": "Windows",
+            "additionalTags": ["portable"],
+            "downloadCount": 972,
+            "size": 2191032
+          }
+        ],
+        "Linux": [],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2006-07-03T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:39:58.000Z"
+    },
+    {
+      "version": "v0.9.0",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.9.0",
+      "semverMajor": 0,
+      "semverMinor": 9,
+      "semverPatch": 0,
+      "description": "\r\nStable Release of v0.9.0\t",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.9.0/pcsx2-v0.9.0-windows-installer.7z",
+            "displayName": "Windows",
+            "additionalTags": ["installer"],
+            "downloadCount": 977,
+            "size": 4297906
+          },
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.9.0/pcsx2-v0.9.0-windows-portable.7z",
+            "displayName": "Windows",
+            "additionalTags": ["portable"],
+            "downloadCount": 798,
+            "size": 1988760
+          }
+        ],
+        "Linux": [],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2006-04-03T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:41:04.000Z"
+    },
+    {
+      "version": "v0.8.1",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.8.1",
+      "semverMajor": 0,
+      "semverMinor": 8,
+      "semverPatch": 1,
+      "description": "\r\nStable Release of v0.8.1",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.8.1/pcsx2-v0.8.1-windows-portable.7z",
+            "displayName": "Windows",
+            "additionalTags": ["portable"],
+            "downloadCount": 934,
+            "size": 2103666
+          },
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.8.1/pcsx2-v0.8.1-windows-sse4-portable.7z",
+            "displayName": "Windows",
+            "additionalTags": ["sse4", "portable"],
+            "downloadCount": 424,
+            "size": 2108373
+          }
+        ],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.8.1/pcsx2-v0.8.1-linux-binary.tgz",
+            "displayName": "Linux",
+            "additionalTags": ["binary"],
+            "downloadCount": 126,
+            "size": 588735
+          }
+        ],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2005-05-17T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:44:19.000Z"
+    },
+    {
+      "version": "v0.7.0",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.7.0",
+      "semverMajor": 0,
+      "semverMinor": 7,
+      "semverPatch": 0,
+      "description": "\r\nStable Release of v0.7.0",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.7.0/pcsx2-v0.7.0-windows-portable.zip",
+            "displayName": "Windows",
+            "additionalTags": ["portable"],
+            "downloadCount": 1079,
+            "size": 1829908
+          }
+        ],
+        "Linux": [],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2004-12-16T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:45:49.000Z"
+    },
+    {
+      "version": "v0.6.0",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.6.0",
+      "semverMajor": 0,
+      "semverMinor": 6,
+      "semverPatch": 0,
+      "description": "\r\nStable Release of v0.6.0",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.6.0/pcsx2-v0.6.0-windows-portable.zip",
+            "displayName": "Windows",
+            "additionalTags": ["portable"],
+            "downloadCount": 781,
+            "size": 1012353
+          }
+        ],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.6.0/pcsx2-v0.6.0-linux-binary.tgz",
+            "displayName": "Linux",
+            "additionalTags": ["binary"],
+            "downloadCount": 65,
+            "size": 558800
+          }
+        ],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2004-12-16T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:46:46.000Z"
+    },
+    {
+      "version": "v0.5.0",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.5.0",
+      "semverMajor": 0,
+      "semverMinor": 5,
+      "semverPatch": 0,
+      "description": "\r\nStable Release of v0.5.0",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.5.0/pcsx2-v0.5.0-windows-portable.zip",
+            "displayName": "Windows",
+            "additionalTags": ["portable"],
+            "downloadCount": 848,
+            "size": 990041
+          }
+        ],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.5.0/pcsx2-v0.5.0-linux-binary.tgz",
+            "displayName": "Linux",
+            "additionalTags": ["binary"],
+            "downloadCount": 53,
+            "size": 464158
+          }
+        ],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2003-11-24T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:48:18.000Z"
+    },
+    {
+      "version": "v0.4.1",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.4.1",
+      "semverMajor": 0,
+      "semverMinor": 4,
+      "semverPatch": 1,
+      "description": "\r\nStable Release of v0.4.1",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.4.1/pcsx2-v0.4.1-windows-portable.zip",
+            "displayName": "Windows",
+            "additionalTags": ["portable"],
+            "downloadCount": 624,
+            "size": 681822
+          }
+        ],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.4.1/pcsx2-v0.4.1-linux-binary.tgz",
+            "displayName": "Linux",
+            "additionalTags": ["binary"],
+            "downloadCount": 50,
+            "size": 366303
+          }
+        ],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2003-08-06T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:49:11.000Z"
+    },
+    {
+      "version": "v0.3.0",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.3.0",
+      "semverMajor": 0,
+      "semverMinor": 3,
+      "semverPatch": 0,
+      "description": "\r\nStable Release of v0.3.0",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.3.0/pcsx2-v0.3.0-windows-portable.zip",
+            "displayName": "Windows",
+            "additionalTags": ["portable"],
+            "downloadCount": 550,
+            "size": 715820
+          }
+        ],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.3.0/pcsx2-v0.3.0-linux-binary.tgz",
+            "displayName": "Linux",
+            "additionalTags": ["binary"],
+            "downloadCount": 42,
+            "size": 354433
+          }
+        ],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2003-05-01T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:51:19.000Z"
+    },
+    {
+      "version": "v0.2.0",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.2.0",
+      "semverMajor": 0,
+      "semverMinor": 2,
+      "semverPatch": 0,
+      "description": "\r\nStable Release of v0.2.0",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.2.0/pcsx2-v0.2.0-windows.zip",
+            "displayName": "Windows",
+            "additionalTags": [],
+            "downloadCount": 854,
+            "size": 582472
+          }
+        ],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.2.0/pcsx2-v0.2.0-linux-binary.tgz",
+            "displayName": "Linux",
+            "additionalTags": ["binary"],
+            "downloadCount": 52,
+            "size": 298773
+          }
+        ],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2003-02-18T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:52:17.000Z"
+    },
+    {
+      "version": "v0.1.0",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.1.0",
+      "semverMajor": 0,
+      "semverMinor": 1,
+      "semverPatch": 0,
+      "description": "\r\nStable Release of v0.1.0",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.1.0/pcsx2-v0.1.0-windows-portable.zip",
+            "displayName": "Windows",
+            "additionalTags": ["portable"],
+            "downloadCount": 1454,
+            "size": 374698
+          }
+        ],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.1.0/pcsx2-v0.1.0-linux-binary.tgz",
+            "displayName": "Linux",
+            "additionalTags": ["binary"],
+            "downloadCount": 104,
+            "size": 244284
+          }
+        ],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2002-12-19T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:53:02.000Z"
+    },
+    {
+      "version": "v0.0.42",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.0.42",
+      "semverMajor": 0,
+      "semverMinor": 0,
+      "semverPatch": 42,
+      "description": "\r\nStable Release of v0.0.42",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.0.42/pcsx2-v0.0.42-windows-portable.zip",
+            "displayName": "Windows",
+            "additionalTags": ["portable"],
+            "downloadCount": 1073,
+            "size": 327718
+          }
+        ],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.0.42/pcsx2-v0.0.42-linux-binary.rar",
+            "displayName": "Linux",
+            "additionalTags": ["binary"],
+            "downloadCount": 136,
+            "size": 169249
+          }
+        ],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2002-09-25T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:54:08.000Z"
+    },
+    {
+      "version": "v0.0.38",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.0.38",
+      "semverMajor": 0,
+      "semverMinor": 0,
+      "semverPatch": 38,
+      "description": "\r\nStable Release of v0.0.38",
+      "assets": {
+        "Windows": [],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.0.38/pcsx2-v0.0.38-linux-binary.zip",
+            "displayName": "Linux",
+            "additionalTags": ["binary"],
+            "downloadCount": 106,
+            "size": 151133
+          }
+        ],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2002-07-06T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:54:44.000Z"
+    },
+    {
+      "version": "v0.0.36",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.0.36",
+      "semverMajor": 0,
+      "semverMinor": 0,
+      "semverPatch": 36,
+      "description": "\r\nStable Release of v0.0.36",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.0.36/pcsx2-v0.0.36-windows-portable.zip",
+            "displayName": "Windows",
+            "additionalTags": ["portable"],
+            "downloadCount": 349,
+            "size": 257160
+          }
+        ],
+        "Linux": [],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2002-06-16T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:55:30.000Z"
+    },
+    {
+      "version": "v0.0.31",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.0.31",
+      "semverMajor": 0,
+      "semverMinor": 0,
+      "semverPatch": 31,
+      "description": "\r\nStable Release of v0.0.31",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.0.31/pcsx2-v0.0.31-windows-portable.zip",
+            "displayName": "Windows",
+            "additionalTags": ["portable"],
+            "downloadCount": 449,
+            "size": 203727
+          }
+        ],
+        "Linux": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.0.31/pcsx2-v0.0.31-linux-binary.tgz",
+            "displayName": "Linux",
+            "additionalTags": ["binary"],
+            "downloadCount": 102,
+            "size": 95006
+          }
+        ],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2002-04-14T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:56:49.000Z"
+    },
+    {
+      "version": "v0.0.26",
+      "url": "https://github.com/PCSX2/archive/releases/tag/v0.0.26",
+      "semverMajor": 0,
+      "semverMinor": 0,
+      "semverPatch": 26,
+      "description": "\r\nStable Release of v0.0.26",
+      "assets": {
+        "Windows": [
+          {
+            "url": "https://github.com/PCSX2/archive/releases/download/v0.0.26/pcsx2-v0.0.26-windows-portable.zip",
+            "displayName": "Windows",
+            "additionalTags": ["portable"],
+            "downloadCount": 4646,
+            "size": 156048
+          }
+        ],
+        "Linux": [],
+        "MacOS": []
+      },
+      "type": 2,
+      "prerelease": false,
+      "createdAt": "2002-03-23T12:00:00.000Z",
+      "publishedAt": "2021-11-25T01:57:22.000Z"
+    }
+  ],
+  "pageInfo": { "total": 28 }
+}
