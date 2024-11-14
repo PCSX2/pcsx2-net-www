@@ -18,7 +18,7 @@ import Fuse from "fuse.js";
 import { DateTime } from "luxon";
 import { GoogleAd } from "../../components/GoogleAd";
 import { useMediaQuery } from "../../utils/mediaQuery";
-import { CompatibilityButton } from "./CompatibilityButton";
+import { CompatibilityButton } from "../../components/CompatibilityButton";
 
 function getTableData(compatData) {
   const compatRows = [];

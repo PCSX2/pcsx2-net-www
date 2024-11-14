@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, toggle } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 
 const categoryColorMapping = {
   perfect: {

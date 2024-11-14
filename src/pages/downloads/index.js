@@ -8,6 +8,7 @@ import { getLatestRelease } from "../../components/ReleaseDownloadButton";
 import Head from "@docusaurus/Head";
 import ReactMarkdown from "react-markdown";
 import { GoogleAd } from "../../components/GoogleAd";
+import useIsBrowser from "@docusaurus/useIsBrowser";
 
 const releaseTableColumns = [
   {
@@ -62,7 +63,9 @@ const renderReleaseCell = (release, columnKey, isNightly, isSelected) => {
 let baseApiUrl = "https://api.pcsx2.net/v1";
 
 export default function Downloads() {
-  if (window.location.hostname === "localhost") {
+  const isBrowser = useIsBrowser();
+
+  if (isBrowser && window.location.hostname === "localhost") {
     baseApiUrl = "https://localhost:8001/v1";
   }
 

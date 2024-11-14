@@ -43,6 +43,8 @@ import {
   previousProgressReport,
 } from "../data/latestBlogs";
 
+import useIsBrowser from "@docusaurus/useIsBrowser";
+
 let baseApiUrl = "https://api.pcsx2.net/v1";
 
 export default function Home() {
@@ -51,8 +53,9 @@ export default function Home() {
   const [latestNightlyRelease, setLatestNightlyRelease] = useState({});
   const [apiErrorMsg, setApiErrorMsg] = useState(undefined);
   const [homeVideoPath, setHomeVideoPath] = useState("/videos/splash.webm");
+  const isBrowser = useIsBrowser();
 
-  if (window.location.hostname === "localhost") {
+  if (isBrowser && window.location.hostname === "localhost") {
     baseApiUrl = "https://localhost:8001/v1";
   }
 
