@@ -15,15 +15,17 @@ import latest from "./fixtures/latest.json" with { type: "json" };
 app.get("/v1/stableReleases", (req, res) => {
   const { offset = 0 } = req.query;
   const offsetInt = parseInt(offset, 10);
-  const paginatedData = stableReleases.slice(offsetInt, offsetInt + 10);
-  res.json(paginatedData);
+  let allData = JSON.parse(JSON.stringify(stableReleases));
+  allData.data = allData.data.slice(offsetInt, offsetInt + 10);
+  res.json(allData);
 });
 
 app.get("/v1/nightlyReleases", (req, res) => {
   const { offset = 0 } = req.query;
   const offsetInt = parseInt(offset, 10);
-  const paginatedData = nightlyReleases.slice(offsetInt, offsetInt + 10);
-  res.json(paginatedData);
+  let allData = JSON.parse(JSON.stringify(nightlyReleases));
+  allData.data = allData.data.slice(offsetInt, offsetInt + 10);
+  res.json(allData);
 });
 
 app.get("/v1/latestReleasesAndPullRequests", (req, res) => {

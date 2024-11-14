@@ -183,7 +183,6 @@ export function ReleaseDownloadButton({
 
   // Effect to generate dropdown items when the release or other inputs change
   useEffect(() => {
-    console.log(release);
     if ("windows" in release) {
       setWindowsItems(
         generateDropdownItems(

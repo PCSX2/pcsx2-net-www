@@ -329,8 +329,6 @@ const searchOptions = {
 };
 
 import CompatData from "@site/static/data/compat/data.min.json";
-import { div } from "framer-motion/client";
-import { GiOctopus } from "react-icons/gi";
 import { FaGithub } from "react-icons/fa";
 
 export default function Compatiblity() {
