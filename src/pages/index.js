@@ -159,10 +159,9 @@ export default function Home() {
                 />
                 <Button
                   color="secondary"
-                  className="mt-2 border-solid font-medium cursor-pointer"
+                  className="mt-2 border-solid font-medium cursor-pointer hover:text-secondary hover:no-underline"
                   variant="bordered"
-                  role="link"
-                  data-href={useBaseUrl("/downloads")}
+                  as={Link}
                   href={useBaseUrl("/downloads")}
                 >
                   Previous Versions

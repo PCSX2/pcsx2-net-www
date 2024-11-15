@@ -46,6 +46,7 @@
   --card-color-background: var(--nextui-colors-backgroundContrast);
   --home-video-background-color: #000;
   --ifm-footer-background-color: #020915;
+  --ifm-footer-link-color: #fff;
 }
 
 p.docusaurus-reset {
