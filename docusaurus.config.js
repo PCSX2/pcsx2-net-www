@@ -6,6 +6,20 @@ const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
 const redirects = require("./redirects");
 
+function tailwindPlugin(context, options) {
+  return {
+    name: "tailwind-plugin",
+    configurePostCss(postcssOptions) {
+      postcssOptions.plugins = [
+        require("postcss-import"),
+        require("tailwindcss"),
+        require("autoprefixer"),
+      ];
+      return postcssOptions;
+    },
+  };
+}
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "PCSX2",
@@ -92,6 +106,7 @@ const config = {
           editUrl: "https://github.com/PCSX2/pcsx2-net-www/tree/main/",
         },
         blog: {
+          onUntruncatedBlogPosts: "ignore",
           path: "blog",
           blogSidebarCount: 0,
           showReadingTime: true,
@@ -114,7 +129,7 @@ const config = {
     ({
       // announcementBar: {
       //   id: "announcementBar-1", // Increment on change (2.0 was 0, next announcement should be 1)
-      //   content: `<a href="/blog/2024/pcsx2-2-release/">PCSX2 2.0 is finally here, check out our new blog post!</a>`,
+      //   content: `<a class="no-underline font-medium" href="/blog/2024/pcsx2-2-release/">PCSX2 2.0 is finally here, check out our new blog post!</a>`,
       //   backgroundColor: "#4765c8",
       //   textColor: "#fafbfc",
       //   isCloseable: true,
@@ -346,6 +361,7 @@ const config = {
         };
       },
     }),
+    tailwindPlugin,
   ],
 };
 

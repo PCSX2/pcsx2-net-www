@@ -2,22 +2,23 @@ import React, { useState, useEffect } from "react";
 import Layout from "@theme/Layout";
 import {
   Table,
-  Grid,
+  TableHeader,
+  TableBody,
+  TableColumn,
+  Pagination,
+  TableRow,
+  TableCell,
   Tooltip,
-  Badge,
+  Chip,
   Link,
-  Loading,
   Input,
-  Container,
-  Row,
-  Col,
-  Button,
 } from "@nextui-org/react";
 import { MdLibraryBooks, MdForum } from "react-icons/md";
 import Fuse from "fuse.js";
 import { DateTime } from "luxon";
 import { GoogleAd } from "../../components/GoogleAd";
 import { useMediaQuery } from "../../utils/mediaQuery";
+import { CompatibilityButton } from "../../components/CompatibilityButton";
 
 function getTableData(compatData) {
   const compatRows = [];
@@ -138,72 +139,87 @@ const renderCell = (entry, columnKey) => {
       switch (cellValue.toLowerCase()) {
         case "perfect":
           return (
-            <Badge
+            <Chip
               borderWeight="light"
               color="success"
-              css={{ backgroundColor: "#BA68C8" }}
+              classNames={{
+                base: "font-semibold bg-[#BA68C8]",
+                content: "font-medium",
+              }}
             >
               {cellValue}
-            </Badge>
+            </Chip>
           );
         case "playable":
           return (
-            <Badge
+            <Chip
               borderWeight="light"
               color="primary"
-              css={{ backgroundColor: "#9CCC65", color: "#000" }}
+              classNames={{
+                base: "bg-[#9CCC65] text-[#000]",
+                content: "font-medium",
+              }}
             >
               {cellValue}
-            </Badge>
+            </Chip>
           );
         case "ingame":
           return (
-            <Badge
+            <Chip
               borderWeight="light"
               color="secondary"
-              css={{ backgroundColor: "#29B6F6", color: "#000" }}
+              classNames={{
+                base: "bg-[#29B6F6] text-[#000]",
+                content: "font-medium",
+              }}
             >
               {cellValue}
-            </Badge>
+            </Chip>
           );
         case "menus":
           return (
-            <Badge
+            <Chip
               borderWeight="light"
               color="warning"
-              css={{ backgroundColor: "#FBC02D", color: "#000" }}
+              classNames={{
+                base: "bg-[#FBC02D] text-[#000]",
+                content: "font-medium",
+              }}
             >
               {cellValue}
-            </Badge>
+            </Chip>
           );
         case "intros":
           return (
-            <Badge
+            <Chip
               borderWeight="light"
               color="warning"
-              css={{ backgroundColor: "#F57C00", color: "#000" }}
+              classNames={{
+                base: "bg-[#F57C00] text-[#000]",
+                content: "font-medium",
+              }}
             >
               {cellValue}
-            </Badge>
+            </Chip>
           );
         default:
           return (
-            <Badge
+            <Chip
               borderWeight="light"
               color="error"
-              css={{ backgroundColor: "#D32F2F" }}
+              classNames={{
+                base: "bg-[#D32F2F] text-[#000]",
+                content: "font-medium",
+              }}
             >
               {cellValue}
-            </Badge>
+            </Chip>
           );
       }
     case "latest_testing":
       if (cellValue) {
-        let color = "neutral";
-        if (
-          cellValue.version.startsWith("1.6") ||
-          cellValue.version.startsWith("1.7")
-        ) {
+        let color = "default";
+        if (cellValue.version.startsWith("2.")) {
           color = "success";
         }
         if (cellValue.date) {
@@ -213,26 +229,54 @@ const renderCell = (entry, columnKey) => {
               content={`Tested on - ${date.toLocaleString(DateTime.DATE_FULL)}`}
               placement="left"
             >
-              <Badge variant="bordered" color={color}>
+              <Chip
+                classNames={{
+                  base: "border border-solid",
+                  content: "font-medium",
+                }}
+                variant="bordered"
+                color={color}
+              >
                 {cellValue.version}
-              </Badge>
+              </Chip>
             </Tooltip>
           );
         } else {
           return (
-            <Badge variant="bordered" color={color}>
+            <Chip
+              classNames={{
+                base: "border border-solid",
+                content: "font-medium",
+              }}
+              variant="bordered"
+              color={color}
+            >
               {cellValue.version}
-            </Badge>
+            </Chip>
           );
         }
       } else {
         return null;
       }
     case "links":
-      const icons = [];
+      const icons = [
+        <div>
+          <Tooltip content={"GitHub Issues"} placement={"left"}>
+            <Link
+              href={encodeURI(
+                `https://github.com/PCSX2/pcsx2/issues?q=is:issue ${entry.serial} OR "${entry.title}"`,
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub size={22}></FaGithub>
+            </Link>
+          </Tooltip>
+        </div>,
+      ];
       if (cellValue?.wiki) {
         icons.push(
-          <Grid>
+          <div>
             <Tooltip content={"Wiki Page"} placement={"left"}>
               <Link
                 href={cellValue.wiki}
@@ -242,12 +286,12 @@ const renderCell = (entry, columnKey) => {
                 <MdLibraryBooks size={22}></MdLibraryBooks>
               </Link>
             </Tooltip>
-          </Grid>,
+          </div>,
         );
       }
       if (cellValue?.forum) {
         icons.push(
-          <Grid>
+          <div>
             <Tooltip content={"Forum Post"} placement={"left"}>
               <Link
                 href={cellValue.forum}
@@ -257,11 +301,11 @@ const renderCell = (entry, columnKey) => {
                 <MdForum size={22}></MdForum>
               </Link>
             </Tooltip>
-          </Grid>,
+          </div>,
         );
       }
       if (icons.length > 0) {
-        return <Grid.Container>{icons}</Grid.Container>;
+        return <div class="flex flex-row flex-wrap gap-2">{icons}</div>;
       } else {
         return null;
       }
@@ -285,6 +329,7 @@ const searchOptions = {
 };
 
 import CompatData from "@site/static/data/compat/data.min.json";
+import { FaGithub } from "react-icons/fa";
 
 export default function Compatiblity() {
   // State
@@ -306,17 +351,32 @@ export default function Compatiblity() {
     intro: undefined,
     nothing: undefined,
   });
-  const [loadingState, setLoadingState] = useState("loading");
+  const [isTableLoading, setIsTableLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [searchString, setSearchString] = useState("");
   const [readyToFilter, setReadyToFilter] = useState(false);
+
+  const rowsPerPage = 25;
+
+  const tableRows = React.useMemo(() => {
+    const start = (page - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+    return filteredData.slice(start, end);
+  }, [page, filteredData]);
+
+  const totalPages = React.useMemo(() => {
+    if (Math.ceil(filteredData.length / 25) < 1) {
+      return 1;
+    }
+    return Math.ceil(filteredData.length / 25);
+  }, [filteredData]);
 
   useEffect(() => {
     setTableData(getTableData(CompatData));
     // Determine distribution of statuses
     setFilterStats(calcPercentages(CompatData));
     setFilteredData(getTableData(CompatData));
-    setLoadingState("idle");
+    setIsTableLoading(false);
     setReadyToFilter(true);
   }, []);
 
@@ -396,289 +456,149 @@ export default function Compatiblity() {
       title="Compatibility"
       description="Find out how well your PlayStation 2 games will run on PCSX2 and if there are any associated issues"
     >
-      <main>
-        <Container css={{ mt: "2em" }}>
-          <Grid.Container>
-            <Grid.Container>
-              <Grid>
-                <h1>Compatibility Data</h1>
-              </Grid>
-            </Grid.Container>
-            <Grid.Container>
-              <Grid xs={12} css={{ color: "$accents7" }}>
-                <p>
-                  Here is the latest data on the emulator's compatibility. Use
-                  the filtering and searching options below to find what you are
-                  interested in
-                </p>
-              </Grid>
-            </Grid.Container>
-            <Row justify="center">
-              <Col
-                css={{
-                  "@md": {
-                    width: "50%",
-                  },
-                  "@mdMax": {
-                    width: "100%",
-                  },
-                }}
-              >
+      <main class="docusaurus-reset">
+        <div className="w-full container mx-auto mt-5">
+          <div class="flex flex-row">
+            <h1>Compatibility Data</h1>
+          </div>
+          <div class="flex flex-row">
+            <p class="text-default-400">
+              Here is the latest data on the emulator's compatibility. Use the
+              filtering and searching options below to find what you are
+              interested in
+            </p>
+          </div>
+          <div class="flex justify-center">
+            <div class="w-full md:w-1/2">
+              <GoogleAd></GoogleAd>
+            </div>
+            {!useMediaQuery(960) && (
+              <div class="w-full md:w-1/2">
                 <GoogleAd></GoogleAd>
-              </Col>
-              {useMediaQuery(960) ? null : (
-                <Col
-                  css={{
-                    "@md": {
-                      width: "50%",
-                    },
-                    "@mdMax": {
-                      width: "100%",
-                    },
-                  }}
-                >
-                  <GoogleAd></GoogleAd>
-                </Col>
-              )}
-            </Row>
-            <Grid.Container alignItems="end" css={{ mt: "2em", mb: "1em" }}>
-              <Grid xs={12} lg={4}>
-                <Grid.Container gap={1}>
-                  <Grid xs={12}>
-                    <Input
-                      label="Search by Name, Serial or CRC"
-                      width="100%"
-                      onChange={changeSearchString}
-                      disabled={loadingState === "loading"}
-                    ></Input>
-                  </Grid>
-                </Grid.Container>
-              </Grid>
-              <Grid xs={12} lg={8}>
-                <Grid.Container alignItems="end" gap={1}>
-                  <Grid>
-                    <Button
-                      bordered={filterOptions.perfect}
-                      disabled={filterStats.perfect === undefined}
-                      css={{
-                        backgroundColor: filterOptions.perfect
-                          ? "inherit"
-                          : "#BA68C8",
-                        color: filterOptions.perfect ? "#BA68C8" : "inherit",
-                        borderColor: filterOptions.perfect
-                          ? "#BA68C8"
-                          : "inherit",
-                      }}
-                      auto
-                      onPress={() => toggleFilter("perfect")}
-                    >
-                      {filterStats.perfect === undefined && (
-                        <Loading
-                          type="points-opacity"
-                          color="currentColor"
-                          size="sm"
-                        />
-                      )}
-                      {perfectFilterText}
-                    </Button>
-                  </Grid>
-                  <Grid>
-                    <Button
-                      bordered={filterOptions.playable}
-                      disabled={filterStats.playable === undefined}
-                      css={{
-                        backgroundColor: filterOptions.playable
-                          ? "inherit"
-                          : "#9CCC65",
-                        color: filterOptions.playable ? "#9CCC65" : "#000",
-                        borderColor: filterOptions.playable
-                          ? "#9CCC65"
-                          : "inherit",
-                      }}
-                      auto
-                      onPress={() => toggleFilter("playable")}
-                    >
-                      {filterStats.playable === undefined && (
-                        <Loading
-                          type="points-opacity"
-                          color="currentColor"
-                          size="sm"
-                        />
-                      )}
-                      {playableFilterText}
-                    </Button>
-                  </Grid>
-                  <Grid>
-                    <Button
-                      bordered={filterOptions.ingame}
-                      disabled={filterStats.ingame === undefined}
-                      css={{
-                        backgroundColor: filterOptions.ingame
-                          ? "inherit"
-                          : "#29B6F6",
-                        color: filterOptions.ingame ? "#29B6F6" : "#000",
-                        borderColor: filterOptions.ingame
-                          ? "#29B6F6"
-                          : "inherit",
-                      }}
-                      auto
-                      onPress={() => toggleFilter("ingame")}
-                    >
-                      {filterStats.ingame === undefined && (
-                        <Loading
-                          type="points-opacity"
-                          color="currentColor"
-                          size="sm"
-                        />
-                      )}
-                      {ingameFilterText}
-                    </Button>
-                  </Grid>
-                  <Grid>
-                    <Button
-                      bordered={filterOptions.menus}
-                      disabled={filterStats.menus === undefined}
-                      css={{
-                        backgroundColor: filterOptions.menus
-                          ? "inherit"
-                          : "#FBC02D",
-                        color: filterOptions.menus ? "#FBC02D" : "#000",
-                        borderColor: filterOptions.menus
-                          ? "#FBC02D"
-                          : "inherit",
-                      }}
-                      auto
-                      onPress={() => toggleFilter("menus")}
-                    >
-                      {filterStats.menus === undefined && (
-                        <Loading
-                          type="points-opacity"
-                          color="currentColor"
-                          size="sm"
-                        />
-                      )}
-                      {menusFilterText}
-                    </Button>
-                  </Grid>
-                  <Grid>
-                    <Button
-                      bordered={filterOptions.intro}
-                      disabled={filterStats.intro === undefined}
-                      css={{
-                        backgroundColor: filterOptions.intro
-                          ? "inherit"
-                          : "#F57C00",
-                        color: filterOptions.intro ? "#F57C00" : "#000",
-                        borderColor: filterOptions.intro
-                          ? "#F57C00"
-                          : "inherit",
-                      }}
-                      auto
-                      onPress={() => toggleFilter("intro")}
-                    >
-                      {filterStats.intro === undefined && (
-                        <Loading
-                          type="points-opacity"
-                          color="currentColor"
-                          size="sm"
-                        />
-                      )}
-                      {introFilterText}
-                    </Button>
-                  </Grid>
-                  <Grid>
-                    <Button
-                      bordered={filterOptions.nothing}
-                      disabled={filterStats.nothing === undefined}
-                      css={{
-                        backgroundColor: filterOptions.nothing
-                          ? "inherit"
-                          : "#D32F2F",
-                        color: filterOptions.nothing ? "#D32F2F" : "inherit",
-                        borderColor: filterOptions.nothing
-                          ? "#D32F2F"
-                          : "inherit",
-                      }}
-                      auto
-                      onPress={() => toggleFilter("nothing")}
-                    >
-                      {filterStats.nothing === undefined && (
-                        <Loading
-                          type="points-opacity"
-                          color="currentColor"
-                          size="sm"
-                        />
-                      )}
-                      {nothingFilterText}
-                    </Button>
-                  </Grid>
-                </Grid.Container>
-              </Grid>
-            </Grid.Container>
-            <Grid.Container>
-              <Grid xs={12}>
-                <Table
-                  compact
-                  striped
-                  sticked
-                  aria-label="Compatibility Table"
-                  css={{
-                    height: "auto",
-                    minWidth: "100%",
-                    display: "table",
-                    noMargin: true,
-                    padding: 0,
-                  }}
-                >
-                  <Table.Header columns={columns}>
-                    {(column) => (
-                      <Table.Column key={column.key}>
-                        {column.label}
-                      </Table.Column>
-                    )}
-                  </Table.Header>
-                  <Table.Body items={filteredData} loadingState={loadingState}>
-                    {(item) => (
-                      <Table.Row key={item.key}>
-                        {(columnKey) => (
-                          <Table.Cell key={`${item.key}-${columnKey}`}>
-                            {renderCell(item, columnKey)}
-                          </Table.Cell>
-                        )}
-                      </Table.Row>
-                    )}
-                  </Table.Body>
-                  <Table.Pagination
-                    noMargin
-                    align="center"
-                    rowsPerPage={
-                      loadingState == "loading"
-                        ? 2
-                        : Math.min(25, filteredData.length)
-                    }
+              </div>
+            )}
+          </div>
+          <div class="grid gap-4 lg:grid-cols-2 md:grid-cols-1">
+            <div class="lg:col-span-1 md:col-span-12 place-content-end">
+              <Input
+                classNames={{
+                  input: ["border-none", "default-font"],
+                }}
+                labelPlacement="outside"
+                label="Search by Name, Serial or CRC"
+                onChange={changeSearchString}
+                disabled={isTableLoading}
+              ></Input>
+            </div>
+            <div class="grid md:col-span-12 lg:grid-rows-1 lg:col-span-1 grid-cols-1 md:grid-cols-2 md:grid-rows-3 gap-2">
+              <CompatibilityButton
+                categoryFiltered={filterOptions.perfect}
+                disabledOrLoading={filterStats.perfect === undefined}
+                category={"perfect"}
+                onPress={() => toggleFilter("perfect")}
+              >
+                {filterStats.perfect !== undefined && (
+                  <span>{perfectFilterText}</span>
+                )}
+              </CompatibilityButton>
+
+              <CompatibilityButton
+                categoryFiltered={filterOptions.playable}
+                disabledOrLoading={filterStats.playable === undefined}
+                category={"playable"}
+                onPress={() => toggleFilter("playable")}
+              >
+                {filterStats.playable !== undefined && (
+                  <span>{playableFilterText}</span>
+                )}
+              </CompatibilityButton>
+
+              <CompatibilityButton
+                categoryFiltered={filterOptions.ingame}
+                disabledOrLoading={filterStats.ingame === undefined}
+                category={"ingame"}
+                onPress={() => toggleFilter("ingame")}
+              >
+                {filterStats.ingame !== undefined && (
+                  <span>{ingameFilterText}</span>
+                )}
+              </CompatibilityButton>
+
+              <CompatibilityButton
+                categoryFiltered={filterOptions.menus}
+                disabledOrLoading={filterStats.menus === undefined}
+                category={"menus"}
+                onPress={() => toggleFilter("menus")}
+              >
+                {filterStats.menus !== undefined && (
+                  <span>{menusFilterText}</span>
+                )}
+              </CompatibilityButton>
+
+              <CompatibilityButton
+                categoryFiltered={filterOptions.intro}
+                disabledOrLoading={filterStats.intro === undefined}
+                category={"intro"}
+                onPress={() => toggleFilter("intro")}
+              >
+                {filterStats.intro !== undefined && (
+                  <span>{introFilterText}</span>
+                )}
+              </CompatibilityButton>
+
+              <CompatibilityButton
+                categoryFiltered={filterOptions.nothing}
+                disabledOrLoading={filterStats.nothing === undefined}
+                category={"nothing"}
+                onPress={() => toggleFilter("nothing")}
+              >
+                {filterStats.nothing !== undefined && (
+                  <span>{nothingFilterText}</span>
+                )}
+              </CompatibilityButton>
+            </div>
+          </div>
+
+          <div class="flex flex-row flex-wrap gap-2 justify-center mt-5">
+            {/* https://nextui.org/docs/components/table#paginated-table */}
+            <Table
+              isCompact
+              fullWidth
+              removeWrapper
+              isStriped
+              aria-label="Compatibility Table"
+              bottomContent={
+                <div className="flex w-full justify-center">
+                  <Pagination
+                    isCompact
+                    showControls
+                    showShadow
                     page={page}
-                    onPageChange={setPage}
-                    total={Math.ceil(filteredData.length / 25)}
+                    onChange={(page) => setPage(page)}
+                    total={totalPages}
                   />
-                </Table>
-              </Grid>
-            </Grid.Container>
-            <Row justify="center">
-              <Col
-                css={{
-                  "@md": {
-                    width: "50%",
-                  },
-                  "@mdMax": {
-                    width: "100%",
-                  },
-                }}
-              >
-                <GoogleAd></GoogleAd>
-              </Col>
-            </Row>
-          </Grid.Container>
-        </Container>
+                </div>
+              }
+            >
+              <TableHeader columns={columns}>
+                {(column) => (
+                  <TableColumn key={column.key}>{column.label}</TableColumn>
+                )}
+              </TableHeader>
+              <TableBody items={tableRows} isLoading={isTableLoading}>
+                {(item) => (
+                  <TableRow key={item.key}>
+                    {(columnKey) => (
+                      <TableCell key={`${item.key}-${columnKey}`}>
+                        {renderCell(item, columnKey)}
+                      </TableCell>
+                    )}
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </div>
+        </div>
       </main>
     </Layout>
   );

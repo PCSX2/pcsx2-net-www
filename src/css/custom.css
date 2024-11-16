@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -19,8 +23,10 @@
   --navbar-svg-icons-filter: invert(0%) sepia(100%) saturate(7500%)
     hue-rotate(209deg) brightness(86%) contrast(114%);
   --nightly-button-background: #000;
-  --ifm-footer-background-color: var(--nextui-colors-accents0);
+  --ifm-footer-background-color: rgb(244, 244, 244);
   --card-color-background: #000;
+  --home-video-background-color: #fff;
+  --ifm-footer-link-color: #000;
 }
 
 [data-theme="dark"] {
@@ -38,6 +44,63 @@
     hue-rotate(81deg) brightness(106%) contrast(106%);
   --nightly-button-background: var(--nextui-colors-accents0);
   --card-color-background: var(--nextui-colors-backgroundContrast);
+  --home-video-background-color: #000;
+  --ifm-footer-background-color: #020915;
+  --ifm-footer-link-color: #fff;
+}
+
+p.docusaurus-reset {
+  margin: 0;
+}
+
+button.docusaurus-reset {
+  cursor: pointer;
+}
+
+.docusaurus-reset table {
+  border: none;
+  border-top: none;
+  display: table;
+}
+
+.docusaurus-reset table tr {
+  border: none;
+  border-top: none;
+}
+
+.docusaurus-reset thead tr {
+  border: none;
+  border-top: none;
+}
+
+menu.docusaurus-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.docusaurus-reset ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.docusaurus-reset ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.docusaurus-reset table tr:nth-child(2n) {
+  background-color: unset;
+}
+
+.remove-last-bottom-margin p:last-child {
+  margin-bottom: 0;
+}
+
+.theme-doc-sidebar-container nav {
+  backdrop-filter: unset !important;
 }
 
 /* Workaround to resolve FOUC issues */
@@ -94,7 +157,15 @@ html.app-loaded {
   font-display: swap;
 }
 
+body {
+  font-family: var(--ifm-font-family-base);
+}
+
 button {
+  font-family: var(--ifm-font-family-base);
+}
+
+.default-font {
   font-family: var(--ifm-font-family-base);
 }
 
@@ -108,7 +179,7 @@ footer.footer {
 /* Navbar */
 
 .navbar__link {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .navbar__link--active {
@@ -117,13 +188,13 @@ footer.footer {
 
 .navbar--fixed-top {
   box-shadow: rgba(2, 1, 1, 0.1) 0px 5px 20px -5px;
-  z-index: 999;
+  z-index: 199;
   background: transparent;
 }
 
 [data-theme="dark"] .navbar-sidebar {
   box-shadow: rgba(2, 1, 1, 0.1) 0px 5px 20px -5px;
-  z-index: 999;
+  z-index: 199;
   background: transparent;
   backdrop-filter: saturate(180%) blur(10px);
   --webkit-backdrop-filter: saturate(180%) blur(10px);
@@ -306,4 +377,64 @@ table td {
 
 .header-blog .margin-vert--md {
   color: rgb(227, 227, 227);
+}
+
+.pr-link {
+  margin-bottom: 1em !important;
+  font-weight: 700;
+}
+
+.imgCompareContainer {
+  display: inline-block;
+  line-height: 0;
+  position: relative;
+  width: 100%;
+  padding-top: 42.3%;
+  cursor: col-resize;
+  margin-bottom: 2em;
+}
+
+.imgCompareContainer > img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  max-width: unset !important;
+}
+
+.imgClipper {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  box-shadow: 2px 0 red;
+}
+
+.imgClipper > img {
+  width: 200%;
+  position: absolute;
+  height: 100%;
+  max-width: unset !important;
+}
+
+.imgCmpLabel {
+  position: absolute;
+  z-index: 100;
+  font-weight: 700;
+  color: white;
+  pointer-events: none;
+  top: 1em;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+.imgCmpLabel.before {
+  left: 1rem;
+}
+.imgCmpLabel.after {
+  right: 1rem;
+  z-index: 2;
 }

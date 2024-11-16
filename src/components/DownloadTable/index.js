@@ -1,111 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Table, Card, Text, Grid } from "@nextui-org/react";
-import ReactMarkdown from "react-markdown";
-import { ReleaseDownloadButton } from "../ReleaseDownloadButton";
-import { GoPlus, GoDash } from "react-icons/go";
-import { IconContext } from "react-icons";
-import { DateTime } from "luxon";
-
-export function PullRequestTableCard({ pullRequest }) {
-  const date = DateTime.fromISO(pullRequest.updatedAt);
-  const dateString = date.toLocaleString(DateTime.DATE_FULL);
-  return (
-    <Grid.Container css={{ mt: "0.5em" }}>
-      <Grid xs={12}>
-        <Card css={{ p: "$6", mw: "100%" }}>
-          <Card.Header>
-            <h3>
-              <a href={pullRequest.link}>PR #{pullRequest.number}</a>
-              <span style={{ marginLeft: "0.5em", color: "#3fb950" }}>
-                <IconContext.Provider
-                  value={{ style: { verticalAlign: "middle" } }}
-                >
-                  <GoPlus size={24}></GoPlus>
-                </IconContext.Provider>
-                &nbsp;
-                {pullRequest.additions}
-              </span>
-              <span style={{ marginLeft: "0.5em", color: "#dd4a48" }}>
-                <IconContext.Provider
-                  value={{ style: { verticalAlign: "middle" } }}
-                >
-                  <GoDash size={24}></GoDash>
-                </IconContext.Provider>
-                &nbsp;
-                {pullRequest.deletions}
-              </span>
-            </h3>
-          </Card.Header>
-          <Card.Body css={{ py: "$2" }}>
-            <p>
-              <span style={{ fontWeight: 700 }}>Last Updated At</span> -{" "}
-              {dateString}
-            </p>
-            <ReactMarkdown>{pullRequest.body}</ReactMarkdown>
-          </Card.Body>
-        </Card>
-      </Grid>
-    </Grid.Container>
-  );
-}
-
-export function DownloadTableReleaseCard({
-  release,
-  downloadButtonText,
-  isNightly,
-}) {
-  return !release ? null : (
-    <Grid.Container css={{ mt: "0.5em" }}>
-      <Grid xs={12}>
-        <Card css={{ p: "$6", mw: "100%" }}>
-          <Card.Header>
-            <Text h3 css={{ lineHeight: "$xs" }}>
-              {release.version}
-            </Text>
-          </Card.Header>
-          <Card.Body css={{ py: "$2" }}>
-            <Text>
-              <ReactMarkdown>{release.description}</ReactMarkdown>
-            </Text>
-          </Card.Body>
-          <Card.Footer>
-            <ReleaseDownloadButton
-              release={release}
-              buttonText={downloadButtonText}
-              isNightly={isNightly}
-              bordered={true}
-            />
-          </Card.Footer>
-        </Card>
-      </Grid>
-    </Grid.Container>
-  );
-}
-
-function renderSelectedCard(selectedData, tableType) {
-  if (!selectedData) {
-    return null;
-  }
-  if (tableType === "stable") {
-    return (
-      <DownloadTableReleaseCard
-        release={selectedData}
-        downloadButtonText={"Download Release"}
-        isNightly={false}
-      />
-    );
-  } else if (tableType === "nightly") {
-    return (
-      <DownloadTableReleaseCard
-        release={selectedData}
-        downloadButtonText={"Download Release"}
-        isNightly={true}
-      />
-    );
-  } else if (tableType === "pullRequests") {
-    return <PullRequestTableCard pullRequest={selectedData} />;
-  }
-}
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableRow,
+  TableCell,
+  TableBody,
+  Pagination,
+} from "@nextui-org/react";
 
 export function DownloadTable({
   pageSize,
@@ -117,118 +19,126 @@ export function DownloadTable({
   fetchMoreFunc,
   tableType,
 }) {
+  // NOTE: https://github.com/nextui-org/nextui/issues/2193
+  const [tableKey, setTableKey] = useState("");
   const [tableData, setTableData] = useState({ data: [] });
   const [tableLoadingState, setTableLoadingState] = useState("idle");
   const [tablePage, setTablePage] = useState(1);
-  const [selectedTableRow, setSelectedTableRow] = useState(undefined);
+  const [selectedVersion, setSelectedVersion] = useState(undefined);
+
+  const rowsPerPage = 10;
 
   useEffect(() => {
     setTableData(initialTableData);
   }, [initialTableData]);
 
-  return (
-    <Grid xs={12}>
-      <Grid.Container>
-        <Grid xs={12}>
-          <Table
-            striped
-            compact
-            sticked
-            selectionMode={"single"}
-            color={color}
-            aria-label={tableLabel}
-            onSelectionChange={(selection) => {
-              if (selection.size <= 0) {
-                setSelectedTableRow(undefined);
-              } else {
-                setSelectedTableRow([...selection][0]);
-              }
-            }}
-            css={{
-              height: "auto",
-              minWidth: "100%",
-              display: "table",
-              noMargin: true,
-              padding: 0,
-            }}
-          >
-            <Table.Header columns={tableColumns}>
-              {(column) => (
-                <Table.Column key={column.key}>{column.label}</Table.Column>
-              )}
-            </Table.Header>
-            <Table.Body items={tableData.data} loadingState={tableLoadingState}>
-              {(item) => (
-                <Table.Row key={tableData.data.indexOf(item)}>
-                  {(columnKey) => (
-                    <Table.Cell>{renderRowFunc(item, columnKey)}</Table.Cell>
-                  )}
-                </Table.Row>
-              )}
-            </Table.Body>
-            <Table.Pagination
-              noMargin
-              align="center"
-              rowsPerPage={
-                tableLoadingState == "loading"
-                  ? 2
-                  : Math.min(pageSize, tableData?.pageInfo?.total)
-              }
-              page={tablePage}
-              onPageChange={async (page) => {
-                setTableLoadingState("loading");
-                page = page - 1;
-                const newLength = (page + 1) * pageSize;
-                const newOffset = page * pageSize;
+  const tableRows = React.useMemo(() => {
+    const start = (tablePage - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+    return tableData.data.slice(start, end);
+  }, [tablePage, tableData]);
 
-                // See if we have to fetch more from the API
-                const fetchMore =
-                  tableData.data.length < newLength ||
-                  Object.keys(tableData.data[newOffset]).length === 0;
-                if (fetchMore) {
-                  const resp = await fetchMoreFunc(newOffset);
-                  const data = await resp.json();
-                  const newTableData = tableData.data;
-                  // If array isn't as big as the start index, we need to fill up to that point
-                  if (newTableData.length < newOffset) {
-                    for (
-                      let i = 0, newSize = newOffset - newTableData.length;
-                      i < newSize;
-                      i++
-                    ) {
-                      newTableData.push({});
+  return (
+    <div className="w-full container">
+      <div className="flex flex-row">
+        <Table
+          key={`${tableLabel}-${tableKey}`}
+          isStriped
+          compact
+          removeWrapper
+          selectionMode={"single"}
+          aria-label={tableLabel}
+          onSelectionChange={(selection) => {
+            if (!selection.size <= 0) {
+              const key = [...selection][0];
+              if (key !== selectedVersion) {
+                setSelectedVersion(key);
+                setTableKey(crypto.randomUUID());
+              }
+            }
+          }}
+          bottomContent={
+            <div className="flex w-full justify-center">
+              <Pagination
+                isCompact
+                showControls
+                showShadow
+                page={tablePage}
+                total={Math.ceil(tableData?.pageInfo?.total / pageSize)}
+                onChange={async (page) => {
+                  setTableLoadingState("loadingMore");
+                  page = page - 1;
+                  const newLength = (page + 1) * pageSize;
+                  const newOffset = page * pageSize;
+
+                  // See if we have to fetch more from the API
+                  const fetchMore =
+                    tableData.data.length < newLength ||
+                    Object.keys(tableData.data[newOffset]).length === 0;
+                  if (fetchMore) {
+                    const resp = await fetchMoreFunc(newOffset);
+                    const data = await resp.json();
+                    const newTableData = tableData.data;
+                    // If array isn't as big as the start index, we need to fill up to that point
+                    if (newTableData.length < newOffset) {
+                      for (
+                        let i = 0, newSize = newOffset - newTableData.length;
+                        i < newSize;
+                        i++
+                      ) {
+                        newTableData.push({});
+                      }
                     }
-                  }
-                  // We can then fill in the array with the indices provided
-                  // - if we are out of bounds, push undefined
-                  // - if there is a value OTHER than undefined, skip, the user is just jumping around pages
-                  for (let i = 0; i < data.data.length; i++) {
-                    if (i + newOffset >= newTableData.length) {
-                      newTableData.push(data.data[i]);
-                    } else if (
-                      Object.keys(newTableData[i + newOffset]).length !== 0
-                    ) {
-                      continue;
-                    } else {
-                      newTableData[i + newOffset] = data.data[i];
+                    // We can then fill in the array with the indices provided
+                    // - if we are out of bounds, push undefined
+                    // - if there is a value OTHER than undefined, skip, the user is just jumping around pages
+                    for (let i = 0; i < data.data.length; i++) {
+                      if (i + newOffset >= newTableData.length) {
+                        newTableData.push(data.data[i]);
+                      } else if (
+                        Object.keys(newTableData[i + newOffset]).length !== 0
+                      ) {
+                        continue;
+                      } else {
+                        newTableData[i + newOffset] = data.data[i];
+                      }
                     }
+                    setTableData({
+                      data: newTableData,
+                      pageInfo: data.pageInfo,
+                    });
                   }
-                  setTableData({
-                    data: newTableData,
-                    pageInfo: data.pageInfo,
-                  });
-                }
-                setTableLoadingState("idle");
-                setTablePage(page + 1);
-              }}
-              total={Math.ceil(tableData?.pageInfo?.total / pageSize)}
-            />
-          </Table>
-        </Grid>
-        {selectedTableRow === undefined
-          ? renderSelectedCard(selectedTableRow, tableType)
-          : renderSelectedCard(tableData.data[selectedTableRow], tableType)}
-      </Grid.Container>
-    </Grid>
+                  setTableLoadingState("idle");
+                  setTablePage(page + 1);
+                }}
+              />
+            </div>
+          }
+        >
+          <TableHeader columns={tableColumns}>
+            {(column) => (
+              <TableColumn key={column.key}>{column.label}</TableColumn>
+            )}
+          </TableHeader>
+          <TableBody items={tableRows} loadingState={tableLoadingState}>
+            {(item) => (
+              <TableRow key={item.version}>
+                {(columnKey) => (
+                  <TableCell>
+                    {renderRowFunc(
+                      item,
+                      columnKey,
+                      tableType === "nightly",
+                      selectedVersion !== undefined &&
+                        item.version === selectedVersion,
+                    )}
+                  </TableCell>
+                )}
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </div>
+    </div>
   );
 }

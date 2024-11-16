@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Row, Col } from "@nextui-org/react";
 import {
   BarChart,
   Bar,
@@ -100,17 +99,17 @@ export default function Chart(props) {
   return (
     <div>
       {props.title ? (
-        <Row css={{ mb: "1em", mt: "1em", textAlign: "center" }}>
-          <Col span={12}>{props.title}</Col>
-        </Row>
+        <div className="flex justify-center my-4 text-center">
+          <div className="w-full">{props.title}</div>
+        </div>
       ) : null}
-      <Row css={{ mb: "1em", mt: "1em" }}>
-        <Col span={12}>
+      <div className="flex justify-center my-4">
+        <div className="w-full">
           {chartData === undefined
             ? "Loading Chart Data"
             : _renderChart(chartData)}
-        </Col>
-      </Row>
+        </div>
+      </div>
     </div>
   );
 }

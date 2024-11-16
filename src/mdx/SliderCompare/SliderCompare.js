@@ -1,6 +1,4 @@
 import React, { useRef } from "react";
-import { Grid } from "@nextui-org/react";
-import styles from "./SliderCompare.module.css";
 
 export default function SliderCompare({ children, cols, before, after }) {
   let isDragging = false;
@@ -48,11 +46,11 @@ export default function SliderCompare({ children, cols, before, after }) {
   }
 
   return (
-    <Grid.Container style={{ marginBottom: "1em" }}>
-      <Grid xs={12} md={Math.min(12, cols ?? 12)}>
+    <div className="flex flex-wrap mb-4">
+      <div className={`w-full md:w-${Math.min(12, cols ?? 12)}/12`}>
         <div
           ref={container}
-          className={styles.imgCompareContainer}
+          className={`imgCompareContainer`}
           onMouseUp={handleMouseUp}
           onMouseDown={handleMouseDownOrTouchStart}
           onTouchStart={handleMouseDownOrTouchStart}
@@ -65,7 +63,7 @@ export default function SliderCompare({ children, cols, before, after }) {
             draggable="false"
             onLoad={imageLoaded}
           />
-          <div ref={imgClipper} className={styles.imgClipper}>
+          <div ref={imgClipper} className={`imgClipper`}>
             <img
               ref={beforeImg}
               src={before}
@@ -73,11 +71,11 @@ export default function SliderCompare({ children, cols, before, after }) {
               alt=""
               draggable="false"
             />
-            <div className={`${styles.imgCompareLabel} before`}>Before</div>
+            <div className={`imgCompareLabel before`}>Before</div>
           </div>
-          <div className={`${styles.imgCompareLabel} after`}>After</div>
+          <div className={`imgCompareLabel after`}>After</div>
         </div>
-      </Grid>
-    </Grid.Container>
+      </div>
+    </div>
   );
 }

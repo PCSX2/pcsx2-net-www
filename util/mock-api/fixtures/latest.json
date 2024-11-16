@@ -1,0 +1,2742 @@
+{
+  "stableReleases": {
+    "data": [
+      {
+        "version": "v2.2.0",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.2.0",
+        "semverMajor": 2,
+        "semverMinor": 2,
+        "semverPatch": 0,
+        "description": "- [CI: Default to flatpak beta branch](https://github.com/PCSX2/pcsx2/pull/11926)\r\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.2.0/pcsx2-v2.2.0-windows-x64-installer.exe",
+              "displayName": "Windows x64",
+              "additionalTags": ["installer"],
+              "downloadCount": 48432,
+              "size": 45315167
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.2.0/pcsx2-v2.2.0-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 196,
+              "size": 12441607
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.2.0/pcsx2-v2.2.0-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 90480,
+              "size": 19657542
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.2.0/pcsx2-v2.2.0-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 24069,
+              "size": 54546776
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.2.0/pcsx2-v2.2.0-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 1358,
+              "size": 19517000
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.2.0/pcsx2-v2.2.0-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 6550,
+              "size": 22345204
+            }
+          ]
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2024-10-31T13:22:11.000Z",
+        "publishedAt": "2024-10-31T14:20:30.000Z"
+      },
+      {
+        "version": "v2.0.2",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.0.2",
+        "semverMajor": 2,
+        "semverMinor": 0,
+        "semverPatch": 2,
+        "description": "Release of Stable Version - v2.0.0\r\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.2/pcsx2-v2.0.2-windows-x64-installer.exe",
+              "displayName": "Windows x64",
+              "additionalTags": ["installer"],
+              "downloadCount": 943990,
+              "size": 44793287
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.2/pcsx2-v2.0.2-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 708,
+              "size": 11550272
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.2/pcsx2-v2.0.2-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 827345,
+              "size": 19308953
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.2/pcsx2-v2.0.2-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 41099,
+              "size": 59233472
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.2/pcsx2-v2.0.2-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 22854,
+              "size": 18639000
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.2/pcsx2-v2.0.2-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 89105,
+              "size": 21945864
+            }
+          ]
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2024-07-13T03:19:16.000Z",
+        "publishedAt": "2024-07-13T03:38:06.000Z"
+      },
+      {
+        "version": "v2.0.0",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.0.0",
+        "semverMajor": 2,
+        "semverMinor": 0,
+        "semverPatch": 0,
+        "description": "Release of Stable Version - v2.0.0\r\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.0/pcsx2-v2.0.0-windows-x64-installer.exe",
+              "displayName": "Windows x64",
+              "additionalTags": ["installer"],
+              "downloadCount": 5637,
+              "size": 44793364
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.0/pcsx2-v2.0.0-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 39,
+              "size": 11553389
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.0/pcsx2-v2.0.0-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 5949,
+              "size": 19308134
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.0/pcsx2-v2.0.0-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 631,
+              "size": 59233472
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.0/pcsx2-v2.0.0-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 122,
+              "size": 18763280
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.0.0/pcsx2-v2.0.0-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 1734,
+              "size": 21932908
+            }
+          ]
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2024-07-13T00:20:19.000Z",
+        "publishedAt": "2024-07-13T02:12:22.000Z"
+      },
+      {
+        "version": "v1.6.0",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.6.0",
+        "semverMajor": 1,
+        "semverMinor": 6,
+        "semverPatch": 0,
+        "description": "Release of Stable Version - v1.6.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-installer.exe",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["installer"],
+              "downloadCount": 5031363,
+              "size": 7184137
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-windows-32bit-portable.7z",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["portable"],
+              "downloadCount": 1745127,
+              "size": 6448924
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.6.0/pcsx2-v1.6.0-linux-AppImage-32bit.AppImage",
+              "displayName": "Linux AppImage",
+              "additionalTags": ["32bit"],
+              "downloadCount": 179109,
+              "size": 156057640
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2020-05-07T05:37:51.000Z",
+        "publishedAt": "2020-05-07T06:31:55.000Z"
+      },
+      {
+        "version": "v1.4.0",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.4.0",
+        "semverMajor": 1,
+        "semverMinor": 4,
+        "semverPatch": 0,
+        "description": "Release of Stable Version - v1.4.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.4.0/pcsx2-v1.4.0-windows-32bit-installer.exe",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["installer"],
+              "downloadCount": 114356,
+              "size": 17837152
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.4.0/pcsx2-v1.4.0-windows-32bit-portable.7z",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["portable"],
+              "downloadCount": 46954,
+              "size": 4789020
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2016-01-05T17:23:08.000Z",
+        "publishedAt": "2021-12-05T23:27:34.000Z"
+      },
+      {
+        "version": "v1.2.1",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.2.1",
+        "semverMajor": 1,
+        "semverMinor": 2,
+        "semverPatch": 1,
+        "description": "Release of Stable Version - v1.2.1",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.2.1/pcsx2-v1.2.1-windows-32bit-installer.exe",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["installer"],
+              "downloadCount": 25147,
+              "size": 10658408
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.2.1/pcsx2-v1.2.1-windows-32bit-portable.7z",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["portable"],
+              "downloadCount": 15517,
+              "size": 3702217
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.2.1/pcsx2-v1.2.2-linux-binary.7z",
+              "displayName": "Linux binary",
+              "additionalTags": [],
+              "downloadCount": 24694,
+              "size": 3207454
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2014-02-02T22:46:06.000Z",
+        "publishedAt": "2021-12-05T23:27:27.000Z"
+      },
+      {
+        "version": "v1.0",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v1.0",
+        "semverMajor": 1,
+        "semverMinor": 0,
+        "semverPatch": 0,
+        "description": "Release of Stable Version - v1.0.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.0/pcsx2-v1.0.0-windows-32bit-installer.exe",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["installer"],
+              "downloadCount": 21555,
+              "size": 8958282
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.0/pcsx2-v1.0.0-windows-32bit-portable.7z",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["portable"],
+              "downloadCount": 12694,
+              "size": 3372975
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v1.0/pcsx2-v1.0.0-linux-binary.7z",
+              "displayName": "Linux binary",
+              "additionalTags": [],
+              "downloadCount": 2392,
+              "size": 4144316
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2012-08-01T00:48:00.000Z",
+        "publishedAt": "2021-12-05T23:27:19.000Z"
+      },
+      {
+        "version": "v0.9.8",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.9.8",
+        "semverMajor": 0,
+        "semverMinor": 9,
+        "semverPatch": 8,
+        "description": "\r\nStable Release of v0.9.8\r\n\r\nLinux Dependencies:\r\n> gtk2, opengl, libbz2, libjpeg, glew-dev, libxxf86vm-dev, x11proto-xf86vidmodeautomake and autoconf (version >= 1.9) Nvidia Cg-Toolkit (link), libasound-dev, joystick\r\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.9.8/pcsx2-v0.9.8-windows-installer.exe",
+              "displayName": "Windows",
+              "additionalTags": ["installer"],
+              "downloadCount": 21316,
+              "size": 12780479
+            },
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.9.8/pcsx2-v0.9.8-windows-portable.7z",
+              "displayName": "Windows",
+              "additionalTags": ["portable"],
+              "downloadCount": 11076,
+              "size": 2854217
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.9.8/pcsx2-v0.9.8-linux-binary.tar.gz",
+              "displayName": "Linux",
+              "additionalTags": ["binary"],
+              "downloadCount": 1787,
+              "size": 2997712
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2012-03-25T12:00:00.000Z",
+        "publishedAt": "2021-11-25T00:46:09.000Z"
+      },
+      {
+        "version": "v0.9.7",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.9.7",
+        "semverMajor": 0,
+        "semverMinor": 9,
+        "semverPatch": 7,
+        "description": "\r\nStable Release of v0.9.7",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.9.7/pcsx2-v0.9.7-windows-installer.exe",
+              "displayName": "Windows",
+              "additionalTags": ["installer"],
+              "downloadCount": 7712,
+              "size": 12585895
+            },
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.9.7/pcsx2-v0.9.7-windows-portable.7z",
+              "displayName": "Windows",
+              "additionalTags": ["portable"],
+              "downloadCount": 4342,
+              "size": 2753124
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.9.7/pcsx2-v0.9.7-linux-binary.tar.gz",
+              "displayName": "Linux",
+              "additionalTags": ["binary"],
+              "downloadCount": 603,
+              "size": 2391197
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2010-10-05T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:34:39.000Z"
+      },
+      {
+        "version": "v0.9.6",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v0.9.6",
+        "semverMajor": 0,
+        "semverMinor": 9,
+        "semverPatch": 6,
+        "description": "Release of Stable Version - v0.9.6",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v0.9.6/pcsx2-v0.9.6-windows-32bit-installer.msi",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["installer"],
+              "downloadCount": 5418,
+              "size": 5354496
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v0.9.6/pcsx2-v0.9.6-windows-32bit-portable.7z",
+              "displayName": "Windows 32bit",
+              "additionalTags": ["portable"],
+              "downloadCount": 3978,
+              "size": 2574990
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v0.9.6/pcsx2-v0.9.6-linux-binary.7z",
+              "displayName": "Linux binary",
+              "additionalTags": [],
+              "downloadCount": 691,
+              "size": 1852693
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 1,
+        "prerelease": false,
+        "createdAt": "2009-03-05T04:14:30.000Z",
+        "publishedAt": "2021-12-05T23:27:09.000Z"
+      },
+      {
+        "version": "v0.9.4",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.9.4",
+        "semverMajor": 0,
+        "semverMinor": 9,
+        "semverPatch": 4,
+        "description": "\r\nStable Release of v0.9.4",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.9.4/pcsx2-v0.9.4-windows-installer.exe",
+              "displayName": "Windows",
+              "additionalTags": ["installer"],
+              "downloadCount": 5016,
+              "size": 7171783
+            },
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.9.4/pcsx2-v0.9.4-windows-portable.7z",
+              "displayName": "Windows",
+              "additionalTags": ["portable"],
+              "downloadCount": 2890,
+              "size": 5387576
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2007-11-11T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:36:12.000Z"
+      },
+      {
+        "version": "v0.9.3",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.9.3",
+        "semverMajor": 0,
+        "semverMinor": 9,
+        "semverPatch": 3,
+        "description": "\r\nStable Release of v0.9.3",
+        "assets": {
+          "Windows": [],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.9.3/pcsx2-v0.9.3-linux-32bit.tgz",
+              "displayName": "Linux",
+              "additionalTags": ["32bit"],
+              "downloadCount": 925,
+              "size": 2424624
+            },
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.9.3/pcsx2-v0.9.3-linux-64bit.tgz",
+              "displayName": "Linux",
+              "additionalTags": ["64bit"],
+              "downloadCount": 1687,
+              "size": 1605800
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2007-04-01T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:37:43.000Z"
+      },
+      {
+        "version": "v0.9.2",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.9.2",
+        "semverMajor": 0,
+        "semverMinor": 9,
+        "semverPatch": 2,
+        "description": "\r\nStable Release of v0.9.2",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.9.2/pcsx2-v0.9.2-windows-portable.7z",
+              "displayName": "Windows",
+              "additionalTags": ["portable"],
+              "downloadCount": 11720,
+              "size": 2917962
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2006-11-18T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:38:41.000Z"
+      },
+      {
+        "version": "v0.9.1",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.9.1",
+        "semverMajor": 0,
+        "semverMinor": 9,
+        "semverPatch": 1,
+        "description": "\r\nStable Release of v0.9.1",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.9.1/pcsx2-v0.9.1-windows-installer.7z",
+              "displayName": "Windows",
+              "additionalTags": ["installer"],
+              "downloadCount": 1449,
+              "size": 3337173
+            },
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.9.1/pcsx2-v0.9.1-windows-portable.7z",
+              "displayName": "Windows",
+              "additionalTags": ["portable"],
+              "downloadCount": 972,
+              "size": 2191032
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2006-07-03T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:39:58.000Z"
+      },
+      {
+        "version": "v0.9.0",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.9.0",
+        "semverMajor": 0,
+        "semverMinor": 9,
+        "semverPatch": 0,
+        "description": "\r\nStable Release of v0.9.0\t",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.9.0/pcsx2-v0.9.0-windows-installer.7z",
+              "displayName": "Windows",
+              "additionalTags": ["installer"],
+              "downloadCount": 977,
+              "size": 4297906
+            },
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.9.0/pcsx2-v0.9.0-windows-portable.7z",
+              "displayName": "Windows",
+              "additionalTags": ["portable"],
+              "downloadCount": 798,
+              "size": 1988760
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2006-04-03T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:41:04.000Z"
+      },
+      {
+        "version": "v0.8.1",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.8.1",
+        "semverMajor": 0,
+        "semverMinor": 8,
+        "semverPatch": 1,
+        "description": "\r\nStable Release of v0.8.1",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.8.1/pcsx2-v0.8.1-windows-portable.7z",
+              "displayName": "Windows",
+              "additionalTags": ["portable"],
+              "downloadCount": 934,
+              "size": 2103666
+            },
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.8.1/pcsx2-v0.8.1-windows-sse4-portable.7z",
+              "displayName": "Windows",
+              "additionalTags": ["sse4", "portable"],
+              "downloadCount": 424,
+              "size": 2108373
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.8.1/pcsx2-v0.8.1-linux-binary.tgz",
+              "displayName": "Linux",
+              "additionalTags": ["binary"],
+              "downloadCount": 126,
+              "size": 588735
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2005-05-17T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:44:19.000Z"
+      },
+      {
+        "version": "v0.7.0",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.7.0",
+        "semverMajor": 0,
+        "semverMinor": 7,
+        "semverPatch": 0,
+        "description": "\r\nStable Release of v0.7.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.7.0/pcsx2-v0.7.0-windows-portable.zip",
+              "displayName": "Windows",
+              "additionalTags": ["portable"],
+              "downloadCount": 1079,
+              "size": 1829908
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2004-12-16T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:45:49.000Z"
+      },
+      {
+        "version": "v0.6.0",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.6.0",
+        "semverMajor": 0,
+        "semverMinor": 6,
+        "semverPatch": 0,
+        "description": "\r\nStable Release of v0.6.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.6.0/pcsx2-v0.6.0-windows-portable.zip",
+              "displayName": "Windows",
+              "additionalTags": ["portable"],
+              "downloadCount": 781,
+              "size": 1012353
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.6.0/pcsx2-v0.6.0-linux-binary.tgz",
+              "displayName": "Linux",
+              "additionalTags": ["binary"],
+              "downloadCount": 65,
+              "size": 558800
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2004-12-16T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:46:46.000Z"
+      },
+      {
+        "version": "v0.5.0",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.5.0",
+        "semverMajor": 0,
+        "semverMinor": 5,
+        "semverPatch": 0,
+        "description": "\r\nStable Release of v0.5.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.5.0/pcsx2-v0.5.0-windows-portable.zip",
+              "displayName": "Windows",
+              "additionalTags": ["portable"],
+              "downloadCount": 848,
+              "size": 990041
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.5.0/pcsx2-v0.5.0-linux-binary.tgz",
+              "displayName": "Linux",
+              "additionalTags": ["binary"],
+              "downloadCount": 53,
+              "size": 464158
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2003-11-24T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:48:18.000Z"
+      },
+      {
+        "version": "v0.4.1",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.4.1",
+        "semverMajor": 0,
+        "semverMinor": 4,
+        "semverPatch": 1,
+        "description": "\r\nStable Release of v0.4.1",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.4.1/pcsx2-v0.4.1-windows-portable.zip",
+              "displayName": "Windows",
+              "additionalTags": ["portable"],
+              "downloadCount": 624,
+              "size": 681822
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.4.1/pcsx2-v0.4.1-linux-binary.tgz",
+              "displayName": "Linux",
+              "additionalTags": ["binary"],
+              "downloadCount": 50,
+              "size": 366303
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2003-08-06T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:49:11.000Z"
+      },
+      {
+        "version": "v0.3.0",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.3.0",
+        "semverMajor": 0,
+        "semverMinor": 3,
+        "semverPatch": 0,
+        "description": "\r\nStable Release of v0.3.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.3.0/pcsx2-v0.3.0-windows-portable.zip",
+              "displayName": "Windows",
+              "additionalTags": ["portable"],
+              "downloadCount": 550,
+              "size": 715820
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.3.0/pcsx2-v0.3.0-linux-binary.tgz",
+              "displayName": "Linux",
+              "additionalTags": ["binary"],
+              "downloadCount": 42,
+              "size": 354433
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2003-05-01T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:51:19.000Z"
+      },
+      {
+        "version": "v0.2.0",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.2.0",
+        "semverMajor": 0,
+        "semverMinor": 2,
+        "semverPatch": 0,
+        "description": "\r\nStable Release of v0.2.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.2.0/pcsx2-v0.2.0-windows.zip",
+              "displayName": "Windows",
+              "additionalTags": [],
+              "downloadCount": 854,
+              "size": 582472
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.2.0/pcsx2-v0.2.0-linux-binary.tgz",
+              "displayName": "Linux",
+              "additionalTags": ["binary"],
+              "downloadCount": 52,
+              "size": 298773
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2003-02-18T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:52:17.000Z"
+      },
+      {
+        "version": "v0.1.0",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.1.0",
+        "semverMajor": 0,
+        "semverMinor": 1,
+        "semverPatch": 0,
+        "description": "\r\nStable Release of v0.1.0",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.1.0/pcsx2-v0.1.0-windows-portable.zip",
+              "displayName": "Windows",
+              "additionalTags": ["portable"],
+              "downloadCount": 1454,
+              "size": 374698
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.1.0/pcsx2-v0.1.0-linux-binary.tgz",
+              "displayName": "Linux",
+              "additionalTags": ["binary"],
+              "downloadCount": 104,
+              "size": 244284
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2002-12-19T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:53:02.000Z"
+      },
+      {
+        "version": "v0.0.42",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.0.42",
+        "semverMajor": 0,
+        "semverMinor": 0,
+        "semverPatch": 42,
+        "description": "\r\nStable Release of v0.0.42",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.0.42/pcsx2-v0.0.42-windows-portable.zip",
+              "displayName": "Windows",
+              "additionalTags": ["portable"],
+              "downloadCount": 1073,
+              "size": 327718
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.0.42/pcsx2-v0.0.42-linux-binary.rar",
+              "displayName": "Linux",
+              "additionalTags": ["binary"],
+              "downloadCount": 136,
+              "size": 169249
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2002-09-25T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:54:08.000Z"
+      },
+      {
+        "version": "v0.0.38",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.0.38",
+        "semverMajor": 0,
+        "semverMinor": 0,
+        "semverPatch": 38,
+        "description": "\r\nStable Release of v0.0.38",
+        "assets": {
+          "Windows": [],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.0.38/pcsx2-v0.0.38-linux-binary.zip",
+              "displayName": "Linux",
+              "additionalTags": ["binary"],
+              "downloadCount": 106,
+              "size": 151133
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2002-07-06T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:54:44.000Z"
+      },
+      {
+        "version": "v0.0.36",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.0.36",
+        "semverMajor": 0,
+        "semverMinor": 0,
+        "semverPatch": 36,
+        "description": "\r\nStable Release of v0.0.36",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.0.36/pcsx2-v0.0.36-windows-portable.zip",
+              "displayName": "Windows",
+              "additionalTags": ["portable"],
+              "downloadCount": 349,
+              "size": 257160
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2002-06-16T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:55:30.000Z"
+      },
+      {
+        "version": "v0.0.31",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.0.31",
+        "semverMajor": 0,
+        "semverMinor": 0,
+        "semverPatch": 31,
+        "description": "\r\nStable Release of v0.0.31",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.0.31/pcsx2-v0.0.31-windows-portable.zip",
+              "displayName": "Windows",
+              "additionalTags": ["portable"],
+              "downloadCount": 449,
+              "size": 203727
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.0.31/pcsx2-v0.0.31-linux-binary.tgz",
+              "displayName": "Linux",
+              "additionalTags": ["binary"],
+              "downloadCount": 102,
+              "size": 95006
+            }
+          ],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2002-04-14T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:56:49.000Z"
+      },
+      {
+        "version": "v0.0.26",
+        "url": "https://github.com/PCSX2/archive/releases/tag/v0.0.26",
+        "semverMajor": 0,
+        "semverMinor": 0,
+        "semverPatch": 26,
+        "description": "\r\nStable Release of v0.0.26",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/archive/releases/download/v0.0.26/pcsx2-v0.0.26-windows-portable.zip",
+              "displayName": "Windows",
+              "additionalTags": ["portable"],
+              "downloadCount": 4646,
+              "size": 156048
+            }
+          ],
+          "Linux": [],
+          "MacOS": []
+        },
+        "type": 2,
+        "prerelease": false,
+        "createdAt": "2002-03-23T12:00:00.000Z",
+        "publishedAt": "2021-11-25T01:57:22.000Z"
+      }
+    ],
+    "pageInfo": { "total": 28 }
+  },
+  "nightlyReleases": {
+    "data": [
+      {
+        "version": "v2.3.10",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.3.10",
+        "semverMajor": 2,
+        "semverMinor": 3,
+        "semverPatch": 10,
+        "description": "- Debugger: Use native separators when using external symbol files\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.10/pcsx2-v2.3.10-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 0,
+              "size": 12453524
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.10/pcsx2-v2.3.10-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 0,
+              "size": 19663886
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.10/pcsx2-v2.3.10-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 0,
+              "size": 54546776
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.10/pcsx2-v2.3.10-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 0,
+              "size": 19544136
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.10/pcsx2-v2.3.10-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 0,
+              "size": 22355676
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-11-06T22:06:37.000Z",
+        "publishedAt": "2024-11-06T22:25:36.000Z"
+      },
+      {
+        "version": "v2.3.9",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.3.9",
+        "semverMajor": 2,
+        "semverMinor": 3,
+        "semverPatch": 9,
+        "description": "- [Debugger: Fix loading symbols from ELF files other than the boot ELF ](https://github.com/PCSX2/pcsx2/pull/11986)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.9/pcsx2-v2.3.9-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 0,
+              "size": 12456852
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.9/pcsx2-v2.3.9-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 0,
+              "size": 19668245
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.9/pcsx2-v2.3.9-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 0,
+              "size": 54546776
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.9/pcsx2-v2.3.9-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 0,
+              "size": 19567592
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.9/pcsx2-v2.3.9-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 0,
+              "size": 22341848
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-11-06T21:58:07.000Z",
+        "publishedAt": "2024-11-06T22:16:54.000Z"
+      },
+      {
+        "version": "v2.3.8",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.3.8",
+        "semverMajor": 2,
+        "semverMinor": 3,
+        "semverPatch": 8,
+        "description": "- [Debugger: Refactor nocash symbol importer](https://github.com/PCSX2/pcsx2/pull/11946)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.8/pcsx2-v2.3.8-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 3,
+              "size": 12450567
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.8/pcsx2-v2.3.8-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 3019,
+              "size": 19666924
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.8/pcsx2-v2.3.8-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 849,
+              "size": 54546776
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.8/pcsx2-v2.3.8-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 13,
+              "size": 19654144
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.8/pcsx2-v2.3.8-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 130,
+              "size": 22340516
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-11-06T19:23:22.000Z",
+        "publishedAt": "2024-11-06T19:41:57.000Z"
+      },
+      {
+        "version": "v2.3.7",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.3.7",
+        "semverMajor": 2,
+        "semverMinor": 3,
+        "semverPatch": 7,
+        "description": "- [OSD: Fix Pause indicator not showing up](https://github.com/PCSX2/pcsx2/pull/11982)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.7/pcsx2-v2.3.7-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 34,
+              "size": 12447364
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.7/pcsx2-v2.3.7-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 23997,
+              "size": 19666043
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.7/pcsx2-v2.3.7-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 6568,
+              "size": 54538584
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.7/pcsx2-v2.3.7-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 104,
+              "size": 19626368
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.7/pcsx2-v2.3.7-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 793,
+              "size": 22339000
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-11-05T15:38:49.000Z",
+        "publishedAt": "2024-11-05T15:57:44.000Z"
+      },
+      {
+        "version": "v2.3.6",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.3.6",
+        "semverMajor": 2,
+        "semverMinor": 3,
+        "semverPatch": 6,
+        "description": "- [PAD: Update to latest controller database](https://github.com/PCSX2/pcsx2/pull/11979)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.6/pcsx2-v2.3.6-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 29,
+              "size": 12444373
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.6/pcsx2-v2.3.6-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 21102,
+              "size": 19664723
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.6/pcsx2-v2.3.6-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 5372,
+              "size": 54538584
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.6/pcsx2-v2.3.6-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 77,
+              "size": 19577240
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.6/pcsx2-v2.3.6-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 711,
+              "size": 22335032
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-11-04T16:37:11.000Z",
+        "publishedAt": "2024-11-04T16:53:40.000Z"
+      },
+      {
+        "version": "v2.3.5",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.3.5",
+        "semverMajor": 2,
+        "semverMinor": 3,
+        "semverPatch": 5,
+        "description": "- [Deps/3rdparty: Update to latest versions](https://github.com/PCSX2/pcsx2/pull/11972)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.5/pcsx2-v2.3.5-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 6,
+              "size": 12443392
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.5/pcsx2-v2.3.5-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 5089,
+              "size": 19669673
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.5/pcsx2-v2.3.5-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 1010,
+              "size": 54538584
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.5/pcsx2-v2.3.5-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 18,
+              "size": 19580984
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.5/pcsx2-v2.3.5-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 177,
+              "size": 22357740
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-11-04T11:41:54.000Z",
+        "publishedAt": "2024-11-04T12:41:47.000Z"
+      },
+      {
+        "version": "v2.3.4",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.3.4",
+        "semverMajor": 2,
+        "semverMinor": 3,
+        "semverPatch": 4,
+        "description": "- [Qt: Update Base Translation](https://github.com/PCSX2/pcsx2/pull/11966)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.4/pcsx2-v2.3.4-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 3,
+              "size": 12439977
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.4/pcsx2-v2.3.4-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 864,
+              "size": 19659420
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.4/pcsx2-v2.3.4-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 141,
+              "size": 54546776
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.4/pcsx2-v2.3.4-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 3,
+              "size": 19535640
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.4/pcsx2-v2.3.4-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 32,
+              "size": 22334032
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-11-04T11:40:42.000Z",
+        "publishedAt": "2024-11-04T11:57:42.000Z"
+      },
+      {
+        "version": "v2.3.3",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.3.3",
+        "semverMajor": 2,
+        "semverMinor": 3,
+        "semverPatch": 3,
+        "description": "- [FSUI: Don't move IMGUI cursor unnecessarily in DrawGameGrid()](https://github.com/PCSX2/pcsx2/pull/11969)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.3/pcsx2-v2.3.3-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 1,
+              "size": 12442734
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.3/pcsx2-v2.3.3-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 12,
+              "size": 19659457
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.3/pcsx2-v2.3.3-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 2,
+              "size": 54546776
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.3/pcsx2-v2.3.3-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 1,
+              "size": 19613824
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.3/pcsx2-v2.3.3-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 1,
+              "size": 22335060
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-11-04T11:40:31.000Z",
+        "publishedAt": "2024-11-04T11:58:46.000Z"
+      },
+      {
+        "version": "v2.3.2",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.3.2",
+        "semverMajor": 2,
+        "semverMinor": 3,
+        "semverPatch": 2,
+        "description": "- [GameDB: Final Fantasy X Optimal FPU config](https://github.com/PCSX2/pcsx2/pull/11958)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.2/pcsx2-v2.3.2-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 1,
+              "size": 12442784
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.2/pcsx2-v2.3.2-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 46,
+              "size": 19659315
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.2/pcsx2-v2.3.2-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 6,
+              "size": 54546776
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.2/pcsx2-v2.3.2-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 1,
+              "size": 19590560
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.2/pcsx2-v2.3.2-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 3,
+              "size": 22335684
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-11-04T11:40:16.000Z",
+        "publishedAt": "2024-11-04T11:56:33.000Z"
+      },
+      {
+        "version": "v2.3.1",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.3.1",
+        "semverMajor": 2,
+        "semverMinor": 3,
+        "semverPatch": 1,
+        "description": "- [Qt/Savestate: Add option to disable savestate selector UI](https://github.com/PCSX2/pcsx2/pull/11956)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.1/pcsx2-v2.3.1-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 1,
+              "size": 12440858
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.1/pcsx2-v2.3.1-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 24,
+              "size": 19658522
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.1/pcsx2-v2.3.1-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 1,
+              "size": 54546776
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.1/pcsx2-v2.3.1-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 1,
+              "size": 19600800
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.3.1/pcsx2-v2.3.1-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 3,
+              "size": 22334588
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-11-04T11:39:04.000Z",
+        "publishedAt": "2024-11-04T11:56:10.000Z"
+      },
+      {
+        "version": "v2.1.235",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.235",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 235,
+        "description": "- [translations: Syncing Crowdin translations](https://github.com/PCSX2/pcsx2/pull/11970)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.235/pcsx2-v2.1.235-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 10,
+              "size": 12439410
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.235/pcsx2-v2.1.235-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 69511,
+              "size": 19657570
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.235/pcsx2-v2.1.235-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 3504,
+              "size": 54546776
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.235/pcsx2-v2.1.235-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 253,
+              "size": 19598696
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.235/pcsx2-v2.1.235-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 2170,
+              "size": 22340468
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-31T13:21:06.000Z",
+        "publishedAt": "2024-10-31T13:38:49.000Z"
+      },
+      {
+        "version": "v2.1.234",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.234",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 234,
+        "description": "- [Patches: Fix a regression that broke gamedb dynpatches](https://github.com/PCSX2/pcsx2/pull/11968)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.234/pcsx2-v2.1.234-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 26,
+              "size": 12440558
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.234/pcsx2-v2.1.234-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 14418,
+              "size": 19566580
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.234/pcsx2-v2.1.234-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 3476,
+              "size": 54264152
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.234/pcsx2-v2.1.234-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 43,
+              "size": 19425000
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.234/pcsx2-v2.1.234-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 459,
+              "size": 22230328
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-30T21:07:07.000Z",
+        "publishedAt": "2024-10-30T21:25:26.000Z"
+      },
+      {
+        "version": "v2.1.233",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.233",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 233,
+        "description": "- [Dis5900asm: Fix an out of bounds access on invalid pmfhl formats](https://github.com/PCSX2/pcsx2/pull/11963)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.233/pcsx2-v2.1.233-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 10,
+              "size": 12440818
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.233/pcsx2-v2.1.233-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 8941,
+              "size": 19566117
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.233/pcsx2-v2.1.233-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 2236,
+              "size": 54264152
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.233/pcsx2-v2.1.233-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 33,
+              "size": 19508008
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.233/pcsx2-v2.1.233-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 312,
+              "size": 22225812
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-30T13:15:17.000Z",
+        "publishedAt": "2024-10-30T13:31:26.000Z"
+      },
+      {
+        "version": "v2.1.232",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.232",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 232,
+        "description": "- [PAD: Fix negcon and jogcon BPM crash](https://github.com/PCSX2/pcsx2/pull/11962)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.232/pcsx2-v2.1.232-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 26,
+              "size": 12439124
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.232/pcsx2-v2.1.232-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 12434,
+              "size": 19566997
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.232/pcsx2-v2.1.232-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 2911,
+              "size": 54264152
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.232/pcsx2-v2.1.232-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 54,
+              "size": 19490976
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.232/pcsx2-v2.1.232-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 403,
+              "size": 22211444
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-29T22:52:44.000Z",
+        "publishedAt": "2024-10-29T23:11:28.000Z"
+      },
+      {
+        "version": "v2.1.231",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.231",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 231,
+        "description": "- [PAD: Update to latest controller database](https://github.com/PCSX2/pcsx2/pull/11957)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.231/pcsx2-v2.1.231-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 39,
+              "size": 12443516
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.231/pcsx2-v2.1.231-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 26930,
+              "size": 19565986
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.231/pcsx2-v2.1.231-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 7185,
+              "size": 54264152
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.231/pcsx2-v2.1.231-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 89,
+              "size": 19507776
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.231/pcsx2-v2.1.231-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 930,
+              "size": 22230560
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-28T16:56:47.000Z",
+        "publishedAt": "2024-10-28T17:13:37.000Z"
+      },
+      {
+        "version": "v2.1.230",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.230",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 230,
+        "description": "- [Qt: Update Base Translation](https://github.com/PCSX2/pcsx2/pull/11955)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.230/pcsx2-v2.1.230-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 20,
+              "size": 12441099
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.230/pcsx2-v2.1.230-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 15713,
+              "size": 19573586
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.230/pcsx2-v2.1.230-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 3684,
+              "size": 54264152
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.230/pcsx2-v2.1.230-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 49,
+              "size": 19500328
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.230/pcsx2-v2.1.230-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 534,
+              "size": 22221408
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-28T00:07:36.000Z",
+        "publishedAt": "2024-10-28T00:25:51.000Z"
+      },
+      {
+        "version": "v2.1.229",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.229",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 229,
+        "description": "- [Qt: Update Base Translation](https://github.com/PCSX2/pcsx2/pull/11952)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.229/pcsx2-v2.1.229-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 32,
+              "size": 12442219
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.229/pcsx2-v2.1.229-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 24700,
+              "size": 19572535
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.229/pcsx2-v2.1.229-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 7002,
+              "size": 54264152
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.229/pcsx2-v2.1.229-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 85,
+              "size": 19430064
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.229/pcsx2-v2.1.229-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 755,
+              "size": 22227024
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-27T01:06:14.000Z",
+        "publishedAt": "2024-10-27T01:24:17.000Z"
+      },
+      {
+        "version": "v2.1.228",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.228",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 228,
+        "description": "- [Qt/FSUI: Various Fixes](https://github.com/PCSX2/pcsx2/pull/11951)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.228/pcsx2-v2.1.228-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 9,
+              "size": 12443149
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.228/pcsx2-v2.1.228-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 12408,
+              "size": 19572897
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.228/pcsx2-v2.1.228-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 3462,
+              "size": 54264152
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.228/pcsx2-v2.1.228-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 35,
+              "size": 19505312
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.228/pcsx2-v2.1.228-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 396,
+              "size": 22219236
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-26T15:20:49.000Z",
+        "publishedAt": "2024-10-26T15:38:16.000Z"
+      },
+      {
+        "version": "v2.1.227",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.227",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 227,
+        "description": "- [Qt: Hackfix settings icon stretching on Windows themes](https://github.com/PCSX2/pcsx2/pull/11942)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.227/pcsx2-v2.1.227-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 46,
+              "size": 12439572
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.227/pcsx2-v2.1.227-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 41081,
+              "size": 19572424
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.227/pcsx2-v2.1.227-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 12209,
+              "size": 54260056
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.227/pcsx2-v2.1.227-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 137,
+              "size": 19590136
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.227/pcsx2-v2.1.227-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 1247,
+              "size": 22229552
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-24T16:23:36.000Z",
+        "publishedAt": "2024-10-24T17:16:42.000Z"
+      },
+      {
+        "version": "v2.1.226",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.226",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 226,
+        "description": "- [Qt: Update Base Translation](https://github.com/PCSX2/pcsx2/pull/11943)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.226/pcsx2-v2.1.226-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 20,
+              "size": 12437380
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.226/pcsx2-v2.1.226-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 16043,
+              "size": 19573554
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.226/pcsx2-v2.1.226-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 3994,
+              "size": 54260056
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.226/pcsx2-v2.1.226-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 53,
+              "size": 19499224
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.226/pcsx2-v2.1.226-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 535,
+              "size": 22224876
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-24T00:04:03.000Z",
+        "publishedAt": "2024-10-24T00:22:08.000Z"
+      },
+      {
+        "version": "v2.1.225",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.225",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 225,
+        "description": "- [GS: Misc adapter and vendor detection changes](https://github.com/PCSX2/pcsx2/pull/11938)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.225/pcsx2-v2.1.225-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 19,
+              "size": 12442656
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.225/pcsx2-v2.1.225-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 11769,
+              "size": 19572609
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.225/pcsx2-v2.1.225-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 3129,
+              "size": 54260056
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.225/pcsx2-v2.1.225-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 51,
+              "size": 19526816
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.225/pcsx2-v2.1.225-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 419,
+              "size": 22219936
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-23T14:11:06.000Z",
+        "publishedAt": "2024-10-23T14:28:46.000Z"
+      },
+      {
+        "version": "v2.1.224",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.224",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 224,
+        "description": "- [Qt: Fix symbol sources list in per-game settings dialog](https://github.com/PCSX2/pcsx2/pull/11937)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.224/pcsx2-v2.1.224-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 3,
+              "size": 12441760
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.224/pcsx2-v2.1.224-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 335,
+              "size": 19574201
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.224/pcsx2-v2.1.224-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 45,
+              "size": 54260056
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.224/pcsx2-v2.1.224-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 3,
+              "size": 19493608
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.224/pcsx2-v2.1.224-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 7,
+              "size": 22224976
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-23T13:58:59.000Z",
+        "publishedAt": "2024-10-23T14:17:04.000Z"
+      },
+      {
+        "version": "v2.1.223",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.223",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 223,
+        "description": "- [Debugger: Avoid resetting symbol trees while single stepping](https://github.com/PCSX2/pcsx2/pull/11934)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.223/pcsx2-v2.1.223-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 2,
+              "size": 12440377
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.223/pcsx2-v2.1.223-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 68,
+              "size": 19573084
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.223/pcsx2-v2.1.223-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 7,
+              "size": 54260056
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.223/pcsx2-v2.1.223-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 2,
+              "size": 19528752
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.223/pcsx2-v2.1.223-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 4,
+              "size": 22222420
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-23T13:58:02.000Z",
+        "publishedAt": "2024-10-23T14:15:59.000Z"
+      },
+      {
+        "version": "v2.1.222",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.222",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 222,
+        "description": "- [VMManager: Add renderer selection warning](https://github.com/PCSX2/pcsx2/pull/11923)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.222/pcsx2-v2.1.222-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 1,
+              "size": 12435675
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.222/pcsx2-v2.1.222-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 104,
+              "size": 19574071
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.222/pcsx2-v2.1.222-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 12,
+              "size": 54255960
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.222/pcsx2-v2.1.222-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 1,
+              "size": 19502744
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.222/pcsx2-v2.1.222-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 7,
+              "size": 22208892
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-23T13:55:36.000Z",
+        "publishedAt": "2024-10-23T14:13:23.000Z"
+      },
+      {
+        "version": "v2.1.221",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.221",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 221,
+        "description": "- [USB: Use infinite duration for FFB forces, make the recently added FFB workaround optional](https://github.com/PCSX2/pcsx2/pull/11915)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.221/pcsx2-v2.1.221-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 3,
+              "size": 12439839
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.221/pcsx2-v2.1.221-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 1675,
+              "size": 19573513
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.221/pcsx2-v2.1.221-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 299,
+              "size": 54255960
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.221/pcsx2-v2.1.221-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 8,
+              "size": 19332264
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.221/pcsx2-v2.1.221-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 58,
+              "size": 22221012
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-23T12:40:47.000Z",
+        "publishedAt": "2024-10-23T12:59:20.000Z"
+      },
+      {
+        "version": "v2.1.220",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.220",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 220,
+        "description": "- [DEV9: Set/Clear SEEK bit in all relevent commands](https://github.com/PCSX2/pcsx2/pull/11931)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.220/pcsx2-v2.1.220-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 2,
+              "size": 12440612
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.220/pcsx2-v2.1.220-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 188,
+              "size": 19573708
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.220/pcsx2-v2.1.220-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 32,
+              "size": 54255960
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.220/pcsx2-v2.1.220-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 3,
+              "size": 19522488
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.220/pcsx2-v2.1.220-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 6,
+              "size": 22220844
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-23T12:36:16.000Z",
+        "publishedAt": "2024-10-23T12:53:44.000Z"
+      },
+      {
+        "version": "v2.1.219",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.219",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 219,
+        "description": "- [Qt: Add search bar to cheats list](https://github.com/PCSX2/pcsx2/pull/11935)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.219/pcsx2-v2.1.219-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 2,
+              "size": 12435857
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.219/pcsx2-v2.1.219-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 56,
+              "size": 19574113
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.219/pcsx2-v2.1.219-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 4,
+              "size": 54255960
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.219/pcsx2-v2.1.219-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 2,
+              "size": 19572872
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.219/pcsx2-v2.1.219-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 4,
+              "size": 22219328
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-23T12:34:47.000Z",
+        "publishedAt": "2024-10-23T12:52:48.000Z"
+      },
+      {
+        "version": "v2.1.218",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.218",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 218,
+        "description": "- [TraceLogging: Fix SIF trace logging](https://github.com/PCSX2/pcsx2/pull/11939)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.218/pcsx2-v2.1.218-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 1,
+              "size": 12433333
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.218/pcsx2-v2.1.218-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 117,
+              "size": 19573568
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.218/pcsx2-v2.1.218-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 15,
+              "size": 54247768
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.218/pcsx2-v2.1.218-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 4,
+              "size": 19364264
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.218/pcsx2-v2.1.218-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 5,
+              "size": 22207544
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-23T12:30:37.000Z",
+        "publishedAt": "2024-10-23T12:49:38.000Z"
+      },
+      {
+        "version": "v2.1.217",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.217",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 217,
+        "description": "- [PAD: Update to latest controller database](https://github.com/PCSX2/pcsx2/pull/11936)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.217/pcsx2-v2.1.217-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 50,
+              "size": 12432404
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.217/pcsx2-v2.1.217-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 37876,
+              "size": 19572221
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.217/pcsx2-v2.1.217-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 10126,
+              "size": 54247768
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.217/pcsx2-v2.1.217-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 143,
+              "size": 19496016
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.217/pcsx2-v2.1.217-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 1245,
+              "size": 22209992
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-21T16:02:59.000Z",
+        "publishedAt": "2024-10-21T16:20:30.000Z"
+      },
+      {
+        "version": "v2.1.216",
+        "url": "https://github.com/PCSX2/pcsx2/releases/tag/v2.1.216",
+        "semverMajor": 2,
+        "semverMinor": 1,
+        "semverPatch": 216,
+        "description": "- [EE: vtlb handler for writes to IOP mem](https://github.com/PCSX2/pcsx2/pull/11933)\n",
+        "assets": {
+          "Windows": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.216/pcsx2-v2.1.216-windows-x64-Qt-symbols.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt", "symbols"],
+              "downloadCount": 3,
+              "size": 12432451
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.216/pcsx2-v2.1.216-windows-x64-Qt.7z",
+              "displayName": "Windows x64",
+              "additionalTags": ["Qt"],
+              "downloadCount": 1175,
+              "size": 19554741
+            }
+          ],
+          "Linux": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.216/pcsx2-v2.1.216-linux-appimage-x64-Qt.AppImage",
+              "displayName": "Linux appimage",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 245,
+              "size": 54247768
+            },
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.216/pcsx2-v2.1.216-linux-flatpak-x64-Qt.flatpak",
+              "displayName": "Linux flatpak",
+              "additionalTags": ["x64", "Qt"],
+              "downloadCount": 4,
+              "size": 19479376
+            }
+          ],
+          "MacOS": [
+            {
+              "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.1.216/pcsx2-v2.1.216-macos-Qt.tar.xz",
+              "displayName": "MacOS",
+              "additionalTags": ["Qt.tar"],
+              "downloadCount": 43,
+              "size": 22222172
+            }
+          ]
+        },
+        "type": 2,
+        "prerelease": true,
+        "createdAt": "2024-10-21T15:14:29.000Z",
+        "publishedAt": "2024-10-21T15:32:24.000Z"
+      }
+    ],
+    "pageInfo": { "total": 6903 }
+  },
+  "pullRequestBuilds": {
+    "data": [
+      {
+        "number": 11988,
+        "link": "https://github.com/PCSX2/pcsx2/pull/11988",
+        "githubUser": "chaoticgd",
+        "updatedAt": "2024-11-11T16:04:25.000Z",
+        "body": "### Description of Changes\r\n\r\n\r\nI have created a new pair of files for retrieving version information: `BuildVersion.h` and `BuildVersion.cpp`. They provide exactly the same information as `svnrev.h` but they don't force a recompile for all translation units using them every time cmake configure is run.\r\n\r\nMost systems that used `svnrev.h` directly have been ported to use this new wrapper instead. The most notable changes are in the auto updater since it previously relied on a lot of preprocessor logic.\r\n\r\nThe only place `svnrev.h` is used directly is now the Windows resource files.\r\n\r\n![buildversion](https://github.com/user-attachments/assets/9acafe1d-b9ad-4c41-9220-6357a9d6398e)\r\n\r\n### Rationale behind Changes\r\n- Don't recompile a bunch of files unnecessarily whenever cmake configure is run.\r\n- No more `// Remember to manually update this every release.` shenanigans (see GSDeviceVK.cpp).\r\n- Minimal changes made to the existing build systems.\r\n- Get our money's worth out of our linkers.\r\n\r\n### Suggested Testing Steps\r\nThe systems that have been touched are:\r\n- The Qt GUI (version displayed).\r\n- The auto updater (preprocessor conditionals replaced with runtime logic).\r\n- The achievement system (version reported to RetroAchievements library).\r\n- The Vulkan renderer (version reported via the Vulkan API).\r\n- Networking code (the HTTP user agent).\r\n- Fullscreen UI (version displayed).\r\n- PINE (version reported via MsgVersion).\r\n- Input recording (version stored in the file header).\r\n- The save state system (version stored in save states).\r\n- Log output (PCSX2 version number).\r\n\r\nIdeally there should be no differences in functionality or output for any of these systems.",
+        "title": "Misc: Minimise the amount of work done when svnrev.h is updated",
+        "additions": 121,
+        "deletions": 90
+      },
+      {
+        "number": 11998,
+        "link": "https://github.com/PCSX2/pcsx2/pull/11998",
+        "githubUser": "github-actions",
+        "updatedAt": "2024-11-11T16:01:30.000Z",
+        "body": "Weekly automatic update of SDL Controller DB.",
+        "title": "PAD: Update to latest controller database",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "number": 11995,
+        "link": "https://github.com/PCSX2/pcsx2/pull/11995",
+        "githubUser": "bslenul",
+        "updatedAt": "2024-11-10T22:41:17.000Z",
+        "body": "The game uses a different CRC depending on the language and a different address for the patch.",
+        "title": "GameDB: NBA 2K6 fix hangs on PAL version",
+        "additions": 17,
+        "deletions": 1
+      },
+      {
+        "number": 11976,
+        "link": "https://github.com/PCSX2/pcsx2/pull/11976",
+        "githubUser": "Dreadmoth",
+        "updatedAt": "2024-11-04T17:40:49.000Z",
+        "body": "### Description of Changes\r\nAdd Half Pixel Offset Special (Texture) and Round Sprite Half to _Champions of Norrath_.\r\nAdd Show Overscan to _Champions of Norrath_ and _Champions: Return to Arms_.\r\n\r\n### Rationale behind Changes\r\nFix edge garbage (visible on the left half of the bottom of the screen, most noticeable when braziers, torches, etc. are at the top of the screen) and UI seams (most visible around button prompts and skill tree) in _Champions of Norrath_. Same fixes are already applied to _Champions: Return to Arms_.\r\n\r\nFix offscreen image in _Champions of Norrath_ and _Champions: Return to Arms_. Reveals ~6 lines (at native resolution) that were pushed off the top of the screen, removing a black bar at the bottom. These games lack a screen position setting.\r\n\r\n_Champions of Norrath_ Gameplay - Master\r\n![CoN-gameplay-master](https://github.com/user-attachments/assets/206b8d8f-0600-42c5-afcd-4bdd1785ad5a)\r\n\r\n_Champions of Norrath_ Gameplay - PR\r\n![CoN-gameplay-PR](https://github.com/user-attachments/assets/648e3cb8-23d8-41de-9d44-3ed749a4d5c6)\r\n\r\n_Champions of Norrath_ UI - Master\r\n![CoN-UI-master](https://github.com/user-attachments/assets/53e9bc89-734c-498d-98dd-8aeac0666941)\r\n\r\n_Champions of Norrath_ UI - PR\r\n![CoN-UI-PR](https://github.com/user-attachments/assets/dcc5401b-a9d1-4875-9a1c-e13691e25371)\r\n\r\n_Champions: Return to Arms_ - Master\r\n![RTA-master](https://github.com/user-attachments/assets/320eff0a-ddcb-48d4-b541-c13423c516f4)\r\n\r\n_Champions: Return to Arms_ - PR\r\n![RTA-PR](https://github.com/user-attachments/assets/bf687149-4472-4601-b373-4ea0e3c82e76)\r\n\r\n\r\n### Suggested Testing Steps\r\nCheck CI.\r\n",
+        "title": "GameDB: Champions of Norrath & Champions: Return to Arms (PAL)",
+        "additions": 7,
+        "deletions": 0
+      },
+      {
+        "number": 11950,
+        "link": "https://github.com/PCSX2/pcsx2/pull/11950",
+        "githubUser": "j8r",
+        "updatedAt": "2024-11-03T16:12:40.000Z",
+        "body": "### Description of Changes\r\nUpdate Flatpak dependencies: Qt to 6.8, FFMPEG extension and libpcap.\r\n\r\n### Rationale behind Changes\r\nUp-to-date dependencies.\r\n\r\n### Suggested Testing Steps\r\nSuccessful build, install the PCSX2 flatpak and run it; I suppose.",
+        "title": "Deps: Update Flatpak dependencies",
+        "additions": 7,
+        "deletions": 7
+      },
+      {
+        "number": 11292,
+        "link": "https://github.com/PCSX2/pcsx2/pull/11292",
+        "githubUser": "TellowKrinkle",
+        "updatedAt": "2024-06-17T23:19:09.000Z",
+        "body": "### Description of Changes\r\nNot a huge fan of this solution, but it was the best I could think of.  If anyone has a better solution please say so.\r\nFixes the issue mentioned in #11287, as well as building on macOS with homebrew ffmpeg (that you want) and a homebrew-installed shaderc that you don't want.\r\n\r\nThere's actually two parts to the problem:\r\n1. The `deps` directory gets marked as a system include by one of the packages in it\r\n2. `/usr/local/include` does not (at least if the only thing in it is ffmpeg)\r\n3. ffmpeg is ordered before everything else when we set up PCSX2_FLAGS, so even if both are marked system, `/usr/local/include` ends up coming first.\r\n\r\nSo this patch adds a function that both marks matching include directories as system, and puts the dependencies that contain them at the end of the list.  ~~It can only reorder dependencies at the same depth (e.g. if a depends on b and c, b depends on d, and c depends on e, the only possible orders would be a b d c e or a c e b d), but it should work for our current set of externally-imported libraries.~~\r\n\r\n### Rationale behind Changes\r\nLess broken compilation\r\n\r\n### Suggested Testing Steps\r\n@TheLastRar please test freebsd",
+        "title": "CMake: Force /usr/local/include to come last",
+        "additions": 59,
+        "deletions": 0
+      }
+    ],
+    "pageInfo": { "total": 6 }
+  }
+}

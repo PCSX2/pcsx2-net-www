@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { Dropdown } from "@nextui-org/react";
+import {
+  Button,
+  Dropdown,
+  DropdownTrigger,
+  DropdownItem,
+  DropdownSection,
+  DropdownMenu,
+} from "@nextui-org/react";
 import { BsWindows, BsApple } from "react-icons/bs";
 import { FaLinux } from "react-icons/fa";
 import { IoIosCloudyNight } from "react-icons/io";
 import { GiBrickWall } from "react-icons/gi";
 import { useMediaQuery } from "../../utils/mediaQuery";
+import { semanticColors } from "@nextui-org/theme";
+import { useTheme } from "next-themes";
 
 // Function to get the latest release for a specific platform
 export function getLatestRelease(releases, platform) {
@@ -46,9 +55,10 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
     return [];
   }
 
-  let fillColor = "var(--nextui-colors-primary)";
+  let fillColor = semanticColors.dark.primary.DEFAULT;
+  // TODO - based on theme!
   if (isNightly) {
-    fillColor = "var(--nextui-colors-warning)";
+    fillColor = semanticColors.dark.warning.DEFAULT;
   }
 
   let items = [];
@@ -99,14 +109,14 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
     }
 
     items.push(
-      <Dropdown.Item
+      <DropdownItem
         key={asset.url}
         description={release.version}
-        icon={getOSIcon(os, fillColor)}
+        startContent={getOSIcon(os, fillColor)}
         css={{ transition: "none" }}
       >
         {displayName}
-      </Dropdown.Item>,
+      </DropdownItem>,
     );
   }
   return items;
@@ -118,6 +128,34 @@ function openAssetLink(href) {
     rel: "noopener noreferrer",
     href: href,
   }).click();
+}
+
+function renderDropdownItems(errorMsg, windowsItems, linuxItems, macosItems) {
+  let items = [];
+  if (errorMsg !== undefined) {
+    items.push(<DropdownSection title={errorMsg}></DropdownSection>);
+  } else {
+    items.push(
+      <DropdownSection
+        showDivider
+        title={windowsItems.length > 0 ? "Windows" : "Windows - None Available"}
+      >
+        {windowsItems}
+      </DropdownSection>,
+      <DropdownSection
+        showDivider
+        title={linuxItems.length > 0 ? "Linux" : "Linux - None Available"}
+      >
+        {linuxItems}
+      </DropdownSection>,
+      <DropdownSection
+        title={macosItems.length > 0 ? "MacOS" : "MacOS - None Available"}
+      >
+        {macosItems}
+      </DropdownSection>,
+    );
+  }
+  return items;
 }
 
 export function ReleaseDownloadButton({
@@ -210,64 +248,55 @@ export function ReleaseDownloadButton({
     }
   }, [release]);
 
-  // Render the dropdown button and menu
   return (
     <Dropdown
-      isBordered
       placement={
-        placement ? placement : useMediaQuery(960) ? "bottom-left" : "right-top"
+        placement
+          ? placement
+          : useMediaQuery(960)
+            ? "bottom-end"
+            : "right-start"
       }
+      classNames={{
+        base: "docusaurus-reset before:bg-default-200", // change arrow background
+        content: "py-1 px-1 border border-default-200",
+      }}
     >
-      <Dropdown.Button
+      <DropdownTrigger>
+        <Button
+          color={isNightly ? "warning" : "primary"}
+          variant="solid"
+          disabled={isDisabled}
+          className="border-none font-medium cursor-pointer"
+        >
+          {isNightly ? (
+            <IoIosCloudyNight size={22} />
+          ) : (
+            <GiBrickWall size={16} />
+          )}
+          &nbsp;
+          {buttonText}
+          <svg
+            fill="none"
+            height="14"
+            viewBox="0 0 24 24"
+            width="14"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17.9188 8.17969H11.6888H6.07877C5.11877 8.17969 4.63877 9.33969 5.31877 10.0197L10.4988 15.1997C11.3288 16.0297 12.6788 16.0297 13.5088 15.1997L15.4788 13.2297L18.6888 10.0197C19.3588 9.33969 18.8788 8.17969 17.9188 8.17969Z"
+              fill="currentColor"
+            />
+          </svg>
+        </Button>
+      </DropdownTrigger>
+      <DropdownMenu
         color={isNightly ? "warning" : "primary"}
-        css={buttonStyling}
-        bordered={bordered}
-        disabled={isDisabled}
-      >
-        {isNightly ? <IoIosCloudyNight size={22} /> : <GiBrickWall size={16} />}
-        &nbsp;
-        {buttonText}
-      </Dropdown.Button>
-      <Dropdown.Menu
-        color={isNightly ? "warning" : "primary"}
-        aria-label="Actions"
-        css={{ $$dropdownMenuWidth: "100%" }}
+        variant="faded"
         onAction={(assetUrl) => openAssetLink(assetUrl)}
       >
-        <Dropdown.Section
-          title={
-            errorMsg === undefined
-              ? windowsItems.length > 0
-                ? "Windows"
-                : "Windows - None Available"
-              : errorMsg
-          }
-        >
-          {errorMsg === undefined ? windowsItems : null}
-        </Dropdown.Section>
-        <Dropdown.Section
-          title={
-            errorMsg === undefined
-              ? linuxItems.length > 0
-                ? "Linux"
-                : "Linux - None Available"
-              : errorMsg
-          }
-        >
-          {errorMsg === undefined ? linuxItems : null}
-        </Dropdown.Section>
-        <Dropdown.Section
-          title={
-            errorMsg === undefined
-              ? macosItems.length > 0
-                ? "MacOS"
-                : "MacOS - None Available"
-              : errorMsg
-          }
-        >
-          {errorMsg === undefined ? macosItems : null}
-        </Dropdown.Section>
-      </Dropdown.Menu>
+        {renderDropdownItems(errorMsg, windowsItems, linuxItems, macosItems)}
+      </DropdownMenu>
     </Dropdown>
   );
 }
