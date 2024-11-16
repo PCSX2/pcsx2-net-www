@@ -42,6 +42,16 @@ const config = {
     defaultLocale: "en",
     locales: ["en"],
   },
+  future: {
+    experimental_faster: {
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      swcHtmlMinimizer: true,
+      lightningCssMinimizer: true,
+      rspackBundler: false, // TODO - figure out why only cloudflare pages for our project fails when this is on
+      mdxCrossCompilerCache: true,
+    },
+  },
   headTags: [
     {
       tagName: "link",
