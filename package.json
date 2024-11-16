@@ -2,6 +2,7 @@
   "name": "pcsx-2-net",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "yarn@1.22.19",
   "scripts": {
     "new-article": "node scripts/new-article.mjs",
     "format": "yarn prettier --write .",
