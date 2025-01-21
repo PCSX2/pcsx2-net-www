@@ -59,10 +59,6 @@ params:
       icon: fa-solid fa-circle-info
       weight: 6
       url: "https://wiki.pcsx2.net"
-    - name: Twitter
-      icon: fab fa-twitter
-      weight: 3
-      url: "https://twitter.com/PCSX2"
     - name: YouTube
       icon: fab fa-youtube
       weight: 5

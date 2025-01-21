@@ -236,13 +236,6 @@ const config = {
             target: "_blank",
           },
           {
-            href: "https://x.com/PCSX2",
-            position: "right",
-            className: "header-twitter-link",
-            "aria-label": "Twitter",
-            target: "_blank",
-          },
-          {
             href: "https://www.youtube.com/user/PCSX2team",
             position: "right",
             className: "header-youtube-link",
@@ -316,10 +309,6 @@ const config = {
               {
                 label: "Mastodon",
                 href: "https://mastodon.social/@PCSX2",
-              },
-              {
-                label: "Twitter",
-                href: "https://x.com/PCSX2",
               },
               {
                 label: "YouTube",
