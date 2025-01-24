@@ -59,6 +59,7 @@ export function DownloadTable({
           }}
           bottomContent={
             <div className="flex w-full justify-center">
+              {/* TODO - keep an eye on https://github.com/heroui-inc/heroui/pull/4536 in next release, as it might fix the issues around the pagination component */}
               <Pagination
                 isCompact
                 showControls
