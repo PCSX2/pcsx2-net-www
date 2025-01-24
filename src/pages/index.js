@@ -45,7 +45,8 @@ import {
 
 import useIsBrowser from "@docusaurus/useIsBrowser";
 
-let baseApiUrl = "https://api.pcsx2.net/v1";
+let baseApiUrl = "https://apinew.pcsx2.net/v1";
+let backupBaseApiUrl = "https://api.pcsx2.net/v1";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
@@ -61,7 +62,12 @@ export default function Home() {
 
   const fetchLatestReleases = async () => {
     try {
-      const resp = await fetch(`${baseApiUrl}/latestReleasesAndPullRequests`);
+      let resp = await fetch(`${baseApiUrl}/latestReleasesAndPullRequests`);
+      // TODO: potentially retry with old URL, just temp code to ease migration
+      if (resp.status !== 200) {
+        resp = await fetch(`${backupBaseApiUrl}/latestReleasesAndPullRequests`);
+      }
+
       if (resp.status === 429) {
         setApiErrorMsg("You are Being Rate-Limited. Try Again Later!");
       } else if (resp.status !== 200) {
