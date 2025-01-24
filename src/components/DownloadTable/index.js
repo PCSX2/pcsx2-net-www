@@ -7,7 +7,7 @@ import {
   TableCell,
   TableBody,
   Pagination,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 export function DownloadTable({
   pageSize,

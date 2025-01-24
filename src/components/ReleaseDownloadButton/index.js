@@ -6,13 +6,13 @@ import {
   DropdownItem,
   DropdownSection,
   DropdownMenu,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import { BsWindows, BsApple } from "react-icons/bs";
 import { FaLinux } from "react-icons/fa";
 import { IoIosCloudyNight } from "react-icons/io";
 import { GiBrickWall } from "react-icons/gi";
 import { useMediaQuery } from "../../utils/mediaQuery";
-import { semanticColors } from "@nextui-org/theme";
+import { semanticColors } from "@heroui/theme";
 import { useTheme } from "next-themes";
 
 // Function to get the latest release for a specific platform
