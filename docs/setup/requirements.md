@@ -7,7 +7,7 @@ toc: true
 sidebar_position: 1
 ---
 
-This section list down the system requirements to get PCSX2 up and running.
+This section lists the system requirements to get PCSX2 up and running.
 
 ## System Requirements
 
@@ -19,11 +19,11 @@ This section list down the system requirements to get PCSX2 up and running.
   - macOS 11.0 (Big Sur)
 - CPU
 
-  - Supports SSE4.1
+  - SSE4.1 support
   - [PassMark single thread performance](https://www.cpubenchmark.net/singleThread.html) rating near or greater than 1500
   - A quick reference for CPU **intensive games**: [Wiki](https://wiki.pcsx2.net/Category:CPU_intensive_games), [Forum](https://forums.pcsx2.net/Thread-LIST-The-Most-CPU-Intensive-Games)
     - And CPU **light** games: [Forum](https://forums.pcsx2.net/Thread-LIST-Games-that-don-t-need-a-strong-CPU-to-emulate)
-  - Two physical cores, with SMT
+  - Two physical cores, with simultaneous multithreading (SMT)
     :::note
     Recommended single thread performance is based on moderately complex games. Games that pushed the PS2 hardware to its limits will struggle on CPUs at this level. Some release titles and 2D games which underutilized the PS2 hardware may run on CPUs rated as low as 1200.
     :::
@@ -49,11 +49,11 @@ This section list down the system requirements to get PCSX2 up and running.
   - Ubuntu 24.04/Debian or newer, Arch Linux, or other distro (64-bit)
   - macOS 11.0 (Big Sur)
 - CPU
-  - Supports AVX2
+  - AVX2 support
   - [PassMark single thread performance](https://www.cpubenchmark.net/singleThread.html) rating near or greater than 2000
-  - Four physical cores, with or without SMT
+  - Four physical cores, with or without simultaneous multithreading (SMT)
 - GPU
-  - Direct3D12 support
+  - Direct3D 12 support
   - OpenGL 4.6 support
   - Vulkan 1.3 support
   - Metal support
@@ -69,21 +69,21 @@ This section list down the system requirements to get PCSX2 up and running.
   - Ubuntu 24.04/Debian or newer, Arch Linux, or other distro (64-bit)
   - macOS 11.0 (Big Sur)
 - CPU
-  - Supports AVX2
+  - AVX2 support
   - [PassMark single thread performance](https://www.cpubenchmark.net/singleThread.html) rating near or greater than 2600
-  - Six physical cores, with SMT
+  - Six physical cores, with simultaneous multithreading (SMT)
 - GPU
-  - Direct3D12 support
+  - Direct3D 12 support
   - OpenGL 4.6 support
   - Vulkan 1.3 support
   - Metal support
   - [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating around 12,000 (GeForce RTX 3050, Radeon RX 5600XT)
-  - 4 GB of Video Memory
+  - 4 GB video memory
 - RAM
-  - 16 GB of System Memory
+  - 16 GB system memory
 
 ## Version deprecation notes
 
-- Windows XP and Direct3D9 support was dropped after stable release 1.4.0.
+- Windows XP and Direct3D 9 support was dropped after stable release 1.4.0.
 - Windows 7, Windows 8.0, and Windows 8.1 support was dropped after stable release 1.6.0.
 - 32-bit support was dropped after stable release 1.6.0.
