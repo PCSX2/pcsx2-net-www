@@ -12,7 +12,7 @@ import {
   Chip,
   Link,
   Input,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import { MdLibraryBooks, MdForum } from "react-icons/md";
 import Fuse from "fuse.js";
 import { DateTime } from "luxon";

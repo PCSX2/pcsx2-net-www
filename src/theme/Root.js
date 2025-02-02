@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { NextUIProvider } from "@nextui-org/react";
+import { HeroUIProvider } from "@heroui/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import CookieConsent, { getCookieConsentValue } from "react-cookie-consent";
 
@@ -51,7 +51,7 @@ export default function Root({ children }) {
   }, []);
 
   return (
-    <NextUIProvider>
+    <HeroUIProvider>
       <NextThemesProvider attribute="class" defaultTheme="dark">
         <CookieConsent
           location="bottom"
@@ -69,6 +69,6 @@ export default function Root({ children }) {
         </CookieConsent>
         {children}
       </NextThemesProvider>
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { GoGitCommit, GoGitPullRequest } from "react-icons/go";
-import { Avatar, Tooltip, AvatarGroup } from "@nextui-org/react";
+import { Avatar, Tooltip, AvatarGroup } from "@heroui/react";
 import { IconContext } from "react-icons";
 
 function generatePRLinks(prNums) {

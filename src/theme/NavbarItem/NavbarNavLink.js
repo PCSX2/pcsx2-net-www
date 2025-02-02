@@ -1,6 +1,6 @@
 import React from "react";
 import NavbarNavLink from "@theme-original/NavbarItem/NavbarNavLink";
-import { Button } from "@nextui-org/react";
+import { Button } from "@heroui/react";
 import { GoHeart } from "react-icons/go";
 import Link from "@docusaurus/Link";
 import { useMediaQuery } from "../../utils/mediaQuery";
