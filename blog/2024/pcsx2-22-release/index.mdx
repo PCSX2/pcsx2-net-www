@@ -1,0 +1,101 @@
+---
+draft: false
+title: PCSX2 2.2.0 Changelog!
+tags:
+  - devblog
+date: 2024-10-31
+description: PCSX2 2.0 Release Blog Post
+hide_table_of_contents: false
+authors:
+  - kamfretoz
+  - tech
+---
+
+<head>
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+
+## Full Throttle Ahead
+
+3 months later after the initial 2.0.0 release, 2.2.0 has finally been released as the next stable build of PCSX2!
+
+This release includes a whole flurry of new features, performance improvements and bug fixes. Which includes new debugger symbol importer, DEV9 fixes, new controller types and so much more!
+
+#### NOTE: If you are seeing this, then chances are you are well into 2025. I'm putting this here for the sake of accurate categorization and supposed date of publication
+
+<!--truncate-->
+
+Below are the highlight of the new changes:
+
+<PCSX2PRLink authors="TheLastRar" prNums="11538,11885,11911,11908,11925,11931">
+  ## DEV9 Fixes
+</PCSX2PRLink>
+
+In this cycle, AirGamer focuses on fixing DEV9 in order to get PS2Linux/PSBBN to work as close as possible. For the most part he has eradicated most of the DEV9 issues pertaining to PS2Linux, leaving our lack of Full TLB emulation as the last blocker that prevents PS2Linux/PSBBN to work on PCSX2.
+
+<PCSX2PRLink authors="F0bes" prNums="11593">
+  ## Video Capture improvements
+</PCSX2PRLink>
+
+For those who are using the built-in video capture functionality (Which you should be, it's super underrated), you may be pleased to find out that you can now select the pixel format of the selected codec! This should fix AMD's hardware encoder on Windows as it did not like the YUV420P format.
+
+<Image src={require("./img/capture_pixel_format.webp").default} />
+
+<PCSX2PRLink
+  authors="Florin9doi,joestringer"
+  prNums="11616,11617,11633,11715,11723"
+>
+  ## Many new emulated controller types
+</PCSX2PRLink>
+
+There have been plethora of new emulated devices that have been added in this cycle, courtesy of Florin9Doi and Joe Stringer.
+
+These are:
+
+- ASCII Trance Vibrator (Rez)
+- Gametrak/RealPlay Device
+- Jogcon and NeGcon
+- Train Controller
+- Zip100 and PictureParadise (As USB Device)
+- Audio support for EyeToy / Konami ON-SAY Microphone
+
+<Image src={require("./img/new_controller.webp").default} />
+<Image src={require("./img/new_controller_2.webp").default} />
+
+<PCSX2PRLink authors="badfontkeming" prNums="11906,11915">
+  ## Work around FFB dropouts with certain modern wheels
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="KamFretoZ" prNums="11730,11804">
+  ## Game icon for Discord Rich Presence
+</PCSX2PRLink>
+
+If you have achievement enabled (By using RetroAchievement) and the game supports Rich Presence, PCSX2's Rich Presence now also shows the icon of the game you're playing (Alongside the existing progression status activity detail).
+
+<Image src={require("./img/RPC.webp").default} />
+<Image src={require("./img/RPC2.webp").default} />
+
+<PCSX2PRLink authors="lightningterror" prNums="11737,11748">
+  ## GS Performance Improvements
+</PCSX2PRLink>
+
+LT has implemented Per Pixel Alpha Blending (PABE), This improves both accuracy and also speed at the same time!
+
+The number speaks for itself:
+
+<Image src={require("./img/PABE.webp").default} />
+<Image src={require("./img/PABE2.webp").default} />
+
+<PCSX2PRLink authors="chaoticgd" prNums="10224">
+  ## Debugger Overhaul
+</PCSX2PRLink>
+
+Courtesy of ChaoticGD, they have been hard at work and have massively improved our debugger by wide margin!
+
+This PR was in the works for almost a year. it allows the debugger to reads `.mdebug` and `.sndata` section from the game's executable binary if it has them included. if said `.mdebug` section is available, the debugger can now display information about global variables, local variables and parameter variables, with data types. That means you can explore data structures in memory in a structured tree. (Pac-Man World 2 for example.)
+
+<Image src={require("./img/debugger.webp").default} />
+
+<PCSX2PRLink authors="KamFretoZ" prNums="11848">
+  ## Add configurable compression type and level for savestate
+</PCSX2PRLink>
