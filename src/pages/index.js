@@ -45,7 +45,7 @@ import {
 
 import useIsBrowser from "@docusaurus/useIsBrowser";
 
-let baseApiUrl = "https://apinew.pcsx2.net/v1";
+let baseApiUrl = "https://api.pcsx2.net/v1";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();

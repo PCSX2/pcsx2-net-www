@@ -60,7 +60,7 @@ const renderReleaseCell = (release, columnKey, isNightly, isSelected) => {
   }
 };
 
-let baseApiUrl = "https://apinew.pcsx2.net/v1";
+let baseApiUrl = "https://api.pcsx2.net/v1";
 
 export default function Downloads() {
   const isBrowser = useIsBrowser();
