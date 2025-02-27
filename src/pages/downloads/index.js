@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "@theme/Layout";
-import { Switch } from "@nextui-org/react";
+import { Switch } from "@heroui/react";
 import Admonition from "@theme/Admonition";
 import { ReleaseDownloadButton } from "../../components/ReleaseDownloadButton";
 import { DownloadTable } from "../../components/DownloadTable";
@@ -84,7 +84,7 @@ export default function Downloads() {
 
   const fetchLatestReleases = async () => {
     try {
-      const resp = await fetch(`${baseApiUrl}/latestReleasesAndPullRequests`);
+      let resp = await fetch(`${baseApiUrl}/latestReleasesAndPullRequests`);
       if (resp.status === 429) {
         setApiErrorMsg("You are Being Rate-Limited. Try Again Later!");
       } else if (resp.status !== 200) {
@@ -249,9 +249,10 @@ export default function Downloads() {
                         tableColumns={releaseTableColumns}
                         renderRowFunc={renderReleaseCell}
                         fetchMoreFunc={async (offset) => {
-                          return await fetch(
+                          let resp = await fetch(
                             `${baseApiUrl}/stableReleases?offset=${offset}`,
                           );
+                          return resp;
                         }}
                         tableType={"stable"}
                       />
@@ -348,9 +349,10 @@ export default function Downloads() {
                         tableColumns={releaseTableColumns}
                         renderRowFunc={renderReleaseCell}
                         fetchMoreFunc={async (offset) => {
-                          return await fetch(
+                          let resp = await fetch(
                             `${baseApiUrl}/nightlyReleases?offset=${offset}`,
                           );
+                          return resp;
                         }}
                         tableType={"nightly"}
                       />
