@@ -61,7 +61,6 @@ const renderReleaseCell = (release, columnKey, isNightly, isSelected) => {
 };
 
 let baseApiUrl = "https://apinew.pcsx2.net/v1";
-let backupBaseApiUrl = "https://api.pcsx2.net/v1";
 
 export default function Downloads() {
   const isBrowser = useIsBrowser();
@@ -86,10 +85,6 @@ export default function Downloads() {
   const fetchLatestReleases = async () => {
     try {
       let resp = await fetch(`${baseApiUrl}/latestReleasesAndPullRequests`);
-      // TODO: potentially retry with old URL, just temp code to ease migration
-      if (resp.status !== 200) {
-        resp = await fetch(`${backupBaseApiUrl}/latestReleasesAndPullRequests`);
-      }
       if (resp.status === 429) {
         setApiErrorMsg("You are Being Rate-Limited. Try Again Later!");
       } else if (resp.status !== 200) {
@@ -257,12 +252,6 @@ export default function Downloads() {
                           let resp = await fetch(
                             `${baseApiUrl}/stableReleases?offset=${offset}`,
                           );
-                          // TODO: potentially retry with old URL, just temp code to ease migration
-                          if (resp.status !== 200) {
-                            resp = await fetch(
-                              `${backupBaseApiUrl}/stableReleases?offset=${offset}`,
-                            );
-                          }
                           return resp;
                         }}
                         tableType={"stable"}
@@ -363,12 +352,6 @@ export default function Downloads() {
                           let resp = await fetch(
                             `${baseApiUrl}/nightlyReleases?offset=${offset}`,
                           );
-                          // TODO: potentially retry with old URL, just temp code to ease migration
-                          if (resp.status !== 200) {
-                            resp = await fetch(
-                              `${backupBaseApiUrl}/nightlyReleases?offset=${offset}`,
-                            );
-                          }
                           return resp;
                         }}
                         tableType={"nightly"}
