@@ -1,0 +1,164 @@
+---
+draft: false
+title: PCSX2 2.4.0 & PCSX2 2.2.0 Changelog!
+tags:
+  - devblog
+date: 2025-05-25
+description: PCSX2 2.4/2.2 Release Post
+hide_table_of_contents: false
+authors:
+  - kamfretoz
+  - link
+  - tech
+  - govanify
+  - pandubz
+---
+
+This blog post contains both features avaibile in 2.2 and 2.4
+
+<!--truncate-->
+
+It has been almost a year since PCSX2 2.0 release. In this blog post we will go over the changelogs for both 2.2 and 2.4 release.
+
+Below are the highlight of the new changes:
+
+## PCSX2 2.2
+
+<PCSX2PRLink authors="TheLastRar" prNums="11538,11885,11911,11908,11925,11931">
+  ### DEV9 Fixes
+</PCSX2PRLink>
+
+In this cycle, AirGamer focuses on fixing DEV9 in order to get PS2Linux/PSBBN to work as close as possible. For the most part he has eradicated most of the DEV9 issues pertaining to PS2Linux, leaving our lack of Full TLB emulation as the last blocker that prevents PS2Linux/PSBBN to work on PCSX2.
+
+<PCSX2PRLink authors="F0bes" prNums="11593">
+  ### Video Capture improvements
+</PCSX2PRLink>
+
+For those who are using the built-in video capture functionality (Which you should be, it's super underrated), you may be pleased to find out that you can now select the pixel format of the selected codec! This should fix AMD's hardware encoder on Windows as it did not like the YUV420P format.
+
+<Image src={require("./img/capture_pixel_format.webp").default} />
+
+<PCSX2PRLink
+  authors="Florin9doi,joestringer"
+  prNums="11616,11617,11633,11715,11723"
+>
+  ### Many new emulated controller types
+</PCSX2PRLink>
+
+There have been plethora of new emulated devices that have been added in this cycle, courtesy of Florin9Doi and Joe Stringer.
+
+These are:
+
+- ASCII Trance Vibrator (Rez)
+- Gametrak/RealPlay Device
+- Jogcon and NeGcon
+- Train Controller
+- Zip100 and PictureParadise (As USB Device)
+- Audio support for EyeToy / Konami ON-SAY Microphone
+
+<Image src={require("./img/new_controller.webp").default} />
+<Image src={require("./img/new_controller_2.webp").default} />
+
+<PCSX2PRLink authors="badfontkeming" prNums="11906,11915">
+  ### Work around FFB dropouts with certain modern wheels
+</PCSX2PRLink>
+
+their have been many improvements for using modern wheels ion regards to forrce feedback.
+
+<PCSX2PRLink authors="KamFretoZ" prNums="11730,11804">
+  ### Game icon for Discord Rich Presence
+</PCSX2PRLink>
+
+If you have achievement enabled (By using RetroAchievement) and the game supports Rich Presence, PCSX2's Rich Presence now also shows the icon of the game you're playing (Alongside the existing progression status activity detail).
+
+<Image src={require("./img/RPC.webp").default} />
+<Image src={require("./img/RPC2.webp").default} />
+
+<PCSX2PRLink authors="lightningterror" prNums="11737,11748">
+  ### GS Performance Improvements
+</PCSX2PRLink>
+
+LT has implemented Per Pixel Alpha Blending (PABE), This improves both accuracy and also speed at the same time!
+
+The number speaks for itself:
+
+<Image src={require("./img/PABE.webp").default} />
+<Image src={require("./img/PABE2.webp").default} />
+
+<PCSX2PRLink authors="chaoticgd" prNums="10224">
+  ### Debugger Overhaul
+</PCSX2PRLink>
+
+Courtesy of ChaoticGD, they have been hard at work and have massively improved our debugger by wide margin!
+
+This PR was in the works for almost a year. it allows the debugger to reads `.mdebug` and `.sndata` section from the game's executable binary if it has them included. if said `.mdebug` section is available, the debugger can now display information about global variables, local variables and parameter variables, with data types. That means you can explore data structures in memory in a structured tree. (Pac-Man World 2 for example.)
+
+<Image src={require("./img/debugger2.webp").default} />
+
+<PCSX2PRLink authors="KamFretoZ" prNums="11848">
+  ### Add configurable compression type and level for savestate
+</PCSX2PRLink>
+an option that allows you to configure both the compression type and also the
+level for savestate.
+
+<Image src={require("./img/savestate.webp").default} />
+
+<head>
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+
+## PCSX2 2.4
+
+<PCSX2PRLink authors="GovanifY" prNums="12333">
+  ### Wayland by default
+</PCSX2PRLink>
+
+In the Linux world, the last remaining hurdles to PCSX2 running on Wayland by default are finally gone! Thanks to upstream fixes in Qt 6.9 and some clever work by GovanifY, the `I_WANT_A_BROKEN_WAYLAND_UI` flag is history! This does not mean that no Wayland-specific bugs exist, but it means we've failed to find any we consider showstoppers. If your desktop environment uses X11, nothing will change, and we'll continue accepting reports for X11-specific bugs for the foreseeable future. If you find a Wayland-specific bug, the `QT_QPA_PLATFORM=xcb` environment variable can take you back to X11 while we work to fix it.
+
+<PCSX2PRLink authors="chaoticgd" prNums="12241">
+  ### Debugger Redesign with Docking System
+</PCSX2PRLink>
+
+The debugger got a huge facelift and usability upgrade with the help of KDDockWidgets, massive thanks to ChaoticGD!
+
+You can now dock tabs around to your liking, as well as making your own custom layout. The sky is the limit! (Within reasons)
+
+<Image src={require("./img/Debugger.webp").default} />
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="12254">
+  ### Reduce number of copies for HDR
+</PCSX2PRLink>
+
+A number of games also received quite a bit of speed boost thanks to Refraction's works on HDR (No, not _that_ HDR).
+
+<BarChart chartDataUrl={require("./charts/Chart-gameperf-pt1.yaml").default} />
+
+<PCSX2PRLink authors="TheTechnician27" prNums="12208">
+  ### Allow user to manually set RTC per-game
+</PCSX2PRLink>
+
+The PlayStation 2 uses a real-time clock (RTC) to keep track of the date and time in the real world. Games often use the RTC in order to seed pseudorandom number generation (RNG) because of its high variability. Additionally, save files show a timestamp in the BIOS, and these timestamps are sometimes shown in-game too. However, some games use the RTC in a more interactive way. Ratchet & Clank 2 and Ratchet & Clank 3 let you teleport to the post-game Insomniac Museum area from 03:00–04:00, bypassing completion checks. The Simpsons: Hit & Run, The Simpsons: Road Rage, SpongeBob SquarePants: Battle for Bikini Bottom, and Scooby-Doo!: Night of 100 Frights have holiday-exclusive Easter eggs. Need for Speed: Hot Pursuit 2 displays the date and time on a camera recording when you get busted. And Metal Gear Solid 3... if you know, you know.
+
+By default, when a user starts a game, PCSX2 sets the RTC to the date and time from the user's desktop. For input recordings which require perfect determinacy to function correctly, we instead used a fixed, arbitrary date and time after the release of Metal Gear Solid 3 (which crashes if the date is too old). With the introduction of RTC settings, you can now (if you want) manually select your own RTC starting point in the per-game settings ('Game Properties > Emulation > Real-Time Clock'). This provides niche benefits for regular users (especially Ratchet players and enjoyers of Hideo Kojima's antics), and it brings PCSX2 closer to having a mature suite of tool-assisted speedrun (TAS) capabilities.
+
+This currently requires you to have your BIOS set to GMT+0 and daylight savings time (DST) set to Summer Time (this is the default PCSX2 creates if no .nvm file exists). Additionally, it will only work within the bounds of 2000-01-01 at 00:00 and 2099-12-31 at 23:59, which is the range of an actual PlayStation 2.
+
+<Image src={require("./img/RTC.webp").default} />
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="11461">
+  ### Implement RT in RT support
+</PCSX2PRLink>
+
+This implements support for render target inside render target draws and shuffles, where games point to an offset inside a previously drawn target, usually to update single pages, or offset half way through a picture within the hardware renderer , in which fixed numours games which have been historically broken within PCSX2 . Games such as Hitman - Contracts , SWAT Global Strike Team, Delta Force - Black Hawk Down and Drakengard.
+
+<SliderCompare
+  before={require("./img/comparisons/hitman_before.webp").default}
+  after={require("./img/comparisons/hitman_after.webp").default}
+  alt="Hitman - Contracts Comparison"
+/>
+
+<SliderCompare
+  before={require("./img/comparisons/Drakengard_before.webp").default}
+  after={require("./img/comparisons/Drakengard_after.webp").default}
+  alt="Drakengard Comparison"
+/>
