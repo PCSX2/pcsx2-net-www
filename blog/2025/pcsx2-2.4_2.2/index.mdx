@@ -1,0 +1,223 @@
+---
+draft: false
+title: Welcoming PCSX2 2.2.0 and 2.4.0!
+tags:
+  - devblog
+date: 2025-07-01
+description: PCSX2 2.4/2.2 Release Post
+hide_table_of_contents: false
+titleImage: /img/2-0-banner.webp
+image: /img/2-0-banner.webp
+authors:
+  - kamfretoz
+  - link
+  - tech
+  - govanify
+  - pandubz
+  - jordan
+  - reddevilus
+---
+
+<!--truncate-->
+
+It's been almost a year since the release of PCSX2 2.0. Since then, we've released PCSX2 2.2.0, and today, we're excited to release 2.4.0! We're even more excited to showcase how we've refined what 2.0 brought and then ramped up again – back to bringing you bold new features. We present this chronologically to show you the trajectory we're on and therefore what to expect for the release of 2.6.0 – tentatively scheduled for late 2025.
+
+## PCSX2 2.2.0
+
+PCSX2 2.0 may well have been [our biggest single release to date](../../2024/pcsx2-2-release/index.mdx). With several major contributors stepping back, including longtime PCSX2 lead developer refraction, the remaining team – still energized to contribute – confronted reality: for the first time in a long time, we'd delivered what we had to offer in the way of big, bombastic new features. What we resolved for PCSX2 2.2 was to take it out of the furnace, let it cool, and hammer it into something more refined before getting up to speed again in 2.4. For this period of a few months, the word on everyone's mind was "polish".
+
+<PCSX2PRLink
+  authors="Florin9doi,joestringer"
+  prNums="11614,11616,11617,11630,11633,11715,11723,12157"
+>
+### New Emulated Peripherals
+
+</PCSX2PRLink>
+
+Almost immediately after 2.0, contributor Florin9doi got to work chipping away at the list of peripherals we haven't implemented yet. Not long after, first-time contributor joestringer began working on train controller support. Thanks to them, in just about the first month of 2.0, we now have support for:
+
+- [Trance Vibrator](https://www.theverge.com/2016/9/25/13046770/rez-trance-vibrator-ps2)
+- [Gametrak/_RealPlay_](https://en.wikipedia.org/wiki/Gametrak) device
+- [Jogcon](https://en.wikipedia.org/wiki/Jogcon) and [NeGcon](https://en.wikipedia.org/wiki/NeGcon)
+- [Train Mascon](https://marcriera.github.io/ddgo-controller-docs/controllers/usb/cotm02001/) controllers (Type 2, Shinkansen, and Ryojōhen)
+- Konami Microphone
+- [Zip 100](https://en.wikipedia.org/wiki/Zip_drive)
+- [PictureParadise](https://www.ign.com/articles/2000/09/26/tgs-2000-put-yourself-in-the-game)
+
+On top of that, PCSX2's [EyeToy](https://en.wikipedia.org/wiki/EyeToy) emulation now has audio support, and [_Buzz!_](https://en.wikipedia.org/wiki/Buzz!) devices now have a custom UI!
+
+<Image src={require("./img/controller_ryojohen.webp").default} />
+<Image src={require("./img/controller_jogcon.webp").default} />
+
+<PCSX2PRLink authors="lightningterror" prNums="11737,11748">
+  ### Will It Blend?
+</PCSX2PRLink>
+
+That is the question! PCSX2 team member and graphics expert LightningTerror has improved upon our existing per-pixel [alpha blending](https://en.wikipedia.org/wiki/Alpha_compositing) (PABE) implementation, increasing both accuracy and speed. Software blending, run in shaders on the GPU, is highly accurate but incurs a performance hit as it forces us to tell shaders run for one triangle to wait for all previous triangles' shaders to complete before starting to prevent them from fighting with each other over the values of pixels that overlap between the triangles. Hardware blending is run in special hardware blending units on the GPU, which are built to avoid this fighting, but can only run a very simple set of operations. The supported operations don't cover everything the PS2's blending unit can do, resulting in worse accuracy as PCSX2 tries to select the closest (but often not identical) supported operation.
+
+The new PABE implementation blends (heh) software and hardware, specially crafting values in the shader such that when sent to the hardware blend unit, they result in accurate emulation of the PS2's per-pixel alpha blending for supported PS2 blend configurations.
+
+<Image src={require("./img/PABE.webp").default} />
+<Image src={require("./img/PABE2.webp").default} />
+
+<PCSX2PRLink authors="chaoticgd" prNums="10224,11901">
+  ### Symbol Parsing Overhaul
+</PCSX2PRLink>
+
+Courtesy of contributor Chaoticgd is a massively improved debugger. This overhaul, in the works for almost a year, allows the debugger to read [MIPS](https://en.wikipedia.org/wiki/MIPS_architecture) debug (`.mdebug`), SNDLL (`.sndata`), and [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) (`.symtab`) [symbol tables](https://en.wikipedia.org/wiki/Symbol_table) from a game's executable binary if it has them included. If the `.mdebug` section is available, the debugger can now display information about global variables, local variables, and parameter variables, including data types. This means you can explore data structures in memory as a structured tree. He subsequently added settings that give you fine-grained control over how and when PCSX2 performs symbol analysis passes. A few games that shipped with their debug symbols include [_Pac-Man World 2_](https://wiki.pcsx2.net/Pac-Man_World_2), [_Sega Soccer Slam_](https://wiki.pcsx2.net/Sega_Soccer_Slam), [_Fatal Frame_](https://wiki.pcsx2.net/Fatal_Frame), and hundreds more shipped with symbols in general. Below is a screenshot showing the tree of global variables and the list of functions in _Pac-Man World 2_.
+
+<Image src={require("./img/debugger.webp").default} />
+
+<PCSX2PRLink authors="KamFretoZ" prNums="11848">
+  ### Savestate Compression Options
+</PCSX2PRLink>
+
+Thanks to KamFretoZ, you can now configure both the compression method and the level of compression for savestates! These formats are [Zstandard](https://en.wikipedia.org/wiki/Zstd) (default), [Deflate64](https://en.wikipedia.org/wiki/Deflate), and [LZMA2](https://en.wikipedia.org/wiki/LZMA), and there are four compression levels for each. You can also choose to leave your states uncompressed if your 40 TB NAS feels lonely. Higher compression will result in lower file sizes but may increase the time needed to save the states.
+
+<Image src={require("./img/savestate.webp").default} />
+
+<PCSX2PRLink authors="TheLastRar" prNums="11885,11911,11908,11925,11931">
+  ### DEV9 Fixes
+</PCSX2PRLink>
+
+After 2.0, longtime contributor AirGamer launched into an effort to fix our [DEV9](https://www.psdevwiki.com/ps2/DEV9C) emulation and try to get [PS2 Linux](https://en.wikipedia.org/wiki/Linux_for_PlayStation_2) and [PlayStation Broadband Navigator](https://en.wikipedia.org/wiki/PlayStation_Broadband_Navigator) (PSBBN) working on PCSX2. His work has brought us tantalizingly close: as best we can tell, our lack of full emulation for the PS2's [translation lookaside buffer](https://en.wikipedia.org/wiki/Translation_lookaside_buffer) (TLB) is now the _only_ barrier still preventing PS2 Linux and PSBBN from working. Whoever steps up and conquers the TLB will bring the penguin to PCSX2.
+
+### Various Smaller Improvements in 2.2
+
+Before we move on to 2.4 and the big changes it brought, we want to stop and spotlight the smaller work that goes into making PCSX2 a polished experience. Below are just a few among hundreds, and we're grateful for every single one.
+
+- [#11562](https://github.com/PCSX2/pcsx2/pull/11562) – Team lead fobes adds [little endian](https://en.wikipedia.org/wiki/Endianness) support to the debugger.
+- [#11372](https://github.com/PCSX2/pcsx2/pull/11372) – macOS expert TellowKrinkle fixes [VAAPI](https://en.wikipedia.org/wiki/Video_Acceleration_API) support on Linux.
+- [#11593](https://github.com/PCSX2/pcsx2/pull/11593) – Team lead fobes adds selectable [pixel formats](https://en.wikipedia.org/wiki/Pixel_format) on a per-codec basis to the video capture tool.
+- [#11571](https://github.com/PCSX2/pcsx2/pull/11571) – Wiki maintainer TheTechnician27 adds a way to go directly to a game's [wiki page](https://wiki.pcsx2.net/Main_Page) from the PCSX2 application.
+- [#11602](https://github.com/PCSX2/pcsx2/pull/11602), [#11808](https://github.com/PCSX2/pcsx2/pull/11808) – DB maintainer JordanTheToast and UI artist KamFretoZ add hardware info to our statistics overlay.
+- [#11730](https://github.com/PCSX2/pcsx2/pull/11730) – UI artist KamFretoZ adds a game icon in our [Discord Rich Presence](https://discord.com/developers/docs/rich-presence/overview) for supported games using RetroAchievements.
+- [#11787](https://github.com/PCSX2/pcsx2/pull/11786) – Memcard and gamepad expert RedPanda4552 fixes an issue with input profiles being blocked by old settings.
+- [#11839](https://github.com/PCSX2/pcsx2/pull/11839) – Graphics expert LightningTerror fixes a longstanding graphical issue in [_Knights of the Temple: Infernal Crusade_](https://wiki.pcsx2.net/Knights_of_the_Temple:_Infernal_Crusade).
+- [#11935](https://github.com/PCSX2/pcsx2/pull/11935) – First-time contributor rares-fodor adds a search bar to the cheats list.
+
+## PCSX2 2.4.0
+
+After 2.0, the 2.2 development cycle let us catch our breath and – for the most part – focus on finer details. Brewing under the surface, though, were fresh ideas and the zeal to bring them to life. We all wanted to get back to innovating, so that's what we did. The 2.2 development cycles comes with many performance improvements and new features.
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="11461">
+  ### RT in RT Support
+</PCSX2PRLink>
+
+For his capstone contribution to PCSX2 after over 20 years of unimaginable dedication, former lead developer refraction turned to his unfinished work on RT in RT support. Feeling duty-bound not to leave this to rot after he left, he agonized for months to get this working, and the end result is something to behold. First, though, let's address what this even _is_.
+
+"RT in RT" stands for "[render target](https://en.wikipedia.org/wiki/Glossary_of_computer_graphics#render_target) in render target". If a game wanted to render to a subset of an image (e.g. only the right half) on the PS2, it had two options. The first, which is the way PC games have to do it, is to draw with triangles whose coordinates are positioned over the subsection they want to draw over (in the example, making sure all the triangles are positioned over the right half of the image). The second is to take the memory address of the pixels in the image and adjust it so it starts at the right half (so the new RT pointed to memory that was _inside_ the old RT, hence the feature name). Now, drawing to the top left corner of the render target actually writes to the top left corner of the right half of the image (and drawing to the right half of the render target would corrupt the image, so don't do that).
+
+Games that chose this second option confused PCSX2 very badly, and it would end up drawing to a separate RT that it never properly merged with the outer RT, effectively deleting all the triangles drawn this way. No longer! With this change, PCSX2 now recognizes when this is happening, figures out what section the PS2 game was trying to draw to, and moves the triangles accordingly, converting option 2 draws into option 1 draws, which PC APIs know how to handle.
+
+This brings massive fixes to a huge variety of games – at minimum, multiple games with two-player splitscreen (such as [_Jak X: Combat Racing_](https://wiki.pcsx2.net/Jak_X:_Combat_Racing)), multiple games that no longer need a hack to work (such as [_Ghost in the Shell: Stand Alone Complex_](https://wiki.pcsx2.net/Ghost_in_the_Shell:_Stand_Alone_Complex)), multiple games whose effects now work (such as [_Drakengard_](https://wiki.pcsx2.net/Drakengard); comparison below), and multiple games that would only work before in software rendering (such as [_Hitman: Contracts_](https://wiki.pcsx2.net/Hitman:_Contracts); comparison below).
+
+<SliderCompare
+  before={require("./img/comparisons/jak_x_before.webp").default}
+  after={require("./img/comparisons/jak_x_after.webp").default}
+  alt="Jak X - Combat Racing"
+/>
+
+<SliderCompare
+  before={require("./img/comparisons/hitman_before.webp").default}
+  after={require("./img/comparisons/hitman_after.webp").default}
+  alt="Hitman - Contracts Comparison"
+/>
+
+<SliderCompare
+  before={require("./img/comparisons/drakengard_before.webp").default}
+  after={require("./img/comparisons/drakengard_after.webp").default}
+  alt="Drakengard Comparison"
+/>
+
+<PCSX2PRLink authors="TheTechnician27" prNums="12208">
+  ### Custom Real-Time Clock (v2.3.130)
+</PCSX2PRLink>
+
+The PlayStation 2 uses a [real-time clock](https://en.wikipedia.org/wiki/Real-time_clock) (RTC) to keep track of the date and time in the real world. Games often use the RTC in order to seed pseudorandom number generation (RNG) because of its high variability. Additionally, save files show a timestamp in the BIOS, and these timestamps are sometimes shown in-game too. However, some games use the RTC in a more interactive way. [_Ratchet & Clank 2_](https://wiki.pcsx2.net/Ratchet_%26_Clank:_Going_Commando) and [_Ratchet & Clank 3_](https://wiki.pcsx2.net/Ratchet_%26_Clank:_Up_Your_Arsenal), for example, let you teleport to the post-game Insomniac Museum area from 03:00–04:00, bypassing completion checks. [_The Simpsons: Hit & Run_](https://wiki.pcsx2.net/The_Simpsons:_Hit_%26_Run), [_The Simpsons: Road Rage_](https://wiki.pcsx2.net/The_Simpsons:_Road_Rage), [_SpongeBob SquarePants: Battle for Bikini Bottom_](https://wiki.pcsx2.net/SpongeBob_SquarePants:_Battle_for_Bikini_Bottom), and [_Scooby-Doo! Night of 100 Frights_](https://wiki.pcsx2.net/Scooby-Doo!_Night_of_100_Frights) have holiday-exclusive Easter eggs. [_Need for Speed: Hot Pursuit 2_](https://wiki.pcsx2.net/Need_for_Speed:_Hot_Pursuit_2) displays the date and time on a camera recording when you get busted. And [_Metal Gear Solid 3_](https://wiki.pcsx2.net/Metal_Gear_Solid_3:_Snake_Eater)... if you know, you know.
+
+By default, when a user starts a game, PCSX2 sets the RTC to the date and time from the user's desktop. For input recordings which require perfect determinacy to function correctly, we instead used a fixed, arbitrary date and time after the release of _Metal Gear Solid 3_ (which crashes if the date is too old). With the introduction of RTC settings by TheTechnician27, you can now optionally select a custom RTC starting point in the per-game settings (`Game Properties` > `Emulation` > `Real-Time Clock`). This provides niche benefits for regular users (especially _Ratchet_ players and enjoyers of Hideo Kojima's antics), and it brings PCSX2 closer to having a mature suite of [tool-assisted speedrun](https://en.wikipedia.org/wiki/Tool-assisted_speedrun) (TAS) capabilities.
+
+This currently requires you to have your BIOS set to GMT+0 and daylight savings time (DST) set to Summer Time (this is the default PCSX2 creates if no `.nvm` file exists). Additionally, it will only work within the bounds of 2000-01-01 at 00:00 and 2099-12-31 at 23:59, which is the range of an actual PlayStation 2. Below is the Halloween-exclusive title screen from _The Simpsons: Hit & Run_.
+
+<Image src={require("./img/RTC.webp").default} />
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="12254">
+  ### HDR Optimization (v2.3.135)
+</PCSX2PRLink>
+
+The PS2 doesn't have HDR support, so why does PCSX2 use HDR textures? When two numbers are added that sum to a result that won't fit in the output, like adding 200 + 200 with an 8-bit result (which can represent the values 0-255), there are two main ways computers may deal with this. The first is overflow / wrapping, famous for looping counters back to zero after they cross 255 in many NES games. In this case, the number wraps back around to 0, so 200 + 200 would result in the value 144. The second is clamping, where numbers greater than the maximum representable value are clamped to it, so 200 + 200 would equal 255. When rendering graphics, most humans consider clamping to look more visually pleasing than wrapping, since having brighter than white turn into white looks better than it turning into black or gray. As a result, PC blend hardware clamps the results of math on all 8-bit textures. But the PS2 lets developers pick between clamping and wrapping, so how do we emulate wrapping?
+
+Well if we don't want the result to clamp, why not just use an HDR texture, which can store values much larger than 255. We can draw all the triangles to this texture, letting the numbers accumulate more and more, then at the end, run a separate shader that wraps them all back to 8 bits. One minus of this approach is that there's still clamping, it just happens at a value much larger than 255, decided by the HDR format we use. For a while we used 32-bit float textures, which could accurately represent values up to 16 million, allowing a minimum of 65 thousand overlapping triangles before problems started appearing, but a while back we switched to 16-bit normalized integer textures, which many GPUs process at twice the speed, giving a minimum of 257 overlapping triangles before problems. This was enough for all the games we tested.
+
+But performance still wasn't great, so former lead PCSX2 developer refraction (codename: "[One Last Job](https://tvtropes.org/pmwiki/pmwiki.php/Main/OneLastJob)") came back from retirement swinging with a major optimization. Previously, for every group of triangles the game rendered, PCSX2 would convert the texture to an HDR texture, render the group of triangles, and then perform the wrapping while converting the texture back to non-HDR. But some games would render multiple groups of triangles in a row, and for each group, PCSX2 would convert, wrap, and convert again. Now, PCSX2 converts to HDR once at the beginning, and leaves the results in the HDR texture until the game stops using the wrapping mode, greatly reducing the number of conversions needed in games like [_Sly 2: Band of Thieves_](https://wiki.pcsx2.net/Sly_2:_Band_of_Thieves) and [_Big Mutha Truckers_](https://wiki.pcsx2.net/Big_Mutha_Truckers).
+
+<BarChart chartDataUrl={require("./charts/Chart-gameperf-pt1.yaml").default} />
+
+<PCSX2PRLink authors="lightningterror" prNums="12884,12907,12905">
+  ### Direct3D 11 Comes Back with a Speedy Vengeance!
+</PCSX2PRLink>
+
+The Direct3D 11 renderer might have been the second-class citizen for some time now, but not this time! Graphics expert LightningTerror has come back with a toolbox in an attempt to revitalize the elder. How did he do it? The first phase was to lay out the groundwork [by fixing the Direct3D 11 Resource Hazard API warnings](https://github.com/PCSX2/pcsx2/pull/12884), which paves the way of [enabling him to implement Resource Shader Caching](https://github.com/PCSX2/pcsx2/pull/12907) that manages to give noticable performance boost in quite handful of games. And as if those optimizations weren't enough, the daredevil himself has backported even more optimizations from other renderers which gives quite a performance boost in many games.
+
+Don't believe us? Here is the benchmarks:
+
+<Image src={require("./img/LTDX11_1.webp").default} />
+<Image src={require("./img/LTDX11_2.webp").default} />
+<Image src={require("./img/LTDX11_3.webp").default} />
+
+<PCSX2PRLink authors="F0bes" prNums="12255">
+  ### Signed macOS Binaries (v2.3.160)
+</PCSX2PRLink>
+
+macOS requires all code binaries to be signed. If not, macOS' [Gatekeeper](https://support.apple.com/guide/security/gatekeeper-and-runtime-protection-sec5599b66df/web) will report that the program cannot be opened because it is from an unidentified developer, thus it "cannot verify that this app is free from malware". This was a headache for users, who needed to explicitly allow an unsigned programs to run. As such, PCSX2's lead developer, fobes, worked to get PCSX2 formally signed. This means that when you download and run PCSX2 on macOS, it will now open normally.
+
+<PCSX2PRLink authors="GovanifY" prNums="12333">
+  ### Wayland by Default (v2.3.168)
+</PCSX2PRLink>
+
+In the Linux world, the last remaining hurdles to PCSX2 running on [Wayland](<https://en.wikipedia.org/wiki/Wayland_(protocol)>) by default are finally gone! Thanks to upstream fixes in [Qt](<https://en.wikipedia.org/wiki/Qt_(software)>) 6.9 and some clever work by team member GovanifY, the `I_WANT_A_BROKEN_WAYLAND_UI` flag is history! This does not mean that no Wayland-specific bugs exist, but it means we've failed to find any we consider showstoppers. If your desktop environment uses [X11](https://en.wikipedia.org/wiki/X_Window_System), nothing will change, and we'll continue accepting reports for X11-specific bugs for the foreseeable future. If you find a Wayland-specific bug, the `QT_QPA_PLATFORM=xcb` environment variable can take you back to XWayland while we work to fix it.
+
+<PCSX2PRLink
+  authors="refractionpcsx2,JordanTheToaster"
+  prNums="12350,12636,12645,12705"
+>
+### New Upscaling Fix
+
+</PCSX2PRLink>
+
+Thanks again to former PCSX2 lead developer refraction, PCSX2 now has a brand-new tool in its arsenal to fix misalignment issues caused by upscaling. Based on the existing Align to Native (AtN) half-pixel offset (HPO) option, Align to Native with Texture Offset (AtNTO) often combines the best of AtN and another HPO option called Special (Texture) to make a lot of games much sharper when upscaled. Thanks to a massive effort by GameDB specialist JordanTheToast, PCSX2 now applies this new setting automatically to over 100 games. These include [_Ace Combat 04: Shattered Skies_](https://wiki.pcsx2.net/Ace_Combat_04:_Shattered_Skies), the [_Sly Cooper_](https://wiki.pcsx2.net/Sly_Cooper) trilogy, [_God of War_](https://wiki.pcsx2.net/God_of_War) and [_God of War II_](https://wiki.pcsx2.net/God_of_War_II), and [_Shadow of the Colossus_](https://wiki.pcsx2.net/Shadow_of_the_Colossus). Below is a before and after comparison of _Ace Combat 04_.
+
+<SliderCompare
+  before={require("./img/comparisons/ace_combat_04_before.webp").default}
+  after={require("./img/comparisons/ace_combat_04_after.webp").default}
+  alt="Ace Combat 04 - Shattered Skies"
+/>
+
+<PCSX2PRLink authors="chaoticgd" prNums="12241">
+  ### Debugger Redesign
+</PCSX2PRLink>
+
+Thanks again to months of work by Chaoticgd, the debugger has received a huge redesign using [KDDockWidgets](https://github.com/KDAB/KDDockWidgets), massively improving usability. Not only can you now create a custom layout for your debugger (saved as a JSON file), but you can actually create and switch between _multiple_ such profiles on the fly. Thanks to a new event system allowing widgets to communicate, you can even open multiple widgets of the same type – for example, two memory viewers looking at different areas of memory. We can't wait for you to try it out!
+
+<Image src={require("./img/debugger2.webp").default} />
+
+<PCSX2PRLink authors="TheLastRar" prNums="12311">
+  ### SDL3 Upgrade (v2.3.198)
+</PCSX2PRLink>
+
+The right answer to "What does [SDL](https://en.wikipedia.org/wiki/Simple_DirectMedia_Layer) do?" is "What doesn't it?", but PCSX2 uses it to handle gamepads and audio output. In January 2025, SDL's release of its newest major version, 3.0, threatened to lock us out from its great new features if somebody didn't step up and make our codebase compatible. GameDB specialist and dependency coordinator JordanTheToast – along with his emotional support TheTechnician27 – boldly took action. Days later, DEV9 expert and resident lifeguard AirGamer noticed both drowning in the deep end and decided to save them. Thanks to weeks of work by AirGamer, PCSX2 now uses SDL3. The SDL Wiki has [a comprehensive list](https://wiki.libsdl.org/SDL3/NewFeatures) of new features, but for PCSX2, the immediate benefits are full support for DualShock 3 on Linux and a cleaner API for easier development and the ability to utilize new features as they come. Special thanks goes to the unsung heroes at the SDL Wiki who wrote [this guide](https://wiki.libsdl.org/SDL3/README-migration) and especially the authors of [this symbol rename script](https://github.com/libsdl-org/SDL/blob/main/build-scripts/rename_symbols.py) who made this transition feasible.
+
+### Various Smaller Improvements in 2.4
+
+Before we move on to 2.4 and the big changes it brought, we want to stop and spotlight the smaller work that goes into making PCSX2 a polished experience. Below are just a few among hundreds, and we're grateful for every single one.
+
+- [#12157](https://github.com/PCSX2/pcsx2/pull/12157) – Contributor Florin9doi adds support for the MemCard PRO2.
+- [#12494](https://github.com/PCSX2/pcsx2/pull/12494) – First-time contributor recursean adds a adds a nice improvement to the debugger which adds column titles to Disassembly view.
+- [#12593](https://github.com/PCSX2/pcsx2/pull/12593) – Contributor TheTechnician27 fixed an issue with global settings overriding per-game settings in terms of audio.
+- [#12545](https://github.com/PCSX2/pcsx2/pull/12545) – Contributor Mrlinkwii has updated the redump database used for verifying dumped disc integrity.
+- [#12568](https://github.com/PCSX2/pcsx2/pull/12568) – Contributor KamFretoZ added the ability to load backup savestate directly from the UI.
+- [#12448](https://github.com/PCSX2/pcsx2/pull/12448) – Contributor Ziemas made it so BIOS ROM can be read in the IOP debugger.
+- [#12069](https://github.com/PCSX2/pcsx2/pull/12069) – Fobes managed to fix the EE Cache to not crash when changing from interpreter to the recompiler.
+- [#12572](https://github.com/PCSX2/pcsx2/pull/12572) - Contributor TheLastRar has updated Big Picture Mode's UI icons to use SVG for better scaling at higher monitor resolution.
+- [#12302](https://github.com/PCSX2/pcsx2/pull/12302) – Thanks to TJnotJT for adding new GS dumping options to the Debug settings.
