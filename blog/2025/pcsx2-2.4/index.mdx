@@ -1,0 +1,72 @@
+---
+draft: false
+title: PCSX2 2.4.0 Changelog!
+tags:
+  - devblog
+date: 2024-05-07
+description: PCSX2 2.4 Release Post
+hide_table_of_contents: false
+authors:
+  - kamfretoz
+  - Mrlinkwii
+  - TheTechnician27
+---
+
+<head>
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+
+Welcome to the 2.4 blog post thias will look at teh changes this cycle 
+<!--truncate-->
+
+## Wayland by default
+
+<PCSX2PRLink authors="GovanifY" prNums="12333">
+  Qt: Fix and enable Wayland by default
+</PCSX2PRLink>
+
+Thanks to GovanifY and with upstream fixes provided by Qt 6.9, we have managed to get rid of the last remaning blockers for Wayland on Linux. And as such we have now decided to switch to Wayland by default on Linux!
+
+## Debugger Redesign
+
+<PCSX2PRLink authors="chaoticgd" prNums="12241">
+  Debugger: Redesign UI based on docking system
+</PCSX2PRLink>
+
+The debugger got a huge facelift and usability upgrade with the help of KDDockWidgets, massive thanks to ChaoticGD!
+
+You can now dock tabs around to your liking, as well as making your own custom layout. The sky is the limit! (Within reasons)
+
+<Image src={require("./img/Debugger.webp").default} />
+
+## Reduce number of copies for HDR
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="12254">
+  GS/HW: Reduce number of copies for HDR
+</PCSX2PRLink>
+
+A number of games also received quite a bit of speed boost thanks to Refraction's works on HDR (No, not _that_ HDR).
+
+<BarChart chartDataUrl={require("./charts/Chart-gameperf-pt1.yaml").default} />
+
+<PCSX2PRLink authors="TheTechnician27" prNums="12208">
+  Settings: Allow user to manually set RTC per-game
+</PCSX2PRLink>
+
+## Allow user to manually set RTC per-game
+
+The PlayStation 2 uses a real-time clock (RTC) to keep track of the date and time in the real world. Games often make use of the RTC in order to seed pseudorandom number generation (RNG) because of its high variability. Other small effects include the way save files are often marked in-game with the date and time they were last written to. However, some games do make use of the RTC in a way that's easily apparent to the user. Ratchet & Clank 2 and Ratchet & Clank 3 let you teleport to the post-game Insomniac Museum area from 03:00–04:00, bypassing completion checks. The Simpsons: Hit & Run, The Simpsons: Road Rage, SpongeBob SquarePants: Battle for Bikini Bottom, and Scooby-Doo!: Night of 100 Frights have holiday-exclusive Easter eggs. Need for Speed: Hot Pursuit 2 will display the date and time on a camera recording when you get busted. And Metal Gear Solid 3... if you know, you know. 
+Previously, when a user started a game on PCSX2, the RTC would be set to the date and time from the user's desktop. For input recordings which require perfect determinacy to function correctly, we instead used a fixed, arbitrary date and time after the release of Metal Gear Solid 3 (which crashes if the date is too old). With this new feature, you can now (if you want) manually select your own RTC starting point for each game in the per-game menu 'Game Properties > Emulation > Real-Time Clock'. This will have some niche benefits for regular users (especially diurnal Ratchet players and enjoyers of Hideo Kojima's antics), but with this, we've taken another step toward bringing PCSX2's TAS capabilities out of their infancy and toward something robust and usable.
+This currently requires you to have your BIOS set to GMT+0 and daylight savings time (DST) set to Summer Time (this is the default PCSX2 creates if no .nvm file exists). Additionally, it will only work within the bounds of 2000-01-01 at 00:00 and 2099-12-31 at 23:59, which is the range of an actual PlayStation 2.
+
+<Image src={require("./img/RTC.webp").default} />
+
+## SDL3
+
+Previously we were using SDL2, with the release of SDL3
+
+## _Everything is Tekken_
+
+## Align to Native - With Texture Offset
+
+Now that's a mouthful name
