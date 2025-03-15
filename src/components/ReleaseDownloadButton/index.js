@@ -6,6 +6,7 @@ import {
   DropdownItem,
   DropdownSection,
   DropdownMenu,
+  Link,
 } from "@heroui/react";
 import { BsWindows, BsApple } from "react-icons/bs";
 import { FaLinux } from "react-icons/fa";
@@ -110,10 +111,11 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
 
     items.push(
       <DropdownItem
+        href={asset.url}
         key={asset.url}
         description={release.version}
         startContent={getOSIcon(os, fillColor)}
-        css={{ transition: "none" }}
+        className="no-underline hover:no-underline text-white"
       >
         {displayName}
       </DropdownItem>,
