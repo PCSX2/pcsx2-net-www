@@ -48,7 +48,7 @@ const config = {
       swcJsMinimizer: true,
       swcHtmlMinimizer: true,
       lightningCssMinimizer: true,
-      rspackBundler: false, // TODO - figure out why only cloudflare pages for our project fails when this is on
+      rspackBundler: true,
       mdxCrossCompilerCache: true,
     },
   },
