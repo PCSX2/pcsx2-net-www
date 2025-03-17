@@ -115,7 +115,7 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
         key={asset.url}
         description={release.version}
         startContent={getOSIcon(os, fillColor)}
-        className="no-underline hover:no-underline text-white"
+        className="no-underline hover:no-underline dark:text-white text-black"
       >
         {displayName}
       </DropdownItem>,
