@@ -1,6 +1,6 @@
 data:
   - name: Sly 2, Basic Blending, 6x IR, Radeon RX 6600 XT (47% uplift)
-    "2.3.135": 85.3 
+    "2.3.135": 85.3
     "PR": 125.7
   - name: big mutha truckers, Basic Blending, 6x IR, Radeon RX 6600 XT (~162% uplift)
     "2.3.135": 54.9
