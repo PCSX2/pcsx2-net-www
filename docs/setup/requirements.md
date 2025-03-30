@@ -13,9 +13,9 @@ This section lists the system requirements to get PCSX2 up and running.
 ### Minimum
 
 - Operating system
-  - Windows 10 Version 1809 (64-bit)
+  - Windows 10 Version 21H2 LTSC / 22H2 (64-bit)
   - Ubuntu 22.04/Debian or newer, Arch Linux, or other distro (64-bit)
-  - macOS 11.0 (Big Sur)
+  - macOS 11 (Big Sur)
 - CPU
 
   - SSE4.1 support
@@ -33,7 +33,7 @@ This section lists the system requirements to get PCSX2 up and running.
   - Vulkan 1.1 support
   - [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating around 3000 (GeForce GTX 750, Radeon RX 560, Intel Arc A380)
     :::note
-    Recommended GPU is based on 3x internal, ~1080p resolution requirements. Higher resolutions will require stronger cards; 6x internal, ~4K resolution will require a [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating around 12000 (GeForce GTX 1070 Ti).
+    Recommended GPU is based on 3x internal, ~1080p resolution requirements.
     :::
   - Just like CPU requirements, this is also highly game dependent.
     - A quick reference for GPU **intensive games**: [Wiki](https://wiki.pcsx2.net/Category:GPU_intensive_games)
@@ -44,15 +44,15 @@ This section lists the system requirements to get PCSX2 up and running.
 ### Recommended
 
 - Operating system
-  - Windows 10 Version 22H2 (64-bit)
-  - Ubuntu 24.04/Debian or newer, Arch Linux, or other distro (64-bit)
-  - macOS 11.0 (Big Sur)
+  - Windows 11
+  - Ubuntu 25.04/Debian or newer, Arch Linux, or other distro (64-bit)
+  - macOS 15 (Sequoia)
 - CPU
   - AVX2 support
   - [PassMark single thread performance](https://www.cpubenchmark.net/singleThread.html) rating near or greater than 2000
   - Four physical cores, with or without simultaneous multithreading (SMT)
 - GPU
-  - Direct3D 12 support
+  - Direct3D 12 (Feature Level 11.0) support
   - OpenGL 4.6 support
   - Vulkan 1.3 support
   - Metal support
@@ -64,20 +64,20 @@ This section lists the system requirements to get PCSX2 up and running.
 ### Heavy
 
 - Operating System
-  - Windows 10 Version 22H2 (64-bit)
-  - Ubuntu 24.04/Debian or newer, Arch Linux, or other distro (64-bit)
-  - macOS 11.0 (Big Sur)
+  - Windows 11
+  - Ubuntu 25.04/Debian or newer, Arch Linux, or other distro (64-bit)
+  - macOS 15 (Sequoia)
 - CPU
   - AVX2 support
   - [PassMark single thread performance](https://www.cpubenchmark.net/singleThread.html) rating near or greater than 2600
   - Six physical cores, with simultaneous multithreading (SMT)
 - GPU
-  - Direct3D 12 support
+  - Direct3D 12 (Feature Level 11.0) support
   - OpenGL 4.6 support
   - Vulkan 1.3 support
   - Metal support
-  - [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating around 12,000 (GeForce RTX 3050, Radeon RX 5600XT)
-  - 4 GB video memory
+  - [PassMark G3D Mark](https://www.videocardbenchmark.net/high_end_gpus.html) rating around 12,000 (GeForce RTX 3050 8GB, Radeon RX 5600XT)
+  - 8 GB video memory
 - RAM
   - 16 GB system memory
 
@@ -85,4 +85,5 @@ This section lists the system requirements to get PCSX2 up and running.
 
 - Windows XP and Direct3D 9 support was dropped after stable release 1.4.0.
 - Windows 7, Windows 8.0, and Windows 8.1 support was dropped after stable release 1.6.0.
+- Windows 10 21H1 and earlier support was dropped after stable release 2.4.0.
 - 32-bit support was dropped after stable release 1.6.0.
