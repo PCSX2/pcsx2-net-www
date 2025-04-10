@@ -20,6 +20,7 @@ Parameter list:
   -version: Displays version information and exits.
   -batch: Enables batch mode (exits after shutting down).
   -nogui: Hides main window while running (implies batch mode).
+  -portable: Force enable portable mode to store data in local PCSX2 path instead of the default configuration path.
   -elf <file>: Overrides the boot ELF with the specified filename.
   -gameargs <string>: passes the specified quoted space-delimited string of launch arguments.
   -disc <path>: Uses the specified host DVD drive as a source.
