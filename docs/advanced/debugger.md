@@ -79,8 +79,8 @@ The following symbol table formats are supported:
 | Section             | Description                                                                                                                                                  | Supported Since Version |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
 | `.symtab`/`.strtab` | Standard ELF symbol table. Contains information about functions and global variables.                                                                        |                         |
-| `.mdebug`           | MIPS symbol table. Contains information about functions, global variables, data types, and more.                                                             | v2.3.251                |
-| `.sndata`           | SNDLL symbol table. Contains information about functions and global variables. These can also be loaded from SNDLL files (which start with the bytes `SNR`). | v2.3.251                |
+| `.mdebug`           | MIPS symbol table. Contains information about functions, global variables, data types, and more.                                                             | v2.1.113                |
+| `.sndata`           | SNDLL symbol table. Contains information about functions and global variables. These can also be loaded from SNDLL files (which start with the bytes `SNR`). | v2.1.113                |
 
 DWARF symbol tables are currently not supported.
 
