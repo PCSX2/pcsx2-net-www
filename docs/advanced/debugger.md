@@ -20,9 +20,9 @@ _Since v2.3.213._
 
 You can create your own layouts by clicking the `+` button to the right of the layout tabs, and then you can cutomize them by adding/removing dock windows using a `Windows` menu. To move dock windows, you must unlock the layout using the toggle button in the top right corner of the debugger window. If you accidentally make a mess and want to restore the original layouts, you can use the `Layouts -> Reset Default Layouts` option or the `Layouts -> Reset All Layouts` option.
 
-Each layout has a target associated, which specifies the processor the layout will be used to debug. Dock windows will inherit the target from the layout that contains them by default, however this can be overriden for a given dock window by right-clicking on its tab and selecting `Set Target`.
+Each layout has a target associated with it, which specifies the processor the layout will be used to debug. Dock windows will inherit the target from the layout that contains them by default, however this can be overriden for a given dock window by right-clicking on its tab and selecting `Set Target`.
 
-It is possible to open multiple dock windows of the same type using the `Windows -> Add Another...` menu. You will then get options to select which dock window you want to use in various context menus. When responding to a click, the dock window marked as primary will always be used. You can make a given dock window the the primary one by right-clicking on its tab and checking the `Primary` checkbox.
+It is possible to open multiple dock windows of the same type using the `Windows -> Add Another...` menu. You will then get options to select which dock window you want to use in various context menus. When responding to a click, the dock window marked as primary will always be used. You can make a given dock window the primary one by right-clicking on its tab and checking the `Primary` checkbox.
 
 ## Disassembly
 
@@ -79,8 +79,8 @@ The following symbol table formats are supported:
 | Section             | Description                                                                                                                                                  | Supported Since Version |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
 | `.symtab`/`.strtab` | Standard ELF symbol table. Contains information about functions and global variables.                                                                        |                         |
-| `.mdebug`           | MIPS symbol table. Contains information about functions, global variables, data types, and more.                                                             | v2.3.251                |
-| `.sndata`           | SNDLL symbol table. Contains information about functions and global variables. These can also be loaded from SNDLL files (which start with the bytes `SNR`). | v2.3.251                |
+| `.mdebug`           | MIPS symbol table. Contains information about functions, global variables, data types, and more.                                                             | v2.1.113                |
+| `.sndata`           | SNDLL symbol table. Contains information about functions and global variables. These can also be loaded from SNDLL files (which start with the bytes `SNR`). | v2.1.113                |
 
 DWARF symbol tables are currently not supported.
 
