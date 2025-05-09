@@ -101,16 +101,6 @@ This allows you to take advantage DualShock 3's pressure sensitive face button o
 4. Enable the XInput source in PCSX2.
 5. Use "Automatic Binding" button and select XInput.
 
-### Linux and Mac (Experimental)
-
-The auto binding system doesn't fully support it, but the backend does.
-
-- Bind all your keys, then close PCSX2 and edit the `PCSX2.ini` file to delete all the buttons and change all the axes from `-Axis##` or `+Axis##` to `FullAxis##`
-
-:::caution
-On Linux, [you may need to add udev rules to give PCSX2 access to the controller](https://wiki.rpcs3.net/index.php?title=Help:Controller_Configuration#On_Linux).
-:::
-
 ## Multitap
 
 Multitaps are physical devices sold separately for the Playstation 2. A multitap fills both a controller and memory card port, and expands those out to four controller and memory card slots each.
