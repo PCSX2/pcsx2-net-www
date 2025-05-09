@@ -274,7 +274,7 @@ const config = {
               },
               {
                 label: "Wiki",
-                href: "https://forums.pcsx2.net/",
+                href: "https://wiki.pcsx2.net/",
               },
               {
                 label: "Status",
