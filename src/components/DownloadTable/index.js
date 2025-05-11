@@ -25,12 +25,19 @@ export function DownloadTable({
   const [tableLoadingState, setTableLoadingState] = useState("idle");
   const [tablePage, setTablePage] = useState(1);
   const [selectedVersion, setSelectedVersion] = useState(undefined);
+  const [totalPages, setTotalPages] = useState(0);
 
   const rowsPerPage = 10;
 
   useEffect(() => {
     setTableData(initialTableData);
   }, [initialTableData]);
+
+  useEffect(() => {
+    if (tableData?.pageInfo?.total && pageSize) {
+      setTotalPages(Math.ceil(tableData.pageInfo.total / pageSize));
+    }
+  }, [tableData, pageSize]);
 
   const tableRows = React.useMemo(() => {
     const start = (tablePage - 1) * rowsPerPage;
@@ -65,7 +72,7 @@ export function DownloadTable({
                 showControls
                 showShadow
                 page={tablePage}
-                total={Math.ceil(tableData?.pageInfo?.total / pageSize)}
+                total={totalPages}
                 onChange={async (page) => {
                   setTableLoadingState("loadingMore");
                   page = page - 1;
