@@ -9,6 +9,7 @@ import Head from "@docusaurus/Head";
 import ReactMarkdown from "react-markdown";
 import { GoogleAd } from "../../components/GoogleAd";
 import useIsBrowser from "@docusaurus/useIsBrowser";
+import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
 
 const releaseTableColumns = [
   {
@@ -132,6 +133,9 @@ export default function Downloads() {
     fetchLatestReleases();
   }, []);
 
+  if (!ExecutionEnvironment.canUseDOM) {
+    return <></>;
+  }
   return (
     <Layout
       title="Downloads"
@@ -223,6 +227,11 @@ export default function Downloads() {
                   <div className="flex items-center font-bold">
                     <Switch
                       color="primary"
+                      defaultSelected={
+                        window.localStorage.getItem(
+                          "downloads-showPreviousStables",
+                        ) === "true"
+                      }
                       checked={showPreviousStables}
                       onChange={(e) => {
                         setShowPreviousStables(e.target.checked);
@@ -323,6 +332,11 @@ export default function Downloads() {
                   <div className="flex items-center font-bold">
                     <Switch
                       color="warning"
+                      defaultSelected={
+                        window.localStorage.getItem(
+                          "downloads-showPreviousNightlies",
+                        ) === "true"
+                      }
                       checked={showPreviousNightlies}
                       onChange={(e) => {
                         setShowPreviousNightlies(e.target.checked);
