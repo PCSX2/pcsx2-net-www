@@ -1,6 +1,5 @@
 ---
 title: "Performance Issues"
-date: 2024-03-20
 summary: "Steps on how to diagnose performance bottlenecks in PCSX2"
 draft: false
 toc: true
@@ -119,6 +118,7 @@ CS      = EE Cycle Skip
 FCDVD   = Fast CDVD Enabled
 IVU     = Instant VU1 Enabled
 MTVU    = Multi-Threaded VU1 Enabled
+VSYNC   = VSync
 EER     = EE FPU Rounding Mode
 EEC     = EE FPU Clamping Mode
 VUR     = VU Rounding Mode
@@ -129,18 +129,37 @@ IR      = Upscale Multiplier/Internal Resolution
 B       = Accurate Blending Unit
 PL      = Texture Preloading
 PT      = GPU Palette Conversion
+DL      = Hardware Download Mode
 MM      = Hardware Mipmapping
 BF      = Bilinear Filtering
 TF      = Trilinear Filtering
 AF      = Anisotropic Filtering
 DI      = Dithering
-CRC     = CRC Fix Level
-HBO     = Half-Bottom Override
 HPO     = Half-Pixel Offset
 RS      = Round Sprite
+NS      = Native Scaling
 TCO     = Texture Offsets
 CSBW    = CPU Sprite Render BW
+CCLUT   = Software CLUT Render
+GCLUT   = GPU Target CLUT
 SD      = Skip Draw
+TexRT   = Texture Inside RT (Render Target)
+BLU     = Bilinear Dirty Upscale
+FESP    = Force Even Sprite Position
+NPD     = Native Palette Draw
+MS      = Merge Sprite
+AS      = Align Sprite
+ATFL    = Auto Flush
+FBC     = Framebuffer Conversion
+FTC     = Read Targets When Closing
+DDC     = Disable Depth Conversion
+DPIV    = Disable Partial Source Invalidation
+DSF     = Disable Safe Features
+DRF     = Disable Render Fixes
+PLFD    = Preload Frame Data
+ETR     = Estimate Texture Region
+RBSG    = Spin GPU During Readbacks
+RBSC    = Spin CPU During Readbacks
 ```
 
 ## Consistently low or unstable FPS

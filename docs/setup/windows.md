@@ -1,6 +1,5 @@
 ---
 title: "Windows Setup"
-date: 2024-03-20
 summary: "Steps on how to install and run PCSX2 on Windows"
 draft: false
 toc: true
@@ -54,5 +53,5 @@ Make sure to install all the required software first before proceeding with the 
 ## Build from source (Advanced users)
 
 :::tip
-For details on building PCSX2 from source, check out our [GitHub Wiki](https://github.com/PCSX2/pcsx2/wiki/12-Building-on-Windows).
+For details on building PCSX2 from source, check out the [Building PCSX2 page](../advanced/building.md#building-on-windows)
 :::

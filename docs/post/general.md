@@ -1,6 +1,5 @@
 ---
 title: "General Information"
-date: 2024-03-20
 summary: "General information in regards to PCSX2 features"
 draft: false
 toc: true

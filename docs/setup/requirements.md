@@ -1,6 +1,5 @@
 ---
 title: "Requirements"
-date: 2024-03-20
 summary: "System requirements to get PCSX2 up and running."
 draft: false
 toc: true

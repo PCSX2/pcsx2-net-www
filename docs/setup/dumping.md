@@ -1,6 +1,5 @@
 ---
 title: "Dumping Discs"
-date: 2024-03-20
 summary: "Steps on how to dump your PS2 discs"
 draft: false
 toc: true
