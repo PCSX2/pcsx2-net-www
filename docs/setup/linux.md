@@ -1,6 +1,5 @@
 ---
 title: "Linux Setup"
-date: 2024-03-20
 summary: "Steps on how to install and run PCSX2 on Linux"
 draft: false
 toc: true
@@ -59,5 +58,5 @@ The Flatpak is also available for [direct download](https://pcsx2.net/downloads)
 ## Build from source (Advanced users)
 
 :::tip
-For details on building PCSX2 from source, check out our [GitHub Wiki](https://github.com/PCSX2/pcsx2/wiki/10-Building-on-Linux).
+For details on building PCSX2 from source, check out the [Building PCSX2 page](../advanced/building.md#building-on-linux)
 :::

@@ -1,10 +1,9 @@
 ---
 title: "Linux"
-date: 2024-03-20
 summary: "Known Linux-specific issues for PCSX2"
 draft: false
 toc: true
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 Here are some known Linux-specific issue that can occur.
@@ -24,3 +23,7 @@ Then you need to install `libfuse2` in order to the run the AppImage in your env
 ```bash
 sudo apt install libfuse2
 ```
+
+:::tip
+This is no longer relevant since PCSX2 v2.1.72 we've now switched to `go-appimage` which supports `libfuse3`.
+:::

@@ -1,6 +1,5 @@
 ---
 title: "Controllers"
-date: 2024-03-20
 summary: "Controller Setup Guide"
 draft: false
 toc: true
@@ -59,6 +58,8 @@ Only use if you are having issues with SDL or XInput.
 
 To start mapping your controller, you can first check if your controller is available for automatic mapping by clicking on the "Automatic Mapping" button on the top right. If automatic mapping is not available, you will have to map the buttons to your controller manually.
 
+To manually map a controller, first click on the button you want to map on the virtual controller and then press the corresponding button on your actual controller that you want to bind with the virtual controller. You'll have to do this manually one by one for each button.
+
 :::caution
 Automatic Mapping is not available for controllers using the DInput source.
 
@@ -88,7 +89,7 @@ Only the original DualShock 3 OEM controllers are compatible with pressure sensi
 :::
 
 :::info
-“DsHidMini is a self-contained, low footprint and feature-rich user-mode driver for Microsoft Windows 10. It presents the controller as a configurable variety of fully standard-compliant HID devices to the system and all games built on common APIs like DirectInput, Raw Input and the low-level HID API. Optional XInput-emulation further increases the support in modern games built with only Xbox controllers in mind.”
+DsHidMini is a self-contained, low footprint and feature-rich user-mode driver for Microsoft Windows 10 and Windows 11. It presents the controller as a configurable variety of fully standard-compliant HID devices to the system and all games built on common APIs like DirectInput, Raw Input and the low-level HID API. Optional XInput-emulation further increases the support in modern games built with only Xbox controllers in mind.
 :::
 
 This allows you to take advantage DualShock 3's pressure sensitive face button on PCSX2.
@@ -101,17 +102,29 @@ This allows you to take advantage DualShock 3's pressure sensitive face button o
 4. Enable the XInput source in PCSX2.
 5. Use "Automatic Binding" button and select XInput.
 
-### Linux and Mac (Experimental)
+## Custom profile
 
-The auto binding system doesn't fully support it, but the backend does.
+### What is the purpose of a controller profile?
 
-- Bind all your keys, then close PCSX2 and edit the `PCSX2.ini` file to delete all the buttons and change all the axes from `-Axis##` or `+Axis##` to `FullAxis##`
+Custom profiles are intended for overriding your normal Shared mappings. You use profiles when you want a completely different controller setup for a specific game. For example, you may create a profile for games which use a guitar controller, rather than changing your mappings every time you play that one game. If you aren't trying to make a special setup for one specific game, don't use profiles.
 
-:::caution
-On Linux, [you may need to add udev rules to give PCSX2 access to the controller](https://wiki.rpcs3.net/index.php?title=Help:Controller_Configuration#On_Linux).
-:::
+### Why isn't my game recognizing my profile?
 
-## Multitap
+The Shared profile is what you start out with and is what all games default to, unless told otherwise. When creating a profile, the name prompt tells you to change the input profile in your per-game settings.
+
+If you want to use a custom profile for a specific game, then you need to assign it to the game. You can find this option on the per-game setting's Summary tab. Right click it in your games list, hit Properties, then select the appropriate item under Input Profile.
+
+### I am trying to map multiple PC devices to a single PS2 controller
+
+Profiles do not do this. To map multiple PC devices to a single PS2 controller, simply shift-click a mapping button. You will be given a screen with the ability to add a mapping from a second device (or more).
+
+### I am trying to change my mappings between two layouts while I play the game
+
+This is not and will not be a supported feature in PCSX2. Use external software to do this.
+
+## Peripherals & Accessory
+
+### Multitap
 
 Multitaps are physical devices sold separately for the Playstation 2. A multitap fills both a controller and memory card port, and expands those out to four controller and memory card slots each.
 
@@ -124,8 +137,6 @@ For games which support more than two players, a multitap is required to connect
 For example, enabling multitap in port 1 will add controllers 1-A through 1-D. The A slot will always be the "original" controller port, with the B-D slots being the additional slots added.
 
 The Playstation 2 SDK places no restrictions on how games use a multitap. Some games will ignore multitapped controllers if you do not multitap a specific port or use specific slots. You will need to refer to your game's manual to understand which port the game supports multitaps for, and in what order a game expects multitapped controllers to be added.
-
-## Peripherals & Accessory
 
 ### Wheel compatibility
 
@@ -155,26 +166,6 @@ If your Buzz controllers do not appear in the list of available devices in PCSX2
 5. Click OK, and exit out of Device Manager.
 
 Your Buzz controller should now be detected by PCSX2. You may need to close and reopen PCSX2 if it is not immediately available.
-
-## Custom profile
-
-### What is the purpose of a controller profile?
-
-Custom profiles are intended for overriding your normal Shared mappings. You use profiles when you want a completely different controller setup for a specific game. For example, you may create a profile for games which use a guitar controller, rather than changing your mappings every time you play that one game. If you aren't trying to make a special setup for one specific game, don't use profiles.
-
-### Why isn't my game recognizing my profile?
-
-The Shared profile is what you start out with and is what all games default to, unless told otherwise. When creating a profile, the name prompt tells you to change the input profile in your per-game settings.
-
-If you want to use a custom profile for a specific game, then you need to assign it to the game. You can find this option on the per-game setting's summary tab, Right click it in your games list, hit Properties, then select the appropriate item under Input Profile.
-
-### I am trying to map multiple PC devices to a single PS2 controller
-
-Profiles do not do this. To map multiple PC devices to a single PS2 controller, simply shift-click a mapping button. You will be given a screen with the ability to add a mapping from a second device (or more).
-
-### I am trying to change my mappings between two layouts while I play the game
-
-This is not and will not be a supported feature in PCSX2. Use external software to do this.
 
 ## Known Issues
 
