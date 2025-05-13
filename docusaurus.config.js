@@ -278,7 +278,7 @@ const config = {
               },
               {
                 label: "Status",
-                href: "https://stats.uptimerobot.com/GAg8AuBByx",
+                href: "https://stats.uptimerobot.com/LWxk2iJ25F",
               },
             ],
           },
