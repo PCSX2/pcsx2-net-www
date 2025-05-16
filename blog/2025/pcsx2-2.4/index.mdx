@@ -1,0 +1,85 @@
+---
+draft: false
+title: PCSX2 2.4.0 Changelog!
+tags:
+  - devblog
+date: 2025-05-25
+description: PCSX2 2.4 Release Post
+hide_table_of_contents: false
+authors:
+  - kamfretoz
+  - link
+  - tech
+---
+
+<head>
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+
+Welcome to the 2.4 blog post thias will look at teh changes this cycle
+
+<!--truncate-->
+
+## Wayland by default
+
+<PCSX2PRLink authors="GovanifY" prNums="12333">
+  Qt: Fix and enable Wayland by default
+</PCSX2PRLink>
+
+In the Linux world, the last remaining hurdles to PCSX2 running on Wayland by default are finally gone! Thanks to upstream fixes in Qt 6.9 and some clever work by GovanifY, the `I_WANT_A_BROKEN_WAYLAND_UI` flag is history! This does not mean that no Wayland-specific bugs exist, but it means we've failed to find any we consider showstoppers. If your desktop environment uses X11, nothing will change, and we'll continue accepting reports for X11-specific bugs for the foreseeable future. If you find a Wayland-specific bug, the `QT_QPA_PLATFORM=xcb` environment variable can take you back to X11 while we work to fix it.
+
+## Debugger Redesign
+
+<PCSX2PRLink authors="chaoticgd" prNums="12241">
+  Debugger: Redesign UI based on docking system
+</PCSX2PRLink>
+
+The debugger got a huge facelift and usability upgrade with the help of KDDockWidgets, massive thanks to ChaoticGD!
+
+You can now dock tabs around to your liking, as well as making your own custom layout. The sky is the limit! (Within reasons)
+
+<Image src={require("./img/Debugger.webp").default} />
+
+## Reduce number of copies for HDR
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="12254">
+  GS/HW: Reduce number of copies for HDR
+</PCSX2PRLink>
+
+A number of games also received quite a bit of speed boost thanks to Refraction's works on HDR (No, not _that_ HDR).
+
+<BarChart chartDataUrl={require("./charts/Chart-gameperf-pt1.yaml").default} />
+
+<PCSX2PRLink authors="TheTechnician27" prNums="12208">
+  Settings: Allow user to manually set RTC per-game
+</PCSX2PRLink>
+
+## Allow user to manually set RTC per-game
+
+The PlayStation 2 uses a real-time clock (RTC) to keep track of the date and time in the real world. Games often use the RTC in order to seed pseudorandom number generation (RNG) because of its high variability. Additionally, save files show a timestamp in the BIOS, and these timestamps are sometimes shown in-game too. However, some games use the RTC in a more interactive way. Ratchet & Clank 2 and Ratchet & Clank 3 let you teleport to the post-game Insomniac Museum area from 03:00–04:00, bypassing completion checks. The Simpsons: Hit & Run, The Simpsons: Road Rage, SpongeBob SquarePants: Battle for Bikini Bottom, and Scooby-Doo!: Night of 100 Frights have holiday-exclusive Easter eggs. Need for Speed: Hot Pursuit 2 displays the date and time on a camera recording when you get busted. And Metal Gear Solid 3... if you know, you know.
+
+By default, when a user starts a game, PCSX2 sets the RTC to the date and time from the user's desktop. For input recordings which require perfect determinacy to function correctly, we instead used a fixed, arbitrary date and time after the release of Metal Gear Solid 3 (which crashes if the date is too old). With the introduction of RTC settings, you can now (if you want) manually select your own RTC starting point in the per-game settings ('Game Properties > Emulation > Real-Time Clock'). This provides niche benefits for regular users (especially Ratchet players and enjoyers of Hideo Kojima's antics), and it brings PCSX2 closer to having a mature suite of tool-assisted speedrun (TAS) capabilities.
+
+This currently requires you to have your BIOS set to GMT+0 and daylight savings time (DST) set to Summer Time (this is the default PCSX2 creates if no .nvm file exists). Additionally, it will only work within the bounds of 2000-01-01 at 00:00 and 2099-12-31 at 23:59, which is the range of an actual PlayStation 2.
+
+<Image src={require("./img/RTC.webp").default} />
+
+## Implement RT in RT support
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="11461">
+  GS/HW: Implement RT in RT support
+</PCSX2PRLink>
+
+This implements support for render target inside render target draws and shuffles, where games point to an offset inside a previously drawn target, usually to update single pages, or offset half way through a picture within the hardware renderer , in which fixed numours games which have been historically broken within PCSX2 . Games such as Hitman - Contracts , SWAT Global Strike Team, Delta Force - Black Hawk Down and Drakengard.
+
+<SliderCompare
+  before={require("./img/comparisons/hitman_before.webp").default}
+  after={require("./img/comparisons/hitman_after.webp").default}
+  alt="Hitman - Contracts Comparison"
+/>
+
+<SliderCompare
+  before={require("./img/comparisons/Drakengard_before.webp").default}
+  after={require("./img/comparisons/Drakengard_after.webp").default}
+  alt="Drakengard Comparison"
+/>
