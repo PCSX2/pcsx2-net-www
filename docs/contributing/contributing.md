@@ -13,7 +13,7 @@ As a first step, please review these links as they'll help you understand how th
 - [Just Starting Out](#just-starting-out)
 - [Pull Request Guidelines](#pull-request-guidelines)
 - [General Documentation And Coding Strategies](#general-documentation-and-coding-strategies)
-- [Tasks](#tasks)
+- [Other Alternatives for Contributing](#other-alternatives-for-contributing)
 
 ## Just Starting Out
 
@@ -55,7 +55,12 @@ The following is a list of _general_ style recommendations that will make review
 - [Coding style](./formatting.md)
   - [More comprehensive style-guide](./advanced_formatting.md)
 
-## Tasks
+## Other Alternatives for Contributing
 
-- [Issues](https://github.com/PCSX2/pcsx2/issues)
+If you have no experience in programming or just want to help us in any shape or form, here is what you can do:
+
+- If you find application or emulation bugs, feel free to [report an issue on our GitHub](https://github.com/PCSX2/pcsx2/issues)
+- If you have a knack for writing articles or testing games in general, we are always looking for help!
+  - Please join our [Discord](https://pcsx2.net/discord) if you are interested!
+- A game runs well or has a weird workaround? Head over to [the Wiki](https://wiki.pcsx2.net/Main_Page) and let us know on [Discord](https://pcsx2.net/discord)!
 - Want to help translating PCSX2 to your language? Head over to [Crowdin](https://crowdin.com/project/pcsx2-emulator) and start right away!

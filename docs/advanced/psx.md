@@ -11,6 +11,10 @@ sidebar_position: 4
 :::caution
 PCSX2 can run some PSX (PS1) games but this feature is **highly experimental and not intended for general use**. Expect plenty of visual bugs, hangs and low compatibility in general.
 
+- We **DO NOT** accept Github issues for PSX games.
+- We **DO NOT** provide support for PSX games.
+- PSX mode is provided **AS-IS** for the purposes of research and testing.
+
 Instead, please consider using one of the many PSX emulators that already exist. We recommend [DuckStation](https://github.com/stenzek/duckstation/releases/tag/latest).
 :::
 
