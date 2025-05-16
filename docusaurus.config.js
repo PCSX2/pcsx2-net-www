@@ -326,7 +326,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} PCSX2. All Rights Reserved.`,
+        copyright: `Copyright © ${new Date().getFullYear()} PCSX2.`,
       },
       prism: {
         theme: lightCodeTheme,
