@@ -1,7 +1,7 @@
 ---
 title: "Debugger"
 description: "Inspect and modify the state of the program running in the virtual machine."
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 You can inspect and modify the state of the program running in the virtual machine using the debugger window. This can be useful for developing patches, fixing bugs, and reverse engineering games.

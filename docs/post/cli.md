@@ -1,10 +1,9 @@
 ---
 title: "Command Line Options"
-date: 2024-03-20
 summary: "List of CLI Commands that are available for PCSX2"
 draft: false
 toc: true
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 This section list all the command line option that are available for PCSX2.
@@ -20,6 +19,7 @@ Parameter list:
   -version: Displays version information and exits.
   -batch: Enables batch mode (exits after shutting down).
   -nogui: Hides main window while running (implies batch mode).
+  -portable: Force enable portable mode to store data in local PCSX2 path instead of the default configuration path.
   -elf <file>: Overrides the boot ELF with the specified filename.
   -gameargs <string>: passes the specified quoted space-delimited string of launch arguments.
   -disc <path>: Uses the specified host DVD drive as a source.

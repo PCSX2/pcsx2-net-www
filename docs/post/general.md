@@ -1,6 +1,5 @@
 ---
 title: "General Information"
-date: 2024-03-20
 summary: "General information in regards to PCSX2 features"
 draft: false
 toc: true
@@ -69,7 +68,8 @@ Go to `Settings > Game Properties`
 
 Portable mode allows you to confine all of PCSX2's related data and configuration into its own folder instead of using the user's Documents folder, essentially making it "Portable".
 
-- To enable portable mode, simply create an empty `portable.ini` file in the root directory of your PCSX2 folder.
+- To enable portable mode, simply create an empty `portable.ini` file in the root directory of your PCSX2 folder
+- You can also pass in `-portable` as a launch argument to force PCSX2 to run in portable mode
 
 ## Save States
 
@@ -136,19 +136,3 @@ Gran Turismo 4 only keeps partial information about your garage in RAM at any ti
 #### How do I fix this?
 
 If you encounter a rewind condition and the game no longer recognizes your memory card, you have no choice but to boot the game again. Do not load a savestate. Let the game boot and load normally from your memory card.
-
-## PSX (PS1) Compatibility
-
-PCSX2 can run some PSX (PS1) games but this feature is highly experimental and not intended for general use. Expect plenty of visual bugs, hangs and low compatibility in general.
-
-Instead, please consider using one of the many PSX emulators that already exist. We suggest [DuckStation](https://github.com/stenzek/duckstation/releases/tag/latest)
-
-:::warning
-
-- We **DO NOT** accept Github issues for PSX games.
-- We **DO NOT** provide support for PSX games.
-- PSX mode is provided **AS-IS** for the purposes of research and testing.
-
-:::
-
-If you have read the above warning and are interested in trying PSX games anyway, please refer to the [following thread](https://forums.pcsx2.net/Thread-PSX-Mode-Unofficial-Compatibility-List)
