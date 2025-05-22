@@ -1,6 +1,5 @@
 ---
 title: "Dumping BIOS"
-date: 2024-03-20
 summary: "Steps on how to gather required files for you to be able to use PCSX2"
 draft: false
 toc: true

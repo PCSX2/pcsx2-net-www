@@ -1,6 +1,5 @@
 ---
 title: "General Issues"
-date: 2024-03-20
 summary: "Common issues that may occur when using PCSX2."
 draft: false
 toc: true
@@ -46,7 +45,8 @@ If you are using a distro which is not based on Ubuntu, it is recommended that y
 
 If your game is not working or you are still having issues, there are a few things you can do:
 
+- Check the [Reporting for issues](./identify.md) page to find out how to report for issues.
 - Check the [compatibility page](/compat) to see if the game has been tested to run properly.
 - Consult the [wiki page](https://wiki.pcsx2.net) for the game for similar information.
-- Check the [GitHub issues page](https://github.com/PCSX2/pcsx2/issues) to see if there are any reported issues.
 - Join our [Discord server](https://discord.com/invite/TCz3t9k) for futher assistance.
+- Check the [GitHub issues page](https://github.com/PCSX2/pcsx2/issues) to see if there are any reported issues.

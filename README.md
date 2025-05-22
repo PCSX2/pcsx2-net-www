@@ -2,13 +2,14 @@
 
 The main PCSX2 website is a statically generated website, leveraging [Docusaurus](https://docusaurus.io/docs).
 
-- [Setup](#setup)
-  - [Windows](#windows)
-  - [Linux](#linux)
-- [Developing](#developing)
-  - [Making a new Article](#making-a-new-article)
-    - [Caveats if Migrating a Legacy Article](#caveats-if-migrating-a-legacy-article)
-  - [Builtin Component Documentation](#builtin-component-documentation)
+- [PCSX2 Website](#pcsx2-website)
+  - [Setup](#setup)
+    - [Windows](#windows)
+    - [Linux](#linux)
+  - [Developing](#developing)
+    - [Making a new Article](#making-a-new-article)
+      - [Caveats if Migrating a Legacy Article](#caveats-if-migrating-a-legacy-article)
+    - [Builtin Component Documentation](#builtin-component-documentation)
 
 ## Setup
 
@@ -23,9 +24,7 @@ scoop install git nodejs
 npm install --global yarn
 ```
 
-Navigate to your local git repository for the site and use the below to start the server.
-
-To start the server you will need to be in your Github repository that contains the `package.json`.
+To start the server you will need to be in your Github repository that contains the `package.json`. Use this command to start the server:
 
 ```bash
 yarn start # alternatively, you can use `npm run start`
@@ -35,7 +34,39 @@ Browse to http://localhost:8080/
 
 ### Linux
 
-TODO - but very similar just using your package manager of choice
+You need to install NodeJS using your package manager, here are a few examples:
+
+Ubuntu:
+
+```sh
+sudo apt-get install nodejs
+```
+
+Fedora:
+
+```sh
+sudo dnf install nodejs
+```
+
+Arch Linux:
+
+```sh
+sudo pacman -Syu nodejs
+```
+
+Now you can install `yarn` via NPM (Make sure you have installed NodeJS first):
+
+```sh
+npm install --global yarn
+```
+
+To start the server you will need to be in your Github repository that contains the `package.json`. Use this command to start the server:
+
+```bash
+yarn start # alternatively, you can use `npm run start`
+```
+
+Browse to http://localhost:8080/
 
 ## Developing
 

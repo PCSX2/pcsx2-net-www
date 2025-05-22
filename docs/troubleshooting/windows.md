@@ -1,10 +1,9 @@
 ---
 title: "Windows"
-date: 2024-03-20
 summary: "Known Windows-specific issues for PCSX2"
 draft: false
 toc: true
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 Here are some known Windows-specific issue that can occur.
