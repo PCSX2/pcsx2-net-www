@@ -369,7 +369,7 @@ export default function Home() {
                 features like:
                 <ul className="list-disc ml-5">
                   <li>Custom resolutions and upscaling</li>
-                  <li>Virtual and sharable memory cards</li>
+                  <li>Virtual and shareable memory cards</li>
                   <li>Save-states</li>
                   <li>Patching system</li>
                   <li>Internal recorder for lossless quality at full speed</li>
