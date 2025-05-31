@@ -423,3 +423,32 @@ table td {
   right: 1rem;
   z-index: 2;
 }
+
+/* Fix author name vertical alignment next to avatar image in Docusaurus blog posts */
+
+.avatar {
+  display: flex;
+  align-items: center;  /* Will vertically centers avatar image and text */
+  gap: 0.75rem;         /* Will horizontal spacing between image and text */
+}
+
+.avatar__intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* This will vertically center name and details within intro of authors */
+  margin-left: 0;           /* If you reset default then the left margin will rely on gap */
+}
+
+.avatar__name {
+  margin-top: 0;
+  margin-bottom: 0;
+  /* Optional: tweak line-height if needed in the future */
+  /* line-height: 1.3 keep this in mind for default; */
+}
+
+.avatar__details {
+  margin-top: 0.125rem;
+  margin-bottom: 0;
+}
+
+
