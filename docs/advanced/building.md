@@ -189,7 +189,11 @@ build/bin/pcsx2-qt
 
 ### Building on an Intel Mac
 
-Build the dependencies using the CI's build script: `.github/workflows/scripts/macos/build-dependencies.sh deps` (this will build the dependencies into the directory `deps`). If you want to use a package manager, you can look at the install script to see the required dependencies. Note that we patch extra features into `libshaderc`, so you will need to compile that one yourself, as the package manager's version will not work.
+Build the dependencies using the CI's build script: `.github/workflows/scripts/macos/build-dependencies.sh deps` (this will build the dependencies into the directory `deps`). If you want to use a package manager, you can look at the install script to see the required dependencies.
+
+:::caution
+You will need to have Xcode installed to use our CI's build script.
+:::
 
 You can set the environment variable `BUILD_FFMPEG=0` to tell the dependency build script to build all the dependencies except ffmpeg, allowing you to use your homebrew or macports-installed ffmpeg, which probably has more features enabled than the build script's.
 
