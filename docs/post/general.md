@@ -68,7 +68,7 @@ Go to `Settings > Game Properties`
 
 Portable mode allows you to confine all of PCSX2's related data and configuration into its own folder instead of using the user's Documents folder, essentially making it "Portable".
 
-- To enable portable mode, simply create an empty `portable.ini` file in the root directory of your PCSX2 folder
+- To enable portable mode, simply create an empty `portable.txt` or `portable.ini` file in the root directory of your PCSX2 folder
 - You can also pass in `-portable` as a launch argument to force PCSX2 to run in portable mode
 
 ## Save States
