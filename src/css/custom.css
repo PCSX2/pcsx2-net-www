@@ -446,7 +446,7 @@ table td {
 }
 
 .avatar__name {
-  margin-top: 7px;
+  margin-top: 9px;
   /* You can try 1px, 0, -1px, -3px or whatever to find the perfect alignment of author name, but perfectly centered seems a bit off, negative values mean text go higher, positive means text go lower. */
   margin-bottom: 0;
   /* Optional: tweak line-height if needed in the future */
