@@ -11,16 +11,19 @@ export const latestProgressReport = {
   title: "Q1 2022 Progress Report",
   img: latestProgressReportImage,
 };
+
 export const latestBlog = {
   url: "/blog/2025/pcsx2-2.4_2.2/",
   title: "Introducing PCSX2 2.4 & 2.2!",
   img: latestBlogImage,
 };
+
 export const previousProgressReport = {
   url: "/blog/2022/q4-2021-progress-report",
   title: "Q4 2021 Progress Report",
   img: previousProgressReportImage,
 };
+
 export const previousBlog = {
   url: "/blog/2024/pcsx2-2-release",
   title: "Introducing PCSX2 2.0!",
