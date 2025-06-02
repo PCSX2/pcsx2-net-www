@@ -62,7 +62,7 @@ PCSX2 team member and graphics expert LightningTerror has implemented per-pixel 
   ### Symbol Parsing Overhaul (4)
 </PCSX2PRLink>
 
-Courtesy of contributor Chaoticgd is a massively improved debugger. This overhaul, in the works for almost a year, allows the debugger to read [MIPS](https://en.wikipedia.org/wiki/MIPS_architecture) debug (`.mdebug`), SNDLL (`.sndata`), and [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) (`.symtab`) [symbol tables](https://en.wikipedia.org/wiki/Symbol_table) from a game's executable binary if it has them included. If the `.mdebug` section is available, the debugger can now display information about global variables, local variables, and parameter variables, including data types. This means you can explore data structures in memory as a structured tree. He subsequently added settings that give you fine-grained control over how and when PCSX2 performs symbol analysis passes. A few games that shipped with their debug symbols include [_Pac-Man World 2_](https://wiki.pcsx2.net/Pac-Man_World_2), [_Sega Soccer Slam_](https://wiki.pcsx2.net/Sega_Soccer_Slam), and [_Fatal Frame_](https://wiki.pcsx2.net/Fatal_Frame). Below is a screenshot showing the tree of global variables in _Pac-Man World 2_.
+Courtesy of contributor Chaoticgd is a massively improved debugger. This overhaul, in the works for almost a year, allows the debugger to read [MIPS](https://en.wikipedia.org/wiki/MIPS_architecture) debug (`.mdebug`), SNDLL (`.sndata`), and [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) (`.symtab`) [symbol tables](https://en.wikipedia.org/wiki/Symbol_table) from a game's executable binary if it has them included. If the `.mdebug` section is available, the debugger can now display information about global variables, local variables, and parameter variables, including data types. This means you can explore data structures in memory as a structured tree. He subsequently added settings that give you fine-grained control over how and when PCSX2 performs symbol analysis passes. A few games that shipped with their debug symbols include [_Pac-Man World 2_](https://wiki.pcsx2.net/Pac-Man_World_2), [_Sega Soccer Slam_](https://wiki.pcsx2.net/Sega_Soccer_Slam), [_Fatal Frame_](https://wiki.pcsx2.net/Fatal_Frame), and [hundreds more](https://www.retroreversing.com/ps2-unstripped/). Below is a screenshot showing the tree of demangled function names in _Pac-Man World 2_.
 
 <Image src={require("./img/debugger.webp").default} />
 
@@ -86,9 +86,9 @@ After 2.0, longtime contributor AirGamer launched into an effort to fix our [DEV
 
 Capping off 2.2 is better support for wheel input, this time by newcomer badfontkeming. The subject of this improvement, [force feedback](https://en.wikipedia.org/wiki/Haptic_technology#Force_feedback) (FFB), is a type of haptic feedback, often used in racing games to simulate the movement of the steering wheel when performing actions like cornering.
 
-In games with wheel support, such as [_Gran Turismo 4_](https://wiki.pcsx2.net/Gran_Turismo_4), modern wheels would often
+In games with wheel support, such as [_Gran Turismo 4_](https://wiki.pcsx2.net/Gran_Turismo_4), modern wheels would often feel unresponsive or lack proper feedback due to incomplete or broken FFB support in older PCSX2 builds. This new implementation introduces more accurate FFB handling and restores the feeling of physical interaction — improving immersion and playability for racing fans.
 
-### Various Smaller Improvements (4)
+### Various Smaller Improvements in 2.2 (4)
 
 Before we move on to 2.4 and the big changes it brought, we want to stop and spotlight the smaller work that goes into making PCSX2 a polished experience. Below are just a few among hundreds, and we're grateful for every single one.
 
@@ -168,7 +168,7 @@ Thanks again to months of work by Chaoticgd, the debugger has received a huge re
 
 The right answer to "What does [SDL](https://en.wikipedia.org/wiki/Simple_DirectMedia_Layer) do?" is "What doesn't it?", but PCSX2 uses it to handle gamepads and audio output. In January 2025, SDL's release of its newest major version, 3.0, threatened to lock us out from its great new features if somebody didn't step up and make our codebase compatible. GameDB specialist and dependency coordinator JordanTheToast – along with his emotional support TheTechnician27 – boldly took action. Days later, DEV9 expert and resident lifeguard AirGamer noticed both drowning in the deep end and decided to save them. Thanks to weeks of work by AirGamer, PCSX2 now uses SDL3. The SDL Wiki has [a comprehensive list](https://wiki.libsdl.org/SDL3/NewFeatures) of new features, but for PCSX2, the immediate benefits are a cleaner API for easier development and the ability to utilize new features as they come. Special thanks goes to the unsung heroes at the SDL Wiki who wrote [this guide](https://wiki.libsdl.org/SDL3/README-migration) and especially the authors of [this symbol rename script](https://github.com/libsdl-org/SDL/blob/main/build-scripts/rename_symbols.py) who made this transition feasible.
 
-### Poopy butthole
+### Various Smaller Improvements in 2.4
 
 Before we move on to 2.4 and the big changes it brought, we want to stop and spotlight the smaller work that goes into making PCSX2 a polished experience. Below are just a few among hundreds, and we're grateful for every single one.
 
