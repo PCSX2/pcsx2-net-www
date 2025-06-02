@@ -35,8 +35,8 @@ Almost immediately after 2.0, peripherals contributor Florin9doi and first-time 
 
 These are:
 
-- [*Rez* Trance Vibrator](https://www.theverge.com/2016/9/25/13046770/rez-trance-vibrator-ps2)
-- [Gametrak/*RealPlay*](https://en.wikipedia.org/wiki/Gametrak) device
+- [_Rez_ Trance Vibrator](https://www.theverge.com/2016/9/25/13046770/rez-trance-vibrator-ps2)
+- [Gametrak/_RealPlay_](https://en.wikipedia.org/wiki/Gametrak) device
 - [Jogcon](https://en.wikipedia.org/wiki/Jogcon) and [NeGcon](https://en.wikipedia.org/wiki/NeGcon)
 - [Train Mascon](https://marcriera.github.io/ddgo-controller-docs/controllers/usb/cotm02001/) controllers (Type 2, Shinkansen, and Ryojōhen)
 - Konami Microphone
@@ -62,7 +62,7 @@ PCSX2 team member and graphics expert LightningTerror has implemented per-pixel 
   ### Symbol Parsing Overhaul (4)
 </PCSX2PRLink>
 
-Courtesy of contributor Chaoticgd is a massively improved debugger. This overhaul, in the works for almost a year, allows the debugger to read [MIPS](https://en.wikipedia.org/wiki/MIPS_architecture) debug (`.mdebug`), SNDLL (`.sndata`), and [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) (`.symtab`) [symbol tables](https://en.wikipedia.org/wiki/Symbol_table) from a game's executable binary if it has them included. If the `.mdebug` section is available, the debugger can now display information about global variables, local variables, and parameter variables, including data types. This means you can explore data structures in memory as a structured tree. He subsequently added settings that give you fine-grained control over how and when PCSX2 performs symbol analysis passes. A few games that shipped with their debug symbols include [*Pac-Man World 2*](https://wiki.pcsx2.net/Pac-Man_World_2), [*Sega Soccer Slam*](https://wiki.pcsx2.net/Sega_Soccer_Slam), and [*Fatal Frame*](https://wiki.pcsx2.net/Fatal_Frame). Below is a screenshot showing the tree of global variables in *Pac-Man World 2*.
+Courtesy of contributor Chaoticgd is a massively improved debugger. This overhaul, in the works for almost a year, allows the debugger to read [MIPS](https://en.wikipedia.org/wiki/MIPS_architecture) debug (`.mdebug`), SNDLL (`.sndata`), and [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) (`.symtab`) [symbol tables](https://en.wikipedia.org/wiki/Symbol_table) from a game's executable binary if it has them included. If the `.mdebug` section is available, the debugger can now display information about global variables, local variables, and parameter variables, including data types. This means you can explore data structures in memory as a structured tree. He subsequently added settings that give you fine-grained control over how and when PCSX2 performs symbol analysis passes. A few games that shipped with their debug symbols include [_Pac-Man World 2_](https://wiki.pcsx2.net/Pac-Man_World_2), [_Sega Soccer Slam_](https://wiki.pcsx2.net/Sega_Soccer_Slam), and [_Fatal Frame_](https://wiki.pcsx2.net/Fatal_Frame). Below is a screenshot showing the tree of global variables in _Pac-Man World 2_.
 
 <Image src={require("./img/debugger.webp").default} />
 
@@ -78,7 +78,7 @@ Thanks to KamFretoZ, you can now configure both the compression method and the l
   ### DEV9 Fixes (4)
 </PCSX2PRLink>
 
-After 2.0, longtime contributor AirGamer launched into an effort to fix our [DEV9](https://www.psdevwiki.com/ps2/DEV9C) emulation and finally get [PS2 Linux](https://en.wikipedia.org/wiki/Linux_for_PlayStation_2) and [PlayStation Broadband Navigator](https://en.wikipedia.org/wiki/PlayStation_Broadband_Navigator) (PSBBN) working on PCSX2. His work has brought us tantalizingly close: as best we can tell, our lack of full emulation for the PS2's [translation lookaside buffer](https://en.wikipedia.org/wiki/Translation_lookaside_buffer) (TLB) is now the *only* barrier still preventing PS2 Linux and PSBBN from working. Whoever steps up and conquers the TLB will bring the penguin to PCSX2.
+After 2.0, longtime contributor AirGamer launched into an effort to fix our [DEV9](https://www.psdevwiki.com/ps2/DEV9C) emulation and finally get [PS2 Linux](https://en.wikipedia.org/wiki/Linux_for_PlayStation_2) and [PlayStation Broadband Navigator](https://en.wikipedia.org/wiki/PlayStation_Broadband_Navigator) (PSBBN) working on PCSX2. His work has brought us tantalizingly close: as best we can tell, our lack of full emulation for the PS2's [translation lookaside buffer](https://en.wikipedia.org/wiki/Translation_lookaside_buffer) (TLB) is now the _only_ barrier still preventing PS2 Linux and PSBBN from working. Whoever steps up and conquers the TLB will bring the penguin to PCSX2.
 
 <PCSX2PRLink authors="badfontkeming" prNums="11906,11915">
   ### Wheel Force Feedback Improvements (2)
@@ -86,22 +86,22 @@ After 2.0, longtime contributor AirGamer launched into an effort to fix our [DEV
 
 Capping off 2.2 is better support for wheel input, this time by newcomer badfontkeming. The subject of this improvement, [force feedback](https://en.wikipedia.org/wiki/Haptic_technology#Force_feedback) (FFB), is a type of haptic feedback, often used in racing games to simulate the movement of the steering wheel when performing actions like cornering.
 
-In games with wheel support, such as [*Gran Turismo 4*](https://wiki.pcsx2.net/Gran_Turismo_4), modern wheels would often
+In games with wheel support, such as [_Gran Turismo 4_](https://wiki.pcsx2.net/Gran_Turismo_4), modern wheels would often
 
 ### Various Smaller Improvements (4)
 
 Before we move on to 2.4 and the big changes it brought, we want to stop and spotlight the smaller work that goes into making PCSX2 a polished experience. Below are just a few among hundreds, and we're grateful for every single one.
 
-* [#11562](https://github.com/PCSX2/pcsx2/pull/11562) – Team lead fobes adds [little endian](https://en.wikipedia.org/wiki/Endianness) support to the debugger.
-* [#11372](https://github.com/PCSX2/pcsx2/pull/11372) – macOS expert TellowKrinkle fixes [VAAPI](https://en.wikipedia.org/wiki/Video_Acceleration_API) support on Linux.
-* [#11593](https://github.com/PCSX2/pcsx2/pull/11593) – Team lead fobes adds selectable [pixel formats](https://en.wikipedia.org/wiki/Pixel_format) on a per-codec basis to the video capture tool.
-* [#11571](https://github.com/PCSX2/pcsx2/pull/11571) – Wiki maintainer TheTechnician27 adds a way to go directly to a game's [wiki page](https://wiki.pcsx2.net/Main_Page) from the PCSX2 application.
-* [#11614](https://github.com/PCSX2/pcsx2/pull/11614) – Peripherals contributor Florin9doi creates a custom UI for [*Buzz!*](https://en.wikipedia.org/wiki/Buzz!) devices.
-* [#11602](https://github.com/PCSX2/pcsx2/pull/11602), [#11808](https://github.com/PCSX2/pcsx2/pull/11808) – DB maintainer JordanTheToast and UI artist KamFretoZ add hardware info to our statistics overlay.
-* [#11730](https://github.com/PCSX2/pcsx2/pull/11730) – UI artist KamFretoZ adds a game icon in our [Discord Rich Presence](https://discord.com/developers/docs/rich-presence/overview) for supported games using RetroAchievements.
-* [#11787](https://github.com/PCSX2/pcsx2/pull/11786) – Memcard and gamepad expert RedPanda4552 fixes an issue with input profiles being blocked by old settings.
-* [#11839](https://github.com/PCSX2/pcsx2/pull/11839) – Graphics expert LightningTerror fixes a longstanding graphical issue in [*Knights of the Template: Infernal Crusade*](https://wiki.pcsx2.net/Knights_of_the_Temple:_Infernal_Crusade).
-* [#11935](https://github.com/PCSX2/pcsx2/pull/11935) – First-time contributor rares-fodor adds a search bar to the cheats list.
+- [#11562](https://github.com/PCSX2/pcsx2/pull/11562) – Team lead fobes adds [little endian](https://en.wikipedia.org/wiki/Endianness) support to the debugger.
+- [#11372](https://github.com/PCSX2/pcsx2/pull/11372) – macOS expert TellowKrinkle fixes [VAAPI](https://en.wikipedia.org/wiki/Video_Acceleration_API) support on Linux.
+- [#11593](https://github.com/PCSX2/pcsx2/pull/11593) – Team lead fobes adds selectable [pixel formats](https://en.wikipedia.org/wiki/Pixel_format) on a per-codec basis to the video capture tool.
+- [#11571](https://github.com/PCSX2/pcsx2/pull/11571) – Wiki maintainer TheTechnician27 adds a way to go directly to a game's [wiki page](https://wiki.pcsx2.net/Main_Page) from the PCSX2 application.
+- [#11614](https://github.com/PCSX2/pcsx2/pull/11614) – Peripherals contributor Florin9doi creates a custom UI for [_Buzz!_](https://en.wikipedia.org/wiki/Buzz!) devices.
+- [#11602](https://github.com/PCSX2/pcsx2/pull/11602), [#11808](https://github.com/PCSX2/pcsx2/pull/11808) – DB maintainer JordanTheToast and UI artist KamFretoZ add hardware info to our statistics overlay.
+- [#11730](https://github.com/PCSX2/pcsx2/pull/11730) – UI artist KamFretoZ adds a game icon in our [Discord Rich Presence](https://discord.com/developers/docs/rich-presence/overview) for supported games using RetroAchievements.
+- [#11787](https://github.com/PCSX2/pcsx2/pull/11786) – Memcard and gamepad expert RedPanda4552 fixes an issue with input profiles being blocked by old settings.
+- [#11839](https://github.com/PCSX2/pcsx2/pull/11839) – Graphics expert LightningTerror fixes a longstanding graphical issue in [_Knights of the Template: Infernal Crusade_](https://wiki.pcsx2.net/Knights_of_the_Temple:_Infernal_Crusade).
+- [#11935](https://github.com/PCSX2/pcsx2/pull/11935) – First-time contributor rares-fodor adds a search bar to the cheats list.
 
 ## PCSX2 2.4.0
 
@@ -111,11 +111,11 @@ After 2.0, the 2.2 development cycle let us catch our breath and – for the mos
   ### Custom Real-Time Clock (v2.3.130) (5)
 </PCSX2PRLink>
 
-The PlayStation 2 uses a [real-time clock](https://en.wikipedia.org/wiki/Real-time_clock) (RTC) to keep track of the date and time in the real world. Games often use the RTC in order to seed pseudorandom number generation (RNG) because of its high variability. Additionally, save files show a timestamp in the BIOS, and these timestamps are sometimes shown in-game too. However, some games use the RTC in a more interactive way. [*Ratchet & Clank 2*](https://wiki.pcsx2.net/Ratchet_%26_Clank:_Going_Commando) and [*Ratchet & Clank 3*](https://wiki.pcsx2.net/Ratchet_%26_Clank:_Up_Your_Arsenal), for example, let you teleport to the post-game Insomniac Museum area from 03:00–04:00, bypassing completion checks. [*The Simpsons: Hit & Run*](https://wiki.pcsx2.net/The_Simpsons:_Hit_%26_Run), [*The Simpsons: Road Rage*](https://wiki.pcsx2.net/The_Simpsons:_Road_Rage), [*SpongeBob SquarePants: Battle for Bikini Bottom*](https://wiki.pcsx2.net/SpongeBob_SquarePants:_Battle_for_Bikini_Bottom), and [*Scooby-Doo! Night of 100 Frights*](https://wiki.pcsx2.net/Scooby-Doo!_Night_of_100_Frights) have holiday-exclusive Easter eggs. [*Need for Speed: Hot Pursuit 2*](https://wiki.pcsx2.net/Need_for_Speed:_Hot_Pursuit_2) displays the date and time on a camera recording when you get busted. And [*Metal Gear Solid 3*](https://wiki.pcsx2.net/Metal_Gear_Solid_3:_Snake_Eater)... if you know, you know.
+The PlayStation 2 uses a [real-time clock](https://en.wikipedia.org/wiki/Real-time_clock) (RTC) to keep track of the date and time in the real world. Games often use the RTC in order to seed pseudorandom number generation (RNG) because of its high variability. Additionally, save files show a timestamp in the BIOS, and these timestamps are sometimes shown in-game too. However, some games use the RTC in a more interactive way. [_Ratchet & Clank 2_](https://wiki.pcsx2.net/Ratchet_%26_Clank:_Going_Commando) and [_Ratchet & Clank 3_](https://wiki.pcsx2.net/Ratchet_%26_Clank:_Up_Your_Arsenal), for example, let you teleport to the post-game Insomniac Museum area from 03:00–04:00, bypassing completion checks. [_The Simpsons: Hit & Run_](https://wiki.pcsx2.net/The_Simpsons:_Hit_%26_Run), [_The Simpsons: Road Rage_](https://wiki.pcsx2.net/The_Simpsons:_Road_Rage), [_SpongeBob SquarePants: Battle for Bikini Bottom_](https://wiki.pcsx2.net/SpongeBob_SquarePants:_Battle_for_Bikini_Bottom), and [_Scooby-Doo! Night of 100 Frights_](https://wiki.pcsx2.net/Scooby-Doo!_Night_of_100_Frights) have holiday-exclusive Easter eggs. [_Need for Speed: Hot Pursuit 2_](https://wiki.pcsx2.net/Need_for_Speed:_Hot_Pursuit_2) displays the date and time on a camera recording when you get busted. And [_Metal Gear Solid 3_](https://wiki.pcsx2.net/Metal_Gear_Solid_3:_Snake_Eater)... if you know, you know.
 
-By default, when a user starts a game, PCSX2 sets the RTC to the date and time from the user's desktop. For input recordings which require perfect determinacy to function correctly, we instead used a fixed, arbitrary date and time after the release of *Metal Gear Solid 3* (which crashes if the date is too old). With the introduction of RTC settings by TheTechnician27, you can now optionally select a custom RTC starting point in the per-game settings (`Game Properties` > `Emulation` > `Real-Time Clock`). This provides niche benefits for regular users (especially *Ratchet* players and enjoyers of Hideo Kojima's antics), and it brings PCSX2 closer to having a mature suite of [tool-assisted speedrun](https://en.wikipedia.org/wiki/Tool-assisted_speedrun) (TAS) capabilities.
+By default, when a user starts a game, PCSX2 sets the RTC to the date and time from the user's desktop. For input recordings which require perfect determinacy to function correctly, we instead used a fixed, arbitrary date and time after the release of _Metal Gear Solid 3_ (which crashes if the date is too old). With the introduction of RTC settings by TheTechnician27, you can now optionally select a custom RTC starting point in the per-game settings (`Game Properties` > `Emulation` > `Real-Time Clock`). This provides niche benefits for regular users (especially _Ratchet_ players and enjoyers of Hideo Kojima's antics), and it brings PCSX2 closer to having a mature suite of [tool-assisted speedrun](https://en.wikipedia.org/wiki/Tool-assisted_speedrun) (TAS) capabilities.
 
-This currently requires you to have your BIOS set to GMT+0 and daylight savings time (DST) set to Summer Time (this is the default PCSX2 creates if no `.nvm` file exists). Additionally, it will only work within the bounds of 2000-01-01 at 00:00 and 2099-12-31 at 23:59, which is the range of an actual PlayStation 2. Below is the Halloween-exclusive title screen from *The Simpsons: Hit & Run*.
+This currently requires you to have your BIOS set to GMT+0 and daylight savings time (DST) set to Summer Time (this is the default PCSX2 creates if no `.nvm` file exists). Additionally, it will only work within the bounds of 2000-01-01 at 00:00 and 2099-12-31 at 23:59, which is the range of an actual PlayStation 2. Below is the Halloween-exclusive title screen from _The Simpsons: Hit & Run_.
 
 <Image src={require("./img/RTC.webp").default} />
 
@@ -123,7 +123,7 @@ This currently requires you to have your BIOS set to GMT+0 and daylight savings 
   ### HDR Optimization (v2.3.135) (2)
 </PCSX2PRLink>
 
-Former lead PCSX2 developer refraction (codename: "[One Last Job](https://tvtropes.org/pmwiki/pmwiki.php/Main/OneLastJob)") came back from retirement swinging with a major optimization to how PCSX2 handles blending. The PS2 uses [high dynamic range](https://en.wikipedia.org/wiki/High_dynamic_range) (HDR) different from the kind you're probably used to: its blending unit has 9 bits of accuracy compared to a standard GPU's 8 bits, meaning PCSX2 needs to perform frequent format conversions to handle this inherent hardware discrepancy. This optimization attempts to minimize the number of conversions, considerably improving performance on a handful of games – especially on the Direct3D11 and 12 renderers. For more details, refraction did [an interview](https://www.readonlymemo.com/pcsx2-render-target-hdr-performance-graphical-fixes/) with emulation news site Read Only Memo. Below is a chart showing the performance uplift in [*Sly 2: Band of Thieves*](https://wiki.pcsx2.net/Sly_2:_Band_of_Thieves) and [*Big Mutha Truckers*](https://wiki.pcsx2.net/Big_Mutha_Truckers).
+Former lead PCSX2 developer refraction (codename: "[One Last Job](https://tvtropes.org/pmwiki/pmwiki.php/Main/OneLastJob)") came back from retirement swinging with a major optimization to how PCSX2 handles blending. The PS2 uses [high dynamic range](https://en.wikipedia.org/wiki/High_dynamic_range) (HDR) different from the kind you're probably used to: its blending unit has 9 bits of accuracy compared to a standard GPU's 8 bits, meaning PCSX2 needs to perform frequent format conversions to handle this inherent hardware discrepancy. This optimization attempts to minimize the number of conversions, considerably improving performance on a handful of games – especially on the Direct3D11 and 12 renderers. For more details, refraction did [an interview](https://www.readonlymemo.com/pcsx2-render-target-hdr-performance-graphical-fixes/) with emulation news site Read Only Memo. Below is a chart showing the performance uplift in [_Sly 2: Band of Thieves_](https://wiki.pcsx2.net/Sly_2:_Band_of_Thieves) and [_Big Mutha Truckers_](https://wiki.pcsx2.net/Big_Mutha_Truckers).
 
 <BarChart chartDataUrl={require("./charts/Chart-gameperf-pt1.yaml").default} />
 
@@ -137,13 +137,16 @@ macOS requires all code binaries to be signed. If not, macOS' [Gatekeeper](https
   ### Wayland by Default (v2.3.168) (5)
 </PCSX2PRLink>
 
-In the Linux world, the last remaining hurdles to PCSX2 running on [Wayland](https://en.wikipedia.org/wiki/Wayland_(protocol)) by default are finally gone! Thanks to upstream fixes in [Qt](https://en.wikipedia.org/wiki/Qt_(software)) 6.9 and some clever work by team member GovanifY, the `I_WANT_A_BROKEN_WAYLAND_UI` flag is history! This does not mean that no Wayland-specific bugs exist, but it means we've failed to find any we consider showstoppers. If your desktop environment uses [X11](https://en.wikipedia.org/wiki/X_Window_System), nothing will change, and we'll continue accepting reports for X11-specific bugs for the foreseeable future. If you find a Wayland-specific bug, the `QT_QPA_PLATFORM=xcb` environment variable can take you back to XWayland while we work to fix it.
+In the Linux world, the last remaining hurdles to PCSX2 running on [Wayland](<https://en.wikipedia.org/wiki/Wayland_(protocol)>) by default are finally gone! Thanks to upstream fixes in [Qt](<https://en.wikipedia.org/wiki/Qt_(software)>) 6.9 and some clever work by team member GovanifY, the `I_WANT_A_BROKEN_WAYLAND_UI` flag is history! This does not mean that no Wayland-specific bugs exist, but it means we've failed to find any we consider showstoppers. If your desktop environment uses [X11](https://en.wikipedia.org/wiki/X_Window_System), nothing will change, and we'll continue accepting reports for X11-specific bugs for the foreseeable future. If you find a Wayland-specific bug, the `QT_QPA_PLATFORM=xcb` environment variable can take you back to XWayland while we work to fix it.
 
-<PCSX2PRLink authors="refractionpcsx2,JordanTheToaster" prNums="12350,12636,12645,12705">
+<PCSX2PRLink
+  authors="refractionpcsx2,JordanTheToaster"
+  prNums="12350,12636,12645,12705"
+>
   ### New Upscaling Fix (4)
 </PCSX2PRLink>
 
-Thanks again to former PCSX2 lead developer refraction, PCSX2 now has a brand-new tool in its arsenal to fix misalignment issues caused by upscaling. Based on the existing Align to Native (AtN) half-pixel offset (HPO) option, Align to Native with Texture Offset (AtNTO) often combines the best of AtN and another HPO option called Special (Texture) to make a lot of games much sharper when upscaled. Thanks to a massive effort by GameDB specialist JordanTheToast, PCSX2 now applies this new setting automatically to over 100 games. These include [*Ace Combat 04: Shattered Skies*](https://wiki.pcsx2.net/Ace_Combat_04:_Shattered_Skies), the [*Sly Cooper*](https://wiki.pcsx2.net/Sly_Cooper) trilogy, [*God of War*](https://wiki.pcsx2.net/God_of_War) and [*God of War II*](https://wiki.pcsx2.net/God_of_War_II), and [*Shadow of the Colossus*](https://wiki.pcsx2.net/Shadow_of_the_Colossus). Below is a before and after of *Ace Combat 04*.
+Thanks again to former PCSX2 lead developer refraction, PCSX2 now has a brand-new tool in its arsenal to fix misalignment issues caused by upscaling. Based on the existing Align to Native (AtN) half-pixel offset (HPO) option, Align to Native with Texture Offset (AtNTO) often combines the best of AtN and another HPO option called Special (Texture) to make a lot of games much sharper when upscaled. Thanks to a massive effort by GameDB specialist JordanTheToast, PCSX2 now applies this new setting automatically to over 100 games. These include [_Ace Combat 04: Shattered Skies_](https://wiki.pcsx2.net/Ace_Combat_04:_Shattered_Skies), the [_Sly Cooper_](https://wiki.pcsx2.net/Sly_Cooper) trilogy, [_God of War_](https://wiki.pcsx2.net/God_of_War) and [_God of War II_](https://wiki.pcsx2.net/God_of_War_II), and [_Shadow of the Colossus_](https://wiki.pcsx2.net/Shadow_of_the_Colossus). Below is a before and after of _Ace Combat 04_.
 
 <SliderCompare
   before={require("./img/comparisons/ace_combat_04_before.webp").default}
@@ -155,7 +158,7 @@ Thanks again to former PCSX2 lead developer refraction, PCSX2 now has a brand-ne
   ### Debugger Redesign (5)
 </PCSX2PRLink>
 
-Thanks again to months of work by Chaoticgd, the debugger has received a huge redesign using [KDDockWidgets](https://github.com/KDAB/KDDockWidgets), massively improving usability. Not only can you now create a custom layout for your debugger (saved as a JSON file), but you can actually create and switch between *multiple* such profiles on the fly. Thanks to a new event system allowing widgets to communicate, you can even open multiple widgets of the same type – for example, two memory viewers looking at different areas of memory. We can't wait for you to try it out!
+Thanks again to months of work by Chaoticgd, the debugger has received a huge redesign using [KDDockWidgets](https://github.com/KDAB/KDDockWidgets), massively improving usability. Not only can you now create a custom layout for your debugger (saved as a JSON file), but you can actually create and switch between _multiple_ such profiles on the fly. Thanks to a new event system allowing widgets to communicate, you can even open multiple widgets of the same type – for example, two memory viewers looking at different areas of memory. We can't wait for you to try it out!
 
 <Image src={require("./img/debugger2.webp").default} />
 
@@ -169,16 +172,16 @@ The right answer to "What does [SDL](https://en.wikipedia.org/wiki/Simple_Direct
 
 Before we move on to 2.4 and the big changes it brought, we want to stop and spotlight the smaller work that goes into making PCSX2 a polished experience. Below are just a few among hundreds, and we're grateful for every single one.
 
-* [#11562](https://github.com/PCSX2/pcsx2/pull/11562) – Team lead fobes adds [little endian](https://en.wikipedia.org/wiki/Endianness) support to the debugger.
-* [#11372](https://github.com/PCSX2/pcsx2/pull/11372) – macOS expert TellowKrinkle fixes [VAAPI](https://en.wikipedia.org/wiki/Video_Acceleration_API) support on Linux.
-* [#11593](https://github.com/PCSX2/pcsx2/pull/11593) – Team lead fobes adds selectable [pixel formats](https://en.wikipedia.org/wiki/Pixel_format) on a per-codec basis to the video capture tool.
-* [#11571](https://github.com/PCSX2/pcsx2/pull/11571) – Wiki maintainer TheTechnician27 adds a way to go directly to a game's [wiki page](https://wiki.pcsx2.net/Main_Page) from the PCSX2 application.
-* [#11614](https://github.com/PCSX2/pcsx2/pull/11614) – Peripherals contributor Florin9doi creates a custom UI for [*Buzz!*](https://en.wikipedia.org/wiki/Buzz!) devices.
-* [#11602](https://github.com/PCSX2/pcsx2/pull/11602), [#11808](https://github.com/PCSX2/pcsx2/pull/11808) – DB maintainer JordanTheToast and UI artist KamFretoZ add hardware info to our statistics overlay.
-* [#11730](https://github.com/PCSX2/pcsx2/pull/11730) – UI artist KamFretoZ adds a game icon in our [Discord Rich Presence](https://discord.com/developers/docs/rich-presence/overview) for supported games using RetroAchievements.
-* [#11787](https://github.com/PCSX2/pcsx2/pull/11786) – Memcard and gamepad expert RedPanda4552 fixes an issue with input profiles being blocked by old settings.
-* [#11839](https://github.com/PCSX2/pcsx2/pull/11839) – Graphics expert LightningTerror fixes a longstanding graphical issue in [*Knights of the Template: Infernal Crusade*](https://wiki.pcsx2.net/Knights_of_the_Temple:_Infernal_Crusade).
-* [#11935](https://github.com/PCSX2/pcsx2/pull/11935) – First-time contributor rares-fodor adds a search bar to the cheats list.
+- [#11562](https://github.com/PCSX2/pcsx2/pull/11562) – Team lead fobes adds [little endian](https://en.wikipedia.org/wiki/Endianness) support to the debugger.
+- [#11372](https://github.com/PCSX2/pcsx2/pull/11372) – macOS expert TellowKrinkle fixes [VAAPI](https://en.wikipedia.org/wiki/Video_Acceleration_API) support on Linux.
+- [#11593](https://github.com/PCSX2/pcsx2/pull/11593) – Team lead fobes adds selectable [pixel formats](https://en.wikipedia.org/wiki/Pixel_format) on a per-codec basis to the video capture tool.
+- [#11571](https://github.com/PCSX2/pcsx2/pull/11571) – Wiki maintainer TheTechnician27 adds a way to go directly to a game's [wiki page](https://wiki.pcsx2.net/Main_Page) from the PCSX2 application.
+- [#11614](https://github.com/PCSX2/pcsx2/pull/11614) – Peripherals contributor Florin9doi creates a custom UI for [_Buzz!_](https://en.wikipedia.org/wiki/Buzz!) devices.
+- [#11602](https://github.com/PCSX2/pcsx2/pull/11602), [#11808](https://github.com/PCSX2/pcsx2/pull/11808) – DB maintainer JordanTheToast and UI artist KamFretoZ add hardware info to our statistics overlay.
+- [#11730](https://github.com/PCSX2/pcsx2/pull/11730) – UI artist KamFretoZ adds a game icon in our [Discord Rich Presence](https://discord.com/developers/docs/rich-presence/overview) for supported games using RetroAchievements.
+- [#11787](https://github.com/PCSX2/pcsx2/pull/11786) – Memcard and gamepad expert RedPanda4552 fixes an issue with input profiles being blocked by old settings.
+- [#11839](https://github.com/PCSX2/pcsx2/pull/11839) – Graphics expert LightningTerror fixes a longstanding graphical issue in [_Knights of the Template: Infernal Crusade_](https://wiki.pcsx2.net/Knights_of_the_Temple:_Infernal_Crusade).
+- [#11935](https://github.com/PCSX2/pcsx2/pull/11935) – First-time contributor rares-fodor adds a search bar to the cheats list.
 
 ### Performance improvements
 
@@ -188,11 +191,11 @@ Below are benchmarks comparing PCSX2 2.0 to PCSX2 2.4, keeping in mind that sinc
   ### RT in RT Support (2)
 </PCSX2PRLink>
 
-For his capstone contribution to PCSX2 after over 20 years of unimaginable dedication, former lead developer refraction turned to his unfinished work on RT in RT support. Feeling duty-bound not to leave this to rot after he left, he agonized for months to get this working, and the end result is something to behold. First, though, let's address what this even *is*.
+For his capstone contribution to PCSX2 after over 20 years of unimaginable dedication, former lead developer refraction turned to his unfinished work on RT in RT support. Feeling duty-bound not to leave this to rot after he left, he agonized for months to get this working, and the end result is something to behold. First, though, let's address what this even _is_.
 
 "RT in RT" stands for "[render target](https://en.wikipedia.org/wiki/Glossary_of_computer_graphics#render_target) in render target". The PS2's [graphics pipeline](https://en.wikipedia.org/wiki/Graphics_pipeline), when turning its geometric shapes (called [primitives](https://en.wikipedia.org/wiki/Geometric_primitive)) into a grid of pixels ([rasterization](https://en.wikipedia.org/wiki/Rasterisation)), sends data about these primitives to a "render target" such as a [framebuffer](https://en.wikipedia.org/wiki/Framebuffer) or a texture. Because the PS2's hardware incentivizes developers to do unspeakable things, we need to make an educated guess about the size and dimensions of what the game wants to draw and about what type of render target this data is being sent to.
 
-This brings massive fixes to a huge variety of games – at minimum, multiple games with two-player splitscreen (such as [*Jak X: Combat Racing*](https://wiki.pcsx2.net/Jak_X:_Combat_Racing)), multiple games that no longer need a hack to work (such as [*Ghost in the Shell: Stand Alone Complex*](https://wiki.pcsx2.net/Ghost_in_the_Shell:_Stand_Alone_Complex)), multiple games whose effects now work (such as [*Drakengard*](https://wiki.pcsx2.net/Drakengard); comparison below), and multiple games that would only work before in software rendering (such as [*Hitman: Contracts*](https://wiki.pcsx2.net/Hitman:_Contracts); comparison below).
+This brings massive fixes to a huge variety of games – at minimum, multiple games with two-player splitscreen (such as [_Jak X: Combat Racing_](https://wiki.pcsx2.net/Jak_X:_Combat_Racing)), multiple games that no longer need a hack to work (such as [_Ghost in the Shell: Stand Alone Complex_](https://wiki.pcsx2.net/Ghost_in_the_Shell:_Stand_Alone_Complex)), multiple games whose effects now work (such as [_Drakengard_](https://wiki.pcsx2.net/Drakengard); comparison below), and multiple games that would only work before in software rendering (such as [_Hitman: Contracts_](https://wiki.pcsx2.net/Hitman:_Contracts); comparison below).
 
 <SliderCompare
   before={require("./img/comparisons/hitman_before.webp").default}
