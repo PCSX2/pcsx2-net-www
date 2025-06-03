@@ -323,6 +323,10 @@ const config = {
                 label: "Privacy",
                 to: "/privacy",
               },
+              {
+                label: "Trademark & Copyright",
+                to: "/intellectualproperty",
+              },
             ],
           },
         ],
