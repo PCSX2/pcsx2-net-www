@@ -1,0 +1,17 @@
+data:
+  - name: Sly 2, Basic Blending, 6x IR, Radeon RX 6600 XT (47% uplift)
+    "Before": 85.3
+    "After": 125.7
+  - name: Big Mutha Truckers, Basic Blending, 6x IR, Radeon RX 6600 XT (~162% uplift)
+    "Before": 54.9
+    "After": 144.1
+barOptions:
+  "Before":
+    fillColor: "rgb(106, 156, 255)"
+  "After":
+    fillColor: "rgb(200, 45, 69)"
+axis:
+  x:
+    dataKey: name
+  y:
+    label: "Frames Per Seconds (VPS)"
