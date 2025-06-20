@@ -53,9 +53,7 @@ On top of that, PCSX2's [EyeToy](https://en.wikipedia.org/wiki/EyeToy) emulation
   ### Will It Blend?
 </PCSX2PRLink>
 
-PCSX2 team member and graphics expert LightningTerror has improved upon per-pixel [alpha blending](https://en.wikipedia.org/wiki/Alpha_compositing) (PABE), increasing both accuracy and speed. Software blending, run on the CPU, is highly accurate but incurs a performance hit as it can't take advantage of the parallelization inherent in graphics work. Hardware blending, run on the GPU, is highly efficient for this reason but can suffer in accuracy if extreme care isn't taken. Eliminating the need to run blending on the CPU, PABE blends (heh) the accuracy from software blending with the efficiency of hardware blending. The benchmarks below provided by KamFretoZ and JordanTheToast show the considerable speedup PABE brings to both AMD and Nvidia. But that wasn't the only improvement!
-
-At the same time, he expanded PCSX2's multipass rendering to improve Direct3D11 and 12's default blending accuracy. This approach takes the benefits of [copying framebuffer] from software blending and, by tactically moving it to the GPU, [............]
+PCSX2 team member and graphics expert LightningTerror has improved upon our existing per-pixel [alpha blending](https://en.wikipedia.org/wiki/Alpha_compositing) (PABE) implementation, increasing both accuracy and speed. Software blending, run on the CPU, is highly accurate but incurs a performance hit as it can't take advantage of the parallelization inherent in graphics work. Hardware blending, run on the GPU, is highly efficient for this reason but can suffer in accuracy if extreme care isn't taken. Eliminating the need to run blending on the CPU, PABE blends (heh) the accuracy from software blending with the efficiency of hardware blending. The benchmarks below provided by KamFretoZ and JordanTheToast show the considerable speedup PABE brings to both AMD and Nvidia. But that wasn't the only improvement! At the same time, he expanded PCSX2's multipass rendering to improve Direct3D11 and Direct3D12's default blending accuracy.
 
 <Image src={require("./img/PABE.webp").default} />
 <Image src={require("./img/PABE2.webp").default} />
@@ -64,7 +62,7 @@ At the same time, he expanded PCSX2's multipass rendering to improve Direct3D11 
   ### Symbol Parsing Overhaul
 </PCSX2PRLink>
 
-Courtesy of contributor Chaoticgd is a massively improved debugger. This overhaul, in the works for almost a year, allows the debugger to read [MIPS](https://en.wikipedia.org/wiki/MIPS_architecture) debug (`.mdebug`), SNDLL (`.sndata`), and [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) (`.symtab`) [symbol tables](https://en.wikipedia.org/wiki/Symbol_table) from a game's executable binary if it has them included. If the `.mdebug` section is available, the debugger can now display information about global variables, local variables, and parameter variables, including data types. This means you can explore data structures in memory as a structured tree. He subsequently added settings that give you fine-grained control over how and when PCSX2 performs symbol analysis passes. A few games that shipped with their debug symbols include [_Pac-Man World 2_](https://wiki.pcsx2.net/Pac-Man_World_2), [_Sega Soccer Slam_](https://wiki.pcsx2.net/Sega_Soccer_Slam), and [_Fatal Frame_](https://wiki.pcsx2.net/Fatal_Frame), and hundreds more shipped with symbols in general. Below is a screenshot showing the tree of global variables and demangled function names in _Pac-Man World 2_.
+Courtesy of contributor Chaoticgd is a massively improved debugger. This overhaul, in the works for almost a year, allows the debugger to read [MIPS](https://en.wikipedia.org/wiki/MIPS_architecture) debug (`.mdebug`), SNDLL (`.sndata`), and [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) (`.symtab`) [symbol tables](https://en.wikipedia.org/wiki/Symbol_table) from a game's executable binary if it has them included. If the `.mdebug` section is available, the debugger can now display information about global variables, local variables, and parameter variables, including data types. This means you can explore data structures in memory as a structured tree. He subsequently added settings that give you fine-grained control over how and when PCSX2 performs symbol analysis passes. A few games that shipped with their debug symbols include [_Pac-Man World 2_](https://wiki.pcsx2.net/Pac-Man_World_2), [_Sega Soccer Slam_](https://wiki.pcsx2.net/Sega_Soccer_Slam), [_Fatal Frame_](https://wiki.pcsx2.net/Fatal_Frame), and hundreds more shipped with symbols in general. Below is a screenshot showing the tree of global variables and demangled function names in _Pac-Man World 2_.
 
 <Image src={require("./img/debugger.webp").default} />
 
@@ -72,7 +70,7 @@ Courtesy of contributor Chaoticgd is a massively improved debugger. This overhau
   ### Savestate Compression Options
 </PCSX2PRLink>
 
-Thanks to KamFretoZ, you can now configure both the compression method and the level of compression for savestates! These formats are [Zstandard](https://en.wikipedia.org/wiki/Zstd) (default), [Deflate64](https://en.wikipedia.org/wiki/Deflate), and [LZMA2](https://en.wikipedia.org/wiki/LZMA), and there are four levels for each. You can also choose to leave your states uncompressed if your 40 TB NAS feels lonely. Higher compression will result in lower file sizes but may increase the time needed to save or load states.
+Thanks to KamFretoZ, you can now configure both the compression method and the level of compression for savestates! These formats are [Zstandard](https://en.wikipedia.org/wiki/Zstd) (default), [Deflate64](https://en.wikipedia.org/wiki/Deflate), and [LZMA2](https://en.wikipedia.org/wiki/LZMA), and there are four compression levels for each. You can also choose to leave your states uncompressed if your 40 TB NAS feels lonely. Higher compression will result in lower file sizes but may increase the time needed to save or load states.
 
 <Image src={require("./img/savestate.webp").default} />
 
@@ -98,11 +96,7 @@ Before we move on to 2.4 and the big changes it brought, we want to stop and spo
 
 ## PCSX2 2.4.0
 
-After 2.0, the 2.2 development cycle let us catch our breath and – for the most part – focus on finer details. Brewing under the surface, though, were fresh ideas and the zeal to bring them to life. We all wanted to get back to innovating, so that's what we did.
-
-### Performance improvements and new features
-
-Below are benchmarks comparing PCSX2 2.0 to PCSX2 2.4, keeping in mind that since then, we've become even more accurate – especially when it comes to eliminating upscaling-related artifacting.
+After 2.0, the 2.2 development cycle let us catch our breath and – for the most part – focus on finer details. Brewing under the surface, though, were fresh ideas and the zeal to bring them to life. We all wanted to get back to innovating, so that's what we did. The 2.2 development cycles comes with many performance improvements and new features.
 
 <PCSX2PRLink authors="refractionpcsx2" prNums="11461">
   ### RT in RT Support
@@ -113,6 +107,12 @@ For his capstone contribution to PCSX2 after over 20 years of unimaginable dedic
 "RT in RT" stands for "[render target](https://en.wikipedia.org/wiki/Glossary_of_computer_graphics#render_target) in render target". The PS2's [graphics pipeline](https://en.wikipedia.org/wiki/Graphics_pipeline), when turning its geometric shapes (called [primitives](https://en.wikipedia.org/wiki/Geometric_primitive)) into a grid of pixels ([rasterization](https://en.wikipedia.org/wiki/Rasterisation)), sends data about these primitives to a "render target" such as a [framebuffer](https://en.wikipedia.org/wiki/Framebuffer) or a texture. Because the PS2's hardware incentivizes developers to do unspeakable things, we need to make an educated guess about the size and dimensions of what the game wants to draw and about what type of render target this data is being sent to.
 
 This brings massive fixes to a huge variety of games – at minimum, multiple games with two-player splitscreen (such as [_Jak X: Combat Racing_](https://wiki.pcsx2.net/Jak_X:_Combat_Racing)), multiple games that no longer need a hack to work (such as [_Ghost in the Shell: Stand Alone Complex_](https://wiki.pcsx2.net/Ghost_in_the_Shell:_Stand_Alone_Complex)), multiple games whose effects now work (such as [_Drakengard_](https://wiki.pcsx2.net/Drakengard); comparison below), and multiple games that would only work before in software rendering (such as [_Hitman: Contracts_](https://wiki.pcsx2.net/Hitman:_Contracts); comparison below).
+
+<SliderCompare
+  before={require("./img/comparisons/jak_x_after.webp").default}
+  after={require("./img/comparisons/jak_x_before.webp").default}
+  alt="Jak X - Combat Racing"
+/>
 
 <SliderCompare
   before={require("./img/comparisons/hitman_before.webp").default}
