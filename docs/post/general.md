@@ -8,6 +8,10 @@ sidebar_position: 1
 
 General information in regards to PCSX2 features.
 
+:::danger
+**Do not run untrusted programs in PCSX2. It is not a sandbox and cannot protect your computer from malicious software.**
+:::
+
 ## Renderer options
 
 :::caution
