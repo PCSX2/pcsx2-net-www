@@ -3,9 +3,11 @@ draft: false
 title: Welcoming PCSX2 2.2.0 and 2.4.0!
 tags:
   - devblog
-date: 2025-06-06
+date: 2025-07-01
 description: PCSX2 2.4/2.2 Release Post
 hide_table_of_contents: false
+titleImage: /img/2-0-banner.webp
+image: /img/2-0-banner.webp
 authors:
   - kamfretoz
   - link
@@ -32,17 +34,15 @@ PCSX2 2.0 may well have been [our biggest single release to date](../../2024/pcs
 
 </PCSX2PRLink>
 
-Almost immediately after 2.0, contributor Florin9doi got to work chipping away at the list of peripherals we haven't implemented yet. Not long after, first-time contributor joestringer began working on train controller support. Thanks to them, in just about the first month of 2.0, we now had support for
+Almost immediately after 2.0, contributor Florin9doi got to work chipping away at the list of peripherals we haven't implemented yet. Not long after, first-time contributor joestringer began working on train controller support. Thanks to them, in just about the first month of 2.0, we now have support for:
 
-These are:
-
-- [Trance Vibrator](https://www.theverge.com/2016/9/25/13046770/rez-trance-vibrator-ps2) –
-- [Gametrak/_RealPlay_](https://en.wikipedia.org/wiki/Gametrak) device –
-- [Jogcon](https://en.wikipedia.org/wiki/Jogcon) and [NeGcon](https://en.wikipedia.org/wiki/NeGcon) –
-- [Train Mascon](https://marcriera.github.io/ddgo-controller-docs/controllers/usb/cotm02001/) controllers (Type 2, Shinkansen, and Ryojōhen) –
-- Konami Microphone –
-- [Zip 100](https://en.wikipedia.org/wiki/Zip_drive) –
-- [PictureParadise](https://www.ign.com/articles/2000/09/26/tgs-2000-put-yourself-in-the-game) –
+- [Trance Vibrator](https://www.theverge.com/2016/9/25/13046770/rez-trance-vibrator-ps2)
+- [Gametrak/_RealPlay_](https://en.wikipedia.org/wiki/Gametrak) device
+- [Jogcon](https://en.wikipedia.org/wiki/Jogcon) and [NeGcon](https://en.wikipedia.org/wiki/NeGcon)
+- [Train Mascon](https://marcriera.github.io/ddgo-controller-docs/controllers/usb/cotm02001/) controllers (Type 2, Shinkansen, and Ryojōhen)
+- Konami Microphone
+- [Zip 100](https://en.wikipedia.org/wiki/Zip_drive)
+- [PictureParadise](https://www.ign.com/articles/2000/09/26/tgs-2000-put-yourself-in-the-game)
 
 On top of that, PCSX2's [EyeToy](https://en.wikipedia.org/wiki/EyeToy) emulation now has audio support, and [_Buzz!_](https://en.wikipedia.org/wiki/Buzz!) devices now have a custom UI!
 
@@ -53,7 +53,7 @@ On top of that, PCSX2's [EyeToy](https://en.wikipedia.org/wiki/EyeToy) emulation
   ### Will It Blend?
 </PCSX2PRLink>
 
-PCSX2 team member and graphics expert LightningTerror has improved upon our existing per-pixel [alpha blending](https://en.wikipedia.org/wiki/Alpha_compositing) (PABE) implementation, increasing both accuracy and speed. Software blending, run on the CPU, is highly accurate but incurs a performance hit as it can't take advantage of the parallelization inherent in graphics work. Hardware blending, run on the GPU, is highly efficient for this reason but can suffer in accuracy if extreme care isn't taken. Eliminating the need to run blending on the CPU, PABE blends (heh) the accuracy from software blending with the efficiency of hardware blending. The benchmarks below provided by KamFretoZ and JordanTheToast show the considerable speedup PABE brings to both AMD and Nvidia. But that wasn't the only improvement! At the same time, he expanded PCSX2's multipass rendering to improve Direct3D11 and Direct3D12's default blending accuracy.
+That is the question! PCSX2 team member and graphics expert LightningTerror has improved upon our existing per-pixel [alpha blending](https://en.wikipedia.org/wiki/Alpha_compositing) (PABE) implementation, increasing both accuracy and speed. Software blending, run on the CPU, is highly accurate but incurs a performance hit as it can't take advantage of the parallelization inherent in graphics work. Hardware blending, run on the GPU, is highly efficient for this reason but can suffer in accuracy if extreme care isn't taken. Eliminating the need to run blending on the CPU, PABE blends (heh) the accuracy from software blending with the efficiency of hardware blending. The benchmarks below provided by KamFretoZ and JordanTheToast show the considerable speedup PABE brings to both AMD and Nvidia. But that wasn't the only improvement! At the same time, he expanded PCSX2's multipass rendering to improve Direct3D11 and Direct3D12's default blending accuracy.
 
 <Image src={require("./img/PABE.webp").default} />
 <Image src={require("./img/PABE2.webp").default} />
@@ -62,7 +62,7 @@ PCSX2 team member and graphics expert LightningTerror has improved upon our exis
   ### Symbol Parsing Overhaul
 </PCSX2PRLink>
 
-Courtesy of contributor Chaoticgd is a massively improved debugger. This overhaul, in the works for almost a year, allows the debugger to read [MIPS](https://en.wikipedia.org/wiki/MIPS_architecture) debug (`.mdebug`), SNDLL (`.sndata`), and [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) (`.symtab`) [symbol tables](https://en.wikipedia.org/wiki/Symbol_table) from a game's executable binary if it has them included. If the `.mdebug` section is available, the debugger can now display information about global variables, local variables, and parameter variables, including data types. This means you can explore data structures in memory as a structured tree. He subsequently added settings that give you fine-grained control over how and when PCSX2 performs symbol analysis passes. A few games that shipped with their debug symbols include [_Pac-Man World 2_](https://wiki.pcsx2.net/Pac-Man_World_2), [_Sega Soccer Slam_](https://wiki.pcsx2.net/Sega_Soccer_Slam), [_Fatal Frame_](https://wiki.pcsx2.net/Fatal_Frame), and hundreds more shipped with symbols in general. Below is a screenshot showing the tree of global variables and demangled function names in _Pac-Man World 2_.
+Courtesy of contributor Chaoticgd is a massively improved debugger. This overhaul, in the works for almost a year, allows the debugger to read [MIPS](https://en.wikipedia.org/wiki/MIPS_architecture) debug (`.mdebug`), SNDLL (`.sndata`), and [ELF](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) (`.symtab`) [symbol tables](https://en.wikipedia.org/wiki/Symbol_table) from a game's executable binary if it has them included. If the `.mdebug` section is available, the debugger can now display information about global variables, local variables, and parameter variables, including data types. This means you can explore data structures in memory as a structured tree. He subsequently added settings that give you fine-grained control over how and when PCSX2 performs symbol analysis passes. A few games that shipped with their debug symbols include [_Pac-Man World 2_](https://wiki.pcsx2.net/Pac-Man_World_2), [_Sega Soccer Slam_](https://wiki.pcsx2.net/Sega_Soccer_Slam), [_Fatal Frame_](https://wiki.pcsx2.net/Fatal_Frame), and hundreds more shipped with symbols in general. Below is a screenshot showing the tree of global variables and the list of functions in _Pac-Man World 2_.
 
 <Image src={require("./img/debugger.webp").default} />
 
@@ -166,7 +166,7 @@ In the Linux world, the last remaining hurdles to PCSX2 running on [Wayland](<ht
 
 </PCSX2PRLink>
 
-Thanks again to former PCSX2 lead developer refraction, PCSX2 now has a brand-new tool in its arsenal to fix misalignment issues caused by upscaling. Based on the existing Align to Native (AtN) half-pixel offset (HPO) option, Align to Native with Texture Offset (AtNTO) often combines the best of AtN and another HPO option called Special (Texture) to make a lot of games much sharper when upscaled. Thanks to a massive effort by GameDB specialist JordanTheToast, PCSX2 now applies this new setting automatically to over 100 games. These include [_Ace Combat 04: Shattered Skies_](https://wiki.pcsx2.net/Ace_Combat_04:_Shattered_Skies), the [_Sly Cooper_](https://wiki.pcsx2.net/Sly_Cooper) trilogy, [_God of War_](https://wiki.pcsx2.net/God_of_War) and [_God of War II_](https://wiki.pcsx2.net/God_of_War_II), and [_Shadow of the Colossus_](https://wiki.pcsx2.net/Shadow_of_the_Colossus). Below is a before and after of _Ace Combat 04_.
+Thanks again to former PCSX2 lead developer refraction, PCSX2 now has a brand-new tool in its arsenal to fix misalignment issues caused by upscaling. Based on the existing Align to Native (AtN) half-pixel offset (HPO) option, Align to Native with Texture Offset (AtNTO) often combines the best of AtN and another HPO option called Special (Texture) to make a lot of games much sharper when upscaled. Thanks to a massive effort by GameDB specialist JordanTheToast, PCSX2 now applies this new setting automatically to over 100 games. These include [_Ace Combat 04: Shattered Skies_](https://wiki.pcsx2.net/Ace_Combat_04:_Shattered_Skies), the [_Sly Cooper_](https://wiki.pcsx2.net/Sly_Cooper) trilogy, [_God of War_](https://wiki.pcsx2.net/God_of_War) and [_God of War II_](https://wiki.pcsx2.net/God_of_War_II), and [_Shadow of the Colossus_](https://wiki.pcsx2.net/Shadow_of_the_Colossus). Below is a before and after comparison of _Ace Combat 04_.
 
 <SliderCompare
   before={require("./img/comparisons/ace_combat_04_before.webp").default}
@@ -193,10 +193,11 @@ The right answer to "What does [SDL](https://en.wikipedia.org/wiki/Simple_Direct
 Before we move on to 2.4 and the big changes it brought, we want to stop and spotlight the smaller work that goes into making PCSX2 a polished experience. Below are just a few among hundreds, and we're grateful for every single one.
 
 - [#12157](https://github.com/PCSX2/pcsx2/pull/12157) – Contributor Florin9doi adds support for the MemCard PRO2.
-- [#12494](https://github.com/PCSX2/pcsx2/pull/12494) – First-time contributor recursean adds a adds a nice improvement to the debugger which adds column titles to Disassembly view
+- [#12494](https://github.com/PCSX2/pcsx2/pull/12494) – First-time contributor recursean adds a adds a nice improvement to the debugger which adds column titles to Disassembly view.
 - [#12593](https://github.com/PCSX2/pcsx2/pull/12593) – Contributor TheTechnician27 fixed an issue with global settings overriding per-game settings in terms of audio.
-- [#12545](https://github.com/PCSX2/pcsx2/pull/12545) – Contributor Mrlinkwii fixed with the tooling that is used to update the information used by the disc verifer.
-- [#12448](https://github.com/PCSX2/pcsx2/pull/12448) – Contributor Ziemas made it so BIOS ROM can be read in the IOP debugger
-- [#12069](https://github.com/PCSX2/pcsx2/pull/12069) – Fobes managed to fix the EE Cache not crash when changing from interpreter to the recompiler
+- [#12545](https://github.com/PCSX2/pcsx2/pull/12545) – Contributor Mrlinkwii has updated the redump database used for verifying dumped disc integrity.
+- [#12568](https://github.com/PCSX2/pcsx2/pull/12568) – Contributor KamFretoZ added the ability to load backup savestate directly from the UI.
+- [#12448](https://github.com/PCSX2/pcsx2/pull/12448) – Contributor Ziemas made it so BIOS ROM can be read in the IOP debugger.
+- [#12069](https://github.com/PCSX2/pcsx2/pull/12069) – Fobes managed to fix the EE Cache to not crash when changing from interpreter to the recompiler.
 - [#12572](https://github.com/PCSX2/pcsx2/pull/12572) - Contributor TheLastRar has updated Big Picture Mode's UI icons to use SVG for better scaling at higher monitor resolution.
 - [#12302](https://github.com/PCSX2/pcsx2/pull/12302) – Thanks to TJnotJT for adding new GS dumping options to the Debug settings.
