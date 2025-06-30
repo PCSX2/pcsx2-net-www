@@ -131,7 +131,7 @@ This brings massive fixes to a huge variety of games – at minimum, multiple ga
 />
 
 <PCSX2PRLink authors="TheTechnician27" prNums="12208">
-  ### Custom Real-Time Clock (v2.3.130)
+  ### Custom Real-Time Clock
 </PCSX2PRLink>
 
 The PlayStation 2 uses a [real-time clock](https://en.wikipedia.org/wiki/Real-time_clock) (RTC) to keep track of the date and time in the real world. Games often use the RTC in order to seed pseudorandom number generation (RNG) because of its high variability. Additionally, save files show a timestamp in the BIOS, and these timestamps are sometimes shown in-game too. However, some games use the RTC in a more interactive way. [_Ratchet & Clank 2_](https://wiki.pcsx2.net/Ratchet_%26_Clank:_Going_Commando) and [_Ratchet & Clank 3_](https://wiki.pcsx2.net/Ratchet_%26_Clank:_Up_Your_Arsenal), for example, let you teleport to the post-game Insomniac Museum area from 03:00–04:00, bypassing completion checks. [_The Simpsons: Hit & Run_](https://wiki.pcsx2.net/The_Simpsons:_Hit_%26_Run), [_The Simpsons: Road Rage_](https://wiki.pcsx2.net/The_Simpsons:_Road_Rage), [_SpongeBob SquarePants: Battle for Bikini Bottom_](https://wiki.pcsx2.net/SpongeBob_SquarePants:_Battle_for_Bikini_Bottom), and [_Scooby-Doo! Night of 100 Frights_](https://wiki.pcsx2.net/Scooby-Doo!_Night_of_100_Frights) have holiday-exclusive Easter eggs. [_Need for Speed: Hot Pursuit 2_](https://wiki.pcsx2.net/Need_for_Speed:_Hot_Pursuit_2) displays the date and time on a camera recording when you get busted. And [_Metal Gear Solid 3_](https://wiki.pcsx2.net/Metal_Gear_Solid_3:_Snake_Eater)... if you know, you know.
@@ -143,7 +143,7 @@ This currently requires you to have your BIOS set to GMT+0 and daylight savings 
 <Image src={require("./img/RTC.webp").default} />
 
 <PCSX2PRLink authors="refractionpcsx2" prNums="12254">
-  ### HDR Optimization (v2.3.135)
+  ### HDR Optimization
 </PCSX2PRLink>
 
 The PS2 doesn't have HDR support, so why does PCSX2 use HDR textures? When two numbers are added that sum to a result that won't fit in the output, like adding 200 + 200 with an 8-bit result (which can represent the values 0-255), there are two main ways computers may deal with this. The first is overflow / wrapping, famous for looping counters back to zero after they cross 255 in many NES games. In this case, the number wraps back around to 0, so 200 + 200 would result in the value 144. The second is clamping, where numbers greater than the maximum representable value are clamped to it, so 200 + 200 would equal 255. When rendering graphics, most humans consider clamping to look more visually pleasing than wrapping, since having brighter than white turn into white looks better than it turning into black or gray. As a result, PC blend hardware clamps the results of math on all 8-bit textures. But the PS2 lets developers pick between clamping and wrapping, so how do we emulate wrapping?
@@ -167,13 +167,13 @@ Don't believe us? Here is the benchmarks:
 <Image src={require("./img/LTDX11_3.webp").default} />
 
 <PCSX2PRLink authors="F0bes" prNums="12255">
-  ### Signed macOS Binaries (v2.3.160)
+  ### Signed macOS Binaries
 </PCSX2PRLink>
 
 macOS requires all code binaries to be signed. If not, macOS' [Gatekeeper](https://support.apple.com/guide/security/gatekeeper-and-runtime-protection-sec5599b66df/web) will report that the program cannot be opened because it is from an unidentified developer, thus it "cannot verify that this app is free from malware". This was a headache for users, who needed to explicitly allow an unsigned programs to run. As such, PCSX2's lead developer, fobes, worked to get PCSX2 formally signed. This means that when you download and run PCSX2 on macOS, it will now open normally.
 
 <PCSX2PRLink authors="GovanifY" prNums="12333">
-  ### Wayland by Default (v2.3.168)
+  ### Wayland by Default
 </PCSX2PRLink>
 
 In the Linux world, the last remaining hurdles to PCSX2 running on [Wayland](<https://en.wikipedia.org/wiki/Wayland_(protocol)>) by default are finally gone! Thanks to upstream fixes in [Qt](<https://en.wikipedia.org/wiki/Qt_(software)>) 6.9 and some clever work by team member GovanifY, the `I_WANT_A_BROKEN_WAYLAND_UI` flag is history! This does not mean that no Wayland-specific bugs exist, but it means we've failed to find any we consider showstoppers. If your desktop environment uses [X11](https://en.wikipedia.org/wiki/X_Window_System), nothing will change, and we'll continue accepting reports for X11-specific bugs for the foreseeable future. If you find a Wayland-specific bug, the `QT_QPA_PLATFORM=xcb` environment variable can take you back to XWayland while we work to fix it.
@@ -203,7 +203,7 @@ Thanks again to months of work by Chaoticgd, the debugger has received a huge re
 <Image src={require("./img/debugger2.webp").default} />
 
 <PCSX2PRLink authors="TheLastRar" prNums="12311">
-  ### SDL3 Upgrade (v2.3.198)
+  ### SDL3 Upgrade
 </PCSX2PRLink>
 
 The right answer to "What does [SDL](https://en.wikipedia.org/wiki/Simple_DirectMedia_Layer) do?" is "What doesn't it?", but PCSX2 uses it to handle gamepads and audio output. In January 2025, SDL's release of its newest major version, 3.0, threatened to lock us out from its great new features if somebody didn't step up and make our codebase compatible. GameDB specialist and dependency coordinator JordanTheToast – along with his emotional support TheTechnician27 – boldly took action. Days later, DEV9 expert and resident lifeguard AirGamer noticed both drowning in the deep end and decided to save them. Thanks to weeks of work by AirGamer, PCSX2 now uses SDL3. The SDL Wiki has [a comprehensive list](https://wiki.libsdl.org/SDL3/NewFeatures) of new features, but for PCSX2, the immediate benefits are full support for DualShock 3 on Linux and a cleaner API for easier development and the ability to utilize new features as they come. Special thanks goes to the unsung heroes at the SDL Wiki who wrote [this guide](https://wiki.libsdl.org/SDL3/README-migration) and especially the authors of [this symbol rename script](https://github.com/libsdl-org/SDL/blob/main/build-scripts/rename_symbols.py) who made this transition feasible.
