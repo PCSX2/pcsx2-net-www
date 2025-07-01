@@ -13,7 +13,7 @@ This section lists the system requirements to get PCSX2 up and running.
 ### Minimum
 
 - Operating system
-  - Windows 10 Version 1809 (64-bit)
+  - Windows 10 Version 21H2 LTSC (64-bit)
   - Ubuntu 22.04/Debian or newer, Arch Linux, or other distro (64-bit)
   - macOS 11.0 (Big Sur)
 - CPU
