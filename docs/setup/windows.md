@@ -16,7 +16,7 @@ Make sure to install all the required software first before proceeding with the 
 
 ### Visual C++ redistributable
 
-- You need [the latest x64 Visual C++ runtime](https://support.microsoft.com/en-us/help/2977003/) to run PCSX2.
+- You need [the latest x64 Visual C++ runtime](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-microsoft-visual-c-redistributable-version) to run PCSX2.
 
 ### FFmpeg (Optional)
 
