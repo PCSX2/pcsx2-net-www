@@ -46,8 +46,7 @@ If you do not have one of these controllers, leave this setting disabled; there 
 
 A newer Input Source for Windows only, which replaces DInput.
 But it's not backwards compatible, you need to have an XInput compatible device to use it.
-There's not much real need to use XInput, unless you're using DS3's through DsHidMini for pressure sensitivity.
-Otherwise, use SDL.
+There's not much real need to use XInput.
 
 ### DInput
 
@@ -99,8 +98,8 @@ This allows you to take advantage DualShock 3's pressure sensitive face button o
 1. Download [DsHidMini](https://docs.nefarius.at/projects/DsHidMini/) and Install it.
 2. Set DsHidMini to SXS mode.
 3. Drop DsHidMini's custom XInput DLL into the PCSX2 folder.
-4. Enable the XInput source in PCSX2.
-5. Use "Automatic Binding" button and select XInput.
+4. Enable the SDL source in PCSX2.
+5. Use "Automatic Binding" button and select SDL.
 
 ## Custom profile
 
