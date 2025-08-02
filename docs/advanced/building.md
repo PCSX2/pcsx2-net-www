@@ -219,3 +219,21 @@ The following extra cmake flags may be useful when building for working on PCSX2
 
 - `-DSKIP_POSTPROCESS_BUNDLE=ON`. This disables a post-build step that fixes up all the dependencies and shoves them into the app bundle for easy distribution. Saves time on incremental builds.
 - `-G Xcode`. Tells cmake to generate an Xcode project instead of makefiles. Allows you to use Xcode to work on PCSX2.
+
+## Building GammaRay
+
+[GammaRay](https://github.com/KDAB/GammaRay) is a debugging tool that lets you inspect the internal state of Qt applications. If you're working on the UI you may find it useful to build it alongside PCSX2 with one of the provided scripts, after building or downloading PCSX2's dependencies. This is entirely optional.
+
+Windows:
+
+```sh
+.github\workflows\scripts\windows\build-gammaray.bat
+gammaray\bin\gammaray.exe bin\pcsx2-qtx64-avx2.exe
+```
+
+Linux:
+
+```sh
+.github/workflows/scripts/linux/build-gammaray.sh deps gammaray
+./gammaray/bin/gammaray build/bin/pcsx2-qt
+```
