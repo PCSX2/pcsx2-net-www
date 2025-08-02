@@ -62,6 +62,7 @@ const renderReleaseCell = (release, columnKey, isNightly, isSelected) => {
 };
 
 let baseApiUrl = "https://api.pcsx2.net/v1";
+const fallbackStableTag = "v2.4.0";
 
 export default function Downloads() {
   const isBrowser = useIsBrowser();
@@ -82,6 +83,33 @@ export default function Downloads() {
   const [showPreviousNightlies, setShowPreviousNightlies] = useState(false);
   // general api
   const [apiErrorMsg, setApiErrorMsg] = useState(undefined);
+  const [stableFallbackLink, setStableFallbackLink] = useState(undefined);
+  const [nightlyFallbackLink, setNightlyFallbackLink] = useState(undefined);
+
+  const fetchFallbackReleases = async () => {
+    const stableRelease = await fetch(
+      `https://api.github.com/repos/PCSX2/pcsx2/releases/tags/${fallbackStableTag}`,
+    );
+    if (!stableRelease.ok) {
+      setApiErrorMsg("Unexpected API Error Occurred. Try Again Later!");
+      return;
+    }
+    const releaseList = await fetch(
+      `https://api.github.com/repos/PCSX2/pcsx2/releases`,
+    );
+    if (!releaseList.ok) {
+      setApiErrorMsg("Unexpected API Error Occurred. Try Again Later!");
+      return;
+    }
+    const releaseListData = await releaseList.json();
+    const stableReleaseData = await stableRelease.json();
+    setApiErrorMsg(`Main Release API Down, Use GitHub in the meantime.`);
+    setStableFallbackLink(stableReleaseData.html_url);
+    if (releaseListData.length > 0) {
+      // it is incredibly unlikely that there is an outage at the same time that our latest is the latest stable
+      setNightlyFallbackLink(releaseListData[0].html_url);
+    }
+  };
 
   const fetchLatestReleases = async () => {
     try {
@@ -89,7 +117,7 @@ export default function Downloads() {
       if (resp.status === 429) {
         setApiErrorMsg("You are Being Rate-Limited. Try Again Later!");
       } else if (resp.status !== 200) {
-        setApiErrorMsg("Unexpected API Error Occurred. Try Again Later!");
+        await fetchFallbackReleases();
       } else {
         const data = await resp.json();
         // Stable Releases
@@ -112,7 +140,7 @@ export default function Downloads() {
         setNightlyReleases(data.nightlyReleases);
       }
     } catch (err) {
-      setApiErrorMsg("Unexpected API Error Occurred. Try Again Later!");
+      await fetchFallbackReleases();
     }
   };
 
@@ -220,6 +248,7 @@ export default function Downloads() {
                     buttonText={"Latest Stable"}
                     isNightly={false}
                     errorMsg={apiErrorMsg}
+                    fallbackLink={stableFallbackLink}
                   />
                 </div>
                 <GoogleAd margins="2em" />
@@ -325,6 +354,7 @@ export default function Downloads() {
                     buttonText={"Latest Nightly"}
                     isNightly={true}
                     errorMsg={apiErrorMsg}
+                    fallbackLink={nightlyFallbackLink}
                   />
                 </div>
                 <GoogleAd margins="2em" />
