@@ -8,7 +8,7 @@ import {
   DropdownMenu,
   Link,
 } from "@heroui/react";
-import { BsWindows, BsApple } from "react-icons/bs";
+import { BsWindows, BsApple, BsGithub } from "react-icons/bs";
 import { FaLinux } from "react-icons/fa";
 import { IoIosCloudyNight } from "react-icons/io";
 import { GiBrickWall } from "react-icons/gi";
@@ -132,10 +132,28 @@ function openAssetLink(href) {
   }).click();
 }
 
-function renderDropdownItems(errorMsg, windowsItems, linuxItems, macosItems) {
+function renderDropdownItems(
+  errorMsg,
+  fallbackLink,
+  windowsItems,
+  linuxItems,
+  macosItems,
+) {
   let items = [];
   if (errorMsg !== undefined) {
     items.push(<DropdownSection title={errorMsg}></DropdownSection>);
+    if (fallbackLink !== undefined) {
+      items.push(
+        <DropdownItem
+          href={fallbackLink}
+          key={fallbackLink}
+          startContent={<BsGithub size={22}></BsGithub>}
+          className="no-underline hover:no-underline dark:text-white text-black"
+        >
+          Github Release Page
+        </DropdownItem>,
+      );
+    }
   } else {
     items.push(
       <DropdownSection
@@ -165,6 +183,7 @@ export function ReleaseDownloadButton({
   buttonText,
   bordered,
   errorMsg,
+  fallbackLink,
   isNightly,
   isDisabled,
   placement,
@@ -297,7 +316,13 @@ export function ReleaseDownloadButton({
         variant="faded"
         onAction={(assetUrl) => openAssetLink(assetUrl)}
       >
-        {renderDropdownItems(errorMsg, windowsItems, linuxItems, macosItems)}
+        {renderDropdownItems(
+          errorMsg,
+          fallbackLink,
+          windowsItems,
+          linuxItems,
+          macosItems,
+        )}
       </DropdownMenu>
     </Dropdown>
   );
