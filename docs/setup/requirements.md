@@ -22,8 +22,8 @@ This section lists the system requirements for PCSX2.
   - AV2 compatible
     - Intel Core i3-4150 (2 cores and 4 threads)
   - The CPU requirement can be game dependent.
-    - A reference of CPU **intensive games**: [Wiki](https://wiki.pcsx2.net/Category:CPU_intensive_games), [Forum](https://forums.pcsx2.net/Thread-LIST-The-Most-CPU-Intensive-Games)
-    - A reference of **light** games for the CPU: [Forum](https://forums.pcsx2.net/Thread-LIST-Games-that-don-t-need-a-strong-CPU-to-emulate)
+    - A reference for CPU **intensive games**: [Wiki](https://wiki.pcsx2.net/Category:CPU_intensive_games), [Forum](https://forums.pcsx2.net/Thread-LIST-The-Most-CPU-Intensive-Games)
+    - A reference for **light** games for the CPU: [Forum](https://forums.pcsx2.net/Thread-LIST-Games-that-don-t-need-a-strong-CPU-to-emulate)
 - GPU
   - DirectX 11 (10_0) compatible
   - OpenGL 3.3 compatible
@@ -33,7 +33,7 @@ This section lists the system requirements for PCSX2.
     The GPU requirement is based on 3x resolution ~1080p.
     :::
   - As with the CPU requirement, the GPU requirement can be game dependent.
-    - A reference of GPU **intensive games**: [Wiki](https://wiki.pcsx2.net/Category:GPU_intensive_games)
+    - A reference for GPU **intensive games**: [Wiki](https://wiki.pcsx2.net/Category:GPU_intensive_games)
   - 1 GB of VRAM
 - RAM
   - 4 GB
