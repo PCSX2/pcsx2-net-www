@@ -2,3 +2,4 @@ label: "Setup"
 position: 1
 link:
   type: "generated-index"
+  description: "This section helps you get PCSX2 up-and-running from scratch."

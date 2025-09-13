@@ -9,6 +9,30 @@ const redirects = [
     ],
   },
   {
+    to: "/docs/setup/discs",
+    from: "/docs/setup/dumping",
+  },
+  {
+    to: "/docs/category/configuration",
+    from: ["/docs/category/post-installation", "/docs/category/config"],
+  },
+  {
+    to: "/docs/configuration/general",
+    from: "/docs/post-installation/general",
+  },
+  {
+    to: "/docs/configuration/controllers",
+    from: "/docs/post-installation/controllers",
+  },
+  {
+    to: "/docs/configuration/memcards",
+    from: "/docs/post-installation/memcards",
+  },
+  {
+    to: "/docs/advanced/cli",
+    from: "/docs/post-installation/cli",
+  },
+  {
     to: "https://discord.com/invite/TCz3t9k",
     from: "/discord",
   },

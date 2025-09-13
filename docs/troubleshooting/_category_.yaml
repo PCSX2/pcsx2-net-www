@@ -1,4 +1,5 @@
 label: "Troubleshooting"
-position: 2
+position: 3
 link:
   type: "generated-index"
+  description: "This section helps you diagnose and resolve problems encountered while using PCSX2."

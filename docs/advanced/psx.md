@@ -1,9 +1,9 @@
 ---
-title: "PSX Mode"
-summary: "About PCSX2's PSX Mode"
+title: "Backwards Compatibility"
+description: "This page describes the experimental state of PSX emulation in PCSX2."
 draft: false
 toc: true
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 ## Can PCSX2 run PSX games?

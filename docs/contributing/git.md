@@ -1,14 +1,12 @@
 ---
-title: "Git Survival Guide"
-summary: "Getting Started with Git"
+title: "Using Git"
+description: "This page teaches you the basics of using Git."
 draft: false
 toc: true
 sidebar_position: 4
 ---
 
-Getting Started with Git.
-
-There are lots of guides and documents on the internet, but there are too many and many are confusing. Here is a mini guide to use git with a minimal number of commands and parameters. You won't find any details or explanation of Git's internal mechanisms here.
+PCSX2 uses Git for version control. There are lots of guides and documents on the internet, but there are too many and many are confusing. Here is a mini guide to use git with a minimal number of commands and parameters. You won't find any details or explanation of Git's internal mechanisms here.
 
 ## General
 

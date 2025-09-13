@@ -1,12 +1,12 @@
 ---
-title: "Linux"
-summary: "Known Linux-specific issues for PCSX2"
+title: "Linux Issues"
+summary: "This page details known issues specific to Linux."
 draft: false
 toc: true
 sidebar_position: 5
 ---
 
-Here are some known Linux-specific issue that can occur.
+This page details known issues specific to Linux.
 
 ### libfuse2
 

@@ -1,4 +1,5 @@
 label: "Contributing"
-position: 4
+position: 5
 link:
   type: "generated-index"
+  description: "This section provides tips and guidelines for contributing to PCSX2."
