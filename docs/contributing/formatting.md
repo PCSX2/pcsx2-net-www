@@ -1,14 +1,12 @@
 ---
 title: "Code Formatting Guidelines"
-summary: "PCSX2's Formatting Guidelines"
+description: "This page provides various code formatting guidelines."
 draft: false
 toc: true
 sidebar_position: 2
 ---
 
-Basic code formatting guide that you should take into account.
-
-To help with code readability, please follow these basic code‐formatting guidelines. Doing so will greatly help both you, other contributors, the PCSX2 team and everyone else.
+To help with code readability, please follow these basic code‐formatting guidelines. Doing so will greatly help you, other contributors, the PCSX2 team, and everyone else.
 
 ## Topic 1: Do not use variable type prefixes
 

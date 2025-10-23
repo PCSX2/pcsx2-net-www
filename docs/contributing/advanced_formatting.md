@@ -1,12 +1,12 @@
 ---
 title: "Advanced Code Formatting Guidelines"
-summary: "PCSX2 Project Coding Guidelines"
+description: "This page contains the complete set of coding guidelines for the PCSX2 project."
 draft: false
 toc: true
 sidebar_position: 3
 ---
 
-Coding guidelines for the entire PCSX2 project.
+This page contains the complete set of coding guidelines for the PCSX2 project.
 
 :::note
 This guideline is subject to change as the need arises.

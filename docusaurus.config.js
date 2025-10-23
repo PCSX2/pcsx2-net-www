@@ -178,10 +178,31 @@ const config = {
           { to: "/downloads", label: "Download", position: "left" },
           { to: "/compat", label: "Compatibility", position: "left" },
           {
-            type: "doc",
-            docId: "index",
             label: "Docs",
+            to: "/docs",
             position: "left",
+            items: [
+              {
+                label: "Setup Guide",
+                to: "/docs/category/setup",
+              },
+              {
+                label: "Configuration Options",
+                to: "/docs/category/configuration",
+              },
+              {
+                label: "Troubleshooting Steps",
+                to: "/docs/category/troubleshooting",
+              },
+              {
+                label: "Advanced Features",
+                to: "/docs/category/advanced",
+              },
+              {
+                label: "Contributing Guidelines",
+                to: "/docs/category/contributing",
+              },
+            ],
           },
           {
             to: "/blog",
@@ -344,6 +365,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ["bash", "powershell", "shell-session"],
       },
     }),
   plugins: [

@@ -1,12 +1,12 @@
 ---
 title: "Building PCSX2"
-summary: "How to build PCSX2 locally"
+description: "This page helps you build PCSX2 locally on your machine."
 draft: false
 toc: true
 sidebar_position: 1
 ---
 
-This section will show you how you can build PCSX2 locally on your machine.
+This page helps you build PCSX2 locally on your machine.
 
 ## Building on Windows
 

@@ -1,10 +1,12 @@
 ---
 title: "Performance Issues"
-summary: "Steps on how to diagnose performance bottlenecks in PCSX2"
+summary: "This page details causes of and potential solutions to performance issues."
 draft: false
 toc: true
 sidebar_position: 2
 ---
+
+This page details causes of and potential solutions to performance issues.
 
 ## It works but it's slow?
 

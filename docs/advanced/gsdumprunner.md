@@ -1,16 +1,16 @@
 ---
 title: "GS Dump Runner"
-summary: "How to use the GS Dump Runner"
+description: "This page helps you understand and use the GS dump runner on Windows."
 draft: false
 toc: true
-sidebar_position: 3
+sidebar_position: 5
 ---
 
 The GS dump runner is designed to automatically run and compare a large number of GS dumps and output any differences found with pictures.
 
 `pcsx2-gsrunner` does not build by default. You need to right click in the solution explorer in VS, and select Build.
 
-:::info
+:::note
 The GS dump runner is only available for Windows at the moment.
 :::
 

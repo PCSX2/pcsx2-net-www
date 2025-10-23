@@ -1,6 +1,6 @@
 ---
 title: "Debugger"
-description: "Inspect and modify the state of the program running in the virtual machine."
+description: "This page helps you inspect and modify the state of the program running in the virtual machine."
 sidebar_position: 2
 ---
 

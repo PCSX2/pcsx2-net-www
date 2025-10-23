@@ -1,12 +1,12 @@
 ---
-title: "Windows"
-summary: "Known Windows-specific issues for PCSX2"
+title: "Windows Issues"
+description: "This page details known issues specific to Windows."
 draft: false
 toc: true
 sidebar_position: 4
 ---
 
-Here are some known Windows-specific issue that can occur.
+This page details known issues specific to Windows.
 
 ## Missing "MSVCP140.dll"
 

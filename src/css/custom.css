@@ -346,6 +346,11 @@ aside > div > nav.menu {
   font-family: "Roboto Mono", "monospaced";
 }
 
+/* Fix vertical gaps in box-drawing characters */
+pre.language-shell-session {
+  line-height: 1.1;
+}
+
 table thead {
   background-color: unset;
 }

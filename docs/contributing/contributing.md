@@ -1,12 +1,12 @@
 ---
 title: "Contributing to PCSX2"
-summary: "Getting started with contributing to PCSX2"
+description: "This page introduces you to contributing to the PCSX2 project."
 draft: false
 toc: true
 sidebar_position: 1
 ---
 
-In this section you will learn how to contribute to PCSX2.
+This page introduces you to contributing to the PCSX2 project.
 
 As a first step, please review these links as they'll help you understand how the development of PCSX2 works.
 

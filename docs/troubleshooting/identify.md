@@ -1,12 +1,12 @@
 ---
-title: "Reporting for issues"
-summary: "Steps on how to diagnose problems during PCSX2 Setup"
+title: "Diagnosing & Reporting"
+summary: "This page helps you correctly diagnose and report issues."
 draft: false
 toc: true
 sidebar_position: 3
 ---
 
-Hit a snag? Follow through this page to find out on how to gather more information about the issues! Especially useful for when you wanted to report them.
+This page helps you correctly diagnose and report issues.
 
 ## Collecting Emulog
 
