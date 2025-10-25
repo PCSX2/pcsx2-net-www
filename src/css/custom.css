@@ -405,22 +405,7 @@ table td {
 }
 
 .h1-icon {
-  fontsize: "1em";
-  verticalalign: "middle";
-}
-
-.h1-icon-spacer {
-  fontsize: "0.5em";
-  verticalalign: "middle";
-  marginleft: "0.5em";
-}
-
-.stable-blue {
-  color: "#4b7cd7";
-}
-
-.nightly-orange {
-  color: "#b58d05";
+  font-size: "1em";
 }
 
 .imgCompareContainer {
