@@ -404,6 +404,25 @@ table td {
   font-weight: 700;
 }
 
+.h1-icon {
+  fontsize: "1em";
+  verticalalign: "middle";
+}
+
+.h1-icon-spacer {
+  fontsize: "0.5em";
+  verticalalign: "middle";
+  marginleft: "0.5em";
+}
+
+.stable-blue {
+  color: "#4b7cd7";
+}
+
+.nightly-orange {
+  color: "#b58d05";
+}
+
 .imgCompareContainer {
   display: inline-block;
   line-height: 0;
