@@ -41,10 +41,10 @@ function toProperCase(str) {
 function getOSIcon(os, fillColor) {
   if (os === "windows") {
     return <BsWindows size={22} fill={fillColor}></BsWindows>;
-  } else if (os === "linux") {
-    return <FaLinux size={22} fill={fillColor}></FaLinux>;
   } else if (os === "macos") {
     return <BsApple size={22} fill={fillColor}></BsApple>;
+  } else if (os === "linux") {
+    return <FaLinux size={22} fill={fillColor}></FaLinux>;
   } else {
     return null;
   }
@@ -88,6 +88,8 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       } else {
         displayName = "Download";
       }
+    } else if (os === "macos") {
+      displayName = "Download";
     } else if (os === "linux") {
       // Check for Flatpak or AppImage tags which will make Appimage - x64 Qt and Flatpak - x64 Qt and no way to seemingly fix the regular way
       if (asset.additionalTags.includes("appimage")) {
@@ -97,8 +99,6 @@ function generateDropdownItems(release, os, assets, textRemovals, isNightly) {
       } else {
         displayName = toProperCase(displayName); // Capitalize the first letter for other cases like old Linux releases
       }
-    } else if (os === "macos") {
-      displayName = "Download";
     }
 
     // Strip the "- x64 Qt" for Linux because it's being annoying with the tags and who cares about how good the code looks for now it's a bit of jank.
@@ -164,14 +164,14 @@ function renderDropdownItems(
       </DropdownSection>,
       <DropdownSection
         showDivider
+        title={macosItems.length > 0 ? "macOS" : "macOS - None Available"}
+      >
+        {macosItems}
+      </DropdownSection>,
+      <DropdownSection
         title={linuxItems.length > 0 ? "Linux" : "Linux - None Available"}
       >
         {linuxItems}
-      </DropdownSection>,
-      <DropdownSection
-        title={macosItems.length > 0 ? "MacOS" : "MacOS - None Available"}
-      >
-        {macosItems}
       </DropdownSection>,
     );
   }
@@ -199,8 +199,8 @@ export function ReleaseDownloadButton({
 
   // States to hold dropdown items for each platform
   const [windowsItems, setWindowsItems] = useState([]);
-  const [linuxItems, setLinuxItems] = useState([]);
   const [macosItems, setMacosItems] = useState([]);
+  const [linuxItems, setLinuxItems] = useState([]);
 
   // Effect to generate dropdown items when the release or other inputs change
   useEffect(() => {
@@ -225,27 +225,6 @@ export function ReleaseDownloadButton({
         ),
       );
     }
-    if ("linux" in release) {
-      setLinuxItems(
-        generateDropdownItems(
-          release.linux,
-          "linux",
-          release.linux?.assets?.Linux,
-          ["Linux"],
-          isNightly,
-        ),
-      );
-    } else {
-      setLinuxItems(
-        generateDropdownItems(
-          release,
-          "linux",
-          release.assets?.Linux,
-          ["Linux"],
-          isNightly,
-        ),
-      );
-    }
     if ("macos" in release) {
       setMacosItems(
         generateDropdownItems(
@@ -263,6 +242,27 @@ export function ReleaseDownloadButton({
           "macos",
           release.assets?.MacOS,
           ["MacOS"],
+          isNightly,
+        ),
+      );
+    }
+    if ("linux" in release) {
+      setLinuxItems(
+        generateDropdownItems(
+          release.linux,
+          "linux",
+          release.linux?.assets?.Linux,
+          ["Linux"],
+          isNightly,
+        ),
+      );
+    } else {
+      setLinuxItems(
+        generateDropdownItems(
+          release,
+          "linux",
+          release.assets?.Linux,
+          ["Linux"],
           isNightly,
         ),
       );

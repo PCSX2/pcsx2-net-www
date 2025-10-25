@@ -128,14 +128,14 @@ export default function Downloads() {
         // is not actually a problem we currently have and should be solved at the API level
         setLatestStableRelease({
           windows: getLatestRelease(data.stableReleases.data, "Windows"),
-          linux: getLatestRelease(data.stableReleases.data, "Linux"),
           macos: getLatestRelease(data.stableReleases.data, "MacOS"),
+          linux: getLatestRelease(data.stableReleases.data, "Linux"),
         });
 
         setLatestNightlyRelease({
           windows: getLatestRelease(data.nightlyReleases.data, "Windows"),
-          linux: getLatestRelease(data.nightlyReleases.data, "Linux"),
           macos: getLatestRelease(data.nightlyReleases.data, "MacOS"),
+          linux: getLatestRelease(data.nightlyReleases.data, "Linux"),
         });
 
         setStableReleases(data.stableReleases);
@@ -185,10 +185,12 @@ export default function Downloads() {
             <div>
               <div className="inline-block">
                 <div>
-                  <h1 className="bg-clip-text text-transparent bg-gradient-to-b from-[#5099ff] to-[#465eae]">
+                  <h1 className="bg-clip-text text-transparent bg-gradient-to-b from-[#5099ff] to-[#465eae] flex items-center justify-left gap-2">
                     Stable Releases
-                    <span className="h1-icon-spacer" />
-                    <GiBrickWall className="h1-icon stable-blue" />
+                    <GiBrickWall
+                      className="h1-icon"
+                      style={{ color: "#4b7cd7" }}
+                    />
                   </h1>
                 </div>
                 {apiErrorMsg !== undefined && (
@@ -204,7 +206,7 @@ export default function Downloads() {
                             href="https://github.com/PCSX2/pcsx2/releases"
                             target="_blank"
                             rel="noreferrer"
-                            className="stable-blue hover:underline"
+                            className="text-blue-500 hover:underline"
                           >
                             GitHub
                           </a>
@@ -232,7 +234,7 @@ export default function Downloads() {
                 <div>
                   <p>
                     If you need help using the emulator,{" "}
-                    <a href="/docs/" className="text-blue-500 hover:underline">
+                    <a href="/docs/" className="text-blue-400 hover:underline">
                       see the documentation.
                     </a>
                   </p>
@@ -300,10 +302,12 @@ export default function Downloads() {
             <div>
               <div className="inline-block">
                 <div>
-                  <h1 className="bg-clip-text text-transparent bg-gradient-to-b to-[#777500] from-[#f2a40a]">
+                  <h1 className="bg-clip-text text-transparent bg-gradient-to-b to-[#777500] from-[#f2a40a] flex items-center justify-left gap-2">
                     Nightly Releases
-                    <span className="h1-icon-spacer" />
-                    <IoIosCloudyNight className="h1-icon nightly-orange" />
+                    <IoIosCloudyNight
+                      className="h1-icon"
+                      style={{ color: "#b58d05" }}
+                    />
                   </h1>
                 </div>
                 {apiErrorMsg !== undefined && (
@@ -347,7 +351,7 @@ export default function Downloads() {
                 <div>
                   <p>
                     If you need help using the emulator,{" "}
-                    <a href="/docs/" className="nightly-orange hover:underline">
+                    <a href="/docs/" className="text-amber-400 hover:underline">
                       see the documentation.
                     </a>
                   </p>
