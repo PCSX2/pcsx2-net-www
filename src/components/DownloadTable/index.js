@@ -71,6 +71,7 @@ export function DownloadTable({
                 isCompact
                 showControls
                 showShadow
+                color={tableType === "nightly" ? "warning" : "primary"}
                 page={tablePage}
                 total={totalPages}
                 onChange={async (page) => {

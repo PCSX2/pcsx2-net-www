@@ -7,6 +7,8 @@ import { DownloadTable } from "../../components/DownloadTable";
 import { getLatestRelease } from "../../components/ReleaseDownloadButton";
 import Head from "@docusaurus/Head";
 import ReactMarkdown from "react-markdown";
+import { IoIosCloudyNight } from "react-icons/io";
+import { GiBrickWall } from "react-icons/gi";
 import { GoogleAd } from "../../components/GoogleAd";
 import useIsBrowser from "@docusaurus/useIsBrowser";
 import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
@@ -18,7 +20,7 @@ const releaseTableColumns = [
   },
   {
     key: "releaseInfo",
-    label: "INFO",
+    label: "RELEASE DATE",
   },
 ];
 
@@ -167,7 +169,7 @@ export default function Downloads() {
   return (
     <Layout
       title="Downloads"
-      description="The official source for the latest stable and nightly builds (aka dev builds) for PCSX2 on all supported platforms"
+      description="The official source for the latest stable and nightly builds of PCSX2 on all supported platforms"
     >
       <Head>
         <meta property="og:description" content="" />
@@ -185,6 +187,8 @@ export default function Downloads() {
                 <div>
                   <h1 className="bg-clip-text text-transparent bg-gradient-to-b from-[#5099ff] to-[#465eae]">
                     Stable Releases
+                    <span className="h1-icon-spacer" />
+                    <GiBrickWall className="h1-icon stable-blue" />
                   </h1>
                 </div>
                 {apiErrorMsg !== undefined && (
@@ -200,7 +204,7 @@ export default function Downloads() {
                             href="https://github.com/PCSX2/pcsx2/releases"
                             target="_blank"
                             rel="noreferrer"
-                            className="text-blue-500 hover:underline"
+                            className="stable-blue hover:underline"
                           >
                             GitHub
                           </a>
@@ -221,7 +225,7 @@ export default function Downloads() {
                 )}
                 <div>
                   <p>
-                    Stable releases are infrequent but well tested compared to
+                    Stable releases are infrequent but well-tested compared to
                     the nightly releases.
                   </p>
                 </div>
@@ -229,18 +233,9 @@ export default function Downloads() {
                   <p>
                     If you need help using the emulator,{" "}
                     <a href="/docs/" className="text-blue-500 hover:underline">
-                      see the following article.
+                      see the documentation.
                     </a>
                   </p>
-                </div>
-                <div>
-                  <Admonition type="caution">
-                    <p>
-                      If you are having trouble downloading, try disabling your
-                      pop-up blocker (e.g. Poper Blocker) as they are known to
-                      cause problems with our download links.
-                    </p>
-                  </Admonition>
                 </div>
                 <div className="mt-8">
                   <ReleaseDownloadButton
@@ -307,6 +302,8 @@ export default function Downloads() {
                 <div>
                   <h1 className="bg-clip-text text-transparent bg-gradient-to-b to-[#777500] from-[#f2a40a]">
                     Nightly Releases
+                    <span className="h1-icon-spacer" />
+                    <IoIosCloudyNight className="h1-icon nightly-orange" />
                   </h1>
                 </div>
                 {apiErrorMsg !== undefined && (
@@ -343,9 +340,16 @@ export default function Downloads() {
                 )}
                 <div>
                   <p>
-                    There is a new nightly release anytime a change is made, so
-                    you are getting the latest and greatest (but sometimes
-                    buggy) experience.
+                    Nightly releases always have the newest features but are
+                    less tested than the stable releases.
+                  </p>
+                </div>
+                <div>
+                  <p>
+                    If you need help using the emulator,{" "}
+                    <a href="/docs/" className="nightly-orange hover:underline">
+                      see the documentation.
+                    </a>
                   </p>
                 </div>
                 <div className="mt-8">
