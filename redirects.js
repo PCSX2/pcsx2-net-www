@@ -18,19 +18,19 @@ const redirects = [
   },
   {
     to: "/docs/configuration/general",
-    from: "/docs/post-installation/general",
+    from: "/docs/post/general",
   },
   {
     to: "/docs/configuration/controllers",
-    from: "/docs/post-installation/controllers",
+    from: "/docs/post/controllers",
   },
   {
     to: "/docs/configuration/memcards",
-    from: "/docs/post-installation/memcards",
+    from: "/docs/post/memcards",
   },
   {
     to: "/docs/advanced/cli",
-    from: "/docs/post-installation/cli",
+    from: "/docs/post/cli",
   },
   {
     to: "https://discord.com/invite/TCz3t9k",
