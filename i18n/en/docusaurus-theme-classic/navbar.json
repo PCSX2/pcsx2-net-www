@@ -1,0 +1,90 @@
+{
+  "title": {
+    "message": "PCSX2",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "PCSX2 Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Download": {
+    "message": "Download",
+    "description": "Navbar item with label Download"
+  },
+  "item.label.Compatibility": {
+    "message": "Compatibility",
+    "description": "Navbar item with label Compatibility"
+  },
+  "item.label.Docs": {
+    "message": "Docs",
+    "description": "Navbar item with label Docs"
+  },
+  "item.label.Blog": {
+    "message": "Blog",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.Donate": {
+    "message": "Donate",
+    "description": "Navbar item with label Donate"
+  },
+  "item.label.Links": {
+    "message": "Links",
+    "description": "Navbar item with label Links"
+  },
+  "item.label.Setup Guide": {
+    "message": "Setup Guide",
+    "description": "Navbar item with label Setup Guide"
+  },
+  "item.label.Configuration Options": {
+    "message": "Configuration Options",
+    "description": "Navbar item with label Configuration Options"
+  },
+  "item.label.Troubleshooting Steps": {
+    "message": "Troubleshooting Steps",
+    "description": "Navbar item with label Troubleshooting Steps"
+  },
+  "item.label.Advanced Features": {
+    "message": "Advanced Features",
+    "description": "Navbar item with label Advanced Features"
+  },
+  "item.label.Contributing Guidelines": {
+    "message": "Contributing Guidelines",
+    "description": "Navbar item with label Contributing Guidelines"
+  },
+  "item.label.Progress Reports": {
+    "message": "Progress Reports",
+    "description": "Navbar item with label Progress Reports"
+  },
+  "item.label.Developer Blogs": {
+    "message": "Developer Blogs",
+    "description": "Navbar item with label Developer Blogs"
+  },
+  "item.label.Forums": {
+    "message": "Forums",
+    "description": "Navbar item with label Forums"
+  },
+  "item.label.Wiki": {
+    "message": "Wiki",
+    "description": "Navbar item with label Wiki"
+  },
+  "item.label.Discord": {
+    "message": "Discord",
+    "description": "Navbar item with label Discord"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  },
+  "item.label.Mastodon": {
+    "message": "Mastodon",
+    "description": "Navbar item with label Mastodon"
+  },
+  "item.label.YouTube": {
+    "message": "YouTube",
+    "description": "Navbar item with label YouTube"
+  },
+  "item.label.RSS Feed": {
+    "message": "RSS Feed",
+    "description": "Navbar item with label RSS Feed"
+  }
+}
