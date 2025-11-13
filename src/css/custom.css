@@ -321,6 +321,12 @@ aside > div > nav.menu {
 
 /* Article CSS */
 
+/* Fix author name vertical alignment next to avatar image in Docusaurus blog posts */
+.avatar__name {
+  margin: auto;
+  position: absolute;
+}
+
 .blog-post-page header > h1 {
   background-image: linear-gradient(
     rgb(80, 153, 255) 25%,
@@ -465,8 +471,13 @@ table td {
   z-index: 2;
 }
 
-/* Fix author name vertical alignment next to avatar image in Docusaurus blog posts */
-.avatar__name {
-  margin: auto;
-  position: absolute;
+.tab_header_with_icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+}
+
+.table_header_icon {
+  vertical-align: middle;
+  transform: translateY(-0.1em);
 }

@@ -9,6 +9,10 @@ toc: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { BsWindows, BsApple, BsLightningChargeFill } from "react-icons/bs";
+import { FaLinux } from "react-icons/fa";
+import { FaComputer, FaScaleBalanced } from "react-icons/fa6";
+import { GiTurtleShell } from "react-icons/gi"
 
 This page lists the system requirements to run PCSX2.
 
@@ -16,9 +20,9 @@ This page lists the system requirements to run PCSX2.
  <thead>
   <tr>
    <th scope="col"></th>
-   <th scope="col">Minimum</th>
-   <th scope="col">Moderate</th>
-   <th scope="col">Heavy</th>
+   <th scope="col">Minimum <GiTurtleShell className="table_header_icon"/></th>
+   <th scope="col">Moderate <FaScaleBalanced className="table_header_icon"/></th>
+   <th scope="col">Heavy <BsLightningChargeFill className="table_header_icon"/></th>
   </tr>
  </thead>
  <tbody>
@@ -132,9 +136,9 @@ Hardware requirements can vary drastically between games.
  <thead>
   <tr>
    <th scope="col"></th>
-   <th scope="col">Minimum</th>
-   <th scope="col">Moderate</th>
-   <th scope="col">Heavy</th>
+   <th scope="col">Minimum <GiTurtleShell className="table_header_icon"/></th>
+   <th scope="col">Moderate <FaScaleBalanced className="table_header_icon"/></th>
+   <th scope="col">Heavy <BsLightningChargeFill className="table_header_icon"/></th>
   </tr>
   </thead>
   <tbody>
@@ -156,23 +160,22 @@ Hardware requirements can vary drastically between games.
 ## Version Deprecations
 
 <Tabs queryString="deprecation">
-<TabItem value="general" label="General" default>
+<TabItem value="general" label={<span className="tab_header_with_icon"><FaComputer />General</span>} default>
 - Direct3D 9 support was dropped after stable release v1.4.0.
 - 32-bit support was dropped after stable release v1.6.0.
 
 </TabItem>
-<TabItem value="windows" label="Windows">
+<TabItem value="windows" label={<span className="tab_header_with_icon"><BsWindows />Windows</span>}>
 - Windows XP support was dropped after stable release v1.4.0.
 - Windows 7, Windows 8.0, and Windows 8.1 support was dropped after stable release v1.6.0.
 - Windows 10 21H1 and earlier support was dropped after stable release v2.4.0.
 
 </TabItem>
-<TabItem value="macos" label="macOS">
+<TabItem value="macos" label={<span className="tab_header_with_icon"><BsApple />macOS</span>}>
 - macOS 10.4 support was added and dropped during the nightly v1.7.X release cycle.
-<!--- TODO: macOS 11 and 12 support was dropped after stable release v2.4.0.-->
 
 </TabItem>
-<TabItem value="linux" label="Linux">
+<TabItem value="linux" label={<span className="tab_header_with_icon"><FaLinux />Linux</span>}>
 - Ubuntu 20.04 support was dropped after stable release v1.6.0.
 
 </TabItem>
