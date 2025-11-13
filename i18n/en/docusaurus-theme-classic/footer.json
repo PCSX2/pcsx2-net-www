@@ -1,0 +1,78 @@
+{
+  "link.title.Links": {
+    "message": "Links",
+    "description": "The title of the footer links column with title=Links in the footer"
+  },
+  "link.title.Contribute": {
+    "message": "Contribute",
+    "description": "The title of the footer links column with title=Contribute in the footer"
+  },
+  "link.title.Community": {
+    "message": "Community",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.title.Legal": {
+    "message": "Legal",
+    "description": "The title of the footer links column with title=Legal in the footer"
+  },
+  "link.item.label.Downloads": {
+    "message": "Downloads",
+    "description": "The label of footer link with label=Downloads linking to /downloads"
+  },
+  "link.item.label.Compatibility": {
+    "message": "Compatibility",
+    "description": "The label of footer link with label=Compatibility linking to /compat"
+  },
+  "link.item.label.Documentation": {
+    "message": "Documentation",
+    "description": "The label of footer link with label=Documentation linking to /docs"
+  },
+  "link.item.label.Blog": {
+    "message": "Blog",
+    "description": "The label of footer link with label=Blog linking to /blog"
+  },
+  "link.item.label.Wiki": {
+    "message": "Wiki",
+    "description": "The label of footer link with label=Wiki linking to https://wiki.pcsx2.net/"
+  },
+  "link.item.label.Status": {
+    "message": "Status",
+    "description": "The label of footer link with label=Status linking to https://stats.uptimerobot.com/LWxk2iJ25F"
+  },
+  "link.item.label.Donate": {
+    "message": "Donate",
+    "description": "The label of footer link with label=Donate linking to https://github.com/sponsors/PCSX2"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/PCSX2/pcsx2"
+  },
+  "link.item.label.Discord": {
+    "message": "Discord",
+    "description": "The label of footer link with label=Discord linking to https://pcsx2.net/discord"
+  },
+  "link.item.label.Forums": {
+    "message": "Forums",
+    "description": "The label of footer link with label=Forums linking to https://forums.pcsx2.net/"
+  },
+  "link.item.label.Mastodon": {
+    "message": "Mastodon",
+    "description": "The label of footer link with label=Mastodon linking to https://mastodon.social/@PCSX2"
+  },
+  "link.item.label.YouTube": {
+    "message": "YouTube",
+    "description": "The label of footer link with label=YouTube linking to https://www.youtube.com/user/PCSX2team"
+  },
+  "link.item.label.Privacy": {
+    "message": "Privacy",
+    "description": "The label of footer link with label=Privacy linking to /privacy"
+  },
+  "link.item.label.Trademark & Copyright": {
+    "message": "Trademark & Copyright",
+    "description": "The label of footer link with label=Trademark & Copyright linking to /intellectualproperty"
+  },
+  "copyright": {
+    "message": "Copyright © 2025 PCSX2.",
+    "description": "The footer copyright"
+  }
+}
