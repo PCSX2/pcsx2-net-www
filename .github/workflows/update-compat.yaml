@@ -10,7 +10,7 @@ jobs:
     name: Update Compatibility Data
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Download Latest
         run: wget -O data.json https://forums.pcsx2.net/data/data.json
