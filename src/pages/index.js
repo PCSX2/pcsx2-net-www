@@ -7,6 +7,7 @@ import { useTheme } from "next-themes";
 import { NumberTicker } from "../components/NumberTicker";
 import { getLatestRelease } from "../components/ReleaseDownloadButton";
 import { GoogleAd } from "../components/GoogleAd";
+import Translate from "@docusaurus/Translate";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import { useMediaQuery } from "../utils/mediaQuery";
 
@@ -67,19 +68,35 @@ export default function Home() {
       `https://api.github.com/repos/PCSX2/pcsx2/releases/tags/${fallbackStableTag}`,
     );
     if (!stableRelease.ok) {
-      setApiErrorMsg("Unexpected API Error Occurred. Try Again Later!");
+      setApiErrorMsg(
+        translate({
+          message: "Unexpected API Error Occurred. Try Again Later!",
+          description: "An error message if the stable release is not okay.",
+        }),
+      );
       return;
     }
     const releaseList = await fetch(
       `https://api.github.com/repos/PCSX2/pcsx2/releases`,
     );
     if (!releaseList.ok) {
-      setApiErrorMsg("Unexpected API Error Occurred. Try Again Later!");
+      setApiErrorMsg(
+        translate({
+          message: "Unexpected API Error Occurred. Try Again Later!",
+          description: "An error message if the release list is not okay.",
+        }),
+      );
       return;
     }
     const releaseListData = await releaseList.json();
     const stableReleaseData = await stableRelease.json();
-    setApiErrorMsg(`Main Release API Down, Use GitHub in the meantime.`);
+    setApiErrorMsg(
+      translate({
+        message: "Main Release API Down, Use GitHub in the meantime.",
+        description:
+          "Error message directing users to GitHub to download releases.",
+      }),
+    );
     setStableFallbackLink(stableReleaseData.html_url);
     if (releaseListData.length > 0) {
       // it is incredibly unlikely that there is an outage at the same time that our latest is the latest stable
@@ -91,7 +108,14 @@ export default function Home() {
     try {
       let resp = await fetch(`${baseApiUrl}/latestReleasesAndPullRequests`);
       if (resp.status === 429) {
-        setApiErrorMsg("You are Being Rate-Limited. Try Again Later!");
+        setApiErrorMsg(
+          setApiErrorMsg(
+            translate({
+              message: "You are Being Rate-Limited. Try Again Later!",
+              description: "Error message for HTTP 429 – Too Many Requests.",
+            }),
+          ),
+        );
       } else if (resp.status !== 200) {
         await fetchFallbackReleases();
       } else {
@@ -120,7 +144,10 @@ export default function Home() {
   }, [theme]);
 
   return (
-    <Layout title={`Home`} description="An Open-Source Playstation 2 Emulator">
+    <Layout
+      title={`Home`}
+      description=<Translate>An Open-Source Playstation 2 Emulator</Translate>
+    >
       <main className="docusaurus-reset">
         <video
           src={useBaseUrl(homeVideoPath)}
@@ -148,7 +175,9 @@ export default function Home() {
               >
                 PCSX2&nbsp;
               </h1>
-              <h1 className={`${StyledTitle} mb-0`}>is an open source&nbsp;</h1>
+              <h1 className={`${StyledTitle} mb-0`}>
+                <Translate>is an open-source</Translate>&nbsp;
+              </h1>
               <h1
                 className={`${StyledGradientTitle} mb-0`}
                 style={{
@@ -163,16 +192,16 @@ export default function Home() {
             <div>
               <p className={`${StyledSubtitle} justify-center`}>
                 <span>
-                  Supporting&nbsp;
+                  <Translate>Supporting</Translate>&nbsp;
                   <NumberTicker numberFunc={getPlayableGameCount} />
-                  &nbsp;Games from the PS2 Library
+                  &nbsp;<Translate>Games from the PS2 Library</Translate>
                 </span>
               </p>
             </div>
             <div className="flex gap-2 justify-center mt-5">
               <ReleaseDownloadButton
                 release={latestStableRelease}
-                buttonText="Latest Stable"
+                buttonText=<Translate>Latest Stable</Translate>
                 isNightly={false}
                 isDisabled={false}
                 errorMsg={apiErrorMsg}
@@ -182,7 +211,7 @@ export default function Home() {
               <div className="flex flex-col">
                 <ReleaseDownloadButton
                   release={latestNightlyRelease}
-                  buttonText="Latest Nightly"
+                  buttonText=<Translate>Latest Nightly</Translate>
                   isNightly={true}
                   errorMsg={apiErrorMsg}
                   fallbackLink={nightlyFallbackLink}
@@ -194,7 +223,7 @@ export default function Home() {
                   as={Link}
                   href={useBaseUrl("/downloads")}
                 >
-                  Previous Versions
+                  <Translate>Previous Versions</Translate>
                 </Button>
               </div>
             </div>
@@ -213,8 +242,10 @@ export default function Home() {
             <div className="flex flex-col">
               <h1 className={`${StyledTitle} mb-0`}>Recent Blog Posts</h1>
               <p className={`${StyledSubtitle}`}>
-                Articles that go more in-depth on how things work, how they were
-                fixed, or sometimes why they don't.
+                <Translate>
+                  Articles that go more in-depth on how things work, how they
+                  were fixed, or sometimes why they don't.
+                </Translate>
               </p>
             </div>
 
@@ -285,10 +316,14 @@ export default function Home() {
           {/* Recent Progress Reports Section */}
           <div className="w-full px-8 md:px-20 mt-8 relative">
             <div className="flex flex-col">
-              <h1 className={`${StyledTitle} mb-0`}>Recent Progress Reports</h1>
+              <h1 className={`${StyledTitle} mb-0`}>
+                <Translate>Recent Progress Reports</Translate>
+              </h1>
               <p className={`${StyledSubtitle}`}>
-                Stay up to date on the latest improvements and fixes on the
-                project.
+                <Translate>
+                  Stay up-to-date on the latest improvements and fixes on the
+                  project.
+                </Translate>
               </p>
             </div>
 
@@ -362,32 +397,40 @@ export default function Home() {
             <div className="flex flex-col">
               <h1 className={`${StyledTitle} mb-0`}>About the Project</h1>
               <p className={`${StyledSubtitle}`}>
-                PCSX2 has a lot of history and an evolving future.
+                <Translate>
+                  PCSX2 has a lot of history and an evolving future.
+                </Translate>
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
               <div>
                 <p>
-                  PCSX2 is a free and open-source PlayStation 2 (PS2) emulator.
-                  Its purpose is to emulate the PS2's hardware, using a
-                  combination of MIPS CPU Interpreters, Recompilers, and a
-                  Virtual Machine that manages hardware states and system
-                  memory.
+                  <Translate>
+                    PCSX2 is a free and open-source PlayStation 2 (PS2)
+                    emulator. Its purpose is to emulate the PS2's hardware,
+                    using a combination of MIPS CPU Interpreters, Recompilers,
+                    and a Virtual Machine that manages hardware states and
+                    system memory.
+                  </Translate>
                 </p>
               </div>
               <div>
                 <p>
-                  The project has been running for almost 20 years. Past
-                  versions could only run a few game demos, but newer versions
-                  can run most games at full speed, including titles like Final
-                  Fantasy X and Devil May Cry 3.
+                  <Translate>
+                    The project has been running for almost 20 years. Past
+                    versions could only run a few game demos, but newer versions
+                    can run most games at full speed, including titles like
+                    Final Fantasy X and Devil May Cry 3.
+                  </Translate>
                 </p>
               </div>
               <div>
                 <p>
-                  A significant majority of the PS2 library is considered
-                  playable. For more info on compatibility, see{" "}
+                  <Translate>
+                    A significant majority of the PS2 library is considered
+                    playable. For more info on compatibility, see
+                  </Translate>{" "}
                   <Link to="/compat">here</Link>.
                 </p>
               </div>
@@ -395,14 +438,28 @@ export default function Home() {
 
             <div className="mt-8">
               <p>
-                PCSX2 allows you to play PS2 games on your PC with added
-                features like:
+                <Translate>
+                  PCSX2 allows you to play PS2 games on your PC with added
+                  features like:
+                </Translate>
                 <ul className="list-disc ml-5">
-                  <li>Custom resolutions and upscaling</li>
-                  <li>Virtual and shareable memory cards</li>
-                  <li>Save-states</li>
-                  <li>Patching system</li>
-                  <li>Internal recorder for lossless quality at full speed</li>
+                  <li>
+                    <Translate>Custom resolutions and upscaling</Translate>
+                  </li>
+                  <li>
+                    <Translate>Virtual and shareable memory cards</Translate>
+                  </li>
+                  <li>
+                    <Translate>Save-states</Translate>
+                  </li>
+                  <li>
+                    <Translate>Patching system</Translate>
+                  </li>
+                  <li>
+                    <Translate>
+                      Internal recorder for lossless quality at full speed
+                    </Translate>
+                  </li>
                 </ul>
               </p>
             </div>
