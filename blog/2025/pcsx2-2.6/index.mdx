@@ -1,0 +1,605 @@
+---
+draft: false
+title: PCSX2 2.6.0 is now out!
+tags:
+  - devblog
+date: 2026-01-4
+description: PCSX2 2.6 Release Post
+hide_table_of_contents: false
+titleImage: /img/2-0-banner.webp
+image: /img/2-0-banner.webp
+authors:
+  - kamfretoz
+  - lightningterror
+  - airgamer
+  - pandubz
+  - jordan
+  - link
+---
+
+Nearly 6 months after PCSX2 2.4.0 release, we are excited to unveil PCSX2 2.6.0! We're even more excited to showcase the things that we have been working on.
+
+<!--truncate-->
+
+## <TextGradient startColor="#2A6DFF" endColor="#245DD9">New Year - New Build</TextGradient>
+
+Now that the dust has settled down from [our biggest single release to date](../../2024/pcsx2-2-release/index.mdx), we decided to step back a bit and give more love and attention to the interface, Quality of Life features and Accessibility. There are also more performance improvements to be seen, which we are very excited to show you! Our contributors have been hard at work further refining the foundation that has been laid out since 2.0.0 to make PCSX2 more accessible to everyone!
+
+<!--PR List-->
+
+## <TextGradient startColor="#7828C8" endColor="#FF4ECD">Major Spotlight</TextGradient>
+
+<PCSX2PRLink authors="SternXD" prNums="12740,12944,13294">
+  ### Better Feature Parity Between Big Picture Mode and Qt Interface
+</PCSX2PRLink>
+
+SternXD has been on a mission to achieve feature parity between Big Picture Mode and the Qt interface. Thanks to his work, you can now adjust Network & HDD Settings, create a Memory Card, as well as login to RetroAchievements directly from Big Picture Mode!
+
+<Image src={require("./img/BPM_network.webp").default} />
+
+#### New icon for RetroAchievements Qt login dialog ([#13718](https://github.com/PCSX2/pcsx2/pull/13718))
+
+Alongside Big Picture Mode getting a new RetroAchievements login dialog, Qt's login dialog also gets a small facelift! It now shows the actual RetroAchievements icon instead of a generic login icon.
+
+<Image src={require("./img/RA_login.webp").default} />
+
+<PCSX2PRLink authors="TheTechnician27" prNums="13199">
+  ### Korean Game Titles
+</PCSX2PRLink>
+
+Despite having nearly 700 known NTSC-K serials, the GameDB has for a long time only had Latin versions of the titles. These titles were pulled from the NTSC-U/PAL name or from a Romaji version of the Japanese name. PCSX2 now has 100% complete Korean translation [on our Crowdin](https://crowdin.com/project/pcsx2-emulator) (at the time of writing), so this has been a long time coming. TheTechnician27 has been working on adding Korean game titles to most NTSC-K serials which did not previously have them.
+
+:::note
+If you have spotted any inaccuracies with the Korean game titles, please report such problem on [our GitHub issue](https://github.com/PCSX2/pcsx2/issues).
+:::
+
+<PCSX2PRLink authors="kamfretoz" prNums="12746">
+  ### Game Shortcut Creation Feature
+</PCSX2PRLink>
+
+KamFretoZ set his sights on adding the ability to create desktop (or start menu) shortcuts for your games from inside PCSX2. [Motivated by this GitHub issue](https://github.com/PCSX2/pcsx2/issues/8349) and lots of feedback on Discord, this was a very popular ask from users!
+
+:::info
+This feature is only available for Windows and Linux at this time.
+:::
+
+:::tip
+This Feature can be accessed by right-clicking the game you want to make the shortcut with on the game list and selecting "Create Game Shortcut".
+:::
+
+<Image src={require("./img/shortcut_dialog.webp").default} />
+
+<PCSX2PRLink authors="kamfretoz,SternXD" prNums="12722,13410">
+  ### Custom Background Support
+</PCSX2PRLink>
+
+What started as a silly idea between KamFretoZ and JordanTheToast to see what's possible with Qt, ended up becoming a full blown feature. With this, you can now set a custom background on your game list to your heart's content.
+
+<Image src={require("./img/custom_background.webp").default} />
+
+<Image src={require("./img/BPM_Background.webp").default} />
+
+<PCSX2PRLink authors="TheLastRar" prNums="13009,12678,12970,12970,12837">
+  ### Emoji Support for Big Picture Mode
+</PCSX2PRLink>
+
+Allows emojis to be shown in Big Picture Mode and the fullscreen pause menu. RetroAchievements popups would often use emojis; these are now able to render as well.
+
+Not all emojis are supported; this is a limitation of ImGui, the library we use for this.
+
+For the longest time, our Big Picture Mode UI was unable to display emoji due to limitations with [ImGui](https://github.com/ocornut/imgui). This was especially apparent when displaying emojis from certain RetroAchievements sets. Thanks to [ImGui fixes](https://github.com/ocornut/imgui/issues/8465) and AirGamer's efforts, we have finally implemented emoji support in PCSX2's Big Picture Mode.
+
+On a more technical level, previous version of ImGui required us to provide ranges of characters we needed. ImGui would then generate a font atlas from this. This required that we either hardcode, or generate these ranges for any languages we support in PCSX2. With ImGui 1.9.21, we can now rely on ImGui to dynamically adjust its font atlas on its own, removing the maintenance burden of fixed character ranges.
+
+Before:
+
+<Image src={require("./img/achievement_emoji_before.webp").default} />
+
+After:
+
+<Image src={require("./img/achievement_emoji_after.webp").default} />
+
+#### Big Picture Mode Icon Refresh
+
+Big Picture Mode just got a small facelift! You might have noticed inconsistencies where some options had an icon while others did not. Now, every settings entry has an icon to go along with it.
+
+Additionally, we can add emoji as icon too! 🔥
+
+<Image src={require("./img/BPM_icons.webp").default} />
+
+## <TextGradient startColor="#7828C8" endColor="#FF4ECD">Various Blending and Hardware Renderer Improvements</TextGradient>
+
+<PCSX2PRLink authors="TheLastRar" prNums="13653">
+  ### GS/Direct3D12: Added Feedback Reads Support
+</PCSX2PRLink>
+
+Upon looking though the Direct3D12 documentation, it was found that aliased resources (two resources sharing the same memory) could be used to bind the same texture as both a shader resource and render target.
+This relies on the two resources being able to inherit data from each other, the requirements of which can be satisfied using simultaneous access textures.
+
+This allows us to speed the Direct3D12 renderer up substantially, with some systems seeing over 5x improvements on specific games.
+
+<BarChart chartDataUrl={require("./charts/Chart-gameperf-pt2.yaml").default} />
+
+While NVIDIA and Intel Arc GPUs had no issues, lightningterror discovered that some AMD GPUs showed issues. While the Direct3D12 documentation implies that data inheritance should work even with undefined memory layouts, the texture layout needed to be specified for some generations of AMD GPUs. Once this issue was identified it was fortunately an easy fix to implement.
+
+While reviewing the code, lightningterror spotted and fixed a regression with handling stencil date one.
+
+There have also been other various enhancements to the hardware renderer where various games such as Enthusia gained a significant 9% improvement in Direct3D11.
+
+<BarChart chartDataUrl={require("./charts/Chart-gameperf-pt1.yaml").default} />
+
+<PCSX2PRLink authors="lightningterror" prNums="13164,13197,13206,13365">
+  ### GS/Direct3D11/12: Support Multidraw Framebuffer Copy
+</PCSX2PRLink>
+
+Add implementation for Multidraw Framebuffer Copy for Software Blending, Framebuffer Masking, Software Destination Alpha Testing. In order to replicate the current behaviour on our more accurate renderers such as Vulkan and OpenGL without the use of Texture Barriers, LightningTerror discovered that we can achieve the same accuracy with the use of Texture Copies albeit at a slightly higher performance cost compared to using barriers which Direct3D11 doesn't support. Direct3D12 does and such implementation is already implemented later on by AirGamer.
+
+To give a bit of context why we need copies/barriers, it is because a texture cannot be bound at the same time as a render target view and shader resource view, a copy is created from the same render target so we can have two separate textures with the same data instead of using the same one which is a hazard, Vulkan and OpenGL use texture barriers that nullifies the need for a copy which allows one texture to be used for both.
+
+To alleviate some of the performance hit, we later on added some optimizations which will be mentioned in the report.
+
+To keep it short this makes Direct3D11/12 as accurate as Vulkan and OpenGL.
+
+Anyway moving on some eye candy for those looking for visuals, it will be almost impossible to post all the fixes games since there are a lot, and we mean a lot so here's just a few:
+
+<SliderCompare
+  before={require("./img/comparisons/13164-Tenchu-before.webp").default}
+  after={require("./img/comparisons/13164-Tenchu-after.webp").default}
+/>
+
+<SliderCompare
+  before={require("./img/comparisons/13164-Rumble-before.webp").default}
+  after={require("./img/comparisons/13164-Rumble-after.webp").default}
+/>
+
+<PCSX2PRLink authors="lightningterror" prNums="13180,13539,13344">
+  ### GS/Direct3D11/12: Implement Depth Testing and Sampling
+</PCSX2PRLink>
+
+Similar to our issue with software blending, our old implementation for depth testing and sampling used copies for Direct3D11/12 to avoid the texture binding hazards being bound as a depth stencil view and shader resource view at the same time. However when we use a depth texture if we are not writing anything to the depth buffer in the case where both the source and destination texture are the same we can bind them at the same time:
+
+- In Direct3D11's case we create and bind a new read-only depth stencil view, simultaneously also binding the same texture and binding it as a shader resource view which allows us sampling depth in the shader, but no writing to the depth buffer which is unnecessary.
+
+- In Direct3D12's case we just transition the texture to be read only which also allows us to bind it both as a depth stencil view and shader resource view at the same time.
+
+Some eye candy showing the difference in cutting off the texture copies that we previously used:
+
+<Image src={require("./img/benches/13180-TimeCrisis-pt1.webp").default} />
+
+<Image src={require("./img/benches/13180-RE4-pt2.webp").default} />
+
+<PCSX2PRLink
+  authors="lightningterror,TJnotJT,TellowKrinkle,refractionpcsx2"
+  prNums="13276,13298,13305,13354,13595,13576,12969"
+>
+  ### GS: Texture Copies and Barriers Optimizations
+</PCSX2PRLink>
+
+In [#13276](https://github.com/PCSX2/pcsx2/pull/13276) and [#13298](https://github.com/PCSX2/pcsx2/pull/13298) Following the implementation of software blending on Direct3D11 LightningTerror decided to improve the function itself that deals with texture copies, some optimizations that were previously not present on OpenGL, Direct3D11 and Metal were backported from Direct3D12 and Vulkan which reduces the number of copies in some specific scenarios, and aborting invalid copies. This gave us a small boost in some games that used texture copies regardless of renderers as copies were required.
+
+<Image src={require("./img/benches/13276-BoF-pt1.webp").default} />
+
+<Image src={require("./img/benches/13276-MTV-pt2.webp").default} />
+
+Afterwards in [#13305](https://github.com/PCSX2/pcsx2/pull/13305) some ideas were flowing around how to further improve copies/barriers so TJnotJT decided to take on such task, the improvements are as follows:
+
+1. To unify and batch triangle primitives, this allows us to reduce the number of copies/barriers per draw.
+
+2. When doing texture copies that we only need to copy the region that we need to copy, not the entire draw. This makes texture copies faster and use less VRAM on Direct3D11/12.
+
+#### Why this is faster?
+
+- Example #1: In the first case batching means instead of issuing 5 copies/barriers for 5 triangles separately we can batch all 5 if they don't overlap each other and issue only 1 copy/barrier which is much faster.
+
+- Example #2: In the second case where we only need to copy the region we are effectively reducing the copy area that we need to copy, the smaller the area we need to copy the faster it is.
+
+<Image src={require("./img/benches/13354-Gradius-pt1.webp").default} />
+
+<Image src={require("./img/benches/13354-Gradius-pt2.webp").default} />
+
+<Image src={require("./img/benches/13354-CODFH-pt3.webp").default} />
+
+Next up in [#13354](https://github.com/PCSX2/pcsx2/pull/13354), TJnotJT also implemented another improvement which detect triangles-are-quads in primitive overlap which further reduces copies/barriers on all renderers:
+
+1. Added utility functions for detecting when vertices form axis-aligned right triangles or quads.
+2. Updated primitive overlap detection to account for pairs of triangles that together form axis-aligned quads.
+
+<Image src={require("./img/benches/13305-Jak-pt1.webp").default} />
+
+<Image src={require("./img/benches/13305-Jak-pt2.webp").default} />
+
+<Image src={require("./img/benches/13305-SH-pt3.webp").default} />
+
+#### But wait there's more!
+
+A while back, we added extra barriers to fix some bugs in Time Crisis. In [#13595](https://github.com/PCSX2/pcsx2/pull/13595) TellowKrinkle discovered that those barriers were getting added on all GPU vendors. Upon further inspection, it appears as an NVIDIA driver bug, rather than actual issues with our OpenGL API usage. This allowed us to cut down the barriers on OpenGL on other GPU vendors by a lot.
+
+Here is the top 5 highest barrier reductions we have found:
+
+```ini
+WRC_4_SCES-52389_20230329024724
+Barriers: -6604 [13473=>6869]
+
+nfsmw_reflections
+Barriers: -2125 [4250=>2125]
+
+007 Agent Under Fire - door blend
+Barriers: -1646 [3284=>1638]
+
+Ace_Combat_04_-_Shattered_Skies_SLUS-20152_20230214003004
+Barriers: -1304 [1306=>2]
+
+Avatar_-_The_Last_Airbender_SLUS-21395_20240428221833
+Barriers: -999 [17716=>16717]
+```
+
+:::info
+The less barriers there is, the better!
+:::
+
+#### More, more!
+
+Following the adjustments by TellowKrinkle, LightningTerror has discovered that we can further cut down the barriers on OpenGL in [#13576](https://github.com/PCSX2/pcsx2/pull/13576) to only issue barriers for framebuffer optimizations if needed. To check if the state changed previous draw/pass and if not, only then do we need to issue a barrier or render pass to ensure writes.
+
+We basically have an optimization where we replace render passes with barriers in some cases to ensure writes happen, but there were cases where we issued both at the same time, so in this case if we issued a render pass state change then we don't really need barriers.
+
+Here is even more barrier count reductions that we found:
+
+```ini
+Ace_Combat_04_-_Shattered_Skies_SLUS-20152_20230214003004
+Barriers: -1302 [1306=>4]
+
+Final Fantasy XII preload frame data texture isses
+Barriers: -1144 [2291=>1147]
+
+The Getaway _PAL-M5__SCES-51159
+Barriers: -1001 [2002=>1001]
+
+Keroro Gunsou - Mero Mero Battle Royale_SLPS-25399_20230724102648
+Barriers: -1530 [3071=>1541]
+
+Need for Speed - Carbon_SLUS-21493_20220727201009
+Barriers: -2073 [3769=>1696]
+
+Need_for_Speed_-_Most_Wanted_Black_Edition_SLES-53857_20230808153118
+Barriers: -2125 [4250=>2125]
+
+Stuntman_SLUS-20250_20230326220301
+Barriers: -2026 [4053=>2027]
+
+Transformers_Special_Edition_SLES-52388_20240618185125
+Barriers: -2160 [4320=>2160]
+
+WRC_4_SCES-52389_20230329024724
+Barriers: -6603 [13473=>6870]
+```
+
+#### MORE!
+
+In [#12969](https://github.com/PCSX2/pcsx2/pull/12969), Refraction found a way to improve dirty and readback handling.
+
+Dirty targets were not combining if they overlapped in one direction, which caused there to be extra dirty uploads. Readbacks were happening on 24bit targets when the alpha channel was being requested, this avoids such situations in all renderers.
+
+<Image src={require("./img/benches/12969-KamenRider-pt1.webp").default} />
+
+<Image src={require("./img/benches/12969-EverybodyTennis-pt2.webp").default} />
+
+<Image src={require("./img/benches/12969-EverybodyTennis-pt3.webp").default} />
+
+<PCSX2PRLink authors="lightningterror" prNums="13339,13349">
+  ### GS/Texture Cache: Optimize Block Offset Calculations
+</PCSX2PRLink>
+
+An optimization was found in several loops where we can swap the `x` and `y` coordinates resulting in higher performance. This is because how CPU caching works where `x` is linear memory and `y` needs to jump around causing a cache miss every time, so by swapping them around it allows us to better use CPU caching.
+
+We also added some extra conditions to avoid going through the loops, as well as some more caching mechanisms for even better performance.
+
+Here is more benchmarks:
+
+<Image src={require("./img/benches/13339-GTALCS-pt1.webp").default} />
+
+<Image src={require("./img/benches/13349-GTALCS-pt2.webp").default} />
+
+<Image src={require("./img/benches/13349-TR-pt3.webp").default} />
+
+<PCSX2PRLink authors="lightningterror" prNums="13526,13612,13651">
+  ### GS/HW: Abort Unnecessary Draw Calls
+</PCSX2PRLink>
+
+In some specific scenarios we can avoid draw calls if render target doesn't change and simultaneously depth isn't written either, such conditions were further expanded upon to grand us the ability to cancel useless draw calls (less GPU commands/work, less barriers, less copies, etc) which in some gains gives us some massive improvements.
+
+Here is even more benchmarks:
+
+<Image src={require("./img/benches/13526-Sly1-pt1.webp").default} />
+
+<Image src={require("./img/benches/13526-UG2-pt2.webp").default} />
+
+<Image src={require("./img/benches/13526-MW-pt3.webp").default} />
+
+<Image src={require("./img/benches/13526-CRB-pt4.webp").default} />
+
+<Image src={require("./img/benches/13651-SCM-pt5.webp").default} />
+
+<Image src={require("./img/benches/13651-SCM-pt6.webp").default} />
+
+<Image src={require("./img/benches/13651-SCM-pt7.webp").default} />
+
+<PCSX2PRLink authors="lightningterror" prNums="13549,13575,13696,13525">
+  ### GS/Direct3D11/12: Destination Alpha Testing Optimizations
+</PCSX2PRLink>
+
+Following the addition of software blending on Direct3D11/12, we can optimize some features where if we already use software blending we can use software destination alpha testing as well in shader which is faster instead of splitting it in multiple passes as it will be slower. We don't need to do it in multiple passes as we already have texture copies enabled so we can reuse them for destination alpha testing and bypassing the multiple passes originally needed.
+
+Some optimizations are missing on Direct3D12 like [#13525](https://github.com/PCSX2/pcsx2/pull/13525) but will be implemented during the v2.7 dev cycle.
+
+<Image src={require("./img/benches/13549-Enth-pt1.webp").default} />
+
+<PCSX2PRLink authors="TJnotJT,refractionpcsx2" prNums="13142,13138,13005,13685">
+  ### GS/HW: Shuffle improvements
+</PCSX2PRLink>
+
+Several fixes have been made to texture shuffle emulation in order to fix some long standing games.
+
+#### Handles Texture Shuffle With Pixel Reversals ([#13142](https://github.com/PCSX2/pcsx2/pull/13142))
+
+Detect when a game (Colin McRae Rally 2005) is doing a texture shuffle and (a) flipping pixels locations horizontally in columns and (b) correcting the pixels locations by flipping pixels horizontally again. Ignore both flips so that they cancel out. To keep it short what this does is fix Colin McRae Rally and is now playable with no hardware rendering issues.
+
+<SliderCompare
+  before={require("./img/comparisons/13142-CMR-before.webp").default}
+  after={require("./img/comparisons/13142-CMR-after.webp").default}
+/>
+
+#### Handles Texture Shuffle Sprite Not 16-pixel-multiple Wide ([#13138](https://github.com/PCSX2/pcsx2/pull/13138))
+
+Do special handling for texture shuffling sprites that are not 8 pixels wide or a multiple of 16 pixels wide. Align such sprites to 16 pixel boundaries horizontally. This fixes some issues on Alter Echo.
+
+#### Add CRC for Sand Grain Games Palette Shuffle Effect ([#13005](https://github.com/PCSX2/pcsx2/pull/13005))
+
+We have no way to do this effect directly without having 50-100 readbacks per frame, which is very very slow, this emulates the effect they're trying to achieve (G->A shuffle with palette).
+
+This fixes some long standing issues with Cabela's games, image comparisons below:
+
+<SliderCompare
+  before={require("./img/comparisons/13005-Cabela-before.webp").default}
+  after={require("./img/comparisons/13005-Cabela-after.webp").default}
+/>
+
+<SliderCompare
+  before={require("./img/comparisons/13005-CabelaLegend-before.webp").default}
+  after={require("./img/comparisons/13005-CabelaLegend-after.webp").default}
+/>
+
+#### Detect offset shuffle on TexIsFB ([#13685](https://github.com/PCSX2/pcsx2/pull/13685))
+
+Updates TexIsFB to check for horizontally offset shuffle, this fixes a shuffle issue in Timesplitters 2 where it copied the wrong data.
+
+<PCSX2PRLink authors="TJnotJT" prNums="13240">
+  ### GS/SW: Do Pre-Clamping of ST Coordinates When They May Overflow
+</PCSX2PRLink>
+
+The input texture ST coordinates can sometimes be huge or NaN (for reasons not totally clear, it might be emulation or game bugs) when in rasterizer so they cause issues with calculating the vertex trace values, determining texture bounding boxes, etc. This can cause graphical glitches downstream. This PR attempts to address such issues doing the following:
+
+1. Add checks in the vertex trace for NaN ST values.
+2. Add checks in the SW renderer for ST values that would overflow the fixed point format used for texture coordinates in rasterizer.
+3. Rewrite vertices and clamp the problematic ST values to a value less that the maximum representable by the rasterizer. Rewrite any NaN values to 0.
+
+Comparison examples and eye candy fixes:
+
+<SliderCompare
+  before={require("./img/comparisons/13240-ShadowOfRome-before.webp").default}
+  after={require("./img/comparisons/13240-ShadowOfRome-after.webp").default}
+  alt="Shadow of Rome Comparison"
+/>
+
+<PCSX2PRLink authors="TJnotJT" prNums="12986">
+  ### GS/HW: Remove Handling of Provoking First Vertex in Early Pipeline
+</PCSX2PRLink>
+
+Remove the handling of provoking first vertex in early pipeline. This is mainly for Direct3D11/12 as other renderers usually support provoking first vertex early in the pipeline.
+This allows us to fix some issues on Direct3D11/12 in some games where provoking first vertex isn't supported.
+
+<SliderCompare
+  before={require("./img/comparisons/12986-VSE-before.webp").default}
+  after={require("./img/comparisons/12986-VSE-after.webp").default}
+  alt="Shadow of Rome Comparison"
+/>
+
+<PCSX2PRLink
+  authors="lightningterror,TJnotJT,TellowKrinkle"
+  prNums="13369,13127,13028,13084,13094,13300,12983,13505,13171"
+>
+  ### GS: Miscellaneous Fixes
+</PCSX2PRLink>
+
+Various smaller PRs which address crash fixes, bug fixes, regressions and such.
+
+- Improved manual deswizzling detection which fixes some graphical issues on Stolen and shuffle detection. ([#13369](https://github.com/PCSX2/pcsx2/pull/13369))
+- Adjusts updating render target and depth stencil to improve resizing which fixes Final Fantasy X battle transitions. ([#13127](https://github.com/PCSX2/pcsx2/pull/13127))
+- Don't split/resize buffer when texture buffer width is 0, fixes Baldur's Gate regression. ([#13028](https://github.com/PCSX2/pcsx2/pull/13028))
+- Allow full dirty rect on zero age targets. This fixes Kaena graphical issues at the bottom of the screen. ([#13084](https://github.com/PCSX2/pcsx2/pull/13084))
+- Refactor autoflush handling; detect recursive draw on mipmap layer > 0. This fixes Conspiracy - Weapons of Mass Destruction and Warhammer 40,000 Fire Warrior where lights can be seen through walls. ([#13094](https://github.com/PCSX2/pcsx2/pull/13094))
+
+<SliderCompare
+  before={
+    require("./img/comparisons/13094-MassDestruction-before.webp").default
+  }
+  after={require("./img/comparisons/13094-MassDestruction-after.webp").default}
+/>
+
+<SliderCompare
+  before={require("./img/comparisons/13094-Warhammer-before.webp").default}
+  after={require("./img/comparisons/13094-Warhammer-after.webp").default}
+/>
+
+- Ignore output on RC1/2 when the data is not used. This fixes Sakura Setsugekka and Phantom of Inferno rendering issues. ([#13300](https://github.com/PCSX2/pcsx2/pull/13300))
+
+<SliderCompare
+  before={require("./img/comparisons/13300-Sakura-before.webp").default}
+  after={require("./img/comparisons/13300-Sakura-after.webp").default}
+/>
+
+<SliderCompare
+  before={require("./img/comparisons/13300-Phantom-before.webp").default}
+  after={require("./img/comparisons/13300-Phantom-after.webp").default}
+/>
+
+- Fix temp Z and clear detection regressions. Fixes an issue with temporarily offset Z and a clear misdetection. ([#12983](https://github.com/PCSX2/pcsx2/pull/12983))
+- Fix up invalidly selected Tex in RT targets. Fixes Raider Legends hair and Battlefield 2 regressions. ([#13505](https://github.com/PCSX2/pcsx2/pull/13505))
+- Use accurate fog equation. Avoids using the `mulhrsw` instruction, since it rounds instead of truncating which improves fog emulation in software renderer in some games. ([#13171](https://github.com/PCSX2/pcsx2/pull/13171))
+
+<PCSX2PRLink authors="TheLastRar,govanify" prNums="13682,13697,13614">
+  ### The Resizing Saga
+</PCSX2PRLink>
+
+It all started with [#13613](https://github.com/PCSX2/pcsx2/issues/13613). One of our testers, JordanTheToast had recently upgraded to a Radeon RX 9060 XT. He noticed that resizing PCSX2 while in-game causes massive lag/delay during the resize. This ended up turning into a deep dive that confused the team for days. A look into GPU driver bugs, and the way Qt handles window resize events slowly uncovered the problem.
+
+GovanifY [put up a fight (#13614)](https://github.com/PCSX2/pcsx2/pull/13614) by fixing the way Qt handles window resizing in order to make it not fire up multiple resize events per miliseconds (yes, milisecond).
+
+Following [#13614](https://github.com/PCSX2/pcsx2/pull/13614) it was noticed that NVIDIA has lost smooth rescaling, unlike AMD which retained it.
+This issue was due to a difference in how AMD and NVIDIA reported resized windows. As a result, we would recreate the swapchain at the end of the frame on NVIDIA, but at the beginning of the frame on AMD.
+During resizing, the swapchain would become invalidated between the end of one frame and the beginning of the next, causing the rendering on NVIDIA to seemingly freeze.
+
+The fix was to simply defer recreating the swapchain until the beginning of the frame.
+
+#### But Wait, There's More!
+
+It was noticed that RDNA 4 would experience significant delay in resizing even after #13614 was merged.
+
+This was determined to be due to a Vulkan function `vkAcquireNextImageKHR` taking two seconds to complete following a swapchain re-creation. A workaround for this driver bug was to not link the old swapchain to the new one.
+
+While implementing this fix, support for `VK_KHR_swapchain_maintenance1` was added. This may reduce the memory usage from resizing on AMD GPUs with updated drivers. NVIDIA supported the older version we had already been using, so no change is expected there.
+
+## <TextGradient startColor="#7828C8" endColor="#FF4ECD">Quality of Life Improvements</TextGradient>
+
+<PCSX2PRLink authors="TheTechnician27" prNums="13388">
+  ### Add Qt Buddies and Tabstops
+</PCSX2PRLink>
+
+This addition to PCSX2's menus improves accessibility by allowing screen readers to more reliably navigate the interface. It also significantly improves the order of screen elements when navigating with keyboard keys like tab.
+
+#### Buddies
+
+Buddies are properties in Qt which associate a label with an interactive element. This is transparent for most users, but for users with a screen reader this means you can actually tell what an interactive element does. It's a win for accessibility with minimal maintenance overhead and arguably better self-documentation.
+
+For example, focusing a dropdown will just say that you've focused a dropdown without saying what it's supposed to be for – rendering much of our UI totally unusable. With a buddy, it will read out the label on top of the element type. As an example, with buddies the OSD scale option will read approximately as "OSD Scale: Spin Box 100", but without, it will only read "Spin Box 100". There is no way to focus the labels either, so it's unlikely they can be read out without buddies.
+
+<Image src={require("./img/buddy.webp").default} />
+
+#### Tabstops
+
+Have you been in a situation where you have to use a keyboard to navigate your way through PCSX2 and found out that the ordering between options are a complete nonsense? Tabstops are here to help!
+
+Tabstops are another property of Qt which allow an explicit ordering of elements when tabbing through a widget (i.e. focusing on one element then pressing Tab). Without them, the tab order is subject to the physical ordering of the elements in XML, which does not inherently correspond to the row/column order displayed and is highly unreliable and unrealistic to maintain.
+
+<Image src={require("./img/tabstops.webp").default} />
+
+<PCSX2PRLink authors="TellowKrinkle" prNums="12829,12830">
+  ### Improvements to PCSX2 related files handling on macOS
+</PCSX2PRLink>
+
+TellowKrinkle, our resident macOS housekeeper, has been working on adding file type associations for some of the file types that can be opened by PCSX2. This includes game dumps (ISO, CSO, ZSO, CHD, etc), save states, GS dumps, PNACH patches, and more.
+
+<PCSX2PRLink authors="TellowKrinkle" prNums="13407">
+  ### PCSX2 on macOS Now Uses Qt 6.10
+</PCSX2PRLink>
+
+For a long time, macOS has been stuck on Qt 6.7, due to Qt 6.10 dropping support for older macOS versions. It turns out Tellow discovered that it's trivial to patch compatibility for older macOS versions back into Qt 6.10. The rest is history!
+
+<PCSX2PRLink
+  authors="TheLastRar"
+  prNums="13466,12864,13360,13555,13557,13577,12864"
+>
+  ### Improved Display Surface (And Wayland!)
+</PCSX2PRLink>
+
+We have enabled Wayland support by default since PCSX2 2.4.0 release and in this cycle, AirGamer has yet again spearheaded the work to improve Wayland support even further. This time we're cutting out the cruft, resolving technical debt, and implementing it the way it was intended with Qt.
+
+For more technical details, previously the way we rendered into a "surface" was to render it to the widget directly. While this was the canonical method for older versions of Qt, the Qt maintainers mentioned that this was not recommended and a newer method was better suited. This has caused some issues especially with Wayland.
+
+Instead, this new method now uses a Qt Window instead of a Qt Widget, avoiding issues inherited by the previous method and allowing for the removal of a number of Wayland specific workarounds. Which further improves Wayland compatibility with PCSX2.
+
+#### Simplified Wayland Plugins AppImage Bundling ([#12864](https://github.com/PCSX2/pcsx2/pull/12864))
+
+`linuxdeploy` doesn't correctly deploy some Wayland dependencies with the Wayland client modules.
+
+Previously, we manually copied these dependencies into the AppImage. However, it was discovered that specifying the Wayland compositor module will copy the needed client dependencies. This allowed us to simplify our AppImage build script.
+
+<PCSX2PRLink authors="Gonzalosilvalde" prNums="12653">
+  ### New Gamma Adjustment Option
+</PCSX2PRLink>
+
+Gonzalosilvalde has worked on adding gamma adjustment to shade boost within the post processing options. Adjusting the gamma allows you to intensify the shadows while keeping the overall color balance intact.
+
+<Image src={require("./img/gamma.webp").default} />
+
+<PCSX2PRLink authors="SternXD,flavionm" prNums="12953,12698">
+  ### Adjustable Position for Various In-Game Overlays
+</PCSX2PRLink>
+
+SternXD and flavionm have worked on a feature where you can adjust the positions of all overlays inside PCSX2 (such as achievements and OSD notifications).
+
+<Image src={require("./img/Achievement_Position.webp").default} />
+
+<PCSX2PRLink authors="Haisom" prNums="12640">
+  ### New Hotkey to Swap Memory Cards
+</PCSX2PRLink>
+
+Allow users to swap Memory Cards slot on demand using a hotkey (unbound by default).
+
+To quote [Haisom](https://github.com/Haisom):
+
+> This is really useful on shared machines, specially with kids around (Forget kids accidentally overwriting your save games with over 100 hours of gameplay!).
+
+<PCSX2PRLink authors="fthomys" prNums="12934">
+  ### Organize Game Screenshots by Name in Folders
+</PCSX2PRLink>
+
+Have you ever been in a situation where your snapshots folder turns into a disorganized mess of recordings and screenshots after you have used these features for a while?
+
+Thanks to fthomys (This is also their very first contribution, thank you!), you can now organize your snapshots folder by game names.
+
+<Image src={require("./img/screenshot_folder.webp").default} />
+
+<PCSX2PRLink authors="SternXD" prNums="13590">
+  ### New Indicators for Texture Dumping/Replacement
+</PCSX2PRLink>
+
+Ever wondered if your texture replacement is working? Tried eyeballing it to no avail? Worry no more! You can now enable the Texture Dumping/Replacement indicator to find out if you have the textures being dumped/replaced correctly.
+
+<Image src={require("./img/texrep.webp").default} />
+
+## <TextGradient startColor="#7828C8" endColor="#FF4ECD">Various Smaller Improvements in 2.6</TextGradient>
+
+<PCSX2PRLink authors="kamfretoz,SternXD" prNums="12848,12945">
+  ### Automatically Launch Big Picture Mode on Startup
+</PCSX2PRLink>
+
+For those who want the true living room couch gaming experience, you can now launch PCSX2 directly into Big Picture Mode and start gaming right away!
+
+<PCSX2PRLink authors="TheLastRar,F0bes" prNums="13403,13592">
+  ### Improved Mouse Lock DPI Handling
+</PCSX2PRLink>
+
+This improves upon [#13403](https://github.com/PCSX2/pcsx2/pull/13403) while also fixing issues introduced in the Qt Window update. This fixes mouse lock on setups with multiple monitors using DPI scaling greater than 100%.
+
+Now mouse lock should function correctly regardless of your monitor setup on Windows and Mac.
+
+<PCSX2PRLink authors="TheLastRar" prNums="13623">
+  ### Support Full Axis Binds of SDL Gamepad Axes
+</PCSX2PRLink>
+
+In SDL, a controller has both a joystick instance and gamepad instance (if SDL has a mapping for it). An SDL joystick is just a collection of buttons and axis and an SDL gamepad has those buttons mapped to a standard gamepad layout. In PCSX2 we accept binds for both the gamepad inputs and any joystick inputs that SDL hasn't mapped. You might recognize these as "Axis X +" or Axis Y -".
+
+Previously, we had separate code for loading joystick axis binds and gamepad axis binds, with only the former supporting full axis binds. This change adds support for "Full Axis" gamepad inputs, which should improve support for special input devices which have axes but do not necessarily have a positive and negative direction, such as the pedal on a wheel.
+
+<Image src={require("./img/SDL_FullAxis.webp").default} />
+
+<PCSX2PRLink authors="TheTechnician27" prNums="13015">
+  ### Improved Hotkeys Section
+</PCSX2PRLink>
+
+TheTechnician27 worked on rearranging and reorganizing the hotkey section to give you a more cohesive user experience.
+
+<Image src={require("./img/hotkey.webp").default} />
+
+This is only a small sample of the changes made for this release! If you are interested in all the other fixes and additions that made it into this release, a full list of commits can be found on [Github](https://github.com/PCSX2/pcsx2/compare/v2.4.0...v2.6.0)
