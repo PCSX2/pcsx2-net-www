@@ -52,15 +52,16 @@ These metrics is crucial in identifying performance bottlenecks in PCSX2.
 
 ```ini
 === Line 1 ===
-G       = Games Internal FPS
-V       = Video Output FPS
-N%      = Games running speed (in Percentage)
+FPS     = Games Internal FPS
+VPS     = Video Output FPS
+Speed   = Games Running Speed (in Percentage)
+T       = Games Target Speed (in Percentage)
 
 === Line 2 ===
-P       = Primitives
-D       = GS (PS2) Draws
-DC      = Draw Calls (on host GPU side)
-B       = Barriers
+PRIM    = Primitives
+DRW     = GS (PS2) Draws
+DRWC    = Draw Calls (on host GPU side)
+BAR     = Barriers
 RP      = Render Passes
 RB      = Readbacks
 TC      = Texture Copies
@@ -68,10 +69,10 @@ TU      = Texture Uploads
 
 === Line 3 ===
 VRAM    = Used VRAM
-T       = Targets
-s       = Sources
-H       = Hash Cache size
-P       = Pooled
+TGT     = Targets
+SRC     = Sources
+HC      = Hash Cache size
+PL      = Pooled
 ```
 
 :::tip
@@ -95,26 +96,34 @@ You can rank the severity in order of:
 **The more they are for each of them, the more that the performance will be impacted.**
 :::
 
-#### Software
+#### Software Mode
 
 <Image src={require("./img/OSD_SW.webp").default} />
 
 ```ini
-S       = Syncs
-P       = Polygons
-D       = Draws
-U       = Texture Swizzling (for storing data in the correct format in GS memory)
-D       = Texture DeSwizzling (for reading textures out of GS memory)
-mpps    = Million pixels per second
+SYNP     = Syncs
+PRIM     = Polygons
+DRW      = Draws
+SWIZ     = Texture Swizzling (for storing data in the correct format in GS memory)
+UNSWIZ   = Texture DeSwizzling (for reading textures out of GS memory)
+Mpps     = Million pixels per second
 ```
 
 ### Settings indicator
 
 This indicator shows the settings that are applied on the current VM session, usually located on the bottom right.
+When there are applied patches, additional indicator of how many that are loaded will be shown.
 
 <Image src={require("./img/OSD_Settings.webp").default} />
 
 ```ini
+
+DB      = Patches loaded from GameDB Compatibility Patches
+P       = Patches that are loaded by the user
+C       = Cheats that are loaded by the user
+
+==============================================================
+
 CR      = EE Cycle Rate
 CS      = EE Cycle Skip
 FCDVD   = Fast CDVD Enabled
@@ -126,7 +135,6 @@ EEC     = EE FPU Clamping Mode
 VUR     = VU Rounding Mode
 VUC     = VU Clamping Mode
 VQS     = VSync Queue Size
-C       = [CWN] = Normal Cheats (C), Widescreen Patches (W), No-Interlace Patches (N)
 IR      = Upscale Multiplier/Internal Resolution
 B       = Accurate Blending Unit
 PL      = Texture Preloading
