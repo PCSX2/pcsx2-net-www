@@ -1,0 +1,46 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Setup": {
+    "message": "Setup",
+    "description": "The label for category Setup in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Setup.link.generated-index.description": {
+    "message": "This section helps you get PCSX2 up-and-running from scratch.",
+    "description": "The generated-index page description for category Setup in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Configuration": {
+    "message": "Configuration",
+    "description": "The label for category Configuration in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Configuration.link.generated-index.description": {
+    "message": "This section helps you configure and customize PCSX2.",
+    "description": "The generated-index page description for category Configuration in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Troubleshooting": {
+    "message": "Troubleshooting",
+    "description": "The label for category Troubleshooting in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Troubleshooting.link.generated-index.description": {
+    "message": "This section helps you diagnose and resolve problems encountered while using PCSX2.",
+    "description": "The generated-index page description for category Troubleshooting in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Advanced": {
+    "message": "Advanced",
+    "description": "The label for category Advanced in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Advanced.link.generated-index.description": {
+    "message": "This section explores features designed for power users.",
+    "description": "The generated-index page description for category Advanced in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Contributing": {
+    "message": "Contributing",
+    "description": "The label for category Contributing in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Contributing.link.generated-index.description": {
+    "message": "This section provides tips and guidelines for contributing to PCSX2.",
+    "description": "The generated-index page description for category Contributing in sidebar tutorialSidebar"
+  }
+}
