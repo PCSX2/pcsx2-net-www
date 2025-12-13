@@ -1,0 +1,14 @@
+data:
+  - name: Enthusia, Basic Blending, Native IR, RTX 2070 Super (9% Uplift)
+    "Before": 485
+    "After": 527.8
+barOptions:
+  "Before":
+    fillColor: "rgb(106, 156, 255)"
+  "After":
+    fillColor: "rgb(200, 45, 69)"
+axis:
+  x:
+    dataKey: name
+  y:
+    label: "Frames Per Seconds (VPS)"

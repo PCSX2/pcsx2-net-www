@@ -1,0 +1,196 @@
+---
+draft: false
+title: PCSX2 2.6.0 is now out!
+tags:
+  - devblog
+date: 2025-12-31
+description: PCSX2 2.6 Release Post
+hide_table_of_contents: false
+titleImage: /img/2-0-banner.webp
+image: /img/2-0-banner.webp
+authors:
+  - kamfretoz
+  - govanify
+  - pandubz
+  - jordan
+---
+
+Nearly 6 months after PCSX2 2.4.0 release, we are now nearing the end of 2025.
+
+**Today we are excited to unveil PCSX2 2.6.0!** We're even more excited to showcase the things that we have been working on.
+
+<!--truncate-->
+
+## PCSX2 2.6.0
+
+Now that the dust has settled down from [our biggest single release to date](../../2024/pcsx2-2-release/index.mdx), we decided to step back a bit and give more attention to Quality of Life features and Accessibility! Our contributors have been hard at work further refining the foundation that has been laid out since 2.0.0 to make PCSX2 more accessible to everyone!
+
+<!--PR List-->
+
+## Major Spotlight
+
+<PCSX2PRLink authors="SternXD" prNums="12740,12944,13294">
+  ### Better Feature Parity Between Big Picture Mode and Qt Interface
+</PCSX2PRLink>
+
+SternXD has been on a mission to achieve feature parity between Big Picture Mode and the Qt interface. Thanks to his work, you can now adjust Network and HDD Settings, Create a Memory Card as well as login to RetroAchievements directly from Big Picture Mode!
+
+<PCSX2PRLink authors="TheTechnician27" prNums="13199">
+  ### Korean Game Titles
+</PCSX2PRLink>
+
+TheTechnician27 has been working on adding Korean game titles to most NTSC-K serials which did not previously have them. PCSX2 now has a 99% complete Korean translation on Crowdin (at the time of writing), so this has been a long time coming. We clearly don't expect Korean speakers to speak English to use PCSX2. Yet despite NTSC-K having nearly 700 known serials, the GameDB for a long time has only had Latin versions of the titles, either pulled from the NTSC-U/PAL name or from a Romaji version of the Japanese name.
+
+<PCSX2PRLink authors="kamfretoz" prNums="12746">
+  ### Game Shortcut Creation Feature
+</PCSX2PRLink>
+
+Motivated by [this GitHub issue](https://github.com/PCSX2/pcsx2/issues/8349), KamFretoZ has set his sights on implementing a feature where you can automatically create a desktop (or start menu) shortcut for your game right from PCSX2 so you can launch your games right from your desktop! This one has been requested a lot and we've seen quite a few people ask about it on our Discord server.
+
+<Image src={require("./img/shortcut_dialog.webp").default} />
+
+<PCSX2PRLink authors="kamfretoz,SternXD" prNums="12722,13410">
+  ### Custom Background for Game List
+</PCSX2PRLink>
+
+What started as a silly idea between KamFretoZ and JordanTheToast to see what's possible with Qt, ended up becoming a full blown feature. With this, you can now set a custom background on your game list to your heart's content.
+
+<Image src={require("./img/custom_background.webp").default} />
+
+<PCSX2PRLink authors="TheLastRar" prNums="13009">
+  ### Emoji Support for Big Picture Mode
+</PCSX2PRLink>
+
+For the longest time our Big Picture Mode UI implemented using [Dear ImGui](https://github.com/ocornut/imgui) was unable to display emoji due to upstream limitations (Especially more apparent when displaying emojis from certain RetroAchievements sets). Thanks to [upstream fixes](https://github.com/ocornut/imgui/issues/8465) and TheLastRar's efforts, we can finally go ahead and implement emoji supports right on PCSX2's Big Picture Mode.
+
+Before:
+
+<Image src={require("./img/achievement_emoji_before.webp").default} />
+
+After:
+
+<Image src={require("./img/achievement_emoji_after.webp").default} />
+
+## Honorable Mentions
+
+<PCSX2PRLink authors="TheTechnician27" prNums="13388">
+  ### Add Qt Buddies and Tabstops
+</PCSX2PRLink>
+
+This addition helps with screen reading Accessibility and how settings in PCSX2 is presented within PCSX2. [Buddy](https://doc.qt.io/qt-6.8/designer-buddy-mode.html) and [Tabstops](https://doc.qt.io/qt-6.8/designer-tab-order.html) are a very useful feature provided by Qt that allows you to build a more accessible user interface.
+
+#### Buddies
+
+Buddies are a property in Qt which associate a label with an interactive element. This is transparent for most users, but for users with a screen reader, this means you can actually tell what an interactive element does. It's a win for accessibility with minimal maintenance overhead and arguably better self-documentation.
+
+Currently, for example, focusing a dropdown will just say that you've focused a dropdown without saying what it's supposed to be for – rendering much of our UI totally unusable. With a buddy, it will read out the label on top of the element type. As an example, with buddies, the OSD scale option will read approximately as "OSD Scale: Spin Box 100", but without, it will only read "Spin Box 100". There is no way to focus the labels either, so it's unlikely they can be read out without buddies.
+
+<Image src={require("./img/buddy.webp").default} />
+
+#### Tabstops
+
+Have you been in a situation where you have to use a keyboard to navigate your way through PCSX2 and found out that the ordering between options are a complete nonsense? Tabstops is here to help!
+
+Tabstops are another property of Qt which allows an explicit ordering of elements when tabbing through a widget (i.e. focusing on one element then pressing Tab). Without them, the tab order is subject to the physical ordering of the elements in XML, which does not inherently correspond to the row/column order displayed and is highly unreliable and unrealistic to maintain.
+
+<Image src={require("./img/tabstops.webp").default} />
+
+<PCSX2PRLink authors="TellowKrinkle" prNums="12829,12830">
+  ### Improvements to PCSX2 related files handling on macOS
+</PCSX2PRLink>
+
+TellowKrinkle, our resident macOS housekeeper, has been working on adding file association to some of file that can be opened by PCSX2 such as game dumps (ISO, CSO, ZSO, CHD, etc), save states, GS Dumps, PNACH Patches, etc.
+
+<PCSX2PRLink authors="TellowKrinkle" prNums="13407">
+  ### PCSX2 on macOS Now Uses Qt 6.10
+</PCSX2PRLink>
+
+For a long time, macOS have been stuck on Qt 6.7 due to Qt 6.10 dropping older macOS version. It turns out Tellow discovered that its trivial to patch the compatibility for older macOS back to Qt 6.10, and the rest is history!
+
+<PCSX2PRLink authors="TheLastRar" prNums="13466,12864,13360">
+  ### Improved Wayland Support
+</PCSX2PRLink>
+
+We have enabled Wayland support by default since PCSX2 2.4.0 release and in this cycle, TheLastRar yet again spearheaded the work to improve Wayland support even further. This time we're cutting out the crufts of technical debts and implement it the way (Qt) intended.
+
+For more technical details, previously the way we render into "surfaces" was to just rendering it to the widget directly. This is not the proper way to do it and has caused some issues especially with Wayland. Instead, Qt recommends using `createWindowContainer()` over rendering into a widget directly. And so that's what we did!
+
+<PCSX2PRLink authors="Gonzalosilvalde" prNums="12653">
+  ### New Gamma Adjustment Option
+</PCSX2PRLink>
+
+This adds gamma adjustment to shade boost within the post processing options.
+
+<Image src={require("./img/gamma.webp").default} />
+
+<PCSX2PRLink authors="SternXD,flavionm" prNums="12953,12698">
+  ### Adjustable Position for Various In-Game Overlays
+</PCSX2PRLink>
+
+SternXD and flavionm has worked on a feature where you can adjust the positions of all overlays inside PCSX2 (such as achievements and OSD notifications)
+
+<Image src={require("./img/OSD_Position.webp").default} />
+
+<PCSX2PRLink authors="Haisom" prNums="12640">
+  ### New Hotkey to Swap Memory Cards
+</PCSX2PRLink>
+
+You can now swap Memory Cards using a hotkey
+
+<PCSX2PRLink authors="fthomys" prNums="12934">
+  ### Organize Game Screenshot by Name in Folders
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="SternXD,ChaoticGD" prNums="13293,13622">
+  ### Harden RetroAchievements Hardcore Mode Compliance
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="SternXD" prNums="13590">
+  ### Add Indicators for Texture Dumping/Replacement
+</PCSX2PRLink>
+
+## Notable Improvements
+
+<PCSX2PRLink authors="TellowKrinkle" prNums="13554">
+  ### Improve FFMPEG Support on Our AppImage
+</PCSX2PRLink>
+
+## Notable Improvements
+
+<PCSX2PRLink authors="kamfretoz,SternXD" prNums="12848,12945">
+  ### Automatically Launch Big Picture Mode on Startup
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="TheTechnician27" prNums="13401">
+  ### Ability to Use System Locale for RTC
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="lightningterror" prNums="13612,13575,13539,13549">
+  ### Various Blending and Hardware Renderer Improvements
+</PCSX2PRLink>
+
+There has been various enhancement to the hardware renderer where various games such as Enthusia gained a significant 9% improvements in Direct3D 11.
+
+<BarChart chartDataUrl={require("./charts/Chart-gameperf-pt1.yaml").default} />
+
+### Various Smaller Improvements in 2.6
+
+<PCSX2PRLink authors="TheTechnician27" prNums="13015">
+  ### Reorganized Hotkeys Section
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="TheLastRar" prNums="12970">
+  ### Big Picture Mode Icon Refresh
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="SternXD" prNums="12754">
+  ### Clearer Save State Incompatibility Message
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="kamfretoz" prNums="13103">
+  ### New Confimartion Dialog when Resetting Controller Settings
+</PCSX2PRLink>
+
+<PCSX2PRLink authors="TheTechnician27" prNums="13316">
+  ### Revamped Audio Interface Muting
+</PCSX2PRLink>
