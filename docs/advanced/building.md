@@ -34,8 +34,8 @@ If you are developing against the `pcsx2-qt` solution, you will need to do the f
 
 Widescreen and No-Interlacing cheats are sourced from [a separate repository](https://github.com/PCSX2/pcsx2_patches). You might consider putting them in your working directory to ensure your development environment matches shipping builds:
 
-- Download both `.zip` files from here: https://github.com/PCSX2/pcsx2_patches/releases/
-- Put them (without extracting) in `bin/resources`.
+- Download the `.zip` file from here: https://github.com/PCSX2/pcsx2_patches/releases/
+- Put it (without extracting) in `bin/resources`.
 
 ## Building On Linux
 
