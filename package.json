@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.8.1",
-    "glob": "^11.0.1",
+    "glob": "^11.1.0",
     "prettier": "3.5.3",
     "prompts": "2.4.2",
     "webp-converter": "2.3.3"
