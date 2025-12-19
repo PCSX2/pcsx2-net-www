@@ -124,7 +124,7 @@ If the `Gray Out Symbols For Overwritten Functions` option is enabled, PCSX2 wil
 
 In various places throughout the debugger's UI you can specify an expression instead of just a fixed address. This includes all the go to dialogs, many of the fields in the breakpoint dialog, and many of the fields in the analysis options dialog.
 
-Expressions can contain operators, hexadecimal integer literals, general purpose register names, symbols, and of course the operators themselves. They should contain no whitespace.
+Expressions can contain operators, hexadecimal integer literals, general purpose register names, symbols, and of course the operators themselves.
 
 ### Examples
 
