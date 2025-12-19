@@ -35,12 +35,21 @@ const config = {
   organizationName: "PCSX2", // Usually your GitHub org/user name.
   projectName: "pcsx2-net-www", // Usually your repo name.
 
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
+  // Locale configs can have label, direction, htmllang,
+  // calendar, path, translate (bool), url (e.g. fr.pcsx2.net), baseUrl
+  // See: https://docusaurus.io/docs/api/docusaurus-config#i18n
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: ["en", "es", "fr", "id", "ja", "pt-BR", "zh-CN"],
+    localeConfigs: {
+      en: { label: "English" },
+      es: { label: "Español" },
+      fr: { label: "Français" },
+      id: { label: "Bahasa Indonesia" },
+      ja: { label: "日本語" },
+      "pt-BR": { label: "Português (Brasil)" },
+      "zh-CN": { label: "简体中文" },
+    },
   },
   future: {
     experimental_faster: {
@@ -216,6 +225,18 @@ const config = {
               {
                 label: "Developer Blogs",
                 to: "/blog/tags/devblog",
+              },
+            ],
+          },
+          {
+            type: "localeDropdown",
+            position: "left",
+            dropdownItemsAfter: [
+              {
+                label: "Help out on Crowdin",
+                to: "https://crowdin.com/project/pcsx2-website",
+                className: "header-crowdin-link",
+                target: "_blank",
               },
             ],
           },
