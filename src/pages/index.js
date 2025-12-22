@@ -40,7 +40,6 @@ import {
   latestProgressReport,
   latestBlog,
   previousBlog,
-  previousProgressReport,
 } from "../data/latestBlogs";
 
 import useIsBrowser from "@docusaurus/useIsBrowser";
@@ -272,81 +271,6 @@ export default function Home() {
                           </h2>
                           <p className="text-sm text-white/70">
                             {previousBlog.title}
-                          </p>
-                        </div>
-                      </div>
-                    </CardFooter>
-                  </Card>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Recent Progress Reports Section */}
-          <div className="w-full px-8 md:px-20 mt-8 relative">
-            <div className="flex flex-col">
-              <h1 className={`${StyledTitle} mb-0`}>Recent Progress Reports</h1>
-              <p className={`${StyledSubtitle}`}>
-                Stay up to date on the latest improvements and fixes on the
-                project.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-              {/* Latest Progress Report */}
-              <div className="flex justify-center">
-                <a href={useBaseUrl(latestProgressReport.url)}>
-                  <Card
-                    radius={"md"}
-                    isFooterBlurred
-                    className="w-full h-[300px] col-span-12 sm:col-span-7"
-                    style={{ all: "revert-layer" }}
-                  >
-                    <Image
-                      removeWrapper
-                      className="z-0 w-full h-full object-contain"
-                      src={latestProgressReport.img}
-                      alt="Latest progress report image"
-                    />
-                    <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-                      <div className="flex flex-grow gap-2 items-center">
-                        <div className="flex flex-col">
-                          <h2 className="text-base uppercase font-bold mb-0 text-white">
-                            Latest Progress Report
-                          </h2>
-                          <p className="text-sm text-white/70">
-                            {latestProgressReport.title}
-                          </p>
-                        </div>
-                      </div>
-                    </CardFooter>
-                  </Card>
-                </a>
-              </div>
-
-              {/* Previous Progress Report */}
-              <div className="flex justify-center">
-                <a href={useBaseUrl(previousProgressReport.url)}>
-                  <Card
-                    radius={"md"}
-                    isFooterBlurred
-                    className="w-full h-[300px] col-span-12 sm:col-span-7"
-                    style={{ all: "revert-layer" }}
-                  >
-                    <Image
-                      removeWrapper
-                      className="z-0 w-full h-full object-contain"
-                      src={previousProgressReport.img}
-                      alt="Previous progress report image"
-                    />
-                    <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-                      <div className="flex flex-grow gap-2 items-center">
-                        <div className="flex flex-col">
-                          <h2 className="text-base uppercase font-bold mb-0 text-white">
-                            Previous Progress Report
-                          </h2>
-                          <p className="text-sm text-white/70">
-                            {previousProgressReport.title}
                           </p>
                         </div>
                       </div>
