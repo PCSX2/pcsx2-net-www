@@ -208,16 +208,6 @@ const config = {
             to: "/blog",
             label: "Blog",
             position: "left",
-            items: [
-              {
-                label: "Progress Reports",
-                to: "/blog/tags/progress-report",
-              },
-              {
-                label: "Developer Blogs",
-                to: "/blog/tags/devblog",
-              },
-            ],
           },
           {
             to: "https://github.com/sponsors/PCSX2",
