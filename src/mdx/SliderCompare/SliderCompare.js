@@ -50,7 +50,7 @@ export default function SliderCompare({ children, cols, before, after }) {
       <div className={`w-full md:w-${Math.min(12, cols ?? 12)}/12`}>
         <div
           ref={container}
-          className={`imgCompareContainer`}
+          className={`imgCompareContainer select-none`}
           onMouseUp={handleMouseUp}
           onMouseDown={handleMouseDownOrTouchStart}
           onTouchStart={handleMouseDownOrTouchStart}
@@ -71,9 +71,9 @@ export default function SliderCompare({ children, cols, before, after }) {
               alt=""
               draggable="false"
             />
-            <div className={`imgCompareLabel before`}>Before</div>
+            <div className={`imgCmpLabel before`}>Before</div>
           </div>
-          <div className={`imgCompareLabel after`}>After</div>
+          <div className={`imgCmpLabel after`}>After</div>
         </div>
       </div>
     </div>
