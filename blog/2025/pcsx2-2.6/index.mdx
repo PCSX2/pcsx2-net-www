@@ -15,6 +15,7 @@ authors:
   - pandubz
   - jordan
   - link
+  - govanify
 ---
 
 Nearly 6 months after PCSX2 2.4.0 release, we are excited to unveil PCSX2 2.6.0! We're even more excited to showcase the things that we have been working on.
@@ -113,7 +114,7 @@ Additionally, we can add emoji as icon too! 🔥
   ### GS/Direct3D12: Added Feedback Reads Support
 </PCSX2PRLink>
 
-Upon looking though the Direct3D12 documentation, it was found that aliased resources (two resources sharing the same memory) could be used to bind the same texture as both a shader resource and render target.
+Upon looking through the Direct3D12 documentation, it was found that aliased resources (two resources sharing the same memory) could be used to bind the same texture as both a shader resource and render target.
 This relies on the two resources being able to inherit data from each other, the requirements of which can be satisfied using simultaneous access textures.
 
 This allows us to speed the Direct3D12 renderer up substantially, with some systems seeing over 5x improvements on specific games.
@@ -122,9 +123,9 @@ This allows us to speed the Direct3D12 renderer up substantially, with some syst
 
 While NVIDIA and Intel Arc GPUs had no issues, lightningterror discovered that some AMD GPUs showed issues. While the Direct3D12 documentation implies that data inheritance should work even with undefined memory layouts, the texture layout needed to be specified for some generations of AMD GPUs. Once this issue was identified it was fortunately an easy fix to implement.
 
-While reviewing the code, lightningterror spotted and fixed a regression with handling stencil date one.
+While reviewing the code, lightningterror spotted and fixed a regression with handling stencil DATE one.
 
-There have also been other various enhancements to the hardware renderer where various games such as Enthusia gained a significant 9% improvement in Direct3D11.
+There have also been other enhancements to the hardware renderer where games such as Enthusia gained a significant 9% improvement in Direct3D11.
 
 <BarChart chartDataUrl={require("./charts/Chart-gameperf-pt1.yaml").default} />
 
@@ -175,17 +176,17 @@ Some eye candy showing the difference in cutting off the texture copies that we 
   ### GS: Texture Copies and Barriers Optimizations
 </PCSX2PRLink>
 
-In [#13276](https://github.com/PCSX2/pcsx2/pull/13276) and [#13298](https://github.com/PCSX2/pcsx2/pull/13298) Following the implementation of software blending on Direct3D11 LightningTerror decided to improve the function itself that deals with texture copies, some optimizations that were previously not present on OpenGL, Direct3D11 and Metal were backported from Direct3D12 and Vulkan which reduces the number of copies in some specific scenarios, and aborting invalid copies. This gave us a small boost in some games that used texture copies regardless of renderers as copies were required.
+In [#13276](https://github.com/PCSX2/pcsx2/pull/13276) and [#13298](https://github.com/PCSX2/pcsx2/pull/13298) following the implementation of software blending on Direct3D11 LightningTerror decided to improve the function itself that deals with texture copies, some optimizations that were previously not present on OpenGL, Direct3D11 and Metal were backported from Direct3D12 and Vulkan which reduces the number of copies in some specific scenarios, and aborting invalid copies. This gave us a small boost in some games that used texture copies regardless of renderers as copies were required.
 
 <Image src={require("./img/benches/13276-BoF-pt1.webp").default} />
 
 <Image src={require("./img/benches/13276-MTV-pt2.webp").default} />
 
-Afterwards in [#13305](https://github.com/PCSX2/pcsx2/pull/13305) some ideas were flowing around how to further improve copies/barriers so TJnotJT decided to take on such task, the improvements are as follows:
+Afterwards in [#13305](https://github.com/PCSX2/pcsx2/pull/13305) some ideas were floating around how to further improve copies/barriers so TJnotJT decided to take on the task, the improvements are as follows:
 
 1. To unify and batch triangle primitives, this allows us to reduce the number of copies/barriers per draw.
 
-2. When doing texture copies that we only need to copy the region that we need to copy, not the entire draw. This makes texture copies faster and use less VRAM on Direct3D11/12.
+2. When doing texture copies, we only need to copy the region that we need to copy, not the entire draw. This makes texture copies faster and use less VRAM on Direct3D11/12.
 
 #### Why this is faster?
 
@@ -199,7 +200,7 @@ Afterwards in [#13305](https://github.com/PCSX2/pcsx2/pull/13305) some ideas wer
 
 <Image src={require("./img/benches/13354-CODFH-pt3.webp").default} />
 
-Next up in [#13354](https://github.com/PCSX2/pcsx2/pull/13354), TJnotJT also implemented another improvement which detect triangles-are-quads in primitive overlap which further reduces copies/barriers on all renderers:
+Next up in [#13354](https://github.com/PCSX2/pcsx2/pull/13354), TJnotJT also implemented another improvement which detects triangles-are-quads in primitive overlap which further reduces copies/barriers on all renderers:
 
 1. Added utility functions for detecting when vertices form axis-aligned right triangles or quads.
 2. Updated primitive overlap detection to account for pairs of triangles that together form axis-aligned quads.
@@ -214,7 +215,7 @@ Next up in [#13354](https://github.com/PCSX2/pcsx2/pull/13354), TJnotJT also imp
 
 A while back, we added extra barriers to fix some bugs in Time Crisis. In [#13595](https://github.com/PCSX2/pcsx2/pull/13595) TellowKrinkle discovered that those barriers were getting added on all GPU vendors. Upon further inspection, it appears as an NVIDIA driver bug, rather than actual issues with our OpenGL API usage. This allowed us to cut down the barriers on OpenGL on other GPU vendors by a lot.
 
-Here is the top 5 highest barrier reductions we have found:
+Here are the top 5 highest barrier reductions we have found:
 
 ```ini
 WRC_4_SCES-52389_20230329024724
@@ -249,7 +250,7 @@ Here is even more barrier count reductions that we found:
 Ace_Combat_04_-_Shattered_Skies_SLUS-20152_20230214003004
 Barriers: -1302 [1306=>4]
 
-Final Fantasy XII preload frame data texture isses
+Final Fantasy XII preload frame data texture issues
 Barriers: -1144 [2291=>1147]
 
 The Getaway _PAL-M5__SCES-51159
@@ -306,7 +307,7 @@ Here is more benchmarks:
   ### GS/HW: Abort Unnecessary Draw Calls
 </PCSX2PRLink>
 
-In some specific scenarios we can avoid draw calls if render target doesn't change and simultaneously depth isn't written either, such conditions were further expanded upon to grand us the ability to cancel useless draw calls (less GPU commands/work, less barriers, less copies, etc) which in some gains gives us some massive improvements.
+In some specific scenarios we can avoid draw calls if the render target doesn't change and simultaneously depth isn't written either, such conditions were further expanded upon to grant us the ability to cancel useless draw calls (less GPU commands/work, less barriers, less copies, etc) which in some cases gives us some massive improvements.
 
 Here is even more benchmarks:
 
@@ -338,11 +339,11 @@ Some optimizations are missing on Direct3D12 like [#13525](https://github.com/PC
   ### GS/HW: Shuffle improvements
 </PCSX2PRLink>
 
-Several fixes have been made to texture shuffle emulation in order to fix some long standing games.
+Several fixes have been made to texture shuffle emulation in order to fix some long-standing games.
 
 #### Handles Texture Shuffle With Pixel Reversals ([#13142](https://github.com/PCSX2/pcsx2/pull/13142))
 
-Detect when a game (Colin McRae Rally 2005) is doing a texture shuffle and (a) flipping pixels locations horizontally in columns and (b) correcting the pixels locations by flipping pixels horizontally again. Ignore both flips so that they cancel out. To keep it short what this does is fix Colin McRae Rally and is now playable with no hardware rendering issues.
+Detect when a game (Colin McRae Rally 2005) is doing a texture shuffle and (a) flipping pixel locations horizontally in columns and (b) correcting the pixel locations by flipping pixels horizontally again. Ignore both flips so that they cancel out. To keep it short what this does is fix Colin McRae Rally and is now playable with no hardware rendering issues.
 
 <SliderCompare
   before={require("./img/comparisons/13142-CMR-before.webp").default}
@@ -453,7 +454,7 @@ Various smaller PRs which address crash fixes, bug fixes, regressions and such.
 
 It all started with [#13613](https://github.com/PCSX2/pcsx2/issues/13613). One of our testers, JordanTheToast had recently upgraded to a Radeon RX 9060 XT. He noticed that resizing PCSX2 while in-game causes massive lag/delay during the resize. This ended up turning into a deep dive that confused the team for days. A look into GPU driver bugs, and the way Qt handles window resize events slowly uncovered the problem.
 
-GovanifY [put up a fight (#13614)](https://github.com/PCSX2/pcsx2/pull/13614) by fixing the way Qt handles window resizing in order to make it not fire up multiple resize events per miliseconds (yes, milisecond).
+GovanifY [put up a fight (#13614)](https://github.com/PCSX2/pcsx2/pull/13614) by fixing the way Qt handles window resizing in order to make it not fire up multiple resize events per milliseconds (yes, millisecond).
 
 Following [#13614](https://github.com/PCSX2/pcsx2/pull/13614) it was noticed that NVIDIA has lost smooth rescaling, unlike AMD which retained it.
 This issue was due to a difference in how AMD and NVIDIA reported resized windows. As a result, we would recreate the swapchain at the end of the frame on NVIDIA, but at the beginning of the frame on AMD.
@@ -487,7 +488,7 @@ For example, focusing a dropdown will just say that you've focused a dropdown wi
 
 #### Tabstops
 
-Have you been in a situation where you have to use a keyboard to navigate your way through PCSX2 and found out that the ordering between options are a complete nonsense? Tabstops are here to help!
+Have you been in a situation where you have to use a keyboard to navigate your way through PCSX2 and found out that the ordering between options are complete nonsense? Tabstops are here to help!
 
 Tabstops are another property of Qt which allow an explicit ordering of elements when tabbing through a widget (i.e. focusing on one element then pressing Tab). Without them, the tab order is subject to the physical ordering of the elements in XML, which does not inherently correspond to the row/column order displayed and is highly unreliable and unrealistic to maintain.
 
@@ -514,7 +515,7 @@ For a long time, macOS has been stuck on Qt 6.7, due to Qt 6.10 dropping support
 
 We have enabled Wayland support by default since PCSX2 2.4.0 release and in this cycle, AirGamer has yet again spearheaded the work to improve Wayland support even further. This time we're cutting out the cruft, resolving technical debt, and implementing it the way it was intended with Qt.
 
-For more technical details, previously the way we rendered into a "surface" was to render it to the widget directly. While this was the canonical method for older versions of Qt, the Qt maintainers mentioned that this was not recommended and a newer method was better suited. This has caused some issues especially with Wayland.
+For more technical details, previously the way we rendered into a "surface" was to render it to the widget directly. While this was the canonical method for older versions of Qt, the Qt maintainers mentioned that this was not recommended and a newer method was better suited. This has caused some issues, especially with Wayland.
 
 Instead, this new method now uses a Qt Window instead of a Qt Widget, avoiding issues inherited by the previous method and allowing for the removal of a number of Wayland specific workarounds. Which further improves Wayland compatibility with PCSX2.
 
@@ -602,4 +603,4 @@ TheTechnician27 worked on rearranging and reorganizing the hotkey section to giv
 
 <Image src={require("./img/hotkey.webp").default} />
 
-This is only a small sample of the changes made for this release! If you are interested in all the other fixes and additions that made it into this release, a full list of commits can be found on [Github](https://github.com/PCSX2/pcsx2/compare/v2.4.0...v2.6.0)
+This is only a small sample of the changes made for this release! If you are interested in all the other fixes and additions that made it into this release, a full list of commits can be found on [GitHub](https://github.com/PCSX2/pcsx2/compare/v2.4.0...v2.6.0).
