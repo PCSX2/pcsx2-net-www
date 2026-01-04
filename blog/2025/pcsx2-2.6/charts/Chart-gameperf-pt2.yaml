@@ -1,0 +1,17 @@
+data:
+  - name: Hitman Blood Money, DX12 6x IR, RX 9060 XT (596% Uplift)
+    "Before": 15
+    "After": 104.5
+  - name: Death by Degrees, DX12 6x IR, RX 9060 XT (413% Uplift)
+    "Before": 46.4
+    "After": 238.2
+barOptions:
+  "Before":
+    fillColor: "rgb(106, 156, 255)"
+  "After":
+    fillColor: "rgb(200, 45, 69)"
+axis:
+  x:
+    dataKey: name
+  y:
+    label: "Frame Per Seconds (VPS)"
