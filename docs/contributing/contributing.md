@@ -41,9 +41,7 @@ However if you do have experience in programming and wanted to contribute code, 
 The following is a list of _general_ style recommendations that will make reviewing and merging easier:
 
 - Commit Messages
-
   - Please try to prefix your commit message, indicating what area of the project was modified.
-
     - For example `GS: message...`.
     - Looking at the project's commit history will help with keeping prefixes consistent overtime, _there is no strictly enforced list_.
 
@@ -55,7 +53,6 @@ The following is a list of _general_ style recommendations that will make review
       - [GUI (SourceTree)](https://www.atlassian.com/blog/sourcetree/interactive-rebase-sourcetree)
 
 - Code Styling and Formatting
-
   - [Consult the style guide](./formatting.md)
 
   - Run `clang-format` using the configuration file in the root of the repository

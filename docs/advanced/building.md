@@ -159,13 +159,11 @@ cmake -B build -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_EXE
 Note the following optional CMake flags that are commonly used:
 
 - `-DCMAKE_BUILD_TYPE=Release|Devel|Debug`
-
   - `Release`: Fastest build, but lacks debug/crash information
   - `Devel`: Adds detailed trace logging abilities, but lacks debug/crash information
   - `Debug`: Slowest build as there are no compiler optimizations, but offers debug/crash information
 
 - `-DCMAKE_CXX_COMPILER_LAUNCHER=ccache`
-
   - Uses ccache to speed up the build process
 
 - `-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON`
