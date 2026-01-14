@@ -9,6 +9,12 @@ toc: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { AiFillPicture } from "react-icons/ai";
+import { BsWindows, BsApple } from "react-icons/bs";
+import { FaLinux, FaArchive } from "react-icons/fa";
+import { FaGear, FaTerminal } from "react-icons/fa6";
+import { MdInstallDesktop } from "react-icons/md";
+import { SiFlathub, SiKdeplasma, SiGnome, SiCinnamon } from "react-icons/si";
 
 This page helps you download and run PCSX2. PCSX2 is offered both as a Stable build which is updated every several months and as a Nightly build which is updated continually as PCSX2 is developed.
 
@@ -29,7 +35,7 @@ Use the Nightly build if you:
 ## Downloading and Running
 
 <Tabs queryString="os">
-<TabItem value="windows" label="Windows" default>
+<TabItem value="windows" label={<span className="tab_header_with_icon"><BsWindows />Windows</span>} default>
 
 PCSX2 on Windows can be used either as an installation (Stable only) or as a portable program (Stable and Nightly). The installer is more streamlined, while the portable version gives you more flexibility.
 
@@ -38,7 +44,7 @@ PCSX2 on Windows requires that you have the [latest x64 Visual C++ runtime](http
 :::
 
 <Tabs queryString="format">
-<TabItem value="installer" label="Installer" default>
+<TabItem value="installer" label={<span className="tab_header_with_icon"><MdInstallDesktop />Installer</span>} default>
 - Download the latest PCSX2 build for Windows from the [Download page](https://pcsx2.net/downloads).
 - Double-click the `.exe` file which you downloaded.
 - Windows will ask if you want to run this program. Click "Yes".
@@ -53,7 +59,7 @@ If you need to uninstall PCSX2, follow [this guide from Microsoft](https://suppo
 :::
 
 </TabItem>
-<TabItem value="portable" label="Portable">
+<TabItem value="portable" label={<span className="tab_header_with_icon"><FaArchive />Portable</span>}>
 
 - Download the latest PCSX2 build for Windows from the [Download page](https://pcsx2.net/downloads).
   - The portable version will be called "Download".
@@ -91,7 +97,7 @@ If you need to uninstall PCSX2, follow [this guide from Microsoft](https://suppo
 
 - PCSX2 requires additional [FFmpeg](https://en.wikipedia.org/wiki/FFmpeg) libraries if you wish to use its built-in video capture.
   - Download the FFmpeg Windows files [here](https://github.com/PCSX2/pcsx2-windows-dependencies/releases/tag/FFMPEG).
-  - Extract the contents of the `.zip` file.
+  - Extract the contents of the `.7z` file.
   - Place the extracted `.dll` files in the same folder as the PCSX2 `.exe` file.
 
 <details>
@@ -105,7 +111,7 @@ If you need to uninstall PCSX2, follow [this guide from Microsoft](https://suppo
         :::
 
 </TabItem>
-<TabItem value="macos" label="macOS">
+<TabItem value="macos" label={<span className="tab_header_with_icon"><BsApple />macOS</span>}>
 
 PCSX2 on macOS is distributed as an application bundle.
 
@@ -129,12 +135,12 @@ PCSX2's application name will change to reflect version updates. If you don't wa
 :::
 
 </TabItem>
-<TabItem value="linux" label="Linux">
+<TabItem value="linux" label={<span className="tab_header_with_icon"><FaLinux />Linux</span>}>
 
 PCSX2 on Linux is officially supported through an AppImage version and a Flatpak version.
 
 <Tabs queryString="format">
-<TabItem value="appimage" label="AppImage" default>
+<TabItem value="appimage" label={<span className="tab_header_with_icon"><FaGear />AppImage</span>} default>
 
 - Download the latest PCSX2 AppImage build from the [Download page](https://pcsx2.net/downloads).
 - You may need to make the AppImage file executable.
@@ -149,19 +155,19 @@ PCSX2 on Linux is officially supported through an AppImage version and a Flatpak
     <details>
       <summary>Expand to see examples in different file managers</summary>
       <Tabs queryString="environment">
-      <TabItem value="kde" label="KDE – Dolphin" default>
+      <TabItem value="kde" label={<span className="tab_header_with_icon"><SiKdeplasma />KDE – Dolphin</span>} default>
         <Image
         src={require("./img/running/mark_executable_kde.webp").default}
         alt="The KDE properties window for PCSX2.AppImage. The option Allow executing file as program is toggled on."
         />
       </TabItem>
-      <TabItem value="gnome" label="GNOME – Files">
+      <TabItem value="gnome" label={<span className="tab_header_with_icon"><SiGnome />GNOME – Files</span>}>
         <Image
         src={require("./img/running/mark_executable_gnome.webp").default}
         alt="The GNOME properties window for PCSX2.AppImage. The option Executable as Program is toggled on."
         />
       </TabItem>
-      <TabItem value="cinnamon" label="Cinnamon – Nemo">
+      <TabItem value="cinnamon" label={<span className="tab_header_with_icon"><SiCinnamon />Cinnamon – Nemo</span>}>
         <Image
         src={require("./img/running/mark_executable_cinnamon.webp").default}
         alt="The Cinnamon properties window for PCSX2.AppImage. The option Allow executing file as program is toggled on."
@@ -177,7 +183,7 @@ PCSX2 on Linux is officially supported through an AppImage version and a Flatpak
   />
 
 </TabItem>
-<TabItem value="flatpak" label="Flatpak">
+<TabItem value="flatpak" label={<span className="tab_header_with_icon"><SiFlathub />Flatpak</span>}>
 
 PCSX2 is available on [Flathub](https://flathub.org/apps/net.pcsx2.PCSX2)! You can install PCSX2 from Flathub through one of several compatible graphical package managers or through the shell.
 
@@ -188,7 +194,7 @@ PCSX2 is available on [Flathub](https://flathub.org/apps/net.pcsx2.PCSX2)! You c
   :::
 
 <Tabs queryString="interface">
-<TabItem value="graphical" label="Graphical" default>
+<TabItem value="graphical" label={<span className="tab_header_with_icon"><AiFillPicture />Graphical</span>} default>
 
 Many distributions and desktop environments have a graphical package manager which can install and update Flatpak applications. [These include](https://flatpak.org/setup/):
 
@@ -208,7 +214,7 @@ alt="The first page of the PCSX2 setup wizard on KDE Plasma 6, headlined, Welcom
 />
 
 </TabItem>
-<TabItem value="shell" label="Shell">
+<TabItem value="shell" label={<span className="tab_header_with_icon"><FaTerminal />Shell</span>}>
 
 In the terminal:
 
