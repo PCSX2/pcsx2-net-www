@@ -290,7 +290,7 @@ PCSX2 has partial support for [PS2rd codes](https://github.com/mlafeldt/ps2rd/bl
         `vvvvvvvv`<br/>`tttttttt`[0]<br/>`tttttttt`[2]<br/>...<br/>`iiiiiiii`
       </td>
       <td>
-        Follow a chain of `max(n, 1)` pointers and write the value `v` into memory at offset `i` relative to the address stored in the last pointer. The first pointer is read from address `a`, and subsequent pointers are read from the addresses stored in the previous pointers plus offsets from the array `t`. Note that `i` can be stored in either an address parameter or a data parameter depending on whether `n` is even or odd. The size of the value `v` is determined by `s`. Possible values for `s` are:
+        Follow a chain of `Max(n, 1)` pointers and write the value `v` into memory at offset `i` relative to the address stored in the last pointer. The first pointer is read from address `a`, and subsequent pointers are read from the addresses stored in the previous pointers plus offsets from the array `t`. Note that `i` can be stored in either an address parameter or a data parameter depending on whether `n` is even or odd. The size of the value `v` is determined by `s`. Possible values for `s` are:
         <ul>
           <li>`0`: 8 bits</li>
           <li>`1`: 16 bits</li>
@@ -377,7 +377,7 @@ PCSX2 has partial support for [PS2rd codes](https://github.com/mlafeldt/ps2rd/bl
         `nntsvvvv`
       </td>
       <td rowspan="2">
-        Read a value from address `a` and compare it to the value `v`. If the comparison is false, skip the next `n` patch commands. The operator to use for the comparison is determined by `t`. Possible values for `t` are:
+        Read a value from address `a` and compare it to the value `v`. If the comparison is false, skip the next `Max(n, 1)` patch commands. The operator to use for the comparison is determined by `t`. Possible values for `t` are:
         <ul>
           <li>`0`: Equal</li>
           <li>`1`: Not equal</li>
@@ -411,7 +411,7 @@ PCSX2 has partial support for [PS2rd codes](https://github.com/mlafeldt/ps2rd/bl
       }
       if (!condition)
       {
-        SkipPatchCommands(n);
+        SkipPatchCommands(Max(n, 1));
       }
       ```
       </td>
@@ -440,6 +440,9 @@ The pseudocode in the above table makes use of the following functions:
   </li>
   <li>
     `SkipPatchCommands(n)` which skips (prevents the execution of) the next `n` patch commands.
+  </li>
+  <li>
+    `Max(x, y)` returns `x` if `x` is greater than `y`, otherwise it returns `y`.
   </li>
 </ul>
 
