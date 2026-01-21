@@ -169,7 +169,7 @@ PCSX2 has partial support for [PS2rd codes](https://github.com/mlafeldt/ps2rd/bl
       <th>Address Parameter(s)</th>
       <th>Data Parameter(s)</th>
       <th>Description</th>
-      <th>Psuedocode</th>
+      <th>Pseudocode</th>
     </tr>
   </thead>
   <tbody>
@@ -429,7 +429,7 @@ PCSX2 has partial support for [PS2rd codes](https://github.com/mlafeldt/ps2rd/bl
 
 In the case where multiple address and data parameters are present for a given row in the table above, multiple `patch` commands must be written on consecutive lines. Lower case letters are used to denote variables, while upper case letters and numbers are used to denote literals. The maximum valid value for any of the addresses in the above table is `1ffffff`. If parameter values are provided that do not match one of the patterns in the above table, the behaviour is undefined.
 
-The psuedocode in the above table makes use of the following functions:
+The pseudocode in the above table makes use of the following functions:
 
 <ul>
   <li>
