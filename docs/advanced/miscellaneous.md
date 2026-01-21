@@ -3,7 +3,7 @@ title: "Miscellaneous"
 description: "This page contains various other advanced tips and features."
 draft: false
 toc: true
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 ## Using GDB with Linux AppImages (32 bit and 64 bit)

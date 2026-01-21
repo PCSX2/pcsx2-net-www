@@ -3,7 +3,7 @@ title: "GS Dump Runner"
 description: "This page helps you understand and use the GS dump runner on Windows."
 draft: false
 toc: true
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 The GS dump runner is designed to automatically run and compare a large number of GS dumps and output any differences found with pictures.

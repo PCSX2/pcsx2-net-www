@@ -3,7 +3,7 @@ title: "Backwards Compatibility"
 description: "This page describes the experimental state of PSX emulation in PCSX2."
 draft: false
 toc: true
-sidebar_position: 3
+sidebar_position: 5
 ---
 
 ## Can PCSX2 run PSX games?
