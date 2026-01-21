@@ -418,7 +418,7 @@ PCSX2 has partial support for [PS2rd codes](https://github.com/mlafeldt/ps2rd/bl
     </tr>
     <tr>
       <td>
-        `E0nnvvvv`
+        `Esnnvvvv`
       </td>
       <td>
         `taaaaaaa`
@@ -536,7 +536,7 @@ The pseudocode in the above table makes use of the following functions:
     <tr>
       <td>
         ```
-        patch=1,EE,D0100000,extended,0201ABCD
+        patch=1,EE,D0100000,extended,0200ABCD
         // start of condition body
         patch=1,EE,10100010,extended,00001234
         patch=1,EE,10100020,extended,00001234
