@@ -28,21 +28,21 @@ This page lists the system requirements to run PCSX2.
     <ul aria-label="Minimum operating system requirements">
      <li>Latest[^Windows_10] Windows 10</li>
      <li>macOS 11 (Big Sur)</li>
-     <li>Ubuntu 22.04 or other Linux distro[^distros]</li>
+     <li>Ubuntu 24.04 or other Linux distro[^distros]</li>
     </ul>
    </td>
    <td>
     <ul aria-label="Moderate operating system requirements">
      <li>Windows 11</li>
      <li>macOS 14–15 (Sonoma–Sequoia)</li>
-     <li>Ubuntu 25.04 or other Linux distro[^distros]</li>
+     <li>Ubuntu 25.10 or other Linux distro[^distros]</li>
     </ul>
    </td>
    <td>
     <ul aria-label="Heavy operating system requirements">
      <li>Windows 11</li>
      <li>macOS 14–15 (Sonoma–Sequoia)</li>
-     <li>Ubuntu 25.04 or other Linux distro[^distros]</li>
+     <li>Ubuntu 25.10 or other Linux distro[^distros]</li>
     </ul>
    </td>
   </tr>
@@ -174,7 +174,7 @@ Hardware requirements can vary drastically between games.
 </TabItem>
 <TabItem value="linux" label="Linux">
 - Ubuntu 20.04 support was dropped after stable release v1.6.0.
-
+- Ubuntu 22.04 support was dropped after stable release v2.6.0.
 </TabItem>
 </Tabs>
 
