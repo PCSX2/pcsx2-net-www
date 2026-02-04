@@ -64,6 +64,12 @@ The following package list is sufficient for building PCSX2 as of 2024/04/06 wit
 alsa-lib-devel brotli-devel clang cmake dbus-devel egl-wayland-devel extra-cmake-modules fontconfig-devel gcc-c++ gtk3-devel libaio-devel libcurl-devel libdecor-devel libevdev-devel libICE-devel libinput-devel libpcap-devel libSM-devel libX11-devel libXau-devel libxcb-devel libXcomposite-devel libXcursor-devel libXext-devel libXfixes-devel libXft-devel libXi-devel libxkbcommon-devel libxkbcommon-x11-devel libXpresent-devel libXrandr-devel libXrender-devel lld llvm make mesa-libEGL-devel mesa-libGL-devel ninja-build openssl-devel patch pcre2-devel perl-Digest-SHA pipewire-devel pulseaudio-libs-devel systemd-devel wayland-devel xcb-util-cursor-devel xcb-util-devel xcb-util-errors-devel xcb-util-image-devel xcb-util-keysyms-devel xcb-util-renderutil-devel xcb-util-wm-devel xcb-util-xrm-devel zlib-devel
 ```
 
+#### Arch Package List
+
+```sh
+sudo pacman -S --needed base-devel clang lld llvm cmake ninja extra-cmake-modules git ffmpeg kddockwidgets libpcap libwebp qt6-base qt6-tools sdl3 shaderc vulkan-headers alsa-lib libpulse libxi libxrandr glib2-devel
+```
+
 #### NixOS nix-shell
 
 ```nix
