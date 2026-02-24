@@ -36,6 +36,8 @@ Parameter list:
   -testconfig: Initializes configuration and checks version, then exits.
   -setupwizard: Forces initial setup wizard to run.
   -debugger: Open debugger and break on entry point.
+  -turbo: Enters turbo (fast forward) mode after starting.
+  -unlimited: Enters unlimited (fast forward) mode after starting.
   -raintegration: Use RAIntegration instead of built-in achievement support.
   --: Signals that no more arguments will follow and the remaining
     parameters make up the filename. Use when the filename contains
