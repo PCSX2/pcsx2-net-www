@@ -10,12 +10,35 @@ This page details known issues specific to Windows.
 
 ## Missing "MSVCP140.dll"
 
-If you see this error message during PCSX2 startup such as the following:
+The following error message may appear when launching PCSX2:
 
 <Image src={require("./img/vcredist.webp").default} />
 
-- You need the [Latest Visual C++ 2019 x64 Redistributables](https://aka.ms/vs/17/release/vc_redist.x64.exe) to run PCSX2.
-  - They are combined with other yearly releases Visual Studio 2015, 2017, 2019, and 2022. 64-bit version (x64) is required for 1.7.0 and higher (though early 1.7 builds still required 32 bit versions)
+You need the [Latest Visual C++ x64 Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-supported-redistributable-version) to run PCSX2.
+
+1. Be sure to select the X64 version (outlined in red in the screenshot below). The others will NOT work.
+2. Run the installer.
+3. If prompted to restart your computer after installing, be sure to do so.
+
+<Image src={require("./img/vcredist_website.webp").default} />
+
+### Errors after installing or updating the Visual C++ Runtime
+
+If one of the two following errors occurs after installing or updating the Visual C++ Runtime and restarting your computer:
+
+- The above error referencing "MSVCP140.dll" not being found still persists.
+- An error stating that your version of the Visual C++ Runtime is not a compatible version.
+
+You may have files from other Visual C++ Runtime versions which you manually added, and are noe interfering with a proper installation of the runtime. Uninstalling the runtime may help clean up the files you have manually added.
+
+:::info
+Multiple "Visual C++ Runtime items" will appear in the list; you will want to uninstall the one which matches what you just installed. It will be the most recently installed x64 version in your apps list.
+:::
+
+1. Uninstall the Visual C++ Runtime.
+2. Restart your computer.
+3. Install the Visual C++ Runtime again.
+4. Restart your computer again.
 
 ## Crashes
 
@@ -28,7 +51,7 @@ If PCSX2 crashes when opening settings or, you get this error message when attem
 
 This means your GPU drivers are out of date, please update your GPU drivers and try again.
 
-#### How do i update my GPU driver?
+#### How do I update my GPU driver?
 
 - Intel: [Search for your GPU or CPU model](https://www.intel.com/content/www/us/en/download-center/home.html)
 - Nvidia: [Search for your GPU model](https://www.nvidia.com/Download/index.aspx?lang=en-us) or [use GeForce Experience to update drivers automatically](https://www.nvidia.com/en-us/geforce/geforce-experience/)
