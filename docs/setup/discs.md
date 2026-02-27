@@ -9,6 +9,9 @@ toc: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { BsWindows, BsApple } from "react-icons/bs";
+import { FaLinux } from "react-icons/fa";
+import { SiDebian, SiFedora, SiArchlinux, SiSuse, SiNixos, SiFlathub } from "react-icons/si";
 
 This page helps you create a backup of your physical game disc.
 
@@ -34,7 +37,7 @@ Although you can play games on PCSX2 directly from your disc, there are major ad
   :::
 
 <Tabs queryString="os">
-<TabItem value="windows" label="Windows" default>
+<TabItem value="windows" label={<span className="tab_header_with_icon"><BsWindows />Windows</span>} default>
 
 Disc dumping on Windows can be done using graphical tools like Media Preservation Frontend (MPF) and ImgBurn.
 
@@ -167,7 +170,7 @@ Your game will be in the destination folder you specified, and you can safely re
 </TabItem>
 </Tabs>
 </TabItem>
-<TabItem value="macos" label="macOS">
+<TabItem value="macos" label={<span className="tab_header_with_icon"><BsApple />macOS</span>}>
 
 Disc dumping on macOS can be done graphically using the built-in [Disk Utility](https://support.apple.com/guide/disk-utility/welcome/mac) application or in Terminal using shell commands like `dd` and `cdrdao`.
 
@@ -346,7 +349,7 @@ toc2cue [dump-name].toc [dump-name].cue
 </TabItem>
 </Tabs>
 </TabItem>
-<TabItem value="linux" label="Linux">
+<TabItem value="linux" label={<span className="tab_header_with_icon"><FaLinux />Linux</span>}>
 
 Disc dumping on Linux can be done using graphical tools like K3b and Brasero or shell commands like `dd` and `cdrdao`.
 
@@ -358,27 +361,27 @@ K3b is a free and open-source graphical utility for authoring optical media.
 :::tip[Tip – Installing k3b]
 
 <Tabs queryString="distro">
-<TabItem value="debian" label="Debian" default>
+<TabItem value="debian" label={<span className="tab_header_with_icon"><SiDebian />Debian</span>} default>
 ```bash
 sudo apt install k3b
 ```
 </TabItem>
-<TabItem value="fedora" label="Fedora">
+<TabItem value="fedora" label={<span className="tab_header_with_icon"><SiFedora />Fedora</span>}>
 ```bash
 sudo dnf install k3b
 ```
 </TabItem>
-<TabItem value="arch" label="Arch">
+<TabItem value="arch" label={<span className="tab_header_with_icon"><SiArchlinux />Arch</span>}>
 ```bash
 sudo pacman -S k3b
 ```
 </TabItem>
-<TabItem value="suse" label="SUSE">
+<TabItem value="suse" label={<span className="tab_header_with_icon"><SiSuse />SUSE</span>}>
 ```bash
 sudo zypper install k3b
 ```
 </TabItem>
-<TabItem value="nixos" label="NixOS">
+<TabItem value="nixos" label={<span className="tab_header_with_icon"><SiNixos />NixOS</span>}>
 ```bash
 programs.k3b.enable = true;
 ```
@@ -436,30 +439,30 @@ This method will only work on the GNOME desktop environment.
 :::tip[Tip – Installing Brasero]
 
 <Tabs queryString="distro">
-<TabItem value="debian" label="Debian" default>
+<TabItem value="debian" label={<span className="tab_header_with_icon"><SiDebian />Debian</span>} default>
 ```bash
 sudo apt install brasero
 ```
 </TabItem>
-<TabItem value="fedora" label="Fedora">
+<TabItem value="fedora" label={<span className="tab_header_with_icon"><SiFedora />Fedora</span>}>
 ```bash
 sudo dnf install brasero
 ```
 </TabItem>
-<TabItem value="arch" label="Arch">
+<TabItem value="arch" label={<span className="tab_header_with_icon"><SiArchlinux />Arch</span>}>
 ```bash
 sudo pacman -S brasero
 ```
 </TabItem>
-<TabItem value="suse" label="SUSE">
+<TabItem value="suse" label={<span className="tab_header_with_icon"><SiSuse />SUSE</span>}>
 ```bash
 sudo zypper install brasero
 ```
 </TabItem>
-<TabItem value="nixos" label="NixOS">
+<TabItem value="nixos" label={<span className="tab_header_with_icon"><SiNixos />NixOS</span>}>
 - [MyNixOS page](https://mynixos.com/nixpkgs/package/brasero)
 </TabItem>
-<TabItem value="flathub" label="Flathub">
+<TabItem value="flathub" label={<span className="tab_header_with_icon"><SiFlathub />Flathub</span>}>
 ```bash
 flatpak install org.gnome.Brasero
 ```
