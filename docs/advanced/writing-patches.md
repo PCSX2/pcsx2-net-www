@@ -296,20 +296,21 @@ PCSX2 has partial support for [PS2rd codes](https://github.com/mlafeldt/ps2rd/bl
           <li>`1`: 16 bits</li>
           <li>`2`: 32 bits</li>
         </ul>
+        Versions of PCSX2 prior to v2.7.169 had bugs that altered how this command was interpreted. For more information, see the [Errata](#errata) section below.
       </td>
       <td>
         ```
         pointer = Read(a, 32);
-        if (pointer != 0)
+        for (iter = 0; iter < n - 1; iter++)
         {
-          for (iter = 0; iter < n - 1; iter++)
+          if (pointer != 0)
           {
             pointer = Read(pointer + t[iter], 32);
           }
-          if (pointer != 0)
-          {
-            Write(pointer + i, sizeof(v), v);
-          }
+        }
+        if (pointer != 0)
+        {
+          Write(pointer + i, sizeof(v), v);
         }
         ```
       </td>
@@ -702,6 +703,18 @@ Some older versions of PCSX2 are affected by the following issues:
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>v2.7.168 and prior</td>
+      <td>
+        For pointer write codes comprised of 3 or more lines, only the first and last pointers would be checked for a null value.
+      </td>
+    </tr>
+    <tr>
+      <td>v2.7.168 and prior</td>
+      <td>
+        For pointer write codes comprised of 3 or more lines, if a null value was encountered, the middle of the command would incorrectly be interpreted as the start of a new command.
+      </td>
+    </tr>
     <tr>
       <td>v2.3.96 to v2.5.384</td>
       <td>
