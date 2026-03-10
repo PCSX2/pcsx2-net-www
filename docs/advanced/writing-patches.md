@@ -104,7 +104,7 @@ Each of the parameters that make up the command are described below:
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr id="patch-parameter-place">
       <td>`<place>`</td>
       <td>
         The point in time when the patch should be applied. Possible values are:
@@ -117,7 +117,7 @@ Each of the parameters that make up the command are described below:
         Older versions of PCSX2 had bugs that altered how this parameter was interpreted. For more information, see the [Errata](#errata) section below.
       </td>
     </tr>
-    <tr>
+    <tr id="patch-parameter-cpu">
       <td>`<cpu>`</td>
       <td>
         The processor corresponding to the address space that should be accessed. Possible values are:
@@ -127,22 +127,22 @@ Each of the parameters that make up the command are described below:
         </ul>
       </td>
     </tr>
-    <tr>
+    <tr id="patch-parameter-address">
       <td>`<address>`</td>
       <td>
-        The address in memory where `<data>` should be written, except in the case that `<type>` is equal to `extended` (see [RAW Codes](#raw-codes)). It is interpreted as a hexadecimal number.
+        The address in memory where [`<data>`](#patch-parameter-data) should be written, except in the case that [`<type>`](#patch-parameter-type) is equal to `extended` (see [RAW Codes](#raw-codes)). It is interpreted as a hexadecimal number.
       </td>
     </tr>
-    <tr>
+    <tr id="patch-parameter-type">
       <td>`<type>`</td>
       <td>
-        The data type of `<data>`. Possible values are:
+        The data type of [`<data>`](#patch-parameter-data). Possible values are:
         <ul>
           <li>`byte`: A single byte.</li>
           <li>`short`: Two bytes.</li>
           <li>`word`: Four bytes.</li>
           <li>`double`: Eight bytes.</li>
-          <li>`extended`: Interpret the `<address>` and `<data>` parameters as [RAW codes](#raw-codes).</li>
+          <li>`extended`: Interpret the [`<address>`](#patch-parameter-address) and [`<data>`](#patch-parameter-data) parameters as [RAW codes](#raw-codes).</li>
           <li>`beshort`: Two bytes, to be stored in big-endian order in memory (since v1.7.4534).</li>
           <li>`beword`: Four bytes, to be stored in big-endian order in memory (since v1.7.4534).</li>
           <li>`bedouble`: Eight bytes, to be stored in big-endian order in memory (since v1.7.4534).</li>
@@ -150,10 +150,10 @@ Each of the parameters that make up the command are described below:
         </ul>
       </td>
     </tr>
-    <tr>
+    <tr id ="patch-parameter-data">
       <td>`<data>`</td>
       <td>
-        The data that should be written into memory at `<address>`, except in the case that `<type>` is equal to `extended` (see [RAW Codes](#raw-codes)). It is interpreted as a hexadecimal number.
+        The data that should be written into memory at [`<address>`](#patch-parameter-address), except in the case that [`<type>`](#patch-parameter-type) is equal to `extended` (see [RAW Codes](#raw-codes)). It is interpreted as a hexadecimal number.
       </td>
     </tr>
   </tbody>
@@ -161,7 +161,7 @@ Each of the parameters that make up the command are described below:
 
 ### RAW Codes
 
-PCSX2 has partial support for [RAW codes](https://github.com/mlafeldt/ps2rd/blob/master/Documentation/code_types.txt). If the `<type>` parameter of a patch command is set to `extended`, the most signficant nibble (leftmost hexadecimal digit) of the `<address>` field will be interpreted as a type code used to perform an action according to the table below:
+PCSX2 has partial support for [RAW codes](https://github.com/mlafeldt/ps2rd/blob/master/Documentation/code_types.txt). If the [`<type>`](#patch-parameter-type) parameter of a patch command is set to `extended`, the most signficant nibble (leftmost hexadecimal digit) of the [`<address>`](#patch-parameter-address) field will be interpreted as a type code used to perform an action according to the table below:
 
 <table>
   <thead>
@@ -282,7 +282,7 @@ PCSX2 has partial support for [RAW codes](https://github.com/mlafeldt/ps2rd/blob
         ```
       </td>
     </tr>
-    <tr>
+    <tr id="raw-pointer-write">
       <td>
         `6aaaaaaa`<br/>`000snnnn`<br/>`tttttttt`[1]<br/>...<br/>`tttttttt`[n-2]
       </td>
@@ -706,25 +706,25 @@ Some older versions of PCSX2 are affected by the following issues:
     <tr>
       <td>v2.7.168 and prior</td>
       <td>
-        For pointer write codes comprised of 3 or more lines, only the first and last pointers would be checked for a null value.
+        For [pointer write codes](#raw-pointer-write) comprised of 3 or more lines, only the first and last pointers would be checked for a null value.
       </td>
     </tr>
     <tr>
       <td>v2.7.168 and prior</td>
       <td>
-        For pointer write codes comprised of 3 or more lines, if a null value was encountered, the middle of the command would incorrectly be interpreted as the start of a new command.
+        For [pointer write codes](#raw-pointer-write) comprised of 3 or more lines, if a null value was encountered, the middle of the command would incorrectly be interpreted as the start of a new command.
       </td>
     </tr>
     <tr>
       <td>v2.3.96 to v2.5.384</td>
       <td>
-        Patches with a `<place>` value of `0` would be applied when they were enabled instead of just being applied during startup. This would cause guest memory corruption for patches that can only run on startup, such as those for executable unpackers.
+        Patches with a [`<place>`](#patch-parameter-place) value of `0` would be applied when they were enabled instead of just being applied during startup. This would cause guest memory corruption for patches that can only run on startup, such as those for executable unpackers.
       </td>
     </tr>
     <tr>
       <td>v1.7.4587 to v2.3.95</td>
       <td>
-        Patches with a `<place>` value of `2` would not run on startup, and would hence behave identically to patches with a `<place>` value of `1`.
+        Patches with a [`<place>`](#patch-parameter-place) value of `2` would not run on startup, and would hence behave identically to patches with a [`<place>`](#patch-parameter-place) value of `1`.
       </td>
     </tr>
   </tbody>
