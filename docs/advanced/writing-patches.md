@@ -84,7 +84,7 @@ Prior to v1.7.4546, patch files were not split into groups and so all patch comm
 
 ## Patches
 
-This command writes the specified value at the specified address in memory, and is probably the command that you will use most frequently. It offers multiple options for when it should be applied, different data types, and extended PS2rd compatible codes that allow for advanced features such as patches that are applied conditionally based on an existing value in memory.
+This command writes the specified value at the specified address in memory, and is probably the command that you will use most frequently. It offers multiple options for when it should be applied, different data types, and extended RAW codes that allow for advanced features such as patches that are applied conditionally based on an existing value in memory.
 
 ### Syntax
 
@@ -130,7 +130,7 @@ Each of the parameters that make up the command are described below:
     <tr>
       <td>`<address>`</td>
       <td>
-        The address in memory where `<data>` should be written, except in the case that `<type>` is equal to `extended` (see [PS2rd Codes](#ps2rd-codes)). It is interpreted as a hexadecimal number.
+        The address in memory where `<data>` should be written, except in the case that `<type>` is equal to `extended` (see [RAW Codes](#raw-codes)). It is interpreted as a hexadecimal number.
       </td>
     </tr>
     <tr>
@@ -142,7 +142,7 @@ Each of the parameters that make up the command are described below:
           <li>`short`: Two bytes.</li>
           <li>`word`: Four bytes.</li>
           <li>`double`: Eight bytes.</li>
-          <li>`extended`: Interpret the `<address>` and `<data>` parameters as [PS2rd codes](#ps2rd-codes).</li>
+          <li>`extended`: Interpret the `<address>` and `<data>` parameters as [RAW codes](#raw-codes).</li>
           <li>`beshort`: Two bytes, to be stored in big-endian order in memory (since v1.7.4534).</li>
           <li>`beword`: Four bytes, to be stored in big-endian order in memory (since v1.7.4534).</li>
           <li>`bedouble`: Eight bytes, to be stored in big-endian order in memory (since v1.7.4534).</li>
@@ -153,15 +153,15 @@ Each of the parameters that make up the command are described below:
     <tr>
       <td>`<data>`</td>
       <td>
-        The data that should be written into memory at `<address>`, except in the case that `<type>` is equal to `extended` (see [PS2rd Codes](#ps2rd-codes)). It is interpreted as a hexadecimal number.
+        The data that should be written into memory at `<address>`, except in the case that `<type>` is equal to `extended` (see [RAW Codes](#raw-codes)). It is interpreted as a hexadecimal number.
       </td>
     </tr>
   </tbody>
 </table>
 
-### PS2rd Codes
+### RAW Codes
 
-PCSX2 has partial support for [PS2rd codes](https://github.com/mlafeldt/ps2rd/blob/master/Documentation/code_types.txt). If the `<type>` parameter of a patch command is set to `extended`, the most signficant nibble (leftmost hexadecimal digit) of the `<address>` field will be interpreted as a type code used to perform an action according to the table below:
+PCSX2 has partial support for [RAW codes](https://github.com/mlafeldt/ps2rd/blob/master/Documentation/code_types.txt). If the `<type>` parameter of a patch command is set to `extended`, the most signficant nibble (leftmost hexadecimal digit) of the `<address>` field will be interpreted as a type code used to perform an action according to the table below:
 
 <table>
   <thead>
