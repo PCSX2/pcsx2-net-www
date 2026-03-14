@@ -591,25 +591,25 @@ Each of the parameters that make up the command are described below:
     <tr>
       <td>`<pattern count>`</td>
       <td>
-        The number of instructions to match.
+        The number of instructions to match (in hexadecimal).
       </td>
     </tr>
     <tr>
       <td>`<replacement count>`</td>
       <td>
-        The number of instructions to replace.
+        The number of instructions to replace (in hexadecimal).
       </td>
     </tr>
     <tr>
       <td>`<pattern>`</td>
       <td>
-        An offset and value pair in the following format: `<offset>,<value>`. For the replacements to be applied, the 32-bit value in memory at the given offset from the instruction currently being recompiled (executed for the first time) must be equal to the value provided in the pattern. Offsets should be a multiple of 4.
+        An offset and value pair in the following format: `<offset>,<value>` (both in hexadecimal). For the replacements to be applied, the 32-bit value in memory at the given offset from the instruction currently being recompiled (executed for the first time) must be equal to the value provided in the pattern. Offsets should be a multiple of 4.
       </td>
     </tr>
     <tr>
       <td>`<replacement>`</td>
       <td>
-        An offset and value pair in the following format: `<offset>,<value>`. If all the patterns match, the value will be written into EE memory at the given offset from the instruction currently being recompiled (executed for the first time). Offsets should be a multiple of 4.
+        An offset and value pair in the following format: `<offset>,<value>` (both in hexadecimal). If all the patterns match, the value will be written into EE memory at the given offset from the instruction currently being recompiled (executed for the first time). Offsets should be a multiple of 4.
       </td>
     </tr>
   </tbody>
