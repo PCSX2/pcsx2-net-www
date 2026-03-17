@@ -704,6 +704,12 @@ Some older versions of PCSX2 are affected by the following issues:
   </thead>
   <tbody>
     <tr>
+      <td>v2.7.169 to v2.7.185</td>
+      <td>
+        Patches of type `bytes` wouldn't be applied.
+      </td>
+    </tr>
+    <tr>
       <td>v2.7.168 and prior</td>
       <td>
         For [pointer write codes](#raw-pointer-write) comprised of 3 or more lines, only the first and last pointers would be checked for a null value.
