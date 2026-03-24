@@ -9,6 +9,10 @@ toc: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { BiSolidCard } from "react-icons/bi";
+import { BsWindows, BsApple, BsUsbSymbol } from "react-icons/bs";
+import { FaLinux, FaCompactDisc, FaTerminal, FaNetworkWired } from "react-icons/fa";
+import { SiKde, SiGnome, SiDebian, SiFedora, SiArchlinux, SiSuse, SiNixos } from "react-icons/si";
 
 This page helps you dump the BIOS files from your PlayStation 2 console.
 
@@ -68,7 +72,7 @@ alt="A mostly black screen reads biosdrain - revision v2.1.1 in the upper-right.
 FreeMcBoot and FreeDVDBoot bundle a generally useful homebrew program, uLaunchELF,[^wLaunchELF] that lets you browse memory cards, DVDs, and USB drives connected to your PS2 and run programs from them.
 
 <Tabs queryString="softmod">
- <TabItem value="freemcboot" label="Using FreeMcBoot" default>
+  <TabItem value="freemcboot" label={<span className="tab_header_with_icon"><BiSolidCard />Using FreeMcBoot</span>} default>
 
 1. Insert the FreeMcBoot memory card into Memory Card Slot 1.
 2. Make sure the disc tray is empty.
@@ -76,7 +80,7 @@ FreeMcBoot and FreeDVDBoot bundle a generally useful homebrew program, uLaunchEL
 4. Select uLaunchELF from the menu.
 
  </TabItem>
- <TabItem value="freedvdboot" label="Using FreeDVDBoot">
+ <TabItem value="freedvdboot" label={<span className="tab_header_with_icon"><FaCompactDisc />Using FreeDVDBoot</span>}>
 
 1. Download the ISO which corresponds to your PS2 model from [FreeDVDBoot's GitHub repository](https://github.com/CTurt/FreeDVDBoot/tree/master/PREBUILT%20ISOs).
 2. Burn the ISO to a DVD.
@@ -96,7 +100,7 @@ FreeMcBoot and FreeDVDBoot bundle a generally useful homebrew program, uLaunchEL
 biosdrain supports dumping both to a USB flash drive and via HOST through ps2link. We recommend USB for most users. If your console does not have networking support, you cannot use the ps2link method.
 
 <Tabs queryString="medium">
- <TabItem value="usb" label="USB Flash Drive" default>
+ <TabItem value="usb" label={<span className="tab_header_with_icon"><BsUsbSymbol />USB Flash Drive</span>} default>
 
 :::note[Note – USB issues]
 
@@ -110,7 +114,7 @@ To use the USB method, you will need a USB flash drive which is partitioned as [
 <details>
 <summary>Expand to see a guide on formatting your flash drive</summary>
 <Tabs queryString="os">
-<TabItem value="windows" label="Windows" default>
+<TabItem value="windows" label={<span className="tab_header_with_icon"><BsWindows />Windows</span>} default>
 On Windows, we recommend the free and open-source tool Rufus.
 
 :::danger[Danger – Data loss]
@@ -139,7 +143,7 @@ alt="A Rufus window after formatting a USB flash drive. The Drive Properties sec
 />
 
 </TabItem>
-<TabItem value="macos" label="macOS">
+<TabItem value="macos" label={<span className="tab_header_with_icon"><BsApple />macOS</span>}>
 
 On macOS, we recommend the built-in Disk Utility application.
 
@@ -171,7 +175,7 @@ alt="A window in Disk Utility asking if the user wishes to erase their flash dri
 />
 
 </TabItem>
-<TabItem value="linux" label="Linux">
+<TabItem value="linux" label={<span className="tab_header_with_icon"><FaLinux />Linux</span>}>
 On Linux, we recommend KDE Partition Manager or GNOME Disks.
 
 :::note[Note – Command line]
@@ -181,7 +185,7 @@ On Linux, we recommend KDE Partition Manager or GNOME Disks.
   :::
 
 <Tabs queryString="partition-tool">
-<TabItem value="kde" label="KDE Partition Manager" default>
+<TabItem value="kde" label={<span className="tab_header_with_icon"><SiKde />KDE Partition Manager</span>} default>
 KDE Partition Manager is an application built into KDE Plasma for managing storage devices.
 
 :::danger[Danger – Data loss]
@@ -195,29 +199,29 @@ KDE Partition Manager is a powerful tool which can easily cause permanent data l
 
 :::tip[Tip – Installing KDE Partition Manager]
 <Tabs queryString="distro">
-<TabItem value="debian" label="Debian" default>
+<TabItem value="debian" label={<span className="tab_header_with_icon"><SiDebian />Debian</span>} default>
 
 ```bash
 sudo apt install partitionmanager
 ```
 
 </TabItem>
-<TabItem value="fedora" label="Fedora">
+<TabItem value="fedora" label={<span className="tab_header_with_icon"><SiFedora />Fedora</span>}>
 ```bash
 sudo dnf install partitionmanager
 ```
 </TabItem>
-<TabItem value="arch" label="Arch">
+<TabItem value="arch" label={<span className="tab_header_with_icon"><SiArchlinux />Arch</span>}>
 ```bash
 sudo pacman -S partitionmanager
 ```
 </TabItem>
-<TabItem value="suse" label="SUSE">
+<TabItem value="suse" label={<span className="tab_header_with_icon"><SiSuse />SUSE</span>}>
 ```bash
 sudo zypper install partitionmanager
 ```
 </TabItem>
-<TabItem value="nixos" label="NixOS">
+<TabItem value="nixos" label={<span className="tab_header_with_icon"><SiNixos />NixOS</span>}>
 - [MyNixOS page](https://mynixos.com/nixpkgs/package/kdePackages.partitionmanager)
 </TabItem>
 </Tabs>
@@ -247,7 +251,7 @@ src={require("./img/bios/kde_partition_manager.webp").default}
 alt="A window titled Apply Pending Operations is opened which asks, Do you really want to apply the pending operations listed below? and warns, This will permanently modify your disks. Two lines read, first, Create a new partition table (type: msdos) on /dev/sdd, and, second, Create a new partition (239.01 GiB, fat32) on /dev/sdd. At the bottom is an Apply Pending Operations button on the left and a Cancel button on the right."
 />
 </TabItem>
-<TabItem value="gnome" label="GNOME Disks">
+<TabItem value="gnome" label={<span className="tab_header_with_icon"><SiGnome />GNOME Disks</span>}>
 GNOME Disks is an application built into GNOME for managing storage devices.
 
 :::danger[Danger – Data loss]
@@ -262,27 +266,27 @@ GNOME Disks is a powerful tool which can easily cause permanent data loss if mis
 :::tip[Tip – Installing GNOME Disks]
 
 <Tabs queryString="distro">
-<TabItem value="debian" label="Debian" default>
+<TabItem value="debian" label={<span className="tab_header_with_icon"><SiDebian />Debian</span>} default>
 ```bash
 sudo apt install gnome-disk-utility
 ```
 </TabItem>
-<TabItem value="fedora" label="Fedora">
+<TabItem value="fedora" label={<span className="tab_header_with_icon"><SiFedora />Fedora</span>}>
 ```bash
 sudo dnf install gnome-disk-utility
 ```
 </TabItem>
-<TabItem value="arch" label="Arch">
+<TabItem value="arch" label={<span className="tab_header_with_icon"><SiArchlinux />Arch</span>}>
 ```bash
 sudo pacman -S gnome-disk-utility
 ```
 </TabItem>
-<TabItem value="suse" label="SUSE">
+<TabItem value="suse" label={<span className="tab_header_with_icon"><SiSuse />SUSE</span>}>
 ```bash
 sudo zypper install gnome-disk-utility
 ```
 </TabItem>
-<TabItem value="nixos" label="NixOS">
+<TabItem value="nixos" label={<span className="tab_header_with_icon"><SiNixos />NixOS</span>}>
 - [MyNixOS page](https://mynixos.com/nixpkgs/package/gnome-disk-utility)
 </TabItem>
 </Tabs>
@@ -326,7 +330,7 @@ alt="A LaunchELF v4.43a screen displaying file paths. The row for mass:/ is high
 />
 
 </TabItem>
-<TabItem value="ps2client" label="ps2client & ps2link">
+<TabItem value="ps2client" label={<span className="tab_header_with_icon"><FaTerminal />ps2client & ps2link</span>}>
 
 1. `cd` into the directory where you have `biosdrain.elf`.
 2. Run the command:
@@ -339,11 +343,12 @@ alt="A LaunchELF v4.43a screen displaying file paths. The row for mass:/ is high
 
 You should see files prefixed by your console model ID and ending in `.rom0`,`.rom1`,`.nvm`, etc., in the root directory of `host`.
 
- </TabItem>
- <TabItem value="xlink" label="XLink & ps2link">
+</TabItem>
+<TabItem value="xlink" label={<span className="tab_header_with_icon"><FaNetworkWired />XLink & ps2link</span>}>
+
 1. Execute the `biosdrain.elf` with the user interface.
 2. biosdrain will automatically detect that the `host` device is present and dump your BIOS contents to the root directory of `host`.
-    - The root of `host` is usually where you have the biosdrain.elf file.
+   - The root of `host` is usually where you have the biosdrain.elf file.
 3. When biosdrain says "Finished Everything", the dumping process is finished.
 
 You should see files prefixed by your console model ID and ending in `.rom0`,`.rom1`,`.nvm`, etc., in the root directory of `host`.
@@ -355,19 +360,19 @@ You should see files prefixed by your console model ID and ending in `.rom0`,`.r
 Once you've finished dumping your PS2's BIOS, you're done and ready to use it for PCSX2. However, if you wish to first verify the integrity of the dump, the ReDump project maintains [a data file](https://redump.org/datfile/ps2-bios/) containing [hashes](https://en.wikipedia.org/wiki/Hash_function) for every PS2 BIOS version. To compute the SHA1 hash of the BIOS file you dumped:
 
 <Tabs queryString="os">
-<TabItem value="windows" label="Windows" default>
+<TabItem value="windows" label={<span className="tab_header_with_icon"><BsWindows />Windows</span>} default>
 On Windows, [use Get-FileHash in PowerShell](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-7.5):
   ```powershell
   Get-FileHash [path-to-file] -Algorithm SHA1
   ```
 </TabItem>
-<TabItem value="macos" label="macOS">
+<TabItem value="macos" label={<span className="tab_header_with_icon"><BsApple />macOS</span>}>
 On macOS, [use shasum in Terminal](https://linux.die.net/man/1/shasum):
   ```bash
   shasum [path-to-file]
   ```
 </TabItem>
-<TabItem value="linux" label="Linux">
+<TabItem value="linux" label={<span className="tab_header_with_icon"><FaLinux />Linux</span>}>
 On Linux, [use sha1sum in the shell](https://www.man7.org/linux/man-pages/man1/sha1sum.1.html):
   ```bash
   sha1sum [path-to-file]
