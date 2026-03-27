@@ -39,14 +39,14 @@ This page lists the system requirements to run PCSX2.
     <ul aria-label="Moderate operating system requirements">
      <li>Windows 11</li>
      <li>macOS 14–15 (Sonoma–Sequoia)</li>
-     <li>Ubuntu 25.04 or other Linux distro[^distros]</li>
+     <li>Ubuntu 26.04 or other Linux distro[^distros]</li>
     </ul>
    </td>
    <td>
     <ul aria-label="Heavy operating system requirements">
      <li>Windows 11</li>
      <li>macOS 14–15 (Sonoma–Sequoia)</li>
-     <li>Ubuntu 25.04 or other Linux distro[^distros]</li>
+     <li>Ubuntu 26.04 or other Linux distro[^distros]</li>
     </ul>
    </td>
   </tr>
@@ -55,21 +55,21 @@ This page lists the system requirements to run PCSX2.
    <td>
     <ul aria-label="Minimum CPU requirements">
      <li>x86-64 with SSE4.1</li>
-     <li>[PassMark single-thread rating](https://www.cpubenchmark.net/singleThread.html) ≥ 1500</li>
-     <li>Two physical cores[^P-cores] with SMT[^SMT]</li>
+     <li>[PassMark single-thread rating](https://www.cpubenchmark.net/singleThread.html) ≥ 2000</li>
+     <li>Four physical cores[^P-cores] with SMT[^SMT]</li>
     </ul>
    </td>
    <td>
     <ul aria-label="Moderate CPU requirements">
      <li>x86-64 with AVX2</li>
-     <li>[PassMark single-thread rating](https://www.cpubenchmark.net/singleThread.html) ≥ 2000</li>
-     <li>Four physical cores[^P-cores] with or without SMT[^SMT]</li>
+     <li>[PassMark single-thread rating](https://www.cpubenchmark.net/singleThread.html) ≥ 2500</li>
+     <li>Six physical cores[^P-cores] with or without SMT[^SMT]</li>
     </ul>
    </td>
    <td>
     <ul aria-label="Heavy CPU requirements">
      <li>x86-64 with AVX2</li>
-     <li>[PassMark single-thread rating](https://www.cpubenchmark.net/singleThread.html) ≥ 2600</li>
+     <li>[PassMark single-thread rating](https://www.cpubenchmark.net/singleThread.html) ≥ 3000</li>
      <li>Six physical cores[^P-cores] with SMT[^SMT]</li>
      <hr />
      <li>Or *M*-series CPU[^Rosetta]</li>
@@ -116,9 +116,38 @@ This page lists the system requirements to run PCSX2.
  </tbody>
 </table>
 
+## Example Hardware
+
+<table aria-label="2-by-3 table for example CPUs and GPUs from major manufacturers">
+ <thead>
+  <tr>
+   <th scope="col"></th>
+   <th scope="col">Suggested Minimum <GiTurtleShell className="table_header_icon"/></th>
+   <th scope="col">Suggested Moderate <FaScaleBalanced className="table_header_icon"/></th>
+   <th scope="col">Suggested Heavy <BsLightningChargeFill className="table_header_icon"/></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+   <td scope="row">CPU</td>
+   <td><ul aria-label="Example minimum CPUs"><li>Intel Core i5-4570K</li><li>AMD Ryzen 5 1500X</li></ul></td>
+   <td><ul aria-label="Example moderate CPUs"><li>Intel Core i7-8700K</li><li>AMD Ryzen 5 3600</li></ul></td>
+   <td><ul aria-label="Example heavy CPUs"><li>Intel Core i5-12400</li><li>AMD Ryzen 5 5600</li></ul></td>
+  </tr>
+  <tr>
+   <td scope="row">GPU[^GPU_relevance]</td>
+   <td><ul aria-label="Example minimum GPUs"><li>Nvidia GeForce GTX 750 Ti</li><li>AMD Radeon RX 460</li><li>Intel Arc A380</li></ul></td>
+   <td><ul aria-label="Example moderate GPUs"><li>Nvidia GeForce GTX 1650</li><li>AMD Radeon RX 5600 XT</li><li>Intel Arc A580</li></ul></td>
+   <td><ul aria-label="Example heavy GPUs"><li>Nvidia GeForce RTX 4060 8GB</li><li>AMD Radeon RX 6600 XT</li><li>Intel Arc B580</li></ ul></td>
+ </tr>
+ </tbody>
+</table>
+
 :::info[Info – Performance]
 Hardware requirements can vary drastically between games.
 
+- **If you have performance issues, please check the [corresponding troubleshooting guide.](../troubleshooting/performance)**
+  - **Slower hardware may work but playability and performance are not guaranteed.**
 - CPUs that only meet Moderate requirements will struggle with complex games that pushed the PS2 hardware to its limits.
   - CPU-intensive games: [Wiki](https://wiki.pcsx2.net/Category:CPU_intensive_games), [Forum](https://forums.pcsx2.net/Thread-LIST-The-Most-CPU-Intensive-Games)
 - Some release titles and 2D games which underutilized the PS2 hardware may run on CPUs rated as low as 1200.
@@ -126,36 +155,12 @@ Hardware requirements can vary drastically between games.
 - GPUs which meet Moderate requirements should handle the vast majority of games just fine.[^GPU_relevance]
   - GPU performance is based largely on upscaling level and blending accuracy.
   - GPU-intensive games: [Wiki](https://wiki.pcsx2.net/Category:GPU_intensive_games)
-- If you have performance issues, please check the [corresponding troubleshooting guide.](../troubleshooting/performance)
+- It is recommended to install the latest GPU driver version for all the GPUs that are installed on your system.
+  - [NVIDIA](https://www.nvidia.com/en-us/drivers/)
+  - [AMD](https://www.amd.com/en/support/download/drivers.html)
+  - [Intel](https://www.intel.com/content/www/us/en/download-center/home.html)
 
 :::
-
-## Example Hardware
-
-<table aria-label="2-by-3 table for example CPUs and GPUs from major manufacturers">
- <thead>
-  <tr>
-   <th scope="col"></th>
-   <th scope="col">Minimum <GiTurtleShell className="table_header_icon"/></th>
-   <th scope="col">Moderate <FaScaleBalanced className="table_header_icon"/></th>
-   <th scope="col">Heavy <BsLightningChargeFill className="table_header_icon"/></th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-   <td scope="row">CPU</td>
-   <td><ul aria-label="Example minimum CPUs"><li>Intel Core i7-2760QM</li><li>AMD FX-8350</li></ul></td>
-   <td><ul aria-label="Example moderate CPUs"><li>Intel Core i7-4790</li><li>AMD Ryzen 5 1600</li></ul></td>
-   <td><ul aria-label="Example heavy CPUs"><li>Intel Core i7-8700K</li><li>AMD Ryzen 5 3600X</li></ul></td>
-  </tr>
-  <tr>
-   <td scope="row">GPU[^GPU_relevance]</td>
-   <td><ul aria-label="Example minimum GPUs"><li>Nvidia GeForce GT 710</li><li>AMD Radeon R7 A10-7850K</li><li>Intel HD 510</li></ul></td>
-   <td><ul aria-label="Example moderate GPUs"><li>Nvidia GeForce GTX 1650</li><li>AMD Radeon RX 570</li><li>Intel Arc A380</li></ul></td>
-   <td><ul aria-label="Example heavy GPUs"><li>Nvidia GeForce RTX 3050 8GB</li><li>AMD Radeon RX 5600 XT</li><li>Intel Arc A580</li></ ul></td>
- </tr>
- </tbody>
-</table>
 
 ## Version Deprecations
 
