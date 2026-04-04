@@ -1,6 +1,6 @@
 ---
 date: 2025-09-25
-description: "This is an overview of official documentation for the PCSX2 project."
+description: "Muhammad Ibrahim ( Arun ) Founder ."
 draft: false
 sidebar_position: 1
 title: "Overview"
