@@ -12,7 +12,7 @@ This page details known issues specific to Linux.
 
 If you see an error when opening the AppImage such as the following:
 
-```bash
+```
 ...
 dlopen(): error loading libfuse.so.2
 ...

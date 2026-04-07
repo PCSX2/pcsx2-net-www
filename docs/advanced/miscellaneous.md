@@ -109,7 +109,7 @@ The output will be the stack trace of the minidump. if you are lucky, then the t
 
 In the example given below, we can find that an assertion was called (#6) in the startVM function (#7). Because of our debugging information, it even tells us the exact lines in code where this happened.
 
-```sh
+```
 Thread 3 EmuThread (crashed) - tid: 48404
  0  KERNELBASE.dll + 0x3b699
      rax = 0x0000000000000020    rdx = 0x000000b3e64fa739
