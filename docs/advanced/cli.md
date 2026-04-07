@@ -14,7 +14,7 @@ Usage: `pcsx2-qt.exe [parameters] [--] [boot filename]`
 
 Parameter list:
 
-```sh
+```
   -help: Displays this information and exits.
   -version: Displays version information and exits.
   -batch: Enables batch mode (exits after shutting down).
