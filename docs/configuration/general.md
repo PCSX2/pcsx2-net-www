@@ -13,22 +13,21 @@ This page provides general information about PCSX2's features.
 **Do not run untrusted programs in PCSX2. It is not a sandbox and cannot protect your computer from malicious software.**
 :::
 
-## Renderer options
+## Graphics API Options
 
 :::caution
-**When in doubt, use the automatic renderer option.**
+**When in doubt, leave the Graphics API setting on Automatic.**
 :::
 
 ### Automatic
 
-Automatic will figure out out what renderer works for what GPU architectures, and it is set up to pick the best option for you. Priority goes first to stability, then accuracy. **Always use this option if you are unsure.**
+When the Graphics API is set to Automatic, PCSX2 will choose which graphics API to use depending on your GPU and operating system. Priority is given to stability, then to accuracy. **Always use this option if you are unsure.**
 
-### Software mode
+### Software Mode
 
-Renders on your CPU for maximum accuracy. Does not use your GPU.
-Requires a strong, multi-core CPU.
+Renders graphics on your CPU, instead of your GPU, for maximum accuracy. This requires a strong CPU.
 
-### Hardware mode
+### Hardware Mode
 
 #### Vulkan
 
@@ -53,59 +52,50 @@ Requires a strong, multi-core CPU.
 - Same accuracy as Direct3D12, slightly slower.
 - No major differences across GPU vendors.
 
-## Per-game settings
+## Game Properties
 
-Per-game settings allows you to set different configuration for specific games. Useful when a certain game needs a specific setting to fix graphical issues.
+The Game Properties feature allows you to configure PCSX2 differently for different games. This can be useful if you run into issues with a particular game, and need to change settings that you don't want affecting other games.
 
-It can be accessed one of two ways, depending on if a game is running or not.
+To access the Game Properties dialog for a given game, you can right click on the entry for it in the game list, and click `Properties`. Alternatively, if the game is currently running, you can use the `Settings > Game Properties` option in the main menu bar.
 
-### If no game is running
-
-Right click the game in your games list, then hit `Properties`
-
-### If a game is running
-
-Go to `Settings > Game Properties`
-
-## Portable mode
+## Portable Mode
 
 ### What is Portable mode?
 
-Portable mode allows you to confine all of PCSX2's related data and configuration into its own folder instead of using the user's Documents folder, essentially making it "Portable".
+If portable mode is enabled, PCSX2 will store all of its data and configuration files in the same directory as its own executable (.exe) file instead of in a central location (on Windows this central location is the Documents folder).
 
-- To enable portable mode, simply create an empty `portable.txt` or `portable.ini` file in the root directory of your PCSX2 folder
-- You can also pass in `-portable` as a launch argument to force PCSX2 to run in portable mode
+- To enable portable mode, create an empty `portable.txt` or `portable.ini` file in the same directory as PCSX2's executable (.exe) file.
+- You can also pass in `-portable` as a launch argument to force PCSX2 to run in portable mode.
 
 ## Save States
 
 ### What are Save States?
 
-Save states are copies of PCSX2's machine state. Loading a state allows PCSX2 to "jump" back to the copied machine state. Save states are NOT game saves, and are NOT suitable replacement for memory cards.
+Save states are copies of PCSX2's machine state. Loading a state will cause PCSX2 to jump back to the point in time in the game in which you saved the state. Save states are NOT game saves, and are NOT a suitable replacement for memory cards.
 
 ### Good uses of save states
 
-- "Bookmarking" your location in a game so you can retry something quickly
-- Temporarily saving your progress in games which limit saving
+- "Bookmarking" your location in a game so you can retry something quickly.
+- Temporarily saving your progress in games which limit saving.
 
 ### Things to avoid with save states
 
 Do not use them to permanently save your game. Save your games normally to your memory cards.
 
-### Cautions about save states
+### Cheats and patches
 
-Cheats and any patches will burn in to a savestate, and cannot be removed after burning in.
-Errors in a game (e.g. memory leaks) will burn in to a savestate.
-Save states are NOT guaranteed to be compatible across any PCSX2 versions.
+Cheats and patches will burn in to save states, and cannot be removed after being burnt in.
+Errors in a game (e.g. memory leaks) will also burn in to save states.
 
 ### Save state compatibility
 
-Save state are **NOT** guaranteed to be compatible across different PCSX2 versions. Savestate version bump tends to happen from time to time, and for this very reason that you should not rely on save states as your main game saving method.
+Save state are **NOT** guaranteed to be compatible across different PCSX2 versions, and for this reason you should not rely on save states as your main game saving method.
 
 :::tip
 Always use your memory card for long-term game saves storage.
 :::
 
-PCSX2 will throw an error if you try to load a savestate that is incompatible with the current running version:
+PCSX2 will display an error if you try to load a save state that is incompatible with the current running version:
 
 <Image src={require("./img/sstates.webp").default} />
 
@@ -113,26 +103,26 @@ If this happens to you, there are only 2 ways to remedy the problem:
 
 #### Option #1
 
-1. Download the exact PCSX2 version that are mentioned on the error dialog.
-2. Open up the game and load your save state.
-3. Save your game to the memory card.
-4. Go back to your current PCSX2 version, and just load from Memory Card.
+1. Download the exact version of PCSX2 that is mentioned in the error dialog.
+2. Start the game in this version of PCSX2 and load your save state.
+3. Save your game to a memory card using the normal in-game save function.
+4. Go back to your current PCSX2 version, and load your game from the memory card.
 
 #### Option #2
 
-You can delete your incompatible savestate and just load the game normally without save state.
+You can discard your incompatible save states.
 
 ### I've been using save states to store progress, how can I fix this?
 
-1. Boot your game
-2. Load your save state
-3. Save your game using the game's normal save function
+1. Boot your game.
+2. Load your save state.
+3. Save your game using the normal in-game save function.
 
-### Game specific issues
+### Game-specific issues
 
 #### Gran Turismo 4 - Rewind Condition
 
-Loading a savestate captured before your most recent memory card save will result in the hash in RAM no longer matching the memory card contents. The data on your memory card is now from the future.
+Loading a save state captured before your most recent memory card save will result in the hash in RAM no longer matching the memory card contents. The data on your memory card is now from the future.
 
 #### What is the game doing?
 
@@ -140,4 +130,4 @@ Gran Turismo 4 only keeps partial information about your garage in RAM at any ti
 
 #### How do I fix this?
 
-If you encounter a rewind condition and the game no longer recognizes your memory card, you have no choice but to boot the game again. Do not load a savestate. Let the game boot and load normally from your memory card.
+If you encounter a rewind condition and the game no longer recognizes your memory card, you have no choice but to boot the game again. Do not load a save state. Let the game boot and load normally from your memory card.
