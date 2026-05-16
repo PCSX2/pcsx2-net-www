@@ -20,7 +20,7 @@ The PCSX2 project has a decades old codebase with ever evolving standards, and t
 
 Please make sure your code is up to modern practices, and be receptive to feedback about cleaning up code, or changing code style.
 
-## Large Language Models (LLM) Usage Policy
+## Large Language Model (LLM) Usage Policy
 
 LLMs such as ChatGPT, Claude, and Copilot have become mainstays in the programming world and are becoming more widely used for code generation. As such, ground rules need to be set for their use in and around the PCSX2 project.
 
