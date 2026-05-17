@@ -175,7 +175,7 @@ Thread 3 EmuThread (crashed) - tid: 48404
 
 Here is the exact same crash, without debugging information.
 
-```sh
+```
 Thread 3 EmuThread (crashed) - tid: 48404
 0  KERNELBASE.dll + 0x3b699
      rax = 0x0000000000000020    rdx = 0x000000b3e64fa739
