@@ -1,0 +1,1107 @@
+---
+draft: false
+title: PCSX2 2.8.0 is now out!
+tags:
+  - devblog
+date: 2026-08-28
+description: PCSX2 2.8 Release Post
+hide_table_of_contents: false
+titleImage: /img/2-0-banner.webp
+image: /img/2-0-banner.webp
+authors:
+  - kamfretoz
+  - lightningterror
+  - fobes
+  - airgamer
+  - pandubz
+  - jordan
+  - link
+  - stern
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import { BsWindows, BsApple, BsLightningChargeFill } from "react-icons/bs";
+import { FaLinux } from "react-icons/fa";
+import { FaComputer, FaScaleBalanced } from "react-icons/fa6";
+import { GiTurtleShell } from "react-icons/gi";
+
+Nearly six months after the release of PCSX2 2.6.0 (and two years after the big milestone release of 2.0.0) - we are excited to unveil PCSX2 2.8.0 and showcase what we have been working on since then!
+
+To start with a teaser - we have some serious performance gains to talk about with this release; as seen here with Need for Speed: Carbon!
+
+<Image src={require("./img/benches/main.webp").default} />
+
+Now let's jump into this release's major talking points!
+
+<!--truncate-->
+
+:::tip
+For a full list of changes, you can check out our milestone page on GitHub [here](https://github.com/PCSX2/pcsx2/milestone/9?closed=1).
+:::
+
+## <TextGradient startColor="#7828C8" endColor="#FF4ECD">The System Requirements Update</TextGradient>
+
+We have updated our system requirements to reflect several improvements to the core and graphics pipelines that require more powerful hardware than our previous requirements recommended.
+
+:::caution[Caution]
+See below for our new requirements:
+
+<table aria-label="2-by-3 table for example CPUs and GPUs from major manufacturers">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">
+        Suggested Minimum <GiTurtleShell className="table_header_icon" />
+      </th>
+      <th scope="col">
+        Suggested Moderate <FaScaleBalanced className="table_header_icon" />
+      </th>
+      <th scope="col">
+        Suggested Heavy <BsLightningChargeFill className="table_header_icon" />
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td scope="row">CPU</td>
+      <td>
+        <ul aria-label="Example minimum CPUs">
+          <li>Intel Core i5-4570K</li>
+          <li>AMD Ryzen 5 1500X</li>
+        </ul>
+      </td>
+      <td>
+        <ul aria-label="Example moderate CPUs">
+          <li>Intel Core i7-8700K</li>
+          <li>AMD Ryzen 5 3600</li>
+        </ul>
+      </td>
+      <td>
+        <ul aria-label="Example heavy CPUs">
+          <li>Intel Core i5-12400</li>
+          <li>AMD Ryzen 5 5600</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td scope="row">GPU</td>
+      <td>
+        <ul aria-label="Example minimum GPUs">
+          <li>Nvidia GeForce GTX 750 Ti</li>
+          <li>AMD Radeon RX 460</li>
+          <li>Intel Arc A380</li>
+        </ul>
+      </td>
+      <td>
+        <ul aria-label="Example moderate GPUs">
+          <li>Nvidia GeForce GTX 1650</li>
+          <li>AMD Radeon RX 5600 XT</li>
+          <li>Intel Arc A580</li>
+        </ul>
+      </td>
+      <td>
+        <ul aria-label="Example heavy GPUs">
+          <li>Nvidia GeForce RTX 4060 8GB</li>
+          <li>AMD Radeon RX 6600 XT</li>
+          <li>Intel Arc B580</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+:::
+
+## <TextGradient startColor="#7828C8" endColor="#FF4ECD">Installer Visual Overhaul</TextGradient>
+
+The installer has received quite a facelift. It now looks more sleek and comes with dark mode support.
+It also has received some Quality of Life Improvements such as:
+
+- In Portable mode, the install location will now default to the root of the drive that the installer is being run from.
+- In Portable mode, it will no longer create an uninstaller entry in the start menu.
+
+<SliderCompare
+  before={require("./img/Installer_Light.webp").default}
+  after={require("./img/Installer_Dark.webp").default}
+/>
+
+<Image src={require("./img/Installer_Progress.webp").default} />
+
+<Image src={require("./img/Installer_Complete.webp").default} />
+
+## <TextGradient startColor="#7828C8" endColor="#FF4ECD">New Features</TextGradient>
+
+<PCSX2PRLink authors="TheLastRar" prNums="14065">
+  ### Deps: Bundle FFmpeg on Windows
+</PCSX2PRLink>
+
+FFmpeg is now bundled together with the Windows build of PCSX2. It's no longer necessary for you to download FFmpeg separately before you use the built-in Video Capture!
+
+We've also hand-picked the most popular codecs. Previously, we included everything that FFmpeg offered, but this was too much wasted space on codecs that were rarely, if ever, used. The reduced set of codecs should still provide you with all the modern, efficient options you need without taking up much extra space.
+
+Video Encoders:
+
+- Hardware Encoders:
+  - [AMD AMF/VCE](https://en.wikipedia.org/wiki/Video_Coding_Engine)
+  - [Intel QSV](https://en.wikipedia.org/wiki/Intel_Quick_Sync_Video)
+  - [Nvidia NVENC](https://en.wikipedia.org/wiki/NVENC)
+  - [Media Foundations](https://en.wikipedia.org/wiki/Media_Foundation)
+  - [Vulkan Video](https://www.khronos.org/blog/an-introduction-to-vulkan-video)
+
+- Software Encoders:
+  - [libx264 (H264)](https://trac.ffmpeg.org/wiki/Encode/H.264)
+  - [libx265 (H265)](https://trac.ffmpeg.org/wiki/Encode/H.265)
+  - [libsvtav1 (AV1)](https://trac.ffmpeg.org/wiki/Encode/AV1)
+  - [ffv1 (FFmpeg's own codec)](https://trac.ffmpeg.org/wiki/Encode/FFV1)
+  - [qtrle (Apple QT RLE)](https://en.wikipedia.org/wiki/QuickTime_Animation)
+
+Audio Encoders:
+
+- [AAC (Advanced Audio Coding)](https://codecs.wiki/docs/audio/AAC)
+- [Opus](https://codecs.wiki/docs/audio/Opus)
+- [FLAC (Free Lossless Audio Codec)](https://xiph.org/flac/)
+- [`pcm_s16le` & `pcm_s16be` (WAV)](https://en.wikipedia.org/wiki/WAV)
+
+<PCSX2PRLink authors="SternXD" prNums="13974">
+  ### USB: Implement EyeToy camera support on macOS
+</PCSX2PRLink>
+
+SternXD worked on adding EyeToy camera support for macOS. With this, all 3 OSes now have full EyeToy camera support!
+
+:::tip
+The [EyeToy](https://en.wikipedia.org/wiki/EyeToy) was a USB camera accessory for the PS2. Supported games used early forms of [computer vision](https://en.wikipedia.org/wiki/Computer_vision) or solely used it for taking photos.
+:::
+
+<PCSX2PRLink authors="Florin9doi" prNums="13652,14328">
+  ### USB: Train Mascon, Master Controller and Olympus Storage Devices support
+</PCSX2PRLink>
+
+Florin9doi has worked on adding additional Train Mascon and Master Controller support to the existing Train controller feature.
+
+Alongside that, they have also added support for Olympus Camera and Olympus Turbo MO miniEX IV (MO644U2S, MO133U2S) Storage Devices.
+
+<Image src={require("./img/Train_Controller.webp").default} />
+
+<PCSX2PRLink authors="SternXD" prNums="14127">
+  ### Qt/FullscreenUI/ImGui: On-Screen Display Customizations
+</PCSX2PRLink>
+
+This grants the ability to customize the look of the On-Screen Display, such as changing its fonts, location, scale, margin and more. We also gave the On-Screen Display its own dedicated settings within PCSX2.
+
+The frame time graph now has more detailed measurements as well!
+
+:::tip
+Use the monospace variant of your desired font family for the best readability.
+:::
+
+<Image src={require("./img/OSD.webp").default} />
+
+<Image src={require("./img/OSD_Settings.webp").default} />
+
+<PCSX2PRLink authors="SternXD" prNums="13926">
+  ### Achievements: Various visual improvements to Achievements menu
+</PCSX2PRLink>
+
+The Achievements section has received some enhancements!
+
+- The collapsing headers have been replaced with a sidebar in the achievements menu for games with multiple subsets.
+- Added subset mastery notifications.
+- When a subset is open, the header shows that subset’s title, stats, and progress bar.
+- Missable, Win Condition, and Progression indicators are now shown as small badges next to the achievement title.
+
+<Image src={require("./img/Cheevos.webp").default} />
+
+<PCSX2PRLink authors="SternXD" prNums="13620">
+  ### FullscreenUI: Implement cover download support
+</PCSX2PRLink>
+
+Just like its Qt counterpart, the Big Picture Mode interface now also gets its own cover downloader functionality! Now you no longer need to go to the Qt interface just to use the cover downloader. Convenience 💯
+
+<Image src={require("./img/FSUI_Cover_Downloader.webp").default} />
+
+<PCSX2PRLink authors="kamfretoz" prNums="14176">
+  ### Qt: Add Icon Selection and Preview to the Shortcut Creator
+</PCSX2PRLink>
+
+The game shortcut creator now allows you to attach a custom icon to a shortcut as well when you're creating one. No more having to manually add them afterwards!
+
+:::info
+Windows only allows icon files `(*.ico)` for shortcut icons.
+:::
+
+<Image src={require("./img/Shortcut_Icon.webp").default} />
+
+<PCSX2PRLink authors="kamfretoz" prNums="14308">
+  ### Qt: Revamp the status bar
+</PCSX2PRLink>
+
+The status bar has received quite a number of quality of life improvements. You can now control the volume of the virtual console directly from the main interface without going to the audio settings manually. You can now toggle the speed limit directly without using the hotkeys. Additionally, it shows you the host GPU usage, the current renderer, and the currently active internal resolution multiplier.
+
+<Image src={require("./img/Status_Bar.webp").default} />
+
+<PCSX2PRLink authors="kamfretoz" prNums="14190,14191">
+  ### Qt: Add a bunch of `Open XXX Folder` actions to Game List entries
+</PCSX2PRLink>
+
+A few new options have been added to the Game List's context menu. These allow you to open the folders of various PCSX2-related game data or resources. You can access this by right-clicking a game entry in the Game List.
+
+<Image src={require("./img/Open_Context_Menu.webp").default} />
+
+<PCSX2PRLink authors="kamfretoz" prNums="14316">
+  ### Qt: Add `-datapath` launch argument
+</PCSX2PRLink>
+
+You can now override the default data folder location that PCSX2 uses with your own custom path, instead of being stuck with the default locations.
+
+<PCSX2PRLink authors="SternXD,kamfretoz,TellowKrinkle,RedDevilus,devloon,alexeidoell,jasaaved">
+  ### Qt/FSUI: Miscellaneous UI Changes
+</PCSX2PRLink>
+
+- [#14228](https://github.com/PCSX2/pcsx2/pull/14228) FullscreenUI: Add analog control to Big Picture Mode
+- [#13589](https://github.com/PCSX2/pcsx2/pull/13589) FullscreenUI: Load all language fonts at all times
+- [#13933](https://github.com/PCSX2/pcsx2/pull/13933) Qt: Prevent empty Gamelist header + reset option
+- [#13933](https://github.com/PCSX2/pcsx2/pull/14092) Qt: show full game titles in grid view
+- [#14007](https://github.com/PCSX2/pcsx2/pull/14007) Qt: Toggle mouse lock hotkey
+- [#14117](https://github.com/PCSX2/pcsx2/pull/14117) Hotkey: Add Reload Patch Hotkey
+- [#14112](https://github.com/PCSX2/pcsx2/pull/14112) GS: Add hotkey for cycling Blending Accuracy
+- [#14197](https://github.com/PCSX2/pcsx2/pull/14197) VMManager: Make Prefer English also applies to other things
+- [#14191](https://github.com/PCSX2/pcsx2/pull/14191) Qt: Add Option for storing video captures per-games
+- [#14448](https://github.com/PCSX2/pcsx2/pull/14448) GS: Add shader compile indicator
+- [#14618](https://github.com/PCSX2/pcsx2/pull/14618) Qt: Add sorting to memory card list
+- [#14579](https://github.com/PCSX2/pcsx2/pull/14579) Qt/GameListBackground: Auto adjust gamelist text color
+- [#14666](https://github.com/PCSX2/pcsx2/pull/14666) Qt: Add Create PCSX2 launcher option to setup wizard
+- [#14721](https://github.com/PCSX2/pcsx2/pull/14721) FSUI: Add gamelist hotkey to scan for new games
+- [#14284](https://github.com/PCSX2/pcsx2/pull/14284) Qt: Add RetroAchievements to Setup Wizard
+
+## <TextGradient startColor="#7828C8" endColor="#FF4ECD">Performance and Graphics Improvements</TextGradient>
+
+<PCSX2PRLink authors="TJnotJT" prNums="13631">
+  ### GS/HW: Depth feedback loops and accurate AFAIL.
+</PCSX2PRLink>
+
+The PS2's GS is known for being difficult to emulate due to how different it is from the PC hardware we use today. PCSX2 has long had options to choose between accuracy and speed for things like blending. The fast options pick a close but not identical setting for the PC hardware to approximate each setting of the GS. The accurate options move the operation from dedicated hardware to shaders, requiring large numbers of slow barriers to ensure the correct result.
+
+Until now, these options have all been only for the main color texture, but the GS also has mismatches with PC hardware in its handling of the depth texture. In particular, the alpha test, which allows discarding pixels when the texture alpha value is below a set cutoff, gives games the choice of whether to discard color, depth, or both. On the other hand, the only option for PC GPUs is to discard both[^Early_Fragment_Test].
+
+For games that choose the option to discard only color, PCSX2 can use the shader blend system to load the existing color from the render target and re-output that, but for depth, PCSX2 didn't support a fully accurate system. Instead, PCSX2 rendered every draw call twice. First, it would draw color only, without discarding based on the alpha test, then a second pass would draw depth only, discarding where needed. This means that if two overlapping triangles occurred in the same draw, it was possible for the wrong result to happen, since the pass that was drawing color didn't update depth and therefore wouldn't reject a further triangle drawn after a closer triangle.
+
+To fix this, TJ added a system similar to the color handling for depth, where we disable the dedicated hardware and instead do all processing in the shader. This means disabling the hardware depth test and emulating that as well, so that it doesn't interfere with our attempts to cancel depth update by re-emitting the existing depth value. Unfortunately, due to this being a niche usage of an already niche feature, many of the APIs that did support this kind of shader feedback loop for color failed when we attempted to do the same with depth textures, handing our shaders outdated pixel values. In the end, only Vulkan, which has an extension made explicitly for this purpose, consistently worked, while the D3D12 and OpenGL renderers default to copying the depth texture to a temporary color texture for the handling, then copying the result back to the original depth texture when done.[^DX11_Depth_Issue] [^FbFetch_Unsupported_GPU] [^Metal_FbFetch]
+
+Minna No Tennis:
+
+<SliderCompare
+  before={require("./img/comparisons/DepthFeedback/MNT_Before.webp").default}
+  after={require("./img/comparisons/DepthFeedback/MNT_After.webp").default}
+/>
+
+Ratchet & Clank: Up Your Arsenal:
+
+<SliderCompare
+  before={
+    require("./img/comparisons/DepthFeedback/R&C-UpYourArse_Before.webp")
+      .default
+  }
+  after={
+    require("./img/comparisons/DepthFeedback/R&C-UpYourArse_After.webp").default
+  }
+/>
+
+<SliderCompare
+  before={
+    require("./img/comparisons/DepthFeedback/R&C-UpYourArse2_Before.webp")
+      .default
+  }
+  after={
+    require("./img/comparisons/DepthFeedback/R&C-UpYourArse2_After.webp")
+      .default
+  }
+/>
+
+<PCSX2PRLink authors="TJnotJT" prNums="13681,14439">
+  ### GS/HW: Support for HW AA1 lines/triangles
+</PCSX2PRLink>
+
+AA1 is the PS2's name for antialiasing. Unlike MSAA, which rasterizes triangles at a higher resolution and then downsamples, the PS2's AA1 works by adding a semi-transparent border around each triangle as it's drawn. In order for the semi-transparent border to not block the triangles below, it doesn't write depth, even though the fully-opaque parts of the triangle do. Even so, that only prevents things from looking broken under AA1. For fully working antialiasing, PS2 games have to sort their triangles and draw back to front, like in the old depth-buffer-less days of the PS1.
+
+Because PC GPUs don't support writing depth for only some triangles in a draw, this was a software-renderer-only feature in PCSX2 for a long time, but TJ used PCSX2's newly-added software depth support to add support for these triangle borders. Due to the high cost of the software depth emulation, this is currently disabled by default, but can be enabled in the graphics settings which will allow it to activate on supported games.
+
+Comparison:
+
+God Of War:
+
+<SliderCompare
+  before={require("./img/comparisons/AA1/GoW_Before.webp").default}
+  after={require("./img/comparisons/AA1/GoW_After.webp").default}
+/>
+
+<SliderCompare
+  before={require("./img/comparisons/AA1/GoWBridge_Before.webp").default}
+  after={require("./img/comparisons/AA1/GoWBridge_After.webp").default}
+/>
+
+Final Fantasy X:
+
+<SliderCompare
+  before={require("./img/comparisons/AA1/FFX_Before.webp").default}
+  after={require("./img/comparisons/AA1/FFX_After.webp").default}
+/>
+
+The Incredibles:
+
+<SliderCompare
+  before={require("./img/comparisons/AA1/Incredibles_Before.webp").default}
+  after={require("./img/comparisons/AA1/Incredibles_After.webp").default}
+/>
+
+Sly 2:
+
+<SliderCompare
+  before={require("./img/comparisons/AA1/Sly2_Before.webp").default}
+  after={require("./img/comparisons/AA1/Sly2_After.webp").default}
+/>
+
+Jonny Moseley Mad Trix:
+
+<SliderCompare
+  before={
+    require("./img/comparisons/AA1/JonnyMoseleydebug_Before.webp").default
+  }
+  after={require("./img/comparisons/AA1/JonnyMoseleydebug_After.webp").default}
+/>
+
+<PCSX2PRLink authors="TJnotJT" prNums="14503,14555,14643,14646">
+  ### GS/HW: Support for Rasterizer Order View (ROV)
+</PCSX2PRLink>
+
+ROV (Rasterizer Ordered Views) provides a way to do programmable color blending when games draw overlapping geometry. They help guarantee that pixels are blended in the same order that the game intended, which is necessary for accurate graphics emulation. PS2 games often use effects where pixels must be blended in exactly the order the game draws them in (e.g. layering textures, transparency, etc.). GPUs already provide this ordering guarantee for fixed function blending. However, many blending effects in PS2 games cannot be accurately done with fixed function, so we emulate them in the pixel shader. To enforce correct ordering in pixel shaders there are several approaches that we use: barrier loops (Direct3D 12, VK, GL, Metal), framebuffer fetch (aka FB Fetch; GL, VK, Metal), copy loops (Direct3D 11, GL), and most recently rasterizer ordered views (aka ROV; Direct3D 12, Direct3D 11, VK). Out of these the fastest is FB fetch, though it has the most limited support out of the list.
+
+In the middle are ROV and barrier loops, which both have widespread support. In some cases ROV can be faster, while in others barriers can be. The tradeoff is generally system and game dependent, though ROV tends to work well in cases where the number of barriers would be excessively high (e.g. with AA1 enabled). The slowest is copy loops, but it's basic and has universal support. It took a few months to implement and test because our current GS code was based around the other methods. It's also not an all-or-nothing approach since ROVs can be turned on/off within a single frame. We had to determine a heuristic for when to activate ROVs, since using them unnecessarily or switching too often can degrade performance. During the process we encountered some bugs with VK ROVs that took some time to sort out. The PR went through several revisions to find an approach that was both performant and maintainable from a coding perspective. Many people were involved in debugging, testing, and reviewing it to get it to its current state. Likely there will continue to be some adjustments as users encounter issues.
+
+Simply put, this allows higher blending accuracy levels to incur less of a performance hit!
+
+Here are some benchmarks:
+
+<Image src={require("./img/benches/ROV/ROV_AceCombat.webp").default} />
+<Image src={require("./img/benches/ROV/ROV_AceCombatZero.webp").default} />
+<Image src={require("./img/benches/ROV/ROV_Black.webp").default} />
+<Image src={require("./img/benches/ROV/ROV_Driv3r.webp").default} />
+<Image src={require("./img/benches/ROV/ROV_GT4.webp").default} />
+<Image src={require("./img/benches/ROV/ROV_HarryPotter.webp").default} />
+<Image src={require("./img/benches/ROV/ROV_MC3.webp").default} />
+<Image src={require("./img/benches/ROV/ROV_NFSCarbon.webp").default} />
+<Image src={require("./img/benches/ROV/ROV_NFSUnderground.webp").default} />
+<Image src={require("./img/benches/ROV/ROV_Primal.webp").default} />
+
+:::info
+As of the writing of this blog post, ROV is currently unavailable when using OpenGL.
+:::
+
+<PCSX2PRLink authors="lightningterror" prNums="13877,13827">
+  ### Misc: Default to Direct3D 12 on Nvidia/AMD and mark Direct3D 11 as Legacy
+</PCSX2PRLink>
+
+Over the past several release cycles, the Direct3D 12 renderer has received substantial performance and compatibility improvements and is now at parity with Vulkan, and as such, we now default to it on Windows for most graphics cards.
+
+As some of you have noticed, Direct3D 11 is marked as legacy, so what does this mean?
+This means that Direct3D 11 is the least preferred renderer to use and should only be used if the other renderers can't be used or have issues.
+Direct3D 11 will continue receiving updates and is in feature parity with the other renderers, but it's usually not the best option.
+Compatibility wise, it can work with a variety of hardware, both legacy and new, hence why it also matches the Legacy naming.
+
+<PCSX2PRLink authors="TheLastRar" prNums="13792">
+  ### GS/DX12: Use Enhanced Barriers API
+</PCSX2PRLink>
+
+When Direct3D 12 launched, texture layout transitions (switching from a render layout to a read layout), texture access (does the GPU need to flush caches?), and GPU synchronization (waiting until we've done rendering) were done by simply specifying the resource state with resource barriers.
+This simplification, however, complicated feedback reads, requiring us to use aliased resources (two resources sharing the same memory) and relatively expensive aliasing barriers.
+
+Direct3D 12 has since released "Enhanced Barriers" which replace the old resource state/barriers and allow greater control over texture layouts, texture access, and GPU synchronization.
+This greater control allows us to do away with aliased resources, and instead directly specify the layout, access, and synchronization we need for feedback reads.
+
+In addition to simplifying feedback reads, the extra information we provide allows GPUs to more efficiently handle barriers, allowing better utilisation of the hardware.
+
+Not every GPU benefits from Enhanced Barriers; RDNA2 and older AMD GPUs see minimal benefit, but newer GPUs see substantial improvements.
+
+<PCSX2PRLink authors="TheLastRar" prNums="14188">
+  ### GS/HW: Add SW (Shader Based) Anisotropic Filtering
+</PCSX2PRLink>
+
+Anisotropic Filtering is a technique that improves the visuals of textures drawn at an oblique angle[^Oblique_Angle]. The effect is most noticeable on cobblestone or tile floor textures at native resolution.
+While the PS2 never supported this feature, PC GPUs have had hardware support for this for eons and PCSX2 offered it to improve visual quality of games.
+
+Unfortunately, we encountered a few issues with hardware level Anisotropic Filtering on certain GPU models:
+
+- AMD drivers would ignore our attempts to enable Anisotropic Filtering.
+  - LightningTerror determined that providing a dummy mipmap layer had success on older GPUs; however, the workaround had only limited success on newer generations of AMD GPUs.
+
+- Direct3D 12 did not allow Anisotropic Filtering and point filtering on the same texture.
+- Point filtering is often used by games wanting a more pixel art style, instead of the smoothed sampling of other filtering methods.
+- Due to limitations with the Direct3D 12 API, we had opted to ignore point filtering in favour of enabling Anisotropic Filtering.
+- Unfortunately, this caused artifacts in Dragon Quest V where, without point filtering, some textures would have black pixels appear in them that were bleeding over from outside the texture's clamped area (see [this issue](https://github.com/PCSX2/pcsx2/issues/14077)).
+
+Anisotropic Filtering in high level shaders is noticeably more demanding than using the GPU's native anisotropic filtering. Older GPUs may notice a mild to moderate performance degradation, and users are encouraged to re-check their anisotropic filtering setting to ensure it is not too high for their system to tolerate.
+
+<PCSX2PRLink authors="TJnotJT" prNums="13943">
+  ### GS/HW: Merge together adjacent tristrips in drawlist.
+</PCSX2PRLink>
+
+This fixes a bug in tristrip detection that prevented triangle strips with 2 triangles from being detected. This brings a massive performance gain on some games.
+
+<Image src={require("./img/benches/MergeTristriplist/GTA_SA.webp").default} />
+
+<PCSX2PRLink authors="TJnotJT" prNums="14140">
+  ### GS: Fixes to CRTC merging
+</PCSX2PRLink>
+
+One of the features of the PS2 is the "CRTC" merge circuits, which allow for some limited post-processing and compositing of images before they are output to the screen. Some of the functionalities of these circuits, such as alpha blending two images together, are usually done with the standard rendering capabilities of the PS2. However, certain games make use of the CRTC merge circuits for things such as overlaying a loading screen on top of the render space.
+
+Since this feature is not used frequently, there have been a couple of unresolved bugs. One such bug was fixed in [#13300](https://github.com/PCSX2/pcsx2/pull/13300), where the game apparently left the CRTC merging functionality enabled with invalid settings. On the PS2 the settings would not have caused problems, as the alpha blending ended up erasing any possible side effects, so this had to be properly handled on the PCSX2 side. Another bug was fixed in [#14140](https://github.com/PCSX2/pcsx2/pull/14140), where the game used CRTC merging to overlay a loading bar. PCSX2 wasn't updating the GS registers in the correct order, which caused the wrong image to be used for the loading bar.
+
+This is Football 2003:
+
+<SliderCompare
+  before={require("./img/comparisons/CRTCMerging/TiF_Before.webp").default}
+  after={require("./img/comparisons/CRTCMerging/TiF_After.webp").default}
+/>
+
+<PCSX2PRLink authors="lightningterror" prNums="13875">
+  ### GS/Texture Cache: Improve depth target lookup behaviour
+</PCSX2PRLink>
+
+In games such as Pachi Para, we were picking the wrong target from the available list, which resulted in a whole bunch of issues. This aims to correct the behaviour when the target expects to pick up a depth target.
+
+PachiPara 13:
+
+<SliderCompare
+  before={require("./img/comparisons/13875/PachiPara13_Before.webp").default}
+  after={require("./img/comparisons/13875/PachiPara13_After.webp").default}
+/>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="14843">
+  ### GS/HW: Fix some target detection and format issues.
+</PCSX2PRLink>
+
+Fixes problems with target overlap of a single pixel and looking into the future to get the correct frame format on shuffles.
+
+Single pixel overlap was happening on Steambot as it was drawing right on the edge of the target, then blending in the Z buffer, which is of course not good.
+
+Also fixed an issue where when there is a texture shuffle it checks if the target is used in the next draw as a texture, but didn't consider if it was also a shuffle of a different type, so that is now corrected.
+
+SteamBot Chronicles:
+
+<SliderCompare
+  before={require("./img/comparisons/14843/Steambot_Before.webp").default}
+  after={require("./img/comparisons/14843/Steambot_After.webp").default}
+/>
+
+<SliderCompare
+  before={require("./img/comparisons/14843/Steambot2_Before.webp").default}
+  after={require("./img/comparisons/14843/Steambot2_After.webp").default}
+/>
+
+<PCSX2PRLink authors="lightningterror" prNums="13841">
+  ### GS/HW: Adjust depth copies when doing Texture Cache moves
+</PCSX2PRLink>
+
+Previously, depth textures being moved in the texture cache would be done via GPU copy operations. Now they are done with shader copy/blit operations. Extra care was given to Direct3D 11, which does not support partial copies, and Direct3D 12 with its inconsistent driver-level support.
+
+Kenran Butousai:
+
+<SliderCompare
+  before={require("./img/comparisons/13841/KenranBoutosai_Before.webp").default}
+  after={require("./img/comparisons/13841/KenranBoutosai_After.webp").default}
+/>
+
+Kunoichi:
+
+<SliderCompare
+  before={require("./img/comparisons/13841/Kunoichi_Before.webp").default}
+  after={require("./img/comparisons/13841/Kunoichi_After.webp").default}
+/>
+
+<PCSX2PRLink authors="lightningterror" prNums="13869">
+  ### GS/Direct3D12: Don't end render passes on enhanced barriers
+</PCSX2PRLink>
+
+Following the addition of Enhanced Barriers, it was discovered that we can cut down the number of render passes (attachment state changes). In some scenarios this provided a nice further boost when using enhanced barriers on D3D12.
+
+<Image src={require("./img/benches/13869/NFS_MW.webp").default} />
+<Image src={require("./img/benches/13869/RC3.webp").default} />
+<Image src={require("./img/benches/13869/WRC4.webp").default} />
+
+<PCSX2PRLink authors="lightningterror" prNums="14059,14073,14597">
+  ### GS/HW: Improve destination alpha testing handling
+</PCSX2PRLink>
+
+Previously it was believed that resolving these issues would require ROV; however, LightningTerror discovered that handling can be improved without needing ROV.
+
+This further improves the destination alpha testing behavior to be more accurate in combination with incoming source alpha testing.
+
+Energy Airforce:
+
+<SliderCompare
+  before={require("./img/comparisons/14059/EnergyAirforce_Before.webp").default}
+  after={require("./img/comparisons/14059/EnergyAirforce_After.webp").default}
+/>
+<SliderCompare
+  before={require("./img/comparisons/14597/EnergyAirforce_Before.webp").default}
+  after={require("./img/comparisons/14597/EnergyAirforce_After.webp").default}
+/>
+
+The Sims - Bustin Out:
+
+<SliderCompare
+  before={require("./img/comparisons/14059/SimsBustinOut_Before.webp").default}
+  after={require("./img/comparisons/14059/SimsBustinOut_After.webp").default}
+/>
+
+The Sims 2:
+
+<SliderCompare
+  before={require("./img/comparisons/14059/Sims2_Before.webp").default}
+  after={require("./img/comparisons/14059/Sims2_After.webp").default}
+/>
+
+FIFA 2009:
+
+<SliderCompare
+  before={require("./img/comparisons/14059/FIFA2009_Before.webp").default}
+  after={require("./img/comparisons/14059/FIFA2009_After.webp").default}
+/>
+
+Persona 4:
+
+<SliderCompare
+  before={require("./img/comparisons/14597/Persona4_Before.webp").default}
+  after={require("./img/comparisons/14597/Persona4_After.webp").default}
+/>
+
+<PCSX2PRLink authors="lightningterror" prNums="14301,14567,14595,14550">
+  ### GS/HW: Framebuffer switching optimizations
+</PCSX2PRLink>
+
+Avoiding framebuffer switching has been further optimized. This allows us to reuse the old framebuffer attachments, which provides an FPS boost.
+
+To make it a bit simpler, the less re-binding/re-attaching is done, the better. However, great care is needed because if done improperly it can cause issues.
+
+This change did not change performance noticeably beyond single digit changes.
+
+What did decrease more was the reduction of bindings when using ROV on Direct3D 11; however, since there's a bottleneck elsewhere (ROV barriers themselves) we didn't see much of an FPS gain there either.
+
+<PCSX2PRLink authors="lightningterror" prNums="13948,13917,14243">
+  ### GS/HW: Further improve framebuffer copies.
+</PCSX2PRLink>
+
+Further optimizations have been done to improve framebuffer copies which will be useful for all renderers when texture barriers are disabled or not supported.
+This is especially helpful for Direct3D 11 since we have no texture barrier support, other than ROV which can be faster for a lot of draw splits using full barriers but not single barriers/copies.
+
+- Align drawlist bounding box to 4-pixel boundaries.
+  - Will be faster using Direct Memory Access, otherwise it may stall as more commands need to be issued.
+  - This will make the bounding box slightly larger but more friendly with GPU cache/VRAM.
+
+- Expand 4-pixel boundaries correction to non-overlapping draws.
+
+- If the copy area covers 95% or more of the render target size switch to full copies using CopyResource instead of CopySubresourceRegion.
+- At this size using full copies should be faster.
+
+Currently it is only used when texture barriers are disabled but can be used when Depth testing/Afail copies are implemented.
+
+Next, multidraw framebuffer copies have been backported from Direct3D 11 to OpenGL in cases where texture barriers aren't supported, which may help some older drivers which lack support.
+
+<PCSX2PRLink authors="lightningterror" prNums="14034">
+  ### GS/HW: Enable non recursive sw blending on minimum level.
+</PCSX2PRLink>
+
+Since non-recursive blending is basically free and doesn't require a barrier/copy, we can just enable it on minimum level without any cost for better accuracy.
+
+Sniper Elite:
+
+<SliderCompare
+  before={require("./img/comparisons/14034/SniperElite_Before.webp").default}
+  after={require("./img/comparisons/14034/SniperElite_After.webp").default}
+/>
+
+Star Wars Battlefront 2:
+
+<SliderCompare
+  before={require("./img/comparisons/14034/SWBF2_Before.webp").default}
+  after={require("./img/comparisons/14034/SWBF2_After.webp").default}
+/>
+
+<PCSX2PRLink authors="lightningterror" prNums="14603">
+  ### GS/Direct3D11: Backport ds as rt from GL for depth feedback.
+</PCSX2PRLink>
+
+With the addition of depth feedback for Accurate Alpha Test/AA1, Direct3D 11 became painfully slow when using said features. This is because GPU depth copies are much, much slower on Direct3D 11 compared to color copies. A solution was to treat the depth as color, which would require additional shader copies, and later on, where we'd need a copy as a barrier, we'd do a color copy where we'd usually do a depth copy. This results in doubling the speed or more, even though technically we do even more copies with the addition of shader copies. This brings the speed closer to OpenGL without using ROV when using AAT/AA1.
+
+<Image src={require("./img/benches/14603/FFX.webp").default} />
+<Image src={require("./img/benches/14603/BCV.webp").default} />
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="13794">
+  ### GS/HW: Improve channel shuffle detection and use on 24bit sources
+</PCSX2PRLink>
+
+Improves lookup of sources when 24-bit targets are involved. Also merges single page targets into larger targets if they overlap.
+
+Our [channel shuffle](https://pcsx2.net/blog/2016/channel-shuffle-effect/) emulation used to only look in our texture cache for textures with the full 32 bits valid. Since games like MotoGP shuffle use a 24 bit texture, we would never find a match (the top 8 bits were not valid). We now pre-check what bits the shuffle needs, and made our texture cache lookup a little smarter.
+
+L.A. Rush:
+
+<SliderCompare
+  before={require("./img/comparisons/13794/LARush_Before.webp").default}
+  after={require("./img/comparisons/13794/LARush_After.webp").default}
+/>
+
+MotoGP:
+
+<SliderCompare
+  before={require("./img/comparisons/13794/MotoGP_Before.webp").default}
+  after={require("./img/comparisons/13794/MotoGP_After.webp").default}
+/>
+
+<PCSX2PRLink authors="refractionpcsx2,lightningterror,TJnotJT" prNums="14455">
+  ### GS/HW: Improve texture hazard handling, shuffles + fix CSBW typo
+</PCSX2PRLink>
+
+Reduce hazard copies where they are not required and fix a typo in the SW renderer drop back.
+
+A "hazard" occurs when a game is both writing to and reading from the same texture in the same draw. Our checks were only checking if the texture and target were pointing to the same place. It didn't actually check if it was reading and writing the same texels. If not, then there's no need to create a separate (hazard) copy as the data won't change. This will cut down a bunch of copies (as seen below). Also fixed a typo in the rect calculation for readbacks in the Software renderer fallback (CSBW), whoops.
+
+Highlight number of copies reduced on the following GS dumps:
+
+```
+- 777  Bakusou Dekotora Densetsu - Otoko Hanamichi Yume Roman_SLPM-65234
+- 448  Zettai Zetsumei Toshi 2 - Itetsuita Kioku-tachi_SLPS-25606_20251105164821
+- 176  Haunting Ground_SLUS-21075_20220807194320
+- 160  Syphon Filter - Dark Mirror_SCUS-97362_20240610050046
+- 139  Blokus Club with Bumpy Trot_SLPS-20443_20251105235531
+- 139  PachiPara 12 - Ooumi to Natsu no Omoide_SLPS-25574_20251105155128
+- 139  PachiPara 13 - Super Umi to PachiPro Fu-unroku_SLPS-25682_20251105154553
+- 139  PachiPara 14 - Kaze to Kumo to Super Umi in Okinawa_SLPS-25787_20251105160122
+- 139  Steambot_Chronicles_SLUS-21344_20230511114115
+- 138  hitmancontracts_l3_bjarkov
+- 138  LEGO Racers 2_SLUS-20042
+- 137  hitman (this is Blood Money)
+- 130  Jak X - Combat Racing_SCUS-97429_20250526073932
+- 127  LEGO Dome Racers_SLES-51303_20230717193026
+- 114  Juiced_SLUS-20872_20230505163642
+- 69   007 russia half screen
+- 67   Minority_Report_-_Everybody_Runs_SLUS-20331_20221022205359
+- 66   007 - From Russia with Love_SLUS-21282_20231202212313
+- 66   Syphon_Filter_-_Logans_Shadow_SCUS-97584_20240104192224
+- 45   FordRacing2CarShadow
+- 40   Charlie and the Chocolate Factory_SLES-53386_20250214214241
+- 38   Power_Drome_SLUS-20978_20240617182239
+- 32   Knight Rider - The Game_SLES-51011_20230301100135
+- 28   The_Godfather_SLUS-21385_20240206091914
+- 26   The Bigs 2_SLUS-21860_20250303214104
+- 25   Need for Speed - Undercover_SLUS-21801_20240712020737
+- 24   Indiana_Jones_and_the_Emperors_Tomb_SLUS-20508_20230206223913
+- 24   Killzone_SCES-52004_20240617170050
+- 24   Prince of Persia - Sands of Time_SLUS-20743_20250528185119
+```
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="13844">
+  ### GS/HW: Improve fog accuracy in HW Renderers
+</PCSX2PRLink>
+
+Improves the fog modulation in the hardware renderers to match the PlayStation 2. This doesn't account for interpolation where the colour changes across the primitive, that will still be slightly out.
+
+The original formula was based on doing `255 - fog_coeff`, which is incorrect, it's actually `256 - fog_coeff`. Most of the time this doesn't matter, but in Steambot it makes a _huge_ difference to the fog colour.
+
+Steambot Chronicles:
+
+<SliderCompare
+  before={require("./img/comparisons/13844/Steambot_Before.webp").default}
+  after={require("./img/comparisons/13844/Steambot_After.webp").default}
+/>
+
+Okami:
+
+<SliderCompare
+  before={require("./img/comparisons/13844/Okami_Before.webp").default}
+  after={require("./img/comparisons/13844/Okami_After.webp").default}
+/>
+
+Hitman - Blood Money:
+
+<SliderCompare
+  before={require("./img/comparisons/13844/Hitman_Before.webp").default}
+  after={require("./img/comparisons/13844/Hitman_After.webp").default}
+/>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="13795">
+  ### GS/HW: Floor depth writes to improve Z testing
+</PCSX2PRLink>
+
+Floors the depth write values in the hardware renderers to improve Z-fighting and bring depth testing closer to software accuracy.
+
+On the PlayStation 2, only integer depth is available. On PC GPUs, interpolating primitives produces a sliding scale of decimal values, which can cause depth tests to fail when they shouldn't. Flooring the depth write values gets rid of these false failures and fixes Z-fighting across a ton of games.
+
+Harry Potter:
+
+<SliderCompare
+  before={require("./img/comparisons/13795/HarryPotter_Before.webp").default}
+  after={require("./img/comparisons/13795/HarryPotter_After.webp").default}
+/>
+
+Need for Speed - Underground 2:
+
+<SliderCompare
+  before={
+    require("./img/comparisons/13795/NFSUnderground2_Before.webp").default
+  }
+  after={require("./img/comparisons/13795/NFSUnderground2_After.webp").default}
+/>
+
+Okami:
+
+<SliderCompare
+  before={require("./img/comparisons/13795/Okami_Before.webp").default}
+  after={require("./img/comparisons/13795/Okami_After.webp").default}
+/>
+
+Tony Hawk's Pro Skater 3:
+
+<SliderCompare
+  before={require("./img/comparisons/13795/THPS3_Before.webp").default}
+  after={require("./img/comparisons/13795/THPS3_After.webp").default}
+/>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="13950">
+  ### GS: Add draw buffering option
+</PCSX2PRLink>
+
+Adds a new optional draw buffering setting under Manual Hardware Fixes to reduce draw calls in games with excessively high draw counts.
+
+Several games, notably _Primal Image_ and _Need for Speed_ titles, perform alternating draws every triangle (e.g., texturing a triangle, applying a reflection map, then blending), which creates heavy context switching. Buffering these draws provides huge performance improvements by significantly cutting draw calls and barriers.
+
+Highlight number of draw calls reduced on the following GS dumps:
+
+```
+- Brothers in Arms - Road to Hill 30 (Menu): Draw Calls: -9,272 [10,105 => 833]
+- Primal Image: Draw Calls: -6,972 [8,083 => 1,111], Barriers: -3,056 [3,484 => 428]
+- Need for Speed: Underground 2: Draw Calls: -2,796 [5,624 => 2,828], Barriers: -1,394 [2,975 => 1,581]
+- Stuntman: Draw Calls: -2,668 [4,572 => 1,904], Barriers: -1,182 [2,024 => 842], Uploads: -9 [111 => 102]
+- Need for Speed: Most Wanted (Black Edition): Draw Calls: -2,425 [4,189 => 1,764], Barriers: -1,151 [2,100 => 949]
+- Armored Core: Nine Breaker: Draw Calls: -2,400 [3,921 => 1,521]
+- Need for Speed: Carbon: Draw Calls: -1,980 [4,956 => 2,976], Barriers: -971 [1,692 => 721]
+- The Sims: Bustin' Out: Draw Calls: -1,782 [4,693 => 2,911], Barriers: -48 [56 => 8]
+- Need for Speed: Undercover: Draw Calls: -1,627 [4,107 => 2,480], Barriers: -518 [1,020 => 502]
+- X-Men 2: Wolverine's Revenge: Draw Calls: -1,455 [1,809 => 354], Uploads: -2 [26 => 24]
+```
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="14729">
+  ### GS: Optimize draw buffering and pointer logic
+</PCSX2PRLink>
+
+Following the addition of draw buffering, this follow-up cuts down on unnecessary environment copies when draw buffering is disabled or when subsequent draws can't be buffered. Previously, the context was being backed up and restored during flushes even when not needed, wasting CPU cycles.
+
+Pointers added by draw buffering were also replaced with local references, helping reduce GS CPU load on weaker machines.
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="13762">
+  ### GS/HW: Support offsetting for channel shuffle instead of copying
+</PCSX2PRLink>
+
+Adds support for offsetting reads during channel shuffles, removing the need to copy memory pages for every single draw. This eliminates huge numbers of redundant texture copies and render pass transitions, significantly boosting performance in titles that make heavy use of render-target-in-render-target operations.
+
+Highlight number of render passes and copies reduced on the following GS dumps:
+
+```
+- Zettai Zetsumei Toshi 2: Itetsuita Kioku-tachi (Raw Danger): Render Passes: -1,120 [3,094 => 1,974], Draw Calls: -672 [3,726 => 3,054], Copies: -672 [1,355 => 683], Barriers: +448 [484 => 932]
+- Hitman: Contracts: Render Passes: -847 [1,426 => 579], Draw Calls: -427 [1,907 => 1,480], Copies: -427 [564 => 137], Barriers: +305 [85 => 390]
+- Manhunt 2: Render Passes: -696 [1,006 => 310], Draw Calls: -417 [1,409 => 992], Copies: -417 [425 => 8], Barriers: -140 [140 => 0]
+- Stolen: Render Passes: -515 [2,653 => 2,138], Draw Calls: -258 [2,849 => 2,591], Copies: -258 [277 => 19], Barriers: +56 [133 => 189]
+- Ghost in the Shell: Stand Alone Complex: Render Passes: -333 [1,543 => 1,210], Draw Calls: -334 [4,413 => 4,079], Copies: -333 [701 => 368]
+- Project: Snowblind: Render Passes: -288 [457 => 169], Draw Calls: -157 [596 => 439], Copies: -157 [194 => 37], Barriers: +153 [4 => 157]
+- Blokus Club with Bumpy Trot: Render Passes: -280 [2,555 => 2,275], Barriers: -140 [489 => 349]
+- PachiPara 12: Ooumi to Natsu no Omoide: Render Passes: -280 [2,191 => 1,911], Barriers: -140 [289 => 149]
+- Wild ARMs 5: Render Passes: -266 [818 => 552], Draw Calls: -267 [901 => 634], Copies: -266 [269 => 3]
+- Hitman: Blood Money: Render Passes: -265 [481 => 216], Draw Calls: -135 [929 => 794], Copies: -134 [182 => 48], Barriers: +124 [221 => 345]
+```
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="14418">
+  ### GS/HW/COLCLIP: Check tex mapping is enabled when checking for recursion
+</PCSX2PRLink>
+
+Checks that texture mapping is enabled before checking if a recursive draw is about to happen.
+
+Some games (_Cowboy Bebop_ and _Detective Conan_) set the texture address to the same address as the frame buffer even when texture mapping isn't being used. This was confusing PCSX2 into repeatedly resolving COLCLIP HDR targets, causing massive slowdowns. Explicitly checking if texture mapping is enabled cuts out hundreds of unnecessary render passes and barriers.
+
+Highlight number of draw calls and render passes reduced on the following GS dumps:
+
+```
+- Cowboy Bebop: Tsuioku no Serenade: Render Passes: -1,589 [1,604 => 15], Draw Calls: -1,262 [4,434 => 3,172], Copies: -1,261 [1,265 => 4], Barriers: -502 [502 => 0]
+- Detective Conan (Menu Graphics Bug): Render Passes: -460 [471 => 11], Draw Calls: -376 [1,599 => 1,223], Copies: -376 [380 => 4], Barriers: -168 [176 => 8]
+- Rayman 3: Hoodlum Havoc: Draw Calls: -6 [210 => 204], Copies: -6 [34 => 28], Render Passes: -5 [64 => 59]
+- Disney's PK: Out of the Shadows: Draw Calls: -2 [85 => 83], Render Passes: -2 [23 => 21], Copies: -2 [9 => 7]
+```
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="13872">
+  ### GS/TC: Allow creation of target during GS->GS transfer with offset
+</PCSX2PRLink>
+
+Allows the texture cache to create render targets during GS-to-GS transfers when an offset is used, provided the offset and widths match.
+
+Previously, these transfers failed to match a target and triggered slow GPU-to-CPU readbacks. Handling them directly in the texture cache allows menus in _Dynasty Warriors 2_ to upscale properly, while giving _Time Crisis 3_ roughly a 30% speedup by avoiding readbacks.
+
+<Image src={require("./img/benches/13872/DynastyWarriors2.webp").default} />
+<Image src={require("./img/benches/13872/TimeCrisis3.webp").default} />
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="13701">
+  ### GS/HW: Improve inside target wrapping and clear draw behaviour
+</PCSX2PRLink>
+
+Improves GS memory clear behavior when a clear isn't immediately followed by a draw, making sure unwritten areas in GS memory are properly cleared instead of being left full of garbage data. This fixes flashing shadows in _Beyond Good & Evil_, shadow bugs in _Ford Racing 2_, the menu in _Black_, and FMV playback in 60Hz _Silent Hill 3_.
+
+Black:
+
+<SliderCompare
+  before={require("./img/comparisons/13701/Black_Before.webp").default}
+  after={require("./img/comparisons/13701/Black_After.webp").default}
+/>
+
+Ford Racing 2:
+
+<SliderCompare
+  before={require("./img/comparisons/13701/FordRacing2_Before.webp").default}
+  after={require("./img/comparisons/13701/FordRacing2_After.webp").default}
+/>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="13849">
+  ### GS/HW: Properly scale depth up if required when native scaling is in use
+</PCSX2PRLink>
+
+Correctly scales up depth stencils when the render target is at a higher scale.
+
+When Native Scaling was enabled, depth stencils were getting scaled down and then back up, but instead of resizing to the upscaled resolution, they were being copied directly, causing the depth stencil to slowly get smaller and smaller! Properly upscaling depth stencils fixes depth bugs in _Xenosaga Episode III_ and _The Nightmare Before Christmas_, and stops _Steambot Chronicles_ from erroneously turning blurry.
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="14685">
+  ### GS/TC: Only bilinear resize depth if downscaled
+</PCSX2PRLink>
+
+Makes sure depth target resizes use nearest-neighbor filtering unless the depth target is downscaled, in which case bilinear filtering is used.
+
+Using bilinear filtering on a depth target that isn't scaling actually corrupts depth values, resulting in ugly rendering artifacts. Restricting bilinear filtering only to downscaled depth targets fixes broken foot shadows in _Kingdom Hearts_ and geometry glitches in _The Nightmare Before Christmas_.
+
+Kingdom Hearts:
+
+<SliderCompare
+  before={require("./img/comparisons/14685/KingdomHearts_Before.webp").default}
+  after={require("./img/comparisons/14685/KingdomHearts_After.webp").default}
+/>
+
+Nightmare Before Christmas:
+
+<SliderCompare
+  before={require("./img/comparisons/14685/Nightmare_Before.webp").default}
+  after={require("./img/comparisons/14685/Nightmare_After.webp").default}
+/>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="13839">
+  ### GS/HW: Improve iRem CRC hack
+</PCSX2PRLink>
+
+Improves the Irem CRC fix to better handle depth-channel shuffle effects.
+
+Our game-specific hack for Irem titles was missing some of the ways these games use depth-buffer channels for post-processing. Handling these additional cases restores proper lighting, sky colours, and water effects in _Raw Danger! (Zettai Zetsumei Toshi 2)_ and _PachiPara 12_.
+
+Zettai Zetsumei Toshi 2 (Raw Danger):
+
+<SliderCompare
+  before={require("./img/comparisons/13839/RawDanger1_Before.webp").default}
+  after={require("./img/comparisons/13839/RawDanger1_After.webp").default}
+/>
+
+Pachi Para 12:
+
+<SliderCompare
+  before={require("./img/comparisons/13839/PachiPara12_Before.webp").default}
+  after={require("./img/comparisons/13839/PachiPara12_After.webp").default}
+/>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="13837">
+  ### GS/TC: Delete empty target after height adjust
+</PCSX2PRLink>
+
+When a new texture is loaded into the texture cache (TC), some bookkeeping is required to ensure that older entries don’t overlap with it. Otherwise, the game could read stale data from an old entry. We call this process preloading.
+
+For example, if a new texture overwrites the top half of an older texture, the TC shrinks the older entry and adjusts its starting address to cover only the remaining data.
+
+Previously, preloading could shrink an older entry to a height of zero without deleting it. A subsequent draw could then mistakenly select that empty entry as its texture source, preventing the texture from being updated with the correct data from memory.
+
+Deleting these zero-height entries fixes missing textures in PachiPara 13.
+
+PachiPara 13:
+
+<SliderCompare
+  before={require("./img/comparisons/13837/PachiPara13_Before.webp").default}
+  after={require("./img/comparisons/13837/PachiPara13_After.webp").default}
+/>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="14546">
+  ### GS/CLUT: Handle special case for CSM2 32bit mode switch
+</PCSX2PRLink>
+
+Adjusts CLUT (Color Look-Up Table) Storage Mode 2 behavior to always load palette data directly from local GS memory rather than reusing a cached buffer.
+
+In _Breath of Fire: Dragon Quarter_, the game loads a palette in Storage Mode 1 (which swizzles the palette entries) and then immediately switches to Storage Mode 2 (which expects linear, sequential data). Reusing the swizzled buffer caused palette indexing errors, creating speckled black holes across dialogue and menu fonts. Reading directly from local GS memory for Storage Mode 2 restores clean, legible text.
+
+Breath of Fire - Dragon Quarter:
+
+<SliderCompare
+  before={
+    require("./img/comparisons/14546/BOF_DragonQuarter_Before.webp").default
+  }
+  after={
+    require("./img/comparisons/14546/BOF_DragonQuarter_After.webp").default
+  }
+/>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="14541">
+  ### GS/TC: Add new HW Readback option to force full download
+</PCSX2PRLink>
+
+Adds a new Hardware Download Mode option, **Accurate (Force Full)**, under Advanced Graphics settings.
+
+Some games issue multiple small, partial GPU-to-CPU readbacks per frame, which is much more cumbersome than doing a single consolidated readback. In games like _SSX_ and _Armored Core 3_, forcing one full readback can provide a noticeable performance boost.
+
+<Image src={require("./img/AccurateForceFull_Option.webp").default} />
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="13791">
+  ### GS: Disallow flipped GS->GS transfer when destination overwrites source
+</PCSX2PRLink>
+
+GS local-to-local transfers are essentially memory copies within VRAM. Games can reverse the horizontal or vertical copy direction, but when the source and destination overlap, this can cause PCSX2 to overwrite source data before it has been read.
+
+Original hardware avoids this problem with its GS page cache. Because PCSX2 performs these transfers without a cache, it now overrides unsafe reversed copies with a forward copy. This fixes heavily corrupted lighting and textures in _Armored Core 2_.
+
+Armored Core 2:
+
+<SliderCompare
+  before={require("./img/comparisons/13791/ArmoredCore2_Before.webp").default}
+  after={require("./img/comparisons/13791/ArmoredCore2_After.webp").default}
+/>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="13828">
+  ### GS/TC: Check format matches on invalidation rect translation
+</PCSX2PRLink>
+
+Adjusts page invalidation calculations when texture formats don't match between source and destination targets.
+
+Previously, invalidation rects were calculated using destination block alignment. Because block layouts can be wildly different across formats, partial rects were misaligning and leaving stale texture data behind. When formats don't match, we now invalidate the entire page instead, fixing corrupted text in the _Final Fantasy X-2_ load menu and broken terrain in _Battle Engine Aquila_.
+
+Final Fantasy X-2:
+
+<SliderCompare
+  before={require("./img/comparisons/13828/FFX2_Before.webp").default}
+  after={require("./img/comparisons/13828/FFX2_After.webp").default}
+/>
+
+Battle Engine Aquila:
+
+<SliderCompare
+  before={
+    require("./img/comparisons/13828/BattleEngineAquila_Before.webp").default
+  }
+  after={
+    require("./img/comparisons/13828/BattleEngineAquila_After.webp").default
+  }
+/>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="13902">
+  ### GS/HW: On EE->GS transfer only invalidate area actually transferred
+</PCSX2PRLink>
+
+Restricts texture cache invalidation rectangles during EE-to-GS transfers to the actual data dimensions transferred rather than the declared packet size.
+
+In _Star Wars: The Clone Wars_, the game declares an oversized upload rectangle (16×4096) while only transferring a small fraction (16×96). Previously, passing this declared rectangle to the texture cache erroneously invalidated active framebuffers in adjacent memory, causing the renderer to reload corrupted data. Restricting invalidation to the actual transferred area fixes character model corruption in _Star Wars: The Clone Wars_.
+
+Star Wars - Clone Wars:
+
+<SliderCompare
+  before={
+    require("./img/comparisons/13902/StarWarsCloneWars_Before.webp").default
+  }
+  after={
+    require("./img/comparisons/13902/StarWarsCloneWars_After.webp").default
+  }
+/>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="14382">
+  ### GS/HW: Correct buffered rect size of corrected EE->GS transfers
+</PCSX2PRLink>
+
+Fixes an issue when merging sequential EE-to-GS transfers targeting the same memory address, ensuring transfer bounding rectangles are properly combined rather than overwritten.
+
+Previously, subsequent transfers to identical addresses were overwriting the stored bounding box instead of expanding it. When this rectangle was later used to determine texture target dimensions, incorrect sizes were calculated. Properly uniting these transfer regions fixes missing graphics on the loading screen in _Mercenaries: Playground of Destruction_.
+
+Mercenaries:
+
+<SliderCompare
+  before={require("./img/comparisons/14382/Mercenaries_Before.webp").default}
+  after={require("./img/comparisons/14382/Mercenaries_After.webp").default}
+/>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="14419">
+  ### GS/TC: Update dirty target linked to source when dirty overlaps the read
+</PCSX2PRLink>
+
+Properly update render targets when linked to an existing source that is in-use (dirty) and overlaps the requested read address in the cache.
+
+If a source texture was updated via EE-to-GS upload (and still in use by a target), there were cases where the texture cache was not updated properly, causing old data to be used. Updating the dirty linked target fixes corrupted arrow sprites in _Pump It Up: Exceed_.
+
+Pump It Up - Exceed:
+
+<SliderCompare
+  before={require("./img/comparisons/14419/PumpItUp_Before.webp").default}
+  after={require("./img/comparisons/14419/PumpItUp_After.webp").default}
+/>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="14604">
+  ### GS/TC: Check valid area overlap on exact match Tex is RT
+</PCSX2PRLink>
+
+Check for overlap in the draw/read area in a scenario where an exact target match is found.
+
+If a target was drawn with an offset and a texture upload was done earlier in the target, matching purely by memory pointer caused the renderer to pick the target and sample uninitialized black pixels instead of triggering an upload. Checking that the rect overlaps the target's valid area fixes black geometry glitches in _Devil May Cry_.
+
+Devil May Cry:
+
+<SliderCompare
+  before={require("./img/comparisons/14604/DevilMayCry_Before.webp").default}
+  after={require("./img/comparisons/14604/DevilMayCry_After.webp").default}
+/>
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="14409">
+  ### GS/HW: Remove zero clear from GSUploadQueue, use transfer_type instead
+</PCSX2PRLink>
+
+Refactors the GS texture upload handling to use the transfer type for clears instead of a separate variable.
+
+The transfer type field was previously left uninitialized during zero-clears, causing undefined behavior depending on the build and memory state. Explicitly requiring the transfer type eliminates this redundant variable and fixes missing publisher logos during intro and loading screens in _Worms 3D_.
+
+<PCSX2PRLink authors="refractionpcsx2" prNums="13961">
+  ### IPU: Reset dc dct precision on soft reset
+</PCSX2PRLink>
+
+Resets DC DCT (Discrete Cosine Transform) decoding precision in the IPU during soft resets.
+
+:::note
+The Image Processing Unit (IPU) is the PS2s MPEG decoder. Primarily used for FMVs. 🤓 ☝️
+:::
+
+When the game would send a reset command to the IPU, we were mistakenly not resetting some of the internal IPU state. In particular, the DCT (Discrete Cosine Transform) decoding precision.
+
+Clearing this precision state on reset fixes severe screen flashing during FMV video playback in Critical Velocity.
+
+## Footnotes
+
+[^Early_Fragment_Test]: Technically, there's early fragment tests, which can allow you to discard color without depth, but that prevents other things in the shader from separately discarding depth, so PCSX2 currently doesn't use it.
+
+[^DX11_Depth_Issue]: D3D11 is stuck copying framebuffers around between every possibly-overlapping triangle for both color and depth due to its lack of texture barriers. This at least means that it can directly sample depth, but don't expect it to be faster than any of the other renderers when doing so.
+
+[^FbFetch_Unsupported_GPU]: GPUs that support framebuffer fetch have special handling in Metal that doesn't require additional framebuffer copies. We plan to handle framebuffer fetch GPUs in OpenGL similarly, but haven't implemented it yet.
+
+[^Metal_FbFetch]: Since there's no new Metal-supporting GPUs being produced without framebuffer fetch, we've whitelisted the GPUs that work with the Vulkan in-place style on Metal (AMD RDNA+ and Nvidia) to use it, leaving just older AMD and Intel GPUs on the color copy path.
+
+[^Oblique_Angle]: Strictly speaking, Anisotropic Filtering improves sampling where one screen pixel covers more texture pixels in the x axis than the y axis (or vice versa). Because of this, while oblique angled objects/floors are often the example used, Anisotropic Filtering also triggers on stretched textures.
