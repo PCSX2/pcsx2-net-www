@@ -109,7 +109,7 @@ biosdrain supports dumping both to a USB flash drive and via HOST through ps2lin
 - USB transfer on the PlayStation 2 is _slow_. Please be patient.
   :::
 
-To use the USB method, you will need a USB flash drive which is partitioned as [master boot record](https://en.wikipedia.org/wiki/Master_boot_record) (MBR) and formatted with a [FAT32](https://en.wikipedia.org/wiki/File_Allocation_Table) filesystem.
+To use the USB method, you will need a USB flash drive that uses a [master boot record](https://en.wikipedia.org/wiki/Master_boot_record) (MBR) partition table and is formatted with the [FAT32](https://en.wikipedia.org/wiki/File_Allocation_Table) filesystem.
 
 <details>
 <summary>Expand to see a guide on formatting your flash drive</summary>
