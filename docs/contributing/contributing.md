@@ -109,6 +109,6 @@ There are a few rules an guidelines that we all need to follow in order for this
 
 - Comments should be relevant to the commit/issue and should contain _useful information_.
 - If you're having general problems with PCSX2, you can use our [Issue tracker](https://github.com/PCSX2/pcsx2/issues), or if you don't really know what revision causes it, our [Public Forum](https://forums.pcsx2.net). This way we can discuss and troubleshoot the issue in depth, in its right place.
-- Statements like "please make it faster" or "please fix my game" are not acceptable and will be deleted.
-- Phrasing the statement as a question like "Will this make it faster?" or "Will this fix my game?" is not acceptable either, and will also be deleted.
-- If we delete your post, there was a good reason for it. Deleting posts without justification would be counter-productive, much the same way that allowing posts with no relevant content would also be counter-productive.
+- Statements like "please make it faster" or "please fix my game" _do not contain useful information_, and therefore, will be deleted.
+- Phrasing the statement as a question like "Will this make it faster?" or "Will this fix my game?" is _not useful_ either, and will also be deleted.
+- Much the same way that allowing posts with no relevant content would be counter-productive, so would deleting posts without justification on our end. Please trust that if we delete your post, it was only because it went against guidelines, or because it would be handled better in our [Public Forum](https://forums.pcsx2.net) or [Issue tracker](https://github.com/PCSX2/pcsx2/issues).
