@@ -27,9 +27,9 @@ LLMs such as ChatGPT, Claude, and Copilot have become mainstays in the programmi
 The project's official stance is that while some LLM usage is acceptable, this is nuanced and must be controlled to prevent long term damage from low quality submissions. As such, the following rules are in place:
 
 1. Contributors **MUST** declare whether they use LLMs or not.
-2. Contributors may use LLMs for auto completion, templating/boilerplating, or partial code generation.
-3. Contributors must NOT use LLMs for full code generation.
-4. New contributors must NOT use LLMs for generation of any content that appears in the contribution.
+2. Long-time contributors may use LLMs for auto completion, templating/boilerplating, or partial code generation.
+3. New contributors must NOT use LLMs for generation of any content that appears in the contribution.
+4. Contributors must NOT use LLMs for full code generation.
 5. Contributors must be able to fully explain their contribution, and why they decided to implement it as they did, without LLM assistance.
 6. Contributors who falsely state their LLM usage will have their contributions refused.
 
