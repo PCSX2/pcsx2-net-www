@@ -29,8 +29,9 @@ The project's official stance is that while some LLM usage is acceptable, this i
 1. Contributors **MUST** declare whether they use LLMs or not.
 2. Contributors may use LLMs for auto completion, templating/boilerplating, or partial code generation.
 3. Contributors must NOT use LLMs for full code generation.
-4. Contributors must be able to fully explain their contribution, and why they decided to implement it as they did, without LLM assistance.
-5. Contributors who falsely state their LLM usage will have their contributions refused.
+4. New contributors must NOT use LLMs for generation of any content that appears in the contribution.
+5. Contributors must be able to fully explain their contribution, and why they decided to implement it as they did, without LLM assistance.
+6. Contributors who falsely state their LLM usage will have their contributions refused.
 
 :::
 
