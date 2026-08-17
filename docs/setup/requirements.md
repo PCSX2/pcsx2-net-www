@@ -80,7 +80,7 @@ This page lists the system requirements to run PCSX2.
    <td scope="row">GPU</td>
    <td>
     <ul aria-label="Minimum GPU requirements">
-     <li>Vulkan 1.1</li>
+     <li>Vulkan 1.3</li>
      <li>Direct3D 11[^FL10]</li>
      <li>OpenGL 3.3[^extensions]</li>
      <li>[PassMark G3D Mark rating](https://www.videocardbenchmark.net/high_end_gpus.html) ≥ 600[^GPU_relevance]</li>
@@ -168,6 +168,7 @@ Hardware requirements can vary drastically between games.
 <TabItem value="general" label={<span className="tab_header_with_icon"><FaComputer />General</span>} default>
 - Direct3D 9 support was dropped after stable release v1.4.0.
 - 32-bit support was dropped after stable release v1.6.0.
+- Vulkan 1.1 and Vulkan 1.2 support dropped after stable release v2.8.0
 
 </TabItem>
 <TabItem value="windows" label={<span className="tab_header_with_icon"><BsWindows />Windows</span>}>
