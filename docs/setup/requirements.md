@@ -177,7 +177,7 @@ Hardware requirements can vary drastically between games.
 
 </TabItem>
 <TabItem value="macos" label={<span className="tab_header_with_icon"><BsApple />macOS</span>}>
-- macOS 10.4 support was added and dropped during the nightly v1.7.X release cycle.
+- macOS 10.14 support was added and dropped during the nightly v1.7.X release cycle.
 
 </TabItem>
 <TabItem value="linux" label={<span className="tab_header_with_icon"><FaLinux />Linux</span>}>
