@@ -357,7 +357,7 @@ You should see files prefixed by your console model ID and ending in `.rom0`,`.r
 
 ### Checking the BIOS Dump
 
-Once you've finished dumping your PS2's BIOS, you're done and ready to use it for PCSX2. However, if you wish to first verify the integrity of the dump, the ReDump project maintains [a data file](https://redump.org/datfile/ps2-bios/) containing [hashes](https://en.wikipedia.org/wiki/Hash_function) for every PS2 BIOS version. To compute the SHA1 hash of the BIOS file you dumped:
+Once you've finished dumping your PS2's BIOS, you're done and ready to use it for PCSX2. However, if you wish to first verify the integrity of the dump, the ReDump project maintains [a data file](https://redump.info/static/bios/Sony%20-%20PlayStation%202%20-%20BIOS%20Datfile%20%28140%29%20%282026-06-16%29.dat) containing [hashes](https://en.wikipedia.org/wiki/Hash_function) for every PS2 BIOS version. To compute the SHA1 hash of the BIOS file you dumped:
 
 <Tabs queryString="os">
 <TabItem value="windows" label={<span className="tab_header_with_icon"><BsWindows />Windows</span>} default>
