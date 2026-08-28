@@ -2,6 +2,10 @@ vaser:
   name: Vaser
   url: https://github.com/xTVaser
   image_url: https://github.com/xTVaser.png
+fobes:
+  name: F0bes
+  url: https://github.com/F0bes
+  image_url: https://github.com/F0bes.png
 reddevilus:
   name: RedDevilus
   url: https://github.com/RedDevilus
@@ -86,6 +90,10 @@ tech:
   name: TheTechnician27
   url: https://github.com/TheTechnician27
   image_url: https://github.com/TheTechnician27.png
+stern:
+  name: SternXD
+  url: https://github.com/SternXD
+  image_url: https://github.com/SternXD.png
 falcon4ever:
   name: falcon4ever
   url: https://github.com/falcon4ever
