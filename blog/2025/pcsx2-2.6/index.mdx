@@ -48,7 +48,7 @@ Alongside Big Picture Mode getting a new RetroAchievements login dialog, Qt's lo
   ### Korean Game Titles
 </PCSX2PRLink>
 
-Despite having nearly 700 known NTSC-K serials, the GameDB has for a long time only had Latin versions of the titles. These titles were pulled from the NTSC-U/PAL name or from a Romaji version of the Japanese name. PCSX2 now has 100% complete Korean translation [on our Crowdin](https://crowdin.com/project/pcsx2-emulator) (at the time of writing), a milestone which has been a long time coming. TheTechnician27 has been working on adding Korean game titles to most NTSC-K serials which did not previously have them.
+Despite having nearly 700 known NTSC-K serials, the GameDB for a long time only had the Latin versions of these titles. These titles were pulled from the NTSC-U/PAL name or from a Romaji version of the Japanese name. PCSX2 now has 100% complete Korean translation [on our Crowdin](https://crowdin.com/project/pcsx2-emulator) (at the time of writing), a milestone which has been a long time coming. TheTechnician27 has been working on adding Korean game titles to most NTSC-K serials which did not previously have them.
 
 :::note
 If you have spotted any inaccuracies with the Korean game titles, please report such problems on [our GitHub issue tracker](https://github.com/PCSX2/pcsx2/issues).
@@ -161,7 +161,7 @@ Similar to our issue with software blending, our old implementation for depth te
 
 - In Direct3D11's case we create and bind a new read-only depth stencil view, simultaneously also binding the same texture and binding it as a shader resource view which allows us sampling depth in the shader, but no writing to the depth buffer which is unnecessary.
 
-- In Direct3D12's case we just transition the texture to be read only which also allows us to bind it both as a depth stencil view and shader resource view at the same time.
+- In Direct3D12's case we can just transition the texture to be read-only, which also allows us to bind it both as a depth stencil view and shader resource view at the same time.
 
 Some nice benchmarks showing the difference in cutting off the texture copies that we previously used:
 
