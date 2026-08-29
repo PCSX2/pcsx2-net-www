@@ -11,16 +11,21 @@ export default function BlogPostItemHeader() {
 
   let bgStyle = {};
   let classBlog = "";
+  let articleAuthors = "";
   if (metadata.frontMatter.titleImage) {
     classBlog = "header-blog";
     bgStyle = {
       backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${image}")`,
     };
   }
+  if (metadata.authors.length > 1) {
+    articleAuthors = "Article authors:";
+  }
   return (
     <header className={classBlog} style={bgStyle}>
       <BlogPostItemHeaderTitle />
       <BlogPostItemHeaderInfo />
+      {articleAuthors}
       <BlogPostItemHeaderAuthors />
     </header>
   );
