@@ -12,8 +12,8 @@ export const latestProgressReport = {
   img: latestProgressReportImage,
 };
 export const latestBlog = {
-  url: "/blog/2025/pcsx2-2.6/",
-  title: "PCSX2 2.6.0 is now out!",
+  url: "/blog/2026/pcsx2-2.8/",
+  title: "PCSX2 2.8.0 is now out!",
   img: latestBlogImage,
 };
 export const previousProgressReport = {
@@ -22,7 +22,7 @@ export const previousProgressReport = {
   img: previousProgressReportImage,
 };
 export const previousBlog = {
-  url: "/blog/2025/pcsx2-2.4_2.2/",
-  title: "Welcoming PCSX2 2.2.0 and 2.4.0!",
+  url: "/blog/2025/pcsx2-2.6/",
+  title: "PCSX2 2.6.0 is now out!",
   img: previousBlogImage,
 };
