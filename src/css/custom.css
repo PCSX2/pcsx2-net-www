@@ -380,6 +380,7 @@ table td {
   margin: 0;
   margin-right: 0px;
   margin-left: 0px;
+  color: rgb(227, 227, 227);
   background: #eee;
   background-image: none;
   background-size: auto;
@@ -399,10 +400,6 @@ table td {
 
 .header-blog a {
   color: rgb(89, 197, 255);
-}
-
-.header-blog .margin-vert--md {
-  color: rgb(227, 227, 227);
 }
 
 .pr-link {
