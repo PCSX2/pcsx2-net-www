@@ -55,21 +55,21 @@ This page lists the system requirements to run PCSX2.
    <td>
     <ul aria-label="Minimum CPU requirements">
      <li>x86-64 with SSE4.1</li>
-     <li>[PassMark single-thread rating](https://www.cpubenchmark.net/singleThread.html) ≥ 2000</li>
-     <li>Four physical cores[^P-cores] with SMT[^SMT]</li>
+     <li>[PassMark single-thread rating](https://www.cpubenchmark.net/singleThread.html) ≥ 1500</li>
+     <li>Two physical cores[^P-cores] with SMT[^SMT]</li>
     </ul>
    </td>
    <td>
     <ul aria-label="Moderate CPU requirements">
      <li>x86-64 with AVX2</li>
-     <li>[PassMark single-thread rating](https://www.cpubenchmark.net/singleThread.html) ≥ 2500</li>
-     <li>Six physical cores[^P-cores] with or without SMT[^SMT]</li>
+     <li>[PassMark single-thread rating](https://www.cpubenchmark.net/singleThread.html) ≥ 2000</li>
+     <li>Four physical cores[^P-cores] with or without SMT[^SMT]</li>
     </ul>
    </td>
    <td>
     <ul aria-label="Heavy CPU requirements">
      <li>x86-64 with AVX2</li>
-     <li>[PassMark single-thread rating](https://www.cpubenchmark.net/singleThread.html) ≥ 3000</li>
+     <li>[PassMark single-thread rating](https://www.cpubenchmark.net/singleThread.html) ≥ 2600</li>
      <li>Six physical cores[^P-cores] with SMT[^SMT]</li>
      <hr />
      <li>Or *M*-series CPU[^Rosetta]</li>
@@ -130,15 +130,15 @@ This page lists the system requirements to run PCSX2.
   <tbody>
   <tr>
    <td scope="row">CPU</td>
-   <td><ul aria-label="Example minimum CPUs"><li>Intel Core i5-4570K</li><li>AMD Ryzen 5 1500X</li></ul></td>
-   <td><ul aria-label="Example moderate CPUs"><li>Intel Core i7-8700K</li><li>AMD Ryzen 5 3600</li></ul></td>
-   <td><ul aria-label="Example heavy CPUs"><li>Intel Core i5-12400</li><li>AMD Ryzen 5 5600</li></ul></td>
+   <td><ul aria-label="Example minimum CPUs"><li>Intel Core i7-2760QM</li><li>AMD FX-8350</li></ul></td>
+   <td><ul aria-label="Example moderate CPUs"><li>Intel Core i7-4790</li><li>AMD Ryzen 5 1600</li></ul></td>
+   <td><ul aria-label="Example heavy CPUs"><li>Intel Core i7-8700K</li><li>AMD Ryzen 5 3600X</li></ul></td>
   </tr>
   <tr>
    <td scope="row">GPU[^GPU_relevance]</td>
-   <td><ul aria-label="Example minimum GPUs"><li>Nvidia GeForce GTX 750 Ti</li><li>AMD Radeon RX 460</li><li>Intel Arc A380</li></ul></td>
-   <td><ul aria-label="Example moderate GPUs"><li>Nvidia GeForce GTX 1650</li><li>AMD Radeon RX 5600 XT</li><li>Intel Arc A580</li></ul></td>
-   <td><ul aria-label="Example heavy GPUs"><li>Nvidia GeForce RTX 4060 8GB</li><li>AMD Radeon RX 6600 XT</li><li>Intel Arc B580</li></ ul></td>
+   <td><ul aria-label="Example minimum GPUs"><li>Nvidia GeForce GT 720</li><li>AMD Radeon HD 7610M</li><li>Intel UHD 630</li></ul></td>
+   <td><ul aria-label="Example moderate GPUs"><li>Nvidia GeForce GTX 1650</li><li>AMD Radeon RX 570</li><li>Intel Arc A380</li></ul></td>
+   <td><ul aria-label="Example heavy GPUs"><li>Nvidia GeForce RTX 3050 8GB</li><li>AMD Radeon RX 5600 XT</li><li>Intel Arc A580</li></ ul></td>
  </tr>
  </tbody>
 </table>

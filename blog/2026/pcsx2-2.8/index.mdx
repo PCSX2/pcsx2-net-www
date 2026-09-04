@@ -40,78 +40,6 @@ Now let's jump into this release's major talking points!
 For a full list of changes, you can check out our milestone page on GitHub [here](https://github.com/PCSX2/pcsx2/milestone/9?closed=1).
 :::
 
-## <TextGradient startColor="#7828C8" endColor="#FF4ECD">The System Requirements Update</TextGradient>
-
-We have updated our system requirements to reflect several improvements to the core and graphics pipelines that require more powerful hardware than our previous requirements recommended.
-
-:::caution[Caution]
-See below for our new requirements:
-
-<table aria-label="2-by-3 table for example CPUs and GPUs from major manufacturers">
-  <thead>
-    <tr>
-      <th scope="col"></th>
-      <th scope="col">
-        Suggested Minimum <GiTurtleShell className="table_header_icon" />
-      </th>
-      <th scope="col">
-        Suggested Moderate <FaScaleBalanced className="table_header_icon" />
-      </th>
-      <th scope="col">
-        Suggested Heavy <BsLightningChargeFill className="table_header_icon" />
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td scope="row">CPU</td>
-      <td>
-        <ul aria-label="Example minimum CPUs">
-          <li>Intel Core i5-4570K</li>
-          <li>AMD Ryzen 5 1500X</li>
-        </ul>
-      </td>
-      <td>
-        <ul aria-label="Example moderate CPUs">
-          <li>Intel Core i7-8700K</li>
-          <li>AMD Ryzen 5 3600</li>
-        </ul>
-      </td>
-      <td>
-        <ul aria-label="Example heavy CPUs">
-          <li>Intel Core i5-12400</li>
-          <li>AMD Ryzen 5 5600</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td scope="row">GPU</td>
-      <td>
-        <ul aria-label="Example minimum GPUs">
-          <li>Nvidia GeForce GTX 750 Ti</li>
-          <li>AMD Radeon RX 460</li>
-          <li>Intel Arc A380</li>
-        </ul>
-      </td>
-      <td>
-        <ul aria-label="Example moderate GPUs">
-          <li>Nvidia GeForce GTX 1650</li>
-          <li>AMD Radeon RX 5600 XT</li>
-          <li>Intel Arc A580</li>
-        </ul>
-      </td>
-      <td>
-        <ul aria-label="Example heavy GPUs">
-          <li>Nvidia GeForce RTX 4060 8GB</li>
-          <li>AMD Radeon RX 6600 XT</li>
-          <li>Intel Arc B580</li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-:::
-
 ## <TextGradient startColor="#7828C8" endColor="#FF4ECD">Installer Visual Overhaul</TextGradient>
 
 The installer has received quite a facelift. It now looks more sleek and comes with dark mode support.
@@ -1097,6 +1025,8 @@ When the game would send a reset command to the IPU, we were mistakenly not rese
 Clearing this precision state on reset fixes severe screen flashing during FMV video playback in Critical Velocity.
 
 ## Footnotes
+
+**Important!** As of 03.09.2026, the suggested system requirements have been reverted to their previous values. The newer requirements were unnecessarily high, especially given the performance improvements made since then.
 
 [^Early_Fragment_Test]: Technically, there's early fragment tests, which can allow you to discard color without depth, but that prevents other things in the shader from separately discarding depth, so PCSX2 currently doesn't use it.
 
