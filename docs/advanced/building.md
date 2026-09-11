@@ -10,24 +10,25 @@ This page helps you build PCSX2 locally on your machine.
 
 ## Building on Windows
 
-### Required Dependencies for Qt
+### Required Dependencies
 
-If you are developing against the `pcsx2-qt` solution, you will need to do the following:
+To build PCSX2 using the `PCSX2_qt.slnx` solution, you will need to do the following:
 
 - Download the binaries [from here](https://github.com/PCSX2/pcsx2-windows-dependencies/releases/)
   - tools / symbols are not required
-- Extract into the main folder (where the `PCSX2_qt.sln` file is); you should see a new `deps` folder after extraction
-- Ensure you have opened the `*-qt` .sln file.
+- Extract into the main folder (where the `PCSX2_qt.slnx` file is); you should see a new `deps` folder after extraction
+- Open `PCSX2_qt.slnx` in Visual Studio and make sure `pcsx2-qt` is set as the startup project.
 
 ### Required Build Applications
 
-<!-- MS has a handy list with names here https://docs.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-build-tools?view=vs-2019 -->
+<!-- MS has a handy list with names here https://learn.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-build-tools?view=vs-2022 -->
 
-- [Visual Studio Community](https://www.visualstudio.com/downloads/)
+- [Visual Studio Community 2022 (17.10 or later)](https://visualstudio.microsoft.com/downloads/)
+  - In Visual Studio 17.10 through 17.12, you must enable `.slnx` support via **Tools** > **Options** > **Environment** > **Preview Features** > **Use Solution File Persistence Model** (enabled by default in 17.13+).
   - Installing just the "Desktop development with C++" workload should be enough, otherwise select individually:
-    - C++ ATL for v142 build tools (x86 & x64)
-    - MSVC v142 - VS 2019 C++ x64/x86 build tools
-    - Windows 10 SDK
+    - C++ ATL for latest v143 build tools (x86 & x64)
+    - MSVC v143 - VS 2022 C++ x64/x86 build tools
+    - Windows 10 or 11 SDK
 - [Git for Windows](https://git-scm.com/download/win)
 
 ### Other Requirements
