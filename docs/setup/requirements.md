@@ -21,31 +21,23 @@ This page lists the system requirements to run PCSX2.
   <tr>
    <th scope="col"></th>
    <th scope="col">Minimum <GiTurtleShell className="table_header_icon"/></th>
-   <th scope="col">Moderate <FaScaleBalanced className="table_header_icon"/></th>
-   <th scope="col">Heavy <BsLightningChargeFill className="table_header_icon"/></th>
+   <th scope="col">Recommended <FaScaleBalanced className="table_header_icon"/></th>
   </tr>
  </thead>
  <tbody>
   <tr>
    <td scope="row">OS</td>
    <td>
-    <ul aria-label="Minimum operating system requirements">
-     <li>Latest[^Windows_10] Windows 10</li>
+    <ul aria-label="Minimum operating system">
+     <li>Latest updated[^Windows_10] Windows 10</li>
      <li>macOS 11 (Big Sur)</li>
      <li>Ubuntu 22.04 or other Linux distro[^distros]</li>
     </ul>
    </td>
    <td>
-    <ul aria-label="Moderate operating system requirements">
-     <li>Windows 11</li>
-     <li>macOS 14–15 (Sonoma–Sequoia)</li>
-     <li>Ubuntu 26.04 or other Linux distro[^distros]</li>
-    </ul>
-   </td>
-   <td>
-    <ul aria-label="Heavy operating system requirements">
-     <li>Windows 11</li>
-     <li>macOS 14–15 (Sonoma–Sequoia)</li>
+    <ul aria-label="Recommended operating system">
+     <li>Latest updated Windows 11</li>
+     <li>macOS 26 (Tahoe)</li>
      <li>Ubuntu 26.04 or other Linux distro[^distros]</li>
     </ul>
    </td>
@@ -55,24 +47,15 @@ This page lists the system requirements to run PCSX2.
    <td>
     <ul aria-label="Minimum CPU requirements">
      <li>x86-64 with SSE4.1</li>
-     <li>[PassMark single-thread rating](https://www.cpubenchmark.net/singleThread.html) ≥ 1500</li>
+     <li>[PassMark single-thread rating](https://www.cpubenchmark.net/singleThread.html) ≥ 1400</li>
      <li>Two physical cores[^P-cores] with SMT[^SMT]</li>
     </ul>
    </td>
    <td>
-    <ul aria-label="Moderate CPU requirements">
-     <li>x86-64 with AVX2</li>
+    <ul aria-label="Recommended CPU requirements">
+     <li>x86-64 with AVX2 or Apple M Series[^Rosetta]</li>
      <li>[PassMark single-thread rating](https://www.cpubenchmark.net/singleThread.html) ≥ 2000</li>
      <li>Four physical cores[^P-cores] with or without SMT[^SMT]</li>
-    </ul>
-   </td>
-   <td>
-    <ul aria-label="Heavy CPU requirements">
-     <li>x86-64 with AVX2</li>
-     <li>[PassMark single-thread rating](https://www.cpubenchmark.net/singleThread.html) ≥ 2600</li>
-     <li>Six physical cores[^P-cores] with SMT[^SMT]</li>
-     <hr />
-     <li>Or *M*-series CPU[^Rosetta]</li>
     </ul>
    </td>
   </tr>
@@ -83,11 +66,12 @@ This page lists the system requirements to run PCSX2.
      <li>Vulkan 1.1</li>
      <li>Direct3D 11[^FL10]</li>
      <li>OpenGL 3.3[^extensions]</li>
-     <li>[PassMark G3D Mark rating](https://www.videocardbenchmark.net/high_end_gpus.html) ≥ 600[^GPU_relevance]</li>
+     <li>[PassMark G3D Mark rating](https://www.videocardbenchmark.net/midlow_range_gpus.html) ≥ 500[^GPU_relevance]</li>
+     <li>512 MB VRAM</li>
     </ul>
    </td>
    <td>
-    <ul aria-label="Moderate GPU requirements">
+    <ul aria-label="Recommended GPU requirements">
      <li>Vulkan 1.3</li>
      <li>Direct3D 12[^FL11]</li>
      <li>OpenGL 4.6</li>
@@ -96,50 +80,12 @@ This page lists the system requirements to run PCSX2.
      <li>4 GB VRAM</li>
     </ul>
    </td>
-   <td>
-    <ul aria-label="Heavy GPU requirements">
-     <li>Vulkan 1.3</li>
-     <li>Direct3D 12[^FL11]</li>
-     <li>OpenGL 4.6</li>
-     <li>Metal[^Metal]</li>
-     <li>[PassMark G3D Mark rating](https://www.videocardbenchmark.net/high_end_gpus.html) ≥ 12000[^GPU_relevance]</li>
-     <li>8 GB VRAM</li>
-    </ul>
-   </td>
   </tr>
   <tr>
    <td scope="row">RAM</td>
-   <td><ul aria-label="Minimum RAM requirements"><li>8 GB RAM[^precache]</li></ul></td>
-   <td><ul aria-label="Moderate RAM requirements"><li>16 GB RAM[^precache]</li></ul></td>
-   <td><ul aria-label="Heavy RAM requirements"><li>16 GB RAM[^precache]</li></ul></td>
+   <td><ul aria-label="Minimum RAM requirements"><li>4 GB RAM[^precache]</li></ul></td>
+   <td><ul aria-label="Recommended RAM requirements"><li>16 GB RAM[^precache]</li></ul></td>
   </tr>
- </tbody>
-</table>
-
-## Example Hardware
-
-<table aria-label="2-by-3 table for example CPUs and GPUs from major manufacturers">
- <thead>
-  <tr>
-   <th scope="col"></th>
-   <th scope="col">Suggested Minimum <GiTurtleShell className="table_header_icon"/></th>
-   <th scope="col">Suggested Moderate <FaScaleBalanced className="table_header_icon"/></th>
-   <th scope="col">Suggested Heavy <BsLightningChargeFill className="table_header_icon"/></th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-   <td scope="row">CPU</td>
-   <td><ul aria-label="Example minimum CPUs"><li>Intel Core i7-2760QM</li><li>AMD FX-8350</li></ul></td>
-   <td><ul aria-label="Example moderate CPUs"><li>Intel Core i7-4790</li><li>AMD Ryzen 5 1600</li></ul></td>
-   <td><ul aria-label="Example heavy CPUs"><li>Intel Core i7-8700K</li><li>AMD Ryzen 5 3600X</li></ul></td>
-  </tr>
-  <tr>
-   <td scope="row">GPU[^GPU_relevance]</td>
-   <td><ul aria-label="Example minimum GPUs"><li>Nvidia GeForce GT 720</li><li>AMD Radeon HD 7610M</li><li>Intel UHD 630</li></ul></td>
-   <td><ul aria-label="Example moderate GPUs"><li>Nvidia GeForce GTX 1650</li><li>AMD Radeon RX 570</li><li>Intel Arc A380</li></ul></td>
-   <td><ul aria-label="Example heavy GPUs"><li>Nvidia GeForce RTX 3050 8GB</li><li>AMD Radeon RX 5600 XT</li><li>Intel Arc A580</li></ ul></td>
- </tr>
  </tbody>
 </table>
 
