@@ -22,7 +22,8 @@ Parameter list:
   -portable: Force enable portable mode to store data in local PCSX2 path instead of the default configuration path. Overrides '-datapath'.
   -datapath <path>: Specify the directory to be used for all application data.
   -elf <file>: Overrides the boot ELF with the specified filename.
-  -gameargs <string>: passes the specified quoted space-delimited string of launch arguments.
+  -gameargs <string>: Passes the specified quoted space-delimited string of launch arguments.
+  -gamecfg <file>: Overrides the game settings with the ones in the specified INI file.
   -disc <path>: Uses the specified host DVD drive as a source.
   -logfile <path>: Writes the application log to path instead of emulog.txt.
   -bios: Starts the BIOS (System Menu/OSDSYS).
