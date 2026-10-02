@@ -263,9 +263,9 @@ const renderCell = (entry, columnKey) => {
         <div>
           <Tooltip content={"GitHub Issues"} placement={"left"}>
             <Link
-              href={encodeURI(
-                `https://github.com/PCSX2/pcsx2/issues?q=is:issue ${entry.serial} OR "${entry.title}"`,
-              )}
+              href={`https://github.com/PCSX2/pcsx2/issues?q=${encodeURIComponent(
+                `is:issue ${entry.serial} OR "${entry.title}"`,
+              )}`}
               target="_blank"
               rel="noopener noreferrer"
             >
