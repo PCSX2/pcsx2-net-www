@@ -118,6 +118,19 @@ export default function Home() {
     );
   }, [theme]);
 
+  function latestStableButton() {
+    return (
+      <ReleaseDownloadButton
+        release={latestStableRelease}
+        buttonText="Latest Stable"
+        isNightly={false}
+        isDisabled={false}
+        errorMsg={apiErrorMsg}
+        fallbackLink={stableFallbackLink}
+      />
+    );
+  }
+
   return (
     <Layout title={`Home`} description="An Open-Source Playstation 2 Emulator">
       <main className="docusaurus-reset">
@@ -169,16 +182,9 @@ export default function Home() {
               </p>
             </div>
             <div className="flex gap-2 justify-center mt-5">
-              <ReleaseDownloadButton
-                release={latestStableRelease}
-                buttonText="Latest Stable"
-                isNightly={false}
-                isDisabled={false}
-                errorMsg={apiErrorMsg}
-                fallbackLink={stableFallbackLink}
-                placement={useMediaQuery(960) ? "bottom-start" : "left-start"}
-              />
-              <div className="flex flex-col">
+              {!useMediaQuery(600) ? latestStableButton() : null}
+              <div className="flex flex-col gap-2">
+                {useMediaQuery(600) ? latestStableButton() : null}
                 <ReleaseDownloadButton
                   release={latestNightlyRelease}
                   buttonText="Latest Nightly"
@@ -188,7 +194,7 @@ export default function Home() {
                 />
                 <Button
                   color="secondary"
-                  className="mt-2 border-solid font-medium cursor-pointer hover:text-secondary hover:no-underline"
+                  className="border-solid font-medium cursor-pointer hover:text-secondary hover:no-underline"
                   variant="bordered"
                   as={Link}
                   href={useBaseUrl("/downloads")}
