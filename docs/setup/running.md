@@ -93,23 +93,6 @@ If you need to uninstall PCSX2, follow [this guide from Microsoft](https://suppo
 </TabItem>
 </Tabs>
 
-:::note[Note – FFmpeg libraries]
-
-- PCSX2 requires additional [FFmpeg](https://en.wikipedia.org/wiki/FFmpeg) libraries if you wish to use its built-in video capture.
-  - Download the FFmpeg Windows files [here](https://github.com/PCSX2/pcsx2-windows-dependencies/releases/tag/FFMPEG).
-  - Extract the contents of the `.7z` file.
-  - Place the extracted `.dll` files in the same folder as the PCSX2 `.exe` file.
-
-<details>
-  <summary>Expand to see FFmpeg compatibility with your PCSX2 version</summary>
-  | FFmpeg Version | Compatible PCSX2 Versions | Direct Download  |
-  | :--------------| :--------------------------|:-----------------:|
-  | v8.0           | ≥ v2.5.142                 | <a href="https://github.com/PCSX2/pcsx2-windows-dependencies/releases/download/FFMPEG/ffmpeglibs-8.0.7z">📁</a> |
-  | v7.0.2         | v2.1.138 – v2.5.141        | <a href="https://github.com/PCSX2/pcsx2-windows-dependencies/releases/download/FFMPEG/ffmpeglibs-7.0.2.7z">📁</a>
-  | v6.0.7         | v1.7.4585 – v2.1.137       | <a href="https://github.com/PCSX2/pcsx2-windows-dependencies/releases/download/FFMPEG/ffmpeglibs-6.0.7.7z">📁</a>
-</details>
-        :::
-
 </TabItem>
 <TabItem value="macos" label={<span className="tab_header_with_icon"><BsApple />macOS</span>}>
 
